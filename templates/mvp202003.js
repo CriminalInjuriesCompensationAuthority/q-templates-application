@@ -1567,8 +1567,7 @@ module.exports = {
                     },
                     {
                         'q-applicant-have-you-applied-for-or-received-any-other-compensation': false,
-                        'q-applicant-applied-for-other-compensation-briefly-explain-why-not':
-                            12345
+                        'q-applicant-applied-for-other-compensation-briefly-explain-why-not': 12345
                     }
                 ]
             },
@@ -2103,7 +2102,7 @@ module.exports = {
                 properties: {
                     confirmation: {
                         description:
-                            '\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: \'<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We have sent a confirmation email to <strong>||/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address||</strong></p>\'\n                    }) }}\n                    \n                    <p class="govuk-body-l">Thank you for submitting your application.</p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>use the police evidence to make a decision</li>\n                    <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <p class="govuk-body">You can contact our Customer Service Centre on 0300 003 3601. Select option 8 when the call is answered.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 30 seconds)</p>\n            '
+                            '{{ govukPanel({titleText: "Application submitted",html: \'<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We have sent a confirmation email to <strong>||/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address||</strong></p>\'}) }}<p class="govuk-body-l">Thank you for submitting your application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for evidence</li><li>use the police evidence to make a decision</li><li>send our decision letter by post</li></ul>{{ govukWarningText({text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<p class="govuk-body">You can contact our Customer Service Centre on 0300 003 3601. Select option 8 when the call is answered.</p><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p><p><a href="/">Tell us what you think of our service</a> (takes 10 minutes)</p>\n'
                     }
                 },
                 examples: [{}],
@@ -2167,17 +2166,17 @@ module.exports = {
             }
         },
         routes: {
-            initial: 'p-applicant-declaration',
+            initial: 'p-applicant-british-citizen-or-eu-national',
             referrer:
                 'https://claim-criminal-injuries-compensation.service.justice.gov.uk/start-page',
-            summary: 'p--check-your-answers',
+            summary: 'p-applicant-declaration',
             confirmation: 'p--confirmation',
             states: {
                 'p-applicant-declaration': {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-british-citizen-or-eu-national'
+                                target: 'p--confirmation'
                             }
                         ]
                     }
@@ -2690,7 +2689,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p-applicant-enter-your-email-address'
+                                target: 'p-applicant-enter-your-address'
                             }
                         ]
                     }
@@ -2699,7 +2698,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-enter-your-address'
+                                target: 'p--check-your-answers'
                             }
                         ]
                     }
@@ -2726,7 +2725,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p--confirmation'
+                                target: 'p-applicant-declaration'
                             }
                         ]
                     }
@@ -2752,7 +2751,7 @@ module.exports = {
             }
         },
         answers: {},
-        progress: ['p-applicant-declaration'],
+        progress: ['p-applicant-british-citizen-or-eu-national'],
         meta: {
             onComplete: {
                 tasks: [
