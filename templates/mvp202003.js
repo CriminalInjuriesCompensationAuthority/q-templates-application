@@ -2169,7 +2169,7 @@ module.exports = {
             initial: 'p-applicant-british-citizen-or-eu-national',
             referrer:
                 'https://claim-criminal-injuries-compensation.service.justice.gov.uk/start-page',
-            summary: 'p-applicant-declaration',
+            summary: 'p--check-your-answers',
             confirmation: 'p--confirmation',
             states: {
                 'p-applicant-declaration': {
