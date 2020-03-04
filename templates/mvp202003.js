@@ -93,18 +93,175 @@ module.exports = {
                 examples: [{}],
                 invalidExamples: [{foo: 'bar'}]
             },
-            'p--how-do-you-want-to-be-contacted-place-holder': {
+            'p-applicant-confirmation-method': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: 'How do you want to get your confirmation message?',
-                additionalProperties: false,
+                propertyNames: {
+                    enum: [
+                        'q-applicant-confirmation-method',
+                        'q-applicant-enter-your-email-address',
+                        'q-applicant-enter-your-telephone-number'
+                    ]
+                },
                 properties: {
-                    transition: {
-                        description: '<p class="govuk-body">THIS PAGE IS IN REVIEW</p>'
+                    'q-applicant-confirmation-method': {
+                        title: 'How do you want to get your confirmation message?',
+                        type: 'string',
+                        oneOf: [
+                            {
+                                title: 'Email',
+                                const: 'email'
+                            },
+                            {
+                                title: 'Text message',
+                                const: 'sms'
+                            },
+                            {
+                                title: "I don't have an email address or UK mobile phone number",
+                                const: 'none'
+                            }
+                        ]
+                    },
+                    'q-applicant-enter-your-email-address': {
+                        type: 'string',
+                        title: 'Email address',
+                        maxLength: 50,
+                        format: 'email',
+                        errorMessage: {
+                            maxLength: 'Email address must be 50 characters or less',
+                            format:
+                                'Enter an email address in the correct format, like name@example.com'
+                        }
+                    },
+                    'q-applicant-enter-your-telephone-number': {
+                        type: 'string',
+                        title: 'UK mobile phone number',
+                        maxLength: 20,
+                        format: 'x-mobilePhoneNumber',
+                        errorMessage: {
+                            format:
+                                'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
+                            maxLength: 'Telephone number must be 20 characters or less'
+                        }
                     }
                 },
-                examples: [{}],
-                invalidExamples: [{foo: 'bar'}]
+                required: ['q-applicant-confirmation-method'],
+                allOf: [
+                    {
+                        $ref:
+                            '#/definitions/if-email-then-q-applicant-enter-your-email-address-is-required'
+                    },
+                    {
+                        $ref:
+                            '#/definitions/if-sms-then-q-applicant-enter-your-telephone-number-is-required'
+                    }
+                ],
+                definitions: {
+                    'if-email-then-q-applicant-enter-your-email-address-is-required': {
+                        if: {
+                            properties: {
+                                'q-applicant-confirmation-method': {
+                                    const: 'email'
+                                }
+                            },
+                            required: ['q-applicant-confirmation-method']
+                        },
+                        then: {
+                            required: ['q-applicant-enter-your-email-address'],
+                            propertyNames: {
+                                enum: [
+                                    'q-applicant-confirmation-method',
+                                    'q-applicant-enter-your-email-address'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-applicant-enter-your-email-address': 'Enter an email address'
+                                }
+                            }
+                        }
+                    },
+                    'if-sms-then-q-applicant-enter-your-telephone-number-is-required': {
+                        if: {
+                            properties: {
+                                'q-applicant-confirmation-method': {
+                                    const: 'sms'
+                                }
+                            },
+                            required: ['q-applicant-confirmation-method']
+                        },
+                        then: {
+                            required: ['q-applicant-enter-your-telephone-number'],
+                            propertyNames: {
+                                enum: [
+                                    'q-applicant-confirmation-method',
+                                    'q-applicant-enter-your-telephone-number'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-applicant-enter-your-telephone-number':
+                                        'Enter a UK mobile phone number'
+                                }
+                            }
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-confirmation-method':
+                            'Select how you want to get your confirmation message'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-confirmation-method': 'none'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'email',
+                        'q-applicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'sms',
+                        'q-applicant-enter-your-telephone-number': '07700900982'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-confirmation-method': 'none',
+                        'q-applicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'none',
+                        'q-applicant-enter-your-telephone-number': '07700900982'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'email'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'sms'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'email',
+                        'q-applicant-enter-your-telephone-number': '07700900982'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'sms',
+                        'q-applicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'email',
+                        'q-applicant-enter-your-email-address': 'not an email address'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'sms',
+                        'q-applicant-enter-your-telephone-number': 'not a UK mobile phone number'
+                    },
+                    {
+                        'q-applicant-confirmation-method': 'sms',
+                        'q-applicant-enter-your-telephone-number': '0141 420 5000'
+                    }
+                ]
             },
             'p-applicant-british-citizen-or-eu-national': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2277,7 +2434,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p--how-do-you-want-to-be-contacted-place-holder',
+                                target: 'p-applicant-confirmation-method',
                                 cond: [
                                     '==',
                                     '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
@@ -2788,7 +2945,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p-applicant-enter-your-email-address'
+                                target: 'p-applicant-enter-your-address'
                             }
                         ]
                     }
@@ -2797,7 +2954,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-enter-your-address'
+                                target: 'p--check-your-answers'
                             }
                         ]
                     }
@@ -2806,7 +2963,20 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-enter-your-telephone-number'
+                                target: 'p-applicant-enter-your-telephone-number',
+                                cond: [
+                                    '==',
+                                    '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                    'email'
+                                ]
+                            },
+                            {
+                                target: 'p-applicant-enter-your-email-address',
+                                cond: [
+                                    '==',
+                                    '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                    'sms'
+                                ]
                             }
                         ]
                     }
@@ -2865,7 +3035,7 @@ module.exports = {
                 'p--transition-option-2': {
                     type: 'final'
                 },
-                'p--how-do-you-want-to-be-contacted-place-holder': {
+                'p-applicant-confirmation-method': {
                     on: {
                         ANSWER: [
                             {
@@ -2894,10 +3064,20 @@ module.exports = {
             onComplete: {
                 tasks: [
                     {
-                        emailTemplateId: 'cb79653c-cf6e-44d4-8c03-087ba21cfd01',
-                        emailTemplatePlaceholderMap: {
-                            applicantEmail:
-                                '/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address',
+                        type: 'sendEmail',
+                        templateId: 'cb79653c-cf6e-44d4-8c03-087ba21cfd01',
+                        templatePlaceholderMap: {
+                            emailAddress:
+                                '/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address',
+                            caseReference: '/answers/system/case-reference'
+                        }
+                    },
+                    {
+                        type: 'sendSms',
+                        templateId: '3c847bb8-957a-4bba-9fad-090657bb5c71',
+                        templatePlaceholderMap: {
+                            phoneNumber:
+                                '/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number',
                             caseReference: '/answers/system/case-reference'
                         }
                     }
