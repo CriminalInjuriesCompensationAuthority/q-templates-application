@@ -1567,8 +1567,7 @@ module.exports = {
                     },
                     {
                         'q-applicant-have-you-applied-for-or-received-any-other-compensation': false,
-                        'q-applicant-applied-for-other-compensation-briefly-explain-why-not':
-                            12345
+                        'q-applicant-applied-for-other-compensation-briefly-explain-why-not': 12345
                     }
                 ]
             },
@@ -2313,7 +2312,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p--when-was-the-crime-reported-to-police',
+                                target: 'p-applicant-did-the-crime-happen-once-or-over-time',
                                 cond: [
                                     '==',
                                     '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -2327,7 +2326,25 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p--whats-the-crime-reference-number'
+                                target:
+                                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                                cond: [
+                                    'dateDifferenceGreaterThanTwoDays',
+                                    '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
+                                    '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen'
+                                ]
+                            },
+                            {
+                                target:
+                                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                                cond: [
+                                    'dateDifferenceGreaterThanTwoDays',
+                                    '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
+                                    '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop'
+                                ]
+                            },
+                            {
+                                target: 'p--which-police-force-is-investigating-the-crime'
                             }
                         ]
                     }
@@ -2336,7 +2353,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-did-the-crime-happen-once-or-over-time'
+                                target: 'p-offender-do-you-know-the-name-of-the-offender'
                             }
                         ]
                     }
@@ -2465,7 +2482,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p--which-police-force-is-investigating-the-crime',
+                                target: 'p--when-was-the-crime-reported-to-police',
                                 cond: [
                                     '==',
                                     '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -2487,7 +2504,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p--which-police-force-is-investigating-the-crime',
+                                target: 'p--when-was-the-crime-reported-to-police',
                                 cond: [
                                     '==',
                                     '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -2509,7 +2526,7 @@ module.exports = {
                                 ]
                             },
                             {
-                                target: 'p--which-police-force-is-investigating-the-crime',
+                                target: 'p--when-was-the-crime-reported-to-police',
                                 cond: [
                                     '==',
                                     '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -2526,25 +2543,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target:
-                                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
-                                cond: [
-                                    'dateDifferenceGreaterThanTwoDays',
-                                    '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
-                                    '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen'
-                                ]
-                            },
-                            {
-                                target:
-                                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
-                                cond: [
-                                    'dateDifferenceGreaterThanTwoDays',
-                                    '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
-                                    '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop'
-                                ]
-                            },
-                            {
-                                target: 'p-offender-do-you-know-the-name-of-the-offender'
+                                target: 'p--whats-the-crime-reference-number'
                             }
                         ]
                     }
@@ -2553,7 +2552,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-offender-do-you-know-the-name-of-the-offender'
+                                target: 'p--which-police-force-is-investigating-the-crime'
                             }
                         ]
                     }
