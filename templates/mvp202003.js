@@ -1942,20 +1942,6 @@ module.exports = {
                 examples: [{}],
                 invalidExamples: [{foo: 'bar'}]
             },
-            'p-applicant-redirect-to-our-other-application': {
-                $schema: 'http://json-schema.org/draft-07/schema#',
-                type: 'object',
-                title: 'We are still working on this part of the service',
-                additionalProperties: false,
-                properties: {
-                    'you-need-a-different-service': {
-                        description:
-                            '<p class="govuk-body">To complete your application <a href="https://www.gov.uk/claim-compensation-criminal-injury/make-claim">use our current online service</a>.</p>\n                          {{ govukDetails({\n                              summaryText: "If you need help or support",\n                              html: \'\n                                  <p class="govuk-body">You can contact us for help with your application on 0300 003 3601. Select option 8.</p>\n                                  <p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p>\n                                  <p class="govuk-body">You can get practical or emotional support depending on where you live:</p>\n                                  <ul class="govuk-list govuk-list--bullet">\n                                     <li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li>\n                                     <li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li>\n                                  </ul>\n                              \'\n                          }) }}'
-                    }
-                },
-                examples: [{}],
-                invalidExamples: [{foo: 'bar'}]
-            },
             'p-applicant-you-cannot-get-compensation': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 title: 'You cannot get compensation',
@@ -2795,7 +2781,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p-applicant-redirect-to-our-other-application',
+                                target: 'p--transition-under-18',
                                 cond: [
                                     'dateLessThanEighteenYearsAgo',
                                     '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
@@ -2844,9 +2830,6 @@ module.exports = {
                     }
                 },
                 'p--confirmation': {
-                    type: 'final'
-                },
-                'p-applicant-redirect-to-our-other-application': {
                     type: 'final'
                 },
                 'p--context-offender': {
