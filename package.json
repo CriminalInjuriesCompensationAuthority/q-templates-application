@@ -4,7 +4,10 @@
     "description": "Apply for compensation questionnaire template",
     "main": "index.js",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "coverage": "jest --coverage",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix ."
     },
     "author": "CICA",
     "license": "MIT",
@@ -48,9 +51,9 @@
         "husky": "^4.0.3",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
-        "prettier": "^1.19.1"
+        "prettier": "^1.19.1",
+        "q-base-config": "github:CriminalInjuriesCompensationAuthority/q-base-config#v0.6.0",
+        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v0.0.1"
     },
-    "dependencies": {
-        "q-base-config": "github:CriminalInjuriesCompensationAuthority/q-base-config#v0.6.0"
-    }
+    "dependencies": {}
 }
