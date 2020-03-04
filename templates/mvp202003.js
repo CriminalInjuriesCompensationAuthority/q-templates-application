@@ -14,11 +14,11 @@ module.exports = {
                 properties: {
                     'applicant-declaration': {
                         description:
-                            '\n                <p class="govuk-body">By continuing you confirm that the information you will give is true as far as you know.</p>\n                {{ govukWarningText({\n                    text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",\n                    iconFallbackText: "Warning"\n                }) }}\n            '
+                            '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given is true as far as you know</li><li>we can ask the police for information about you and the crime</li></ul><p class="govuk-body">See <a href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--transition-not-british-citizen': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -29,11 +29,11 @@ module.exports = {
                 properties: {
                     transition: {
                         description:
-                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can get practical or emotional support depending on where you live:</p><ul class="govuk-list govuk-list--bullet"><li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li><li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li></ul>\'}) }}'
+                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--transition-not-sa': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -44,11 +44,11 @@ module.exports = {
                 properties: {
                     transition: {
                         description:
-                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can get practical or emotional support depending on where you live:</p><ul class="govuk-list govuk-list--bullet"><li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li><li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li></ul>\'}) }}'
+                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--transition-option-2': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -59,11 +59,11 @@ module.exports = {
                 properties: {
                     transition: {
                         description:
-                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can get practical or emotional support depending on where you live:</p><ul class="govuk-list govuk-list--bullet"><li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li><li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li></ul>\'}) }}'
+                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--transition-someone-else': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -73,11 +73,11 @@ module.exports = {
                 properties: {
                     transition: {
                         description:
-                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can get practical or emotional support depending on where you live:</p><ul class="govuk-list govuk-list--bullet"><li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li><li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li></ul>\'}) }}'
+                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--transition-under-18': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -87,11 +87,11 @@ module.exports = {
                 properties: {
                     transition: {
                         description:
-                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can get practical or emotional support depending on where you live:</p><ul class="govuk-list govuk-list--bullet"><li>in England and Wales <a href="https://www.victimandwitnessinformation.org.uk/">visit the Victim and Witness Information website</a></li><li>in Scotland <a href="https://www.mygov.scot/victim-witness-support/">visit the mygov.scot website</a></li></ul>\'}) }}'
+                            '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--how-do-you-want-to-be-contacted-place-holder': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -104,7 +104,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p-applicant-british-citizen-or-eu-national': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -248,7 +248,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p-applicant-select-the-option-that-applies-to-you': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -874,7 +874,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--which-police-force-is-investigating-the-crime': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1920,15 +1920,13 @@ module.exports = {
                 properties: {
                     'p-check-your-answers': {
                         summaryInfo: {
-                            footerText:
-                                '<h2 class="govuk-heading-l">Agree and submit your application</h2>\n                    <p class="govuk-body">By submitting this application you agree that we can share the details in it with the police. This helps us get the police information that we need to make a decision.</p>\n                <p class="govuk-body">To find out more about how we handle your data <a href="https://www.gov.uk/guidance/cica-privacy-notice" target="">read our privacy notice</a>.</p>',
                             urlPath: 'apply',
                             editAnswerText: 'Change'
                         }
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--confirmation': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1938,11 +1936,11 @@ module.exports = {
                 properties: {
                     confirmation: {
                         description:
-                            '\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: \'<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We have sent a confirmation email to <strong>||/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address||</strong></p>\'\n                    }) }}\n                    \n                    <p class="govuk-body-l">Thank you for submitting your application.</p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>use the police evidence to make a decision</li>\n                    <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <p class="govuk-body">You can contact our Customer Service Centre on 0300 003 3601. Select option 8 when the call is answered.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 30 seconds)</p>\n            '
+                            '\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: \'<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We have sent a confirmation email to <strong>||/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address||</strong></p>\'\n                    }) }}\n                    \n                    <p class="govuk-body-l">Thank you for submitting your application.</p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>ask you for more information if we need it</li>\n <li>make a decision</li>\n                   <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <p class="govuk-body">You can contact our Customer Support Team on 0300 003 3601. Select option 8 when the call is answered.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 30 seconds)</p>\n            '
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p-applicant-redirect-to-our-other-application': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1956,7 +1954,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p-applicant-you-cannot-get-compensation': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1970,7 +1968,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--context-offender': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1984,7 +1982,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p--context-compensation': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1994,11 +1992,11 @@ module.exports = {
                 properties: {
                     'compensation-context': {
                         description:
-                            '<p class="govuk-body">We’re going to ask about any other compensation you may have been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you can get from us.</p>'
+                            '<p class="govuk-body">We\'re going to ask about any other compensation you\'ve been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you can get.</p>'
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             'p-applicant-applied-for-other-compensation-briefly-explain-why-not': {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2168,7 +2166,7 @@ module.exports = {
                     }
                 },
                 examples: [{}],
-                invalidExamples: [{}]
+                invalidExamples: [{foo: 'bar'}]
             },
             system: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2840,7 +2838,7 @@ module.exports = {
                     on: {
                         ANSWER: [
                             {
-                                target: 'p--declaration'
+                                target: 'p-applicant-declaration'
                             }
                         ]
                     }
