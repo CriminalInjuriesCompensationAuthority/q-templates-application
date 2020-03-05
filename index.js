@@ -1671,6 +1671,7 @@ module.exports = {
         'p-applicant-have-you-applied-to-us-before': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            additionalProperties: false,
             propertyNames: {
                 enum: [
                     'q-applicant-have-you-applied-to-us-before',
@@ -1696,10 +1697,6 @@ module.exports = {
                 {
                     $ref:
                         '#/definitions/if-true-then-q-enter-your-previous-reference-number-is-required'
-                },
-                {
-                    $ref:
-                        '#/definitions/if-false-then-q-enter-your-previous-reference-number-is-explicitly-not-required'
                 }
             ],
             definitions: {
@@ -1718,25 +1715,11 @@ module.exports = {
                                 'q-enter-your-previous-reference-number'
                             ]
                         }
-                    }
-                },
-                'if-false-then-q-enter-your-previous-reference-number-is-explicitly-not-required': {
-                    if: {
-                        properties: {
-                            'q-applicant-have-you-applied-to-us-before': {
-                                const: false
-                            }
-                        },
-                        required: ['q-applicant-have-you-applied-to-us-before']
                     },
-                    then: {
-                        additionalProperties: false,
-                        properties: {
-                            'q-applicant-have-you-applied-to-us-before': {
-                                const: false
-                            }
-                        },
-                        required: ['q-applicant-have-you-applied-to-us-before']
+                    else: {
+                        propertyNames: {
+                            enum: ['q-applicant-have-you-applied-to-us-before']
+                        }
                     }
                 }
             },
