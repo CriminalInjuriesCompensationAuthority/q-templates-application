@@ -97,7 +97,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create" class="govuk-link">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
