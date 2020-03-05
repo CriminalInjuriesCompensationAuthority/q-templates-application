@@ -720,7 +720,7 @@ module.exports = {
                     'q-applicant-when-did-the-crime-start': 12345
                 },
                 {
-                    'q-applicant-when-did-the-crime-happen': 'not a date'
+                    'q-applicant-when-did-the-crime-start': 'not a date'
                 }
             ]
         },
@@ -763,7 +763,7 @@ module.exports = {
                     'q-applicant-when-did-the-crime-stop': 12345
                 },
                 {
-                    'q-applicant-when-did-the-crime-happen': 'not a date'
+                    'q-applicant-when-did-the-crime-stop': 'not a date'
                 }
             ]
         },
