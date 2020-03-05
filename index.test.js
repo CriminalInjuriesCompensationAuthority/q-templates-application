@@ -8,8 +8,8 @@ describe('application template', () => {
         const qTemplateValidator = createTemplateValidator({
             questionnaireTemplate: template
         });
-        const errors = qTemplateValidator.validateTemplate();
+        const valid = qTemplateValidator.validateTemplate();
 
-        expect(errors.length).toEqual(0);
+        expect(valid).toEqual(true);
     });
 });
