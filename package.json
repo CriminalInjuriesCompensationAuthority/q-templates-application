@@ -1,6 +1,6 @@
 {
     "name": "q-templates-application",
-    "version": "0.2.13",
+    "version": "0.2.14",
     "description": "Apply for compensation questionnaire template",
     "main": "index.js",
     "scripts": {
@@ -41,6 +41,7 @@
         ]
     },
     "devDependencies": {
+        "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v0.0.1",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-config-prettier": "^6.9.0",

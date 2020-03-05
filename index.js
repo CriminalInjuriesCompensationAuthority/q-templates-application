@@ -147,6 +147,7 @@ module.exports = {
                     type: 'string',
                     title: 'UK mobile phone number',
                     maxLength: 20,
+                    format: 'mobile-uk',
                     errorMessage: {
                         format:
                             'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
@@ -254,7 +255,7 @@ module.exports = {
                 },
                 {
                     'q-applicant-confirmation-method': 'sms',
-                    'q-applicant-enter-your-telephone-number': '07700900982'
+                    'q-applicant-enter-your-telephone-number': '07701 234567'
                 }
             ],
             invalidExamples: [
@@ -264,7 +265,7 @@ module.exports = {
                 },
                 {
                     'q-applicant-confirmation-method': 'none',
-                    'q-applicant-enter-your-telephone-number': '07700900982'
+                    'q-applicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
                     'q-applicant-confirmation-method': 'email'
@@ -274,7 +275,7 @@ module.exports = {
                 },
                 {
                     'q-applicant-confirmation-method': 'email',
-                    'q-applicant-enter-your-telephone-number': '07700900982'
+                    'q-applicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
                     'q-applicant-confirmation-method': 'sms',
@@ -287,11 +288,11 @@ module.exports = {
                 {
                     'q-applicant-confirmation-method': 'sms',
                     'q-applicant-enter-your-telephone-number': 'not a UK mobile phone number'
-                } // ,
-                // {
-                //     'q-applicant-confirmation-method': 'sms',
-                //     'q-applicant-enter-your-telephone-number': '0141 420 5000'
-                // }
+                },
+                {
+                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-enter-your-telephone-number': '0141 420 5000'
+                }
             ]
         },
         'p-applicant-british-citizen-or-eu-national': {
