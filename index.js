@@ -26,7 +26,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -40,7 +40,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -55,7 +55,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -69,7 +69,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -83,7 +83,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -243,7 +243,7 @@ module.exports = {
             properties: {
                 'applicant-impact-on-you': {
                     description:
-                        '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li><li>how the crime affected you</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim. </p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li><li>how the crime affected you</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim. </p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get free support in your area</a> after a crime.</p><p class="govuk-body">There is different <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">support if you live in Scotland</a></p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -1447,6 +1447,7 @@ module.exports = {
         'p-offender-describe-contact-with-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-offender-describe-contact-with-offender'],
             properties: {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
@@ -1456,6 +1457,12 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
                     }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-offender-describe-contact-with-offender':
+                        'Describe your contact with the offender'
                 }
             },
             examples: [
@@ -1720,7 +1727,7 @@ module.exports = {
                     type: 'string',
                     format: 'date-time',
                     title: 'Enter your date of birth',
-                    description: 'For example, 31 3 2018.',
+                    description: 'For example, 31 3 1980.',
                     errorMessage: {
                         format: 'Enter your date of birth and include a day, month and year'
                     }
