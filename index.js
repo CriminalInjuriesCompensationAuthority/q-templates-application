@@ -97,7 +97,7 @@ module.exports = {
             properties: {
                 transition: {
                     description:
-                        '<p class="govuk-body">You can still <a href="https://www.cica.gov.uk/OAS/Account/create" class="govuk-link">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a href="https://www.victimandwitnessinformation.org.uk/" class="govuk-link">get free suppport in your area</a> after a crime.</p><p class="govuk-body">There is different <a href="https://www.mygov.scot/victim-witness-support/" class="govuk-link">support if you live in Scotland</a></p>\'}) }}'
+                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'}) }}'
                 }
             },
             examples: [{}],
@@ -292,6 +292,36 @@ module.exports = {
                 {
                     'q-applicant-confirmation-method': 'sms',
                     'q-applicant-enter-your-telephone-number': '0141 420 5000'
+                },
+                {
+                    'q-applicant-confirmation-method': 10
+                },
+                {
+                    'q-applicant-confirmation-method': false
+                },
+                {
+                    'q-applicant-confirmation-method': true,
+                    'q-applicant-enter-your-email-address': true
+                },
+                {
+                    'q-applicant-confirmation-method': 'none',
+                    'q-applicant-enter-your-email-address': ['something']
+                },
+                {
+                    'q-applicant-confirmation-method': 'none',
+                    'q-applicant-enter-your-email-address': 123
+                },
+                {
+                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-enter-your-email-address': true
+                },
+                {
+                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-enter-your-telephone-number': 123
+                },
+                {
+                    'q-applicant-confirmation-method': 'email',
+                    'q-applicant-enter-your-telephone-number': false
                 }
             ]
         },
@@ -755,7 +785,7 @@ module.exports = {
                     'q-applicant-when-did-the-crime-stop': '2020-01-10T00:00:00.000Z'
                 },
                 {
-                    'q-applicant-when-did-the-crime-stop': '2010-01-10T00:00:00.000Z'
+                    'q-applicant-when-did-the-crime-stop': '2010-01-01T00:00:00.000Z'
                 }
             ],
             invalidExamples: [
@@ -1937,7 +1967,7 @@ module.exports = {
                     'q-applicant-enter-your-date-of-birth': '1970-01-01T00:00:00.000Z'
                 },
                 {
-                    'q-applicant-enter-your-date-of-birth': '2010-01-01T00:00:00.000Z'
+                    'q-applicant-enter-your-date-of-birth': '2019-01-01T00:00:00.000Z'
                 }
             ],
             invalidExamples: [
