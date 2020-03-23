@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '0.2.14',
+    version: '0.3.1',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -12,7 +12,7 @@ module.exports = {
             properties: {
                 'applicant-declaration': {
                     description:
-                        '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given is true as far as you know</li><li>we can share the details in your application with the police</li></ul><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}'
+                        '<p class="govuk-body">By submitting the application you:</p><ul class="govuk-list govuk-list--bullet"><li>confirm that the information you have given is true as far as you know</li><li>agree that we can share the details in it with the police</li></ul><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}'
                 }
             },
             examples: [{}],
@@ -115,7 +115,7 @@ module.exports = {
             },
             properties: {
                 'q-applicant-confirmation-method': {
-                    title: 'How do you want to get your confirmation message?',
+                    title: "How should we tell you we've got your application?",
                     type: 'string',
                     oneOf: [
                         {
@@ -124,7 +124,7 @@ module.exports = {
                         },
                         {
                             title: 'Text message',
-                            const: 'sms'
+                            const: 'text'
                         },
                         {
                             title: "I don't have an email address or UK mobile phone number",
@@ -147,7 +147,7 @@ module.exports = {
                     type: 'string',
                     title: 'UK mobile phone number',
                     maxLength: 20,
-                    format: 'mobile-uk',
+                    format: 'x-mobilePhoneNumber',
                     errorMessage: {
                         format:
                             'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
@@ -163,7 +163,7 @@ module.exports = {
                 },
                 {
                     $ref:
-                        '#/definitions/if-sms-then-q-applicant-enter-your-telephone-number-is-required'
+                        '#/definitions/if-text-then-q-applicant-enter-your-telephone-number-is-required'
                 },
                 {
                     $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
@@ -194,11 +194,11 @@ module.exports = {
                         }
                     }
                 },
-                'if-sms-then-q-applicant-enter-your-telephone-number-is-required': {
+                'if-text-then-q-applicant-enter-your-telephone-number-is-required': {
                     if: {
                         properties: {
                             'q-applicant-confirmation-method': {
-                                const: 'sms'
+                                const: 'text'
                             }
                         },
                         required: ['q-applicant-confirmation-method']
@@ -254,7 +254,7 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
                 }
             ],
@@ -271,14 +271,14 @@ module.exports = {
                     'q-applicant-confirmation-method': 'email'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms'
+                    'q-applicant-confirmation-method': 'text'
                 },
                 {
                     'q-applicant-confirmation-method': 'email',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
@@ -286,11 +286,11 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 'not an email address'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': 'not a UK mobile phone number'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': '0141 420 5000'
                 },
                 {
@@ -312,11 +312,11 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 123
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-email-address': true
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': 123
                 },
                 {
@@ -2166,7 +2166,7 @@ module.exports = {
             properties: {
                 confirmation: {
                     description:
-                        '\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: \'<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We have sent a confirmation email to <strong>||/answers/p-applicant-enter-your-email-address/q-applicant-enter-your-email-address||</strong></p>\'\n                    }) }}\n                    \n                    <p class="govuk-body-l">Thank you for submitting your application.</p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>ask you for more information if we need it</li>\n <li>make a decision</li>\n                   <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <h2 class="govuk-heading-m">Contact us</h2>\n <p class="govuk-body">You can contact us on 0300 003 3601. Select option 8.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>\n            '
+                        '\n                    {% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}\n                    {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}\n                    \n                    {% if mobilePhoneNumber %}\n                        {% set contactMethod =  mobilePhoneNumber %}\n                    {% else %}\n                        {% set contactMethod =  emailAddress %}\n                    {% endif %}\n\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: "<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p>"\n                    }) }}\n                    \n                    <p class="govuk-body-l">We\'ve sent your reference number to <strong>{{ contactMethod }}</strong></p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>ask you for more information if we need it</li>\n <li>make a decision</li>\n                   <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <h2 class="govuk-heading-m">Contact us</h2>\n <p class="govuk-body">You can contact us on 0300 003 3601. Select option 8.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>\n            '
                 }
             },
             examples: [{}],
@@ -2310,7 +2310,7 @@ module.exports = {
         'p-applicant-how-much-was-award': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'How much compensation were you awarded?',
+            title: 'How much was the award?',
             required: ['q-how-much-was-award'],
             properties: {
                 'q-how-much-was-award': {
@@ -2415,7 +2415,7 @@ module.exports = {
     routes: {
         initial: 'p-applicant-who-are-you-applying-for',
         referrer: 'https://claim-criminal-injuries-compensation.service.justice.gov.uk/start-page',
-        summary: 'p--check-your-answers',
+        summary: 'p-applicant-declaration',
         confirmation: 'p--confirmation',
         states: {
             'p-applicant-declaration': {
@@ -3046,7 +3046,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                                'sms'
+                                'text'
                             ]
                         }
                     ]
