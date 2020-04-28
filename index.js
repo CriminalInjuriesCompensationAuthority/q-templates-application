@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '0.2.14',
+    version: '1.0.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -36,20 +36,6 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             title: 'You must use another service if your claim is not for sexual assault or abuse',
-            additionalProperties: false,
-            properties: {
-                transition: {
-                    description:
-                        '<p class="govuk-body">You can still <a class="govuk-link" href="https://www.cica.gov.uk/OAS/Account/create">make a claim online</a>.</p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'}) }}'
-                }
-            },
-            examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
-        },
-        'p--transition-option-2': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            title: 'You must use another service if your claim includes other injuries or losses',
             additionalProperties: false,
             properties: {
                 transition: {
@@ -124,7 +110,7 @@ module.exports = {
                         },
                         {
                             title: 'Text message',
-                            const: 'sms'
+                            const: 'text'
                         },
                         {
                             title: "I don't have an email address or UK mobile phone number",
@@ -163,7 +149,7 @@ module.exports = {
                 },
                 {
                     $ref:
-                        '#/definitions/if-sms-then-q-applicant-enter-your-telephone-number-is-required'
+                        '#/definitions/if-text-then-q-applicant-enter-your-telephone-number-is-required'
                 },
                 {
                     $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
@@ -194,11 +180,11 @@ module.exports = {
                         }
                     }
                 },
-                'if-sms-then-q-applicant-enter-your-telephone-number-is-required': {
+                'if-text-then-q-applicant-enter-your-telephone-number-is-required': {
                     if: {
                         properties: {
                             'q-applicant-confirmation-method': {
-                                const: 'sms'
+                                const: 'text'
                             }
                         },
                         required: ['q-applicant-confirmation-method']
@@ -254,7 +240,7 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
                 }
             ],
@@ -271,14 +257,14 @@ module.exports = {
                     'q-applicant-confirmation-method': 'email'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms'
+                    'q-applicant-confirmation-method': 'text'
                 },
                 {
                     'q-applicant-confirmation-method': 'email',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
@@ -286,11 +272,11 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 'not an email address'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': 'not a UK mobile phone number'
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': '0141 420 5000'
                 },
                 {
@@ -312,11 +298,11 @@ module.exports = {
                     'q-applicant-enter-your-email-address': 123
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-email-address': true
                 },
                 {
-                    'q-applicant-confirmation-method': 'sms',
+                    'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': 123
                 },
                 {
@@ -466,60 +452,11 @@ module.exports = {
             properties: {
                 'applicant-impact-on-you': {
                     description:
-                        '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li><li>how the crime affected you</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim. </p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'}) }}'
+                        '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim. </p>{{ govukDetails({summaryText: "If you need help or support",html: \'<p class=\\"govuk-body\\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p><p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'}) }}'
                 }
             },
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
-        },
-        'p-applicant-select-the-option-that-applies-to-you': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            title: 'Select the option that applies to you',
-            required: ['q-applicant-option'],
-            additionalProperties: false,
-            properties: {
-                'applicant-your-choices': {
-                    description:
-                        '\n                <p class="govuk-body-l">We decide what enquiries to make depending on how the crime affected you.</p>\n                <h2 class="govuk-heading-m">Option 1: Sexual assault or abuse</h2>\n                <p class="govuk-body">Any compensation we pay acknowledges the emotional distress the crime caused you.</p>\n                <p class="govuk-body">We normally make a decision based on your application and the information we get from the police.</p>\n                <h2 class="govuk-heading-m">Option 2: Sexual assault or abuse and other injuries or losses</h2>\n                <p class="govuk-body">We can also pay compensation for:\n                <ul class="govuk-list govuk-list--bullet">\n                <li>lost earnings because you were unable to work</li>\n                <li>physical injuries</li>\n                <li>pregnancy, sexually transmitted disease, or loss of foetus</li>\n                <li><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#special-expenses">some extra costs</a> you\'ve had due to your injuries</li>\n                <li>disabling mental injuries that are additional to the emotional distress you\'ve already suffered</li>\n                </ul>\n                </p>\n                {{ govukDetails({\n                    summaryText: "What is a disabling mental injury?",\n                    text: "A disabling mental injury has a substantial adverse effect on your ability to carry out normal day-to-day activities. For example, reduced performance at school or work, or effects on your social or sexual relationships."\n                }) }}\n                <p class="govuk-body">We may ask a psychiatrist or clinical psychologist to confirm that you have a disabling mental injury if you do not already have a diagnosis.</p>\n                <p class="govuk-body">We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p>\n                {{ govukDetails({\n                summaryText: "If you need help or support",\n                html: \'\n                    <p class="govuk-body">You can contact us for help with your application on 0300 003 3601. Select option 8.</p>\n                    <p class="govuk-body">Our phone lines are open Monday to Friday 8:30am to 5pm except Wednesday when they open at 10am.</p>\n                   <p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p>\n<p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\n\'\n                }) }}\n            '
-                },
-                'q-applicant-option': {
-                    title: 'Select the option that applies to you',
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Option 1: Sexual assault or abuse',
-                            const: 'option-1:-sexual-assault-or-abuse'
-                        },
-                        {
-                            title: 'Option 2: Sexual assault or abuse and other injuries or losses',
-                            const: 'option-2:-sexual-assault-or-abuse-and-other-injuries-or-losses'
-                        }
-                    ]
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-option': 'Select either Option 1 or Option 2'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-option': 'option-1:-sexual-assault-or-abuse'
-                },
-                {
-                    'q-applicant-option':
-                        'option-2:-sexual-assault-or-abuse-and-other-injuries-or-losses'
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-option': 'option-3:-not-an-answer'
-                },
-                {
-                    'q-applicant-option': 12345
-                }
-            ]
         },
         'p--was-the-crime-reported-to-police': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2383,6 +2320,637 @@ module.exports = {
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
         },
+        'p--context-dmi-details': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your mental health',
+            additionalProperties: false,
+            properties: {
+                'details-context': {
+                    description:
+                        '<p class="govuk-body">We’re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-do-you-have-disabling-mental-injury': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-do-you-have-disabling-mental-injury'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-do-you-have-disabling-mental-injury': {
+                    type: 'boolean',
+                    description:
+                        "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
+                    title: 'Do you have a disabling mental injury?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-do-you-have-disabling-mental-injury':
+                        'Select yes if you suffered a disabling mental injury'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-do-you-have-disabling-mental-injury': true
+                },
+                {
+                    'q-applicant-do-you-have-disabling-mental-injury': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-do-you-have-disabling-mental-injury': 'foo'
+                }
+            ]
+        },
+        'p-applicant-mental-injury-duration': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-mental-injury-duration'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-mental-injury-duration': {
+                    type: 'boolean',
+                    title: 'Has your mental injury lasted 6 weeks or more?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-mental-injury-duration':
+                        'Select yes if your mental injury has lasted longer than 6 weeks'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-mental-injury-duration': true
+                },
+                {
+                    'q-applicant-mental-injury-duration': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-mental-injury-duration': 'foo'
+                }
+            ]
+        },
+        'p-applicant-select-treatments': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            propertyNames: {
+                enum: ['q-applicant-select-treatments-dmi', 'q-applicant-other-treatment-dmi']
+            },
+            properties: {
+                'q-applicant-select-treatments-dmi': {
+                    title: "Select any treatments you've had",
+                    description: "Include any treatment you're waiting to get.",
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'CBT (cognitive behavioural therapy)',
+                                const: 'cbt'
+                            },
+                            {
+                                title: 'EMDR (eye movement desensitisation and reprocessing)',
+                                const: 'emdr'
+                            },
+                            {
+                                title: 'Antidepressants',
+                                const: 'antidepressants'
+                            },
+                            {
+                                title: 'Counselling',
+                                const: 'counselling'
+                            },
+                            {
+                                title: 'Psychotherapy',
+                                const: 'psychotherapy'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'other'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-other-treatment-dmi': {
+                    type: 'string',
+                    title: 'Other treatments',
+                    maxLength: 100
+                }
+            },
+            required: ['q-applicant-select-treatments-dmi'],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-applicant-other-treatment-dmi-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-select-treatments-dmi': {
+                                contains: {
+                                    const: 'other'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-select-treatments-dmi']
+                    },
+                    then: {
+                        required: ['q-applicant-other-treatment-dmi'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-select-treatments-dmi',
+                                'q-applicant-other-treatment-dmi'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-other-treatment-dmi':
+                                    'Enter any other treatment you have received for your mental injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-select-treatments-dmi':
+                        'Select any treatments you have received for your mental injury'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-select-treatments-dmi': ['cbt']
+                },
+                {
+                    'q-applicant-select-treatments-dmi': ['cbt', 'other'],
+                    'q-applicant-other-treatment-dmi': 'some description'
+                },
+                {
+                    'q-applicant-select-treatments-dmi': ['emdr']
+                },
+                {
+                    'q-applicant-select-treatments-dmi': ['emdr', 'other'],
+                    'q-applicant-other-treatment-dmi': 'some description'
+                },
+                {
+                    'q-applicant-select-treatments-dmi': ['other'],
+                    'q-applicant-other-treatment-dmi': 'some description'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-select-treatments-dmi': {
+                        foo: 'bar'
+                    }
+                },
+                {
+                    'q-applicant-other-treatment-dmi': 'some description'
+                },
+                {
+                    'q-applicant-select-treatments-dmi': ['other']
+                }
+            ]
+        },
+        'p-applicant-has-your-treatment-finished-dmi': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-has-your-treatment-finished-dmi'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-has-your-treatment-finished-dmi': {
+                    type: 'boolean',
+                    title: 'Have you finished your mental health treatment?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-has-your-treatment-finished-dmi':
+                        'Select yes if you have finished your mental health treatment'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-has-your-treatment-finished-dmi': true
+                },
+                {
+                    'q-applicant-has-your-treatment-finished-dmi': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-has-your-treatment-finished-dmi': 'foo'
+                }
+            ]
+        },
+        'p-applicant-affect-on-daily-life-dmi': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-affect-on-daily-life-dmi'],
+            properties: {
+                'q-applicant-affect-on-daily-life-dmi': {
+                    type: 'string',
+                    title: 'Briefly say how the crime has affected your daily life',
+                    description:
+                        'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
+                    maxLength: 500,
+                    errorMessage: {
+                        maxLength: 'Description must be 500 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-affect-on-daily-life-dmi':
+                        'Describe how the crime has affected your daily life'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-affect-on-daily-life-dmi': 'Some description'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-affect-on-daily-life-dmi': 12345
+                }
+            ]
+        },
+        'p--context-gp-details': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your GP',
+            additionalProperties: false,
+            properties: {
+                'details-context': {
+                    description:
+                        '<p class="govuk-body">We’re going to ask for some details about your GP.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>understand if you\'ve told your GP about your injuries</li><li>make sure any letters or forms we send out are addressed properly</li></ul><p class="govuk-body">We will not contact your GP or ask to see your medical records without your consent.</p>\n'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-are-you-registered-with-gp': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-are-you-registered-with-gp'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-are-you-registered-with-gp': {
+                    type: 'boolean',
+                    title: 'Are you registered with a GP practice?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-are-you-registered-with-gp':
+                        'Select yes if you are registered with a GP'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-are-you-registered-with-gp': true
+                },
+                {
+                    'q-applicant-are-you-registered-with-gp': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-registered-with-gp': 'foo'
+                }
+            ]
+        },
+        'p-applicant-have-you-seen-a-gp': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-have-you-seen-a-gp'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-have-you-seen-a-gp': {
+                    type: 'boolean',
+                    description: 'This includes your mental health.',
+                    title: 'Have you seen a GP about your injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-have-you-seen-a-gp':
+                        'Select yes if you have seen a GP about your injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-have-you-seen-a-gp': true
+                },
+                {
+                    'q-applicant-have-you-seen-a-gp': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-have-you-seen-a-gp': 'foo'
+                }
+            ]
+        },
+        'p-gp-enter-your-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: "What is your GP's address?",
+            required: [
+                'q-gp-building-and-street',
+                'q-gp-town-or-city',
+                'q-gp-building-and-street-2'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-gp-building-and-street': {
+                    type: 'string',
+                    title: 'Practice name',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Practice name must be less than 60 characters'
+                    }
+                },
+                'q-gp-building-and-street-2': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Building and street must be less than 60 characters'
+                    }
+                },
+                'q-gp-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 60 characters or less'
+                    }
+                },
+                'q-gp-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 60 characters or less'
+                    }
+                },
+                'q-gp-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-gp-building-and-street': "Enter the name of your GP's practice",
+                    'q-gp-building-and-street2': 'Enter the building and street of your GP',
+                    'q-gp-town-or-city': 'Enter the town or city where you live'
+                }
+            },
+            examples: [
+                {
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-gp-building-and-street': 12345,
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 12345,
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-town-or-city': 12345,
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 12345,
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 12345
+                }
+            ]
+        },
+        'p-applicant-are-you-claiming-for-physical-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-are-you-claiming-for-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-are-you-claiming-for-physical-injuries': {
+                    type: 'boolean',
+                    title: 'Are you claiming for any physical injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-are-you-claiming-for-physical-injuries':
+                        'Select yes if you sare claiming for a physical injury'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-are-you-claiming-for-physical-injuries': true
+                },
+                {
+                    'q-applicant-are-you-claiming-for-physical-injuries': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-claiming-for-physical-injuries': 'foo'
+                }
+            ]
+        },
+        'p-applicant-are-you-claiming-for-payments': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-are-you-claiming-for-payments'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-are-you-claiming-for-payments': {
+                    type: 'boolean',
+                    title:
+                        'Are you claiming for a sexually transmitted infection (STI), pregnancy, or loss of a pregnancy?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-are-you-claiming-for-payments':
+                        'Select yes if you sare claiming for sexually transmitted infection, pregnancy, or loss of a pregnancy'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-are-you-claiming-for-payments': true
+                },
+                {
+                    'q-applicant-are-you-claiming-for-payments': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-claiming-for-payments': 'foo'
+                }
+            ]
+        },
+        'p-applicant-are-you-claiming-for-loe': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-are-you-claiming-for-loe'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-are-you-claiming-for-loe': {
+                    type: 'boolean',
+                    description:
+                        'You must have had very limited or no ability to work for more than 28 weeks.',
+                    title: 'Are you claiming for loss of earnings?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-are-you-claiming-for-loe':
+                        'Select yes if you sare claiming for loss of earnings'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-are-you-claiming-for-loe': true
+                },
+                {
+                    'q-applicant-are-you-claiming-for-loe': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-claiming-for-loe': 'foo'
+                }
+            ]
+        },
+        'p-applicant-are-you-claiming-for-expenses': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-are-you-claiming-for-expenses'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-are-you-claiming-for-expenses': {
+                    type: 'boolean',
+                    description:
+                        'This can include the cost of equipment, changes to your home, and care costs.',
+                    title: 'Are you claiming for expenses as a result of your injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-are-you-claiming-for-expenses':
+                        'Select yes if you are claiming for loss of earnings'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-are-you-claiming-for-expenses': true
+                },
+                {
+                    'q-applicant-are-you-claiming-for-expenses': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-claiming-for-expenses': 'foo'
+                }
+            ]
+        },
+        'p--transition-physical-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Continue your claim',
+            additionalProperties: false,
+            properties: {
+                transition: {
+                    description:
+                        '<p class="govuk-body">You\'ll be taken to another website to finish your claim for physical injuries.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p--transition-payments': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Continue your claim',
+            additionalProperties: false,
+            properties: {
+                transition: {
+                    description:
+                        '<p class="govuk-body">You\'ll be taken to another website to finish your claim for an STI, pregnancy, or loss of a pregnancy.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p--transition-loe': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Continue your claim',
+            additionalProperties: false,
+            properties: {
+                transition: {
+                    description:
+                        '<p class="govuk-body">You\'ll be taken to another website to finish your claim for loss of earnings.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p--transition-expenses': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Continue your claim',
+            additionalProperties: false,
+            properties: {
+                transition: {
+                    description:
+                        '<p class="govuk-body">You\'ll be taken to another website to finish your claim for expenses.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -2505,7 +3073,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-confirmation-method',
+                            target: 'p--was-the-crime-reported-to-police',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
@@ -2519,29 +3087,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-the-option-that-applies-to-you'
-                        }
-                    ]
-                }
-            },
-            'p-applicant-select-the-option-that-applies-to-you': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--transition-option-2',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option',
-                                'option-2:-sexual-assault-or-abuse-and-other-injuries-or-losses'
-                            ]
-                        },
-                        {
-                            target: 'p--was-the-crime-reported-to-police',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option',
-                                'option-1:-sexual-assault-or-abuse'
-                            ]
+                            target: 'p-applicant-did-the-crime-happen-once-or-over-time'
                         }
                     ]
                 }
@@ -2558,7 +3104,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-did-the-crime-happen-once-or-over-time',
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -2807,7 +3353,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation',
+                            target: 'p--context-dmi-details',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
@@ -2838,7 +3384,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation',
+                            target: 'p--context-dmi-details',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
@@ -2860,7 +3406,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -2902,7 +3448,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p--check-your-answers'
                         }
                     ]
                 }
@@ -2942,7 +3488,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p--check-your-answers'
                         }
                     ]
                 }
@@ -2951,7 +3497,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p--check-your-answers'
                         }
                     ]
                 }
@@ -2960,7 +3506,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-enter-your-name'
+                            target: 'p-applicant-confirmation-method'
                         }
                     ]
                 }
@@ -3025,7 +3571,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p--before-you-continue'
                         }
                     ]
                 }
@@ -3046,7 +3592,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                                'sms'
+                                'text'
                             ]
                         }
                     ]
@@ -3056,7 +3602,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p--before-you-continue'
                         }
                     ]
                 }
@@ -3086,7 +3632,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-did-the-crime-happen-once-or-over-time'
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
@@ -3101,9 +3647,6 @@ module.exports = {
                 type: 'final'
             },
             'p--transition-not-british-citizen': {
-                type: 'final'
-            },
-            'p--transition-option-2': {
                 type: 'final'
             },
             'p--transition-no-phone-or-email': {
@@ -3121,7 +3664,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--before-you-continue'
+                            target: 'p-applicant-enter-your-name'
                         }
                     ]
                 }
@@ -3131,6 +3674,209 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-have-you-applied-to-us-before'
+                        }
+                    ]
+                }
+            },
+            'p--transition-physical-injuries': {
+                type: 'final'
+            },
+            'p--transition-payments': {
+                type: 'final'
+            },
+            'p--transition-loe': {
+                type: 'final'
+            },
+            'p--transition-expenses': {
+                type: 'final'
+            },
+            'p-applicant-are-you-claiming-for-physical-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--transition-physical-injuries',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-are-you-claiming-for-payments': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-loe',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--transition-payments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-are-you-claiming-for-loe': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-expenses',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--transition-loe',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-are-you-claiming-for-expenses': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-applicant-details',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--transition-expenses',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p--context-dmi-details': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-do-you-have-disabling-mental-injury'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-do-you-have-disabling-mental-injury': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-compensation',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-mental-injury-duration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-mental-injury-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-treatments'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-treatments': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-has-your-treatment-finished-dmi'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-has-your-treatment-finished-dmi': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-affect-on-daily-life-dmi'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-affect-on-daily-life-dmi': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-gp-details'
+                        }
+                    ]
+                }
+            },
+            'p--context-gp-details': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-registered-with-gp'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-are-you-registered-with-gp': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-have-you-seen-a-gp'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-have-you-seen-a-gp': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-gp-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-gp-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
