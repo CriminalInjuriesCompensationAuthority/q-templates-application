@@ -1,6 +1,6 @@
 {
     "name": "q-templates-application",
-    "version": "0.2.14",
+    "version": "1.0.0",
     "description": "Apply for compensation questionnaire template",
     "main": "index.js",
     "scripts": {
