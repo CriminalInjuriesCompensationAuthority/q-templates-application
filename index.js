@@ -2859,6 +2859,277 @@ module.exports = {
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
         },
+        'p-applicant-what-was-injured': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What was injured?',
+            type: 'object',
+            required: ['q-applicant-what-was-injured'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-what-was-injured': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Head, face or neck',
+                            const: 'upper'
+                        },
+                        {
+                            title: 'Torso',
+                            const: 'torso'
+                        },
+                        {
+                            title: 'Arms or hands',
+                            const: 'arms'
+                        },
+                        {
+                            title: 'Legs or feet',
+                            const: 'legs'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-what-was-injured': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-what-was-injured': 'upper'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-what-was-injured': 999999999
+                },
+                {
+                    'q-applicant-what-was-injured': 'not-a-key'
+                }
+            ]
+        },
+        'p-applicant-what-was-injured-upper': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What was injured?',
+            type: 'object',
+            required: ['q-applicant-what-was-injured-upper'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-what-was-injured-upper': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Head or brain',
+                            const: 'head'
+                        },
+                        {
+                            title: 'Face',
+                            const: 'face'
+                        },
+                        {
+                            title: 'Neck',
+                            const: 'neck'
+                        },
+                        {
+                            title: 'Eye or eyesight',
+                            const: 'eye'
+                        },
+                        {
+                            title: 'Ear or hearing',
+                            const: 'ear'
+                        },
+                        {
+                            title: 'Nose',
+                            const: 'nose'
+                        },
+                        {
+                            title: 'Teeth',
+                            const: 'teeth'
+                        },
+                        {
+                            title: 'Tongue',
+                            const: 'tongue'
+                        },
+                        {
+                            title: 'I do not have these injuries',
+                            const: 'other-upper-injury'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-what-was-injured-upper': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-what-was-injured-upper': 'neck'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-what-was-injured-upper': 999999999
+                },
+                {
+                    'q-applicant-what-was-injured-upper': 'not-a-key'
+                }
+            ]
+        },
+        'p-applicant-select-head-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your head or brain',
+            type: 'object',
+            required: ['q-applicant-select-head-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-select-head-injuries': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Brain damage',
+                            const: 'head-brain'
+                        },
+                        {
+                            title: 'Epilepsy',
+                            const: 'head-epilepsy'
+                        },
+                        {
+                            title: 'Nerve damage',
+                            const: 'head-nerve'
+                        },
+                        {
+                            title: 'Fractured skull',
+                            const: 'head-skull'
+                        },
+                        {
+                            title: 'I do not have these injuries',
+                            const: 'other-head-injury'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-select-head-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-select-head-injuries': 'head-skull'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-select-head-injuries': 999999999
+                },
+                {
+                    'q-applicant-select-head-injuries': 'not-a-key'
+                }
+            ]
+        },
+        'p-applicant-select-face-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your face',
+            type: 'object',
+            required: ['q-applicant-select-face-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-select-face-injuries': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Face fractures',
+                            const: 'face-fractures'
+                        },
+                        {
+                            title: 'Face numbness',
+                            const: 'fae-numbness'
+                        },
+                        {
+                            title: 'Broken cheekbone',
+                            const: 'face-cheekbone'
+                        },
+                        {
+                            title: 'Broken jaw',
+                            const: 'face-broken-jaw'
+                        },
+                        {
+                            title: 'Clicking jaw',
+                            const: 'face-clicking-jaw'
+                        },
+                        {
+                            title: 'Dislocated jaw ',
+                            const: 'face-dislocated-jaw'
+                        },
+                        {
+                            title: 'I do not have these injuries',
+                            const: 'other-head-injury'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-select-face-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-select-face-injuries': 'face-numbness'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-select-face-injuries': 999999999
+                },
+                {
+                    'q-applicant-select-face-injuries': 'not-a-key'
+                }
+            ]
+        },'p-applicant-select-neck-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your neck',
+            type: 'object',
+            required: ['q-applicant-select-neck-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-select-neck-injuries': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Broken hyoid (throat bone)',
+                            const: 'neck-broken'
+                        },
+                        {
+                            title: 'Whiplash',
+                            const: 'neck-whiplash'
+                        },
+                        {
+                            title: 'I do not have these injuries',
+                            const: 'other-neck-injury'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-select-neck-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-select-neck-injuries': 'neck-broken'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-select-neck-injuries': 999999999
+                },
+                {
+                    'q-applicant-select-neck-injuries': 'not-a-key'
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
