@@ -2897,6 +2897,15 @@ module.exports = {
             examples: [
                 {
                     'q-applicant-what-was-injured': 'upper'
+                },
+                {
+                    'q-applicant-what-was-injured': 'torso'
+                },
+                {
+                    'q-applicant-what-was-injured': 'arms'
+                },
+                {
+                    'q-applicant-what-was-injured': 'legs'
                 }
             ],
             invalidExamples: [
@@ -2949,10 +2958,6 @@ module.exports = {
                         {
                             title: 'Tongue',
                             const: 'tongue'
-                        },
-                        {
-                            title: 'I do not have these injuries',
-                            const: 'other-upper-injury'
                         }
                     ]
                 }
@@ -2964,7 +2969,16 @@ module.exports = {
             },
             examples: [
                 {
+                    'q-applicant-what-was-injured-upper': 'head'
+                },
+                {
                     'q-applicant-what-was-injured-upper': 'neck'
+                },
+                {
+                    'q-applicant-what-was-injured-upper': 'face'
+                },
+                {
+                    'q-applicant-what-was-injured-upper': 'eye'
                 }
             ],
             invalidExamples: [
@@ -2988,23 +3002,19 @@ module.exports = {
                     oneOf: [
                         {
                             title: 'Brain damage',
-                            const: 'head-brain'
+                            const: 'phyinj-005'
                         },
                         {
                             title: 'Epilepsy',
-                            const: 'head-epilepsy'
+                            const: 'phyinj-006'
                         },
                         {
                             title: 'Nerve damage',
-                            const: 'head-nerve'
+                            const: 'phyinj-007'
                         },
                         {
                             title: 'Fractured skull',
-                            const: 'head-skull'
-                        },
-                        {
-                            title: 'I do not have these injuries',
-                            const: 'other-head-injury'
+                            const: 'phyinj-044'
                         }
                     ]
                 }
@@ -3016,7 +3026,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-head-injuries': 'head-skull'
+                    'q-applicant-select-head-injuries': 'phyinj-044'
                 }
             ],
             invalidExamples: [
@@ -3040,31 +3050,27 @@ module.exports = {
                     oneOf: [
                         {
                             title: 'Face fractures',
-                            const: 'face-fractures'
+                            const: 'phyinj-037'
                         },
                         {
                             title: 'Face numbness',
-                            const: 'fae-numbness'
+                            const: 'phyinj-038'
                         },
                         {
                             title: 'Broken cheekbone',
-                            const: 'face-cheekbone'
+                            const: 'phyinj-039'
                         },
                         {
                             title: 'Broken jaw',
-                            const: 'face-broken-jaw'
+                            const: 'phyinj-036'
                         },
                         {
                             title: 'Clicking jaw',
-                            const: 'face-clicking-jaw'
+                            const: 'phyinj-031'
                         },
                         {
-                            title: 'Dislocated jaw ',
-                            const: 'face-dislocated-jaw'
-                        },
-                        {
-                            title: 'I do not have these injuries',
-                            const: 'other-head-injury'
+                            title: 'Dislocated jaw',
+                            const: 'phyinj-032'
                         }
                     ]
                 }
@@ -3076,7 +3082,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-face-injuries': 'face-numbness'
+                    'q-applicant-select-face-injuries': 'phyinj-032'
                 }
             ],
             invalidExamples: [
@@ -3087,7 +3093,8 @@ module.exports = {
                     'q-applicant-select-face-injuries': 'not-a-key'
                 }
             ]
-        },'p-applicant-select-neck-injuries': {
+        },
+        'p-applicant-select-neck-injuries': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your neck',
             type: 'object',
@@ -3099,15 +3106,11 @@ module.exports = {
                     oneOf: [
                         {
                             title: 'Broken hyoid (throat bone)',
-                            const: 'neck-broken'
+                            const: 'phyinj-040'
                         },
                         {
                             title: 'Whiplash',
-                            const: 'neck-whiplash'
-                        },
-                        {
-                            title: 'I do not have these injuries',
-                            const: 'other-neck-injury'
+                            const: 'phyinj-041'
                         }
                     ]
                 }
@@ -3119,7 +3122,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-neck-injuries': 'neck-broken'
+                    'q-applicant-select-neck-injuries': 'phyinj-041'
                 }
             ],
             invalidExamples: [
@@ -3861,7 +3864,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--transition',
+                            target: 'p-applicant-what-was-injured',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
@@ -4052,6 +4055,107 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-what-was-injured': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-what-was-injured-upper',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured.q-applicant-what-was-injured',
+                                'upper'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-what-was-injured-upper': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-head-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'head'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-select-face-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'face'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-select-neck-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-head-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-face-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'face'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-select-neck-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-face-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-neck-injuries',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-neck-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-payments'
                         }
                     ]
                 }
