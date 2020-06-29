@@ -444,11 +444,15 @@ module.exports = {
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
                     type: 'string',
-                    format: 'date-time--today-or-in-past',
+                    // format: 'date-time--today-or-in-past',
+                    format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     title: 'When was the crime reported to the police?',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',
                     errorMessage: {
                         format:
+                            'Enter the date the crime was reported to police and include a day, month and year',
+                        formatMaximum:
                             'The date the crime was reported to the police must be today or in the past'
                     }
                 }
@@ -562,11 +566,15 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-happen': {
                     type: 'string',
-                    format: 'date-time--today-or-in-past',
+                    // format: 'date-time--today-or-in-past',
+                    format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     title: 'When did the crime happen?',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',
                     errorMessage: {
-                        format: 'The date the crime happened must be today or in the past'
+                        format:
+                            'Enter the date the crime happened and include a day, month and year',
+                        formatMaximum: 'The date the crime happened must be today or in the past'
                     }
                 },
                 'when-did-the-crime-happen': {
@@ -605,11 +613,14 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-start': {
                     type: 'string',
-                    format: 'date-time--in-past',
+                    // format: 'date-time--in-past',
+                    format: 'date-time',
+                    formatMaximum: '__YESTERDAY__',
                     title: 'When did it start?',
                     description: 'For example, 02 2020. You can enter an approximate date.',
                     errorMessage: {
-                        format: 'The date the crime started must be in the past'
+                        format: 'Enter the date the crime started and include a month and year',
+                        formatMaximum: 'The date the crime started must be in the past'
                     }
                 },
                 'i-dont-know-when-the-crime-started': {
@@ -645,11 +656,14 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-stop': {
                     type: 'string',
-                    format: 'date-time--today-or-in-past',
+                    // format: 'date-time--today-or-in-past',
+                    format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     title: 'When did it stop?',
                     description: 'For example, 03 2020. You can enter an approximate date.',
                     errorMessage: {
-                        format: 'The date the crime stopped must be today or in the past'
+                        format: 'Enter the date the crime stopped and include a month and year',
+                        formatMaximum: 'The date the crime stopped must be today or in the past'
                     }
                 },
                 'i-dont-know-when-the-crime-stopped': {
@@ -1835,10 +1849,12 @@ module.exports = {
                 'q-applicant-enter-your-date-of-birth': {
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__YESTERDAY__',
                     title: 'Enter your date of birth',
                     description: 'For example, 31 3 1980.',
                     errorMessage: {
-                        format: 'Enter your date of birth and include a day, month and year'
+                        format: 'Enter your date of birth and include a day, month and year',
+                        formatMaximum: 'Your date of birth must be in the past'
                     }
                 }
             },

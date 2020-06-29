@@ -41,7 +41,7 @@
         ]
     },
     "devDependencies": {
-        "ajv-formats-date-comparison": "github:CriminalInjuriesCompensationAuthority/ajv-formats-date-comparison#v0.0.1",
+        "ajv-formats-date-comparison": "file:../ajv-formats-date-comparison",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v0.0.1",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.0.0",
@@ -55,7 +55,7 @@
         "lint-staged": "^9.5.0",
         "prettier": "^1.19.1",
         "q-base-config": "github:CriminalInjuriesCompensationAuthority/q-base-config#v0.6.0",
-        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v0.0.3"
+        "q-template-validator": "file:../q-template-validator"
     },
     "dependencies": {}
 }
