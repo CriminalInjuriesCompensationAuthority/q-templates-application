@@ -2868,25 +2868,27 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-what-was-injured': {
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Head, face or neck',
-                            const: 'upper'
-                        },
-                        {
-                            title: 'Torso',
-                            const: 'torso'
-                        },
-                        {
-                            title: 'Arms or hands',
-                            const: 'arms'
-                        },
-                        {
-                            title: 'Legs or feet',
-                            const: 'legs'
-                        }
-                    ]
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Head, face or neck',
+                                const: 'upper'
+                            },
+                            {
+                                title: 'Torso',
+                                const: 'torso'
+                            },
+                            {
+                                title: 'Arms or hands',
+                                const: 'arms'
+                            },
+                            {
+                                title: 'Legs or feet',
+                                const: 'legs'
+                            }
+                        ]
+                    }
                 }
             },
             errorMessage: {
@@ -2896,24 +2898,24 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-what-was-injured': 'upper'
+                    'q-applicant-what-was-injured': ['upper']
                 },
                 {
-                    'q-applicant-what-was-injured': 'torso'
+                    'q-applicant-what-was-injured': ['torso']
                 },
                 {
-                    'q-applicant-what-was-injured': 'arms'
+                    'q-applicant-what-was-injured': ['arms']
                 },
                 {
-                    'q-applicant-what-was-injured': 'legs'
+                    'q-applicant-what-was-injured': ['legs']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-what-was-injured': 999999999
+                    'q-applicant-what-was-injured': ['not-a-key']
                 },
                 {
-                    'q-applicant-what-was-injured': 'not-a-key'
+                    'q-applicant-what-was-injured': 'not-an-array'
                 }
             ]
         },
@@ -2925,41 +2927,43 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-what-was-injured-upper': {
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Head or brain',
-                            const: 'head'
-                        },
-                        {
-                            title: 'Face',
-                            const: 'face'
-                        },
-                        {
-                            title: 'Neck',
-                            const: 'neck'
-                        },
-                        {
-                            title: 'Eye or eyesight',
-                            const: 'eye'
-                        },
-                        {
-                            title: 'Ear or hearing',
-                            const: 'ear'
-                        },
-                        {
-                            title: 'Nose',
-                            const: 'nose'
-                        },
-                        {
-                            title: 'Teeth',
-                            const: 'teeth'
-                        },
-                        {
-                            title: 'Tongue',
-                            const: 'tongue'
-                        }
-                    ]
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Head or brain',
+                                const: 'head'
+                            },
+                            {
+                                title: 'Face',
+                                const: 'face'
+                            },
+                            {
+                                title: 'Neck',
+                                const: 'neck'
+                            },
+                            {
+                                title: 'Eye or eyesight',
+                                const: 'eye'
+                            },
+                            {
+                                title: 'Ear or hearing',
+                                const: 'ear'
+                            },
+                            {
+                                title: 'Nose',
+                                const: 'nose'
+                            },
+                            {
+                                title: 'Teeth',
+                                const: 'teeth'
+                            },
+                            {
+                                title: 'Tongue',
+                                const: 'tongue'
+                            }
+                        ]
+                    }
                 }
             },
             errorMessage: {
@@ -2969,16 +2973,16 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-what-was-injured-upper': 'head'
+                    'q-applicant-what-was-injured-upper': ['head']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': 'neck'
+                    'q-applicant-what-was-injured-upper': ['neck']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': 'face'
+                    'q-applicant-what-was-injured-upper': ['face']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': 'eye'
+                    'q-applicant-what-was-injured-upper': ['eye']
                 }
             ],
             invalidExamples: [
@@ -2986,7 +2990,10 @@ module.exports = {
                     'q-applicant-what-was-injured-upper': 999999999
                 },
                 {
-                    'q-applicant-what-was-injured-upper': 'not-a-key'
+                    'q-applicant-what-was-injured-upper': 'not-an-array'
+                },
+                {
+                    'q-applicant-what-was-injured-upper': ['not-a-key']
                 }
             ]
         },
@@ -2998,25 +3005,27 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-select-head-injuries': {
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Brain damage',
-                            const: 'phyinj-005'
-                        },
-                        {
-                            title: 'Epilepsy',
-                            const: 'phyinj-006'
-                        },
-                        {
-                            title: 'Nerve damage',
-                            const: 'phyinj-007'
-                        },
-                        {
-                            title: 'Fractured skull',
-                            const: 'phyinj-044'
-                        }
-                    ]
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Brain damage',
+                                const: 'phyinj-003'
+                            },
+                            {
+                                title: 'Epilepsy',
+                                const: 'phyinj-004'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-005'
+                            },
+                            {
+                                title: 'Fractured skull',
+                                const: 'phyinj-042'
+                            }
+                        ]
+                    }
                 }
             },
             errorMessage: {
@@ -3026,7 +3035,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-head-injuries': 'phyinj-044'
+                    'q-applicant-select-head-injuries': ['phyinj-042']
                 }
             ],
             invalidExamples: [
@@ -3034,7 +3043,10 @@ module.exports = {
                     'q-applicant-select-head-injuries': 999999999
                 },
                 {
-                    'q-applicant-select-head-injuries': 'not-a-key'
+                    'q-applicant-select-head-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-select-head-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3046,33 +3058,35 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-select-face-injuries': {
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Face fractures',
-                            const: 'phyinj-037'
-                        },
-                        {
-                            title: 'Face numbness',
-                            const: 'phyinj-038'
-                        },
-                        {
-                            title: 'Broken cheekbone',
-                            const: 'phyinj-039'
-                        },
-                        {
-                            title: 'Broken jaw',
-                            const: 'phyinj-036'
-                        },
-                        {
-                            title: 'Clicking jaw',
-                            const: 'phyinj-031'
-                        },
-                        {
-                            title: 'Dislocated jaw',
-                            const: 'phyinj-032'
-                        }
-                    ]
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Face fractures',
+                                const: 'phyinj-035'
+                            },
+                            {
+                                title: 'Face numbness',
+                                const: 'phyinj-036'
+                            },
+                            {
+                                title: 'Broken cheekbone',
+                                const: 'phyinj-037'
+                            },
+                            {
+                                title: 'Broken jaw',
+                                const: 'phyinj-034'
+                            },
+                            {
+                                title: 'Clicking jaw',
+                                const: 'phyinj-029'
+                            },
+                            {
+                                title: 'Dislocated jaw',
+                                const: 'phyinj-030'
+                            }
+                        ]
+                    }
                 }
             },
             errorMessage: {
@@ -3082,7 +3096,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-face-injuries': 'phyinj-032'
+                    'q-applicant-select-face-injuries': ['phyinj-030']
                 }
             ],
             invalidExamples: [
@@ -3090,7 +3104,10 @@ module.exports = {
                     'q-applicant-select-face-injuries': 999999999
                 },
                 {
-                    'q-applicant-select-face-injuries': 'not-a-key'
+                    'q-applicant-select-face-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-select-face-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3102,17 +3119,19 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-select-neck-injuries': {
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Broken hyoid (throat bone)',
-                            const: 'phyinj-040'
-                        },
-                        {
-                            title: 'Whiplash',
-                            const: 'phyinj-041'
-                        }
-                    ]
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken hyoid (throat bone)',
+                                const: 'phyinj-038'
+                            },
+                            {
+                                title: 'Whiplash',
+                                const: 'phyinj-039'
+                            }
+                        ]
+                    }
                 }
             },
             errorMessage: {
@@ -3122,7 +3141,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-neck-injuries': 'phyinj-041'
+                    'q-applicant-select-neck-injuries': ['phyinj-039']
                 }
             ],
             invalidExamples: [
@@ -3130,7 +3149,10 @@ module.exports = {
                     'q-applicant-select-neck-injuries': 999999999
                 },
                 {
-                    'q-applicant-select-neck-injuries': 'not-a-key'
+                    'q-applicant-select-neck-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-select-neck-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3287,7 +3309,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
+                            target: 'p-applicant-are-you-claiming-for-payments',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -3536,7 +3558,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details',
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
@@ -3567,7 +3589,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details',
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
@@ -3589,7 +3611,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
@@ -3815,7 +3837,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                            target: 'p-applicant-are-you-claiming-for-payments'
                         }
                     ]
                 }
@@ -3856,7 +3878,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments',
+                            target: 'p--context-dmi-details',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
@@ -4071,7 +4093,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -4104,7 +4126,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -4129,7 +4151,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -4146,7 +4168,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -4155,7 +4177,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
