@@ -3158,6 +3158,172 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-physical-injury-upper-eye': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your eye or eyesight',
+            type: 'object',
+            required: ['q-applicant-physical-injury-upper-eye'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-upper-eye': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken eye socket',
+                                const: 'phyinj-013'
+                            },
+                            {
+                                title: 'Temporary blurred vision',
+                                const: 'phyinj-014'
+                            },
+                            {
+                                title: 'Permanent blurred vision',
+                                const: 'phyinj-015'
+                            },
+                            {
+                                title: 'Black eye',
+                                const: 'phyinj-051'
+                            },
+                            {
+                                title: 'Scratched eye',
+                                const: 'phyinj-017'
+                            },
+                            {
+                                title: 'Bleeding in eye',
+                                const: 'phyinj-021'
+                            },
+                            {
+                                title: 'Blindness',
+                                const: 'phyinj-023'
+                            },
+                            {
+                                title: 'Sight loss',
+                                const: 'phyinj-024'
+                            },
+                            {
+                                title: 'Damaged or detached retina',
+                                const: 'phyinj-026'
+                            },
+                            {
+                                title: 'Object in eye',
+                                const: 'phyinj-027'
+                            },
+                            {
+                                title: 'Cataract',
+                                const: 'phyinj-016'
+                            },
+                            {
+                                title: 'Dislocated lens',
+                                const: 'phyinj-019'
+                            },
+                            {
+                                title: 'Glaucoma',
+                                const: 'phyinj-020'
+                            },
+                            {
+                                title: 'Loss of eye',
+                                const: 'phyinj-022'
+                            },
+                            {
+                                title: 'Floater',
+                                const: 'phyinj-025'
+                            },
+                            {
+                                title: 'Damaged eye drain',
+                                const: 'phyinj-028'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-upper-eye': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-upper-eye': ['phyinj-028']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-upper-eye': 999999999
+                },
+                {
+                    'q-applicant-physical-injury-upper-eye': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-upper-eye': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-ear': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your neck',
+            type: 'object',
+            required: ['q-applicant-physical-injury-upper-ear'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-upper-ear': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken ear bone',
+                                const: 'phyinj-006'
+                            },
+                            {
+                                title: 'Hearing loss',
+                                const: 'phyinj-007'
+                            },
+                            {
+                                title: 'Loss of ear',
+                                const: 'phyinj-008'
+                            },
+                            {
+                                title: '1 perforated eardrum',
+                                const: 'phyinj-009'
+                            },
+                            {
+                                title: '2 perforated eardrums',
+                                const: 'phyinj-010'
+                            },
+                            {
+                                title: 'Ringing in ears',
+                                const: 'phyinj-011'
+                            },
+                            {
+                                title: 'Dizziness',
+                                const: 'phyinj-012'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-upper-ear': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-upper-ear': ['phyinj-012']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-upper-ear': 999999999
+                },
+                {
+                    'q-applicant-physical-injury-upper-ear': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-upper-ear': ['not-a-key']
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -4128,6 +4294,22 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -4153,6 +4335,22 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -4170,12 +4368,70 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
                 }
             },
             'p-applicant-physical-injury-upper-neck': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-eye': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-ear': {
                 on: {
                     ANSWER: [
                         {
