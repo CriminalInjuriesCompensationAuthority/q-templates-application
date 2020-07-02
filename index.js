@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.1.0',
+    version: '1.4.0-prerelease+build',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -541,8 +541,7 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time':
-                        'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -751,9 +750,7 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        12345
-                    ],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1561,8 +1558,7 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description:
-                        'We cannot pay compensation if the offender may benefit from it.',
+                    description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2397,8 +2393,7 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -2860,14 +2855,14 @@ module.exports = {
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
         },
-        'p-applicant-what-was-injured': {
+        'p-applicant-physical-injury': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What was injured?',
             type: 'object',
-            required: ['q-applicant-what-was-injured'],
+            required: ['q-applicant-physical-injury'],
             additionalProperties: false,
             properties: {
-                'q-applicant-what-was-injured': {
+                'q-applicant-physical-injury': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -2893,40 +2888,43 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-what-was-injured': 'Select an injury from the list'
+                    'q-applicant-physical-injury': 'Select an injury from the list'
                 }
             },
             examples: [
-                {
-                    'q-applicant-what-was-injured': ['upper']
-                },
-                {
-                    'q-applicant-what-was-injured': ['torso']
-                },
-                {
-                    'q-applicant-what-was-injured': ['arms']
-                },
-                {
-                    'q-applicant-what-was-injured': ['legs']
-                }
+                {'q-applicant-physical-injury': ['legs']},
+                {'q-applicant-physical-injury': ['arms']},
+                {'q-applicant-physical-injury': ['arms', 'legs']},
+                {'q-applicant-physical-injury': ['torso']},
+                {'q-applicant-physical-injury': ['torso', 'legs']},
+                {'q-applicant-physical-injury': ['torso', 'arms']},
+                {'q-applicant-physical-injury': ['torso', 'arms', 'legs']},
+                {'q-applicant-physical-injury': ['upper']},
+                {'q-applicant-physical-injury': ['upper', 'legs']},
+                {'q-applicant-physical-injury': ['upper', 'arms']},
+                {'q-applicant-physical-injury': ['upper', 'arms', 'legs']},
+                {'q-applicant-physical-injury': ['upper', 'torso']},
+                {'q-applicant-physical-injury': ['upper', 'torso', 'legs']},
+                {'q-applicant-physical-injury': ['upper', 'torso', 'arms']},
+                {'q-applicant-physical-injury': ['upper', 'torso', 'arms', 'legs']}
             ],
             invalidExamples: [
                 {
-                    'q-applicant-what-was-injured': ['not-a-key']
+                    'q-applicant-physical-injury': ['not-a-key']
                 },
                 {
-                    'q-applicant-what-was-injured': 'not-an-array'
+                    'q-applicant-physical-injury': 'not-an-array'
                 }
             ]
         },
-        'p-applicant-what-was-injured-upper': {
+        'p-applicant-physical-injury-upper': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What was injured?',
             type: 'object',
-            required: ['q-applicant-what-was-injured-upper'],
+            required: ['q-applicant-physical-injury-upper'],
             additionalProperties: false,
             properties: {
-                'q-applicant-what-was-injured-upper': {
+                'q-applicant-physical-injury-upper': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -2935,12 +2933,8 @@ module.exports = {
                                 const: 'head'
                             },
                             {
-                                title: 'Face',
+                                title: 'Face or jaw',
                                 const: 'face'
-                            },
-                            {
-                                title: 'Neck',
-                                const: 'neck'
                             },
                             {
                                 title: 'Eye or eyesight',
@@ -2955,12 +2949,20 @@ module.exports = {
                                 const: 'nose'
                             },
                             {
-                                title: 'Teeth',
-                                const: 'teeth'
+                                title: 'Mouth',
+                                const: 'mouth'
                             },
                             {
-                                title: 'Tongue',
-                                const: 'tongue'
+                                title: 'Neck',
+                                const: 'neck'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin'
+                            },
+                            {
+                                title: 'Muscle, ligament or tendon',
+                                const: 'muscle'
                             }
                         ]
                     }
@@ -2968,43 +2970,43 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-what-was-injured-upper': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-what-was-injured-upper': ['head']
+                    'q-applicant-physical-injury-upper': ['head']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': ['neck']
+                    'q-applicant-physical-injury-upper': ['neck']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': ['face']
+                    'q-applicant-physical-injury-upper': ['face']
                 },
                 {
-                    'q-applicant-what-was-injured-upper': ['eye']
+                    'q-applicant-physical-injury-upper': ['eye']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-what-was-injured-upper': 999999999
+                    'q-applicant-physical-injury-upper': 999999999
                 },
                 {
-                    'q-applicant-what-was-injured-upper': 'not-an-array'
+                    'q-applicant-physical-injury-upper': 'not-an-array'
                 },
                 {
-                    'q-applicant-what-was-injured-upper': ['not-a-key']
+                    'q-applicant-physical-injury-upper': ['not-a-key']
                 }
             ]
         },
-        'p-applicant-select-head-injuries': {
+        'p-applicant-physical-injury-upper-head': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your head or brain',
             type: 'object',
-            required: ['q-applicant-select-head-injuries'],
+            required: ['q-applicant-physical-injury-upper-head'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-head-injuries': {
+                'q-applicant-physical-injury-upper-head': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3030,34 +3032,34 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-head-injuries': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper-head': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-head-injuries': ['phyinj-042']
+                    'q-applicant-physical-injury-upper-head': ['phyinj-042']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-head-injuries': 999999999
+                    'q-applicant-physical-injury-upper-head': 999999999
                 },
                 {
-                    'q-applicant-select-head-injuries': 'not-an-array'
+                    'q-applicant-physical-injury-upper-head': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-head-injuries': ['not-a-key']
+                    'q-applicant-physical-injury-upper-head': ['not-a-key']
                 }
             ]
         },
-        'p-applicant-select-face-injuries': {
+        'p-applicant-physical-injury-upper-face': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your face',
             type: 'object',
-            required: ['q-applicant-select-face-injuries'],
+            required: ['q-applicant-physical-injury-upper-face'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-face-injuries': {
+                'q-applicant-physical-injury-upper-face': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3091,34 +3093,34 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-face-injuries': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper-face': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-face-injuries': ['phyinj-030']
+                    'q-applicant-physical-injury-upper-face': ['phyinj-030']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-face-injuries': 999999999
+                    'q-applicant-physical-injury-upper-face': 999999999
                 },
                 {
-                    'q-applicant-select-face-injuries': 'not-an-array'
+                    'q-applicant-physical-injury-upper-face': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-face-injuries': ['not-a-key']
+                    'q-applicant-physical-injury-upper-face': ['not-a-key']
                 }
             ]
         },
-        'p-applicant-select-neck-injuries': {
+        'p-applicant-physical-injury-upper-neck': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your neck',
             type: 'object',
-            required: ['q-applicant-select-neck-injuries'],
+            required: ['q-applicant-physical-injury-upper-neck'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-neck-injuries': {
+                'q-applicant-physical-injury-upper-neck': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3136,23 +3138,23 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-neck-injuries': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper-neck': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-neck-injuries': ['phyinj-039']
+                    'q-applicant-physical-injury-upper-neck': ['phyinj-039']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-neck-injuries': 999999999
+                    'q-applicant-physical-injury-upper-neck': 999999999
                 },
                 {
-                    'q-applicant-select-neck-injuries': 'not-an-array'
+                    'q-applicant-physical-injury-upper-neck': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-neck-injuries': ['not-a-key']
+                    'q-applicant-physical-injury-upper-neck': ['not-a-key']
                 }
             ]
         },
@@ -3886,7 +3888,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-what-was-injured',
+                            target: 'p-applicant-physical-injury',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
@@ -4081,14 +4083,14 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-what-was-injured': {
+            'p-applicant-physical-injury': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-what-was-injured-upper',
+                            target: 'p-applicant-physical-injury-upper',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured.q-applicant-what-was-injured',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
                                 'upper'
                             ]
                         },
@@ -4098,30 +4100,30 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-what-was-injured-upper': {
+            'p-applicant-physical-injury-upper': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-head-injuries',
+                            target: 'p-applicant-physical-injury-upper-head',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'head'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-face-injuries',
+                            target: 'p-applicant-physical-injury-upper-face',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'face'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-neck-injuries',
+                            target: 'p-applicant-physical-injury-upper-neck',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'neck'
                             ]
                         },
@@ -4131,22 +4133,22 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-select-head-injuries': {
+            'p-applicant-physical-injury-upper-head': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-face-injuries',
+                            target: 'p-applicant-physical-injury-upper-face',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'face'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-neck-injuries',
+                            target: 'p-applicant-physical-injury-upper-neck',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'neck'
                             ]
                         },
@@ -4156,14 +4158,14 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-select-face-injuries': {
+            'p-applicant-physical-injury-upper-face': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-neck-injuries',
+                            target: 'p-applicant-physical-injury-upper-neck',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'neck'
                             ]
                         },
@@ -4173,7 +4175,7 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-select-neck-injuries': {
+            'p-applicant-physical-injury-upper-neck': {
                 on: {
                     ANSWER: [
                         {
