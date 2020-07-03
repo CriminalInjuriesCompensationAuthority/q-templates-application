@@ -444,7 +444,6 @@ module.exports = {
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
                     type: 'string',
-                    // format: 'date-time--today-or-in-past',
                     format: 'date-time',
                     formatMaximum: '__TODAY__',
                     title: 'When was the crime reported to the police?',
@@ -566,7 +565,6 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-happen': {
                     type: 'string',
-                    // format: 'date-time--today-or-in-past',
                     format: 'date-time',
                     formatMaximum: '__TODAY__',
                     title: 'When did the crime happen?',
@@ -613,7 +611,6 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-start': {
                     type: 'string',
-                    // format: 'date-time--in-past',
                     format: 'date-time',
                     formatMaximum: '__YESTERDAY__',
                     title: 'When did it start?',
@@ -656,7 +653,6 @@ module.exports = {
             properties: {
                 'q-applicant-when-did-the-crime-stop': {
                     type: 'string',
-                    // format: 'date-time--today-or-in-past',
                     format: 'date-time',
                     formatMaximum: '__TODAY__',
                     title: 'When did it stop?',
