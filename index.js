@@ -3324,14 +3324,14 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-select-nose-injuries': {
+        'p-applicant-physical-injury-upper-nose': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your nose',
             type: 'object',
-            required: ['q-applicant-select-nose-injuries'],
+            required: ['q-applicant-physical-injury-upper-nose'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-nose-injuries': {
+                'q-applicant-physical-injury-upper-nose': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3361,34 +3361,34 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-nose-injuries': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper-nose': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-nose-injuries': ['phyinj-032']
+                    'q-applicant-physical-injury-upper-nose': ['phyinj-032']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-nose-injuries': 999999999
+                    'q-applicant-physical-injury-upper-nose': 999999999
                 },
                 {
-                    'q-applicant-select-nose-injuries': 'not-an-array'
+                    'q-applicant-physical-injury-upper-nose': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-nose-injuries': ['not-a-key']
+                    'q-applicant-physical-injury-upper-nose': ['not-a-key']
                 }
             ]
         },
-        'p-applicant-select-mouth-injuries': {
+        'p-applicant-physical-injury-upper-mouth': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your mouth',
             type: 'object',
-            required: ['q-applicant-select-mouth-injuries'],
+            required: ['q-applicant-physical-injury-upper-mouth'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-mouth-injuries': {
+                'q-applicant-physical-injury-upper-mouth': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3422,23 +3422,23 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-mouth-injuries': 'Select an injury from the list'
+                    'q-applicant-physical-injury-upper-mouth': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-mouth-injuries': ['phyinj-040']
+                    'q-applicant-physical-injury-upper-mouth': ['phyinj-040']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-mouth-injuries': 999999999
+                    'q-applicant-physical-injury-upper-mouth': 999999999
                 },
                 {
-                    'q-applicant-select-mouth-injuries': 'not-an-array'
+                    'q-applicant-physical-injury-upper-mouth': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-mouth-injuries': ['not-a-key']
+                    'q-applicant-physical-injury-upper-mouth': ['not-a-key']
                 }
             ]
         },
@@ -4428,18 +4428,18 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4485,18 +4485,18 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4534,18 +4534,18 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4575,18 +4575,18 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4608,18 +4608,18 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4630,22 +4630,21 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-upper-ear': {
-
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-nose-injuries',
+                            target: 'p-applicant-physical-injury-upper-nose',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'nose'
                             ]
                         },
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4655,14 +4654,14 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-select-nose-injuries': {
+            'p-applicant-physical-injury-upper-nose': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-mouth-injuries',
+                            target: 'p-applicant-physical-injury-upper-mouth',
                             cond: [
                                 'includes',
-                                '$.answers.p-applicant-what-was-injured-upper.q-applicant-what-was-injured-upper',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
                             ]
                         },
@@ -4672,7 +4671,7 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-select-mouth-injuries': {
+            'p-applicant-physical-injury-upper-mouth': {
                 on: {
                     ANSWER: [
                         {
