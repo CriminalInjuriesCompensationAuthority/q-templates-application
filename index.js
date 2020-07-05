@@ -2855,6 +2855,20 @@ module.exports = {
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
         },
+        'p--context-physical-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'About your injuries',
+            additionalProperties: false,
+            properties: {
+                'details-context': {
+                    description:
+                        '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         'p-applicant-physical-injury': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What was injured?',
@@ -4351,7 +4365,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
+                            target: 'p--context-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
@@ -4382,7 +4396,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
+                            target: 'p--context-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
@@ -4404,7 +4418,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                            target: 'p--context-physical-injuries'
                         }
                     ]
                 }
@@ -5543,6 +5557,15 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p--context-physical-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
