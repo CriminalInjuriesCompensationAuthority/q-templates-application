@@ -3456,6 +3456,65 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-physical-injury-upper-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your skin on your head, face or neck',
+            type: 'object',
+            required: ['q-applicant-physical-injury-upper-skin'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-upper-skin': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-048'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-049'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-002'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-001'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-upper-skin': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-upper-skin': ['phyinj-001']
+                },
+                {
+                    'q-applicant-physical-injury-upper-skin': ['phyinj-002']
+                },
+                {
+                    'q-applicant-physical-injury-upper-skin': ['phyinj-048']
+                },
+                {
+                    'q-applicant-physical-injury-upper-skin': ['phyinj-049']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-upper-skin': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-upper-skin': ['not-a-key']
+                }
+            ]
+        },
         'p-applicant-physical-injury-arms': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What part of your arms or hands were injured?',
@@ -4973,6 +5032,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5027,6 +5094,14 @@ module.exports = {
                                 'includes',
                                 '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                                 'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
                             ]
                         },
                         {
@@ -5087,6 +5162,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5136,6 +5219,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5177,6 +5268,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5210,6 +5309,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5235,6 +5342,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5249,6 +5364,31 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-upper-mouth': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-skin': {
                 on: {
                     ANSWER: [
                         {
