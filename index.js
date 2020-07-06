@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.4.0-prerelease+build',
+    version: '1.4.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2893,16 +2893,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-what-was-injured': ['upper']
+                    'q-applicant-what-was-injured': []
                 },
                 {
-                    'q-applicant-what-was-injured': ['torso']
-                },
-                {
-                    'q-applicant-what-was-injured': ['arms']
-                },
-                {
-                    'q-applicant-what-was-injured': ['legs']
+                    'q-applicant-what-was-injured': ['upper', 'torso', 'arms', 'legs']
                 }
             ],
             invalidExamples: [
@@ -2968,16 +2962,25 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-what-was-injured-upper': ['head']
-                },
-                {
-                    'q-applicant-what-was-injured-upper': ['neck']
+                    'q-applicant-what-was-injured-upper': []
                 },
                 {
                     'q-applicant-what-was-injured-upper': ['face']
                 },
                 {
+                    'q-applicant-what-was-injured-upper': ['head', 'face']
+                },
+                {
+                    'q-applicant-what-was-injured-upper': ['face', 'neck']
+                },
+                {
+                    'q-applicant-what-was-injured-upper': ['neck', 'eye']
+                },
+                {
                     'q-applicant-what-was-injured-upper': ['eye']
+                },
+                {
+                    'q-applicant-what-was-injured-upper': ['head', 'neck']
                 }
             ],
             invalidExamples: [
@@ -3030,7 +3033,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-head-injuries': ['phyinj-042']
+                    'q-applicant-select-head-injuries': []
+                },
+                {
+                    'q-applicant-select-head-injuries': ['phyinj-003']
                 }
             ],
             invalidExamples: [
@@ -3091,7 +3097,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-face-injuries': ['phyinj-030']
+                    'q-applicant-select-face-injuries': []
+                },
+                {
+                    'q-applicant-select-face-injuries': ['phyinj-029']
                 }
             ],
             invalidExamples: [
@@ -3136,7 +3145,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-select-neck-injuries': ['phyinj-039']
+                    'q-applicant-select-neck-injuries': ['phyinj-038', 'phyinj-039']
                 }
             ],
             invalidExamples: [
