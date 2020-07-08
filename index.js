@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.4.0-prerelease+build',
+    version: '1.4.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2893,20 +2893,12 @@ module.exports = {
             },
             examples: [
                 {'q-applicant-physical-injury': ['legs']},
-                {'q-applicant-physical-injury': ['arms']},
-                {'q-applicant-physical-injury': ['arms', 'legs']},
-                {'q-applicant-physical-injury': ['torso']},
-                {'q-applicant-physical-injury': ['torso', 'legs']},
-                {'q-applicant-physical-injury': ['torso', 'arms']},
-                {'q-applicant-physical-injury': ['torso', 'arms', 'legs']},
-                {'q-applicant-physical-injury': ['upper']},
-                {'q-applicant-physical-injury': ['upper', 'legs']},
-                {'q-applicant-physical-injury': ['upper', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'arms', 'legs']},
                 {'q-applicant-physical-injury': ['upper', 'torso']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'legs']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'arms', 'legs']}
+                {'q-applicant-physical-injury': ['upper', 'arms']},
+                {'q-applicant-physical-injury': ['upper', 'legs']},
+                {'q-applicant-physical-injury': ['torso', 'arms']},
+                {'q-applicant-physical-injury': ['torso', 'legs']},
+                {'q-applicant-physical-injury': ['arms', 'legs']}
             ],
             invalidExamples: [
                 {
@@ -2978,19 +2970,25 @@ module.exports = {
                     'q-applicant-physical-injury-upper': ['head']
                 },
                 {
+                    'q-applicant-physical-injury-upper': ['head', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'face']
+                },
+                {
                     'q-applicant-physical-injury-upper': ['neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['neck', 'face']
                 },
                 {
                     'q-applicant-physical-injury-upper': ['face']
                 },
                 {
-                    'q-applicant-physical-injury-upper': ['eye']
+                    'q-applicant-physical-injury-upper': ['muscle']
                 }
             ],
             invalidExamples: [
-                {
-                    'q-applicant-physical-injury-upper': 999999999
-                },
                 {
                     'q-applicant-physical-injury-upper': 'not-an-array'
                 },
