@@ -4021,6 +4021,471 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-physical-injury-legs': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What part of your legs or feet were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Hip',
+                                const: 'hip'
+                            },
+                            {
+                                title: 'Leg',
+                                const: 'leg'
+                            },
+                            {
+                                title: 'Knee',
+                                const: 'knee'
+                            },
+                            {
+                                title: 'Ankle',
+                                const: 'ankle'
+                            },
+                            {
+                                title: 'Foot',
+                                const: 'foot'
+                            },
+                            {
+                                title: 'Toes',
+                                const: 'toes'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs': ['hip']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['skin']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-hip': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your hip',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-hip'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-hip': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated hip',
+                                const: 'phyinj-120'
+                            },
+                            {
+                                title: 'Broken hip',
+                                const: 'phyinj-121'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-hip': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-hip': ['phyinj-120']
+                },
+                {
+                    'q-applicant-physical-injury-legs-hip': ['phyinj-121']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-hip': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-hip': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-leg': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your leg',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-leg'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-leg': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken leg',
+                                const: 'phyinj-117'
+                            },
+                            {
+                                title: 'Keyhole surgery to leg',
+                                const: 'phyinj-122'
+                            },
+                            {
+                                title: 'Amputated leg',
+                                const: 'phyinj-126'
+                            },
+                            {
+                                title: 'Paralysed leg',
+                                const: 'phyinj-127'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-leg': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-leg': ['phyinj-117']
+                },
+                {
+                    'q-applicant-physical-injury-legs-leg': ['phyinj-122']
+                },
+                {
+                    'q-applicant-physical-injury-legs-leg': ['phyinj-126']
+                },
+                {
+                    'q-applicant-physical-injury-legs-leg': ['phyinj-127']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-leg': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-leg': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-knee': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your knee',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-knee'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-knee': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated kneecap',
+                                const: 'phyinj-123'
+                            },
+                            {
+                                title: 'Broken kneecap',
+                                const: 'phyinj-124'
+                            },
+                            {
+                                title: 'Removal of kneecap',
+                                const: 'phyinj-125'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-knee': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-knee': ['phyinj-123']
+                },
+                {
+                    'q-applicant-physical-injury-legs-knee': ['phyinj-124']
+                },
+                {
+                    'q-applicant-physical-injury-legs-knee': ['phyinj-125']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-knee': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-knee': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-ankle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your ankle',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-ankle'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-ankle': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated ankle',
+                                const: 'phyinj-114'
+                            },
+                            {
+                                title: 'Broken ankle',
+                                const: 'phyinj-115'
+                            },
+                            {
+                                title: 'Sprained ankle',
+                                const: 'phyinj-116'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-ankle': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-ankle': ['phyinj-114']
+                },
+                {
+                    'q-applicant-physical-injury-legs-ankle': ['phyinj-115']
+                },
+                {
+                    'q-applicant-physical-injury-legs-ankle': ['phyinj-116']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-ankle': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-ankle': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-foot': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your foot',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-foot'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-foot': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken foot',
+                                const: 'phyinj-118'
+                            },
+                            {
+                                title: 'Broken heel',
+                                const: 'phyinj-119'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-foot': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-foot': ['phyinj-118']
+                },
+                {
+                    'q-applicant-physical-injury-legs-foot': ['phyinj-119']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-foot': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-foot': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-toes': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your toes',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-toes'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-toes': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken big toe',
+                                const: 'phyinj-129'
+                            },
+                            {
+                                title: 'Broken toe',
+                                const: 'phyinj-130'
+                            },
+                            {
+                                title: '2 or more broken toes',
+                                const: 'phyinj-136'
+                            },
+                            {
+                                title: 'Amputated big toe',
+                                const: 'phyinj-131'
+                            },
+                            {
+                                title: '1 amputated toe',
+                                const: 'phyinj-132'
+                            },
+                            {
+                                title: '2 or more amputated toes',
+                                const: 'phyinj-133'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-toes': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-129']
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-130']
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-131']
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-132']
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-133']
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['phyinj-136']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-toes': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-toes': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your skin on your legs or feet',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs-skin'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs-skin': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-134'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-135'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-113'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-112'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs-skin': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-legs-skin': ['phyinj-134']
+                },
+                {
+                    'q-applicant-physical-injury-legs-skin': ['phyinj-135']
+                },
+                {
+                    'q-applicant-physical-injury-legs-skin': ['phyinj-113']
+                },
+                {
+                    'q-applicant-physical-injury-legs-skin': ['phyinj-112']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs-skin': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs-skin': ['not-a-key']
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -4966,6 +5431,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5112,6 +5585,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5177,6 +5658,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5234,6 +5723,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5283,6 +5780,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5324,6 +5829,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5357,6 +5870,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5382,6 +5903,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5396,6 +5925,14 @@ module.exports = {
                                 'includes',
                                 '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
                                 'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
                             ]
                         },
                         {
@@ -5521,6 +6058,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5570,6 +6115,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5611,6 +6164,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5644,6 +6205,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5669,6 +6238,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -5686,12 +6263,324 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
                 }
             },
             'p-applicant-physical-injury-arms-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-hip',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'hip'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-leg',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'leg'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-hip': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-leg',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'leg'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-leg': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-knee': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-ankle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-foot': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-toes': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-skin': {
                 on: {
                     ANSWER: [
                         {
