@@ -2972,7 +2972,8 @@ module.exports = {
                             },
                             {
                                 title: 'Skin',
-                                const: 'skin'
+                                const: 'skin',
+                                description: "Including cuts, bruises, burns and scars"
                             },
                             {
                                 title: 'Muscle, ligament or tendon',
@@ -3552,7 +3553,8 @@ module.exports = {
                             },
                             {
                                 title: 'Skin',
-                                const: 'skin'
+                                const: 'skin',
+                                description: "Including cuts, bruises, burns and scars"
                             },
                             {
                                 title: 'Muscle, ligament, or tendon injury',
@@ -4059,7 +4061,8 @@ module.exports = {
                             },
                             {
                                 title: 'Skin',
-                                const: 'skin'
+                                const: 'skin',
+                                description: "Including cuts, bruises, burns and scars"
                             }
                         ]
                     }
