@@ -2743,38 +2743,6 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-are-you-claiming-for-payments': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-payments'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-payments': {
-                    type: 'boolean',
-                    title:
-                        'Are you claiming for a sexually transmitted infection (STI), pregnancy, or loss of a pregnancy?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-payments':
-                        'Select yes if you sare claiming for sexually transmitted infection, pregnancy, or loss of a pregnancy'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-payments': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-payments': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-payments': 'foo'
-                }
-            ]
-        },
         'p-applicant-are-you-claiming-for-loe': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -3513,6 +3481,448 @@ module.exports = {
                 },
                 {
                     'q-applicant-physical-injury-upper-skin': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What parts of your torso were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Shoulder',
+                                const: 'shoulder'
+                            },
+                            {
+                                title: 'Chest',
+                                const: 'chest'
+                            },
+                            {
+                                title: 'Abdomen',
+                                const: 'abdomen'
+                            },
+                            {
+                                title: 'Back',
+                                const: 'back'
+                            },
+                            {
+                                title: 'Pelvis',
+                                const: 'pelvis'
+                            },
+                            {
+                                title: 'Genitals',
+                                const: 'genitals'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin',
+                                description: "Including cuts, bruises, burns and scars"
+                            },
+                            {
+                                title: 'Muscle, ligament, or tendon injury',
+                                const: 'muscle'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso': ['shoulder']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['chest']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['abdomen']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['back']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['pelvis']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['genitals']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['skin']
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['muscle']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-shoulder': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your shoulder',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-shoulder'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-shoulder': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken shoulder',
+                                const: 'phyinj-xxx'
+                            },
+                            {
+                                title: 'Dislocated shoulder',
+                                const: 'phyinj-100'
+                            },
+                            {
+                                title: 'Separated shoulder',
+                                const: 'phyinj-062'
+                            },
+                            {
+                                title: 'Frozen shoulder',
+                                const: 'phyinj-101'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-shoulder': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-shoulder': ['phyinj-100']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-shoulder': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-shoulder': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-chest': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your chest',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-chest'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-chest': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken collarbone',
+                                const: 'phyinj-063'
+                            },
+                            {
+                                title: 'Broken breast bone',
+                                const: 'phyinj-078'
+                            },
+                            {
+                                title: 'Chest surgery',
+                                const: 'phyinj-057'
+                            },
+                            {
+                                title: 'Broken rib',
+                                const: 'phyinj-075'
+                            },
+                            {
+                                title: 'Punctured lung',
+                                const: 'phyinj-070'
+                            },
+                            {
+                                title: 'Collapsed lung',
+                                const: 'phyinj-071'
+                            },
+                            {
+                                title: 'Lung damage from smoke or chemicals',
+                                const: 'phyinj-072'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-chest': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-chest': ['phyinj-072']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-chest': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-chest': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-abdomen': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your abdomen',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-abdomen'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-abdomen': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Kidney damage',
+                                const: 'phyinj-069'
+                            },
+                            {
+                                title: 'Loss of kidney',
+                                const: 'phyinj-068'
+                            },
+                            {
+                                title: 'Loss of pancreas',
+                                const: 'phyinj-073'
+                            },
+                            {
+                                title: 'Loss of spleen',
+                                const: 'phyinj-077'
+                            },
+                            {
+                                title: 'Hernia',
+                                const: 'phyinj-067'
+                            },
+                            {
+                                title: 'Keyhole surgery on torso',
+                                const: 'phyinj-056'
+                            },
+                            {
+                                title: 'Stoma',
+                                const: 'phyinj-058'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-abdomen': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-abdomen': ['phyinj-058']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-abdomen': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-abdomen': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-back': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your back',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-back'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-back': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken vertebra',
+                                const: 'phyinj-059'
+                            },
+                            {
+                                title: 'Slipped disc',
+                                const: 'phyinj-060'
+                            },
+                            {
+                                title: 'Back strain',
+                                const: 'phyinj-061'
+                            },
+                            {
+                                title: 'Broken tailbone',
+                                const: 'phyinj-064'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-back': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-back': ['phyinj-064']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-back': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-back': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-pelvis': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your pelvis',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-pelvis'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-pelvis': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken pelvis',
+                                const: 'phyinj-074'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-pelvis': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-pelvis': ['phyinj-074']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-pelvis': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-pelvis': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-genitals': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your genitals',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-genitals'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-genitals': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Genital injury',
+                                const: 'phyinj-065'
+                            },
+                            {
+                                title: 'Infertility',
+                                const: 'phyinj-066'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-genitals': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-genitals': ['phyinj-066']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso-genitals': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso-genitals': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to your skin on your torso',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso-skin'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso-skin': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-079'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-080'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-055'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-054'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso-skin': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injury-torso-skin': ['phyinj-054']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-arms-skin': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-arms-skin': ['not-a-key']
                 }
             ]
         },
@@ -4490,6 +4900,115 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-infections'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-infections': {
+                    type: 'boolean',
+                    title: 'Do you have HIV or hepatitis as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-infections':
+                        'Select yes if you have HIV or hepatitis as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-infections': true
+                },
+                {
+                    'q-applicant-infections': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-infections': 'foo'
+                }
+            ]
+        },
+        'p-applicant-select-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Select what infection you have',
+            required: ['q-applicant-select-infections'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-select-infections': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'HIV',
+                                const: 'phyinj-141'
+                            },
+                            {
+                                title: 'Hepatitis B',
+                                const: 'phyinj-142'
+                            },
+                            {
+                                title: 'Hepatitis C',
+                                const: 'phyinj-143'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-select-infections':
+                        'Select an infection from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-select-infections': ['phyinj-141']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-select-infections': 'not-an-array'
+                },
+                {
+                    'q-applicant-select-infections': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-pregnancy': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-pregnancy'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-pregnancy': {
+                    type: 'boolean',
+                    title: 'Did you lose a pregnancy as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-pregnancy':
+                        'Select yes if you lost a pregnancy as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-pregnancy': true
+                },
+                {
+                    'q-applicant-pregnancy': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy': 'foo'
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -4643,7 +5162,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments',
+                            target: 'p-applicant-are-you-claiming-for-loe',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -5171,7 +5690,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments'
+                            target: 'p-applicant-are-you-claiming-for-loe'
                         }
                     ]
                 }
@@ -5224,28 +5743,6 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-payments': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-are-you-claiming-for-loe',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
                                 true
                             ]
                         }
@@ -5427,6 +5924,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5581,6 +6086,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5654,6 +6167,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5719,6 +6240,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5776,6 +6305,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5825,6 +6362,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5866,6 +6411,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5899,6 +6452,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -5921,6 +6482,422 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-upper-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-shoulder',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'shoulder'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-chest',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'chest'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-shoulder': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-chest',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'chest'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-chest': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-abdomen': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-back': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-pelvis': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-genitals': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-skin': {
                 on: {
                     ANSWER: [
                         {
@@ -6594,6 +7571,46 @@ module.exports = {
                 }
             },
             'p--context-physical-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-infections'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-infections.q-applicant-infections',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-select-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-infections.q-applicant-infections',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-pregnancy': {
                 on: {
                     ANSWER: [
                         {
