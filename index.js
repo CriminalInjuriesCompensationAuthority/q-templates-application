@@ -2356,7 +2356,7 @@ module.exports = {
             },
             properties: {
                 'q-applicant-select-treatments-dmi': {
-                    title: "Select any treatments you've had",
+                    title: "What mental health treatments have you had?",
                     description: "Include any treatment you're waiting to get.",
                     type: 'array',
                     items: {
@@ -2504,7 +2504,6 @@ module.exports = {
         'p-applicant-affect-on-daily-life-dmi': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-affect-on-daily-life-dmi'],
             properties: {
                 'q-applicant-affect-on-daily-life-dmi': {
                     type: 'string',
@@ -2515,12 +2514,6 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
                     }
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-affect-on-daily-life-dmi':
-                        'Describe how the crime has affected your daily life'
                 }
             },
             examples: [
@@ -2600,7 +2593,7 @@ module.exports = {
         'p-gp-enter-your-address': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "What is your GP's address?",
+            title: "What is the GP's address?",
             required: [
                 'q-gp-building-and-street',
                 'q-gp-town-or-city',
@@ -4021,8 +4014,8 @@ module.exports = {
                     items: {
                         anyOf: [
                             {
-                                title: 'Broken shoulder',
-                                const: 'phyinj-xxx'
+                                title: 'Broken shoulder blade',
+                                const: 'phyinj-076'
                             },
                             {
                                 title: 'Dislocated shoulder',
@@ -4044,7 +4037,7 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-shoulder': ['phyinj-xxx']
+                    'q-applicant-physical-injury-arms-shoulder': ['phyinj-076']
                 },
                 {
                     'q-applicant-physical-injury-arms-shoulder': ['phyinj-100']
@@ -4766,7 +4759,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-toes': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your toes',
+            title: 'What parts of the toes were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-legs-toes'],
             additionalProperties: false,
@@ -5135,11 +5128,11 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street':
-                        "Enter the name of your GP's practice",
+                        "Enter the name of the place",
                     'q-applicant-treatment-building-and-street2':
-                        'Enter the building and street of your GP',
+                        'Enter the building and street',
                     'q-applicant-treatment-town-or-city':
-                        "Enter the town or city where your GP's practice is"
+                        "Enter the town or city"
                 }
             },
             examples: [
