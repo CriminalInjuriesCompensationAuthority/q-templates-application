@@ -2722,72 +2722,6 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-are-you-claiming-for-loe': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-loe'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-loe': {
-                    type: 'boolean',
-                    description:
-                        'You must have had very limited or no ability to work for more than 28 weeks.',
-                    title: 'Are you claiming for loss of earnings?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-loe':
-                        'Select yes if you sare claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-loe': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': 'foo'
-                }
-            ]
-        },
-        'p-applicant-are-you-claiming-for-expenses': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-expenses'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-expenses': {
-                    type: 'boolean',
-                    description:
-                        'This can include the cost of equipment, changes to your home, and care costs.',
-                    title: 'Are you claiming for expenses as a result of your injuries?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-expenses':
-                        'Select yes if you are claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-expenses': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': 'foo'
-                }
-            ]
-        },
         'p--transition': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -5169,6 +5103,200 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-unable-to-work-duration': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-unable-to-work-duration'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-unable-to-work-duration': {
+                    type: 'boolean',
+                    title: 'Have you been unable to work for more than 28 weeks?',
+                    description: 'This includes working less hours or being unable to look for work'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-unable-to-work-duration':
+                        'Select yes if you have been unable to work for more than 28 weeks'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-unable-to-work-duration': true
+                },
+                {
+                    'q-applicant-unable-to-work-duration': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-unable-to-work-duration': 'foo'
+                }
+            ]
+        },
+        'p-applicant-job-when-crime-happened': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-job-when-crime-happened'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-job-when-crime-happened': {
+                    type: 'boolean',
+                    title: 'Did you have a job when the crime happened?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-job-when-crime-happened':
+                        'Select yes if you had a job when the crime happened'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-job-when-crime-happened': true
+                },
+                {
+                    'q-applicant-job-when-crime-happened': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-job-when-crime-happened': 'foo'
+                }
+            ]
+        },
+        'p-applicant-work-details-option': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-work-details-option'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-work-details-option': {
+                    title: 'Select the option that applies to you',
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'I was too young to work',
+                            const: 'underage-for-work'
+                        },
+                        {
+                            title: 'I was in full-time education',
+                            const: 'education'
+                        },
+                        {
+                            title: 'I was caring for someone',
+                            const: 'care'
+                        },
+                        {
+                            title: 'I had been in regular work for at least 3 years before the crime',
+                            const: 'employed'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'other'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-work-details-option':
+                        'Select the option that applies to you'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-work-details-option': 'employed'
+                },
+                {
+                    'q-applicant-work-details-option': 'employed-long-term'
+                },
+                {
+                    'q-applicant-work-details-option': 'underage-for-work'
+                },
+                {
+                    'q-applicant-work-details-option': 'education'
+                },
+                {
+                    'q-applicant-work-details-option': 'care'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-work-details-option': 1234
+                }
+            ]
+        },
+        'p-applicant-expenses': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'What expenses have you had?',
+            required: ['q-applicant-expenses'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-expenses': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Buying or repairing physical aids',
+                                const: 'aids'
+                            },
+                            {
+                                title: 'Alterations to my home',
+                                const: 'alterations'
+                            },
+                            {
+                                title: 'Home care',
+                                const: 'home-care'
+                            },
+                            {
+                                title: "NHS treatment I've paid for",
+                                const: 'treatment',
+                                description: 'Or treatment from the state health service in another country'
+                            },
+                            {
+                                title: 'I have not had these expenses',
+                                const: 'no-expenses'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-expenses': 'Select expenses from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-expenses': ['home-care']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-expenses': 'not-an-array'
+                },
+                {
+                    'q-applicant-expenses': ['not-a-key']
+                }
+            ]
+        },
+        'p--context-money': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your money',
+            additionalProperties: false,
+            properties: {
+                'money-context': {
+                    description:
+                        '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -5322,7 +5450,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-loe',
+                            target: 'p--context-applicant-details',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -5850,7 +5978,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-loe'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -5903,50 +6031,6 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-loe': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-are-you-claiming-for-expenses',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-expenses': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--context-applicant-details',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
                                 true
                             ]
                         }
@@ -6075,7 +6159,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation'
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -7816,12 +7900,73 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-compensation'
+                            target: 'p--context-money'
                         }
                     ]
                 }
             },
             'p-applicant-treatment-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p--context-money': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-unable-to-work-duration'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-unable-to-work-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-job-when-crime-happened',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-job-when-crime-happened': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-work-details-option'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-work-details-option': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-expenses': {
                 on: {
                     ANSWER: [
                         {
