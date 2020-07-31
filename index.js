@@ -2705,13 +2705,13 @@ module.exports = {
             properties: {
                 'q-applicant-are-you-claiming-for-physical-injuries': {
                     type: 'boolean',
-                    title: 'Are you claiming for any physical injuries?'
+                    title: 'Do you have physical injuries as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-are-you-claiming-for-physical-injuries':
-                        'Select yes if you sare claiming for a physical injury'
+                        'Select yes if you have physical injuries as a result of the crime'
                 }
             },
             examples: [
@@ -2725,72 +2725,6 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-applicant-are-you-claiming-for-physical-injuries': 'foo'
-                }
-            ]
-        },
-        'p-applicant-are-you-claiming-for-loe': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-loe'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-loe': {
-                    type: 'boolean',
-                    description:
-                        'You must have had very limited or no ability to work for more than 28 weeks.',
-                    title: 'Are you claiming for loss of earnings?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-loe':
-                        'Select yes if you sare claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-loe': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': 'foo'
-                }
-            ]
-        },
-        'p-applicant-are-you-claiming-for-expenses': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-expenses'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-expenses': {
-                    type: 'boolean',
-                    description:
-                        'This can include the cost of equipment, changes to your home, and care costs.',
-                    title: 'Are you claiming for expenses as a result of your injuries?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-expenses':
-                        'Select yes if you are claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-expenses': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': 'foo'
                 }
             ]
         },
@@ -2865,15 +2799,10 @@ module.exports = {
                 {'q-applicant-physical-injury': ['torso']},
                 {'q-applicant-physical-injury': ['torso', 'legs']},
                 {'q-applicant-physical-injury': ['torso', 'arms']},
-                {'q-applicant-physical-injury': ['torso', 'arms', 'legs']},
                 {'q-applicant-physical-injury': ['upper']},
                 {'q-applicant-physical-injury': ['upper', 'legs']},
                 {'q-applicant-physical-injury': ['upper', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'arms', 'legs']},
                 {'q-applicant-physical-injury': ['upper', 'torso']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'legs']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'torso', 'arms', 'legs']}
             ],
             invalidExamples: [
                 {
@@ -2942,23 +2871,53 @@ module.exports = {
                 }
             },
             examples: [
-                {
-                    'q-applicant-physical-injury-upper': ['head']
-                },
-                {
-                    'q-applicant-physical-injury-upper': ['neck']
-                },
-                {
-                    'q-applicant-physical-injury-upper': ['face']
-                },
-                {
-                    'q-applicant-physical-injury-upper': ['eye']
-                }
+                {'q-applicant-physical-injury-upper': ['head']},
+                {'q-applicant-physical-injury-upper': ['head', 'face']},
+                {'q-applicant-physical-injury-upper': ['head', 'eye']},
+                {'q-applicant-physical-injury-upper': ['head', 'ear']},
+                {'q-applicant-physical-injury-upper': ['head', 'nose']},
+                {'q-applicant-physical-injury-upper': ['head', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['head', 'neck']},
+                {'q-applicant-physical-injury-upper': ['head', 'skin']},
+                {'q-applicant-physical-injury-upper': ['head', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['face']},
+                {'q-applicant-physical-injury-upper': ['face', 'eye']},
+                {'q-applicant-physical-injury-upper': ['face', 'ear']},
+                {'q-applicant-physical-injury-upper': ['face', 'nose']},
+                {'q-applicant-physical-injury-upper': ['face', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['face', 'neck']},
+                {'q-applicant-physical-injury-upper': ['face', 'skin']},
+                {'q-applicant-physical-injury-upper': ['face', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['eye']},
+                {'q-applicant-physical-injury-upper': ['eye', 'ear']},
+                {'q-applicant-physical-injury-upper': ['eye', 'nose']},
+                {'q-applicant-physical-injury-upper': ['eye', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['eye', 'neck']},
+                {'q-applicant-physical-injury-upper': ['eye', 'skin']},
+                {'q-applicant-physical-injury-upper': ['eye', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['ear']},
+                {'q-applicant-physical-injury-upper': ['ear', 'nose']},
+                {'q-applicant-physical-injury-upper': ['ear', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['ear', 'neck']},
+                {'q-applicant-physical-injury-upper': ['ear', 'skin']},
+                {'q-applicant-physical-injury-upper': ['ear', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['nose']},
+                {'q-applicant-physical-injury-upper': ['nose', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['nose', 'neck']},
+                {'q-applicant-physical-injury-upper': ['nose', 'skin']},
+                {'q-applicant-physical-injury-upper': ['nose', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['mouth']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'neck']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'skin']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['neck']},
+                {'q-applicant-physical-injury-upper': ['neck', 'skin']},
+                {'q-applicant-physical-injury-upper': ['neck', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['skin']},
+                {'q-applicant-physical-injury-upper': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['muscle']}
             ],
             invalidExamples: [
-                {
-                    'q-applicant-physical-injury-upper': 999999999
-                },
                 {
                     'q-applicant-physical-injury-upper': 'not-an-array'
                 },
@@ -2971,10 +2930,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your head or brain',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-head'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-head': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3000,23 +2959,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-head': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-head': ['phyinj-042']
+                    'q-applicant-physical-injuries': ['phyinj-042']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-head': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-head': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-head': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3024,10 +2980,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your face',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-face'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-face': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3061,23 +3017,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-face': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-face': ['phyinj-030']
+                    'q-applicant-physical-injuries': ['phyinj-030']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-face': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-face': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-face': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3085,10 +3038,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your neck',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-neck'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-neck': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3106,23 +3059,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-neck': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-neck': ['phyinj-039']
+                    'q-applicant-physical-injuries': ['phyinj-039']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-neck': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-neck': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-neck': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3130,10 +3080,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your eye or eyesight',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-eye'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-eye': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3207,23 +3157,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-eye': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-eye': ['phyinj-028']
+                    'q-applicant-physical-injuries': ['phyinj-028']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-eye': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-eye': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-eye': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3231,10 +3178,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your ear or hearing',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-ear'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-ear': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3272,23 +3219,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-ear': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-ear': ['phyinj-012']
+                    'q-applicant-physical-injuries': ['phyinj-012']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-ear': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-ear': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-ear': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3296,10 +3240,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your nose',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-nose'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-nose': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3329,23 +3273,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-nose': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-nose': ['phyinj-032']
+                    'q-applicant-physical-injuries': ['phyinj-032']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-nose': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-nose': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-nose': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3353,10 +3294,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your mouth',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-mouth'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-mouth': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3390,23 +3331,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-mouth': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-mouth': ['phyinj-040']
+                    'q-applicant-physical-injuries': ['phyinj-040']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-mouth': 999999999
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-mouth': 'not-an-array'
-                },
-                {
-                    'q-applicant-physical-injury-upper-mouth': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3414,10 +3352,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your skin on your head, face or neck',
             type: 'object',
-            required: ['q-applicant-physical-injury-upper-skin'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-upper-skin': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3443,29 +3381,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-upper-skin': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-upper-skin': ['phyinj-001']
-                },
-                {
-                    'q-applicant-physical-injury-upper-skin': ['phyinj-002']
-                },
-                {
-                    'q-applicant-physical-injury-upper-skin': ['phyinj-048']
-                },
-                {
-                    'q-applicant-physical-injury-upper-skin': ['phyinj-049']
+                    'q-applicant-physical-injuries': ['phyinj-001']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-upper-skin': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-upper-skin': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3523,30 +3452,42 @@ module.exports = {
                 }
             },
             examples: [
-                {
-                    'q-applicant-physical-injury-torso': ['shoulder']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['chest']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['abdomen']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['back']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['pelvis']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['genitals']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['skin']
-                },
-                {
-                    'q-applicant-physical-injury-torso': ['muscle']
-                }
+                {'q-applicant-physical-injury-torso': ['shoulder']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'chest']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'abdomen']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'back']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'skin']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['chest']},
+                {'q-applicant-physical-injury-torso': ['chest', 'abdomen']},
+                {'q-applicant-physical-injury-torso': ['chest', 'back']},
+                {'q-applicant-physical-injury-torso': ['chest', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['chest', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['chest', 'skin']},
+                {'q-applicant-physical-injury-torso': ['chest', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['abdomen']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'back']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'skin']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['back']},
+                {'q-applicant-physical-injury-torso': ['back', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['back', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['back', 'skin']},
+                {'q-applicant-physical-injury-torso': ['back', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['pelvis']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'skin']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['genitals']},
+                {'q-applicant-physical-injury-torso': ['genitals', 'skin']},
+                {'q-applicant-physical-injury-torso': ['genitals', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['skin']},
+                {'q-applicant-physical-injury-torso': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['muscle']}
             ],
             invalidExamples: [
                 {
@@ -3561,16 +3502,16 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your shoulder',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-shoulder'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-shoulder': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
                             {
-                                title: 'Broken shoulder',
-                                const: 'phyinj-xxx'
+                                title: 'Broken shoulder blade',
+                                const: 'phyinj-076'
                             },
                             {
                                 title: 'Dislocated shoulder',
@@ -3590,20 +3531,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-shoulder': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-shoulder': ['phyinj-100']
+                    'q-applicant-physical-injuries': ['phyinj-100']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-shoulder': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-shoulder': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3611,10 +3552,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your chest',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-chest'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-chest': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3652,20 +3593,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-chest': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-chest': ['phyinj-072']
+                    'q-applicant-physical-injuries': ['phyinj-072']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-chest': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-chest': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3673,10 +3614,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your abdomen',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-abdomen'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-abdomen': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3714,20 +3655,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-abdomen': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-abdomen': ['phyinj-058']
+                    'q-applicant-physical-injuries': ['phyinj-058']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-abdomen': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-abdomen': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3735,10 +3676,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your back',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-back'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-back': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3764,20 +3705,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-back': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-back': ['phyinj-064']
+                    'q-applicant-physical-injuries': ['phyinj-064']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-back': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-back': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3785,10 +3726,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your pelvis',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-pelvis'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-pelvis': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3802,20 +3743,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-pelvis': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-pelvis': ['phyinj-074']
+                    'q-applicant-physical-injuries': ['phyinj-074']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-pelvis': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-pelvis': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3823,10 +3764,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your genitals',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-genitals'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-genitals': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3844,20 +3785,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-genitals': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-genitals': ['phyinj-066']
+                    'q-applicant-physical-injuries': ['phyinj-066']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-torso-genitals': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-torso-genitals': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3865,10 +3806,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your skin on your torso',
             type: 'object',
-            required: ['q-applicant-physical-injury-torso-skin'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-torso-skin': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3894,20 +3835,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-skin': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-torso-skin': ['phyinj-054']
+                    'q-applicant-physical-injuries': ['phyinj-054']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-skin': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-skin': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -3965,30 +3906,42 @@ module.exports = {
                 }
             },
             examples: [
-                {
-                    'q-applicant-physical-injury-arms': ['shoulder']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['arm']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['elbow']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['wrist']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['hand']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['digit']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['skin']
-                },
-                {
-                    'q-applicant-physical-injury-arms': ['muscle']
-                }
+                {'q-applicant-physical-injury-arms': ['shoulder']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'arm']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'elbow']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'hand']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'digit']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'skin']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['arm']},
+                {'q-applicant-physical-injury-arms': ['arm', 'elbow']},
+                {'q-applicant-physical-injury-arms': ['arm', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['arm', 'hand']},
+                {'q-applicant-physical-injury-arms': ['arm', 'digit']},
+                {'q-applicant-physical-injury-arms': ['arm', 'skin']},
+                {'q-applicant-physical-injury-arms': ['arm', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['elbow']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'hand']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'digit']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'skin']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['wrist']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'hand']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'digit']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'skin']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['hand']},
+                {'q-applicant-physical-injury-arms': ['hand', 'digit']},
+                {'q-applicant-physical-injury-arms': ['hand', 'skin']},
+                {'q-applicant-physical-injury-arms': ['hand', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['digit']},
+                {'q-applicant-physical-injury-arms': ['digit', 'skin']},
+                {'q-applicant-physical-injury-arms': ['digit', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['skin']},
+                {'q-applicant-physical-injury-arms': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['muscle']}
             ],
             invalidExamples: [
                 {
@@ -4003,10 +3956,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your shoulder',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-shoulder'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-shoulder': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4028,26 +3981,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-shoulder': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-shoulder': ['phyinj-076']
-                },
-                {
-                    'q-applicant-physical-injury-arms-shoulder': ['phyinj-100']
-                },
-                {
-                    'q-applicant-physical-injury-arms-shoulder': ['phyinj-101']
+                    'q-applicant-physical-injuries': ['phyinj-076']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-shoulder': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-shoulder': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4055,10 +4002,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your arm',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-arm'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-arm': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4080,26 +4027,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-arm': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-arm': ['phyinj-099']
-                },
-                {
-                    'q-applicant-physical-injury-arms-arm': ['phyinj-084']
-                },
-                {
-                    'q-applicant-physical-injury-arms-arm': ['phyinj-085']
+                    'q-applicant-physical-injuries': ['phyinj-099']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-arm': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-arm': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4107,10 +4048,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your elbow',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-elbow'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-elbow': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4128,23 +4069,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-elbow': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-elbow': ['phyinj-086']
-                },
-                {
-                    'q-applicant-physical-injury-arms-elbow': ['phyinj-087']
+                    'q-applicant-physical-injuries': ['phyinj-086']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-elbow': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-elbow': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4152,10 +4090,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your wrist',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-wrist'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-wrist': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4173,23 +4111,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-wrist': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-wrist': ['phyinj-104']
-                },
-                {
-                    'q-applicant-physical-injury-arms-wrist': ['phyinj-105']
+                    'q-applicant-physical-injuries': ['phyinj-104']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-wrist': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-wrist': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4197,10 +4132,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your hand',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-hand'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-hand': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4222,26 +4157,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-hand': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-hand': ['phyinj-096']
-                },
-                {
-                    'q-applicant-physical-injury-arms-hand': ['phyinj-097']
-                },
-                {
-                    'q-applicant-physical-injury-arms-hand': ['phyinj-098']
+                    'q-applicant-physical-injuries': ['phyinj-096']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-hand': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-hand': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4249,10 +4178,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your finger or thumb',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-digit'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-digit': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4310,53 +4239,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-digit': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-110']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-109']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-088']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-089']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-090']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-091']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-092']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-093']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-094']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-095']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-106']
-                },
-                {
-                    'q-applicant-physical-injury-arms-digit': ['phyinj-111']
+                    'q-applicant-physical-injuries': ['phyinj-110']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-digit': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-digit': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4364,10 +4260,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your skin on your arms and hands',
             type: 'object',
-            required: ['q-applicant-physical-injury-arms-skin'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-arms-skin': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4393,29 +4289,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-skin': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-arms-skin': ['phyinj-107']
-                },
-                {
-                    'q-applicant-physical-injury-arms-skin': ['phyinj-108']
-                },
-                {
-                    'q-applicant-physical-injury-arms-skin': ['phyinj-083']
-                },
-                {
-                    'q-applicant-physical-injury-arms-skin': ['phyinj-082']
+                    'q-applicant-physical-injuries': ['phyinj-107']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-arms-skin': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-arms-skin': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4469,27 +4356,34 @@ module.exports = {
                 }
             },
             examples: [
-                {
-                    'q-applicant-physical-injury-legs': ['hip']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['leg']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['knee']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['ankle']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['foot']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['toes']
-                },
-                {
-                    'q-applicant-physical-injury-legs': ['skin']
-                }
+                {'q-applicant-physical-injury-legs': ['hip']},
+                {'q-applicant-physical-injury-legs': ['hip', 'leg']},
+                {'q-applicant-physical-injury-legs': ['hip', 'knee']},
+                {'q-applicant-physical-injury-legs': ['hip', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['hip', 'foot']},
+                {'q-applicant-physical-injury-legs': ['hip', 'toes']},
+                {'q-applicant-physical-injury-legs': ['hip', 'skin']},
+                {'q-applicant-physical-injury-legs': ['leg']},
+                {'q-applicant-physical-injury-legs': ['leg', 'knee']},
+                {'q-applicant-physical-injury-legs': ['leg', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['leg', 'foot']},
+                {'q-applicant-physical-injury-legs': ['leg', 'toes']},
+                {'q-applicant-physical-injury-legs': ['leg', 'skin']},
+                {'q-applicant-physical-injury-legs': ['knee']},
+                {'q-applicant-physical-injury-legs': ['knee', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['knee', 'foot']},
+                {'q-applicant-physical-injury-legs': ['knee', 'toes']},
+                {'q-applicant-physical-injury-legs': ['knee', 'skin']},
+                {'q-applicant-physical-injury-legs': ['ankle']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'foot']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'toes']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'skin']},
+                {'q-applicant-physical-injury-legs': ['foot']},
+                {'q-applicant-physical-injury-legs': ['foot', 'toes']},
+                {'q-applicant-physical-injury-legs': ['foot', 'skin']},
+                {'q-applicant-physical-injury-legs': ['toes']},
+                {'q-applicant-physical-injury-legs': ['toes', 'skin']},
+                {'q-applicant-physical-injury-legs': ['skin']}
             ],
             invalidExamples: [
                 {
@@ -4504,10 +4398,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your hip',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-hip'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-hip': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4525,23 +4419,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-hip': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-hip': ['phyinj-120']
-                },
-                {
-                    'q-applicant-physical-injury-legs-hip': ['phyinj-121']
+                    'q-applicant-physical-injuries': ['phyinj-120']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-hip': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-hip': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4549,10 +4440,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your leg',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-leg'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-leg': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4578,29 +4469,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-leg': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-leg': ['phyinj-117']
-                },
-                {
-                    'q-applicant-physical-injury-legs-leg': ['phyinj-122']
-                },
-                {
-                    'q-applicant-physical-injury-legs-leg': ['phyinj-126']
-                },
-                {
-                    'q-applicant-physical-injury-legs-leg': ['phyinj-127']
+                    'q-applicant-physical-injuries': ['phyinj-117']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-leg': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-leg': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4608,10 +4490,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your knee',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-knee'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-knee': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4633,26 +4515,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-knee': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-knee': ['phyinj-123']
-                },
-                {
-                    'q-applicant-physical-injury-legs-knee': ['phyinj-124']
-                },
-                {
-                    'q-applicant-physical-injury-legs-knee': ['phyinj-125']
+                    'q-applicant-physical-injuries': ['phyinj-123']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-knee': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-knee': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4660,10 +4536,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your ankle',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-ankle'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-ankle': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4685,26 +4561,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-ankle': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-ankle': ['phyinj-114']
-                },
-                {
-                    'q-applicant-physical-injury-legs-ankle': ['phyinj-115']
-                },
-                {
-                    'q-applicant-physical-injury-legs-ankle': ['phyinj-116']
+                    'q-applicant-physical-injuries': ['phyinj-114']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-ankle': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-ankle': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4712,10 +4582,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your foot',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-foot'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-foot': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4733,23 +4603,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-foot': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-foot': ['phyinj-118']
-                },
-                {
-                    'q-applicant-physical-injury-legs-foot': ['phyinj-119']
+                    'q-applicant-physical-injuries': ['phyinj-118']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-foot': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-foot': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4757,10 +4624,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What parts of the toes were injured?',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-toes'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-toes': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4794,35 +4661,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-toes': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-129']
-                },
-                {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-130']
-                },
-                {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-131']
-                },
-                {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-132']
-                },
-                {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-133']
-                },
-                {
-                    'q-applicant-physical-injury-legs-toes': ['phyinj-136']
+                    'q-applicant-physical-injuries': ['phyinj-129']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-toes': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-toes': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4830,10 +4682,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'Select any injuries to your skin on your legs or feet',
             type: 'object',
-            required: ['q-applicant-physical-injury-legs-skin'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-physical-injury-legs-skin': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4859,29 +4711,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-legs-skin': 'Select an injury from the list'
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-physical-injury-legs-skin': ['phyinj-134']
-                },
-                {
-                    'q-applicant-physical-injury-legs-skin': ['phyinj-135']
-                },
-                {
-                    'q-applicant-physical-injury-legs-skin': ['phyinj-113']
-                },
-                {
-                    'q-applicant-physical-injury-legs-skin': ['phyinj-112']
+                    'q-applicant-physical-injuries': ['phyinj-134']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-physical-injury-legs-skin': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-physical-injury-legs-skin': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4893,13 +4736,13 @@ module.exports = {
             properties: {
                 'q-applicant-infections': {
                     type: 'boolean',
-                    title: 'Do you have HIV or hepatitis as a result of the crime?'
+                    title: 'Do you have HIV, hepatitis or an STI as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-infections':
-                        'Select yes if you have HIV or hepatitis as a result of the crime'
+                        'Select yes if you have HIV, hepatitis or an STI as a result of the crime'
                 }
             },
             examples: [
@@ -4920,10 +4763,10 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             title: 'Select what infection you have',
-            required: ['q-applicant-select-infections'],
+            required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-infections': {
+                'q-applicant-physical-injuries': {
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4938,6 +4781,10 @@ module.exports = {
                             {
                                 title: 'Hepatitis C',
                                 const: 'phyinj-143'
+                            },
+                            {
+                                title: 'Other sexually transmitted infection (STI)',
+                                const: 'phyinj-145'
                             }
                         ]
                     }
@@ -4945,20 +4792,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-infections': 'Select an infection from the list'
+                    'q-applicant-physical-injuries': 'Select an infection from the list'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-infections': ['phyinj-141']
+                    'q-applicant-physical-injuries': ['phyinj-141']
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-infections': 'not-an-array'
+                    'q-applicant-physical-injuries': 'not-an-array'
                 },
                 {
-                    'q-applicant-select-infections': ['not-a-key']
+                    'q-applicant-physical-injuries': ['not-a-key']
                 }
             ]
         },
@@ -4970,13 +4817,13 @@ module.exports = {
             properties: {
                 'q-applicant-pregnancy': {
                     type: 'boolean',
-                    title: 'Did you lose a pregnancy as a result of the crime?'
+                    title: 'Did you become pregnant as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-pregnancy':
-                        'Select yes if you lost a pregnancy as a result of the crime'
+                        'Select yes if you became pregnant as a result of the crime'
                 }
             },
             examples: [
@@ -5046,13 +4893,13 @@ module.exports = {
             properties: {
                 'q-applicant-medical-help': {
                     type: 'boolean',
-                    title: 'Did you seek medical help for your injuries?'
+                    title: 'Did you get other medical help for your injuries?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-medical-help':
-                        'Select yes if you sought medical help for your injuries'
+                        'Select yes if you got other medical help for your injuries'
                 }
             },
             examples: [
@@ -5172,6 +5019,270 @@ module.exports = {
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 12345
+                }
+            ]
+        },
+        'p-applicant-unable-to-work-duration': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-unable-to-work-duration'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-unable-to-work-duration': {
+                    type: 'boolean',
+                    title: 'Have you been unable to work for more than 28 weeks?',
+                    description: 'This includes working less hours or being unable to look for work'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-unable-to-work-duration':
+                        'Select yes if you have been unable to work for more than 28 weeks'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-unable-to-work-duration': true
+                },
+                {
+                    'q-applicant-unable-to-work-duration': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-unable-to-work-duration': 'foo'
+                }
+            ]
+        },
+        'p-applicant-job-when-crime-happened': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-job-when-crime-happened'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-job-when-crime-happened': {
+                    type: 'boolean',
+                    title: 'Did you have a job when the crime happened?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-job-when-crime-happened':
+                        'Select yes if you had a job when the crime happened'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-job-when-crime-happened': true
+                },
+                {
+                    'q-applicant-job-when-crime-happened': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-job-when-crime-happened': 'foo'
+                }
+            ]
+        },
+        'p-applicant-work-details-option': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-work-details-option'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-work-details-option': {
+                    title: 'Select the option that applies to you',
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'I was too young to work',
+                            const: 'underage-for-work'
+                        },
+                        {
+                            title: 'I was in full-time education',
+                            const: 'education'
+                        },
+                        {
+                            title: 'I was caring for someone',
+                            const: 'care'
+                        },
+                        {
+                            title:
+                                'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                            const: 'employed'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'other'
+                        }
+                    ]
+                },
+                'q-applicant-work-details-other': {
+                    type: 'string',
+                    title: 'Details',
+                    maxLength: 100,
+                    errorMessage: {
+                        maxLength: 'Other details must be 100 characters or less'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-applicant-work-details-other-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-work-details-option': {
+                                const: 'other'
+                            }
+                        },
+                        required: ['q-applicant-work-details-option']
+                    },
+                    then: {
+                        required: ['q-applicant-work-details-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-work-details-option',
+                                'q-applicant-work-details-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-work-details-other': 'Enter other details'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-work-details-option': 'Select the option that applies to you'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-work-details-option': 'care'
+                },
+                {
+                    'q-applicant-work-details-option': 'other',
+                    'q-applicant-work-details-other': 'a string'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-work-details-option': 1234
+                },
+                {
+                    'q-applicant-work-details-option': 'other'
+                },
+                {
+                    'q-applicant-work-details-option': 'other',
+                    'q-applicant-work-details-other': 1234
+                }
+            ]
+        },
+        'p-applicant-expenses': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'What expenses have you had?',
+            required: ['q-applicant-expenses'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-expenses': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Buying or repairing physical aids',
+                                const: 'aids'
+                            },
+                            {
+                                title: 'Alterations to my home',
+                                const: 'alterations'
+                            },
+                            {
+                                title: 'Home care',
+                                const: 'home-care'
+                            },
+                            {
+                                title: "NHS treatment I've paid for",
+                                const: 'treatment',
+                                description:
+                                    'Or treatment from the state health service in another country'
+                            },
+                            {
+                                title: 'I have not had these expenses',
+                                const: 'no-expenses'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-expenses': 'Select expenses from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-expenses': ['home-care']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-expenses': 'not-an-array'
+                },
+                {
+                    'q-applicant-expenses': ['not-a-key']
+                }
+            ]
+        },
+        'p--context-money': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your money',
+            additionalProperties: false,
+            properties: {
+                'money-context': {
+                    description:
+                        '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-pregnancy-loss': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-pregnancy-loss'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-pregnancy-loss': {
+                    type: 'boolean',
+                    title: 'Did you lose a pregnancy as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-pregnancy-loss':
+                        'Select yes if you lost a pregnancy as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-pregnancy-loss': true
+                },
+                {
+                    'q-applicant-pregnancy-loss': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy-loss': 'foo'
                 }
             ]
         },
@@ -5328,7 +5439,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-loe',
+                            target: 'p--context-applicant-details',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -5856,7 +5967,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-loe'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -5909,50 +6020,6 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-loe': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-are-you-claiming-for-expenses',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-expenses': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--context-applicant-details',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
                                 true
                             ]
                         }
@@ -6021,7 +6088,47 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-treatment'
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-infections.q-applicant-infections',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -6038,7 +6145,15 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-treatments'
+                            target: 'p-applicant-select-treatments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-has-your-treatment-finished-dmi'
                         }
                     ]
                 }
@@ -6081,7 +6196,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation'
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -7788,7 +7903,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                            target: 'p-applicant-pregnancy-loss'
                         }
                     ]
                 }
@@ -7822,7 +7937,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-compensation'
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -7831,7 +7946,77 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p--context-money': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-unable-to-work-duration'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-unable-to-work-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-job-when-crime-happened',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
+                                true
+                            ]
+                        },
+                        {
                             target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-job-when-crime-happened': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-work-details-option'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-work-details-option': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-expenses': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-pregnancy-loss': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
