@@ -541,8 +541,7 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time':
-                        'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -751,9 +750,7 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        12345
-                    ],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1561,8 +1558,7 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description:
-                        'We cannot pay compensation if the offender may benefit from it.',
+                    description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2356,7 +2352,7 @@ module.exports = {
             },
             properties: {
                 'q-applicant-select-treatments-dmi': {
-                    title: "What mental health treatments have you had?",
+                    title: 'What mental health treatments have you had?',
                     description: "Include any treatment you're waiting to get.",
                     type: 'array',
                     items: {
@@ -2397,8 +2393,7 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -3319,8 +3314,7 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title:
-                                    'Broken ethmoid (bone at base of nose) needing operation',
+                                title: 'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             }
                         ]
@@ -3590,8 +3584,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-shoulder':
-                        'Select an injury from the list'
+                    'q-applicant-physical-injury-torso-shoulder': 'Select an injury from the list'
                 }
             },
             examples: [
@@ -3715,8 +3708,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-abdomen':
-                        'Select an injury from the list'
+                    'q-applicant-physical-injury-torso-abdomen': 'Select an injury from the list'
                 }
             },
             examples: [
@@ -3846,8 +3838,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-torso-genitals':
-                        'Select an injury from the list'
+                    'q-applicant-physical-injury-torso-genitals': 'Select an injury from the list'
                 }
             },
             examples: [
@@ -4031,8 +4022,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-injury-arms-shoulder':
-                        'Select an injury from the list'
+                    'q-applicant-physical-injury-arms-shoulder': 'Select an injury from the list'
                 }
             },
             examples: [
@@ -5127,12 +5117,9 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-treatment-building-and-street':
-                        "Enter the name of the place",
-                    'q-applicant-treatment-building-and-street2':
-                        'Enter the building and street',
-                    'q-applicant-treatment-town-or-city':
-                        "Enter the town or city"
+                    'q-applicant-treatment-building-and-street': 'Enter the name of the place',
+                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
+                    'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
             examples: [
