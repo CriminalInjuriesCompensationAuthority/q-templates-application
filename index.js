@@ -4821,13 +4821,13 @@ module.exports = {
             properties: {
                 'q-applicant-infections': {
                     type: 'boolean',
-                    title: 'Do you have HIV or hepatitis as a result of the crime?'
+                    title: 'Do you have HIV, hepatitis or an STI as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-infections':
-                        'Select yes if you have HIV or hepatitis as a result of the crime'
+                        'Select yes if you have HIV, hepatitis or an STI as a result of the crime'
                 }
             },
             examples: [
@@ -4866,6 +4866,10 @@ module.exports = {
                             {
                                 title: 'Hepatitis C',
                                 const: 'phyinj-143'
+                            },
+                            {
+                                title: 'Other sexually transmitted infection (STI)',
+                                const: 'phyinj-145'
                             }
                         ]
                     }
@@ -4898,13 +4902,13 @@ module.exports = {
             properties: {
                 'q-applicant-pregnancy': {
                     type: 'boolean',
-                    title: 'Did you lose a pregnancy as a result of the crime?'
+                    title: 'Did you become pregnant as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-pregnancy':
-                        'Select yes if you lost a pregnancy as a result of the crime'
+                        'Select yes if you became pregnant as a result of the crime'
                 }
             },
             examples: [
@@ -5189,7 +5193,8 @@ module.exports = {
                             const: 'care'
                         },
                         {
-                            title: 'I had been in regular work for at least 3 years before the crime',
+                            title:
+                                'I had been in regular work for at least 3 years before the crime',
                             const: 'employed'
                         },
                         {
@@ -5205,12 +5210,11 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Other details must be 100 characters or less'
                     }
-                },
+                }
             },
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
@@ -5241,8 +5245,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-work-details-option':
-                        'Select the option that applies to you'
+                    'q-applicant-work-details-option': 'Select the option that applies to you'
                 }
             },
             examples: [
@@ -5294,7 +5297,8 @@ module.exports = {
                             {
                                 title: "NHS treatment I've paid for",
                                 const: 'treatment',
-                                description: 'Or treatment from the state health service in another country'
+                                description:
+                                    'Or treatment from the state health service in another country'
                             },
                             {
                                 title: 'I have not had these expenses',
@@ -5336,6 +5340,37 @@ module.exports = {
             },
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-pregnancy-loss': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-pregnancy-loss'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-pregnancy-loss': {
+                    type: 'boolean',
+                    title: 'Did you lose a pregnancy as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-pregnancy-loss':
+                        'Select yes if you lost a pregnancy as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-pregnancy-loss': true
+                },
+                {
+                    'q-applicant-pregnancy-loss': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy-loss': 'foo'
+                }
+            ]
         },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -6167,6 +6202,14 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
                                 true
                             ]
                         },
@@ -7946,7 +7989,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                            target: 'p-applicant-pregnancy-loss'
                         }
                     ]
                 }
@@ -8051,6 +8094,15 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-pregnancy-loss': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
