@@ -5197,6 +5197,46 @@ module.exports = {
                             const: 'other'
                         }
                     ]
+                },
+                'q-applicant-work-details-other': {
+                    type: 'string',
+                    title: 'Details',
+                    maxLength: 100,
+                    errorMessage: {
+                        maxLength: 'Other details must be 100 characters or less'
+                    }
+                },
+            },
+            allOf: [
+                {
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-applicant-work-details-other-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-work-details-option': {
+                                const: 'other'
+                            }
+                        },
+                        required: ['q-applicant-work-details-option']
+                    },
+                    then: {
+                        required: ['q-applicant-work-details-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-work-details-option',
+                                'q-applicant-work-details-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-work-details-other': 'Enter other details'
+                            }
+                        }
+                    }
                 }
             },
             errorMessage: {
@@ -6099,7 +6139,39 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-treatment'
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-infections.q-applicant-infections',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -6116,7 +6188,15 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-select-treatments'
+                            target: 'p-applicant-select-treatments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-has-your-treatment-finished-dmi'
                         }
                     ]
                 }
