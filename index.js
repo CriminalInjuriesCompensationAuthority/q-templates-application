@@ -2753,6 +2753,7 @@ module.exports = {
         'p-applicant-physical-injury': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'What was injured?',
+            description: 'Select all that apply.',
             type: 'object',
             required: ['q-applicant-physical-injury'],
             additionalProperties: false,
@@ -2809,7 +2810,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What was injured?',
+            title: 'What parts of the head, face or neck was injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-upper'],
             additionalProperties: false,
@@ -2922,7 +2923,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-head': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your head or brain',
+            title: 'Select any injuries to the head or brain',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -2932,8 +2933,20 @@ module.exports = {
                     items: {
                         anyOf: [
                             {
+                                title: 'Concussion, headaches or loss of balance lasting 28 or more',
+                                const: 'phyinj-144'
+                            },
+                            {
                                 title: 'Brain damage',
                                 const: 'phyinj-003'
+                            },
+                            {
+                                title: 'Fractured skull',
+                                const: 'phyinj-042'
+                            },
+                            {
+                                title: 'Hair pulled out',
+                                const: 'phyinj-053'
                             },
                             {
                                 title: 'Epilepsy',
@@ -2944,8 +2957,12 @@ module.exports = {
                                 const: 'phyinj-005'
                             },
                             {
-                                title: 'Fractured skull',
-                                const: 'phyinj-042'
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -2972,7 +2989,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-face': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your face',
+            title: 'Select any injuries to the face',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3004,6 +3021,14 @@ module.exports = {
                             {
                                 title: 'Dislocated jaw',
                                 const: 'phyinj-030'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -3046,6 +3071,14 @@ module.exports = {
                             {
                                 title: 'Whiplash',
                                 const: 'phyinj-039'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -3072,7 +3105,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-eye': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your eye or eyesight',
+            title: 'Select any injuries to the eye or eyesight',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3092,6 +3125,10 @@ module.exports = {
                             {
                                 title: 'Permanent blurred vision',
                                 const: 'phyinj-015'
+                            },
+                            {
+                                title: 'Permanent loss of peripheral vision',
+                                const: 'phyinj-018'
                             },
                             {
                                 title: 'Black eye',
@@ -3170,7 +3207,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-ear': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your ear or hearing',
+            title: 'Select any injuries to the ear or hearing',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3232,7 +3269,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-nose': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your nose',
+            title: 'Select any injuries to the nose',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3244,6 +3281,10 @@ module.exports = {
                             {
                                 title: 'Broken nose',
                                 const: 'phyinj-033'
+                            },
+                            {
+                                title: 'Bloody nose',
+                                const: 'phyinj-052'
                             },
                             {
                                 title: 'Loss of smell or taste',
@@ -3286,7 +3327,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-mouth': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your mouth',
+            title: 'Select any injuries to the mouth',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3344,7 +3385,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your skin on your head, face or neck',
+            title: 'Select any injuries to the skin on your head, face or neck',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3394,7 +3435,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What parts of your torso were injured?',
+            title: 'What parts of the torso were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-torso'],
             additionalProperties: false,
@@ -3494,7 +3535,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-shoulder': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your shoulder',
+            title: 'Select any injuries to the shoulder',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3544,7 +3585,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-chest': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your chest',
+            title: 'Select any injuries to the chest',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3606,7 +3647,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-abdomen': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your abdomen',
+            title: 'Select any injuries to the abdomen',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3642,6 +3683,14 @@ module.exports = {
                             {
                                 title: 'Stoma',
                                 const: 'phyinj-058'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -3668,7 +3717,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-back': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your back',
+            title: 'Select any injuries to the back',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3692,6 +3741,14 @@ module.exports = {
                             {
                                 title: 'Broken tailbone',
                                 const: 'phyinj-064'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -3718,7 +3775,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-pelvis': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your pelvis',
+            title: 'Select any injuries to the pelvis',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3756,7 +3813,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-genitals': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your genitals',
+            title: 'Select any injuries to the genitals',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3798,7 +3855,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your skin on your torso',
+            title: 'Select any injuries to the skin on your torso',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3848,7 +3905,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What part of your arms or hands were injured?',
+            title: 'What part of the arms or hands were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-arms'],
             additionalProperties: false,
@@ -3948,7 +4005,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-shoulder': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your shoulder',
+            title: 'Select any injuries to the shoulder',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -3964,6 +4021,10 @@ module.exports = {
                             {
                                 title: 'Dislocated shoulder',
                                 const: 'phyinj-100'
+                            },
+                            {
+                                title: 'Separated shoulder',
+                                const: 'phyinj-062'
                             },
                             {
                                 title: 'Frozen shoulder',
@@ -3994,7 +4055,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-arm': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your arm',
+            title: 'Select any injuries to the arm',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4014,6 +4075,10 @@ module.exports = {
                             {
                                 title: 'Paralysed arm',
                                 const: 'phyinj-085'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -4040,7 +4105,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-elbow': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your elbow',
+            title: 'Select any injuries to the elbow',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4082,7 +4147,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-wrist': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your wrist',
+            title: 'Select any injuries to the wrist',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4124,7 +4189,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-hand': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your hand',
+            title: 'Select any injuries to the hand',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4170,7 +4235,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-digit': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your finger or thumb',
+            title: 'Select any injuries to the finger or thumb',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4226,6 +4291,10 @@ module.exports = {
                             {
                                 title: 'Loss of fingernail',
                                 const: 'phyinj-106'
+                            },
+                            {
+                                title: 'Paralysis of finger',
+                                const: 'phyinj-xxx'
                             }
                         ]
                     }
@@ -4252,7 +4321,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your skin on your arms and hands',
+            title: 'Select any injuries to the skin on your arms and hands',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4302,7 +4371,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What part of your legs or feet were injured?',
+            title: 'What part of the legs or feet were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-legs'],
             additionalProperties: false,
@@ -4390,7 +4459,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-hip': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your hip',
+            title: 'Select any injuries to the hip',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4432,7 +4501,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-leg': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your leg',
+            title: 'Select any injuries to the leg',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4456,6 +4525,14 @@ module.exports = {
                             {
                                 title: 'Paralysed leg',
                                 const: 'phyinj-127'
+                            },
+                            {
+                                title: 'Paraplegia (paralysis of lower half of the body)',
+                                const: 'phyinj-138'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
                             }
                         ]
                     }
@@ -4482,7 +4559,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-knee': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your knee',
+            title: 'Select any injuries to the knee',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4528,7 +4605,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-ankle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your ankle',
+            title: 'Select any injuries to the ankle',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4574,7 +4651,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-foot': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your foot',
+            title: 'Select any injuries to the foot',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
@@ -4648,6 +4725,10 @@ module.exports = {
                             {
                                 title: '2 or more amputated toes',
                                 const: 'phyinj-133'
+                            },
+                            {
+                                title: 'Paralysed toe',
+                                const: 'phyinj-xxx'
                             }
                         ]
                     }
@@ -4674,7 +4755,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your skin on your legs or feet',
+            title: 'Select any injuries to the skin on your legs or feet',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
