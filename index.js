@@ -3055,7 +3055,7 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-neck': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to your neck',
+            title: 'Select any injuries to the neck',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
