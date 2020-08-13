@@ -2838,13 +2838,13 @@ module.exports = {
             properties: {
                 'q-applicant-are-you-claiming-for-physical-injuries': {
                     type: 'boolean',
-                    title: 'Are you claiming for any physical injuries?'
+                    title: 'Do you have physical injuries as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-are-you-claiming-for-physical-injuries':
-                        'Select yes if you sare claiming for a physical injury'
+                        'Select yes if you have physical injuries as a result of the crime'
                 }
             },
             examples: [
@@ -5026,13 +5026,13 @@ module.exports = {
             properties: {
                 'q-applicant-medical-help': {
                     type: 'boolean',
-                    title: 'Did you seek medical help for your injuries?'
+                    title: 'Did you get other medical help for your injuries?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-medical-help':
-                        'Select yes if you sought medical help for your injuries'
+                        'Select yes if you got other medical help for your injuries'
                 }
             },
             examples: [
@@ -5242,7 +5242,7 @@ module.exports = {
                         },
                         {
                             title:
-                                'I had been in regular work for at least 3 years before the crime',
+                                'I did not have a job but I had been in regular work for at least 3 years before the crime',
                             const: 'employed'
                         },
                         {
@@ -6405,14 +6405,6 @@ module.exports = {
             'p-gp-enter-your-address': {
                 on: {
                     ANSWER: [
-                        {
-                            target: 'p-dentist-visited',
-                            cond: [
-                                'includes',
-                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
-                                'upper'
-                            ]
-                        },
                         {
                             target: 'p--context-money'
                         }
