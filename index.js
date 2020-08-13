@@ -2691,6 +2691,145 @@ module.exports = {
                 }
             ]
         },
+        'p-dentist-visited': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-dentist-visited'],
+            additionalProperties: false,
+            properties: {
+                'q-dentist-visited': {
+                    type: 'boolean',
+                    title: 'Have you seen a dentist about your injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-dentist-visited': 'Select yes if you have seen a dentist about your injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-dentist-visited': true
+                },
+                {
+                    'q-dentist-visited': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-dentist-visited': 'foo'
+                }
+            ]
+        },
+        'p-dentist-details': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: "What is the dentist's address?",
+            required: [
+                'q-dentist-details-building-and-street',
+                'q-dentist-details-town-or-city',
+                'q-dentist-details-building-and-street2'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-dentist-details-building-and-street': {
+                    type: 'string',
+                    title: 'Practice name',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Practice name must be less than 60 characters'
+                    }
+                },
+                'q-dentist-details-building-and-street2': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Building and street must be less than 60 characters'
+                    }
+                },
+                'q-dentist-details-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 60 characters or less'
+                    }
+                },
+                'q-dentist-details-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 60 characters or less'
+                    }
+                },
+                'q-dentist-details-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-dentist-details-building-and-street':
+                        "Enter the name of your dentist's practice",
+                    'q-dentist-details-building-and-street2':
+                        'Enter the building and street of your dentist',
+                    'q-dentist-details-town-or-city':
+                        "Enter the town or city where your dentist's practice is"
+                }
+            },
+            examples: [
+                {
+                    'q-dentist-details-building-and-street': '1 Foo Lane',
+                    'q-dentist-details-building-and-street2': 'Flat 2/3',
+                    'q-dentist-details-town-or-city': 'FooCity',
+                    'q-dentist-details-county': 'FooCounty',
+                    'q-dentist-details-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-dentist-details-building-and-street': 12345,
+                    'q-dentist-details-building-and-street2': 'Flat 2/3',
+                    'q-dentist-details-town-or-city': 'FooCity',
+                    'q-dentist-details-county': 'FooCounty',
+                    'q-dentist-details-postcode': 'G1 1XX'
+                },
+                {
+                    'q-dentist-details-building-and-street': '1 Foo Lane',
+                    'q-dentist-details-building-and-street2': 12345,
+                    'q-dentist-details-town-or-city': 'FooCity',
+                    'q-dentist-details-county': 'FooCounty',
+                    'q-dentist-details-postcode': 'G1 1XX'
+                },
+                {
+                    'q-dentist-details-building-and-street': '1 Foo Lane',
+                    'q-dentist-details-building-and-street2': 'Flat 2/3',
+                    'q-dentist-details-town-or-city': 12345,
+                    'q-dentist-details-county': 'FooCounty',
+                    'q-dentist-details-postcode': 'G1 1XX'
+                },
+                {
+                    'q-dentist-details-building-and-street': '1 Foo Lane',
+                    'q-dentist-details-building-and-street2': 'Flat 2/3',
+                    'q-dentist-details-town-or-city': 'FooCity',
+                    'q-dentist-details-county': 12345,
+                    'q-dentist-details-postcode': 'G1 1XX'
+                },
+                {
+                    'q-dentist-details-building-and-street': '1 Foo Lane',
+                    'q-dentist-details-building-and-street2': 'Flat 2/3',
+                    'q-dentist-details-town-or-city': 'FooCity',
+                    'q-dentist-details-county': 'FooCounty',
+                    'q-dentist-details-postcode': 12345
+                }
+            ]
+        },
         'p-applicant-are-you-claiming-for-physical-injuries': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -2699,13 +2838,13 @@ module.exports = {
             properties: {
                 'q-applicant-are-you-claiming-for-physical-injuries': {
                     type: 'boolean',
-                    title: 'Do you have physical injuries as a result of the crime?'
+                    title: 'Are you claiming for any physical injuries?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-are-you-claiming-for-physical-injuries':
-                        'Select yes if you have physical injuries as a result of the crime'
+                        'Select yes if you sare claiming for a physical injury'
                 }
             },
             examples: [
@@ -2796,7 +2935,7 @@ module.exports = {
                 {'q-applicant-physical-injury': ['upper']},
                 {'q-applicant-physical-injury': ['upper', 'legs']},
                 {'q-applicant-physical-injury': ['upper', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'torso']},
+                {'q-applicant-physical-injury': ['upper', 'torso']}
             ],
             invalidExamples: [
                 {
@@ -4887,13 +5026,13 @@ module.exports = {
             properties: {
                 'q-applicant-medical-help': {
                     type: 'boolean',
-                    title: 'Did you get other medical help for your injuries?'
+                    title: 'Did you seek medical help for your injuries?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-medical-help':
-                        'Select yes if you got other medical help for your injuries'
+                        'Select yes if you sought medical help for your injuries'
                 }
             },
             examples: [
@@ -5103,7 +5242,7 @@ module.exports = {
                         },
                         {
                             title:
-                                'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                                'I had been in regular work for at least 3 years before the crime',
                             const: 'employed'
                         },
                         {
@@ -6167,17 +6306,25 @@ module.exports = {
                         {
                             target: 'p-gp-enter-your-address',
                             cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
-                                true
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                    true
+                                ]
                             ]
                         },
                         {
-                            target: 'p-gp-enter-your-address',
+                            target: 'p-dentist-visited',
                             cond: [
-                                '==',
-                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                true
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'upper'
                             ]
                         },
                         {
@@ -6186,9 +6333,86 @@ module.exports = {
                     ]
                 }
             },
+            'p-dentist-visited': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-dentist-details',
+                            cond: ['==', '$.answers.p-dentist-visited.q-dentist-visited', true]
+                        },
+                        {
+                            target: 'p-applicant-medical-help',
+                            // both of the GP boolean questions being false implies they have NOT entered the GP details.
+                            cond: [
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                    false
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p--context-money',
+                            // either of the GP boolean questions being true implies they have entered the GP details.
+                            cond: [
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                    true
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-dentist-details': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-medical-help',
+                            cond: [
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                    false
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
             'p-gp-enter-your-address': {
                 on: {
                     ANSWER: [
+                        {
+                            target: 'p-dentist-visited',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'upper'
+                            ]
+                        },
                         {
                             target: 'p--context-money'
                         }
