@@ -8482,6 +8482,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8563,6 +8571,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8636,6 +8652,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8701,6 +8725,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8758,6 +8790,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8807,6 +8847,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8848,6 +8896,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-torso',
                             cond: [
                                 'includes',
@@ -8878,6 +8934,47 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-upper-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-muscle': {
                 on: {
                     ANSWER: [
                         {
@@ -9035,6 +9132,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9100,6 +9205,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9157,6 +9270,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9206,6 +9327,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9247,6 +9376,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9280,6 +9417,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-arms',
                             cond: [
                                 'includes',
@@ -9302,6 +9447,39 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-torso-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-muscle': {
                 on: {
                     ANSWER: [
                         {
@@ -9451,6 +9629,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9508,6 +9694,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9557,6 +9751,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9598,6 +9800,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9631,6 +9841,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9656,6 +9874,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p-applicant-physical-injury-legs',
                             cond: [
                                 'includes',
@@ -9670,6 +9896,31 @@ module.exports = {
                 }
             },
             'p-applicant-physical-injury-arms-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-muscle': {
                 on: {
                     ANSWER: [
                         {
@@ -9811,6 +10062,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -9860,6 +10119,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -9901,6 +10168,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -9934,6 +10209,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -9959,6 +10242,14 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
@@ -9976,12 +10267,37 @@ module.exports = {
                             ]
                         },
                         {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
                             target: 'p--context-dmi-details'
                         }
                     ]
                 }
             },
             'p-applicant-physical-injury-legs-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-muscle': {
                 on: {
                     ANSWER: [
                         {
