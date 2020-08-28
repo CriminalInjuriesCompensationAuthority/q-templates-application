@@ -7304,6 +7304,128 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-victim-of-violent-crime': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-victim-of-violent-crime'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-victim-of-violent-crime': {
+                    type: 'boolean',
+                    title: 'Were you a victim of violent crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-victim-of-violent-crime':
+                        'Select yes if you were a victim of violent crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-victim-of-violent-crime': true
+                },
+                {
+                    'q-applicant-victim-of-violent-crime': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-victim-of-violent-crime': 'foo'
+                }
+            ]
+        },
+        'p-applicant-you-cannot-get-compensation-violent-crime': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'You cannot get compensation',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'you-cannot-get-compensation': {
+                    description:
+                        '<p class="govuk-body">You can only get compensation from this service if you’ve been a victim of a violent crime.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-non-sa-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-infections'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-infections': {
+                    type: 'boolean',
+                    title: 'Do you have HIV or hepatitis as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-infections':
+                        'Select yes if you have HIV or hepatitis as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-infections': true
+                },
+                {
+                    'q-applicant-infections': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-infections': 'foo'
+                }
+            ]
+        },
+        'p-applicant-select-non-sa-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Select what infection you have',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'HIV',
+                                const: 'phyinj-141'
+                            },
+                            {
+                                title: 'Hepatitis B',
+                                const: 'phyinj-142'
+                            },
+                            {
+                                title: 'Hepatitis C',
+                                const: 'phyinj-143'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an infection from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-141']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -7418,7 +7540,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
+                            target: 'p-applicant-victim-of-violent-crime',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
@@ -8142,6 +8264,14 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-non-sa-infections.q-applicant-infections',
                                 true
                             ]
                         },
@@ -10310,6 +10440,14 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
+                            target: 'p-applicant-non-sa-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
+                                false
+                            ]
+                        },
+                        {
                             target: 'p-applicant-infections'
                         }
                     ]
@@ -10464,6 +10602,63 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-victim-of-violent-crime': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-you-cannot-get-compensation-violent-crime',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-victim-of-violent-crime.q-applicant-victim-of-violent-crime',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--was-the-crime-reported-to-police',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-victim-of-violent-crime.q-applicant-victim-of-violent-crime',
+                                true
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-you-cannot-get-compensation-violent-crime': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--was-the-crime-reported-to-police'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-non-sa-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-non-sa-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-non-sa-infections.q-applicant-infections',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-non-sa-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy-loss'
                         }
                     ]
                 }
