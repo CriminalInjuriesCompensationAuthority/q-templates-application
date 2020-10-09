@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.1.0',
+    version: '1.2.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1924,7 +1924,7 @@ module.exports = {
                     title: 'Town or city',
                     maxLength: 32,
                     errorMessage: {
-                        maxLength: 'Town or city must be 60 characters or less'
+                        maxLength: 'Town or city must be 32 characters or less'
                     }
                 },
                 'q-applicant-county': {
@@ -1932,7 +1932,7 @@ module.exports = {
                     title: 'County (optional)',
                     maxLength: 32,
                     errorMessage: {
-                        maxLength: 'County must be 60 characters or less'
+                        maxLength: 'County must be 32 characters or less'
                     }
                 },
                 'q-applicant-postcode': {
@@ -2053,7 +2053,7 @@ module.exports = {
             properties: {
                 confirmation: {
                     description:
-                        '\n                    {% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}\n                    {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}\n                    \n                    {% if mobilePhoneNumber %}\n                        {% set contactMethod =  mobilePhoneNumber %}\n                    {% else %}\n                        {% set contactMethod =  emailAddress %}\n                    {% endif %}\n\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: "<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p>"\n                    }) }}\n                    \n                    <p class="govuk-body-l">We\'ve sent your reference number to <strong>{{ contactMethod }}</strong></p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>ask you for more information if we need it</li>\n <li>make a decision</li>\n                   <li>send our decision letter by post</li>\n                    </ul>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <h2 class="govuk-heading-m">Contact us</h2>\n <p class="govuk-body">You can contact us on 0300 003 3601. Select option 8.</p>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>\n            '
+                        '\n                    {% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}\n                    {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}\n\n                    {% if mobilePhoneNumber %}\n                        {% set contactMethod =  mobilePhoneNumber %}\n                    {% else %}\n                        {% set contactMethod =  emailAddress %}\n                    {% endif %}\n\n                    {{ govukPanel({\n                        titleText: "Application submitted",\n                        html: "<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p>\n                    <p>We\'ve sent your reference number to <strong>" + contactMethod + "</strong></p>"\n                    }) }}\n\n                    <p class="govuk-body">Thank you for submitting your application.</p>\n                    <h2 class="govuk-heading-m">What happens next</h2>\n                    <p class="govuk-body">We will:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>ask the police for evidence</li>\n                    <li>ask you for more information if we need it</li>\n                    <li>make a decision</li>\n                    <li>send our decision letter by post</li>\n                    </ul>\n                    <p class="govuk-body">We aim to make a decision within 1 year, but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>\n                    {{ govukWarningText({\n                        text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",\n                        iconFallbackText: "Warning"\n                    }) }}\n                    <h2 class="govuk-heading-m">Contact us</h2>\n                    <p class="govuk-body">You can call us on 0300 003 3601.</p>\n                    <p class="govuk-body">We will not usually send an acknowledgement if you:</p>\n                    <ul class="govuk-list govuk-list--bullet">\n                    <li>email us</li>\n                    <li>write to us</li>\n                    <li>send us documents</li>\n                    </ul>\n                    <h2 class="govuk-heading-m">Help us improve this service</h2>\n                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>\n                    <p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p>\n                    <p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
                 }
             },
             examples: [{}],
@@ -2111,7 +2111,10 @@ module.exports = {
             properties: {
                 'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
                     type: 'string',
-                    maxLength: 500
+                    maxLength: 500,
+                    errorMessage: {
+                        maxLength: 'Explanation must be 500 characters or less'
+                    }
                 }
             },
             errorMessage: {
@@ -2356,7 +2359,7 @@ module.exports = {
             },
             properties: {
                 'q-applicant-select-treatments-dmi': {
-                    title: "Select any treatments you've had",
+                    title: 'What mental health treatments have you had',
                     description: "Include any treatment you're waiting to get.",
                     type: 'array',
                     items: {
@@ -2391,7 +2394,10 @@ module.exports = {
                 'q-applicant-other-treatment-dmi': {
                     type: 'string',
                     title: 'Other treatments',
-                    maxLength: 100
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Other treatments must be 499 characters or less'
+                    }
                 }
             },
             required: ['q-applicant-select-treatments-dmi'],
@@ -2504,7 +2510,6 @@ module.exports = {
         'p-applicant-affect-on-daily-life-dmi': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-affect-on-daily-life-dmi'],
             properties: {
                 'q-applicant-affect-on-daily-life-dmi': {
                     type: 'string',
@@ -2515,12 +2520,6 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
                     }
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-affect-on-daily-life-dmi':
-                        'Describe how the crime has affected your daily life'
                 }
             },
             examples: [
@@ -2643,7 +2642,7 @@ module.exports = {
                     title: 'Town or city',
                     maxLength: 32,
                     errorMessage: {
-                        maxLength: 'Town or city must be 60 characters or less'
+                        maxLength: 'Town or city must be 32 characters or less'
                     }
                 },
                 'q-gp-county': {
@@ -2651,7 +2650,7 @@ module.exports = {
                     title: 'County (optional)',
                     maxLength: 32,
                     errorMessage: {
-                        maxLength: 'County must be 60 characters or less'
+                        maxLength: 'County must be 32 characters or less'
                     }
                 },
                 'q-gp-postcode': {
