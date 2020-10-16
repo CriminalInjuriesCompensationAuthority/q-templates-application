@@ -1,7 +1,12 @@
 'use strict';
 
-module.exports = {
-    type: 'apply-for-compensation',
+const Ajv = require('ajv');
+const AjvErrors = require('ajv-errors');
+const ajvFormatsMobileUk = require('ajv-formats-mobile-uk');
+
+const template = id => ({
+    id,
+    type: 'apply-for-fdsfdsfsdfcompensation',
     version: '1.2.0',
     sections: {
         'p-applicant-declaration': {
@@ -541,8 +546,7 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time':
-                        'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -751,9 +755,7 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        12345
-                    ],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1561,8 +1563,7 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description:
-                        'We cannot pay compensation if the offender may benefit from it.',
+                    description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2403,8 +2404,7 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -3816,4 +3816,30 @@ module.exports = {
             ]
         }
     }
-};
+});
+
+function init() {
+    const validatorInstance = new Ajv({
+        allErrors: true,
+        jsonPointers: true,
+        format: 'full',
+        coerceTypes: false
+    });
+    AjvErrors(validatorInstance);
+    validatorInstance.addFormat('mobile-uk', ajvFormatsMobileUk);
+
+    return {
+        template,
+        validatorInstance,
+        validate: (schema, data) => {
+            const validator = validatorInstance.compile(schema);
+            const valid = validator(data);
+            return {
+                valid,
+                errors: validator.errors
+            };
+        }
+    };
+}
+
+module.exports = init;
