@@ -6,7 +6,7 @@ const ajvFormatsMobileUk = require('ajv-formats-mobile-uk');
 
 const template = id => ({
     id,
-    type: 'apply-for-fdsfdsfsdfcompensation',
+    type: 'apply-for-compensation',
     version: '1.2.0',
     sections: {
         'p-applicant-declaration': {
