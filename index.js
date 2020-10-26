@@ -541,8 +541,7 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time':
-                        'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -751,9 +750,7 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        12345
-                    ],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1561,8 +1558,7 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description:
-                        'We cannot pay compensation if the offender may benefit from it.',
+                    description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2403,8 +2399,7 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -3006,8 +3001,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -3687,8 +3681,7 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title:
-                                    'Broken ethmoid (bone at base of nose) needing operation',
+                                title: 'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             },
                             {
@@ -4099,8 +4092,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -4989,8 +4981,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -5883,8 +5874,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -6961,8 +6951,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street': 'Enter the name of the place',
-                    'q-applicant-treatment-building-and-street2':
-                        'Enter the building and street',
+                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
                     'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
@@ -7022,8 +7011,7 @@ module.exports = {
                 'q-applicant-unable-to-work-duration': {
                     type: 'boolean',
                     title: 'Have you been unable to work for more than 28 weeks?',
-                    description:
-                        'This includes working less hours or being unable to look for work'
+                    description: 'This includes working less hours or being unable to look for work'
                 }
             },
             errorMessage: {
@@ -7121,8 +7109,7 @@ module.exports = {
             },
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
@@ -7349,7 +7336,7 @@ module.exports = {
             properties: {
                 'you-cannot-get-compensation': {
                     description:
-                        '<p class="govuk-body">You can only get compensation from this service if you’ve been a victim of a violent crime.</p>'
+                        '<p class="govuk-body">You can only get compensation from this service if you\'ve been a victim of a violent crime.</p><p class="govuk-body">Call us if you want to discuss whether you can claim.</p>{% include \'contact.njk\' %}'
                 }
             },
             examples: [{}],
