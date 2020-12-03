@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.2.3',
+    version: '1.3.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -8373,37 +8373,14 @@ module.exports = {
                         },
                         {
                             target: 'p-applicant-medical-help',
-                            // both of the GP boolean questions being false implies they have NOT entered the GP details.
                             cond: [
-                                'and',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
-                                    false
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                    false
-                                ]
+                                '==',
+                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
                             ]
                         },
                         {
-                            target: 'p--context-money',
-                            // either of the GP boolean questions being true implies they have entered the GP details.
-                            cond: [
-                                'or',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                    true
-                                ]
-                            ]
+                            target: 'p--context-money'
                         }
                     ]
                 }
@@ -8414,17 +8391,9 @@ module.exports = {
                         {
                             target: 'p-applicant-medical-help',
                             cond: [
-                                'and',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
-                                    false
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                    false
-                                ]
+                                '==',
+                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
                             ]
                         },
                         {
@@ -8442,6 +8411,14 @@ module.exports = {
                                 'includes',
                                 '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
                                 'upper'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-medical-help',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
                             ]
                         },
                         {
