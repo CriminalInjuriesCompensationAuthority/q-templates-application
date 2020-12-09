@@ -7450,6 +7450,136 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-provide-additional-information': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-provide-additional-information'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-provide-additional-information': {
+                    type: 'boolean',
+                    title: 'Would you like to add any information to your claim?',
+                    description:
+                        'This may include details of additional crime reference numbers, locations, dates and/or offenders.'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-provide-additional-information':
+                        'Select yes if you would like to add any information to your claim'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-provide-additional-information': true
+                },
+                {
+                    'q-applicant-provide-additional-information': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-provide-additional-information': 'foo'
+                }
+            ]
+        },
+        'p-applicant-additional-information': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-additional-information'],
+            properties: {
+                'q-applicant-additional-information': {
+                    type: 'string',
+                    title: 'Enter additional information',
+                    description:
+                        'You can provide any extra information, including additional crime reference numbers, details of additional crimes, locations, dates and/or offenders here.',
+                    maxLength: 1000,
+                    errorMessage: {
+                        maxLength: 'Additional information must be 1000 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-additional-information':
+                        'Describe what additional information you want to provide'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-additional-information': 'Some info'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-additional-information': 12345
+                }
+            ]
+        },
+        'p-applicant-describe-incident': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-describe-incident'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-describe-incident': {
+                    type: 'boolean',
+                    title: 'Would you like to briefly describe the crime in your own words?',
+                    description: 'The police will send us a report of the crime.'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-describe-incident':
+                        'Select yes if you would like to describe the crime in your own words'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-describe-incident': true
+                },
+                {
+                    'q-applicant-describe-incident': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-describe-incident': 'foo'
+                }
+            ]
+        },
+        'p-applicant-incident-description': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-incident-description'],
+            properties: {
+                'q-applicant-incident-description': {
+                    type: 'string',
+                    title: 'Briefly describe the crime in your own words',
+                    description:
+                        'You can add details that may not be included in the crime report.',
+                    maxLength: 1000,
+                    errorMessage: {
+                        maxLength: 'Description must be 1000 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-incident-description': 'Describe the crime in your own words'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-incident-description': 'Some description'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-incident-description': 12345
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -7644,7 +7774,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender'
+                            target: 'p-applicant-describe-incident'
                         }
                     ]
                 }
@@ -7765,7 +7895,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -7787,7 +7917,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -7809,7 +7939,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -7947,7 +8077,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -7987,7 +8117,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -7996,7 +8126,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -10678,6 +10808,68 @@ module.exports = {
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
                                 false
                             ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-provide-additional-information': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-additional-information',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--check-your-answers',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
+                                false
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-additional-information': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--check-your-answers'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-describe-incident': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-incident-description',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-offender',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
+                                false
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-incident-description': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-offender'
                         }
                     ]
                 }
