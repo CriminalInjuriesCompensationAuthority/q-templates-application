@@ -439,18 +439,22 @@ module.exports = {
         'p--when-was-the-crime-reported-to-police': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'When was the crime reported to the police?',
             required: ['q--when-was-the-crime-reported-to-police'],
             additionalProperties: false,
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
                     type: 'string',
                     format: 'date-time',
-                    title: 'When was the crime reported to the police?',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',
                     errorMessage: {
                         format:
                             'Enter the date the crime was reported to police and include a day, month and year'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with when it was reported",html: \'<p class="govuk-body">If you enter an approximate date or if you reported the crime on more than one occasion, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -476,11 +480,11 @@ module.exports = {
         'p--whats-the-crime-reference-number': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "What's the crime reference number?",
             required: ['q--whats-the-crime-reference-number'],
             additionalProperties: false,
             properties: {
                 'q--whats-the-crime-reference-number': {
-                    title: "What's the crime reference number?",
                     type: 'string',
                     description:
                         'This is the reference number the police gave the crime when it was reported.',
@@ -490,7 +494,7 @@ module.exports = {
                     }
                 },
                 'i-dont-know-the-crime-reference': {
-                    description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: "<p>If you don't have your crime reference number, you can call 101 to speak to your local police station.</p>"}) }}`
+                    description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: '<p class="govuk-body">If you do not have your crime reference number, you can call 101 to speak to your local police station.</p><p class="govuk-body">If you have more than one crime reference number, you can provide additional details later in this claim.</p>'})}}`
                 }
             },
             errorMessage: {
@@ -764,11 +768,11 @@ module.exports = {
         'p-applicant-where-did-the-crime-happen': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Where did the crime happen?',
             required: ['q-applicant-where-did-the-crime-happen'],
             additionalProperties: false,
             properties: {
                 'q-applicant-where-did-the-crime-happen': {
-                    title: 'Where did the crime happen?',
                     type: 'string',
                     oneOf: [
                         {
@@ -788,6 +792,10 @@ module.exports = {
                             const: 'somewhere-else'
                         }
                     ]
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one of these countries, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -843,6 +851,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -894,6 +906,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -945,6 +961,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1352,7 +1372,11 @@ module.exports = {
                 },
                 'list-of-police-forces': {
                     description:
-                        '\n                {% from "components/details/macro.njk" import govukDetails %}\n                {{ govukDetails({\n                    summaryText: "Help with police forces",\n                    html: \'<p>See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p>\'\n                }) }}\n            '
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with police forces",html: \'<p>See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p>\'})}}'
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">If you can’t find the police form in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1459,12 +1483,16 @@ module.exports = {
         'p-offender-do-you-know-the-name-of-the-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "Do you know the offender's name?",
             required: ['q-offender-do-you-know-the-name-of-the-offender'],
             additionalProperties: false,
             properties: {
                 'q-offender-do-you-know-the-name-of-the-offender': {
-                    type: 'boolean',
-                    title: "Do you know the offender's name?"
+                    type: 'boolean'
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than 1 offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1490,17 +1518,21 @@ module.exports = {
         'p-offender-enter-offenders-name': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "Enter the offender's name",
             required: ['q-offender-enter-offenders-name'],
             additionalProperties: false,
             properties: {
                 'q-offender-enter-offenders-name': {
                     type: 'string',
-                    title: "Enter the offender's name",
                     description: 'We will never contact the offender.',
                     maxLength: 120,
                     errorMessage: {
                         maxLength: "Offender's name must be 120 characters or less"
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than 1 offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
