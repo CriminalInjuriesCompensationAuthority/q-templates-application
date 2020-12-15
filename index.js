@@ -12,7 +12,7 @@ module.exports = {
             properties: {
                 'applicant-declaration': {
                     description:
-                        '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given is true as far as you know</li><li>we can share the information you’ve given with other organisations and gather information from them</li></ul>{{ govukDetails({summaryText: "Who we may share your data with",html: \'These organisations may include:<ul class="govuk-list govuk-list--bullet"><li>the police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and medical staff, including police medical staff</li><li>any other person or organisation needed to process your application (including medical experts or other experts)</li></ul>\'}) }}<p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}\n'
+                        '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given here is true as far as you know</li><li>we can share the information you’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process your application (including medical or other experts)</li></ul><li>we can receive information from the organisations and individuals described above</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}'
                 }
             },
             examples: [{}],
@@ -353,37 +353,6 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-applicant-who-are-you-applying-for': 12345
-                }
-            ]
-        },
-        'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-were-you-a-victim-of-sexual-assault-or-abuse'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
-                    type: 'boolean',
-                    title: 'Were you a victim of sexual assault or abuse?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
-                        'Select yes if you were a victim of sexual assault or abuse'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': true
-                },
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': 'foo'
                 }
             ]
         },
@@ -1370,13 +1339,9 @@ module.exports = {
                         }
                     ]
                 },
-                'list-of-police-forces': {
-                    description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with police forces",html: \'<p>See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p>\'})}}'
-                },
                 'additional-info-help-text': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">If you can’t find the police form in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p><p class="govuk-body">If you can’t find the police force in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -6860,7 +6825,7 @@ module.exports = {
             properties: {
                 'details-context': {
                     description:
-                        '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We will not contact your GP or ask to see your medical records without your consent.</p>\n'
+                        '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>'
                 }
             },
             examples: [{}],
@@ -7327,39 +7292,6 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-victim-of-violent-crime': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-victim-of-violent-crime'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-victim-of-violent-crime': {
-                    type: 'boolean',
-                    description:
-                        'This could include if you were there when a loved one was attacked and saw it happen, or you were there immediately after.',
-                    title: 'Were you a victim of violent crime?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-victim-of-violent-crime':
-                        'Select yes if you were a victim of violent crime'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-victim-of-violent-crime': true
-                },
-                {
-                    'q-applicant-victim-of-violent-crime': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-victim-of-violent-crime': 'foo'
-                }
-            ]
-        },
         'p-applicant-you-cannot-get-compensation-violent-crime': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'You cannot get compensation',
@@ -7479,6 +7411,83 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-applicant-fatal-claim': 'foo'
+                }
+            ]
+        },
+        'p-applicant-incident-type': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What led to your injuries?',
+            type: 'object',
+            required: ['q-applicant-incident-type'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-incident-type': {
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Physical assault',
+                            const: 'ASST'
+                        },
+                        {
+                            title: 'Assault with a weapon',
+                            const: 'WEAP'
+                        },
+                        {
+                            title: 'Sexual assault or abuse',
+                            const: 'SEX'
+                        },
+                        {
+                            title: 'Domestic or family violence',
+                            const: 'FMLY'
+                        },
+                        {
+                            title: 'Arson',
+                            const: 'ARSN'
+                        },
+                        {
+                            title: 'Poisoning',
+                            const: 'PSNG'
+                        },
+                        {
+                            title: 'Animal attack',
+                            const: 'ANIMAL'
+                        },
+                        {
+                            title: 'Vehicle attack',
+                            const: 'VEHICLE'
+                        },
+                        {
+                            title: 'Witnessing an incident',
+                            const: 'SECV'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'OTHER'
+                        }
+                    ]
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-incident-type': 'ANIMAL'
+                }
+            ],
+            invalidExamples: [
+                {},
+                {
+                    'q-applicant-incident-type': 'ABCD'
+                },
+                {
+                    'q-applicant-incident-type': ''
+                },
+                {
+                    'q-applicant-incident-type': 123
+                },
+                {
+                    'q-applicant-incident-type': []
+                },
+                {
+                    'q-applicant-incident-type': true
                 }
             ]
         },
@@ -7668,12 +7677,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national',
-                                true
-                            ]
+                            target: 'p--was-the-crime-reported-to-police'
                         }
                     ]
                 }
@@ -7722,29 +7726,16 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
+            'p--before-you-continue': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-victim-of-violent-crime',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--was-the-crime-reported-to-police',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                true
-                            ]
+                            target: 'p-applicant-incident-type'
                         }
                     ]
                 }
             },
-            'p--before-you-continue': {
+            'p-applicant-incident-type': {
                 on: {
                     ANSWER: [
                         {
@@ -10599,15 +10590,15 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-non-sa-infections',
+                            target: 'p-applicant-infections',
                             cond: [
                                 '==',
-                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                false
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
                             ]
                         },
                         {
-                            target: 'p-applicant-infections'
+                            target: 'p-applicant-non-sa-infections'
                         }
                     ]
                 }
@@ -10616,20 +10607,23 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-pregnancy',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-infections.q-applicant-infections',
-                                false
-                            ]
-                        },
-                        {
                             target: 'p-applicant-select-infections',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-infections.q-applicant-infections',
                                 true
                             ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
                         }
                     ]
                 }
@@ -10638,7 +10632,15 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-pregnancy'
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
                         }
                     ]
                 }
@@ -10761,28 +10763,6 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-are-you-claiming-for-physical-injuries'
-                        }
-                    ]
-                }
-            },
-            'p-applicant-victim-of-violent-crime': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-you-cannot-get-compensation-violent-crime',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-victim-of-violent-crime.q-applicant-victim-of-violent-crime',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--was-the-crime-reported-to-police',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-victim-of-violent-crime.q-applicant-victim-of-violent-crime',
-                                true
-                            ]
                         }
                     ]
                 }
