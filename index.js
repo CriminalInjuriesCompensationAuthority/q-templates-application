@@ -7467,6 +7467,11 @@ module.exports = {
                     ]
                 }
             },
+            errorMessage: {
+                required: {
+                    'q-applicant-incident-type': 'Select what led to your injuries'
+                }
+            },
             examples: [
                 {
                     'q-applicant-incident-type': 'ANIMAL'
