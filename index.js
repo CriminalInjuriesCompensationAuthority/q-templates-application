@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.0',
+    version: '1.3.1',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2508,7 +2508,7 @@ module.exports = {
                     title: 'Briefly say how the crime has affected your daily life',
                     description:
                         'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
-                    maxLength: 500,
+                    maxLength: 1000,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
                     }
