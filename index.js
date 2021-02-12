@@ -7416,12 +7416,12 @@ module.exports = {
         },
         'p-applicant-incident-type': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What led to your injuries?',
             type: 'object',
             required: ['q-applicant-incident-type'],
             additionalProperties: false,
             properties: {
                 'q-applicant-incident-type': {
+                    title: 'What led to your injuries?',
                     type: 'string',
                     oneOf: [
                         {
@@ -7571,7 +7571,8 @@ module.exports = {
                 'q-applicant-describe-incident': {
                     type: 'boolean',
                     title: 'Would you like to briefly describe the crime in your own words?',
-                    description: 'The police will send us a report of the crime.'
+                    description:
+                        'The police will send us a report of the crime. Providing an additional description is optional.'
                 }
             },
             errorMessage: {
