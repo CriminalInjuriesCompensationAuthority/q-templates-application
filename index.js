@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.2.3',
+    version: '1.3.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -12,7 +12,7 @@ module.exports = {
             properties: {
                 'applicant-declaration': {
                     description:
-                        '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given is true as far as you know</li><li>we can share the information you’ve given with other organisations and gather information from them</li></ul>{{ govukDetails({summaryText: "Who we may share your data with",html: \'These organisations may include:<ul class="govuk-list govuk-list--bullet"><li>the police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and medical staff, including police medical staff</li><li>any other person or organisation needed to process your application (including medical experts or other experts)</li></ul>\'}) }}<p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}\n'
+                        '<p class="govuk-body">By submitting the application you agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information you’ve given here is true as far as you know</li><li>we can share the information you’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process your application (including medical or other experts)</li></ul><li>we can receive information from the organisations and individuals described above</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>{{ govukWarningText({text: "If you deliberately give false or misleading information, you may get less compensation or be prosecuted.",iconFallbackText: "Warning"}) }}'
                 }
             },
             examples: [{}],
@@ -356,37 +356,6 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-were-you-a-victim-of-sexual-assault-or-abuse'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
-                    type: 'boolean',
-                    title: 'Were you a victim of sexual assault or abuse?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
-                        'Select yes if you were a victim of sexual assault or abuse'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': true
-                },
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-were-you-a-victim-of-sexual-assault-or-abuse': 'foo'
-                }
-            ]
-        },
         'p--before-you-continue': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             title: 'About the crime',
@@ -439,18 +408,22 @@ module.exports = {
         'p--when-was-the-crime-reported-to-police': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'When was the crime reported to the police?',
             required: ['q--when-was-the-crime-reported-to-police'],
             additionalProperties: false,
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
                     type: 'string',
                     format: 'date-time',
-                    title: 'When was the crime reported to the police?',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',
                     errorMessage: {
                         format:
                             'Enter the date the crime was reported to police and include a day, month and year'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with when it was reported",html: \'<p class="govuk-body">If you enter an approximate date or if you reported the crime on more than one occasion, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -476,11 +449,11 @@ module.exports = {
         'p--whats-the-crime-reference-number': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "What's the crime reference number?",
             required: ['q--whats-the-crime-reference-number'],
             additionalProperties: false,
             properties: {
                 'q--whats-the-crime-reference-number': {
-                    title: "What's the crime reference number?",
                     type: 'string',
                     description:
                         'This is the reference number the police gave the crime when it was reported.',
@@ -490,7 +463,7 @@ module.exports = {
                     }
                 },
                 'i-dont-know-the-crime-reference': {
-                    description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: "<p>If you don't have your crime reference number, you can call 101 to speak to your local police station.</p>"}) }}`
+                    description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: '<p class="govuk-body">If you do not have your crime reference number, you can call 101 to speak to your local police station.</p><p class="govuk-body">If you have more than one crime reference number, you can provide additional details later in this claim.</p>'})}}`
                 }
             },
             errorMessage: {
@@ -764,11 +737,11 @@ module.exports = {
         'p-applicant-where-did-the-crime-happen': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Where did the crime happen?',
             required: ['q-applicant-where-did-the-crime-happen'],
             additionalProperties: false,
             properties: {
                 'q-applicant-where-did-the-crime-happen': {
-                    title: 'Where did the crime happen?',
                     type: 'string',
                     oneOf: [
                         {
@@ -788,6 +761,10 @@ module.exports = {
                             const: 'somewhere-else'
                         }
                     ]
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one of these countries, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -843,6 +820,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -894,6 +875,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -945,6 +930,10 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Location must be 60 characters or less'
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1350,9 +1339,9 @@ module.exports = {
                         }
                     ]
                 },
-                'list-of-police-forces': {
+                'additional-info-help-text': {
                     description:
-                        '\n                {% from "components/details/macro.njk" import govukDetails %}\n                {{ govukDetails({\n                    summaryText: "Help with police forces",\n                    html: \'<p>See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p>\'\n                }) }}\n            '
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p><p class="govuk-body">If you can’t find the police force in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1459,12 +1448,16 @@ module.exports = {
         'p-offender-do-you-know-the-name-of-the-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "Do you know the offender's name?",
             required: ['q-offender-do-you-know-the-name-of-the-offender'],
             additionalProperties: false,
             properties: {
                 'q-offender-do-you-know-the-name-of-the-offender': {
-                    type: 'boolean',
-                    title: "Do you know the offender's name?"
+                    type: 'boolean'
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than 1 offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -1490,17 +1483,21 @@ module.exports = {
         'p-offender-enter-offenders-name': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: "Enter the offender's name",
             required: ['q-offender-enter-offenders-name'],
             additionalProperties: false,
             properties: {
                 'q-offender-enter-offenders-name': {
                     type: 'string',
-                    title: "Enter the offender's name",
                     description: 'We will never contact the offender.',
                     maxLength: 120,
                     errorMessage: {
                         maxLength: "Offender's name must be 120 characters or less"
                     }
+                },
+                'additional-info-help-text': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than 1 offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -2355,7 +2352,7 @@ module.exports = {
             },
             properties: {
                 'q-applicant-select-treatments-dmi': {
-                    title: 'What mental health treatments have you had',
+                    title: 'What mental health treatments have you had?',
                     description: "Include any treatment you're waiting to get.",
                     type: 'array',
                     items: {
@@ -2528,20 +2525,6 @@ module.exports = {
                 }
             ]
         },
-        'p--context-gp-details': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            title: 'Your GP',
-            additionalProperties: false,
-            properties: {
-                'details-context': {
-                    description:
-                        '<p class="govuk-body">We’re going to ask for some details about your GP.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>understand if you\'ve told your GP about your injuries</li><li>make sure any letters or forms we send out are addressed properly</li></ul><p class="govuk-body">We will not contact your GP or ask to see your medical records without your consent.</p>\n'
-                }
-            },
-            examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
-        },
         'p-applicant-are-you-registered-with-gp': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -2608,7 +2591,7 @@ module.exports = {
         'p-gp-enter-your-address': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "What is your GP's address?",
+            title: "What is the GP's address?",
             required: [
                 'q-gp-building-and-street',
                 'q-gp-town-or-city',
@@ -2711,6 +2694,146 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-dentist-visited': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-dentist-visited'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-dentist-visited': {
+                    type: 'boolean',
+                    title: 'Have you seen a dentist about your injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-dentist-visited':
+                        'Select yes if you have seen a dentist about your injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-dentist-visited': true
+                },
+                {
+                    'q-applicant-dentist-visited': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-dentist-visited': 'foo'
+                }
+            ]
+        },
+        'p-applicant-dentist-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: "What is the dentist's address?",
+            required: [
+                'q-applicant-dentist-address-building-and-street',
+                'q-applicant-dentist-address-town-or-city',
+                'q-applicant-dentist-address-building-and-street2'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-dentist-address-building-and-street': {
+                    type: 'string',
+                    title: 'Practice name',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Practice name must be less than 60 characters'
+                    }
+                },
+                'q-applicant-dentist-address-building-and-street2': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Building and street must be less than 60 characters'
+                    }
+                },
+                'q-applicant-dentist-address-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 32 characters or less'
+                    }
+                },
+                'q-applicant-dentist-address-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 32 characters or less'
+                    }
+                },
+                'q-applicant-dentist-address-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-dentist-address-building-and-street':
+                        "Enter the name of your dentist's practice",
+                    'q-applicant-dentist-address-building-and-street2':
+                        'Enter the building and street of your dentist',
+                    'q-applicant-dentist-address-town-or-city':
+                        "Enter the town or city where your dentist's practice is"
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-dentist-address-building-and-street': 12345,
+                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street2': 12345,
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-town-or-city': 12345,
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 12345,
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 12345
+                }
+            ]
+        },
         'p-applicant-are-you-claiming-for-physical-injuries': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -2719,13 +2842,13 @@ module.exports = {
             properties: {
                 'q-applicant-are-you-claiming-for-physical-injuries': {
                     type: 'boolean',
-                    title: 'Are you claiming for any physical injuries?'
+                    title: 'Do you have physical injuries as a result of the crime?'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-are-you-claiming-for-physical-injuries':
-                        'Select yes if you sare claiming for a physical injury'
+                        'Select yes if you have physical injuries as a result of the crime'
                 }
             },
             examples: [
@@ -2742,104 +2865,6 @@ module.exports = {
                 }
             ]
         },
-        'p-applicant-are-you-claiming-for-payments': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-payments'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-payments': {
-                    type: 'boolean',
-                    title:
-                        'Are you claiming for a sexually transmitted infection (STI), pregnancy, or loss of a pregnancy?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-payments':
-                        'Select yes if you sare claiming for sexually transmitted infection, pregnancy, or loss of a pregnancy'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-payments': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-payments': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-payments': 'foo'
-                }
-            ]
-        },
-        'p-applicant-are-you-claiming-for-loe': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-loe'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-loe': {
-                    type: 'boolean',
-                    description:
-                        'You must have had very limited or no ability to work for more than 28 weeks.',
-                    title: 'Are you claiming for loss of earnings?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-loe':
-                        'Select yes if you sare claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-loe': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-loe': 'foo'
-                }
-            ]
-        },
-        'p-applicant-are-you-claiming-for-expenses': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            type: 'object',
-            required: ['q-applicant-are-you-claiming-for-expenses'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-are-you-claiming-for-expenses': {
-                    type: 'boolean',
-                    description:
-                        'This can include the cost of equipment, changes to your home, and care costs.',
-                    title: 'Are you claiming for expenses as a result of your injuries?'
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-are-you-claiming-for-expenses':
-                        'Select yes if you are claiming for loss of earnings'
-                }
-            },
-            examples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': true
-                },
-                {
-                    'q-applicant-are-you-claiming-for-expenses': false
-                }
-            ],
-            invalidExamples: [
-                {
-                    'q-applicant-are-you-claiming-for-expenses': 'foo'
-                }
-            ]
-        },
         'p--transition': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -2853,6 +2878,4754 @@ module.exports = {
             },
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
+        },
+        'p--context-physical-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'About your injuries',
+            additionalProperties: false,
+            properties: {
+                'details-context': {
+                    description:
+                        '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-physical-injury': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What was injured?',
+            description: 'Select all that apply.',
+            type: 'object',
+            required: ['q-applicant-physical-injury'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Head, face or neck',
+                                const: 'upper'
+                            },
+                            {
+                                title: 'Torso',
+                                const: 'torso'
+                            },
+                            {
+                                title: 'Arms or hands',
+                                const: 'arms'
+                            },
+                            {
+                                title: 'Legs or feet',
+                                const: 'legs'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {'q-applicant-physical-injury': ['legs']},
+                {'q-applicant-physical-injury': ['arms']},
+                {'q-applicant-physical-injury': ['arms', 'legs']},
+                {'q-applicant-physical-injury': ['torso']},
+                {'q-applicant-physical-injury': ['torso', 'legs']},
+                {'q-applicant-physical-injury': ['torso', 'arms']},
+                {'q-applicant-physical-injury': ['upper']},
+                {'q-applicant-physical-injury': ['upper', 'legs']},
+                {'q-applicant-physical-injury': ['upper', 'arms']},
+                {'q-applicant-physical-injury': ['upper', 'torso']}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury': ['not-a-key']
+                },
+                {
+                    'q-applicant-physical-injury': 'not-an-array'
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What parts of the head, face or neck was injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-upper'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-upper': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Head or brain',
+                                const: 'head'
+                            },
+                            {
+                                title: 'Face or jaw',
+                                const: 'face'
+                            },
+                            {
+                                title: 'Eye or eyesight',
+                                const: 'eye'
+                            },
+                            {
+                                title: 'Ear or hearing',
+                                const: 'ear'
+                            },
+                            {
+                                title: 'Nose',
+                                const: 'nose'
+                            },
+                            {
+                                title: 'Mouth',
+                                const: 'mouth'
+                            },
+                            {
+                                title: 'Neck',
+                                const: 'neck'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin',
+                                description: 'Including cuts, bruises, burns and scars'
+                            },
+                            {
+                                title: 'Tissue',
+                                const: 'muscle',
+                                description: 'Including muscles, ligaments, tendons or cartilage'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-upper': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {'q-applicant-physical-injury-upper': ['head']},
+                {'q-applicant-physical-injury-upper': ['head', 'face']},
+                {'q-applicant-physical-injury-upper': ['head', 'eye']},
+                {'q-applicant-physical-injury-upper': ['head', 'ear']},
+                {'q-applicant-physical-injury-upper': ['head', 'nose']},
+                {'q-applicant-physical-injury-upper': ['head', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['head', 'neck']},
+                {'q-applicant-physical-injury-upper': ['head', 'skin']},
+                {'q-applicant-physical-injury-upper': ['head', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['face']},
+                {'q-applicant-physical-injury-upper': ['face', 'eye']},
+                {'q-applicant-physical-injury-upper': ['face', 'ear']},
+                {'q-applicant-physical-injury-upper': ['face', 'nose']},
+                {'q-applicant-physical-injury-upper': ['face', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['face', 'neck']},
+                {'q-applicant-physical-injury-upper': ['face', 'skin']},
+                {'q-applicant-physical-injury-upper': ['face', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['eye']},
+                {'q-applicant-physical-injury-upper': ['eye', 'ear']},
+                {'q-applicant-physical-injury-upper': ['eye', 'nose']},
+                {'q-applicant-physical-injury-upper': ['eye', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['eye', 'neck']},
+                {'q-applicant-physical-injury-upper': ['eye', 'skin']},
+                {'q-applicant-physical-injury-upper': ['eye', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['ear']},
+                {'q-applicant-physical-injury-upper': ['ear', 'nose']},
+                {'q-applicant-physical-injury-upper': ['ear', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['ear', 'neck']},
+                {'q-applicant-physical-injury-upper': ['ear', 'skin']},
+                {'q-applicant-physical-injury-upper': ['ear', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['nose']},
+                {'q-applicant-physical-injury-upper': ['nose', 'mouth']},
+                {'q-applicant-physical-injury-upper': ['nose', 'neck']},
+                {'q-applicant-physical-injury-upper': ['nose', 'skin']},
+                {'q-applicant-physical-injury-upper': ['nose', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['mouth']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'neck']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'skin']},
+                {'q-applicant-physical-injury-upper': ['mouth', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['neck']},
+                {'q-applicant-physical-injury-upper': ['neck', 'skin']},
+                {'q-applicant-physical-injury-upper': ['neck', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['skin']},
+                {'q-applicant-physical-injury-upper': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-upper': ['muscle']}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-upper': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-head': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the head or brain',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title:
+                                    'Head injury causing concussion, headaches or loss of balance',
+                                const: 'phyinj-146'
+                            },
+                            {
+                                title: 'Brain damage',
+                                const: 'phyinj-003'
+                            },
+                            {
+                                title: 'Fractured skull',
+                                const: 'phyinj-042'
+                            },
+                            {
+                                title: 'Hair pulled out',
+                                const: 'phyinj-053'
+                            },
+                            {
+                                title: 'Epilepsy',
+                                const: 'phyinj-004'
+                            },
+                            {
+                                title: 'Injury affecting balance',
+                                const: 'phyinj-012'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-head-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-head-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-head-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-head-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-042']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-face': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the face',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Face fractures',
+                                const: 'phyinj-035'
+                            },
+                            {
+                                title: 'Face numbness',
+                                const: 'phyinj-036'
+                            },
+                            {
+                                title: 'Broken cheekbone',
+                                const: 'phyinj-037'
+                            },
+                            {
+                                title: 'Broken jaw',
+                                const: 'phyinj-034'
+                            },
+                            {
+                                title: 'Clicking jaw',
+                                const: 'phyinj-029'
+                            },
+                            {
+                                title: 'Dislocated jaw',
+                                const: 'phyinj-030'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-face-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-face-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-face-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-face-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-030']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-neck': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the neck',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken hyoid (throat bone)',
+                                const: 'phyinj-038'
+                            },
+                            {
+                                title: 'Whiplash',
+                                const: 'phyinj-039'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-neck-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-neck-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-neck-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-neck-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-039']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-eye': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the eye or eyesight',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken eye socket',
+                                const: 'phyinj-013'
+                            },
+                            {
+                                title: 'Temporary blurred or double vision',
+                                const: 'phyinj-014'
+                            },
+                            {
+                                title: 'Permanent blurred or double vision',
+                                const: 'phyinj-015'
+                            },
+                            {
+                                title: 'Permanent loss of peripheral vision',
+                                const: 'phyinj-018'
+                            },
+                            {
+                                title: 'Black eye',
+                                const: 'phyinj-051'
+                            },
+                            {
+                                title: 'Scratched eye',
+                                const: 'phyinj-017'
+                            },
+                            {
+                                title: 'Bleeding in eye',
+                                const: 'phyinj-021'
+                            },
+                            {
+                                title: 'Blindness',
+                                const: 'phyinj-023'
+                            },
+                            {
+                                title: 'Sight loss',
+                                const: 'phyinj-024'
+                            },
+                            {
+                                title: 'Damaged or detached retina',
+                                const: 'phyinj-026'
+                            },
+                            {
+                                title: 'Punctured eyeball',
+                                const: 'phyinj-027'
+                            },
+                            {
+                                title: 'Cataract',
+                                const: 'phyinj-016'
+                            },
+                            {
+                                title: 'Dislocated lens',
+                                const: 'phyinj-019'
+                            },
+                            {
+                                title: 'Glaucoma',
+                                const: 'phyinj-020'
+                            },
+                            {
+                                title: 'Loss of eye',
+                                const: 'phyinj-022'
+                            },
+                            {
+                                title: 'Floater',
+                                const: 'phyinj-025'
+                            },
+                            {
+                                title: 'Damaged eye drain',
+                                const: 'phyinj-028'
+                            },
+                            {
+                                title: 'Injury affecting eye movement',
+                                const: 'phyinj-150'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-eye-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-eye-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-eye-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-eye-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-028']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-ear': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the ear or hearing',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken ear bone',
+                                const: 'phyinj-006'
+                            },
+                            {
+                                title: 'Hearing loss',
+                                const: 'phyinj-007'
+                            },
+                            {
+                                title: 'Loss of ear',
+                                const: 'phyinj-008'
+                            },
+                            {
+                                title: '1 perforated eardrum',
+                                const: 'phyinj-009'
+                            },
+                            {
+                                title: '2 perforated eardrums',
+                                const: 'phyinj-010'
+                            },
+                            {
+                                title: 'Tinnitus',
+                                const: 'phyinj-011'
+                            },
+                            {
+                                title: 'Injury affecting balance',
+                                const: 'phyinj-012'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-ear-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-ear-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-ear-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-ear-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-012']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-nose': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the nose',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken nose',
+                                const: 'phyinj-033'
+                            },
+                            {
+                                title: 'Bloody nose',
+                                const: 'phyinj-052'
+                            },
+                            {
+                                title: 'Loss of smell or taste',
+                                const: 'phyinj-040'
+                            },
+                            {
+                                title: 'Loss of nose',
+                                const: 'phyinj-041'
+                            },
+                            {
+                                title: 'Broken ethmoid (bone at base of nose)',
+                                const: 'phyinj-031'
+                            },
+                            {
+                                title: 'Broken ethmoid (bone at base of nose) needing operation',
+                                const: 'phyinj-032'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-nose-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-nose-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-nose-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-nose-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-032']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-mouth': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the mouth',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Loose teeth',
+                                const: 'phyinj-044'
+                            },
+                            {
+                                title: 'Damaged or broken teeth',
+                                const: 'phyinj-043'
+                            },
+                            {
+                                title: 'Difficulty speaking',
+                                const: 'phyinj-045'
+                            },
+                            {
+                                title: 'Permanent loss of speech',
+                                const: 'phyinj-046'
+                            },
+                            {
+                                title: 'Loss of tongue',
+                                const: 'phyinj-047'
+                            },
+                            {
+                                title: 'Loss of smell or taste',
+                                const: 'phyinj-040'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-mouth-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-mouth-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-mouth-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-mouth-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-040']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the skin on your head, face or neck',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-048'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-049'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-002'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-001'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-skin-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-skin-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-skin-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-skin-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-001']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-upper-muscle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the tissue on your head, face or neck',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Muscle',
+                                const: 'phyinj-050'
+                            },
+                            {
+                                title: 'Ligament',
+                                const: 'phyinj-151'
+                            },
+                            {
+                                title: 'Tendon',
+                                const: 'phyinj-152'
+                            },
+                            {
+                                title: 'Cartilage',
+                                const: 'phyinj-153'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-upper-muscle-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-upper-muscle-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-upper-muscle-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-upper-muscle-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-151']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What parts of the torso were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-torso'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-torso': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Shoulder',
+                                const: 'shoulder'
+                            },
+                            {
+                                title: 'Chest',
+                                const: 'chest'
+                            },
+                            {
+                                title: 'Abdomen',
+                                const: 'abdomen'
+                            },
+                            {
+                                title: 'Back',
+                                const: 'back'
+                            },
+                            {
+                                title: 'Pelvis',
+                                const: 'pelvis'
+                            },
+                            {
+                                title: 'Genitals',
+                                const: 'genitals'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin',
+                                description: 'Including cuts, bruises, burns and scars'
+                            },
+                            {
+                                title: 'Tissue',
+                                const: 'muscle',
+                                description: 'Including muscles, ligaments, tendons or cartilage'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-torso': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {'q-applicant-physical-injury-torso': ['shoulder']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'chest']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'abdomen']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'back']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'skin']},
+                {'q-applicant-physical-injury-torso': ['shoulder', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['chest']},
+                {'q-applicant-physical-injury-torso': ['chest', 'abdomen']},
+                {'q-applicant-physical-injury-torso': ['chest', 'back']},
+                {'q-applicant-physical-injury-torso': ['chest', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['chest', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['chest', 'skin']},
+                {'q-applicant-physical-injury-torso': ['chest', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['abdomen']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'back']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'skin']},
+                {'q-applicant-physical-injury-torso': ['abdomen', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['back']},
+                {'q-applicant-physical-injury-torso': ['back', 'pelvis']},
+                {'q-applicant-physical-injury-torso': ['back', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['back', 'skin']},
+                {'q-applicant-physical-injury-torso': ['back', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['pelvis']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'genitals']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'skin']},
+                {'q-applicant-physical-injury-torso': ['pelvis', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['genitals']},
+                {'q-applicant-physical-injury-torso': ['genitals', 'skin']},
+                {'q-applicant-physical-injury-torso': ['genitals', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['skin']},
+                {'q-applicant-physical-injury-torso': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-torso': ['muscle']}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-torso': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-torso': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-shoulder': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the shoulder',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken shoulder blade',
+                                const: 'phyinj-076'
+                            },
+                            {
+                                title: 'Dislocated shoulder',
+                                const: 'phyinj-100'
+                            },
+                            {
+                                title: 'Separated shoulder',
+                                const: 'phyinj-062'
+                            },
+                            {
+                                title: 'Frozen shoulder',
+                                const: 'phyinj-101'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-shoulder-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-shoulder-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-shoulder-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-shoulder-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-100']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-chest': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the chest',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken collarbone',
+                                const: 'phyinj-063'
+                            },
+                            {
+                                title: 'Broken breast bone',
+                                const: 'phyinj-078'
+                            },
+                            {
+                                title: 'Chest surgery',
+                                const: 'phyinj-057'
+                            },
+                            {
+                                title: 'Broken rib',
+                                const: 'phyinj-075'
+                            },
+                            {
+                                title: 'Punctured lung',
+                                const: 'phyinj-070'
+                            },
+                            {
+                                title: 'Collapsed lung',
+                                const: 'phyinj-071'
+                            },
+                            {
+                                title: 'Lung damage from smoke or chemicals',
+                                const: 'phyinj-072'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-chest-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-chest-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-chest-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-chest-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-072']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-abdomen': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the abdomen',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Kidney damage',
+                                const: 'phyinj-069'
+                            },
+                            {
+                                title: 'Loss of kidney',
+                                const: 'phyinj-068'
+                            },
+                            {
+                                title: 'Loss of pancreas',
+                                const: 'phyinj-073'
+                            },
+                            {
+                                title: 'Loss of spleen',
+                                const: 'phyinj-077'
+                            },
+                            {
+                                title: 'Hernia',
+                                const: 'phyinj-067'
+                            },
+                            {
+                                title: 'Keyhole surgery on torso',
+                                const: 'phyinj-056'
+                            },
+                            {
+                                title: 'Stoma',
+                                const: 'phyinj-058'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-abdomen-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-abdomen-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-abdomen-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-abdomen-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-058']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-back': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the back',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken vertebra',
+                                const: 'phyinj-059'
+                            },
+                            {
+                                title: 'Slipped disc',
+                                const: 'phyinj-060'
+                            },
+                            {
+                                title: 'Back strain',
+                                const: 'phyinj-061'
+                            },
+                            {
+                                title: 'Broken tailbone',
+                                const: 'phyinj-064'
+                            },
+                            {
+                                title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                const: 'phyinj-139'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-back-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-back-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-back-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-back-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-064']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-pelvis': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the pelvis',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken pelvis',
+                                const: 'phyinj-074'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-pelvis-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-pelvis-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-pelvis-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-pelvis-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-074']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-genitals': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the genitals',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Genital injury',
+                                const: 'phyinj-065'
+                            },
+                            {
+                                title: 'Infertility',
+                                const: 'phyinj-066'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-genitals-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-genitals-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-genitals-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-genitals-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-066']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the skin on your torso',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-079'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-080'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-055'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-054'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-skin-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-skin-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-skin-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-skin-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-054']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-torso-muscle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the tissue on your torso',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Muscle',
+                                const: 'phyinj-154'
+                            },
+                            {
+                                title: 'Ligament',
+                                const: 'phyinj-155'
+                            },
+                            {
+                                title: 'Tendon',
+                                const: 'phyinj-156'
+                            },
+                            {
+                                title: 'Cartilage',
+                                const: 'phyinj-157'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-torso-muscle-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-torso-muscle-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-torso-muscle-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-torso-muscle-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-154']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What part of the arms or hands were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-arms'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-arms': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Shoulder',
+                                const: 'shoulder'
+                            },
+                            {
+                                title: 'Arm',
+                                const: 'arm'
+                            },
+                            {
+                                title: 'Elbow',
+                                const: 'elbow'
+                            },
+                            {
+                                title: 'Wrist',
+                                const: 'wrist'
+                            },
+                            {
+                                title: 'Hand',
+                                const: 'hand'
+                            },
+                            {
+                                title: 'Finger and thumb',
+                                const: 'digit'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin',
+                                description: 'Including cuts, bruises, burns and scars'
+                            },
+                            {
+                                title: 'Tissue',
+                                const: 'muscle',
+                                description: 'Including muscles, ligaments, tendons or cartilage'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-arms': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {'q-applicant-physical-injury-arms': ['shoulder']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'arm']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'elbow']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'hand']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'digit']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'skin']},
+                {'q-applicant-physical-injury-arms': ['shoulder', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['arm']},
+                {'q-applicant-physical-injury-arms': ['arm', 'elbow']},
+                {'q-applicant-physical-injury-arms': ['arm', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['arm', 'hand']},
+                {'q-applicant-physical-injury-arms': ['arm', 'digit']},
+                {'q-applicant-physical-injury-arms': ['arm', 'skin']},
+                {'q-applicant-physical-injury-arms': ['arm', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['elbow']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'wrist']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'hand']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'digit']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'skin']},
+                {'q-applicant-physical-injury-arms': ['elbow', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['wrist']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'hand']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'digit']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'skin']},
+                {'q-applicant-physical-injury-arms': ['wrist', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['hand']},
+                {'q-applicant-physical-injury-arms': ['hand', 'digit']},
+                {'q-applicant-physical-injury-arms': ['hand', 'skin']},
+                {'q-applicant-physical-injury-arms': ['hand', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['digit']},
+                {'q-applicant-physical-injury-arms': ['digit', 'skin']},
+                {'q-applicant-physical-injury-arms': ['digit', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['skin']},
+                {'q-applicant-physical-injury-arms': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-arms': ['muscle']}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-arms': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-shoulder': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the shoulder',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken shoulder blade',
+                                const: 'phyinj-076'
+                            },
+                            {
+                                title: 'Dislocated shoulder',
+                                const: 'phyinj-100'
+                            },
+                            {
+                                title: 'Separated shoulder',
+                                const: 'phyinj-062'
+                            },
+                            {
+                                title: 'Frozen shoulder',
+                                const: 'phyinj-101'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-shoulder-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-shoulder-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-shoulder-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-shoulder-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-076']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-arm': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the arm',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken arm',
+                                const: 'phyinj-099'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-005'
+                            },
+                            {
+                                title: 'Loss of arm',
+                                const: 'phyinj-084'
+                            },
+                            {
+                                title: 'Paralysed arm',
+                                const: 'phyinj-085'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-arm-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-arm-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-arm-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-arm-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-099']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-elbow': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the elbow',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated elbow',
+                                const: 'phyinj-086'
+                            },
+                            {
+                                title: 'Broken elbow',
+                                const: 'phyinj-087'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-elbow-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-elbow-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-elbow-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-elbow-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-086']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-wrist': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the wrist',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken wrist',
+                                const: 'phyinj-104'
+                            },
+                            {
+                                title: 'Sprained wrist',
+                                const: 'phyinj-105'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-wrist-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-wrist-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-wrist-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-wrist-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-104']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-hand': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the hand',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken hand',
+                                const: 'phyinj-096'
+                            },
+                            {
+                                title: 'Loss of use of hand',
+                                const: 'phyinj-097'
+                            },
+                            {
+                                title: 'Loss of grip',
+                                const: 'phyinj-098'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-168'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-hand-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-hand-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-hand-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-hand-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-096']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-digit': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the finger or thumb',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated thumb',
+                                const: 'phyinj-110'
+                            },
+                            {
+                                title: 'Dislocated index finger',
+                                const: 'phyinj-109'
+                            },
+                            {
+                                title: 'Dislocated finger on one hand',
+                                const: 'phyinj-088'
+                            },
+                            {
+                                title: 'Dislocated fingers on both hands',
+                                const: 'phyinj-089'
+                            },
+                            {
+                                title: 'Broken thumb',
+                                const: 'phyinj-090'
+                            },
+                            {
+                                title: 'Broken index finger',
+                                const: 'phyinj-091'
+                            },
+                            {
+                                title: 'Broken finger on one hand',
+                                const: 'phyinj-092'
+                            },
+                            {
+                                title: 'Broken fingers on both hands',
+                                const: 'phyinj-093'
+                            },
+                            {
+                                title: 'Loss of thumb',
+                                const: 'phyinj-111'
+                            },
+                            {
+                                title: 'Loss of finger',
+                                const: 'phyinj-094'
+                            },
+                            {
+                                title: 'Loss of part of finger',
+                                const: 'phyinj-095'
+                            },
+                            {
+                                title: 'Loss of fingernail',
+                                const: 'phyinj-106'
+                            },
+                            {
+                                title: 'Paralysed finger',
+                                const: 'phyinj-147'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-digit-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-digit-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-digit-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-digit-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-110']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the skin on your arms and hands',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-107'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-108'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-083'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-082'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-skin-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-skin-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-skin-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-skin-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-107']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-arms-muscle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the tissue on your arms or hands',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Muscle',
+                                const: 'phyinj-158'
+                            },
+                            {
+                                title: 'Ligament',
+                                const: 'phyinj-159'
+                            },
+                            {
+                                title: 'Tendon',
+                                const: 'phyinj-160'
+                            },
+                            {
+                                title: 'Cartilage',
+                                const: 'phyinj-161'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-arms-muscle-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-arms-muscle-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-arms-muscle-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-arms-muscle-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-158']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What part of the legs or feet were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injury-legs'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injury-legs': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Hip',
+                                const: 'hip'
+                            },
+                            {
+                                title: 'Leg',
+                                const: 'leg'
+                            },
+                            {
+                                title: 'Knee',
+                                const: 'knee'
+                            },
+                            {
+                                title: 'Ankle',
+                                const: 'ankle'
+                            },
+                            {
+                                title: 'Foot',
+                                const: 'foot'
+                            },
+                            {
+                                title: 'Toes',
+                                const: 'toes'
+                            },
+                            {
+                                title: 'Skin',
+                                const: 'skin',
+                                description: 'Including cuts, bruises, burns and scars'
+                            },
+                            {
+                                title: 'Tissue',
+                                const: 'muscle',
+                                description: 'Including muscles, ligaments, tendons or cartilage'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injury-legs': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {'q-applicant-physical-injury-legs': ['hip']},
+                {'q-applicant-physical-injury-legs': ['hip', 'leg']},
+                {'q-applicant-physical-injury-legs': ['hip', 'knee']},
+                {'q-applicant-physical-injury-legs': ['hip', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['hip', 'foot']},
+                {'q-applicant-physical-injury-legs': ['hip', 'toes']},
+                {'q-applicant-physical-injury-legs': ['hip', 'skin']},
+                {'q-applicant-physical-injury-legs': ['hip', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['leg']},
+                {'q-applicant-physical-injury-legs': ['leg', 'knee']},
+                {'q-applicant-physical-injury-legs': ['leg', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['leg', 'foot']},
+                {'q-applicant-physical-injury-legs': ['leg', 'toes']},
+                {'q-applicant-physical-injury-legs': ['leg', 'skin']},
+                {'q-applicant-physical-injury-legs': ['leg', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['knee']},
+                {'q-applicant-physical-injury-legs': ['knee', 'ankle']},
+                {'q-applicant-physical-injury-legs': ['knee', 'foot']},
+                {'q-applicant-physical-injury-legs': ['knee', 'toes']},
+                {'q-applicant-physical-injury-legs': ['knee', 'skin']},
+                {'q-applicant-physical-injury-legs': ['knee', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['ankle']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'foot']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'toes']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'skin']},
+                {'q-applicant-physical-injury-legs': ['ankle', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['foot']},
+                {'q-applicant-physical-injury-legs': ['foot', 'toes']},
+                {'q-applicant-physical-injury-legs': ['foot', 'skin']},
+                {'q-applicant-physical-injury-legs': ['foot', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['toes']},
+                {'q-applicant-physical-injury-legs': ['toes', 'skin']},
+                {'q-applicant-physical-injury-legs': ['toes', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['skin']},
+                {'q-applicant-physical-injury-legs': ['skin', 'muscle']},
+                {'q-applicant-physical-injury-legs': ['muscle']}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injury-legs': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-hip': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the hip',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated hip',
+                                const: 'phyinj-120'
+                            },
+                            {
+                                title: 'Broken hip',
+                                const: 'phyinj-121'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-hip-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-hip-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-hip-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-hip-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-120']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-leg': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the leg',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken leg',
+                                const: 'phyinj-117'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-169'
+                            },
+                            {
+                                title: 'Keyhole surgery to leg',
+                                const: 'phyinj-122'
+                            },
+                            {
+                                title: 'Amputated leg',
+                                const: 'phyinj-126'
+                            },
+                            {
+                                title: 'Paralysed leg',
+                                const: 'phyinj-127'
+                            },
+                            {
+                                title: 'Paraplegia (paralysis of lower half of the body)',
+                                const: 'phyinj-138'
+                            },
+                            {
+                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                const: 'phyinj-137'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-leg-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-leg-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-leg-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-leg-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-117']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-knee': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the knee',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated kneecap',
+                                const: 'phyinj-123'
+                            },
+                            {
+                                title: 'Broken kneecap',
+                                const: 'phyinj-124'
+                            },
+                            {
+                                title: 'Removal of kneecap',
+                                const: 'phyinj-125'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-knee-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-knee-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-knee-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-knee-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-123']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-ankle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the ankle',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Dislocated ankle',
+                                const: 'phyinj-114'
+                            },
+                            {
+                                title: 'Broken ankle',
+                                const: 'phyinj-115'
+                            },
+                            {
+                                title: 'Sprained ankle',
+                                const: 'phyinj-116'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-ankle-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-ankle-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-ankle-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-ankle-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-114']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-foot': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the foot',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken foot',
+                                const: 'phyinj-118'
+                            },
+                            {
+                                title: 'Broken heel',
+                                const: 'phyinj-119'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-170'
+                            },
+                            {
+                                title: 'Paralysed foot',
+                                const: 'phyinj-162'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-foot-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-foot-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-foot-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-foot-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-118']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-toes': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'What parts of the toes were injured?',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Broken big toe',
+                                const: 'phyinj-129'
+                            },
+                            {
+                                title: 'Broken toe',
+                                const: 'phyinj-130'
+                            },
+                            {
+                                title: '2 or more broken toes',
+                                const: 'phyinj-136'
+                            },
+                            {
+                                title: 'Amputated big toe',
+                                const: 'phyinj-131'
+                            },
+                            {
+                                title: '1 amputated toe',
+                                const: 'phyinj-132'
+                            },
+                            {
+                                title: '2 or more amputated toes',
+                                const: 'phyinj-133'
+                            },
+                            {
+                                title: 'Paralysed toe',
+                                const: 'phyinj-148'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-toes-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-toes-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-toes-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-toes-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-129']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-skin': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the skin on your legs or feet',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-134'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-135'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-113'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-112'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-skin-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-skin-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-skin-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-skin-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-134']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-physical-injury-legs-muscle': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Select any injuries to the tissue on your legs or feet',
+            type: 'object',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Muscle',
+                                const: 'phyinj-164'
+                            },
+                            {
+                                title: 'Ligament',
+                                const: 'phyinj-165'
+                            },
+                            {
+                                title: 'Tendon',
+                                const: 'phyinj-166'
+                            },
+                            {
+                                title: 'Cartilage',
+                                const: 'phyinj-167'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
+                        ]
+                    }
+                },
+                'q-applicant-physical-injuries-legs-muscle-other': {
+                    type: 'string',
+                    title: 'Type of injury',
+                    maxLength: 499,
+                    errorMessage: {
+                        maxLength: 'Type of injury must be 499 characters or fewer'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-other-textbox-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
+                        },
+                        required: ['q-applicant-physical-injuries']
+                    },
+                    then: {
+                        required: ['q-applicant-physical-injuries-legs-muscle-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-physical-injuries',
+                                'q-applicant-physical-injuries-legs-muscle-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-physical-injuries-legs-muscle-other':
+                                    'Enter a type of injury'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-164']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-infections'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-infections': {
+                    type: 'boolean',
+                    title: 'Do you have HIV, hepatitis or an STI as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-infections':
+                        'Select yes if you have HIV, hepatitis or an STI as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-infections': true
+                },
+                {
+                    'q-applicant-infections': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-infections': 'foo'
+                }
+            ]
+        },
+        'p-applicant-select-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Select what infection you have',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'HIV',
+                                const: 'phyinj-141'
+                            },
+                            {
+                                title: 'Hepatitis B',
+                                const: 'phyinj-142'
+                            },
+                            {
+                                title: 'Hepatitis C',
+                                const: 'phyinj-143'
+                            },
+                            {
+                                title: 'Other sexually transmitted infection (STI)',
+                                const: 'phyinj-145'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an infection from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-141']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-pregnancy': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-pregnancy'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-pregnancy': {
+                    type: 'boolean',
+                    title: 'Did you become pregnant as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-pregnancy':
+                        'Select yes if you became pregnant as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-pregnancy': true
+                },
+                {
+                    'q-applicant-pregnancy': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy': 'foo'
+                }
+            ]
+        },
+        'p--context-treatment': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your treatment',
+            additionalProperties: false,
+            properties: {
+                'details-context': {
+                    description:
+                        '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-treatment-for-physical-injuries': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-treatment-for-physical-injuries'],
+            properties: {
+                'q-applicant-treatment-for-physical-injuries': {
+                    type: 'string',
+                    title: 'What treatment are you receiving for your physical injuries?',
+                    maxLength: 500,
+                    errorMessage: {
+                        maxLength: 'Description must be 500 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-treatment-for-physical-injuries':
+                        'Describe what treatment you have received for your physical injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-treatment-for-physical-injuries': 'Some treatment'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-treatment-for-physical-injuries': 12345
+                }
+            ]
+        },
+        'p-applicant-medical-help': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-medical-help'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-medical-help': {
+                    type: 'boolean',
+                    title: 'Did you get other medical help for your injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-medical-help':
+                        'Select yes if you got other medical help for your injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-medical-help': true
+                },
+                {
+                    'q-applicant-medical-help': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-medical-help': 'foo'
+                }
+            ]
+        },
+        'p-applicant-treatment-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Where did you have treatment?',
+            required: [
+                'q-applicant-treatment-building-and-street',
+                'q-applicant-treatment-town-or-city',
+                'q-applicant-treatment-building-and-street2'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-treatment-building-and-street': {
+                    type: 'string',
+                    title: 'Name of place',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Place name must be less than 60 characters'
+                    }
+                },
+                'q-applicant-treatment-building-and-street2': {
+                    type: 'string',
+                    title: 'Address line 1',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Building and street must be less than 60 characters'
+                    }
+                },
+                'q-applicant-treatment-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 32 characters or less'
+                    }
+                },
+                'q-applicant-treatment-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 32 characters or less'
+                    }
+                },
+                'q-applicant-treatment-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-treatment-building-and-street': 'Enter the name of the place',
+                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
+                    'q-applicant-treatment-town-or-city': 'Enter the town or city'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-treatment-building-and-street': 12345,
+                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street2': 12345,
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-town-or-city': 12345,
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 12345,
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 12345
+                }
+            ]
+        },
+        'p-applicant-unable-to-work-duration': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-unable-to-work-duration'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-unable-to-work-duration': {
+                    type: 'boolean',
+                    title: 'Have you been unable to work for more than 28 weeks?',
+                    description: 'This includes working less hours or being unable to look for work'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-unable-to-work-duration':
+                        'Select yes if you have been unable to work for more than 28 weeks'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-unable-to-work-duration': true
+                },
+                {
+                    'q-applicant-unable-to-work-duration': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-unable-to-work-duration': 'foo'
+                }
+            ]
+        },
+        'p-applicant-job-when-crime-happened': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-job-when-crime-happened'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-job-when-crime-happened': {
+                    type: 'boolean',
+                    title: 'Did you have a job when the crime happened?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-job-when-crime-happened':
+                        'Select yes if you had a job when the crime happened'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-job-when-crime-happened': true
+                },
+                {
+                    'q-applicant-job-when-crime-happened': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-job-when-crime-happened': 'foo'
+                }
+            ]
+        },
+        'p-applicant-work-details-option': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-work-details-option'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-work-details-option': {
+                    title: 'Select the option that applies to you',
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'I was too young to work',
+                            const: 'underage-for-work'
+                        },
+                        {
+                            title: 'I was in full-time education',
+                            const: 'education'
+                        },
+                        {
+                            title: 'I was caring for someone',
+                            const: 'care'
+                        },
+                        {
+                            title:
+                                'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                            const: 'employed'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'other'
+                        }
+                    ]
+                },
+                'q-applicant-work-details-other': {
+                    type: 'string',
+                    title: 'Details',
+                    maxLength: 100,
+                    errorMessage: {
+                        maxLength: 'Other details must be 100 characters or less'
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-applicant-work-details-other-is-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-work-details-option': {
+                                const: 'other'
+                            }
+                        },
+                        required: ['q-applicant-work-details-option']
+                    },
+                    then: {
+                        required: ['q-applicant-work-details-other'],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-work-details-option',
+                                'q-applicant-work-details-other'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-applicant-work-details-other': 'Enter other details'
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-work-details-option': 'Select the option that applies to you'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-work-details-option': 'care'
+                },
+                {
+                    'q-applicant-work-details-option': 'other',
+                    'q-applicant-work-details-other': 'a string'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-work-details-option': 1234
+                },
+                {
+                    'q-applicant-work-details-option': 'other'
+                },
+                {
+                    'q-applicant-work-details-option': 'other',
+                    'q-applicant-work-details-other': 1234
+                }
+            ]
+        },
+        'p-applicant-expenses': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'What expenses have you had?',
+            required: ['q-applicant-expenses'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-expenses': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'Buying or repairing physical aids',
+                                const: 'aids'
+                            },
+                            {
+                                title: 'Alterations to my home',
+                                const: 'alterations'
+                            },
+                            {
+                                title: 'Home care',
+                                const: 'home-care'
+                            },
+                            {
+                                title: "NHS treatment I've paid for",
+                                const: 'treatment',
+                                description:
+                                    'Or treatment from the state health service in another country'
+                            },
+                            {
+                                title: 'I have not had these expenses',
+                                const: 'no-expenses'
+                            }
+                        ]
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-q-applicant-expenses-max-one-item'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-applicant-expenses-max-one-item': {
+                    if: {
+                        properties: {
+                            'q-applicant-expenses': {
+                                contains: {const: 'no-expenses'}
+                            }
+                        },
+                        required: ['q-applicant-expenses']
+                    },
+                    then: {
+                        required: ['q-applicant-expenses'],
+                        properties: {
+                            'q-applicant-expenses': {
+                                maxItems: 1,
+                                errorMessage: {
+                                    maxItems:
+                                        'Select any expenses you’ve had or select ‘I have not had these expenses’'
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-expenses': 'Select expenses from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-expenses': ['home-care']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-expenses': 'not-an-array'
+                },
+                {
+                    'q-applicant-expenses': ['not-a-key']
+                }
+            ]
+        },
+        'p--context-money': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your money',
+            additionalProperties: false,
+            properties: {
+                'money-context': {
+                    description:
+                        '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-pregnancy-loss': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-pregnancy-loss'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-pregnancy-loss': {
+                    type: 'boolean',
+                    title: 'Did you lose a pregnancy as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-pregnancy-loss':
+                        'Select yes if you lost a pregnancy as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-pregnancy-loss': true
+                },
+                {
+                    'q-applicant-pregnancy-loss': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy-loss': 'foo'
+                }
+            ]
+        },
+        'p-applicant-you-cannot-get-compensation-violent-crime': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'You cannot get compensation',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'you-cannot-get-compensation': {
+                    description:
+                        '<p class="govuk-body">You can only get compensation from this service if you\'ve been a victim of a violent crime.</p><p class="govuk-body">Call us if you want to discuss whether you can claim.</p>{% include \'contact.njk\' %}'
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
+        'p-applicant-non-sa-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-non-sa-infections'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-non-sa-infections': {
+                    type: 'boolean',
+                    title: 'Do you have HIV or hepatitis as a result of the crime?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-non-sa-infections':
+                        'Select yes if you have HIV or hepatitis as a result of the crime'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-non-sa-infections': true
+                },
+                {
+                    'q-applicant-non-sa-infections': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-non-sa-infections': 'foo'
+                }
+            ]
+        },
+        'p-applicant-select-non-sa-infections': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Select what infection you have',
+            required: ['q-applicant-physical-injuries'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-physical-injuries': {
+                    type: 'array',
+                    items: {
+                        anyOf: [
+                            {
+                                title: 'HIV',
+                                const: 'phyinj-141'
+                            },
+                            {
+                                title: 'Hepatitis B',
+                                const: 'phyinj-142'
+                            },
+                            {
+                                title: 'Hepatitis C',
+                                const: 'phyinj-143'
+                            }
+                        ]
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-physical-injuries': 'Select an infection from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-141']
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
+            ]
+        },
+        'p-applicant-fatal-claim': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-fatal-claim'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-fatal-claim': {
+                    type: 'boolean',
+                    title: 'Are you applying for someone who died from their injuries?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-fatal-claim':
+                        'Select yes if you are applying for someone who died from their injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-fatal-claim': true
+                },
+                {
+                    'q-applicant-fatal-claim': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-fatal-claim': 'foo'
+                }
+            ]
+        },
+        'p-applicant-incident-type': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-incident-type'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-incident-type': {
+                    title: 'What led to your injuries?',
+                    type: 'string',
+                    oneOf: [
+                        {
+                            title: 'Physical assault',
+                            const: 'ASST'
+                        },
+                        {
+                            title: 'Assault with a weapon',
+                            const: 'WEAP'
+                        },
+                        {
+                            title: 'Sexual assault or abuse',
+                            const: 'SEX'
+                        },
+                        {
+                            title: 'Domestic or family violence',
+                            const: 'FMLY'
+                        },
+                        {
+                            title: 'Arson',
+                            const: 'ARSN'
+                        },
+                        {
+                            title: 'Poisoning',
+                            const: 'PSNG'
+                        },
+                        {
+                            title: 'Animal attack',
+                            const: 'ANIMAL'
+                        },
+                        {
+                            title: 'Vehicle attack',
+                            const: 'VEHICLE'
+                        },
+                        {
+                            title: 'Witnessing an incident',
+                            const: 'SECV'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'OTHER'
+                        }
+                    ]
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-incident-type': 'Select what led to your injuries'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-incident-type': 'ANIMAL'
+                }
+            ],
+            invalidExamples: [
+                {},
+                {
+                    'q-applicant-incident-type': 'ABCD'
+                },
+                {
+                    'q-applicant-incident-type': ''
+                },
+                {
+                    'q-applicant-incident-type': 123
+                },
+                {
+                    'q-applicant-incident-type': []
+                },
+                {
+                    'q-applicant-incident-type': true
+                }
+            ]
+        },
+        'p-applicant-provide-additional-information': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-provide-additional-information'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-provide-additional-information': {
+                    type: 'boolean',
+                    title: 'Would you like to add any information to your claim?',
+                    description:
+                        'This may include details of additional crime reference numbers, locations, dates and/or offenders.'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-provide-additional-information':
+                        'Select yes if you would like to add any information to your claim'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-provide-additional-information': true
+                },
+                {
+                    'q-applicant-provide-additional-information': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-provide-additional-information': 'foo'
+                }
+            ]
+        },
+        'p-applicant-additional-information': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-additional-information'],
+            properties: {
+                'q-applicant-additional-information': {
+                    type: 'string',
+                    title: 'Enter additional information',
+                    description:
+                        'You can provide any extra information, including additional crime reference numbers, details of additional crimes, locations, dates and/or offenders here.',
+                    maxLength: 1000,
+                    errorMessage: {
+                        maxLength: 'Additional information must be 1000 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-additional-information':
+                        'Describe what additional information you want to provide'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-additional-information': 'Some info'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-additional-information': 12345
+                }
+            ]
+        },
+        'p-applicant-describe-incident': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-describe-incident'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-describe-incident': {
+                    type: 'boolean',
+                    title: 'Would you like to briefly describe the crime in your own words?',
+                    description:
+                        'The police will send us a report of the crime. Providing an additional description is optional.'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-describe-incident':
+                        'Select yes if you would like to describe the crime in your own words'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-describe-incident': true
+                },
+                {
+                    'q-applicant-describe-incident': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-describe-incident': 'foo'
+                }
+            ]
+        },
+        'p-applicant-incident-description': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-incident-description'],
+            properties: {
+                'q-applicant-incident-description': {
+                    type: 'string',
+                    title: 'Briefly describe the crime in your own words',
+                    description:
+                        'You can add details that may not be included in the crime report.',
+                    maxLength: 1000,
+                    errorMessage: {
+                        maxLength: 'Description must be 1000 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-incident-description': 'Describe the crime in your own words'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-incident-description': 'Some description'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-incident-description': 12345
+                }
+            ]
         },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2884,7 +7657,7 @@ module.exports = {
         }
     },
     routes: {
-        initial: 'p-applicant-who-are-you-applying-for',
+        initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: 'p-applicant-declaration',
         confirmation: 'p--confirmation',
@@ -2910,12 +7683,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national',
-                                true
-                            ]
+                            target: 'p--was-the-crime-reported-to-police'
                         }
                     ]
                 }
@@ -2964,29 +7732,16 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse': {
+            'p--before-you-continue': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--was-the-crime-reported-to-police',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                true
-                            ]
+                            target: 'p-applicant-incident-type'
                         }
                     ]
                 }
             },
-            'p--before-you-continue': {
+            'p-applicant-incident-type': {
                 on: {
                     ANSWER: [
                         {
@@ -3007,7 +7762,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries',
+                            target: 'p--context-applicant-details',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -3048,7 +7803,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender'
+                            target: 'p-applicant-describe-incident'
                         }
                     ]
                 }
@@ -3169,7 +7924,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -3191,7 +7946,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -3213,7 +7968,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-offender',
+                            target: 'p-applicant-describe-incident',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -3256,7 +8011,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details',
+                            target: 'p--context-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
@@ -3287,7 +8042,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details',
+                            target: 'p--context-physical-injuries',
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
@@ -3309,7 +8064,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p--context-physical-injuries'
                         }
                     ]
                 }
@@ -3351,7 +8106,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -3391,7 +8146,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -3400,7 +8155,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--check-your-answers'
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
@@ -3535,7 +8290,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -3576,7 +8331,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-payments',
+                            target: 'p--context-dmi-details',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
@@ -3584,76 +8339,10 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--transition',
+                            target: 'p-applicant-physical-injury',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-payments': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-are-you-claiming-for-loe',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-payments.q-applicant-are-you-claiming-for-payments',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-loe': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-are-you-claiming-for-expenses',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-loe.q-applicant-are-you-claiming-for-loe',
-                                true
-                            ]
-                        }
-                    ]
-                }
-            },
-            'p-applicant-are-you-claiming-for-expenses': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--context-applicant-details',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
-                                false
-                            ]
-                        },
-                        {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-claiming-for-expenses.q-applicant-are-you-claiming-for-expenses',
                                 true
                             ]
                         }
@@ -3673,7 +8362,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-compensation',
+                            target: 'p-applicant-affect-on-daily-life-dmi',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
@@ -3695,7 +8384,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-select-treatments'
+                            target: 'p-applicant-affect-on-daily-life-dmi'
                         }
                     ]
                 }
@@ -3713,7 +8402,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-affect-on-daily-life-dmi'
+                            target: 'p-applicant-are-you-registered-with-gp'
                         }
                     ]
                 }
@@ -3722,16 +8411,68 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-gp-details'
+                            target: 'p--context-treatment',
+                            cond: [
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-infections.q-applicant-infections',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
+                                    true
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
                         }
                     ]
                 }
             },
-            'p--context-gp-details': {
+            'p--context-treatment': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-registered-with-gp'
+                            target: 'p-applicant-treatment-for-physical-injuries',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-select-treatments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-has-your-treatment-finished-dmi'
                         }
                     ]
                 }
@@ -3751,16 +8492,2234 @@ module.exports = {
                         {
                             target: 'p-gp-enter-your-address',
                             cond: [
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                    true
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-dentist-visited',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'upper'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-medical-help'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-dentist-visited': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-dentist-address',
+                            cond: [
                                 '==',
-                                '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
+                                '$.answers.p-applicant-dentist-visited.q-applicant-dentist-visited',
                                 true
                             ]
                         },
                         {
-                            target: 'p-gp-enter-your-address',
+                            target: 'p-applicant-medical-help',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-dentist-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-medical-help',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p-gp-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-dentist-visited',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'upper'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-medical-help',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'upper'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-head',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'head'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-face',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'face'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-neck',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-head': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-face',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'face'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-neck',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-face': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-neck',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'neck'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-neck': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-eye',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'eye'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-eye': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-ear',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'ear'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-ear': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-nose',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'nose'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-nose': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-mouth',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'mouth'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-mouth': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-upper-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-upper-muscle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'torso'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-shoulder',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'shoulder'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-chest',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'chest'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-shoulder': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-chest',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'chest'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-chest': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-abdomen',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'abdomen'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-abdomen': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-back',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'back'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-back': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-pelvis',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'pelvis'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-pelvis': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-genitals',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'genitals'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-genitals': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-torso-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-torso-muscle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'arms'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-shoulder',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'shoulder'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-arm',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'arm'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-elbow',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'elbow'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-wrist',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'wrist'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-hand',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'hand'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-shoulder': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-arm',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'arm'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-elbow',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'elbow'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-wrist',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'wrist'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-hand',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'hand'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-arm': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-elbow',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'elbow'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-wrist',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'wrist'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-hand',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'hand'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-elbow': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-wrist',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'wrist'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-hand',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'hand'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-wrist': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-hand',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'hand'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-hand': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-digit',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'digit'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-digit': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-arms-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-arms.q-applicant-physical-injury-arms',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-arms-muscle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
+                                'legs'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-hip',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'hip'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-leg',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'leg'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-hip': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-leg',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'leg'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-leg': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-knee',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'knee'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-knee': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-ankle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'ankle'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-ankle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-foot',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'foot'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-foot': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-toes',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'toes'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-toes': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-skin',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'skin'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-skin': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-physical-injury-legs-muscle',
+                            cond: [
+                                'includes',
+                                '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
+                                'muscle'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-physical-injury-legs-muscle': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-dmi-details'
+                        }
+                    ]
+                }
+            },
+            'p--context-physical-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-non-sa-infections'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-infections.q-applicant-infections',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-pregnancy': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-treatment-for-physical-injuries': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-treatments',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-has-your-treatment-finished-dmi'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-medical-help': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-treatment-address',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-medical-help.q-applicant-medical-help',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-treatment-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-money'
+                        }
+                    ]
+                }
+            },
+            'p--context-money': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-unable-to-work-duration'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-unable-to-work-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-job-when-crime-happened',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
                                 true
                             ]
                         },
@@ -3770,11 +10729,165 @@ module.exports = {
                     ]
                 }
             },
-            'p-gp-enter-your-address': {
+            'p-applicant-job-when-crime-happened': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-work-details-option'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-work-details-option': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-expenses'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-expenses': {
                 on: {
                     ANSWER: [
                         {
                             target: 'p--context-compensation'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-pregnancy-loss': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-you-cannot-get-compensation-violent-crime': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--was-the-crime-reported-to-police'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-non-sa-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-select-non-sa-infections',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-select-non-sa-infections': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-fatal-claim': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--transition',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-who-are-you-applying-for',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
+                                false
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-provide-additional-information': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-additional-information',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--check-your-answers',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
+                                false
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-additional-information': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--check-your-answers'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-describe-incident': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-incident-description',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-offender',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
+                                false
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-applicant-incident-description': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-offender'
                         }
                     ]
                 }
@@ -3785,7 +10898,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p-applicant-who-are-you-applying-for'],
+    progress: ['p-applicant-fatal-claim'],
     meta: {
         questionnaireDocumentVersion: '1.0.0',
         onComplete: {
