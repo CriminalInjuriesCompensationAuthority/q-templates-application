@@ -1906,7 +1906,7 @@ module.exports = {
                 },
                 'q-applicant-building-and-street-2': {
                     type: 'string',
-                    title: "<span class='govuk-visually-hidden'>Building and street line 2",
+                    title: "<span class='govuk-visually-hidden'>Building and street line 2</span>",
                     maxLength: 60,
                     errorMessage: {
                         maxLength: 'Second line of address must be less than 60 characters'
