@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.2',
+    version: '1.4.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2007,8 +2007,7 @@ module.exports = {
                         maxLength: 'Telephone number must be 20 characters or less',
                         pattern:
                             'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
-                    },
-                    label: "Phone number"
+                    }
                 }
             },
             examples: [
