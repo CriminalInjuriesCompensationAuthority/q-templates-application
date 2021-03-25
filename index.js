@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.1',
+    version: '1.3.2',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -514,7 +514,8 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time':
+                        'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -723,7 +724,9 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
+                        12345
+                    ],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1555,7 +1558,8 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description: 'We cannot pay compensation if the offender may benefit from it.',
+                    description:
+                        'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2396,7 +2400,8 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -2998,7 +3003,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -3678,7 +3684,8 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title: 'Broken ethmoid (bone at base of nose) needing operation',
+                                title:
+                                    'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             },
                             {
@@ -4089,7 +4096,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -4978,7 +4986,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -5871,7 +5880,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -6948,7 +6958,8 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street': 'Enter the name of the place',
-                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
+                    'q-applicant-treatment-building-and-street2':
+                        'Enter the building and street',
                     'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
@@ -7008,7 +7019,8 @@ module.exports = {
                 'q-applicant-unable-to-work-duration': {
                     type: 'boolean',
                     title: 'Have you been unable to work for more than 28 weeks?',
-                    description: 'This includes working less hours or being unable to look for work'
+                    description:
+                        'This includes working less hours or being unable to look for work'
                 }
             },
             errorMessage: {
@@ -7106,7 +7118,8 @@ module.exports = {
             },
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
@@ -7291,20 +7304,6 @@ module.exports = {
                     'q-applicant-pregnancy-loss': 'foo'
                 }
             ]
-        },
-        'p-applicant-you-cannot-get-compensation-violent-crime': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'You cannot get compensation',
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                'you-cannot-get-compensation': {
-                    description:
-                        '<p class="govuk-body">You can only get compensation from this service if you\'ve been a victim of a violent crime.</p><p class="govuk-body">Call us if you want to discuss whether you can claim.</p>{% include \'contact.njk\' %}'
-                }
-            },
-            examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
         },
         'p-applicant-non-sa-infections': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -7627,6 +7626,43 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-has-crime-reference-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-has-crime-reference-number'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-has-crime-reference-number': {
+                    type: 'boolean',
+                    title: 'Do you have a crime reference number?',
+                    description:
+                        'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.'
+                },
+                'crn-info': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I do not know the crime reference number",html: \'<p class="govuk-body">If you do not have your crime reference number, call 101 to speak to your local police station. They can help you get this.</p>\'})}}'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-has-crime-reference-number':
+                        'Select yes if you know the crime reference number'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-has-crime-reference-number': true
+                },
+                {
+                    'q-applicant-has-crime-reference-number': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-has-crime-reference-number': 'foo'
+                }
+            ]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -7683,7 +7719,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--was-the-crime-reported-to-police'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -7762,7 +7798,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-applicant-details',
+                            target: 'p-applicant-has-crime-reference-number',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -8290,7 +8326,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p-applicant-who-are-you-applying-for'
                         }
                     ]
                 }
@@ -10773,15 +10809,6 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-you-cannot-get-compensation-violent-crime': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--was-the-crime-reported-to-police'
-                        }
-                    ]
-                }
-            },
             'p-applicant-non-sa-infections': {
                 on: {
                     ANSWER: [
@@ -10820,7 +10847,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-who-are-you-applying-for',
+                            target: 'p--was-the-crime-reported-to-police',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
@@ -10888,6 +10915,15 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-offender'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-has-crime-reference-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-who-are-you-applying-for'
                         }
                     ]
                 }
