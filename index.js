@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.2',
+    version: '1.4.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1910,7 +1910,8 @@ module.exports = {
                 },
                 'q-applicant-building-and-street-2': {
                     type: 'string',
-                    title: "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                    title:
+                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
                     maxLength: 60,
                     errorMessage: {
                         maxLength: 'Second line of address must be less than 60 characters'
@@ -2048,7 +2049,8 @@ module.exports = {
                                         'p-applicant-who-are-you-applying-for':
                                             'Who are you applying for?',
                                         'p-applicant-are-you-18-or-over': 'Are you 18 or over?',
-                                        'p-applicant-confirmation-method': 'Confirmation method',
+                                        'p-applicant-confirmation-method':
+                                            'Confirmation method',
                                         'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
                                             'Were you a victim of sexual assault or abuse?',
                                         'p-applicant-victim-of-violent-crime':
@@ -2063,7 +2065,8 @@ module.exports = {
                                         'p-applicant-enter-your-name': 'Name',
                                         'p-applicant-have-you-been-known-by-any-other-names':
                                             'Have you been known by any other names?',
-                                        'p-applicant-what-other-names-have-you-used': 'Other names',
+                                        'p-applicant-what-other-names-have-you-used':
+                                            'Other names',
                                         'p-applicant-enter-your-date-of-birth': 'Date of birth',
                                         'p-applicant-british-citizen-or-eu-national':
                                             'Are you a British citizen or EU National?'
@@ -2106,9 +2109,12 @@ module.exports = {
                                     questions: {
                                         'p--was-the-crime-reported-to-police':
                                             'Was the crime reported to police?',
+                                        'p-applicant-has-crime-reference-number':
+                                            'Do you have a crime reference number?',
                                         'p--when-was-the-crime-reported-to-police':
                                             'When was the crime reported?',
-                                        'p--whats-the-crime-reference-number': 'Crime reference number',
+                                        'p--whats-the-crime-reference-number':
+                                            'Crime reference number',
                                         'p--which-police-force-is-investigating-the-crime':
                                             'Which police force is investigating?',
                                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
@@ -2127,7 +2133,8 @@ module.exports = {
                                         'p-applicant-select-non-sa-infections':
                                             'Select what infection you have',
                                         'p-applicant-pregnancy': 'Did you become pregnant?',
-                                        'p-applicant-pregnancy-loss': 'Did you lose a pregnancy?',
+                                        'p-applicant-pregnancy-loss':
+                                            'Did you lose a pregnancy?',
                                         'p-applicant-are-you-claiming-for-physical-injuries':
                                             'Do you have physical injuries?',
                                         'p-applicant-physical-injury': 'What was injured?',
@@ -2135,14 +2142,18 @@ module.exports = {
                                             'What parts of the head, face or neck were injured?',
                                         'p-applicant-physical-injury-upper-head':
                                             'Head or brain injuries',
-                                        'p-applicant-physical-injury-upper-face': 'Face injuries',
-                                        'p-applicant-physical-injury-upper-neck': 'Neck injuries',
+                                        'p-applicant-physical-injury-upper-face':
+                                            'Face injuries',
+                                        'p-applicant-physical-injury-upper-neck':
+                                            'Neck injuries',
                                         'p-applicant-physical-injury-upper-eye':
                                             'Eye or eyesight injuries',
                                         'p-applicant-physical-injury-upper-ear':
                                             'Ear or hearing injuries',
-                                        'p-applicant-physical-injury-upper-nose': 'Nose injuries',
-                                        'p-applicant-physical-injury-upper-mouth': 'Mouth injuries',
+                                        'p-applicant-physical-injury-upper-nose':
+                                            'Nose injuries',
+                                        'p-applicant-physical-injury-upper-mouth':
+                                            'Mouth injuries',
                                         'p-applicant-physical-injury-upper-skin':
                                             'Skin on your head, face or neck injuries',
                                         'p-applicant-physical-injury-upper-muscle':
@@ -2150,13 +2161,18 @@ module.exports = {
                                         'p-applicant-physical-injury-torso': 'Torso injuries',
                                         'p-applicant-physical-injury-torso-shoulder':
                                             'Shoulder injuries',
-                                        'p-applicant-physical-injury-torso-chest': 'Chest injuries',
-                                        'p-applicant-physical-injury-torso-abdomen': 'Abdomen injuries',
-                                        'p-applicant-physical-injury-torso-back': 'Back injuries',
-                                        'p-applicant-physical-injury-torso-pelvis': 'Pelvis injuries',
+                                        'p-applicant-physical-injury-torso-chest':
+                                            'Chest injuries',
+                                        'p-applicant-physical-injury-torso-abdomen':
+                                            'Abdomen injuries',
+                                        'p-applicant-physical-injury-torso-back':
+                                            'Back injuries',
+                                        'p-applicant-physical-injury-torso-pelvis':
+                                            'Pelvis injuries',
                                         'p-applicant-physical-injury-torso-genitals':
                                             'Genital injuries',
-                                        'p-applicant-physical-injury-torso-skin': 'Torso injuries',
+                                        'p-applicant-physical-injury-torso-skin':
+                                            'Torso injuries',
                                         'p-applicant-physical-injury-torso-muscle':
                                             'Tissue on your torso injuries',
                                         'p-applicant-physical-injury-arms':
@@ -2164,9 +2180,12 @@ module.exports = {
                                         'p-applicant-physical-injury-arms-shoulder':
                                             'Shoulder injuries',
                                         'p-applicant-physical-injury-arms-arm': 'Arm injuries',
-                                        'p-applicant-physical-injury-arms-elbow': 'Elbow injuries',
-                                        'p-applicant-physical-injury-arms-wrist': 'Wrist injuries',
-                                        'p-applicant-physical-injury-arms-hand': 'Hand injuries',
+                                        'p-applicant-physical-injury-arms-elbow':
+                                            'Elbow injuries',
+                                        'p-applicant-physical-injury-arms-wrist':
+                                            'Wrist injuries',
+                                        'p-applicant-physical-injury-arms-hand':
+                                            'Hand injuries',
                                         'p-applicant-physical-injury-arms-digit':
                                             'Finger or thumb injuries',
                                         'p-applicant-physical-injury-arms-skin':
@@ -2177,9 +2196,12 @@ module.exports = {
                                             'What parts of the legs or feet were injured?',
                                         'p-applicant-physical-injury-legs-hip': 'Hip injuries',
                                         'p-applicant-physical-injury-legs-leg': 'Leg injuries',
-                                        'p-applicant-physical-injury-legs-knee': 'Knee injuries',
-                                        'p-applicant-physical-injury-legs-ankle': 'Ankle injuries',
-                                        'p-applicant-physical-injury-legs-foot': 'Foot injuries',
+                                        'p-applicant-physical-injury-legs-knee':
+                                            'Knee injuries',
+                                        'p-applicant-physical-injury-legs-ankle':
+                                            'Ankle injuries',
+                                        'p-applicant-physical-injury-legs-foot':
+                                            'Foot injuries',
                                         'p-applicant-physical-injury-legs-toes': 'Toe injuries',
                                         'p-applicant-physical-injury-legs-skin':
                                             'Skin on your legs or feet injuries',
@@ -2198,7 +2220,8 @@ module.exports = {
                                     questions: {
                                         'p-applicant-treatment-for-physical-injuries':
                                             'Treatment for your physical injuries',
-                                        'p-applicant-select-treatments': 'Mental health treatments',
+                                        'p-applicant-select-treatments':
+                                            'Mental health treatments',
                                         'p-applicant-has-your-treatment-finished-dmi':
                                             'Have you finished your treatment?',
                                         'p-applicant-are-you-registered-with-gp':
@@ -2206,7 +2229,8 @@ module.exports = {
                                         'p-applicant-have-you-seen-a-gp':
                                             'Have you seen a GP about your injuries?',
                                         'p-gp-enter-your-address': "GP's address",
-                                        'p-applicant-medical-help': 'Did you seek other medical help?',
+                                        'p-applicant-medical-help':
+                                            'Did you seek other medical help?',
                                         'p-applicant-treatment-address':
                                             'Where did you have treatment?',
                                         'p-dentist-visited':
@@ -2214,7 +2238,8 @@ module.exports = {
                                         'p-dentist-details': "What is your dentist's address?",
                                         'p-applicant-dentist-visited':
                                             'Have you seen a dentist about your injuries?',
-                                        'p-applicant-dentist-address': "What is your dentist's address?"
+                                        'p-applicant-dentist-address':
+                                            "What is your dentist's address?"
                                     }
                                 },
                                 {
@@ -2236,11 +2261,14 @@ module.exports = {
                                             'Have you applied before?',
                                         'p-applicant-have-you-applied-for-or-received-any-other-compensation':
                                             'Have you applied for or received any other form of compensation?',
-                                        'p-applicant-who-did-you-apply-to': 'Who did you apply to?',
+                                        'p-applicant-who-did-you-apply-to':
+                                            'Who did you apply to?',
                                         'p-applicant-has-a-decision-been-made':
                                             'Have they made a decision?',
-                                        'p-applicant-how-much-was-award': 'How much was the award?',
-                                        'p-applicant-when-will-you-find-out': 'When will you find out?',
+                                        'p-applicant-how-much-was-award':
+                                            'How much was the award?',
+                                        'p-applicant-when-will-you-find-out':
+                                            'When will you find out?',
                                         'p-applicant-other-compensation-details':
                                             'Details of other compensation received',
                                         'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
@@ -2252,9 +2280,8 @@ module.exports = {
                                     questions: {
                                         'p-applicant-enter-your-address': 'Address',
                                         'p-applicant-enter-your-email-address': 'Email address',
-                                        'p-applicant-enter-your-telephone-number': {
-                                            '$ref': '#/sections/p-applicant-enter-your-telephone-number/properties/q-applicant-enter-your-telephone-number/label'
-                                        }
+                                        'p-applicant-enter-your-telephone-number':
+                                            'Phone number'
                                     }
                                 },
                                 {
@@ -2262,7 +2289,8 @@ module.exports = {
                                     questions: {
                                         'p-applicant-provide-additional-information':
                                             'Would you like to add any information?',
-                                        'p-applicant-additional-information': 'Additional information'
+                                        'p-applicant-additional-information':
+                                            'Additional information'
                                     }
                                 }
                             ],
@@ -2416,7 +2444,8 @@ module.exports = {
                                 'phyinj-029': 'Clicking jaw',
                                 'phyinj-030': 'Dislocated jaw',
                                 'phyinj-031': 'Broken ethmoid (bone at base of nose)',
-                                'phyinj-032': 'Broken ethmoid (bone at base of nose) needing operation',
+                                'phyinj-032':
+                                    'Broken ethmoid (bone at base of nose) needing operation',
                                 'phyinj-033': 'Broken nose',
                                 'phyinj-034': 'Broken jaw',
                                 'phyinj-035': 'Face fractures',
@@ -2519,9 +2548,12 @@ module.exports = {
                                 'phyinj-134': 'Cuts on legs or feet',
                                 'phyinj-135': 'Bruises on legs or feet',
                                 'phyinj-136': '2 or more broken toes',
-                                'phyinj-137': 'Hemiplegia (paralysis of one side of the the body)',
-                                'phyinj-138': 'Paraplegia (paralysis of lower half of the body)',
-                                'phyinj-139': 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                'phyinj-137':
+                                    'Hemiplegia (paralysis of one side of the the body)',
+                                'phyinj-138':
+                                    'Paraplegia (paralysis of lower half of the body)',
+                                'phyinj-139':
+                                    'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
                                 'phyinj-140': 'Loss of pregnancy',
                                 'phyinj-141': 'HIV',
                                 'phyinj-142': 'Hepatitis B',
@@ -8232,6 +8264,255 @@ module.exports = {
                 }
             ]
         },
+        'p-main-applicant-enter-your-name': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Enter your name',
+            type: 'object',
+            required: [
+                'q-main-applicant-title',
+                'q-main-applicant-first-name',
+                'q-main-applicant-last-name'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-title': {
+                    title: 'Title',
+                    type: 'string',
+                    maxLength: 6,
+                    errorMessage: {
+                        maxLength: 'Title must be 6 characters or less'
+                    }
+                },
+                'q-main-applicant-first-name': {
+                    title: 'First name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'First name must be 70 characters or less'
+                    }
+                },
+                'q-main-applicant-last-name': {
+                    title: 'Last name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'Last name must be 70 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-title': 'Enter your title',
+                    'q-main-applicant-first-name': 'Enter your first name',
+                    'q-main-applicant-last-name': 'Enter your last name'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-title': 12345,
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 12345,
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-email-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-email-address': {
+                    type: 'string',
+                    title: 'Enter your email address',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 50,
+                    format: 'email',
+                    errorMessage: {
+                        maxLength: 'Email address must be 50 characters or less',
+                        format: 'Enter your email address, for example john.smith@email.com'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-email-address':
+                        'foo@hhjhjk34h5jkh24kj5h2k45.com'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-email-address': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Enter your address',
+            required: ['q-main-applicant-building-and-street', 'q-main-applicant-town-or-city'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-building-and-street': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'First line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-building-and-street-2': {
+                    type: 'string',
+                    title:
+                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Second line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-building-and-street':
+                        'Enter the building and street where you live',
+                    'q-main-applicant-town-or-city': 'Enter the town or city where you live'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-building-and-street': '1 Foo Lane',
+                    'q-main-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-main-applicant-town-or-city': 'FooCity',
+                    'q-main-applicant-county': 'FooCounty',
+                    'q-main-applicant-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-building-and-street': 12345,
+                    'q-applicant-building-and-street-2': 12345,
+                    'q-applicant-town-or-city': 12345,
+                    'q-applicant-county': 12345,
+                    'q-applicant-postcode': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-telephone-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-telephone-number': {
+                    type: 'string',
+                    title: 'Enter your telephone number',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 20,
+                    pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
+                    errorMessage: {
+                        maxLength: 'Telephone number must be 20 characters or less',
+                        pattern:
+                            'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': '01632 960 001'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': 12345
+                }
+            ]
+        },
+        'p-main-applicant-victim-same-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-main-applicant-victim-same-address'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-victim-same-address': {
+                    type: 'boolean',
+                    title: 'Does the child live at this address?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-victim-same-address':
+                        'Select yes if the child lives at this address'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-victim-same-address': true
+                },
+                {
+                    'q-main-applicant-victim-same-address': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-victim-same-address': 'foo'
+                }
+            ]
+        },
+        'p--context-main-applicant': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your details',
+            additionalProperties: false,
+            properties: {
+                'main-app-context': {
+                    description: `<p class="govuk-body">We're going to ask for some details about you.</p><p class="govuk-body">We'll use these to contact you about this application.</p>`
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -8319,7 +8600,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
+                            target: 'p--context-main-applicant',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
@@ -8909,6 +9190,14 @@ module.exports = {
                                 '==',
                                 '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
                                 'none'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-name',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
                             ]
                         },
                         {
@@ -11493,6 +11782,73 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-who-are-you-applying-for'
+                        }
+                    ]
+                }
+            },
+            'p--context-main-applicant': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-confirmation-method'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-name': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-telephone-number',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'email'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-email-address',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'text'
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-telephone-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-email-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-victim-same-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-victim-same-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--before-you-continue'
                         }
                     ]
                 }
