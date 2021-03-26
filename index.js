@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.1',
+    version: '1.3.2',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -514,7 +514,8 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time':
+                        'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -723,7 +724,9 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
+                        12345
+                    ],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1555,7 +1558,8 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description: 'We cannot pay compensation if the offender may benefit from it.',
+                    description:
+                        'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -2396,7 +2400,8 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -2998,7 +3003,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -3678,7 +3684,8 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title: 'Broken ethmoid (bone at base of nose) needing operation',
+                                title:
+                                    'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             },
                             {
@@ -4089,7 +4096,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -4978,7 +4986,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -5871,7 +5880,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -6948,7 +6958,8 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street': 'Enter the name of the place',
-                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
+                    'q-applicant-treatment-building-and-street2':
+                        'Enter the building and street',
                     'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
@@ -7008,7 +7019,8 @@ module.exports = {
                 'q-applicant-unable-to-work-duration': {
                     type: 'boolean',
                     title: 'Have you been unable to work for more than 28 weeks?',
-                    description: 'This includes working less hours or being unable to look for work'
+                    description:
+                        'This includes working less hours or being unable to look for work'
                 }
             },
             errorMessage: {
@@ -7106,7 +7118,8 @@ module.exports = {
             },
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
@@ -7291,20 +7304,6 @@ module.exports = {
                     'q-applicant-pregnancy-loss': 'foo'
                 }
             ]
-        },
-        'p-applicant-you-cannot-get-compensation-violent-crime': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'You cannot get compensation',
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                'you-cannot-get-compensation': {
-                    description:
-                        '<p class="govuk-body">You can only get compensation from this service if you\'ve been a victim of a violent crime.</p><p class="govuk-body">Call us if you want to discuss whether you can claim.</p>{% include \'contact.njk\' %}'
-                }
-            },
-            examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
         },
         'p-applicant-non-sa-infections': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -7627,6 +7626,292 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-has-crime-reference-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-has-crime-reference-number'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-has-crime-reference-number': {
+                    type: 'boolean',
+                    title: 'Do you have a crime reference number?',
+                    description:
+                        'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.'
+                },
+                'crn-info': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I do not know the crime reference number",html: \'<p class="govuk-body">If you do not have your crime reference number, call 101 to speak to your local police station. They can help you get this.</p>\'})}}'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-has-crime-reference-number':
+                        'Select yes if you know the crime reference number'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-has-crime-reference-number': true
+                },
+                {
+                    'q-applicant-has-crime-reference-number': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-has-crime-reference-number': 'foo'
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-name': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Enter your name',
+            type: 'object',
+            required: [
+                'q-main-applicant-title',
+                'q-main-applicant-first-name',
+                'q-main-applicant-last-name'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-title': {
+                    title: 'Title',
+                    type: 'string',
+                    maxLength: 6,
+                    errorMessage: {
+                        maxLength: 'Title must be 6 characters or less'
+                    }
+                },
+                'q-main-applicant-first-name': {
+                    title: 'First name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'First name must be 70 characters or less'
+                    }
+                },
+                'q-main-applicant-last-name': {
+                    title: 'Last name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'Last name must be 70 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-title': 'Enter your title',
+                    'q-main-applicant-first-name': 'Enter your first name',
+                    'q-main-applicant-last-name': 'Enter your last name'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-title': 12345,
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 12345,
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-email-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-email-address': {
+                    type: 'string',
+                    title: 'Enter your email address',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 50,
+                    format: 'email',
+                    errorMessage: {
+                        maxLength: 'Email address must be 50 characters or less',
+                        format: 'Enter your email address, for example john.smith@email.com'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-email-address':
+                        'foo@hhjhjk34h5jkh24kj5h2k45.com'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-email-address': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Enter your address',
+            required: ['q-main-applicant-building-and-street', 'q-main-applicant-town-or-city'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-building-and-street': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'First line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-building-and-street-2': {
+                    type: 'string',
+                    title:
+                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Second line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-building-and-street':
+                        'Enter the building and street where you live',
+                    'q-main-applicant-town-or-city': 'Enter the town or city where you live'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-building-and-street': '1 Foo Lane',
+                    'q-main-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-main-applicant-town-or-city': 'FooCity',
+                    'q-main-applicant-county': 'FooCounty',
+                    'q-main-applicant-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-building-and-street': 12345,
+                    'q-applicant-building-and-street-2': 12345,
+                    'q-applicant-town-or-city': 12345,
+                    'q-applicant-county': 12345,
+                    'q-applicant-postcode': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-telephone-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-telephone-number': {
+                    type: 'string',
+                    title: 'Enter your telephone number',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 20,
+                    pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
+                    errorMessage: {
+                        maxLength: 'Telephone number must be 20 characters or less',
+                        pattern:
+                            'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': '01632 960 001'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': 12345
+                }
+            ]
+        },
+        'p-main-applicant-victim-same-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-main-applicant-victim-same-address'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-victim-same-address': {
+                    type: 'boolean',
+                    title: 'Does the child live at this address?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-victim-same-address':
+                        'Select yes if the child lives at this address'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-victim-same-address': true
+                },
+                {
+                    'q-main-applicant-victim-same-address': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-victim-same-address': 'foo'
+                }
+            ]
+        },
+        'p--context-main-applicant': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your details',
+            additionalProperties: false,
+            properties: {
+                'main-app-context': {
+                    description: `<p class="govuk-body">We're going to ask for some details about you.</p><p class="govuk-body">We'll use these to contact you about this application.</p>`
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -7683,7 +7968,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--was-the-crime-reported-to-police'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -7714,7 +7999,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
+                            target: 'p--context-main-applicant',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
@@ -7762,7 +8047,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-applicant-details',
+                            target: 'p-applicant-has-crime-reference-number',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -8290,7 +8575,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p-applicant-who-are-you-applying-for'
                         }
                     ]
                 }
@@ -8304,6 +8589,14 @@ module.exports = {
                                 '==',
                                 '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
                                 'none'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-name',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
                             ]
                         },
                         {
@@ -10773,15 +11066,6 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-you-cannot-get-compensation-violent-crime': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--was-the-crime-reported-to-police'
-                        }
-                    ]
-                }
-            },
             'p-applicant-non-sa-infections': {
                 on: {
                     ANSWER: [
@@ -10820,7 +11104,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-who-are-you-applying-for',
+                            target: 'p--was-the-crime-reported-to-police',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
@@ -10888,6 +11172,82 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-offender'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-has-crime-reference-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-who-are-you-applying-for'
+                        }
+                    ]
+                }
+            },
+            'p--context-main-applicant': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-confirmation-method'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-name': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-telephone-number',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'email'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-email-address',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'text'
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-telephone-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-email-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-victim-same-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-victim-same-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--before-you-continue'
                         }
                     ]
                 }
