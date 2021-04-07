@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.3.1',
+    version: '1.4.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -514,7 +514,8 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time':
+                        'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -723,7 +724,9 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
+                        12345
+                    ],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1555,7 +1558,8 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description: 'We cannot pay compensation if the offender may benefit from it.',
+                    description:
+                        'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -1906,7 +1910,8 @@ module.exports = {
                 },
                 'q-applicant-building-and-street-2': {
                     type: 'string',
-                    title: "<span class='govuk-visually-hidden'>Building and street line 2",
+                    title:
+                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
                     maxLength: 60,
                     errorMessage: {
                         maxLength: 'Second line of address must be less than 60 characters'
@@ -2029,9 +2034,609 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'p-check-your-answers': {
-                    summaryInfo: {
-                        urlPath: 'apply',
-                        editAnswerText: 'Change'
+                    type: 'object',
+                    properties: {
+                        summaryInfo: {
+                            type: 'object',
+                            urlPath: 'apply',
+                            editAnswerText: 'Change',
+                            summaryStructure: [
+                                {
+                                    title: 'About the application',
+                                    questions: {
+                                        'p-applicant-fatal-claim':
+                                            'Are you applying for someone who died from their injuries?',
+                                        'p-applicant-who-are-you-applying-for':
+                                            'Who are you applying for?',
+                                        'p-applicant-are-you-18-or-over': 'Are you 18 or over?',
+                                        'p-applicant-confirmation-method':
+                                            'Confirmation method',
+                                        'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
+                                            'Were you a victim of sexual assault or abuse?',
+                                        'p-applicant-victim-of-violent-crime':
+                                            'Were you a victim of violent crime?',
+                                        'p-applicant-select-reasons-for-the-delay-in-making-your-application':
+                                            'Reasons for the delay in making your application'
+                                    }
+                                },
+                                {
+                                    title: 'Your details',
+                                    questions: {
+                                        'p-applicant-enter-your-name': 'Name',
+                                        'p-applicant-have-you-been-known-by-any-other-names':
+                                            'Have you been known by any other names?',
+                                        'p-applicant-what-other-names-have-you-used':
+                                            'Other names',
+                                        'p-applicant-enter-your-date-of-birth': 'Date of birth',
+                                        'p-applicant-british-citizen-or-eu-national':
+                                            'Are you a British citizen or EU National?'
+                                    }
+                                },
+                                {
+                                    title: 'About the crime',
+                                    questions: {
+                                        'p-applicant-incident-type': 'Cause of injuries',
+                                        'p-applicant-did-the-crime-happen-once-or-over-time':
+                                            'Did the crime happen once or over a period of time?',
+                                        'p-applicant-when-did-the-crime-happen':
+                                            'When did the crime happen?',
+                                        'p-applicant-when-did-the-crime-start':
+                                            'When did the crime start?',
+                                        'p-applicant-when-did-the-crime-stop':
+                                            'When did the crime stop?',
+                                        'p-applicant-where-did-the-crime-happen':
+                                            'Where did the crime happen?',
+                                        'p-applicant-where-in-england-did-it-happen':
+                                            'Where in England did it happen?',
+                                        'p-applicant-where-in-scotland-did-it-happen':
+                                            'Where in Scotland did it happen?',
+                                        'p-applicant-where-in-wales-did-it-happen':
+                                            'Where in Wales did it happen?',
+                                        'p-offender-do-you-know-the-name-of-the-offender':
+                                            'Do you know the name of the offender?',
+                                        'p-offender-enter-offenders-name': "Offender's name",
+                                        'p-offender-do-you-have-contact-with-offender':
+                                            'Do you have contact with the offender?',
+                                        'p-offender-describe-contact-with-offender':
+                                            'Contact with offender',
+                                        'p-applicant-describe-incident':
+                                            'Would you like to describe the crime?',
+                                        'p-applicant-incident-description': 'Your description'
+                                    }
+                                },
+                                {
+                                    title: 'Police report',
+                                    questions: {
+                                        'p--was-the-crime-reported-to-police':
+                                            'Was the crime reported to police?',
+                                        'p-applicant-has-crime-reference-number':
+                                            'Do you have a crime reference number?',
+                                        'p--when-was-the-crime-reported-to-police':
+                                            'When was the crime reported?',
+                                        'p--whats-the-crime-reference-number':
+                                            'Crime reference number',
+                                        'p--which-police-force-is-investigating-the-crime':
+                                            'Which police force is investigating?',
+                                        'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
+                                            'Reasons for delay in reporting crime'
+                                    }
+                                },
+                                {
+                                    title: 'Your injuries',
+                                    questions: {
+                                        'p-applicant-infections':
+                                            'Do you have HIV, hepatitis or an STI?',
+                                        'p-applicant-non-sa-infections':
+                                            'Do you have HIV or hepatitis?',
+                                        'p-applicant-select-infections':
+                                            'Select what infection you have',
+                                        'p-applicant-select-non-sa-infections':
+                                            'Select what infection you have',
+                                        'p-applicant-pregnancy': 'Did you become pregnant?',
+                                        'p-applicant-pregnancy-loss':
+                                            'Did you lose a pregnancy?',
+                                        'p-applicant-are-you-claiming-for-physical-injuries':
+                                            'Do you have physical injuries?',
+                                        'p-applicant-physical-injury': 'What was injured?',
+                                        'p-applicant-physical-injury-upper':
+                                            'What parts of the head, face or neck were injured?',
+                                        'p-applicant-physical-injury-upper-head':
+                                            'Head or brain injuries',
+                                        'p-applicant-physical-injury-upper-face':
+                                            'Face injuries',
+                                        'p-applicant-physical-injury-upper-neck':
+                                            'Neck injuries',
+                                        'p-applicant-physical-injury-upper-eye':
+                                            'Eye or eyesight injuries',
+                                        'p-applicant-physical-injury-upper-ear':
+                                            'Ear or hearing injuries',
+                                        'p-applicant-physical-injury-upper-nose':
+                                            'Nose injuries',
+                                        'p-applicant-physical-injury-upper-mouth':
+                                            'Mouth injuries',
+                                        'p-applicant-physical-injury-upper-skin':
+                                            'Skin on your head, face or neck injuries',
+                                        'p-applicant-physical-injury-upper-muscle':
+                                            'Tissue on your head, face or neck injuries',
+                                        'p-applicant-physical-injury-torso': 'Torso injuries',
+                                        'p-applicant-physical-injury-torso-shoulder':
+                                            'Shoulder injuries',
+                                        'p-applicant-physical-injury-torso-chest':
+                                            'Chest injuries',
+                                        'p-applicant-physical-injury-torso-abdomen':
+                                            'Abdomen injuries',
+                                        'p-applicant-physical-injury-torso-back':
+                                            'Back injuries',
+                                        'p-applicant-physical-injury-torso-pelvis':
+                                            'Pelvis injuries',
+                                        'p-applicant-physical-injury-torso-genitals':
+                                            'Genital injuries',
+                                        'p-applicant-physical-injury-torso-skin':
+                                            'Torso injuries',
+                                        'p-applicant-physical-injury-torso-muscle':
+                                            'Tissue on your torso injuries',
+                                        'p-applicant-physical-injury-arms':
+                                            'What parts of the arms or hands were injured?',
+                                        'p-applicant-physical-injury-arms-shoulder':
+                                            'Shoulder injuries',
+                                        'p-applicant-physical-injury-arms-arm': 'Arm injuries',
+                                        'p-applicant-physical-injury-arms-elbow':
+                                            'Elbow injuries',
+                                        'p-applicant-physical-injury-arms-wrist':
+                                            'Wrist injuries',
+                                        'p-applicant-physical-injury-arms-hand':
+                                            'Hand injuries',
+                                        'p-applicant-physical-injury-arms-digit':
+                                            'Finger or thumb injuries',
+                                        'p-applicant-physical-injury-arms-skin':
+                                            'Skin on your arms or hands injuries',
+                                        'p-applicant-physical-injury-arms-muscle':
+                                            'Tissue on your arms injuries',
+                                        'p-applicant-physical-injury-legs':
+                                            'What parts of the legs or feet were injured?',
+                                        'p-applicant-physical-injury-legs-hip': 'Hip injuries',
+                                        'p-applicant-physical-injury-legs-leg': 'Leg injuries',
+                                        'p-applicant-physical-injury-legs-knee':
+                                            'Knee injuries',
+                                        'p-applicant-physical-injury-legs-ankle':
+                                            'Ankle injuries',
+                                        'p-applicant-physical-injury-legs-foot':
+                                            'Foot injuries',
+                                        'p-applicant-physical-injury-legs-toes': 'Toe injuries',
+                                        'p-applicant-physical-injury-legs-skin':
+                                            'Skin on your legs or feet injuries',
+                                        'p-applicant-physical-injury-legs-muscle':
+                                            'Tissue on your legs injuries',
+                                        'p-applicant-do-you-have-disabling-mental-injury':
+                                            'Do you have a disabling mental injury?',
+                                        'p-applicant-mental-injury-duration':
+                                            'Has your mental injury lasted 6 weeks or more?',
+                                        'p-applicant-affect-on-daily-life-dmi':
+                                            'Briefly say how the crime has affected your daily life'
+                                    }
+                                },
+                                {
+                                    title: 'Your medical details',
+                                    questions: {
+                                        'p-applicant-treatment-for-physical-injuries':
+                                            'Treatment for your physical injuries',
+                                        'p-applicant-select-treatments':
+                                            'Mental health treatments',
+                                        'p-applicant-has-your-treatment-finished-dmi':
+                                            'Have you finished your treatment?',
+                                        'p-applicant-are-you-registered-with-gp':
+                                            'Are you registered with a GP practice?',
+                                        'p-applicant-have-you-seen-a-gp':
+                                            'Have you seen a GP about your injuries?',
+                                        'p-gp-enter-your-address': "GP's address",
+                                        'p-applicant-medical-help':
+                                            'Did you seek other medical help?',
+                                        'p-applicant-treatment-address':
+                                            'Where did you have treatment?',
+                                        'p-dentist-visited':
+                                            'Have you seen a dentist about your injuries?',
+                                        'p-dentist-details': "What is your dentist's address?",
+                                        'p-applicant-dentist-visited':
+                                            'Have you seen a dentist about your injuries?',
+                                        'p-applicant-dentist-address':
+                                            "What is your dentist's address?"
+                                    }
+                                },
+                                {
+                                    title: 'Money',
+                                    questions: {
+                                        'p-applicant-unable-to-work-duration':
+                                            'Have you been unable to work for more than 28 weeks?',
+                                        'p-applicant-job-when-crime-happened':
+                                            'Did you have a job when the crime happened?',
+                                        'p-applicant-work-details-option':
+                                            'Reason for not having paid work',
+                                        'p-applicant-expenses': 'Expenses'
+                                    }
+                                },
+                                {
+                                    title: 'Other compensation',
+                                    questions: {
+                                        'p-applicant-have-you-applied-to-us-before':
+                                            'Have you applied before?',
+                                        'p-applicant-have-you-applied-for-or-received-any-other-compensation':
+                                            'Have you applied for or received any other form of compensation?',
+                                        'p-applicant-who-did-you-apply-to':
+                                            'Who did you apply to?',
+                                        'p-applicant-has-a-decision-been-made':
+                                            'Have they made a decision?',
+                                        'p-applicant-how-much-was-award':
+                                            'How much was the award?',
+                                        'p-applicant-when-will-you-find-out':
+                                            'When will you find out?',
+                                        'p-applicant-other-compensation-details':
+                                            'Details of other compensation received',
+                                        'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
+                                            'Why you have not applied for or received any other form of compensation'
+                                    }
+                                },
+                                {
+                                    title: 'Contact details',
+                                    questions: {
+                                        'p-applicant-enter-your-address': 'Address',
+                                        'p-applicant-enter-your-email-address': 'Email address',
+                                        'p-applicant-enter-your-telephone-number':
+                                            'Phone number'
+                                    }
+                                },
+                                {
+                                    title: 'Additional information',
+                                    questions: {
+                                        'p-applicant-provide-additional-information':
+                                            'Would you like to add any information?',
+                                        'p-applicant-additional-information':
+                                            'Additional information'
+                                    }
+                                }
+                            ],
+                            lookup: {
+                                true: 'Yes',
+                                false: 'No',
+                                once: 'Once',
+                                'over-a-period-of-time': 'Over a period of time',
+                                'i-was-underage': 'I was under 18',
+                                'i-was-advised-to-wait': 'I was advised to wait',
+                                'medical-reasons': 'Medical reasons',
+                                'other-reasons': 'Other reasons',
+                                'i-was-under-18': 'I was under 18',
+                                'unable-to-report-crime': 'Unable to report the crime',
+                                other: 'Other',
+                                'option-1:-sexual-assault-or-abuse':
+                                    'Option 1: Sexual assault or abuse',
+                                'option-2:-sexual-assault-or-abuse-and-other-injuries-or-losses':
+                                    'Option 2: Sexual assault or abuse and other injuries or losses',
+                                myself: 'Myself',
+                                'someone-else': 'Someone else',
+                                england: 'England',
+                                scotland: 'Scotland',
+                                wales: 'Wales',
+                                'somewhere-else': 'Somewhere else',
+                                'i-have-no-contact-with-the-offender':
+                                    'I have no contact with the offender',
+                                email: 'Email to ',
+                                text: 'Text message to',
+                                cbt: 'CBT',
+                                emdr: 'EMDR',
+                                antidepressants: 'Antidepressants',
+                                counselling: 'counselling',
+                                psychotherapy: 'psychotherapy',
+                                10000033: 'Avon And Somerset Constabulary',
+                                10000035: 'Bedfordshire Police',
+                                10000001: 'British Transport Police',
+                                10000039: 'Cambridgeshire Constabulary',
+                                10000049: 'Cheshire Constabulary',
+                                10000059: 'City Of London Police',
+                                10000066: 'Cleveland Police',
+                                10000082: 'Cumbria Constabulary',
+                                10000084: 'Derbyshire Constabulary',
+                                10000090: 'Devon & Cornwall Constabulary',
+                                10000093: 'Dorset Police',
+                                10000102: 'Durham Constabulary',
+                                10000109: 'Dyfed Powys Police',
+                                10000114: 'Essex Police',
+                                10000128: 'Gloucestershire Constabulary',
+                                10000140: 'Greater Manchester Police',
+                                10000147: 'Gwent Constabulary',
+                                10000150: 'Hampshire Constabulary',
+                                10000153: 'Hertfordshire Constabulary',
+                                10000169: 'Humberside Police',
+                                10000172: 'Kent County Constabulary',
+                                10000175: 'Lancashire Constabulary',
+                                10000176: 'Leicestershire Police',
+                                10000179: 'Lincolnshire Police',
+                                10000181: 'Merseyside Police',
+                                11809785: 'Metropolitan Barking',
+                                11809719: 'Metropolitan Barnet',
+                                11809788: 'Metropolitan Bexley',
+                                11809722: 'Metropolitan Brent',
+                                11809760: 'Metropolitan Bromley',
+                                11809694: 'Metropolitan Camden',
+                                11809713: 'Metropolitan Croydon',
+                                11809743: 'Metropolitan Ealing',
+                                11809783: 'Metropolitan Enfield',
+                                11809709: 'Metropolitan Greenwich',
+                                11809763: 'Metropolitan Hackney',
+                                11809795: 'Metropolitan Hammersmith',
+                                11809738: 'Metropolitan Haringey',
+                                11809803: 'Metropolitan Harrow',
+                                11809800: 'Metropolitan Havering',
+                                11809775: 'Metropolitan Hillingdon',
+                                11809780: 'Metropolitan Hounslow',
+                                11809765: 'Metropolitan Islington',
+                                11809801: 'Metropolitan Kensington',
+                                11809865: 'Metropolitan Kingston',
+                                11809693: 'Metropolitan Lambeth',
+                                11809698: 'Metropolitan Lewisham',
+                                11809861: 'Metropolitan Merton',
+                                11809701: 'Metropolitan Newham',
+                                11809782: 'Metropolitan Redbridge',
+                                11809862: 'Metropolitan Richmond',
+                                11809691: 'Metropolitan Southwark',
+                                11809805: 'Metropolitan Sutton',
+                                11809767: 'Metropolitan Tower Hamlets',
+                                11809726: 'Metropolitan Waltham Forest',
+                                11809771: 'Metropolitan Wandsworth',
+                                11809683: 'Metropolitan Westminster',
+                                10000185: 'Norfolk Constabulary',
+                                10000187: 'North Wales Police',
+                                10000189: 'North Yorkshire Police',
+                                10000191: 'Northamptonshire Police',
+                                10000195: 'Northumbria Police',
+                                10000199: 'Nottinghamshire Police',
+                                12607027: 'Scotland Argyll/West Dunbartonshire',
+                                12157147: 'Scotland Ayrshire',
+                                10000098: 'Scotland Dumfries & Galloway',
+                                13400412: 'Scotland Edinburgh City',
+                                10002424: 'Scotland Fife',
+                                10000045: 'Scotland Forth Valley',
+                                12607023: 'Scotland Greater Glasgow',
+                                10000193: 'Scotland Highlands And Islands',
+                                12607028: 'Scotland Lanarkshire',
+                                13400413: 'Scotland Lothian And Borders',
+                                10000133: 'Scotland North East',
+                                12607026: 'Scotland Renfrewshire/Inverclyde',
+                                10000243: 'Scotland Tayside',
+                                10000215: 'South Wales Police',
+                                10000218: 'South Yorkshire Police',
+                                10000223: 'Staffordshire Police',
+                                10000233: 'Suffolk Constabulary',
+                                10000237: 'Surrey Constabulary',
+                                10000240: 'Sussex Police',
+                                10000247: 'Thames Valley Police',
+                                10000274: 'Warwickshire Constabulary',
+                                10000279: 'West Mercia Police',
+                                10000285: 'West Midlands Police',
+                                10000291: 'West Yorkshire Police',
+                                10000295: 'Wiltshire Constabulary',
+                                'phyinj-001': 'Burns on head, face or neck',
+                                'phyinj-002': 'Scars on head, face or neck',
+                                'phyinj-003': 'Brain damage',
+                                'phyinj-004': 'Epilepsy',
+                                'phyinj-005': 'Nerve damage on Arm',
+                                'phyinj-006': 'Broken ear bone',
+                                'phyinj-007': 'Hearing loss',
+                                'phyinj-008': 'Loss of ear',
+                                'phyinj-009': '1 perforated eardrum',
+                                'phyinj-010': '2 perforated eardrums',
+                                'phyinj-011': 'Tinnitus',
+                                'phyinj-012': 'Injury affecting balance',
+                                'phyinj-013': 'Broken eye socket',
+                                'phyinj-014': 'Temporary blurred or double vision',
+                                'phyinj-015': 'Permanent blurred or double vision',
+                                'phyinj-016': 'Cataract',
+                                'phyinj-017': 'Scratched eye',
+                                'phyinj-018': 'Permanent loss of peripheral vision',
+                                'phyinj-019': 'Dislocated lens',
+                                'phyinj-020': 'Glaucoma',
+                                'phyinj-021': 'Bleeding in eye',
+                                'phyinj-022': 'Loss of eye',
+                                'phyinj-023': 'Blindness',
+                                'phyinj-024': 'Sight loss',
+                                'phyinj-025': 'Floater',
+                                'phyinj-026': 'Damaged or detached retina',
+                                'phyinj-027': 'Punctured eyeball',
+                                'phyinj-028': 'Damaged eye drain',
+                                'phyinj-029': 'Clicking jaw',
+                                'phyinj-030': 'Dislocated jaw',
+                                'phyinj-031': 'Broken ethmoid (bone at base of nose)',
+                                'phyinj-032':
+                                    'Broken ethmoid (bone at base of nose) needing operation',
+                                'phyinj-033': 'Broken nose',
+                                'phyinj-034': 'Broken jaw',
+                                'phyinj-035': 'Face fractures',
+                                'phyinj-036': 'Face numbness',
+                                'phyinj-037': 'Broken cheekbone',
+                                'phyinj-038': 'Broken hyoid (throat bone)',
+                                'phyinj-039': 'Whiplash',
+                                'phyinj-040': 'Loss of smell or taste',
+                                'phyinj-041': 'Loss of nose',
+                                'phyinj-042': 'Fractured skull',
+                                'phyinj-043': 'Damaged or broken teeth',
+                                'phyinj-044': 'Loose teeth',
+                                'phyinj-045': 'Difficulty speaking',
+                                'phyinj-046': 'Permanent loss of speech',
+                                'phyinj-047': 'Loss of tongue',
+                                'phyinj-048': 'Cuts on head, face or neck',
+                                'phyinj-049': 'Bruises on head, face or neck',
+                                'phyinj-050': 'Muscle on head, face or neck',
+                                'phyinj-051': 'Black eye',
+                                'phyinj-052': 'Bloody nose',
+                                'phyinj-053': 'Hair pulled out',
+                                'phyinj-054': 'Burns on torso',
+                                'phyinj-055': 'Scars on torso',
+                                'phyinj-056': 'Keyhole surgery on torso',
+                                'phyinj-057': 'Chest surgery',
+                                'phyinj-058': 'Stoma',
+                                'phyinj-059': 'Broken vertebra',
+                                'phyinj-060': 'Slipped disc',
+                                'phyinj-061': 'Back strain',
+                                'phyinj-062': 'Separated shoulder',
+                                'phyinj-063': 'Broken collarbone',
+                                'phyinj-064': 'Broken tailbone',
+                                'phyinj-065': 'Genital injury',
+                                'phyinj-066': 'Infertility',
+                                'phyinj-067': 'Hernia',
+                                'phyinj-068': 'Loss of kidney',
+                                'phyinj-069': 'Kidney damage',
+                                'phyinj-070': 'Punctured lung',
+                                'phyinj-071': 'Collapsed lung',
+                                'phyinj-072': 'Lung damage from smoke or chemicals',
+                                'phyinj-073': 'Loss of pancreas',
+                                'phyinj-074': 'Broken pelvis',
+                                'phyinj-075': 'Broken rib',
+                                'phyinj-076': 'Broken shoulder blade',
+                                'phyinj-077': 'Loss of spleen',
+                                'phyinj-078': 'Broken breast bone',
+                                'phyinj-079': 'Cuts on torso',
+                                'phyinj-080': 'Bruises on torso',
+                                'phyinj-081': 'Muscle, ligament, or tendon on torso',
+                                'phyinj-082': 'Burns on arm or hand',
+                                'phyinj-083': 'Scars on arm or hand',
+                                'phyinj-084': 'Loss of arm',
+                                'phyinj-085': 'Paralysed arm',
+                                'phyinj-086': 'Dislocated elbow',
+                                'phyinj-087': 'Broken elbow',
+                                'phyinj-088': 'Dislocated finger on one hand',
+                                'phyinj-089': 'Dislocated fingers on both hands',
+                                'phyinj-090': 'Broken thumb',
+                                'phyinj-091': 'Broken index finger',
+                                'phyinj-092': 'Broken finger on one hand',
+                                'phyinj-093': 'Broken fingers on both hands',
+                                'phyinj-094': 'Loss of finger',
+                                'phyinj-095': 'Loss of part of finger',
+                                'phyinj-096': 'Broken hand',
+                                'phyinj-097': 'Loss of use of hand',
+                                'phyinj-098': 'Loss of grip',
+                                'phyinj-099': 'Broken arm',
+                                'phyinj-100': 'Dislocated shoulder',
+                                'phyinj-101': 'Frozen shoulder',
+                                'phyinj-103': 'Muscle, ligament, or tendon on arm or hand',
+                                'phyinj-104': 'Broken wrist',
+                                'phyinj-105': 'Sprained wrist',
+                                'phyinj-106': 'Loss of fingernail',
+                                'phyinj-107': 'Cuts on arm or hand',
+                                'phyinj-108': 'Bruises on arm or hand',
+                                'phyinj-109': 'Dislocated index finger',
+                                'phyinj-110': 'Dislocated thumb',
+                                'phyinj-111': 'Loss of thumb',
+                                'phyinj-112': 'Burns on legs or feet',
+                                'phyinj-113': 'Scars on legs or feet',
+                                'phyinj-114': 'Dislocated ankle',
+                                'phyinj-115': 'Broken ankle',
+                                'phyinj-116': 'Sprained ankle',
+                                'phyinj-117': 'Broken leg',
+                                'phyinj-118': 'Broken foot',
+                                'phyinj-119': 'Broken heel',
+                                'phyinj-120': 'Dislocated hip',
+                                'phyinj-121': 'Broken hip',
+                                'phyinj-122': 'Keyhole surgery to leg',
+                                'phyinj-123': 'Dislocated kneecap',
+                                'phyinj-124': 'Broken kneecap',
+                                'phyinj-125': 'Removal of kneecap',
+                                'phyinj-126': 'Amputated leg',
+                                'phyinj-127': 'Paralysed leg',
+                                'phyinj-129': 'Broken big toe',
+                                'phyinj-130': 'Broken toe',
+                                'phyinj-131': 'Amputated big toe',
+                                'phyinj-132': '1 amputated toe',
+                                'phyinj-133': '2 or more amputated toes',
+                                'phyinj-134': 'Cuts on legs or feet',
+                                'phyinj-135': 'Bruises on legs or feet',
+                                'phyinj-136': '2 or more broken toes',
+                                'phyinj-137':
+                                    'Hemiplegia (paralysis of one side of the the body)',
+                                'phyinj-138':
+                                    'Paraplegia (paralysis of lower half of the body)',
+                                'phyinj-139':
+                                    'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
+                                'phyinj-140': 'Loss of pregnancy',
+                                'phyinj-141': 'HIV',
+                                'phyinj-142': 'Hepatitis B',
+                                'phyinj-143': 'Hepatitis C',
+                                'phyinj-144': 'Pregnancy',
+                                'phyinj-145': 'Sexually transmitted infection (STI)',
+                                'phyinj-146':
+                                    'Head injury causing concussion, headaches or loss of balance',
+                                'phyinj-147': 'Paralysed finger',
+                                'phyinj-148': 'Paralysed toe',
+                                'phyinj-149': 'Other',
+                                'phyinj-150': 'Injury affecting eye movement',
+                                'phyinj-151': 'Ligament on head, face or neck',
+                                'phyinj-152': 'Tendon on head, face or neck',
+                                'phyinj-153': 'Cartilage on head, face or neck',
+                                'phyinj-154': 'Muscle on torso',
+                                'phyinj-155': 'Ligament on torso',
+                                'phyinj-156': 'Tendon on torso',
+                                'phyinj-157': 'Cartilage on torso',
+                                'phyinj-158': 'Muscle on arm or hand',
+                                'phyinj-159': 'Ligament on arm or hand',
+                                'phyinj-160': 'Tendon on arm or hand',
+                                'phyinj-161': 'Cartilage on arm or hand',
+                                'phyinj-162': 'Paralysed foot',
+                                'phyinj-164': 'Muscle on Leg or foot',
+                                'phyinj-165': 'Ligament on Leg or foot',
+                                'phyinj-166': 'Tendon on Leg or foot',
+                                'phyinj-167': 'Cartilage on Leg or foot',
+                                'phyinj-168': 'Nerve damage on Hand',
+                                'phyinj-169': 'Nerve damage on Leg',
+                                'phyinj-170': 'Nerve damage on Foot',
+                                upper: 'Head or brain',
+                                torso: 'Torso',
+                                arms: 'Arms',
+                                legs: 'Legs',
+                                head: 'Head',
+                                face: 'Face',
+                                eye: 'Eye',
+                                ear: 'Ear',
+                                nose: 'Nose',
+                                mouth: 'Mouth',
+                                neck: 'Neck',
+                                skin: 'Skin',
+                                muscle: 'Tissue',
+                                shoulder: 'Shoulder',
+                                chest: 'Chest',
+                                abdomen: 'Abdomen',
+                                back: 'Back',
+                                pelvis: 'Pelvis',
+                                genitals: 'Genitals',
+                                arm: 'Arm',
+                                elbow: 'Elbow',
+                                wrist: 'Wrist',
+                                hand: 'Hand',
+                                digit: 'Finger and Thumb',
+                                hip: 'Hip',
+                                leg: 'Leg',
+                                knee: 'Knee',
+                                ankle: 'Ankle',
+                                foot: 'Foot',
+                                toes: 'Toes',
+                                aids: 'Buying or repairing physical aids',
+                                alterations: 'Alterations to my home',
+                                'home-care': 'Home care',
+                                treatment: "NHS treatment I've paid for",
+                                'no-expenses': 'I have not had these expenses',
+                                employed:
+                                    'I had been in regular work for at least 3 years before the crime',
+                                'underage-for-work': 'I was too young to work',
+                                education: 'I was in full-time education',
+                                care: 'I was caring for someone',
+                                ASST: 'Physical assault',
+                                WEAP: 'Assault with a weapon',
+                                SEX: 'Sexual assault or abuse',
+                                FMLY: 'Domestic or family violence',
+                                ARSN: 'Arson',
+                                PSNG: 'Poisoning',
+                                ANIMAL: 'Animal attack',
+                                VEHICLE: 'Vehicle attack',
+                                SECV: 'Witnessing an incident',
+                                OTHER: 'Other'
+                            }
+                        }
                     }
                 }
             },
@@ -2396,7 +3001,8 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -2998,7 +3604,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -3678,7 +4285,8 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title: 'Broken ethmoid (bone at base of nose) needing operation',
+                                title:
+                                    'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             },
                             {
@@ -4089,7 +4697,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -4978,7 +5587,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -5871,7 +6481,8 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description: 'Including muscles, ligaments, tendons or cartilage'
+                                description:
+                                    'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -6948,7 +7559,8 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street': 'Enter the name of the place',
-                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
+                    'q-applicant-treatment-building-and-street2':
+                        'Enter the building and street',
                     'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
@@ -7008,7 +7620,8 @@ module.exports = {
                 'q-applicant-unable-to-work-duration': {
                     type: 'boolean',
                     title: 'Have you been unable to work for more than 28 weeks?',
-                    description: 'This includes working less hours or being unable to look for work'
+                    description:
+                        'This includes working less hours or being unable to look for work'
                 }
             },
             errorMessage: {
@@ -7106,7 +7719,8 @@ module.exports = {
             },
             allOf: [
                 {
-                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref:
+                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
@@ -7291,20 +7905,6 @@ module.exports = {
                     'q-applicant-pregnancy-loss': 'foo'
                 }
             ]
-        },
-        'p-applicant-you-cannot-get-compensation-violent-crime': {
-            $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'You cannot get compensation',
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                'you-cannot-get-compensation': {
-                    description:
-                        '<p class="govuk-body">You can only get compensation from this service if you\'ve been a victim of a violent crime.</p><p class="govuk-body">Call us if you want to discuss whether you can claim.</p>{% include \'contact.njk\' %}'
-                }
-            },
-            examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
         },
         'p-applicant-non-sa-infections': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -7627,6 +8227,292 @@ module.exports = {
                 }
             ]
         },
+        'p-applicant-has-crime-reference-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-has-crime-reference-number'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-has-crime-reference-number': {
+                    type: 'boolean',
+                    title: 'Do you have a crime reference number?',
+                    description:
+                        'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.'
+                },
+                'crn-info': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I do not know the crime reference number",html: \'<p class="govuk-body">If you do not have your crime reference number, call 101 to speak to your local police station. They can help you get this.</p>\'})}}'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-has-crime-reference-number':
+                        'Select yes if you know the crime reference number'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-has-crime-reference-number': true
+                },
+                {
+                    'q-applicant-has-crime-reference-number': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-has-crime-reference-number': 'foo'
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-name': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'Enter your name',
+            type: 'object',
+            required: [
+                'q-main-applicant-title',
+                'q-main-applicant-first-name',
+                'q-main-applicant-last-name'
+            ],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-title': {
+                    title: 'Title',
+                    type: 'string',
+                    maxLength: 6,
+                    errorMessage: {
+                        maxLength: 'Title must be 6 characters or less'
+                    }
+                },
+                'q-main-applicant-first-name': {
+                    title: 'First name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'First name must be 70 characters or less'
+                    }
+                },
+                'q-main-applicant-last-name': {
+                    title: 'Last name',
+                    type: 'string',
+                    maxLength: 70,
+                    errorMessage: {
+                        maxLength: 'Last name must be 70 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-title': 'Enter your title',
+                    'q-main-applicant-first-name': 'Enter your first name',
+                    'q-main-applicant-last-name': 'Enter your last name'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-title': 12345,
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 12345,
+                    'q-main-applicant-last-name': 'Bar'
+                },
+                {
+                    'q-main-applicant-title': 'Mr',
+                    'q-main-applicant-first-name': 'Foo',
+                    'q-main-applicant-last-name': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-email-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-email-address': {
+                    type: 'string',
+                    title: 'Enter your email address',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 50,
+                    format: 'email',
+                    errorMessage: {
+                        maxLength: 'Email address must be 50 characters or less',
+                        format: 'Enter your email address, for example john.smith@email.com'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-email-address':
+                        'foo@hhjhjk34h5jkh24kj5h2k45.com'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-email-address': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Enter your address',
+            required: ['q-main-applicant-building-and-street', 'q-main-applicant-town-or-city'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-building-and-street': {
+                    type: 'string',
+                    title: 'Building and street',
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'First line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-building-and-street-2': {
+                    type: 'string',
+                    title:
+                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                    maxLength: 60,
+                    errorMessage: {
+                        maxLength: 'Second line of address must be less than 60 characters'
+                    }
+                },
+                'q-main-applicant-town-or-city': {
+                    type: 'string',
+                    title: 'Town or city',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'Town or city must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-county': {
+                    type: 'string',
+                    title: 'County (optional)',
+                    maxLength: 32,
+                    errorMessage: {
+                        maxLength: 'County must be 32 characters or less'
+                    }
+                },
+                'q-main-applicant-postcode': {
+                    type: 'string',
+                    title: 'Postcode (optional)',
+                    maxLength: 10,
+                    errorMessage: {
+                        maxLength: 'Postcode must be 10 characters or less'
+                    }
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-building-and-street':
+                        'Enter the building and street where you live',
+                    'q-main-applicant-town-or-city': 'Enter the town or city where you live'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-building-and-street': '1 Foo Lane',
+                    'q-main-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-main-applicant-town-or-city': 'FooCity',
+                    'q-main-applicant-county': 'FooCounty',
+                    'q-main-applicant-postcode': 'G1 1XX'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-building-and-street': 12345,
+                    'q-applicant-building-and-street-2': 12345,
+                    'q-applicant-town-or-city': 12345,
+                    'q-applicant-county': 12345,
+                    'q-applicant-postcode': 12345
+                }
+            ]
+        },
+        'p-main-applicant-enter-your-telephone-number': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-enter-your-telephone-number': {
+                    type: 'string',
+                    title: 'Enter your telephone number',
+                    description:
+                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                    maxLength: 20,
+                    pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
+                    errorMessage: {
+                        maxLength: 'Telephone number must be 20 characters or less',
+                        pattern:
+                            'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
+                    }
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': '01632 960 001'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-enter-your-telephone-number': 12345
+                }
+            ]
+        },
+        'p-main-applicant-victim-same-address': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-main-applicant-victim-same-address'],
+            additionalProperties: false,
+            properties: {
+                'q-main-applicant-victim-same-address': {
+                    type: 'boolean',
+                    title: 'Does the child live at this address?'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-main-applicant-victim-same-address':
+                        'Select yes if the child lives at this address'
+                }
+            },
+            examples: [
+                {
+                    'q-main-applicant-victim-same-address': true
+                },
+                {
+                    'q-main-applicant-victim-same-address': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-main-applicant-victim-same-address': 'foo'
+                }
+            ]
+        },
+        'p--context-main-applicant': {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            title: 'Your details',
+            additionalProperties: false,
+            properties: {
+                'main-app-context': {
+                    description: `<p class="govuk-body">We're going to ask for some details about you.</p><p class="govuk-body">We'll use these to contact you about this application.</p>`
+                }
+            },
+            examples: [{}],
+            invalidExamples: [{foo: 'bar'}]
+        },
         system: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -7683,7 +8569,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--was-the-crime-reported-to-police'
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
@@ -7714,7 +8600,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
+                            target: 'p--context-main-applicant',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
@@ -7762,7 +8648,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-applicant-details',
+                            target: 'p-applicant-has-crime-reference-number',
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -8290,7 +9176,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-applicant-details'
+                            target: 'p-applicant-who-are-you-applying-for'
                         }
                     ]
                 }
@@ -8304,6 +9190,14 @@ module.exports = {
                                 '==',
                                 '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
                                 'none'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-name',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
                             ]
                         },
                         {
@@ -10773,15 +11667,6 @@ module.exports = {
                     ]
                 }
             },
-            'p-applicant-you-cannot-get-compensation-violent-crime': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--was-the-crime-reported-to-police'
-                        }
-                    ]
-                }
-            },
             'p-applicant-non-sa-infections': {
                 on: {
                     ANSWER: [
@@ -10820,7 +11705,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-who-are-you-applying-for',
+                            target: 'p--was-the-crime-reported-to-police',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
@@ -10888,6 +11773,82 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-offender'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-has-crime-reference-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-who-are-you-applying-for'
+                        }
+                    ]
+                }
+            },
+            'p--context-main-applicant': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-confirmation-method'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-name': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-telephone-number',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'email'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-enter-your-email-address',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                'text'
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-telephone-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-email-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-main-applicant-victim-same-address'
+                        }
+                    ]
+                }
+            },
+            'p-main-applicant-victim-same-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--before-you-continue'
                         }
                     ]
                 }
