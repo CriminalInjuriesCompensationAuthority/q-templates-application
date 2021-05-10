@@ -7,10 +7,10 @@ module.exports = {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Declaration',
             additionalProperties: false,
             properties: {
                 'applicant-declaration': {
+                    title: 'Declaration',
                     description:
                         '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>'
                 }
@@ -21,11 +21,11 @@ module.exports = {
         'p--transition-no-phone-or-email': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title:
-                'You must apply by telephone if you do not have an email address or UK mobile phone',
             additionalProperties: false,
             properties: {
                 transition: {
+                    title:
+                        'You must apply by telephone if you do not have an email address or UK mobile phone',
                     description: "{% include 'contact.njk' %}"
                 }
             },
@@ -358,11 +358,11 @@ module.exports = {
         },
         'p--before-you-continue': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'About the crime',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'applicant-impact-on-you': {
+                    title: 'About the crime',
                     description:
                         '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
                 }
@@ -408,11 +408,11 @@ module.exports = {
         'p--when-was-the-crime-reported-to-police': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'When was the crime reported to the police?',
             required: ['q--when-was-the-crime-reported-to-police'],
             additionalProperties: false,
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
+                    title: 'When was the crime reported to the police?',
                     type: 'string',
                     format: 'date-time',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',
@@ -449,11 +449,11 @@ module.exports = {
         'p--whats-the-crime-reference-number': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "What's the crime reference number?",
             required: ['q--whats-the-crime-reference-number'],
             additionalProperties: false,
             properties: {
                 'q--whats-the-crime-reference-number': {
+                    title: "What's the crime reference number?",
                     type: 'string',
                     description:
                         'This is the reference number the police gave the crime when it was reported.',
@@ -737,11 +737,11 @@ module.exports = {
         'p-applicant-where-did-the-crime-happen': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Where did the crime happen?',
             required: ['q-applicant-where-did-the-crime-happen'],
             additionalProperties: false,
             properties: {
                 'q-applicant-where-did-the-crime-happen': {
+                    title: 'Where did the crime happen?',
                     type: 'string',
                     oneOf: [
                         {
@@ -963,11 +963,11 @@ module.exports = {
         },
         'p--you-need-to-contact-us': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'You need to contact us',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'you-need-to-contact-us': {
+                    title: 'You need to contact us',
                     description:
                         '<p class="govuk-body">We need to check if you are eligible for compensation.</p>{% include \'contact.njk\' %}'
                 }
@@ -977,12 +977,12 @@ module.exports = {
         },
         'p--which-police-force-is-investigating-the-crime': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Which police force is investigating the crime?',
             type: 'object',
             required: ['q-police-force-id'],
             additionalProperties: false,
             properties: {
                 'q-police-force-id': {
+                    title: 'Which police force is investigating the crime?',
                     type: 'integer',
                     oneOf: [
                         {
@@ -1448,11 +1448,11 @@ module.exports = {
         'p-offender-do-you-know-the-name-of-the-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "Do you know the offender's name?",
             required: ['q-offender-do-you-know-the-name-of-the-offender'],
             additionalProperties: false,
             properties: {
                 'q-offender-do-you-know-the-name-of-the-offender': {
+                    title: "Do you know the offender's name?",
                     type: 'boolean'
                 },
                 'additional-info-help-text': {
@@ -1483,11 +1483,11 @@ module.exports = {
         'p-offender-enter-offenders-name': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "Enter the offender's name",
             required: ['q-offender-enter-offenders-name'],
             additionalProperties: false,
             properties: {
                 'q-offender-enter-offenders-name': {
+                    title: "Enter the offender's name",
                     type: 'string',
                     description: 'We will never contact the offender.',
                     maxLength: 120,
@@ -2025,10 +2025,10 @@ module.exports = {
         'p--check-your-answers': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Check your answers',
             additionalProperties: false,
             properties: {
                 'p-check-your-answers': {
+                    title: 'Check your answers',
                     type: 'object',
                     properties: {
                         summaryInfo: {
@@ -2875,10 +2875,10 @@ module.exports = {
         'p--confirmation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Confirmation',
             additionalProperties: false,
             properties: {
                 confirmation: {
+                    title: 'Confirmation',
                     description:
                         '{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}{% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}{% set caseReferenceNumber = "||/answers/system/case-reference||" %}{% if mobilePhoneNumber %}{% set contactMethod =  mobilePhoneNumber %}{% else %}{% set contactMethod =  emailAddress %}{% endif %}{% if caseReferenceNumber %}{% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We\'ll also send this to <strong>" + contactMethod + "</strong></p>" %}{% else %}{% set html =  "<p>We\'ll send your case reference number to <strong>" + contactMethod + "</strong> soon</p>" %}{% endif %}{{ govukPanel({titleText: "Application submitted",html: html})}}<p class="govuk-body">Thank you for submitting an application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for a report of the crime</li><li>ask you for more information if we need it</li><li>make a decision on your application</li><li>send our decision letter to you by post</li></ul><p class="govuk-body">We aim to make a decision within 1 year but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>{{ govukWarningText({text: "You must tell us right away if any of the information you have given us changes. This includes your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<h2 class="govuk-heading-m">Contact us</h2>{% include \'contact.njk\' %}<p class="govuk-body">We will not always send an acknowledgement if you:</p><ul class="govuk-list govuk-list--bullet"><li>email us</li><li>write to us</li><li>send us documents</li></ul><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case and has no impact on your application.</p><p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
                 }
@@ -2888,11 +2888,11 @@ module.exports = {
         },
         'p-applicant-you-cannot-get-compensation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'You cannot get compensation',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'you-cannot-get-compensation': {
+                    title: 'You cannot get compensation',
                     description:
                         '\n                <p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p>\n                <p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>\n            '
                 }
@@ -2903,10 +2903,10 @@ module.exports = {
         'p--context-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'About the offender',
             additionalProperties: false,
             properties: {
                 'offender-context': {
+                    title: 'About the offender',
                     description:
                         '<p class="govuk-body">We’re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation you get.</p><p class="govuk-body">We will never contact the offender.</p>'
                 }
@@ -2917,10 +2917,10 @@ module.exports = {
         'p--context-compensation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Other compensation',
             additionalProperties: false,
             properties: {
                 'compensation-context': {
+                    title: 'Other compensation',
                     description:
                         '<p class="govuk-body">We\'re going to ask about any other compensation you\'ve been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you can get.</p>'
                 }
@@ -2931,12 +2931,12 @@ module.exports = {
         'p-applicant-applied-for-other-compensation-briefly-explain-why-not': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title:
-                'Briefly explain why you have not applied for or received any other form of compensation',
             additionalProperties: false,
             required: ['q-applicant-applied-for-other-compensation-briefly-explain-why-not'],
             properties: {
                 'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
+                    title:
+                        'Briefly explain why you have not applied for or received any other form of compensation',
                     type: 'string',
                     maxLength: 500,
                     errorMessage: {
@@ -2964,10 +2964,10 @@ module.exports = {
         'p-applicant-who-did-you-apply-to': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Who have you applied to or received compensation from?',
             required: ['q-applicant-who-did-you-apply-to'],
             properties: {
                 'q-applicant-who-did-you-apply-to': {
+                    title: 'Who have you applied to or received compensation from?',
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
@@ -2996,11 +2996,11 @@ module.exports = {
         'p-applicant-has-a-decision-been-made': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Have they made a decision about your claim?',
             additionalProperties: false,
             required: ['q-applicant-has-a-decision-been-made'],
             properties: {
                 'q-applicant-has-a-decision-been-made': {
+                    title: 'Have they made a decision about your claim?',
                     type: 'boolean'
                 }
             },
@@ -3027,10 +3027,10 @@ module.exports = {
         'p-applicant-how-much-was-award': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'How much compensation were you awarded?',
             required: ['q-how-much-was-award'],
             properties: {
                 'q-how-much-was-award': {
+                    title: 'How much compensation were you awarded?',
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
@@ -3057,10 +3057,10 @@ module.exports = {
         'p-applicant-when-will-you-find-out': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: "When will you find out if you've been awarded compensation?",
             required: ['q-when-will-you-find-out'],
             properties: {
                 'q-when-will-you-find-out': {
+                    title: "When will you find out if you've been awarded compensation?",
                     type: 'string',
                     description:
                         'Enter an approximate date, for example, December 2020. If you do not know you can say so.',
@@ -3089,10 +3089,10 @@ module.exports = {
         'p--context-applicant-details': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Your details',
             additionalProperties: false,
             properties: {
                 'details-context': {
+                    title: 'Your details',
                     description:
                         '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>\n'
                 }
@@ -3103,10 +3103,10 @@ module.exports = {
         'p--context-dmi-details': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Your mental health',
             additionalProperties: false,
             properties: {
                 'details-context': {
+                    title: 'Your mental health',
                     description:
                         '<p class="govuk-body">We’re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>'
                 }
@@ -3702,10 +3702,10 @@ module.exports = {
         'p--transition': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Continue your claim',
             additionalProperties: false,
             properties: {
                 transition: {
+                    title: 'Continue your claim',
                     description:
                         '<p class="govuk-body">You\'ll be taken to another website to continue your claim.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
                 }
@@ -3716,10 +3716,10 @@ module.exports = {
         'p--context-physical-injuries': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'About your injuries',
             additionalProperties: false,
             properties: {
                 'details-context': {
+                    title: 'About your injuries',
                     description:
                         '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p>'
                 }
@@ -3729,13 +3729,13 @@ module.exports = {
         },
         'p-applicant-physical-injury': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What was injured?',
             description: 'Select all that apply.',
             type: 'object',
             required: ['q-applicant-physical-injury'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury': {
+                    title: 'What was injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3787,12 +3787,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What parts of the head, face or neck was injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-upper'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury-upper': {
+                    title: 'What parts of the head, face or neck was injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -3901,12 +3901,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-head': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the head or brain',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the head or brain',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4014,12 +4014,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-face': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the face',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the face',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4126,12 +4126,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-neck': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the neck',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the neck',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4222,12 +4222,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-eye': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the eye or eyesight',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the eye or eyesight',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4374,12 +4374,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-ear': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the ear or hearing',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the ear or hearing',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4482,12 +4482,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-nose': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the nose',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the nose',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4586,12 +4586,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-mouth': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the mouth',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the mouth',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4690,12 +4690,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the skin on your head, face or neck',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the skin on your head, face or neck',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4787,12 +4787,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-upper-muscle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the tissue on your head, face or neck',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the tissue on your head, face or neck',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4884,12 +4884,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What parts of the torso were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-torso'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury-torso': {
+                    title: 'What parts of the torso were injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -4985,12 +4985,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-shoulder': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the shoulder',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the shoulder',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5081,12 +5081,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-chest': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the chest',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the chest',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5189,12 +5189,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-abdomen': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the abdomen',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the abdomen',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5305,12 +5305,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-back': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the back',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the back',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5409,12 +5409,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-pelvis': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the pelvis',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the pelvis',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5493,12 +5493,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-genitals': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the genitals',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the genitals',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5581,12 +5581,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the skin on your torso',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the skin on your torso',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5677,12 +5677,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-torso-muscle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the tissue on your torso',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the tissue on your torso',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5773,12 +5773,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What part of the arms or hands were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-arms'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury-arms': {
+                    title: 'What part of the arms or hands were injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5874,12 +5874,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-shoulder': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the shoulder',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the shoulder',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -5970,12 +5970,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-arm': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the arm',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the arm',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6070,12 +6070,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-elbow': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the elbow',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the elbow',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6158,12 +6158,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-wrist': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the wrist',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the wrist',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6246,12 +6246,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-hand': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the hand',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the hand',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6342,12 +6342,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-digit': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the finger or thumb',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the finger or thumb',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6474,12 +6474,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the skin on your arms and hands',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the skin on your arms and hands',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6571,12 +6571,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-arms-muscle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the tissue on your arms or hands',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the tissue on your arms or hands',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6668,12 +6668,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What part of the legs or feet were injured?',
             type: 'object',
             required: ['q-applicant-physical-injury-legs'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury-legs': {
+                    title: 'What part of the legs or feet were injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6769,12 +6769,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-hip': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the hip',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the hip',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6857,12 +6857,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-leg': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the leg',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the leg',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -6965,12 +6965,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-knee': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the knee',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the knee',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7057,12 +7057,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-ankle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the ankle',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the ankle',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7149,12 +7149,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-foot': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the foot',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the foot',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7245,12 +7245,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-toes': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'What parts of the toes were injured?',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'What parts of the toes were injured?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7353,12 +7353,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-skin': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the skin on your legs or feet',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the skin on your legs or feet',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7450,12 +7450,12 @@ module.exports = {
         },
         'p-applicant-physical-injury-legs-muscle': {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Select any injuries to the tissue on your legs or feet',
             type: 'object',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select any injuries to the tissue on your legs or feet',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7579,11 +7579,11 @@ module.exports = {
         'p-applicant-select-infections': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Select what infection you have',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select what infection you have',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -7660,10 +7660,10 @@ module.exports = {
         'p--context-treatment': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Your treatment',
             additionalProperties: false,
             properties: {
                 'details-context': {
+                    title: 'Your treatment',
                     description:
                         '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>'
                 }
@@ -8005,11 +8005,11 @@ module.exports = {
         'p-applicant-expenses': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'What expenses have you had?',
             required: ['q-applicant-expenses'],
             additionalProperties: false,
             properties: {
                 'q-applicant-expenses': {
+                    title: 'What expenses have you had?',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -8090,10 +8090,10 @@ module.exports = {
         'p--context-money': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Your money',
             additionalProperties: false,
             properties: {
                 'money-context': {
+                    title: 'Your money',
                     description:
                         '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
                 }
@@ -8166,11 +8166,11 @@ module.exports = {
         'p-applicant-select-non-sa-infections': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Select what infection you have',
             required: ['q-applicant-physical-injuries'],
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
+                    title: 'Select what infection you have',
                     type: 'array',
                     items: {
                         anyOf: [
