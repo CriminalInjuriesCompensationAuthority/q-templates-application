@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.4.0',
+    version: '1.5.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -514,8 +514,7 @@ module.exports = {
                     'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
                 },
                 {
-                    'q-applicant-did-the-crime-happen-once-or-over-time':
-                        'over-a-period-of-time'
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
                 }
             ],
             invalidExamples: [
@@ -724,9 +723,7 @@ module.exports = {
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        12345
-                    ],
+                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
                     'q-applicant-explain-reason-for-delay-application': 'Because reasons'
                 },
                 {
@@ -1558,8 +1555,7 @@ module.exports = {
                 'q-offender-describe-contact-with-offender': {
                     type: 'string',
                     title: 'Describe your contact with the offender',
-                    description:
-                        'We cannot pay compensation if the offender may benefit from it.',
+                    description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Description must be 500 characters or less'
@@ -1910,8 +1906,7 @@ module.exports = {
                 },
                 'q-applicant-building-and-street-2': {
                     type: 'string',
-                    title:
-                        "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                    title: "<span class='govuk-visually-hidden'>Building and street line 2</span>",
                     maxLength: 60,
                     errorMessage: {
                         maxLength: 'Second line of address must be less than 60 characters'
@@ -2049,8 +2044,7 @@ module.exports = {
                                         'p-applicant-who-are-you-applying-for':
                                             'Who are you applying for?',
                                         'p-applicant-are-you-18-or-over': 'Are you 18 or over?',
-                                        'p-applicant-confirmation-method':
-                                            'Confirmation method',
+                                        'p-applicant-confirmation-method': 'Confirmation method',
                                         'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
                                             'Were you a victim of sexual assault or abuse?',
                                         'p-applicant-victim-of-violent-crime':
@@ -2065,8 +2059,7 @@ module.exports = {
                                         'p-applicant-enter-your-name': 'Name',
                                         'p-applicant-have-you-been-known-by-any-other-names':
                                             'Have you been known by any other names?',
-                                        'p-applicant-what-other-names-have-you-used':
-                                            'Other names',
+                                        'p-applicant-what-other-names-have-you-used': 'Other names',
                                         'p-applicant-enter-your-date-of-birth': 'Date of birth',
                                         'p-applicant-british-citizen-or-eu-national':
                                             'Are you a British citizen or EU National?'
@@ -2133,8 +2126,7 @@ module.exports = {
                                         'p-applicant-select-non-sa-infections':
                                             'Select what infection you have',
                                         'p-applicant-pregnancy': 'Did you become pregnant?',
-                                        'p-applicant-pregnancy-loss':
-                                            'Did you lose a pregnancy?',
+                                        'p-applicant-pregnancy-loss': 'Did you lose a pregnancy?',
                                         'p-applicant-are-you-claiming-for-physical-injuries':
                                             'Do you have physical injuries?',
                                         'p-applicant-physical-injury': 'What was injured?',
@@ -2142,18 +2134,14 @@ module.exports = {
                                             'What parts of the head, face or neck were injured?',
                                         'p-applicant-physical-injury-upper-head':
                                             'Head or brain injuries',
-                                        'p-applicant-physical-injury-upper-face':
-                                            'Face injuries',
-                                        'p-applicant-physical-injury-upper-neck':
-                                            'Neck injuries',
+                                        'p-applicant-physical-injury-upper-face': 'Face injuries',
+                                        'p-applicant-physical-injury-upper-neck': 'Neck injuries',
                                         'p-applicant-physical-injury-upper-eye':
                                             'Eye or eyesight injuries',
                                         'p-applicant-physical-injury-upper-ear':
                                             'Ear or hearing injuries',
-                                        'p-applicant-physical-injury-upper-nose':
-                                            'Nose injuries',
-                                        'p-applicant-physical-injury-upper-mouth':
-                                            'Mouth injuries',
+                                        'p-applicant-physical-injury-upper-nose': 'Nose injuries',
+                                        'p-applicant-physical-injury-upper-mouth': 'Mouth injuries',
                                         'p-applicant-physical-injury-upper-skin':
                                             'Skin on your head, face or neck injuries',
                                         'p-applicant-physical-injury-upper-muscle':
@@ -2161,18 +2149,15 @@ module.exports = {
                                         'p-applicant-physical-injury-torso': 'Torso injuries',
                                         'p-applicant-physical-injury-torso-shoulder':
                                             'Shoulder injuries',
-                                        'p-applicant-physical-injury-torso-chest':
-                                            'Chest injuries',
+                                        'p-applicant-physical-injury-torso-chest': 'Chest injuries',
                                         'p-applicant-physical-injury-torso-abdomen':
                                             'Abdomen injuries',
-                                        'p-applicant-physical-injury-torso-back':
-                                            'Back injuries',
+                                        'p-applicant-physical-injury-torso-back': 'Back injuries',
                                         'p-applicant-physical-injury-torso-pelvis':
                                             'Pelvis injuries',
                                         'p-applicant-physical-injury-torso-genitals':
                                             'Genital injuries',
-                                        'p-applicant-physical-injury-torso-skin':
-                                            'Torso injuries',
+                                        'p-applicant-physical-injury-torso-skin': 'Torso injuries',
                                         'p-applicant-physical-injury-torso-muscle':
                                             'Tissue on your torso injuries',
                                         'p-applicant-physical-injury-arms':
@@ -2180,12 +2165,9 @@ module.exports = {
                                         'p-applicant-physical-injury-arms-shoulder':
                                             'Shoulder injuries',
                                         'p-applicant-physical-injury-arms-arm': 'Arm injuries',
-                                        'p-applicant-physical-injury-arms-elbow':
-                                            'Elbow injuries',
-                                        'p-applicant-physical-injury-arms-wrist':
-                                            'Wrist injuries',
-                                        'p-applicant-physical-injury-arms-hand':
-                                            'Hand injuries',
+                                        'p-applicant-physical-injury-arms-elbow': 'Elbow injuries',
+                                        'p-applicant-physical-injury-arms-wrist': 'Wrist injuries',
+                                        'p-applicant-physical-injury-arms-hand': 'Hand injuries',
                                         'p-applicant-physical-injury-arms-digit':
                                             'Finger or thumb injuries',
                                         'p-applicant-physical-injury-arms-skin':
@@ -2196,12 +2178,9 @@ module.exports = {
                                             'What parts of the legs or feet were injured?',
                                         'p-applicant-physical-injury-legs-hip': 'Hip injuries',
                                         'p-applicant-physical-injury-legs-leg': 'Leg injuries',
-                                        'p-applicant-physical-injury-legs-knee':
-                                            'Knee injuries',
-                                        'p-applicant-physical-injury-legs-ankle':
-                                            'Ankle injuries',
-                                        'p-applicant-physical-injury-legs-foot':
-                                            'Foot injuries',
+                                        'p-applicant-physical-injury-legs-knee': 'Knee injuries',
+                                        'p-applicant-physical-injury-legs-ankle': 'Ankle injuries',
+                                        'p-applicant-physical-injury-legs-foot': 'Foot injuries',
                                         'p-applicant-physical-injury-legs-toes': 'Toe injuries',
                                         'p-applicant-physical-injury-legs-skin':
                                             'Skin on your legs or feet injuries',
@@ -2220,8 +2199,7 @@ module.exports = {
                                     questions: {
                                         'p-applicant-treatment-for-physical-injuries':
                                             'Treatment for your physical injuries',
-                                        'p-applicant-select-treatments':
-                                            'Mental health treatments',
+                                        'p-applicant-select-treatments': 'Mental health treatments',
                                         'p-applicant-has-your-treatment-finished-dmi':
                                             'Have you finished your treatment?',
                                         'p-applicant-are-you-registered-with-gp':
@@ -2261,12 +2239,10 @@ module.exports = {
                                             'Have you applied before?',
                                         'p-applicant-have-you-applied-for-or-received-any-other-compensation':
                                             'Have you applied for or received any other form of compensation?',
-                                        'p-applicant-who-did-you-apply-to':
-                                            'Who did you apply to?',
+                                        'p-applicant-who-did-you-apply-to': 'Who did you apply to?',
                                         'p-applicant-has-a-decision-been-made':
                                             'Have they made a decision?',
-                                        'p-applicant-how-much-was-award':
-                                            'How much was the award?',
+                                        'p-applicant-how-much-was-award': 'How much was the award?',
                                         'p-applicant-when-will-you-find-out':
                                             'When will you find out?',
                                         'p-applicant-other-compensation-details':
@@ -2280,8 +2256,7 @@ module.exports = {
                                     questions: {
                                         'p-applicant-enter-your-address': 'Address',
                                         'p-applicant-enter-your-email-address': 'Email address',
-                                        'p-applicant-enter-your-telephone-number':
-                                            'Phone number'
+                                        'p-applicant-enter-your-telephone-number': 'Phone number'
                                     }
                                 },
                                 {
@@ -2548,10 +2523,8 @@ module.exports = {
                                 'phyinj-134': 'Cuts on legs or feet',
                                 'phyinj-135': 'Bruises on legs or feet',
                                 'phyinj-136': '2 or more broken toes',
-                                'phyinj-137':
-                                    'Hemiplegia (paralysis of one side of the the body)',
-                                'phyinj-138':
-                                    'Paraplegia (paralysis of lower half of the body)',
+                                'phyinj-137': 'Hemiplegia (paralysis of one side of the the body)',
+                                'phyinj-138': 'Paraplegia (paralysis of lower half of the body)',
                                 'phyinj-139':
                                     'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
                                 'phyinj-140': 'Loss of pregnancy',
@@ -2651,7 +2624,7 @@ module.exports = {
             properties: {
                 confirmation: {
                     description:
-                        '{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}{% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}{% if mobilePhoneNumber %}{% set contactMethod =  mobilePhoneNumber %}{% else %}{% set contactMethod =  emailAddress %}{% endif %}{{ govukPanel({titleText: "Application submitted",html: "<p>Your reference number is <br /><strong>||/answers/system/case-reference||</strong></p><p>We\'ve sent your reference number to <strong>" + contactMethod + "</strong></p>"}) }}<p class="govuk-body">Thank you for submitting your application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for evidence</li><li>ask you for more information if we need it</li><li>make a decision</li><li>send our decision letter by post</li></ul><p class="govuk-body">We aim to make a decision within 1 year, but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>{{ govukWarningText({text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<h2 class="govuk-heading-m">Contact us</h2>{% include \'contact.njk\' %}<p class="govuk-body">We will not always send an acknowledgement if you:</p><ul class="govuk-list govuk-list--bullet"><li>email us</li><li>write to us</li><li>send us documents</li></ul><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case, and has no effect on your application.</p><p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
+                        '{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}{% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}{% set caseReferenceNumber = "||/answers/system/case-reference||" %}{% if mobilePhoneNumber %}{% set contactMethod =  mobilePhoneNumber %}{% else %}{% set contactMethod =  emailAddress %}{% endif %}{% if caseReferenceNumber %}{% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We\'ll also send this to <strong>" + contactMethod + "</strong></p>" %}{% else %}{% set html =  "<p>We\'ll send your case reference number to <strong>" + contactMethod + "</strong> soon</p>" %}{% endif %}{{ govukPanel({titleText: "Application submitted",html: html})}}<p class="govuk-body">Thank you for submitting an application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for a report of the crime</li><li>ask you for more information if we need it</li><li>make a decision on your application</li><li>send our decision letter to you by post</li></ul><p class="govuk-body">We aim to make a decision within 1 year but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>{{ govukWarningText({text: "You must tell us right away if any of the information you have given us changes. This includes your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<h2 class="govuk-heading-m">Contact us</h2>{% include \'contact.njk\' %}<p class="govuk-body">We will not always send an acknowledgement if you:</p><ul class="govuk-list govuk-list--bullet"><li>email us</li><li>write to us</li><li>send us documents</li></ul><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case and has no impact on your application.</p><p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
                 }
             },
             examples: [{}],
@@ -3001,8 +2974,7 @@ module.exports = {
             required: ['q-applicant-select-treatments-dmi'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
                 }
             ],
             definitions: {
@@ -3604,8 +3576,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -4285,8 +4256,7 @@ module.exports = {
                                 const: 'phyinj-031'
                             },
                             {
-                                title:
-                                    'Broken ethmoid (bone at base of nose) needing operation',
+                                title: 'Broken ethmoid (bone at base of nose) needing operation',
                                 const: 'phyinj-032'
                             },
                             {
@@ -4697,8 +4667,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -5587,8 +5556,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -6481,8 +6449,7 @@ module.exports = {
                             {
                                 title: 'Tissue',
                                 const: 'muscle',
-                                description:
-                                    'Including muscles, ligaments, tendons or cartilage'
+                                description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
                     }
@@ -7559,8 +7526,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-treatment-building-and-street': 'Enter the name of the place',
-                    'q-applicant-treatment-building-and-street2':
-                        'Enter the building and street',
+                    'q-applicant-treatment-building-and-street2': 'Enter the building and street',
                     'q-applicant-treatment-town-or-city': 'Enter the town or city'
                 }
             },
@@ -7620,8 +7586,7 @@ module.exports = {
                 'q-applicant-unable-to-work-duration': {
                     type: 'boolean',
                     title: 'Have you been unable to work for more than 28 weeks?',
-                    description:
-                        'This includes working less hours or being unable to look for work'
+                    description: 'This includes working less hours or being unable to look for work'
                 }
             },
             errorMessage: {
@@ -7719,8 +7684,7 @@ module.exports = {
             },
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
                 }
             ],
             definitions: {
