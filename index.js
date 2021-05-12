@@ -12,7 +12,7 @@ module.exports = {
             properties: {
                 'applicant-declaration': {
                     description:
-                        '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process your application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li><strong>If I deliberately give false or misleading information, I may get less compensation or be prosecuted.</strong></li></ul>'
+                        '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul>'
                 },
                 'applicant-info': {
                     description:
@@ -3092,7 +3092,7 @@ module.exports = {
                         'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
                     maxLength: 1000,
                     errorMessage: {
-                        maxLength: 'Description must be 500 characters or less'
+                        maxLength: 'Description must be 1000 characters or less'
                     }
                 }
             },
