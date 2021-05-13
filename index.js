@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.6.1',
+    version: '1.7.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2038,235 +2038,500 @@ module.exports = {
                             summaryStructure: [
                                 {
                                     title: 'About the application',
-                                    questions: {
-                                        'p-applicant-fatal-claim':
-                                            'Are you applying for someone who died from their injuries?',
-                                        'p-applicant-who-are-you-applying-for':
-                                            'Who are you applying for?',
-                                        'p-applicant-are-you-18-or-over': 'Are you 18 or over?',
-                                        'p-applicant-confirmation-method': 'Confirmation method',
-                                        'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse':
-                                            'Were you a victim of sexual assault or abuse?',
-                                        'p-applicant-victim-of-violent-crime':
-                                            'Were you a victim of violent crime?',
-                                        'p-applicant-select-reasons-for-the-delay-in-making-your-application':
-                                            'Reasons for the delay in making your application'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-fatal-claim',
+                                            label:
+                                                'Are you applying for someone who died from their injuries?'
+                                        },
+                                        {
+                                            id: 'p-applicant-who-are-you-applying-for',
+                                            label: 'Who are you applying for?'
+                                        },
+                                        {
+                                            id: 'p-applicant-are-you-18-or-over',
+                                            label: 'Are you 18 or over?'
+                                        },
+                                        {
+                                            id: 'p-applicant-confirmation-method',
+                                            label: 'Confirmation method'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
+                                            label: 'Were you a victim of sexual assault or abuse?'
+                                        },
+                                        {
+                                            id: 'p-applicant-victim-of-violent-crime',
+                                            label: 'Were you a victim of violent crime?'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-select-reasons-for-the-delay-in-making-your-application',
+                                            label:
+                                                'Reasons for the delay in making your application'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Your details',
-                                    questions: {
-                                        'p-applicant-enter-your-name': 'Name',
-                                        'p-applicant-have-you-been-known-by-any-other-names':
-                                            'Have you been known by any other names?',
-                                        'p-applicant-what-other-names-have-you-used': 'Other names',
-                                        'p-applicant-enter-your-date-of-birth': 'Date of birth',
-                                        'p-applicant-british-citizen-or-eu-national':
-                                            'Are you a British citizen or EU National?'
-                                    }
+                                    questions: [
+                                        {id: 'p-applicant-enter-your-name', label: 'Name'},
+                                        {
+                                            id:
+                                                'p-applicant-have-you-been-known-by-any-other-names',
+                                            label: 'Have you been known by any other names?'
+                                        },
+                                        {
+                                            id: 'p-applicant-what-other-names-have-you-used',
+                                            label: 'Other names'
+                                        },
+                                        {
+                                            id: 'p-applicant-enter-your-date-of-birth',
+                                            label: 'Date of birth'
+                                        },
+                                        {
+                                            id: 'p-applicant-british-citizen-or-eu-national',
+                                            label: 'Are you a British citizen or EU National?'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'About the crime',
-                                    questions: {
-                                        'p-applicant-incident-type': 'Cause of injuries',
-                                        'p-applicant-did-the-crime-happen-once-or-over-time':
-                                            'Did the crime happen once or over a period of time?',
-                                        'p-applicant-when-did-the-crime-happen':
-                                            'When did the crime happen?',
-                                        'p-applicant-when-did-the-crime-start':
-                                            'When did the crime start?',
-                                        'p-applicant-when-did-the-crime-stop':
-                                            'When did the crime stop?',
-                                        'p-applicant-where-did-the-crime-happen':
-                                            'Where did the crime happen?',
-                                        'p-applicant-where-in-england-did-it-happen':
-                                            'Where in England did it happen?',
-                                        'p-applicant-where-in-scotland-did-it-happen':
-                                            'Where in Scotland did it happen?',
-                                        'p-applicant-where-in-wales-did-it-happen':
-                                            'Where in Wales did it happen?',
-                                        'p-offender-do-you-know-the-name-of-the-offender':
-                                            'Do you know the name of the offender?',
-                                        'p-offender-enter-offenders-name': "Offender's name",
-                                        'p-offender-do-you-have-contact-with-offender':
-                                            'Do you have contact with the offender?',
-                                        'p-offender-describe-contact-with-offender':
-                                            'Contact with offender',
-                                        'p-applicant-describe-incident':
-                                            'Would you like to describe the crime?',
-                                        'p-applicant-incident-description': 'Your description'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-incident-type',
+                                            label: 'Cause of injuries'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-did-the-crime-happen-once-or-over-time',
+                                            label:
+                                                'Did the crime happen once or over a period of time?'
+                                        },
+                                        {
+                                            id: 'p-applicant-when-did-the-crime-happen',
+                                            label: 'When did the crime happen?'
+                                        },
+                                        {
+                                            id: 'p-applicant-when-did-the-crime-start',
+                                            label: 'When did the crime start?'
+                                        },
+                                        {
+                                            id: 'p-applicant-when-did-the-crime-stop',
+                                            label: 'When did the crime stop?'
+                                        },
+                                        {
+                                            id: 'p-applicant-where-did-the-crime-happen',
+                                            label: 'Where did the crime happen?'
+                                        },
+                                        {
+                                            id: 'p-applicant-where-in-england-did-it-happen',
+                                            label: 'Where in England did it happen?'
+                                        },
+                                        {
+                                            id: 'p-applicant-where-in-scotland-did-it-happen',
+                                            label: 'Where in Scotland did it happen?'
+                                        },
+                                        {
+                                            id: 'p-applicant-where-in-wales-did-it-happen',
+                                            label: 'Where in Wales did it happen?'
+                                        },
+                                        {
+                                            id: 'p-offender-do-you-know-the-name-of-the-offender',
+                                            label: 'Do you know the name of the offender?'
+                                        },
+                                        {
+                                            id: 'p-offender-enter-offenders-name',
+                                            label: "Offender's name"
+                                        },
+                                        {
+                                            id: 'p-offender-do-you-have-contact-with-offender',
+                                            label: 'Do you have contact with the offender?'
+                                        },
+                                        {
+                                            id: 'p-offender-describe-contact-with-offender',
+                                            label: 'Contact with offender'
+                                        },
+                                        {
+                                            id: 'p-applicant-describe-incident',
+                                            label: 'Would you like to describe the crime?'
+                                        },
+                                        {
+                                            id: 'p-applicant-incident-description',
+                                            label: 'Your description'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Police report',
-                                    questions: {
-                                        'p--was-the-crime-reported-to-police':
-                                            'Was the crime reported to police?',
-                                        'p-applicant-has-crime-reference-number':
-                                            'Do you have a crime reference number?',
-                                        'p--when-was-the-crime-reported-to-police':
-                                            'When was the crime reported?',
-                                        'p--whats-the-crime-reference-number':
-                                            'Crime reference number',
-                                        'p--which-police-force-is-investigating-the-crime':
-                                            'Which police force is investigating?',
-                                        'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                                            'Reasons for delay in reporting crime'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p--was-the-crime-reported-to-police',
+                                            label: 'Was the crime reported to police?'
+                                        },
+                                        {
+                                            id: 'p-applicant-has-crime-reference-number',
+                                            label: 'Do you have a crime reference number?'
+                                        },
+                                        {
+                                            id: 'p--when-was-the-crime-reported-to-police',
+                                            label: 'When was the crime reported?'
+                                        },
+                                        {
+                                            id: 'p--whats-the-crime-reference-number',
+                                            label: 'Crime reference number'
+                                        },
+                                        {
+                                            id: 'p--which-police-force-is-investigating-the-crime',
+                                            label: 'Which police force is investigating?'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                                            label: 'Reasons for delay in reporting crime'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Your injuries',
-                                    questions: {
-                                        'p-applicant-infections':
-                                            'Do you have HIV, hepatitis or an STI?',
-                                        'p-applicant-non-sa-infections':
-                                            'Do you have HIV or hepatitis?',
-                                        'p-applicant-select-infections':
-                                            'Select what infection you have',
-                                        'p-applicant-select-non-sa-infections':
-                                            'Select what infection you have',
-                                        'p-applicant-pregnancy': 'Did you become pregnant?',
-                                        'p-applicant-pregnancy-loss': 'Did you lose a pregnancy?',
-                                        'p-applicant-are-you-claiming-for-physical-injuries':
-                                            'Do you have physical injuries?',
-                                        'p-applicant-physical-injury': 'What was injured?',
-                                        'p-applicant-physical-injury-upper':
-                                            'What parts of the head, face or neck were injured?',
-                                        'p-applicant-physical-injury-upper-head':
-                                            'Head or brain injuries',
-                                        'p-applicant-physical-injury-upper-face': 'Face injuries',
-                                        'p-applicant-physical-injury-upper-neck': 'Neck injuries',
-                                        'p-applicant-physical-injury-upper-eye':
-                                            'Eye or eyesight injuries',
-                                        'p-applicant-physical-injury-upper-ear':
-                                            'Ear or hearing injuries',
-                                        'p-applicant-physical-injury-upper-nose': 'Nose injuries',
-                                        'p-applicant-physical-injury-upper-mouth': 'Mouth injuries',
-                                        'p-applicant-physical-injury-upper-skin':
-                                            'Skin on your head, face or neck injuries',
-                                        'p-applicant-physical-injury-upper-muscle':
-                                            'Tissue on your head, face or neck injuries',
-                                        'p-applicant-physical-injury-torso': 'Torso injuries',
-                                        'p-applicant-physical-injury-torso-shoulder':
-                                            'Shoulder injuries',
-                                        'p-applicant-physical-injury-torso-chest': 'Chest injuries',
-                                        'p-applicant-physical-injury-torso-abdomen':
-                                            'Abdomen injuries',
-                                        'p-applicant-physical-injury-torso-back': 'Back injuries',
-                                        'p-applicant-physical-injury-torso-pelvis':
-                                            'Pelvis injuries',
-                                        'p-applicant-physical-injury-torso-genitals':
-                                            'Genital injuries',
-                                        'p-applicant-physical-injury-torso-skin': 'Torso injuries',
-                                        'p-applicant-physical-injury-torso-muscle':
-                                            'Tissue on your torso injuries',
-                                        'p-applicant-physical-injury-arms':
-                                            'What parts of the arms or hands were injured?',
-                                        'p-applicant-physical-injury-arms-shoulder':
-                                            'Shoulder injuries',
-                                        'p-applicant-physical-injury-arms-arm': 'Arm injuries',
-                                        'p-applicant-physical-injury-arms-elbow': 'Elbow injuries',
-                                        'p-applicant-physical-injury-arms-wrist': 'Wrist injuries',
-                                        'p-applicant-physical-injury-arms-hand': 'Hand injuries',
-                                        'p-applicant-physical-injury-arms-digit':
-                                            'Finger or thumb injuries',
-                                        'p-applicant-physical-injury-arms-skin':
-                                            'Skin on your arms or hands injuries',
-                                        'p-applicant-physical-injury-arms-muscle':
-                                            'Tissue on your arms injuries',
-                                        'p-applicant-physical-injury-legs':
-                                            'What parts of the legs or feet were injured?',
-                                        'p-applicant-physical-injury-legs-hip': 'Hip injuries',
-                                        'p-applicant-physical-injury-legs-leg': 'Leg injuries',
-                                        'p-applicant-physical-injury-legs-knee': 'Knee injuries',
-                                        'p-applicant-physical-injury-legs-ankle': 'Ankle injuries',
-                                        'p-applicant-physical-injury-legs-foot': 'Foot injuries',
-                                        'p-applicant-physical-injury-legs-toes': 'Toe injuries',
-                                        'p-applicant-physical-injury-legs-skin':
-                                            'Skin on your legs or feet injuries',
-                                        'p-applicant-physical-injury-legs-muscle':
-                                            'Tissue on your legs injuries',
-                                        'p-applicant-do-you-have-disabling-mental-injury':
-                                            'Do you have a disabling mental injury?',
-                                        'p-applicant-mental-injury-duration':
-                                            'Has your mental injury lasted 6 weeks or more?',
-                                        'p-applicant-affect-on-daily-life-dmi':
-                                            'Briefly say how the crime has affected your daily life'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-infections',
+                                            label: 'Do you have HIV, hepatitis or an STI?'
+                                        },
+                                        {
+                                            id: 'p-applicant-non-sa-infections',
+                                            label: 'Do you have HIV or hepatitis?'
+                                        },
+                                        {
+                                            id: 'p-applicant-select-infections',
+                                            label: 'Select what infection you have'
+                                        },
+                                        {
+                                            id: 'p-applicant-select-non-sa-infections',
+                                            label: 'Select what infection you have'
+                                        },
+                                        {
+                                            id: 'p-applicant-pregnancy',
+                                            label: 'Did you become pregnant?'
+                                        },
+                                        {
+                                            id: 'p-applicant-pregnancy-loss',
+                                            label: 'Did you lose a pregnancy?'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-are-you-claiming-for-physical-injuries',
+                                            label: 'Do you have physical injuries?'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury',
+                                            label: 'What was injured?'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper',
+                                            label:
+                                                'What parts of the head, face or neck were injured?'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-head',
+                                            label: 'Head or brain injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-face',
+                                            label: 'Face injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-neck',
+                                            label: 'Neck injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-eye',
+                                            label: 'Eye or eyesight injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-ear',
+                                            label: 'Ear or hearing injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-nose',
+                                            label: 'Nose injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-mouth',
+                                            label: 'Mouth injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-skin',
+                                            label: 'Skin on your head, face or neck injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-upper-muscle',
+                                            label: 'Tissue on your head, face or neck injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso',
+                                            label: 'Torso injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-shoulder',
+                                            label: 'Shoulder injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-chest',
+                                            label: 'Chest injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-abdomen',
+                                            label: 'Abdomen injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-back',
+                                            label: 'Back injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-pelvis',
+                                            label: 'Pelvis injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-genitals',
+                                            label: 'Genital injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-skin',
+                                            label: 'Torso injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-torso-muscle',
+                                            label: 'Tissue on your torso injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms',
+                                            label: 'What parts of the arms or hands were injured?'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-shoulder',
+                                            label: 'Shoulder injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-arm',
+                                            label: 'Arm injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-elbow',
+                                            label: 'Elbow injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-wrist',
+                                            label: 'Wrist injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-hand',
+                                            label: 'Hand injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-digit',
+                                            label: 'Finger or thumb injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-skin',
+                                            label: 'Skin on your arms or hands injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-arms-muscle',
+                                            label: 'Tissue on your arms injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs',
+                                            label: 'What parts of the legs or feet were injured?'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-hip',
+                                            label: 'Hip injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-leg',
+                                            label: 'Leg injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-knee',
+                                            label: 'Knee injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-ankle',
+                                            label: 'Ankle injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-foot',
+                                            label: 'Foot injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-toes',
+                                            label: 'Toe injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-skin',
+                                            label: 'Skin on your legs or feet injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-physical-injury-legs-muscle',
+                                            label: 'Tissue on your legs injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-do-you-have-disabling-mental-injury',
+                                            label: 'Do you have a disabling mental injury?'
+                                        },
+                                        {
+                                            id: 'p-applicant-mental-injury-duration',
+                                            label: 'Has your mental injury lasted 6 weeks or more?'
+                                        },
+                                        {
+                                            id: 'p-applicant-affect-on-daily-life-dmi',
+                                            label:
+                                                'Briefly say how the crime has affected your daily life'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Your medical details',
-                                    questions: {
-                                        'p-applicant-treatment-for-physical-injuries':
-                                            'Treatment for your physical injuries',
-                                        'p-applicant-select-treatments': 'Mental health treatments',
-                                        'p-applicant-has-your-treatment-finished-dmi':
-                                            'Have you finished your treatment?',
-                                        'p-applicant-are-you-registered-with-gp':
-                                            'Are you registered with a GP practice?',
-                                        'p-applicant-have-you-seen-a-gp':
-                                            'Have you seen a GP about your injuries?',
-                                        'p-gp-enter-your-address': "GP's address",
-                                        'p-applicant-medical-help':
-                                            'Did you seek other medical help?',
-                                        'p-applicant-treatment-address':
-                                            'Where did you have treatment?',
-                                        'p-dentist-visited':
-                                            'Have you seen a dentist about your injuries?',
-                                        'p-dentist-details': "What is your dentist's address?",
-                                        'p-applicant-dentist-visited':
-                                            'Have you seen a dentist about your injuries?',
-                                        'p-applicant-dentist-address':
-                                            "What is your dentist's address?"
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-treatment-for-physical-injuries',
+                                            label: 'Treatment for your physical injuries'
+                                        },
+                                        {
+                                            id: 'p-applicant-select-treatments',
+                                            label: 'Mental health treatments'
+                                        },
+                                        {
+                                            id: 'p-applicant-has-your-treatment-finished-dmi',
+                                            label: 'Have you finished your treatment?'
+                                        },
+                                        {
+                                            id: 'p-applicant-are-you-registered-with-gp',
+                                            label: 'Are you registered with a GP practice?'
+                                        },
+                                        {
+                                            id: 'p-applicant-have-you-seen-a-gp',
+                                            label: 'Have you seen a GP about your injuries?'
+                                        },
+                                        {id: 'p-gp-enter-your-address', label: "GP's address"},
+                                        {
+                                            id: 'p-applicant-medical-help',
+                                            label: 'Did you seek other medical help?'
+                                        },
+                                        {
+                                            id: 'p-applicant-treatment-address',
+                                            label: 'Where did you have treatment?'
+                                        },
+                                        {
+                                            id: 'p-dentist-visited',
+                                            label: 'Have you seen a dentist about your injuries?'
+                                        },
+                                        {
+                                            id: 'p-dentist-details',
+                                            label: "What is your dentist's address?"
+                                        },
+                                        {
+                                            id: 'p-applicant-dentist-visited',
+                                            label: 'Have you seen a dentist about your injuries?'
+                                        },
+                                        {
+                                            id: 'p-applicant-dentist-address',
+                                            label: "What is your dentist's address?"
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Money',
-                                    questions: {
-                                        'p-applicant-unable-to-work-duration':
-                                            'Have you been unable to work for more than 28 weeks?',
-                                        'p-applicant-job-when-crime-happened':
-                                            'Did you have a job when the crime happened?',
-                                        'p-applicant-work-details-option':
-                                            'Reason for not having paid work',
-                                        'p-applicant-expenses': 'Expenses'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-unable-to-work-duration',
+                                            label:
+                                                'Have you been unable to work for more than 28 weeks?'
+                                        },
+                                        {
+                                            id: 'p-applicant-job-when-crime-happened',
+                                            label: 'Did you have a job when the crime happened?'
+                                        },
+                                        {
+                                            id: 'p-applicant-work-details-option',
+                                            label: 'Reason for not having paid work'
+                                        },
+                                        {id: 'p-applicant-expenses', label: 'Expenses'}
+                                    ]
                                 },
                                 {
                                     title: 'Other compensation',
-                                    questions: {
-                                        'p-applicant-have-you-applied-to-us-before':
-                                            'Have you applied before?',
-                                        'p-applicant-have-you-applied-for-or-received-any-other-compensation':
-                                            'Have you applied for or received any other form of compensation?',
-                                        'p-applicant-who-did-you-apply-to': 'Who did you apply to?',
-                                        'p-applicant-has-a-decision-been-made':
-                                            'Have they made a decision?',
-                                        'p-applicant-how-much-was-award': 'How much was the award?',
-                                        'p-applicant-when-will-you-find-out':
-                                            'When will you find out?',
-                                        'p-applicant-other-compensation-details':
-                                            'Details of other compensation received',
-                                        'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
-                                            'Why you have not applied for or received any other form of compensation'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-have-you-applied-to-us-before',
+                                            label: 'Have you applied before?'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-have-you-applied-for-or-received-any-other-compensation',
+                                            label:
+                                                'Have you applied for or received any other form of compensation?'
+                                        },
+                                        {
+                                            id: 'p-applicant-who-did-you-apply-to',
+                                            label: 'Who did you apply to?'
+                                        },
+                                        {
+                                            id: 'p-applicant-has-a-decision-been-made',
+                                            label: 'Have they made a decision?'
+                                        },
+                                        {
+                                            id: 'p-applicant-how-much-was-award',
+                                            label: 'How much was the award?'
+                                        },
+                                        {
+                                            id: 'p-applicant-when-will-you-find-out',
+                                            label: 'When will you find out?'
+                                        },
+                                        {
+                                            id: 'p-applicant-other-compensation-details',
+                                            label: 'Details of other compensation received'
+                                        },
+                                        {
+                                            id:
+                                                'p-applicant-applied-for-other-compensation-briefly-explain-why-not',
+                                            label:
+                                                'Why you have not applied for or received any other form of compensation'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Contact details',
-                                    questions: {
-                                        'p-applicant-enter-your-address': 'Address',
-                                        'p-applicant-enter-your-email-address': 'Email address',
-                                        'p-applicant-enter-your-telephone-number': 'Phone number'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-enter-your-address',
+                                            label: 'Address'
+                                        },
+                                        {
+                                            id: 'p-applicant-enter-your-email-address',
+                                            label: 'Email address'
+                                        },
+                                        {
+                                            id: 'p-applicant-enter-your-telephone-number',
+                                            label: 'Phone number'
+                                        }
+                                    ]
                                 },
                                 {
                                     title: 'Additional information',
-                                    questions: {
-                                        'p-applicant-provide-additional-information':
-                                            'Would you like to add any information?',
-                                        'p-applicant-additional-information':
-                                            'Additional information'
-                                    }
+                                    questions: [
+                                        {
+                                            id: 'p-applicant-provide-additional-information',
+                                            label: 'Would you like to add any information?'
+                                        },
+                                        {
+                                            id: 'p-applicant-additional-information',
+                                            label: 'Additional information'
+                                        }
+                                    ]
                                 }
                             ],
                             lookup: {
@@ -4471,7 +4736,8 @@ module.exports = {
                     title: 'Other skin injuries on head, face or neck',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other skin injuries on head, face or neck must be 499 characters or fewer'
+                        maxLength:
+                            'Other skin injuries on head, face or neck must be 499 characters or fewer'
                     }
                 }
             },
@@ -4567,7 +4833,8 @@ module.exports = {
                     title: 'Other tissue injuries to head, face or neck',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other tissue injuries to head, face or neck must be 499 characters or fewer'
+                        maxLength:
+                            'Other tissue injuries to head, face or neck must be 499 characters or fewer'
                     }
                 }
             },
@@ -6253,7 +6520,8 @@ module.exports = {
                     title: 'Other skin injuries on arms or hands',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other skin injuries on arms or hands must be 499 characters or fewer'
+                        maxLength:
+                            'Other skin injuries on arms or hands must be 499 characters or fewer'
                     }
                 }
             },
@@ -6349,7 +6617,8 @@ module.exports = {
                     title: 'Other tissue injuries to arms or hands',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other tissue injuries to arms or hands must be 499 characters or fewer'
+                        maxLength:
+                            'Other tissue injuries to arms or hands must be 499 characters or fewer'
                     }
                 }
             },
@@ -7130,7 +7399,8 @@ module.exports = {
                     title: 'Other skin injuries on legs or feet',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other skin injuries on legs or feet must be 499 characters or fewer'
+                        maxLength:
+                            'Other skin injuries on legs or feet must be 499 characters or fewer'
                     }
                 }
             },
@@ -7226,7 +7496,8 @@ module.exports = {
                     title: 'Other tissue injuries to legs or feet',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other tissue injuries to legs or feet must be 499 characters or fewer'
+                        maxLength:
+                            'Other tissue injuries to legs or feet must be 499 characters or fewer'
                     }
                 }
             },
