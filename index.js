@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '1.7.0',
+    version: '2.0.0',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2055,15 +2055,6 @@ module.exports = {
                                         {
                                             id: 'p-applicant-confirmation-method',
                                             label: 'Confirmation method'
-                                        },
-                                        {
-                                            id:
-                                                'p-applicant-were-you-a-victim-of-sexual-assault-or-abuse',
-                                            label: 'Were you a victim of sexual assault or abuse?'
-                                        },
-                                        {
-                                            id: 'p-applicant-victim-of-violent-crime',
-                                            label: 'Were you a victim of violent crime?'
                                         },
                                         {
                                             id:
