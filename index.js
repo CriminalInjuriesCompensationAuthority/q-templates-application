@@ -2,15 +2,15 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '2.0.0',
+    version: '2.0.1',
     sections: {
         'p-applicant-declaration': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Declaration',
             additionalProperties: false,
             properties: {
                 'applicant-declaration': {
-                    title: 'Declaration',
                     description:
                         '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>'
                 }
@@ -21,11 +21,11 @@ module.exports = {
         'p--transition-no-phone-or-email': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title:
+                'You must apply by telephone if you do not have an email address or UK mobile phone',
             additionalProperties: false,
             properties: {
                 transition: {
-                    title:
-                        'You must apply by telephone if you do not have an email address or UK mobile phone',
                     description: "{% include 'contact.njk' %}"
                 }
             },
@@ -358,11 +358,11 @@ module.exports = {
         },
         'p--before-you-continue': {
             $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'About the crime',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'applicant-impact-on-you': {
-                    title: 'About the crime',
                     description:
                         '<p class="govuk-body">We’re going to ask you:</p><ul class="govuk-list govuk-list--bullet"><li>when and where the crime happened</li><li>which police force investigated the crime</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about your claim.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
                 }
@@ -374,11 +374,11 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             required: ['q--was-the-crime-reported-to-police'],
+            title: 'Was the crime reported to the police?',
             additionalProperties: false,
             properties: {
                 'q--was-the-crime-reported-to-police': {
-                    type: 'boolean',
-                    title: 'Was the crime reported to the police?'
+                    type: 'boolean'
                 },
                 'dont-know-if-crime-reported': {
                     description:
@@ -963,11 +963,11 @@ module.exports = {
         },
         'p--you-need-to-contact-us': {
             $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'You need to contact us',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'you-need-to-contact-us': {
-                    title: 'You need to contact us',
                     description:
                         '<p class="govuk-body">We need to check if you are eligible for compensation.</p>{% include \'contact.njk\' %}'
                 }
@@ -2875,10 +2875,10 @@ module.exports = {
         'p--confirmation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Confirmation',
             additionalProperties: false,
             properties: {
                 confirmation: {
-                    title: 'Confirmation',
                     description:
                         '{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}{% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}{% set caseReferenceNumber = "||/answers/system/case-reference||" %}{% if mobilePhoneNumber %}{% set contactMethod =  mobilePhoneNumber %}{% else %}{% set contactMethod =  emailAddress %}{% endif %}{% if caseReferenceNumber %}{% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We\'ll also send this to <strong>" + contactMethod + "</strong></p>" %}{% else %}{% set html =  "<p>We\'ll send your case reference number to <strong>" + contactMethod + "</strong> soon</p>" %}{% endif %}{{ govukPanel({titleText: "Application submitted",html: html})}}<p class="govuk-body">Thank you for submitting an application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for a report of the crime</li><li>ask you for more information if we need it</li><li>make a decision on your application</li><li>send our decision letter to you by post</li></ul><p class="govuk-body">We aim to make a decision within 1 year but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>{{ govukWarningText({text: "You must tell us right away if any of the information you have given us changes. This includes your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<h2 class="govuk-heading-m">Contact us</h2>{% include \'contact.njk\' %}<p class="govuk-body">We will not always send an acknowledgement if you:</p><ul class="govuk-list govuk-list--bullet"><li>email us</li><li>write to us</li><li>send us documents</li></ul><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case and has no impact on your application.</p><p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
                 }
@@ -2888,11 +2888,11 @@ module.exports = {
         },
         'p-applicant-you-cannot-get-compensation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
+            title: 'You cannot get compensation',
             type: 'object',
             additionalProperties: false,
             properties: {
                 'you-cannot-get-compensation': {
-                    title: 'You cannot get compensation',
                     description:
                         '\n                <p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p>\n                <p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>\n            '
                 }
@@ -2903,10 +2903,10 @@ module.exports = {
         'p--context-offender': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'About the offender',
             additionalProperties: false,
             properties: {
                 'offender-context': {
-                    title: 'About the offender',
                     description:
                         '<p class="govuk-body">We’re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation you get.</p><p class="govuk-body">We will never contact the offender.</p>'
                 }
@@ -2917,10 +2917,10 @@ module.exports = {
         'p--context-compensation': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Other compensation',
             additionalProperties: false,
             properties: {
                 'compensation-context': {
-                    title: 'Other compensation',
                     description:
                         '<p class="govuk-body">We\'re going to ask about any other compensation you\'ve been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you can get.</p>'
                 }
@@ -3089,10 +3089,10 @@ module.exports = {
         'p--context-applicant-details': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Your details',
             additionalProperties: false,
             properties: {
                 'details-context': {
-                    title: 'Your details',
                     description:
                         '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>\n'
                 }
@@ -3103,10 +3103,10 @@ module.exports = {
         'p--context-dmi-details': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Your mental health',
             additionalProperties: false,
             properties: {
                 'details-context': {
-                    title: 'Your mental health',
                     description:
                         '<p class="govuk-body">We’re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>'
                 }
@@ -3702,10 +3702,10 @@ module.exports = {
         'p--transition': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Continue your claim',
             additionalProperties: false,
             properties: {
                 transition: {
-                    title: 'Continue your claim',
                     description:
                         '<p class="govuk-body">You\'ll be taken to another website to continue your claim.</p>{{ govukButton({text: "Continue",href: "https://www.cica.gov.uk/OAS/Account/create",isStartButton: true}) }}'
                 }
@@ -3716,10 +3716,10 @@ module.exports = {
         'p--context-physical-injuries': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'About your injuries',
             additionalProperties: false,
             properties: {
                 'details-context': {
-                    title: 'About your injuries',
                     description:
                         '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p>'
                 }
@@ -7660,10 +7660,10 @@ module.exports = {
         'p--context-treatment': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Your treatment',
             additionalProperties: false,
             properties: {
                 'details-context': {
-                    title: 'Your treatment',
                     description:
                         '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>'
                 }
@@ -8090,10 +8090,10 @@ module.exports = {
         'p--context-money': {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            title: 'Your money',
             additionalProperties: false,
             properties: {
                 'money-context': {
-                    title: 'Your money',
                     description:
                         '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
                 }
