@@ -3916,7 +3916,7 @@ module.exports = {
                     'details-context': {
                         title: 'About your injuries',
                         description:
-                            '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p>'
+                            '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about your mental health later in the application.</p>'
                     }
                 },
                 examples: [{}],
@@ -9159,6 +9159,26 @@ module.exports = {
                 ]
             }
         },
+        'p--context-additional-info': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'applicant-additional-info': {
+                        title: 'Additional Information',
+                        description:
+                            '<p class="govuk-body">We’re going to ask you if you want to provide any more details about this claim</p><p class="govuk-body">This can be information that did not fit the questions you have been asked, such as:</p><ul class="govuk-list govuk-list--bullet"><li>crime reference numbers</li><li>offender names</li><li>locations</li></ul><p class="govuk-body">This helps us get the information we need to make a decision about this claim.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
+                    }
+                },
+                examples: [{}],
+                invalidExamples: [
+                    {
+                        foo: 'bar'
+                    }
+                ]
+            }
+        },
         system: {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -9640,7 +9660,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-provide-additional-information'
+                            target: 'p--context-additional-info'
                         }
                     ]
                 }
@@ -9680,7 +9700,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-provide-additional-information'
+                            target: 'p--context-additional-info'
                         }
                     ]
                 }
@@ -9689,7 +9709,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-provide-additional-information'
+                            target: 'p--context-additional-info'
                         }
                     ]
                 }
@@ -12422,6 +12442,15 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-who-are-you-applying-for'
+                        }
+                    ]
+                }
+            },
+            'p--context-additional-info': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-provide-additional-information'
                         }
                     ]
                 }
