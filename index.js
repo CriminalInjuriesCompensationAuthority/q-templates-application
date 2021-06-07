@@ -1995,7 +1995,7 @@ module.exports = {
                     'q-applicant-building-and-street-2': {
                         type: 'string',
                         title:
-                            "<span class='govuk-visually-hidden'>Building and street line 2</span>",
+                            "Building and street line 2",
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -3018,7 +3018,7 @@ module.exports = {
                     'you-cannot-get-compensation': {
                         title: 'You cannot get compensation',
                         description:
-                            '\n                <p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p>\n                <p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>\n            '
+                            '<p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p><p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>'
                     }
                 },
                 examples: [{}],
@@ -3247,7 +3247,7 @@ module.exports = {
                     'details-context': {
                         title: 'Your details',
                         description:
-                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>\n'
+                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>'
                     }
                 },
                 examples: [{}],
