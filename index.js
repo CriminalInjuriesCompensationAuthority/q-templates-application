@@ -53,7 +53,7 @@ module.exports = {
                     lng: 'en',
                     context: {
                         $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q--who-are-you-applying-for'
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
                     },
                     ns: 'p-applicant-enter-your-address'
                 },
@@ -64,12 +64,6 @@ module.exports = {
                         resources: {
                             'section-title': 'Enter your address',
                             'section-title_someone-else': 'Enter their address'
-                            /*
-                            "applicant-name-section-title": "Enter your name",
-                            "applicant-name-section-title_plural": "Enter your names",
-                            "applicant-name-section-title_someone-else": "Enter their name",
-                            "applicant-name-section_someone-else,under-18_plural": "Enter their names"
-                            */
                         }
                     }
                 ]
