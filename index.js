@@ -4,7 +4,77 @@ module.exports = {
     type: 'apply-for-compensation',
     version: '3.0.0',
     sections: {
+        'p--before-you-continue': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-lang'],
+                additionalProperties: false,
+                properties: {
+                    'q-lang': {
+                        title: 'What is your preferred language? Beth yw eich hoff iaith?',
+                        type: 'string',
+                        oneOf: [
+                            {
+                                title: 'English',
+                                const: 'en'
+                            },
+                            {
+                                title: 'Cymraeg',
+                                const: 'cy'
+                            }
+                        ]
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-lang': 'Select prefered language'
+                    }
+                },
+                examples: [
+                    {
+                        'q-lang': 'en'
+                    },
+                    {
+                        'q-lang': 'cy'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-lang': 12345
+                    }
+                ]
+            }
+        },
         'p-applicant-who-are-you-applying-for': {
+            l10n: {
+                vars: {
+                    lng: {
+                        $data: '/answers/p--before-you-continue/q-lang'
+                    },
+                    ns: 'p-applicant-who-are-you-applying-for'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-who-are-you-applying-for',
+                        resources: {
+                            'section-title': 'Who are you applying for?',
+                            opt1: 'Myself',
+                            opt2: 'Someone else'
+                        }
+                    },
+                    {
+                        language: 'cy',
+                        namespace: 'p-applicant-who-are-you-applying-for',
+                        resources: {
+                            'section-title': "Ar gyfer pwy ydych chi'n gwneud cais?",
+                            opt1: 'Fy hun',
+                            opt2: 'Rhywun arall'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -12,15 +82,15 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-who-are-you-applying-for': {
-                        title: 'Who are you applying for?',
+                        title: 'l10nt:section-title{?lng,ns}',
                         type: 'string',
                         oneOf: [
                             {
-                                title: 'Myself',
+                                title: 'l10nt:opt1{?lng,ns}',
                                 const: 'myself'
                             },
                             {
-                                title: 'Someone else',
+                                title: 'l10nt:opt2{?lng,ns}',
                                 const: 'someone-else'
                             }
                         ]
@@ -173,35 +243,36 @@ module.exports = {
             }
         },
         'p-applicant-declaration': {
-            schema: {
-                $schema: 'http://json-schema.org/draft-07/schema#',
-                type: 'object',
-                additionalProperties: false,
-                properties: {
-                    'applicant-declaration': {
-                        title: 'Declaration',
-                        description:
-                            '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>'
-                    }
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-declaration'
                 },
-                examples: [{}],
-                invalidExamples: [
+                translations: [
                     {
-                        foo: 'bar'
+                        language: 'en',
+                        namespace: 'p-applicant-declaration',
+                        resources: {
+                            declaration:
+                                '<p class="govuk-body">By submitting the application I agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>',
+                            'declaration_someone-else':
+                                '<p class="govuk-body">By submitting the application I agree that:</p><p class="govuk-body"><b>Can be entirely different content...</b></p>'
+                        }
                     }
                 ]
-            }
-        },
-        'p--confirmation': {
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
+                title: 'Declaration',
                 properties: {
-                    confirmation: {
-                        title: 'Confirmation',
-                        description:
-                            '{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}{% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}{% set caseReferenceNumber = "||/answers/system/case-reference||" %}{% if mobilePhoneNumber %}{% set contactMethod =  mobilePhoneNumber %}{% else %}{% set contactMethod =  emailAddress %}{% endif %}{% if caseReferenceNumber %}{% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We\'ll also send this to <strong>" + contactMethod + "</strong></p>" %}{% else %}{% set html =  "<p>We\'ll send your case reference number to <strong>" + contactMethod + "</strong> soon</p>" %}{% endif %}{{ govukPanel({titleText: "Application submitted",html: html})}}<p class="govuk-body">Thank you for submitting an application.</p><h2 class="govuk-heading-m">What happens next</h2><p class="govuk-body">We will:</p><ul class="govuk-list govuk-list--bullet"><li>ask the police for a report of the crime</li><li>ask you for more information if we need it</li><li>make a decision on your application</li><li>send our decision letter to you by post</li></ul><p class="govuk-body">We aim to make a decision within 1 year but it can take longer. We may have to wait until there is enough information about your injuries and recovery.</p>{{ govukWarningText({text: "You must tell us right away if any of the information you have given us changes. This includes your address, telephone number or email address.",iconFallbackText: "Warning"}) }}<h2 class="govuk-heading-m">Contact us</h2>{% include \'contact.njk\' %}<p class="govuk-body">We will not always send an acknowledgement if you:</p><ul class="govuk-list govuk-list--bullet"><li>email us</li><li>write to us</li><li>send us documents</li></ul><h2 class="govuk-heading-m">Help us improve this service</h2><p class="govuk-body">You can complete a short survey to help us improve this service.</p><p class="govuk-body">It does not ask for any details about your case and has no impact on your application.</p><p class="govuk-body"><a class="govuk-link" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service</a> (takes 10 minutes)</p>'
+                    'applicant-declaration': {
+                        description: 'l10nt:declaration{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -214,11 +285,20 @@ module.exports = {
         }
     },
     routes: {
-        initial: 'p-applicant-who-are-you-applying-for',
+        initial: 'p--before-you-continue',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: 'p-applicant-declaration',
-        confirmation: 'p--confirmation',
+        confirmation: 'p-applicant-declaration',
         states: {
+            'p--before-you-continue': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-who-are-you-applying-for'
+                        }
+                    ]
+                }
+            },
             'p-applicant-who-are-you-applying-for': {
                 on: {
                     ANSWER: [
@@ -229,41 +309,22 @@ module.exports = {
                 }
             },
             'p-applicant-enter-your-address': {
-                type: 'final'
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-declaration'
+                        }
+                    ]
+                }
             },
             'p-applicant-declaration': {
-                type: 'final'
-            },
-            'p--confirmation': {
                 type: 'final'
             }
         }
     },
     answers: {},
-    progress: ['p-applicant-who-are-you-applying-for'],
+    progress: ['p--before-you-continue'],
     meta: {
-        questionnaireDocumentVersion: '2.0.0',
-        onComplete: {
-            tasks: [
-                {
-                    type: 'sendEmail',
-                    templateId: 'cb79653c-cf6e-44d4-8c03-087ba21cfd01',
-                    templatePlaceholderMap: {
-                        emailAddress:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address',
-                        caseReference: '/answers/system/case-reference'
-                    }
-                },
-                {
-                    type: 'sendSms',
-                    templateId: '3c847bb8-957a-4bba-9fad-090657bb5c71',
-                    templatePlaceholderMap: {
-                        phoneNumber:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number',
-                        caseReference: '/answers/system/case-reference'
-                    }
-                }
-            ]
-        }
+        questionnaireDocumentVersion: '2.0.0'
     }
 };
