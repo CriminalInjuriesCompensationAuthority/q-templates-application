@@ -1771,9 +1771,47 @@ module.exports = {
             }
         },
         'p-applicant-enter-your-name': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-enter-your-name'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-enter-your-name',
+                        resources: {
+                            title: 'Enter your name',
+                            'title_someone-else': "Enter the child's name",
+                            'q-applicant-title': {
+                                error: {
+                                    required: 'Enter your title',
+                                    'required_someone-else': "Enter the child's title"
+                                }
+                            },
+                            'q-applicant-first-name': {
+                                error: {
+                                    required: 'Enter your first name',
+                                    'required_someone-else': "Enter the child's first name"
+                                }
+                            },
+                            'q-applicant-last-name': {
+                                error: {
+                                    required: 'Enter your last name',
+                                    'required_someone-else': "Enter the child's last name"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
-                title: 'Enter your name',
+                title: 'l10nt:title{?lng,context,ns}',
                 type: 'object',
                 required: ['q-applicant-title', 'q-applicant-first-name', 'q-applicant-last-name'],
                 additionalProperties: false,
@@ -1805,9 +1843,12 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-title': 'Enter your title',
-                        'q-applicant-first-name': 'Enter your first name',
-                        'q-applicant-last-name': 'Enter your last name'
+                        'q-applicant-title':
+                            'l10nt:q-applicant-title.error.required{?lng,context,ns}',
+                        'q-applicant-first-name':
+                            'l10nt:q-applicant-first-name.error.required{?lng,context,ns}',
+                        'q-applicant-last-name':
+                            'l10nt:q-applicant-last-name.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1837,6 +1878,35 @@ module.exports = {
             }
         },
         'p-applicant-have-you-been-known-by-any-other-names': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-have-you-been-known-by-any-other-names'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-have-you-been-known-by-any-other-names',
+                        resources: {
+                            'q-applicant-have-you-been-known-by-any-other-names': {
+                                title: 'Have you ever been known by any other names?',
+                                'title_someone-else':
+                                    'Have they ever been known by any other names?',
+                                error: {
+                                    required:
+                                        'Select yes if you have been known by any other names',
+                                    'required_someone-else':
+                                        'Select yes if they have been known by any other names'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1845,13 +1915,14 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-been-known-by-any-other-names': {
                         type: 'boolean',
-                        title: 'Have you ever been known by any other names?'
+                        title:
+                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-have-you-been-known-by-any-other-names':
-                            'Select yes if you have been known by any other names'
+                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1870,6 +1941,38 @@ module.exports = {
             }
         },
         'p-applicant-what-other-names-have-you-used': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-what-other-names-have-you-used'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-what-other-names-have-you-used',
+                        resources: {
+                            'q-applicant-what-other-names-have-you-used': {
+                                title: 'What other names have you used?',
+                                'title_someone-else': 'What other names have they used?',
+                                error: {
+                                    required:
+                                        'Select yes if you have been known by any other names',
+                                    maxLength:
+                                        'Other names you have used must be 50 characters or less',
+                                    'required_someone-else':
+                                        'Select yes if they have been known by any other names',
+                                    'maxLength_someone-else':
+                                        'Other names they have used must be 50 characters or less'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1878,17 +1981,19 @@ module.exports = {
                 properties: {
                     'q-applicant-what-other-names-have-you-used': {
                         type: 'string',
-                        title: 'What other names have you used?',
+                        title:
+                            'l10nt:q-applicant-what-other-names-have-you-used.title{?lng,context,ns}',
                         maxLength: 50,
                         errorMessage: {
-                            maxLength: 'Other names you have used must be 50 characters or less'
+                            maxLength:
+                                'l10nt:q-applicant-what-other-names-have-you-used.error.maxLength{?lng,context,ns}'
                         }
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-what-other-names-have-you-used':
-                            'Enter the other names you have used'
+                            'l10nt:q-applicant-what-other-names-have-you-used.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1904,6 +2009,38 @@ module.exports = {
             }
         },
         'p-applicant-enter-your-date-of-birth': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-enter-your-date-of-birth'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-enter-your-date-of-birth',
+                        resources: {
+                            'q-applicant-enter-your-date-of-birth': {
+                                title: 'Enter your date of birth',
+                                'title_someone-else': 'Enter their date of birth',
+                                error: {
+                                    required:
+                                        'Enter your date of birth and include a day, month and year',
+                                    format:
+                                        'Enter your date of birth and include a day, month and year',
+                                    'required_someone-else':
+                                        'Enter their date of birth and include a day, month and year',
+                                    'format_someone-else':
+                                        'Enter their date of birth and include a day, month and year'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1913,17 +2050,18 @@ module.exports = {
                     'q-applicant-enter-your-date-of-birth': {
                         type: 'string',
                         format: 'date-time',
-                        title: 'Enter your date of birth',
+                        title: 'l10nt:q-applicant-enter-your-date-of-birth.title{?lng,context,ns}',
                         description: 'For example, 31 3 1980.',
                         errorMessage: {
-                            format: 'Enter your date of birth and include a day, month and year'
+                            format:
+                                'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}'
                         }
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-enter-your-date-of-birth':
-                            'Enter your date of birth and include a day, month and year'
+                            'l10nt:q-applicant-enter-your-date-of-birth.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1977,10 +2115,44 @@ module.exports = {
             }
         },
         'p-applicant-enter-your-address': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-enter-your-address'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-enter-your-address',
+                        resources: {
+                            title: 'Enter your address',
+                            'title_someone-else': 'Enter their address',
+                            'q-applicant-building-and-street': {
+                                error: {
+                                    required: 'Enter the building and street where you live',
+                                    'required_someone-else':
+                                        'Enter the building and street where they live'
+                                }
+                            },
+                            'q-applicant-town-or-city': {
+                                error: {
+                                    required: 'Enter the town or city where you live',
+                                    'required_someone-else':
+                                        'Enter the town or city where they live'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: 'Enter your address',
+                title: 'l10nt:title{?lng,context,ns}',
                 required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
                 additionalProperties: false,
                 properties: {
@@ -1994,8 +2166,7 @@ module.exports = {
                     },
                     'q-applicant-building-and-street-2': {
                         type: 'string',
-                        title:
-                            "Building and street line 2",
+                        title: 'Building and street line 2',
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -2029,8 +2200,9 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-building-and-street':
-                            'Enter the building and street where you live',
-                        'q-applicant-town-or-city': 'Enter the town or city where you live'
+                            'l10nt:q-applicant-building-and-street.error.required{?lng,context,ns}',
+                        'q-applicant-town-or-city':
+                            'l10nt:q-applicant-town-or-city.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
