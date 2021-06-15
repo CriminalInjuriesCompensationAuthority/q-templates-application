@@ -15507,6 +15507,42 @@ module.exports = {
             }
         },
         'p-applicant-select-treatments': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-select-treatments'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-select-treatments',
+                        resources: {
+                            'select-treatments-title':
+                                'What mental health treatments have you had?',
+                            'select-treatments-title_someone-else':
+                                'What mental health treatments have they had?',
+                            'select-treatments-description':
+                                "Include any treatment you're waiting to get.",
+                            'select-treatments-description_someone-else':
+                                'Include any treatment they are waiting to get.',
+                            'select-treatments-error-required':
+                                'Select any treatments you have received for your mental injury',
+                            'select-treatments-error-required_someone-else':
+                                'Select any treatments they have received for their mental injury',
+                            'other-treatment-error-required':
+                                'Enter any other treatment you have received for your mental injury',
+                            'other-treatment-error-required_someone-else':
+                                'Enter any other treatment they have received for their mental injury'
+                        }
+                    }
+                ]
+            }
+        },
+        'p-applicant-select-treatments': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -15635,6 +15671,31 @@ module.exports = {
             }
         },
         'p-applicant-has-your-treatment-finished-dmi': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-has-your-treatment-finished-dmi'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-has-your-treatment-finished-dmi',
+                        resources: {
+                            'treatment-finished-title': 'Have you finished your treatment?',
+                            'treatment-finished-title_someone-else':
+                                'Have they finished their treatment?',
+                            'treatment-finished-error-required':
+                                'Select yes if you have finished your treatment',
+                            'treatment-finished-error-required_someone-else':
+                                'Select yes if they have finished their treatment'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -15696,6 +15757,31 @@ module.exports = {
             }
         },
         'p-applicant-are-you-registered-with-gp': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-are-you-registered-with-gp'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-are-you-registered-with-gp',
+                        resources: {
+                            'registered-with-gp-title': 'Are you registered with a GP practice?',
+                            'registered-with-gp-title_someone-else':
+                                'Are they registered with a GP practice?',
+                            'registered-with-gp-error-required':
+                                'Select yes if you are registered with a GP',
+                            'registered-with-gp-error-required_someone-else':
+                                'Select yes if they are registered with a GP'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -15729,6 +15815,34 @@ module.exports = {
             }
         },
         'p-applicant-have-you-seen-a-gp': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-have-you-seen-a-gp'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-have-you-seen-a-gp',
+                        resources: {
+                            'seen-a-gp-title': 'Have you seen a GP about your injuries?',
+                            'seen-a-gp-title_someone-else':
+                                'Have they seen a GP about their injuries?',
+                            'seen-a-gp-description': 'This includes your mental health.',
+                            'seen-a-gp-description_someone-else':
+                                'This includes their mental health.',
+                            'seen-a-gp-error-required':
+                                'Select yes if you have seen a GP about your injuries',
+                            'seen-a-gp-error-required_someone-else':
+                                'Select yes if they have seen a GP about their injuries'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -15871,6 +15985,31 @@ module.exports = {
             }
         },
         'p-applicant-dentist-visited': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-dentist-visited'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-dentist-visited',
+                        resources: {
+                            'dentist-visited-title': 'Have you seen a dentist about your injuries?',
+                            'dentist-visited-title_someone-else':
+                                'Have they seen a dentist about their injuries?',
+                            'dentist-visited-error-required':
+                                'Select yes if you have seen a dentist about your injuries',
+                            'dentist-visited-error-required_someone-else':
+                                'Select yes if they have seen a dentist about their injuries'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -20456,6 +20595,32 @@ module.exports = {
             }
         },
         'p-applicant-treatment-for-physical-injuries': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-treatment-for-physical-injuries'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-treatment-for-physical-injuries',
+                        resources: {
+                            'treatment-for-physical-injuries-title':
+                                'What treatment are you receiving for your physical injuries?',
+                            'treatment-for-physical-injuries-title_someone-else':
+                                'What treatment are they receiving for their physical injuries?',
+                            'treatment-for-physical-injuries-error-required':
+                                'Describe what treatment you have received for your physical injuries',
+                            'treatment-for-physical-injuries-error-required_someone-else':
+                                'Describe what treatment they have received for their physical injuries'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -20489,6 +20654,32 @@ module.exports = {
             }
         },
         'p-applicant-medical-help': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-medical-help'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-medical-help',
+                        resources: {
+                            'medical-help-title':
+                                'Did you get other medical help for your injuries?',
+                            'medical-help-title_someone-else':
+                                'Did they get other medical help for their injuries?',
+                            'medical-help-error-required':
+                                'Select yes if you got other medical help for your injuries',
+                            'medical-help-error-required_someone-else':
+                                'Select yes if they got other medical help for their injuries'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -20522,6 +20713,26 @@ module.exports = {
             }
         },
         'p-applicant-treatment-address': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-treatment-address'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-treatment-address',
+                        resources: {
+                            'treatment-address-title': 'Where did you have treatment?',
+                            'treatment-address-title_someone-else': 'Where did they have treatment?'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
