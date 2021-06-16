@@ -696,6 +696,44 @@ module.exports = {
             }
         },
         'p-applicant-select-reasons-for-the-delay-in-making-your-application': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-select-reasons-for-the-delay-in-making-your-application'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace:
+                            'p-applicant-select-reasons-for-the-delay-in-making-your-application',
+                        resources: {
+                            'delay-in-app-title':
+                                'Select reasons for the delay in making your application',
+                            'delay-in-app-title_someone-else':
+                                'Select reasons for the delay in making this application',
+                            'delay-in-app-description': 'Select all options that apply to you.',
+                            'delay-in-app-description_someone-else':
+                                'Select all options that apply.',
+                            'delay-in-app-item-1': 'I was under 18',
+                            'delay-in-app-item-1_someone-else': 'The child was under 18',
+                            'delay-in-app-item-2': 'I was advised to wait',
+                            'delay-in-app-item-2_someone-else': 'The child was advised to wait',
+                            'delay-in-app-error-required':
+                                'Select if you were under 18, advised to wait, medical reasons or other reasons',
+                            'delay-in-app-error-required_someone-else':
+                                'Select if they were under 18, advised to wait, medical reasons or other reasons',
+                            'delay-in-app-explain-error-required':
+                                'Explain the reasons for the delay in making your application',
+                            'delay-in-app-explain-error-required_someone-else':
+                                'Explain the reasons for the delay in making this application'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -706,19 +744,19 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-select-reasons-for-the-delay-in-making-your-application': {
-                        title: 'Select reasons for the delay in making your application',
+                        title: 'l10nt:delay-in-app-title{?lng,context,ns}',
                         type: 'array',
                         maxItems: 4,
                         uniqueItems: true,
-                        description: 'Select all options that apply to you.',
+                        description: 'l10nt:delay-in-app-description{?lng,context,ns}',
                         items: {
                             anyOf: [
                                 {
-                                    title: 'I was under 18',
+                                    title: 'l10nt:delay-in-app-item-1{?lng,context,ns}',
                                     const: 'i-was-underage'
                                 },
                                 {
-                                    title: 'I was advised to wait',
+                                    title: 'l10nt:delay-in-app-item-2{?lng,context,ns}',
                                     const: 'i-was-advised-to-wait'
                                 },
                                 {
@@ -744,9 +782,9 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-reasons-for-the-delay-in-making-your-application':
-                            'Select if you were under 18, advised to wait, medical reasons or other reasons',
+                            'l10nt:delay-in-app-error-required{?lng,context,ns}',
                         'q-applicant-explain-reason-for-delay-application':
-                            'Explain the reasons for the delay in making your application'
+                            'l10nt:delay-in-app-explain-error-required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1426,6 +1464,38 @@ module.exports = {
             }
         },
         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace:
+                            'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                        resources: {
+                            'delay-in-reporting-description':
+                                'Select all options that apply to you.',
+                            'delay-in-reporting-description_someone-else':
+                                'Select all options that apply.',
+                            'delay-in-reporting-item-1': 'I was under 18',
+                            'delay-in-reporting-item-1_someone-else': 'The child was under 18',
+                            'delay-in-reporting-item-2': 'Unable to report the crime',
+                            'delay-in-reporting-item-2_someone-else':
+                                'The child was unable to report the crime',
+                            'delay-in-reporting-error-required':
+                                'Select if you were under 18, unable to report the crime or other reasons',
+                            'delay-in-reporting-error-required_someone-else':
+                                'Select if they were under 18, unable to report the crime or other reasons'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1440,15 +1510,15 @@ module.exports = {
                         type: 'array',
                         maxItems: 3,
                         uniqueItems: true,
-                        description: 'Select all options that apply to you.',
+                        description: 'l10nt:delay-in-reporting-title{?lng,context,ns}',
                         items: {
                             anyOf: [
                                 {
-                                    title: 'I was under 18',
+                                    title: 'l10nt:delay-in-reporting-item-1{?lng,context,ns}',
                                     const: 'i-was-under-18'
                                 },
                                 {
-                                    title: 'Unable to report the crime',
+                                    title: 'l10nt:delay-in-reporting-item-2{?lng,context,ns}',
                                     const: 'unable-to-report-crime'
                                 },
                                 {
@@ -1470,7 +1540,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                            'Select if you were under 18, unable to report the crime or other reasons',
+                            'l10nt:delay-in-reporting-error-required{?lng,context,ns}',
                         'q-applicant-explain-reason-for-delay-reporting':
                             'Explain the reasons for the delay in reporting the crime to the police'
                     }
@@ -3190,7 +3260,7 @@ module.exports = {
                     'you-cannot-get-compensation': {
                         title: 'You cannot get compensation',
                         description:
-                            '<p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p><p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>'
+                            '\n                <p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p>\n                <p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>\n            '
                     }
                 },
                 examples: [{}],
@@ -3419,7 +3489,7 @@ module.exports = {
                     'details-context': {
                         title: 'Your details',
                         description:
-                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>'
+                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>\n'
                     }
                 },
                 examples: [{}],
@@ -9235,6 +9305,29 @@ module.exports = {
             }
         },
         'p-applicant-incident-type': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-incident-type'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-incident-type',
+                        resources: {
+                            'incident-type-title': 'What led to your injuries?',
+                            'incident-type-title_someone-else': "What led to the child's injuries?",
+                            'incident-type-error-required': 'Select what led to your injuries',
+                            'incident-type-error-required_someone-else':
+                                'Select what led to their injuries'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -9242,7 +9335,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-incident-type': {
-                        title: 'What led to your injuries?',
+                        title: 'l10nt:incident-type-title{?lng,context,ns}',
                         type: 'string',
                         oneOf: [
                             {
@@ -9290,7 +9383,8 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-incident-type': 'Select what led to your injuries'
+                        'q-applicant-incident-type':
+                            'l10nt:incident-type-error-required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -9389,6 +9483,36 @@ module.exports = {
             }
         },
         'p-applicant-describe-incident': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-describe-incident'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-describe-incident',
+                        resources: {
+                            'describe-incident-title':
+                                'Would you like to briefly describe the crime in your own words?',
+                            'describe-incident-title_someone-else':
+                                'Do you want to briefly describe the crime?',
+                            'describe-incident-description':
+                                'The police will send us a report of the crime. Providing an additional description is optional.',
+                            'describe-incident-description_someone-else':
+                                'The police will send us a report of the crime. Providing an additional description is optional.',
+                            'describe-incident-error-required':
+                                'Select yes if you would like to describe the crime in your own words',
+                            'describe-incident-error-required_someone-else':
+                                'Select yes if you would like to briefly describe the crime'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -9397,15 +9521,14 @@ module.exports = {
                 properties: {
                     'q-applicant-describe-incident': {
                         type: 'boolean',
-                        title: 'Would you like to briefly describe the crime in your own words?',
-                        description:
-                            'The police will send us a report of the crime. Providing an additional description is optional.'
+                        title: 'l10nt:describe-incident-title{?lng,context,ns}',
+                        description: 'l10nt:describe-incident-description{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-describe-incident':
-                            'Select yes if you would like to describe the crime in your own words'
+                            'l10nt:describe-incident-error-required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -9424,6 +9547,32 @@ module.exports = {
             }
         },
         'p-applicant-incident-description': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-incident-description'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-incident-description',
+                        resources: {
+                            'description-of-incident-title':
+                                'Briefly describe the crime in your own words',
+                            'description-of-incident-title_someone-else':
+                                'Briefly describe the crime',
+                            'description-of-incident-error-required':
+                                'Describe the crime in your own words',
+                            'description-of-incident-error-required_someone-else':
+                                'Describe the crime'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -9431,7 +9580,7 @@ module.exports = {
                 properties: {
                     'q-applicant-incident-description': {
                         type: 'string',
-                        title: 'Briefly describe the crime in your own words',
+                        title: 'l10nt:description-of-incident-title{?lng,context,ns}',
                         description:
                             'You can add details that may not be included in the crime report.',
                         maxLength: 1000,
@@ -9442,7 +9591,8 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-incident-description': 'Describe the crime in your own words'
+                        'q-applicant-incident-description':
+                            'l10nt:description-of-incident-error-required{?lng,context,ns}'
                     }
                 },
                 examples: [
