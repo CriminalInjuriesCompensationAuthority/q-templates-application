@@ -1994,8 +1994,7 @@ module.exports = {
                     },
                     'q-applicant-building-and-street-2': {
                         type: 'string',
-                        title:
-                            "Building and street line 2",
+                        title: 'Building and street line 2',
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -3855,6 +3854,35 @@ module.exports = {
             }
         },
         'p-applicant-are-you-claiming-for-physical-injuries': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-are-you-claiming-for-physical-injuries'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-are-you-claiming-for-physical-injuries',
+                        resources: {
+                            'q-applicant-are-you-claiming-for-physical-injuries': {
+                                title: 'Do you have physical injuries as a result of the crime?',
+                                'title_someone-else':
+                                    'Do they have physical injuries as a result of the crime?',
+                                error: {
+                                    required:
+                                        'Select yes if you have physical injuries as a result of the crime',
+                                    'required_someone-else':
+                                        'Select yes if they have physical injuries as a result of the crime'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3863,13 +3891,14 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-claiming-for-physical-injuries': {
                         type: 'boolean',
-                        title: 'Do you have physical injuries as a result of the crime?'
+                        title:
+                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-are-you-claiming-for-physical-injuries':
-                            'Select yes if you have physical injuries as a result of the crime'
+                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3908,15 +3937,40 @@ module.exports = {
             }
         },
         'p--context-physical-injuries': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-physical-injuries'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-physical-injuries',
+                        resources: {
+                            'details-context': {
+                                title: 'About your injuries',
+                                'title_someone-else': "About the child's injuries",
+                                description:
+                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about your mental health later in the application.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about the child\'s mental health later in the application.</p>'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'About your injuries',
-                        description:
-                            '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about your mental health later in the application.</p>'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -5028,7 +5082,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the skin on your head, face or neck',
+                        title: 'Select any injuries to the skin on the head, face or neck',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -5127,7 +5181,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the tissue on your head, face or neck',
+                        title: 'Select any injuries to the tissue on the head, face or neck',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -6010,7 +6064,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the skin on your torso',
+                        title: 'Select any injuries to the skin on the torso',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -6109,7 +6163,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the tissue on your torso',
+                        title: 'Select any injuries to the tissue on the torso',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -6997,7 +7051,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the skin on your arms and hands',
+                        title: 'Select any injuries to the skin on the arms and hands',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -7096,7 +7150,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the tissue on your arms or hands',
+                        title: 'Select any injuries to the tissue on the arms or hands',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -7967,7 +8021,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the skin on your legs or feet',
+                        title: 'Select any injuries to the skin on the legs or feet',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -8066,7 +8120,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select any injuries to the tissue on your legs or feet',
+                        title: 'Select any injuries to the tissue on the legs or feet',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -8158,6 +8212,36 @@ module.exports = {
             }
         },
         'p-applicant-infections': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-infections'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-infections',
+                        resources: {
+                            'q-applicant-infections': {
+                                title:
+                                    'Do you have HIV, hepatitis or an STI as a result of the crime?',
+                                'title_someone-else':
+                                    'Do they have HIV, hepatitis or an STI as a result of the crime?',
+                                error: {
+                                    required:
+                                        'Select yes if you have HIV, hepatitis or an STI as a result of the crime',
+                                    'required_someone-else':
+                                        'Select yes if they have HIV, hepatitis or an STI as a result of the crime'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8166,13 +8250,13 @@ module.exports = {
                 properties: {
                     'q-applicant-infections': {
                         type: 'boolean',
-                        title: 'Do you have HIV, hepatitis or an STI as a result of the crime?'
+                        title: 'l10nt:q-applicant-infections.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-infections':
-                            'Select yes if you have HIV, hepatitis or an STI as a result of the crime'
+                            'l10nt:q-applicant-infections.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8191,6 +8275,28 @@ module.exports = {
             }
         },
         'p-applicant-select-infections': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-select-infections'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-select-infections',
+                        resources: {
+                            'q-applicant-physical-injuries': {
+                                title: 'Select what infection you have',
+                                'title_someone-else': 'What infection do they have?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8198,7 +8304,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select what infection you have',
+                        title: 'l10nt:q-applicant-physical-injuries.title{?lng,context,ns}',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -8243,6 +8349,35 @@ module.exports = {
             }
         },
         'p-applicant-pregnancy': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-pregnancy'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-pregnancy',
+                        resources: {
+                            'q-applicant-pregnancy': {
+                                title: 'Did you become pregnant as a result of the crime?',
+                                'title_someone-else':
+                                    'Did they become pregnant as a result of the crime?',
+                                error: {
+                                    required:
+                                        'Select yes if you became pregnant as a result of the crime',
+                                    'required_someone-else':
+                                        'Select yes if they became pregnant as a result of the crime'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8251,13 +8386,13 @@ module.exports = {
                 properties: {
                     'q-applicant-pregnancy': {
                         type: 'boolean',
-                        title: 'Did you become pregnant as a result of the crime?'
+                        title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-pregnancy':
-                            'Select yes if you became pregnant as a result of the crime'
+                            'l10nt:q-applicant-pregnancy.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8751,6 +8886,35 @@ module.exports = {
             }
         },
         'p-applicant-pregnancy-loss': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-pregnancy-loss'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-pregnancy-loss',
+                        resources: {
+                            'q-applicant-pregnancy-loss': {
+                                title: 'Did you lose a pregnancy as a result of the crime?',
+                                'title_someone-else':
+                                    'Did they lose a pregnancy as a result of the crime?',
+                                error: {
+                                    required:
+                                        'Select yes if you lost a pregnancy as a result of the crime',
+                                    'required_someone-else':
+                                        'Select yes if they lost a pregnancy as a result of the crime'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8759,13 +8923,13 @@ module.exports = {
                 properties: {
                     'q-applicant-pregnancy-loss': {
                         type: 'boolean',
-                        title: 'Did you lose a pregnancy as a result of the crime?'
+                        title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-pregnancy-loss':
-                            'Select yes if you lost a pregnancy as a result of the crime'
+                            'l10nt:q-applicant-pregnancy-loss.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
