@@ -711,25 +711,27 @@ module.exports = {
                         namespace:
                             'p-applicant-select-reasons-for-the-delay-in-making-your-application',
                         resources: {
-                            'delay-in-app-title':
-                                'Select reasons for the delay in making your application',
-                            'delay-in-app-title_someone-else':
-                                'Select reasons for the delay in making this application',
-                            'delay-in-app-description': 'Select all options that apply to you.',
-                            'delay-in-app-description_someone-else':
-                                'Select all options that apply.',
-                            'delay-in-app-item-1': 'I was under 18',
-                            'delay-in-app-item-1_someone-else': 'The child was under 18',
-                            'delay-in-app-item-2': 'I was advised to wait',
-                            'delay-in-app-item-2_someone-else': 'The child was advised to wait',
-                            'delay-in-app-error-required':
-                                'Select if you were under 18, advised to wait, medical reasons or other reasons',
-                            'delay-in-app-error-required_someone-else':
-                                'Select if they were under 18, advised to wait, medical reasons or other reasons',
-                            'delay-in-app-explain-error-required':
-                                'Explain the reasons for the delay in making your application',
-                            'delay-in-app-explain-error-required_someone-else':
-                                'Explain the reasons for the delay in making this application'
+                            'q-applicant-explain-reason-for-delay-application': {
+                                error: {
+                                    required:
+                                        'Explain the reasons for the delay in making your application',
+                                    'required_someone-else':
+                                        'Explain the reasons for the delay in making this application'
+                                }
+                            },
+                            'q-applicant-select-reasons-for-the-delay-in-making-your-application': {
+                                description: 'Select all options that apply to you.',
+                                'description_someone-else': 'Select all options that apply.',
+                                error: {
+                                    required:
+                                        'Select if you were under 18, advised to wait, medical reasons or other reasons',
+                                    'required_someone-else':
+                                        'Select if they were under 18, advised to wait, medical reasons or other reasons'
+                                },
+                                title: 'Select reasons for the delay in making your application',
+                                'title_someone-else':
+                                    'Select reasons for the delay in making this application'
+                            }
                         }
                     }
                 ]
@@ -744,19 +746,21 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-select-reasons-for-the-delay-in-making-your-application': {
-                        title: 'l10nt:delay-in-app-title{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.title{?lng,context,ns}',
                         type: 'array',
                         maxItems: 4,
                         uniqueItems: true,
-                        description: 'l10nt:delay-in-app-description{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.description{?lng,context,ns}',
                         items: {
                             anyOf: [
                                 {
-                                    title: 'l10nt:delay-in-app-item-1{?lng,context,ns}',
+                                    title: 'I was under 18',
                                     const: 'i-was-underage'
                                 },
                                 {
-                                    title: 'l10nt:delay-in-app-item-2{?lng,context,ns}',
+                                    title: 'I was advised to wait',
                                     const: 'i-was-advised-to-wait'
                                 },
                                 {
@@ -782,9 +786,9 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-reasons-for-the-delay-in-making-your-application':
-                            'l10nt:delay-in-app-error-required{?lng,context,ns}',
+                            'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.error.required{?lng,context,ns}',
                         'q-applicant-explain-reason-for-delay-application':
-                            'l10nt:delay-in-app-explain-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-explain-reason-for-delay-application.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1479,19 +1483,16 @@ module.exports = {
                         namespace:
                             'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
                         resources: {
-                            'delay-in-reporting-description':
-                                'Select all options that apply to you.',
-                            'delay-in-reporting-description_someone-else':
-                                'Select all options that apply.',
-                            'delay-in-reporting-item-1': 'I was under 18',
-                            'delay-in-reporting-item-1_someone-else': 'The child was under 18',
-                            'delay-in-reporting-item-2': 'Unable to report the crime',
-                            'delay-in-reporting-item-2_someone-else':
-                                'The child was unable to report the crime',
-                            'delay-in-reporting-error-required':
-                                'Select if you were under 18, unable to report the crime or other reasons',
-                            'delay-in-reporting-error-required_someone-else':
-                                'Select if they were under 18, unable to report the crime or other reasons'
+                            'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
+                                description: 'Select all options that apply to you.',
+                                'description_someone-else': 'Select all options that apply.',
+                                error: {
+                                    required:
+                                        'Select if you were under 18, unable to report the crime or other reasons',
+                                    'required_someone-else':
+                                        'Select if they were under 18, unable to report the crime or other reasons'
+                                }
+                            }
                         }
                     }
                 ]
@@ -1510,15 +1511,16 @@ module.exports = {
                         type: 'array',
                         maxItems: 3,
                         uniqueItems: true,
-                        description: 'l10nt:delay-in-reporting-title{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.description{?lng,context,ns}',
                         items: {
                             anyOf: [
                                 {
-                                    title: 'l10nt:delay-in-reporting-item-1{?lng,context,ns}',
+                                    title: 'I was under 18',
                                     const: 'i-was-under-18'
                                 },
                                 {
-                                    title: 'l10nt:delay-in-reporting-item-2{?lng,context,ns}',
+                                    title: 'Unable to report the crime',
                                     const: 'unable-to-report-crime'
                                 },
                                 {
@@ -1540,7 +1542,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                            'l10nt:delay-in-reporting-error-required{?lng,context,ns}',
+                            'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.error.required{?lng,context,ns}',
                         'q-applicant-explain-reason-for-delay-reporting':
                             'Explain the reasons for the delay in reporting the crime to the police'
                     }
@@ -2878,94 +2880,94 @@ module.exports = {
                                     }
                                 ],
                                 lookup: {
-                                    '10000001': 'British Transport Police',
-                                    '10000033': 'Avon And Somerset Constabulary',
-                                    '10000035': 'Bedfordshire Police',
-                                    '10000039': 'Cambridgeshire Constabulary',
-                                    '10000045': 'Scotland Forth Valley',
-                                    '10000049': 'Cheshire Constabulary',
-                                    '10000059': 'City Of London Police',
-                                    '10000066': 'Cleveland Police',
-                                    '10000082': 'Cumbria Constabulary',
-                                    '10000084': 'Derbyshire Constabulary',
-                                    '10000090': 'Devon & Cornwall Constabulary',
-                                    '10000093': 'Dorset Police',
-                                    '10000098': 'Scotland Dumfries & Galloway',
-                                    '10000102': 'Durham Constabulary',
-                                    '10000109': 'Dyfed Powys Police',
-                                    '10000114': 'Essex Police',
-                                    '10000128': 'Gloucestershire Constabulary',
-                                    '10000133': 'Scotland North East',
-                                    '10000140': 'Greater Manchester Police',
-                                    '10000147': 'Gwent Constabulary',
-                                    '10000150': 'Hampshire Constabulary',
-                                    '10000153': 'Hertfordshire Constabulary',
-                                    '10000169': 'Humberside Police',
-                                    '10000172': 'Kent County Constabulary',
-                                    '10000175': 'Lancashire Constabulary',
-                                    '10000176': 'Leicestershire Police',
-                                    '10000179': 'Lincolnshire Police',
-                                    '10000181': 'Merseyside Police',
-                                    '10000185': 'Norfolk Constabulary',
-                                    '10000187': 'North Wales Police',
-                                    '10000189': 'North Yorkshire Police',
-                                    '10000191': 'Northamptonshire Police',
-                                    '10000193': 'Scotland Highlands And Islands',
-                                    '10000195': 'Northumbria Police',
-                                    '10000199': 'Nottinghamshire Police',
-                                    '10000215': 'South Wales Police',
-                                    '10000218': 'South Yorkshire Police',
-                                    '10000223': 'Staffordshire Police',
-                                    '10000233': 'Suffolk Constabulary',
-                                    '10000237': 'Surrey Constabulary',
-                                    '10000240': 'Sussex Police',
-                                    '10000243': 'Scotland Tayside',
-                                    '10000247': 'Thames Valley Police',
-                                    '10000274': 'Warwickshire Constabulary',
-                                    '10000279': 'West Mercia Police',
-                                    '10000285': 'West Midlands Police',
-                                    '10000291': 'West Yorkshire Police',
-                                    '10000295': 'Wiltshire Constabulary',
-                                    '10002424': 'Scotland Fife',
-                                    '11809683': 'Metropolitan Westminster',
-                                    '11809691': 'Metropolitan Southwark',
-                                    '11809693': 'Metropolitan Lambeth',
-                                    '11809694': 'Metropolitan Camden',
-                                    '11809698': 'Metropolitan Lewisham',
-                                    '11809701': 'Metropolitan Newham',
-                                    '11809709': 'Metropolitan Greenwich',
-                                    '11809713': 'Metropolitan Croydon',
-                                    '11809719': 'Metropolitan Barnet',
-                                    '11809722': 'Metropolitan Brent',
-                                    '11809726': 'Metropolitan Waltham Forest',
-                                    '11809738': 'Metropolitan Haringey',
-                                    '11809743': 'Metropolitan Ealing',
-                                    '11809760': 'Metropolitan Bromley',
-                                    '11809763': 'Metropolitan Hackney',
-                                    '11809765': 'Metropolitan Islington',
-                                    '11809767': 'Metropolitan Tower Hamlets',
-                                    '11809771': 'Metropolitan Wandsworth',
-                                    '11809775': 'Metropolitan Hillingdon',
-                                    '11809780': 'Metropolitan Hounslow',
-                                    '11809782': 'Metropolitan Redbridge',
-                                    '11809783': 'Metropolitan Enfield',
-                                    '11809785': 'Metropolitan Barking',
-                                    '11809788': 'Metropolitan Bexley',
-                                    '11809795': 'Metropolitan Hammersmith',
-                                    '11809800': 'Metropolitan Havering',
-                                    '11809801': 'Metropolitan Kensington',
-                                    '11809803': 'Metropolitan Harrow',
-                                    '11809805': 'Metropolitan Sutton',
-                                    '11809861': 'Metropolitan Merton',
-                                    '11809862': 'Metropolitan Richmond',
-                                    '11809865': 'Metropolitan Kingston',
-                                    '12157147': 'Scotland Ayrshire',
-                                    '12607023': 'Scotland Greater Glasgow',
-                                    '12607026': 'Scotland Renfrewshire/Inverclyde',
-                                    '12607027': 'Scotland Argyll/West Dunbartonshire',
-                                    '12607028': 'Scotland Lanarkshire',
-                                    '13400412': 'Scotland Edinburgh City',
-                                    '13400413': 'Scotland Lothian And Borders',
+                                    10000001: 'British Transport Police',
+                                    10000033: 'Avon And Somerset Constabulary',
+                                    10000035: 'Bedfordshire Police',
+                                    10000039: 'Cambridgeshire Constabulary',
+                                    10000045: 'Scotland Forth Valley',
+                                    10000049: 'Cheshire Constabulary',
+                                    10000059: 'City Of London Police',
+                                    10000066: 'Cleveland Police',
+                                    10000082: 'Cumbria Constabulary',
+                                    10000084: 'Derbyshire Constabulary',
+                                    10000090: 'Devon & Cornwall Constabulary',
+                                    10000093: 'Dorset Police',
+                                    10000098: 'Scotland Dumfries & Galloway',
+                                    10000102: 'Durham Constabulary',
+                                    10000109: 'Dyfed Powys Police',
+                                    10000114: 'Essex Police',
+                                    10000128: 'Gloucestershire Constabulary',
+                                    10000133: 'Scotland North East',
+                                    10000140: 'Greater Manchester Police',
+                                    10000147: 'Gwent Constabulary',
+                                    10000150: 'Hampshire Constabulary',
+                                    10000153: 'Hertfordshire Constabulary',
+                                    10000169: 'Humberside Police',
+                                    10000172: 'Kent County Constabulary',
+                                    10000175: 'Lancashire Constabulary',
+                                    10000176: 'Leicestershire Police',
+                                    10000179: 'Lincolnshire Police',
+                                    10000181: 'Merseyside Police',
+                                    10000185: 'Norfolk Constabulary',
+                                    10000187: 'North Wales Police',
+                                    10000189: 'North Yorkshire Police',
+                                    10000191: 'Northamptonshire Police',
+                                    10000193: 'Scotland Highlands And Islands',
+                                    10000195: 'Northumbria Police',
+                                    10000199: 'Nottinghamshire Police',
+                                    10000215: 'South Wales Police',
+                                    10000218: 'South Yorkshire Police',
+                                    10000223: 'Staffordshire Police',
+                                    10000233: 'Suffolk Constabulary',
+                                    10000237: 'Surrey Constabulary',
+                                    10000240: 'Sussex Police',
+                                    10000243: 'Scotland Tayside',
+                                    10000247: 'Thames Valley Police',
+                                    10000274: 'Warwickshire Constabulary',
+                                    10000279: 'West Mercia Police',
+                                    10000285: 'West Midlands Police',
+                                    10000291: 'West Yorkshire Police',
+                                    10000295: 'Wiltshire Constabulary',
+                                    10002424: 'Scotland Fife',
+                                    11809683: 'Metropolitan Westminster',
+                                    11809691: 'Metropolitan Southwark',
+                                    11809693: 'Metropolitan Lambeth',
+                                    11809694: 'Metropolitan Camden',
+                                    11809698: 'Metropolitan Lewisham',
+                                    11809701: 'Metropolitan Newham',
+                                    11809709: 'Metropolitan Greenwich',
+                                    11809713: 'Metropolitan Croydon',
+                                    11809719: 'Metropolitan Barnet',
+                                    11809722: 'Metropolitan Brent',
+                                    11809726: 'Metropolitan Waltham Forest',
+                                    11809738: 'Metropolitan Haringey',
+                                    11809743: 'Metropolitan Ealing',
+                                    11809760: 'Metropolitan Bromley',
+                                    11809763: 'Metropolitan Hackney',
+                                    11809765: 'Metropolitan Islington',
+                                    11809767: 'Metropolitan Tower Hamlets',
+                                    11809771: 'Metropolitan Wandsworth',
+                                    11809775: 'Metropolitan Hillingdon',
+                                    11809780: 'Metropolitan Hounslow',
+                                    11809782: 'Metropolitan Redbridge',
+                                    11809783: 'Metropolitan Enfield',
+                                    11809785: 'Metropolitan Barking',
+                                    11809788: 'Metropolitan Bexley',
+                                    11809795: 'Metropolitan Hammersmith',
+                                    11809800: 'Metropolitan Havering',
+                                    11809801: 'Metropolitan Kensington',
+                                    11809803: 'Metropolitan Harrow',
+                                    11809805: 'Metropolitan Sutton',
+                                    11809861: 'Metropolitan Merton',
+                                    11809862: 'Metropolitan Richmond',
+                                    11809865: 'Metropolitan Kingston',
+                                    12157147: 'Scotland Ayrshire',
+                                    12607023: 'Scotland Greater Glasgow',
+                                    12607026: 'Scotland Renfrewshire/Inverclyde',
+                                    12607027: 'Scotland Argyll/West Dunbartonshire',
+                                    12607028: 'Scotland Lanarkshire',
+                                    13400412: 'Scotland Edinburgh City',
+                                    13400413: 'Scotland Lothian And Borders',
                                     true: 'Yes',
                                     false: 'No',
                                     once: 'Once',
@@ -3260,7 +3262,7 @@ module.exports = {
                     'you-cannot-get-compensation': {
                         title: 'You cannot get compensation',
                         description:
-                            '\n                <p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p>\n                <p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>\n            '
+                            '<p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p><p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>'
                     }
                 },
                 examples: [{}],
@@ -3489,7 +3491,7 @@ module.exports = {
                     'details-context': {
                         title: 'Your details',
                         description:
-                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>\n'
+                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>'
                     }
                 },
                 examples: [{}],
@@ -9319,11 +9321,14 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-incident-type',
                         resources: {
-                            'incident-type-title': 'What led to your injuries?',
-                            'incident-type-title_someone-else': "What led to the child's injuries?",
-                            'incident-type-error-required': 'Select what led to your injuries',
-                            'incident-type-error-required_someone-else':
-                                'Select what led to their injuries'
+                            'q-applicant-incident-type': {
+                                error: {
+                                    required: 'Select what led to your injuries',
+                                    'required_someone-else': 'Select what led to their injuries'
+                                },
+                                title: 'What led to your injuries?',
+                                'title_someone-else': "What led to the child's injuries?"
+                            }
                         }
                     }
                 ]
@@ -9335,7 +9340,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-incident-type': {
-                        title: 'l10nt:incident-type-title{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-incident-type.title{?lng,context,ns}',
                         type: 'string',
                         oneOf: [
                             {
@@ -9384,7 +9389,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-incident-type':
-                            'l10nt:incident-type-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-incident-type.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -9497,18 +9502,17 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-describe-incident',
                         resources: {
-                            'describe-incident-title':
-                                'Would you like to briefly describe the crime in your own words?',
-                            'describe-incident-title_someone-else':
-                                'Do you want to briefly describe the crime?',
-                            'describe-incident-description':
-                                'The police will send us a report of the crime. Providing an additional description is optional.',
-                            'describe-incident-description_someone-else':
-                                'The police will send us a report of the crime. Providing an additional description is optional.',
-                            'describe-incident-error-required':
-                                'Select yes if you would like to describe the crime in your own words',
-                            'describe-incident-error-required_someone-else':
-                                'Select yes if you would like to briefly describe the crime'
+                            'q-applicant-describe-incident': {
+                                error: {
+                                    required:
+                                        'Select yes if you would like to describe the crime in your own words',
+                                    'required_someone-else':
+                                        'Select yes if you would like to briefly describe the crime'
+                                },
+                                title:
+                                    'Would you like to briefly describe the crime in your own words?',
+                                'title_someone-else': 'Do you want to briefly describe the crime?'
+                            }
                         }
                     }
                 ]
@@ -9521,14 +9525,15 @@ module.exports = {
                 properties: {
                     'q-applicant-describe-incident': {
                         type: 'boolean',
-                        title: 'l10nt:describe-incident-title{?lng,context,ns}',
-                        description: 'l10nt:describe-incident-description{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-describe-incident.title{?lng,context,ns}',
+                        description:
+                            'The police will send us a report of the crime. Providing an additional description is optional.'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-describe-incident':
-                            'l10nt:describe-incident-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-describe-incident.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -9561,14 +9566,14 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-incident-description',
                         resources: {
-                            'description-of-incident-title':
-                                'Briefly describe the crime in your own words',
-                            'description-of-incident-title_someone-else':
-                                'Briefly describe the crime',
-                            'description-of-incident-error-required':
-                                'Describe the crime in your own words',
-                            'description-of-incident-error-required_someone-else':
-                                'Describe the crime'
+                            'q-applicant-incident-description': {
+                                error: {
+                                    required: 'Describe the crime in your own words',
+                                    'required_someone-else': 'Describe the crime'
+                                },
+                                title: 'Briefly describe the crime in your own words',
+                                'title_someone-else': 'Briefly describe the crime'
+                            }
                         }
                     }
                 ]
@@ -9580,7 +9585,7 @@ module.exports = {
                 properties: {
                     'q-applicant-incident-description': {
                         type: 'string',
-                        title: 'l10nt:description-of-incident-title{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-incident-description.title{?lng,context,ns}',
                         description:
                             'You can add details that may not be included in the crime report.',
                         maxLength: 1000,
@@ -9592,7 +9597,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-incident-description':
-                            'l10nt:description-of-incident-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-incident-description.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
