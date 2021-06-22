@@ -1994,8 +1994,7 @@ module.exports = {
                     },
                     'q-applicant-building-and-street-2': {
                         type: 'string',
-                        title:
-                            "Building and street line 2",
+                        title: 'Building and street line 2',
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -2636,94 +2635,94 @@ module.exports = {
                                     }
                                 ],
                                 lookup: {
-                                    '10000001': 'British Transport Police',
-                                    '10000033': 'Avon And Somerset Constabulary',
-                                    '10000035': 'Bedfordshire Police',
-                                    '10000039': 'Cambridgeshire Constabulary',
-                                    '10000045': 'Scotland Forth Valley',
-                                    '10000049': 'Cheshire Constabulary',
-                                    '10000059': 'City Of London Police',
-                                    '10000066': 'Cleveland Police',
-                                    '10000082': 'Cumbria Constabulary',
-                                    '10000084': 'Derbyshire Constabulary',
-                                    '10000090': 'Devon & Cornwall Constabulary',
-                                    '10000093': 'Dorset Police',
-                                    '10000098': 'Scotland Dumfries & Galloway',
-                                    '10000102': 'Durham Constabulary',
-                                    '10000109': 'Dyfed Powys Police',
-                                    '10000114': 'Essex Police',
-                                    '10000128': 'Gloucestershire Constabulary',
-                                    '10000133': 'Scotland North East',
-                                    '10000140': 'Greater Manchester Police',
-                                    '10000147': 'Gwent Constabulary',
-                                    '10000150': 'Hampshire Constabulary',
-                                    '10000153': 'Hertfordshire Constabulary',
-                                    '10000169': 'Humberside Police',
-                                    '10000172': 'Kent County Constabulary',
-                                    '10000175': 'Lancashire Constabulary',
-                                    '10000176': 'Leicestershire Police',
-                                    '10000179': 'Lincolnshire Police',
-                                    '10000181': 'Merseyside Police',
-                                    '10000185': 'Norfolk Constabulary',
-                                    '10000187': 'North Wales Police',
-                                    '10000189': 'North Yorkshire Police',
-                                    '10000191': 'Northamptonshire Police',
-                                    '10000193': 'Scotland Highlands And Islands',
-                                    '10000195': 'Northumbria Police',
-                                    '10000199': 'Nottinghamshire Police',
-                                    '10000215': 'South Wales Police',
-                                    '10000218': 'South Yorkshire Police',
-                                    '10000223': 'Staffordshire Police',
-                                    '10000233': 'Suffolk Constabulary',
-                                    '10000237': 'Surrey Constabulary',
-                                    '10000240': 'Sussex Police',
-                                    '10000243': 'Scotland Tayside',
-                                    '10000247': 'Thames Valley Police',
-                                    '10000274': 'Warwickshire Constabulary',
-                                    '10000279': 'West Mercia Police',
-                                    '10000285': 'West Midlands Police',
-                                    '10000291': 'West Yorkshire Police',
-                                    '10000295': 'Wiltshire Constabulary',
-                                    '10002424': 'Scotland Fife',
-                                    '11809683': 'Metropolitan Westminster',
-                                    '11809691': 'Metropolitan Southwark',
-                                    '11809693': 'Metropolitan Lambeth',
-                                    '11809694': 'Metropolitan Camden',
-                                    '11809698': 'Metropolitan Lewisham',
-                                    '11809701': 'Metropolitan Newham',
-                                    '11809709': 'Metropolitan Greenwich',
-                                    '11809713': 'Metropolitan Croydon',
-                                    '11809719': 'Metropolitan Barnet',
-                                    '11809722': 'Metropolitan Brent',
-                                    '11809726': 'Metropolitan Waltham Forest',
-                                    '11809738': 'Metropolitan Haringey',
-                                    '11809743': 'Metropolitan Ealing',
-                                    '11809760': 'Metropolitan Bromley',
-                                    '11809763': 'Metropolitan Hackney',
-                                    '11809765': 'Metropolitan Islington',
-                                    '11809767': 'Metropolitan Tower Hamlets',
-                                    '11809771': 'Metropolitan Wandsworth',
-                                    '11809775': 'Metropolitan Hillingdon',
-                                    '11809780': 'Metropolitan Hounslow',
-                                    '11809782': 'Metropolitan Redbridge',
-                                    '11809783': 'Metropolitan Enfield',
-                                    '11809785': 'Metropolitan Barking',
-                                    '11809788': 'Metropolitan Bexley',
-                                    '11809795': 'Metropolitan Hammersmith',
-                                    '11809800': 'Metropolitan Havering',
-                                    '11809801': 'Metropolitan Kensington',
-                                    '11809803': 'Metropolitan Harrow',
-                                    '11809805': 'Metropolitan Sutton',
-                                    '11809861': 'Metropolitan Merton',
-                                    '11809862': 'Metropolitan Richmond',
-                                    '11809865': 'Metropolitan Kingston',
-                                    '12157147': 'Scotland Ayrshire',
-                                    '12607023': 'Scotland Greater Glasgow',
-                                    '12607026': 'Scotland Renfrewshire/Inverclyde',
-                                    '12607027': 'Scotland Argyll/West Dunbartonshire',
-                                    '12607028': 'Scotland Lanarkshire',
-                                    '13400412': 'Scotland Edinburgh City',
-                                    '13400413': 'Scotland Lothian And Borders',
+                                    10000001: 'British Transport Police',
+                                    10000033: 'Avon And Somerset Constabulary',
+                                    10000035: 'Bedfordshire Police',
+                                    10000039: 'Cambridgeshire Constabulary',
+                                    10000045: 'Scotland Forth Valley',
+                                    10000049: 'Cheshire Constabulary',
+                                    10000059: 'City Of London Police',
+                                    10000066: 'Cleveland Police',
+                                    10000082: 'Cumbria Constabulary',
+                                    10000084: 'Derbyshire Constabulary',
+                                    10000090: 'Devon & Cornwall Constabulary',
+                                    10000093: 'Dorset Police',
+                                    10000098: 'Scotland Dumfries & Galloway',
+                                    10000102: 'Durham Constabulary',
+                                    10000109: 'Dyfed Powys Police',
+                                    10000114: 'Essex Police',
+                                    10000128: 'Gloucestershire Constabulary',
+                                    10000133: 'Scotland North East',
+                                    10000140: 'Greater Manchester Police',
+                                    10000147: 'Gwent Constabulary',
+                                    10000150: 'Hampshire Constabulary',
+                                    10000153: 'Hertfordshire Constabulary',
+                                    10000169: 'Humberside Police',
+                                    10000172: 'Kent County Constabulary',
+                                    10000175: 'Lancashire Constabulary',
+                                    10000176: 'Leicestershire Police',
+                                    10000179: 'Lincolnshire Police',
+                                    10000181: 'Merseyside Police',
+                                    10000185: 'Norfolk Constabulary',
+                                    10000187: 'North Wales Police',
+                                    10000189: 'North Yorkshire Police',
+                                    10000191: 'Northamptonshire Police',
+                                    10000193: 'Scotland Highlands And Islands',
+                                    10000195: 'Northumbria Police',
+                                    10000199: 'Nottinghamshire Police',
+                                    10000215: 'South Wales Police',
+                                    10000218: 'South Yorkshire Police',
+                                    10000223: 'Staffordshire Police',
+                                    10000233: 'Suffolk Constabulary',
+                                    10000237: 'Surrey Constabulary',
+                                    10000240: 'Sussex Police',
+                                    10000243: 'Scotland Tayside',
+                                    10000247: 'Thames Valley Police',
+                                    10000274: 'Warwickshire Constabulary',
+                                    10000279: 'West Mercia Police',
+                                    10000285: 'West Midlands Police',
+                                    10000291: 'West Yorkshire Police',
+                                    10000295: 'Wiltshire Constabulary',
+                                    10002424: 'Scotland Fife',
+                                    11809683: 'Metropolitan Westminster',
+                                    11809691: 'Metropolitan Southwark',
+                                    11809693: 'Metropolitan Lambeth',
+                                    11809694: 'Metropolitan Camden',
+                                    11809698: 'Metropolitan Lewisham',
+                                    11809701: 'Metropolitan Newham',
+                                    11809709: 'Metropolitan Greenwich',
+                                    11809713: 'Metropolitan Croydon',
+                                    11809719: 'Metropolitan Barnet',
+                                    11809722: 'Metropolitan Brent',
+                                    11809726: 'Metropolitan Waltham Forest',
+                                    11809738: 'Metropolitan Haringey',
+                                    11809743: 'Metropolitan Ealing',
+                                    11809760: 'Metropolitan Bromley',
+                                    11809763: 'Metropolitan Hackney',
+                                    11809765: 'Metropolitan Islington',
+                                    11809767: 'Metropolitan Tower Hamlets',
+                                    11809771: 'Metropolitan Wandsworth',
+                                    11809775: 'Metropolitan Hillingdon',
+                                    11809780: 'Metropolitan Hounslow',
+                                    11809782: 'Metropolitan Redbridge',
+                                    11809783: 'Metropolitan Enfield',
+                                    11809785: 'Metropolitan Barking',
+                                    11809788: 'Metropolitan Bexley',
+                                    11809795: 'Metropolitan Hammersmith',
+                                    11809800: 'Metropolitan Havering',
+                                    11809801: 'Metropolitan Kensington',
+                                    11809803: 'Metropolitan Harrow',
+                                    11809805: 'Metropolitan Sutton',
+                                    11809861: 'Metropolitan Merton',
+                                    11809862: 'Metropolitan Richmond',
+                                    11809865: 'Metropolitan Kingston',
+                                    12157147: 'Scotland Ayrshire',
+                                    12607023: 'Scotland Greater Glasgow',
+                                    12607026: 'Scotland Renfrewshire/Inverclyde',
+                                    12607027: 'Scotland Argyll/West Dunbartonshire',
+                                    12607028: 'Scotland Lanarkshire',
+                                    13400412: 'Scotland Edinburgh City',
+                                    13400413: 'Scotland Lothian And Borders',
                                     true: 'Yes',
                                     false: 'No',
                                     once: 'Once',
@@ -3273,12 +3272,14 @@ module.exports = {
                         language: 'en',
                         namespace: 'p--context-dmi-details',
                         resources: {
-                            'dmi-title': 'Your mental health',
-                            'dmi-title_someone-else': "The child's mental health",
-                            'dmi-details-description':
-                                '<p class="govuk-body">We\'re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>',
-                            'dmi-details-description_someone-else':
-                                '<p class="govuk-body">We\'re going to ask how the crime affected their mental health.</p><p class="govuk-body">This helps us decide if they get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things they would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if they do not have a diagnosis yet. We\'ll tell you what medical evidence they\'ll need.</p>'
+                            'details-context': {
+                                description:
+                                    '<p class="govuk-body">We\'re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We\'re going to ask how the crime affected their mental health.</p><p class="govuk-body">This helps us decide if they get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things they would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if they do not have a diagnosis yet. We\'ll tell you what medical evidence they\'ll need.</p>',
+                                title: 'Your mental health',
+                                'title_someone-else': "The child's mental health"
+                            }
                         }
                     }
                 ]
@@ -3289,8 +3290,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'l10nt:dmi-title{?lng,context,ns}',
-                        description: 'l10nt:dmi-details-description{?lng,context,ns}'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -3316,16 +3317,20 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-do-you-have-disabling-mental-injury',
                         resources: {
-                            'dmi-title': 'Do you have a disabling mental injury?',
-                            'dmi-title_someone-else': 'Do they have a disabling mental injury?',
-                            'dmi-description':
-                                "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
-                            'dmi-description_someone-else':
-                                "This means it's much harder than usual to do things they would normally do, like going to school, seeing friends, working or having a relationship.",
-                            'dmi-error-required':
-                                'Select yes if you suffered a disabling mental injury',
-                            'dmi-error-required_someone-else':
-                                'Select yes if they suffered a disabling mental injury'
+                            'q-applicant-do-you-have-disabling-mental-injury': {
+                                description:
+                                    "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
+                                'description_someone-else':
+                                    "This means it's much harder than usual to do things they would normally do, like going to school, seeing friends, working or having a relationship.",
+                                error: {
+                                    required:
+                                        'Select yes if you suffered a disabling mental injury',
+                                    'required_someone-else':
+                                        'Select yes if they suffered a disabling mental injury'
+                                },
+                                title: 'Do you have a disabling mental injury?',
+                                'title_someone-else': 'Do they have a disabling mental injury?'
+                            }
                         }
                     }
                 ]
@@ -3338,14 +3343,16 @@ module.exports = {
                 properties: {
                     'q-applicant-do-you-have-disabling-mental-injury': {
                         type: 'boolean',
-                        title: 'l10nt:dmi-title{?lng,context,ns}',
-                        description: 'l10nt:dmi-description{?lng,context,ns}'
+                        description:
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.description{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-do-you-have-disabling-mental-injury':
-                            'l10nt:dmi-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3378,13 +3385,17 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-mental-injury-duration',
                         resources: {
-                            'dmi-duration': 'Has your mental injury lasted 6 weeks or more?',
-                            'dmi-duration_someone-else':
-                                'Has this mental injury lasted 6 weeks or more?',
-                            'dmi-duration-error-required':
-                                'Select yes if your mental injury has lasted longer than 6 weeks',
-                            'dmi-duration-error-required_someone-else':
-                                'Select yes if their mental injury has lasted longer than 6 weeks'
+                            'q-applicant-mental-injury-duration': {
+                                error: {
+                                    required:
+                                        'Select yes if your mental injury has lasted longer than 6 weeks',
+                                    'required_someone-else':
+                                        'Select yes if their mental injury has lasted longer than 6 weeks'
+                                },
+                                title: 'Has your mental injury lasted 6 weeks or more?',
+                                'title_someone-else':
+                                    'Has this mental injury lasted 6 weeks or more?'
+                            }
                         }
                     }
                 ]
@@ -3397,13 +3408,13 @@ module.exports = {
                 properties: {
                     'q-applicant-mental-injury-duration': {
                         type: 'boolean',
-                        title: 'l10nt:dmi-duration{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-mental-injury-duration':
-                            'l10nt:dmi-duration-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-mental-injury-duration.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3597,14 +3608,15 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-affect-on-daily-life-dmi',
                         resources: {
-                            'affect-title':
-                                'Briefly say how the crime has affected your daily life',
-                            'affect-title_someone-else':
-                                'Briefly say how the crime has affected their daily life',
-                            'affect-description':
-                                'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
-                            'affect-description_someone-else':
-                                'This helps us understand how the crime has affected them. You can leave this blank, but we may have to ask for more information later.'
+                            'q-applicant-affect-on-daily-life-dmi': {
+                                description:
+                                    'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
+                                'description_someone-else':
+                                    'This helps us understand how the crime has affected them. You can leave this blank, but we may have to ask for more information later.',
+                                title: 'Briefly say how the crime has affected your daily life',
+                                'title_someone-else':
+                                    'Briefly say how the crime has affected their daily life'
+                            }
                         }
                     }
                 ]
@@ -3615,8 +3627,9 @@ module.exports = {
                 properties: {
                     'q-applicant-affect-on-daily-life-dmi': {
                         type: 'string',
-                        title: 'l10nt:affect-title{?lng,context,ns}',
-                        description: 'l10nt:affect-description{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-affect-on-daily-life-dmi.title{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-affect-on-daily-life-dmi.description{?lng,context,ns}',
                         maxLength: 1000,
                         errorMessage: {
                             maxLength: 'Description must be 1000 characters or less'
