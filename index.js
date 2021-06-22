@@ -1994,8 +1994,7 @@ module.exports = {
                     },
                     'q-applicant-building-and-street-2': {
                         type: 'string',
-                        title:
-                            "Building and street line 2",
+                        title: 'Building and street line 2',
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -2636,94 +2635,94 @@ module.exports = {
                                     }
                                 ],
                                 lookup: {
-                                    '10000001': 'British Transport Police',
-                                    '10000033': 'Avon And Somerset Constabulary',
-                                    '10000035': 'Bedfordshire Police',
-                                    '10000039': 'Cambridgeshire Constabulary',
-                                    '10000045': 'Scotland Forth Valley',
-                                    '10000049': 'Cheshire Constabulary',
-                                    '10000059': 'City Of London Police',
-                                    '10000066': 'Cleveland Police',
-                                    '10000082': 'Cumbria Constabulary',
-                                    '10000084': 'Derbyshire Constabulary',
-                                    '10000090': 'Devon & Cornwall Constabulary',
-                                    '10000093': 'Dorset Police',
-                                    '10000098': 'Scotland Dumfries & Galloway',
-                                    '10000102': 'Durham Constabulary',
-                                    '10000109': 'Dyfed Powys Police',
-                                    '10000114': 'Essex Police',
-                                    '10000128': 'Gloucestershire Constabulary',
-                                    '10000133': 'Scotland North East',
-                                    '10000140': 'Greater Manchester Police',
-                                    '10000147': 'Gwent Constabulary',
-                                    '10000150': 'Hampshire Constabulary',
-                                    '10000153': 'Hertfordshire Constabulary',
-                                    '10000169': 'Humberside Police',
-                                    '10000172': 'Kent County Constabulary',
-                                    '10000175': 'Lancashire Constabulary',
-                                    '10000176': 'Leicestershire Police',
-                                    '10000179': 'Lincolnshire Police',
-                                    '10000181': 'Merseyside Police',
-                                    '10000185': 'Norfolk Constabulary',
-                                    '10000187': 'North Wales Police',
-                                    '10000189': 'North Yorkshire Police',
-                                    '10000191': 'Northamptonshire Police',
-                                    '10000193': 'Scotland Highlands And Islands',
-                                    '10000195': 'Northumbria Police',
-                                    '10000199': 'Nottinghamshire Police',
-                                    '10000215': 'South Wales Police',
-                                    '10000218': 'South Yorkshire Police',
-                                    '10000223': 'Staffordshire Police',
-                                    '10000233': 'Suffolk Constabulary',
-                                    '10000237': 'Surrey Constabulary',
-                                    '10000240': 'Sussex Police',
-                                    '10000243': 'Scotland Tayside',
-                                    '10000247': 'Thames Valley Police',
-                                    '10000274': 'Warwickshire Constabulary',
-                                    '10000279': 'West Mercia Police',
-                                    '10000285': 'West Midlands Police',
-                                    '10000291': 'West Yorkshire Police',
-                                    '10000295': 'Wiltshire Constabulary',
-                                    '10002424': 'Scotland Fife',
-                                    '11809683': 'Metropolitan Westminster',
-                                    '11809691': 'Metropolitan Southwark',
-                                    '11809693': 'Metropolitan Lambeth',
-                                    '11809694': 'Metropolitan Camden',
-                                    '11809698': 'Metropolitan Lewisham',
-                                    '11809701': 'Metropolitan Newham',
-                                    '11809709': 'Metropolitan Greenwich',
-                                    '11809713': 'Metropolitan Croydon',
-                                    '11809719': 'Metropolitan Barnet',
-                                    '11809722': 'Metropolitan Brent',
-                                    '11809726': 'Metropolitan Waltham Forest',
-                                    '11809738': 'Metropolitan Haringey',
-                                    '11809743': 'Metropolitan Ealing',
-                                    '11809760': 'Metropolitan Bromley',
-                                    '11809763': 'Metropolitan Hackney',
-                                    '11809765': 'Metropolitan Islington',
-                                    '11809767': 'Metropolitan Tower Hamlets',
-                                    '11809771': 'Metropolitan Wandsworth',
-                                    '11809775': 'Metropolitan Hillingdon',
-                                    '11809780': 'Metropolitan Hounslow',
-                                    '11809782': 'Metropolitan Redbridge',
-                                    '11809783': 'Metropolitan Enfield',
-                                    '11809785': 'Metropolitan Barking',
-                                    '11809788': 'Metropolitan Bexley',
-                                    '11809795': 'Metropolitan Hammersmith',
-                                    '11809800': 'Metropolitan Havering',
-                                    '11809801': 'Metropolitan Kensington',
-                                    '11809803': 'Metropolitan Harrow',
-                                    '11809805': 'Metropolitan Sutton',
-                                    '11809861': 'Metropolitan Merton',
-                                    '11809862': 'Metropolitan Richmond',
-                                    '11809865': 'Metropolitan Kingston',
-                                    '12157147': 'Scotland Ayrshire',
-                                    '12607023': 'Scotland Greater Glasgow',
-                                    '12607026': 'Scotland Renfrewshire/Inverclyde',
-                                    '12607027': 'Scotland Argyll/West Dunbartonshire',
-                                    '12607028': 'Scotland Lanarkshire',
-                                    '13400412': 'Scotland Edinburgh City',
-                                    '13400413': 'Scotland Lothian And Borders',
+                                    10000001: 'British Transport Police',
+                                    10000033: 'Avon And Somerset Constabulary',
+                                    10000035: 'Bedfordshire Police',
+                                    10000039: 'Cambridgeshire Constabulary',
+                                    10000045: 'Scotland Forth Valley',
+                                    10000049: 'Cheshire Constabulary',
+                                    10000059: 'City Of London Police',
+                                    10000066: 'Cleveland Police',
+                                    10000082: 'Cumbria Constabulary',
+                                    10000084: 'Derbyshire Constabulary',
+                                    10000090: 'Devon & Cornwall Constabulary',
+                                    10000093: 'Dorset Police',
+                                    10000098: 'Scotland Dumfries & Galloway',
+                                    10000102: 'Durham Constabulary',
+                                    10000109: 'Dyfed Powys Police',
+                                    10000114: 'Essex Police',
+                                    10000128: 'Gloucestershire Constabulary',
+                                    10000133: 'Scotland North East',
+                                    10000140: 'Greater Manchester Police',
+                                    10000147: 'Gwent Constabulary',
+                                    10000150: 'Hampshire Constabulary',
+                                    10000153: 'Hertfordshire Constabulary',
+                                    10000169: 'Humberside Police',
+                                    10000172: 'Kent County Constabulary',
+                                    10000175: 'Lancashire Constabulary',
+                                    10000176: 'Leicestershire Police',
+                                    10000179: 'Lincolnshire Police',
+                                    10000181: 'Merseyside Police',
+                                    10000185: 'Norfolk Constabulary',
+                                    10000187: 'North Wales Police',
+                                    10000189: 'North Yorkshire Police',
+                                    10000191: 'Northamptonshire Police',
+                                    10000193: 'Scotland Highlands And Islands',
+                                    10000195: 'Northumbria Police',
+                                    10000199: 'Nottinghamshire Police',
+                                    10000215: 'South Wales Police',
+                                    10000218: 'South Yorkshire Police',
+                                    10000223: 'Staffordshire Police',
+                                    10000233: 'Suffolk Constabulary',
+                                    10000237: 'Surrey Constabulary',
+                                    10000240: 'Sussex Police',
+                                    10000243: 'Scotland Tayside',
+                                    10000247: 'Thames Valley Police',
+                                    10000274: 'Warwickshire Constabulary',
+                                    10000279: 'West Mercia Police',
+                                    10000285: 'West Midlands Police',
+                                    10000291: 'West Yorkshire Police',
+                                    10000295: 'Wiltshire Constabulary',
+                                    10002424: 'Scotland Fife',
+                                    11809683: 'Metropolitan Westminster',
+                                    11809691: 'Metropolitan Southwark',
+                                    11809693: 'Metropolitan Lambeth',
+                                    11809694: 'Metropolitan Camden',
+                                    11809698: 'Metropolitan Lewisham',
+                                    11809701: 'Metropolitan Newham',
+                                    11809709: 'Metropolitan Greenwich',
+                                    11809713: 'Metropolitan Croydon',
+                                    11809719: 'Metropolitan Barnet',
+                                    11809722: 'Metropolitan Brent',
+                                    11809726: 'Metropolitan Waltham Forest',
+                                    11809738: 'Metropolitan Haringey',
+                                    11809743: 'Metropolitan Ealing',
+                                    11809760: 'Metropolitan Bromley',
+                                    11809763: 'Metropolitan Hackney',
+                                    11809765: 'Metropolitan Islington',
+                                    11809767: 'Metropolitan Tower Hamlets',
+                                    11809771: 'Metropolitan Wandsworth',
+                                    11809775: 'Metropolitan Hillingdon',
+                                    11809780: 'Metropolitan Hounslow',
+                                    11809782: 'Metropolitan Redbridge',
+                                    11809783: 'Metropolitan Enfield',
+                                    11809785: 'Metropolitan Barking',
+                                    11809788: 'Metropolitan Bexley',
+                                    11809795: 'Metropolitan Hammersmith',
+                                    11809800: 'Metropolitan Havering',
+                                    11809801: 'Metropolitan Kensington',
+                                    11809803: 'Metropolitan Harrow',
+                                    11809805: 'Metropolitan Sutton',
+                                    11809861: 'Metropolitan Merton',
+                                    11809862: 'Metropolitan Richmond',
+                                    11809865: 'Metropolitan Kingston',
+                                    12157147: 'Scotland Ayrshire',
+                                    12607023: 'Scotland Greater Glasgow',
+                                    12607026: 'Scotland Renfrewshire/Inverclyde',
+                                    12607027: 'Scotland Argyll/West Dunbartonshire',
+                                    12607028: 'Scotland Lanarkshire',
+                                    13400412: 'Scotland Edinburgh City',
+                                    13400413: 'Scotland Lothian And Borders',
                                     true: 'Yes',
                                     false: 'No',
                                     once: 'Once',
@@ -3361,22 +3360,28 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-select-treatments',
                         resources: {
-                            'select-treatments-title':
-                                'What mental health treatments have you had?',
-                            'select-treatments-title_someone-else':
-                                'What mental health treatments have they had?',
-                            'select-treatments-description':
-                                "Include any treatment you're waiting to get.",
-                            'select-treatments-description_someone-else':
-                                "Include any treatment they're waiting to get.",
-                            'select-treatments-error-required':
-                                'Select any treatments you have received for your mental injury',
-                            'select-treatments-error-required_someone-else':
-                                'Select any treatments they have received for their mental injury',
-                            'other-treatment-error-required':
-                                'Enter any other treatment you have received for your mental injury',
-                            'other-treatment-error-required_someone-else':
-                                'Enter any other treatment they have received for their mental injury'
+                            'q-applicant-other-treatment-dmi': {
+                                error: {
+                                    required:
+                                        'Enter any other treatment you have received for your mental injury',
+                                    'required_someone-else':
+                                        'Enter any other treatment they have received for their mental injury'
+                                },
+                                title: 'Other mental health treatment'
+                            },
+                            'q-applicant-select-treatments-dmi': {
+                                description: "Include any treatment you're waiting to get.",
+                                'description_someone-else':
+                                    "Include any treatment they're waiting to get.",
+                                error: {
+                                    required:
+                                        'Select any treatments you have received for your mental injury',
+                                    'required_someone-else':
+                                        'Select any treatments they have received for their mental injury'
+                                },
+                                title: 'What mental health treatments have you had?',
+                                'title_someone-else': 'What mental health treatments have they had?'
+                            }
                         }
                     }
                 ]
@@ -3389,8 +3394,9 @@ module.exports = {
                 },
                 properties: {
                     'q-applicant-select-treatments-dmi': {
-                        title: 'l10nt:select-treatments-title{?lng,context,ns}',
-                        description: 'l10nt:select-treatments-description{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-select-treatments-dmi.title{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-select-treatments-dmi.description{?lng,context,ns}',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -3423,7 +3429,7 @@ module.exports = {
                     },
                     'q-applicant-other-treatment-dmi': {
                         type: 'string',
-                        title: 'Other mental health treatment',
+                        title: 'l10nt:q-applicant-other-treatment-dmi.title{?lng,context,ns}',
                         maxLength: 499,
                         errorMessage: {
                             maxLength:
@@ -3461,7 +3467,7 @@ module.exports = {
                             errorMessage: {
                                 required: {
                                     'q-applicant-other-treatment-dmi':
-                                        'l10nt:other-treatment-error-required{?lng,context,ns}'
+                                        'l10nt:q-applicant-other-treatment-dmi.error.required{?lng,context,ns}'
                                 }
                             }
                         }
@@ -3470,7 +3476,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-treatments-dmi':
-                            'l10nt:select-treatments-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-select-treatments-dmi.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3523,13 +3529,15 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-has-your-treatment-finished-dmi',
                         resources: {
-                            'treatment-finished-title': 'Have you finished your treatment?',
-                            'treatment-finished-title_someone-else':
-                                'Have they finished their treatment?',
-                            'treatment-finished-error-required':
-                                'Select yes if you have finished your treatment',
-                            'treatment-finished-error-required_someone-else':
-                                'Select yes if they have finished their treatment'
+                            'q-applicant-has-your-treatment-finished-dmi': {
+                                error: {
+                                    required: 'Select yes if you have finished your treatment',
+                                    'required_someone-else':
+                                        'Select yes if they have finished their treatment'
+                                },
+                                title: 'Have you finished your treatment?',
+                                'title_someone-else': 'Have they finished their treatment?'
+                            }
                         }
                     }
                 ]
@@ -3542,13 +3550,14 @@ module.exports = {
                 properties: {
                     'q-applicant-has-your-treatment-finished-dmi': {
                         type: 'boolean',
-                        title: 'l10nt:treatment-finished-title{?lng,context,ns}'
+                        title:
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-has-your-treatment-finished-dmi':
-                            'l10nt:treatment-finished-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3609,13 +3618,15 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-are-you-registered-with-gp',
                         resources: {
-                            'registered-with-gp-title': 'Are you registered with a GP practice?',
-                            'registered-with-gp-title_someone-else':
-                                'Are they registered with a GP practice?',
-                            'registered-with-gp-error-required':
-                                'Select yes if you are registered with a GP',
-                            'registered-with-gp-error-required_someone-else':
-                                'Select yes if they are registered with a GP'
+                            'q-applicant-are-you-registered-with-gp': {
+                                error: {
+                                    required: 'Select yes if you are registered with a GP',
+                                    'required_someone-else':
+                                        'Select yes if they are registered with a GP'
+                                },
+                                title: 'Are you registered with a GP practice?',
+                                'title_someone-else': 'Are they registered with a GP practice?'
+                            }
                         }
                     }
                 ]
@@ -3628,13 +3639,13 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-registered-with-gp': {
                         type: 'boolean',
-                        title: 'l10nt:registered-with-gp-title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-are-you-registered-with-gp':
-                            'l10nt:registered-with-gp-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-are-you-registered-with-gp.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3667,16 +3678,18 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-have-you-seen-a-gp',
                         resources: {
-                            'seen-a-gp-title': 'Have you seen a GP about your injuries?',
-                            'seen-a-gp-title_someone-else':
-                                'Have they seen a GP about their injuries?',
-                            'seen-a-gp-description': 'This includes your mental health.',
-                            'seen-a-gp-description_someone-else':
-                                'This includes their mental health.',
-                            'seen-a-gp-error-required':
-                                'Select yes if you have seen a GP about your injuries',
-                            'seen-a-gp-error-required_someone-else':
-                                'Select yes if they have seen a GP about their injuries'
+                            'q-applicant-have-you-seen-a-gp': {
+                                description: 'This includes your mental health.',
+                                'description_someone-else': 'This includes their mental health.',
+                                error: {
+                                    required:
+                                        'Select yes if you have seen a GP about your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they have seen a GP about their injuries'
+                                },
+                                title: 'Have you seen a GP about your injuries?',
+                                'title_someone-else': 'Have they seen a GP about their injuries?'
+                            }
                         }
                     }
                 ]
@@ -3689,14 +3702,15 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-seen-a-gp': {
                         type: 'boolean',
-                        title: 'l10nt:seen-a-gp-title{?lng,context,ns}',
-                        description: 'l10nt:seen-a-gp-description{?lng,context,ns}'
+                        description:
+                            'l10nt:q-applicant-have-you-seen-a-gp.description{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-have-you-seen-a-gp.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-have-you-seen-a-gp':
-                            'l10nt:seen-a-gp-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-have-you-seen-a-gp.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3837,13 +3851,17 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-dentist-visited',
                         resources: {
-                            'dentist-visited-title': 'Have you seen a dentist about your injuries?',
-                            'dentist-visited-title_someone-else':
-                                'Have they seen a dentist about their injuries?',
-                            'dentist-visited-error-required':
-                                'Select yes if you have seen a dentist about your injuries',
-                            'dentist-visited-error-required_someone-else':
-                                'Select yes if they have seen a dentist about their injuries'
+                            'q-applicant-dentist-visited': {
+                                error: {
+                                    required:
+                                        'Select yes if you have seen a dentist about your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they have seen a dentist about their injuries'
+                                },
+                                title: 'Have you seen a dentist about your injuries?',
+                                'title_someone-else':
+                                    'Have they seen a dentist about their injuries?'
+                            }
                         }
                     }
                 ]
@@ -3856,13 +3874,13 @@ module.exports = {
                 properties: {
                     'q-applicant-dentist-visited': {
                         type: 'boolean',
-                        title: 'l10nt:dentist-visited-title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-dentist-visited':
-                        'l10nt:dentist-visited-error-required{?lng,context,ns}'
+                            'l10nt:q-applicant-dentist-visited.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8427,12 +8445,14 @@ module.exports = {
                         language: 'en',
                         namespace: 'p--context-treatment',
                         resources: {
-                            'treatment-title': 'Your treatment',
-                            'treatment-title_someone-else': "The child's treatment",
-                            'treatment-description':
-                                '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
-                            'treatment-description_someone-else':
-                                '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body"We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>'
+                            'details-context': {
+                                description:
+                                    '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body"We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>',
+                                title: 'Your treatment',
+                                'title_someone-else': "The child's treatment"
+                            }
                         }
                     }
                 ]
@@ -8443,8 +8463,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'l10nt:treatment-title{?lng,context,ns}',
-                        description: 'l10nt:treatment-description{?lng,context,ns}'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -8470,14 +8490,18 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-treatment-for-physical-injuries',
                         resources: {
-                            'treatment-for-physical-injuries-title':
-                                'What treatment are you receiving for your physical injuries?',
-                            'treatment-for-physical-injuries-title_someone-else':
-                                'What treatment are they receiving for their physical injuries?',
-                            'treatment-for-physical-injuries-error-required':
-                                'Describe what treatment you have received for your physical injuries',
-                            'treatment-for-physical-injuries-error-required_someone-else':
-                                'Describe what treatment they have received for their physical injuries'
+                            'q-applicant-treatment-for-physical-injuries': {
+                                error: {
+                                    required:
+                                        'Describe what treatment you have received for your physical injuries',
+                                    'required_someone-else':
+                                        'Describe what treatment they have received for their physical injuries'
+                                },
+                                title:
+                                    'What treatment are you receiving for your physical injuries?',
+                                'title_someone-else':
+                                    'What treatment are they receiving for their physical injuries?'
+                            }
                         }
                     }
                 ]
@@ -8489,7 +8513,8 @@ module.exports = {
                 properties: {
                     'q-applicant-treatment-for-physical-injuries': {
                         type: 'string',
-                        title: 'What treatment are you receiving for your physical injuries?',
+                        title:
+                            'l10nt:q-applicant-treatment-for-physical-injuries.title{?lng,context,ns}',
                         maxLength: 500,
                         errorMessage: {
                             maxLength: 'Description must be 500 characters or less'
@@ -8499,7 +8524,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-treatment-for-physical-injuries':
-                            'Describe what treatment you have received for your physical injuries'
+                            'l10nt:q-applicant-treatment-for-physical-injuries.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8529,14 +8554,17 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-medical-help',
                         resources: {
-                            'medical-help-title':
-                                'Did you get other medical help for your injuries?',
-                            'medical-help-title_someone-else':
-                                'Did they get other medical help for their injuries?',
-                            'medical-help-error-required':
-                                'Select yes if you got other medical help for your injuries',
-                            'medical-help-error-required_someone-else':
-                                'Select yes if they got other medical help for their injuries'
+                            'q-applicant-medical-help': {
+                                error: {
+                                    required:
+                                        'Select yes if you got other medical help for your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they got other medical help for their injuries'
+                                },
+                                title: 'Did you get other medical help for your injuries?',
+                                'title_someone-else':
+                                    'Did they get other medical help for their injuries?'
+                            }
                         }
                     }
                 ]
@@ -8549,12 +8577,13 @@ module.exports = {
                 properties: {
                     'q-applicant-medical-help': {
                         type: 'boolean',
-                        title: 'l10nt:medical-help-title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-medical-help': 'l10nt:medical-help-error-required{?lng,context,ns}'
+                        'q-applicant-medical-help':
+                            'l10nt:q-applicant-medical-help.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8587,8 +8616,8 @@ module.exports = {
                         language: 'en',
                         namespace: 'p-applicant-treatment-address',
                         resources: {
-                            'treatment-address-title': 'Where did you have treatment?',
-                            'treatment-address-title_someone-else': 'Where did they have treatment?'
+                            title: 'Where did you have treatment?',
+                            'title_someone-else': 'Where did they have treatment?'
                         }
                     }
                 ]
@@ -8596,7 +8625,7 @@ module.exports = {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: 'l10nt:treatment-address-title{?lng,context,ns}',
+                title: 'l10nt:title{?lng,context,ns}',
                 required: [
                     'q-applicant-treatment-building-and-street',
                     'q-applicant-treatment-town-or-city',
