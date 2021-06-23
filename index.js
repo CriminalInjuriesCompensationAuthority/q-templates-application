@@ -1994,8 +1994,7 @@ module.exports = {
                     },
                     'q-applicant-building-and-street-2': {
                         type: 'string',
-                        title:
-                            "Building and street line 2",
+                        title: 'Building and street line 2',
                         maxLength: 60,
                         errorMessage: {
                             maxLength: 'Second line of address must be less than 60 characters'
@@ -3347,6 +3346,46 @@ module.exports = {
             }
         },
         'p-applicant-select-treatments': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-select-treatments'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-select-treatments',
+                        resources: {
+                            'q-applicant-other-treatment-dmi': {
+                                error: {
+                                    required:
+                                        'Enter any other treatment you have received for your mental injury',
+                                    'required_someone-else':
+                                        'Enter any other treatment they have received for their mental injury'
+                                },
+                                title: 'Other mental health treatment'
+                            },
+                            'q-applicant-select-treatments-dmi': {
+                                description: "Include any treatment you're waiting to get.",
+                                'description_someone-else':
+                                    "Include any treatment they're waiting to get.",
+                                error: {
+                                    required:
+                                        'Select any treatments you have received for your mental injury',
+                                    'required_someone-else':
+                                        'Select any treatments they have received for their mental injury'
+                                },
+                                title: 'What mental health treatments have you had?',
+                                'title_someone-else': 'What mental health treatments have they had?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3355,8 +3394,9 @@ module.exports = {
                 },
                 properties: {
                     'q-applicant-select-treatments-dmi': {
-                        title: 'What mental health treatments have you had?',
-                        description: "Include any treatment you're waiting to get.",
+                        title: 'l10nt:q-applicant-select-treatments-dmi.title{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-select-treatments-dmi.description{?lng,context,ns}',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -3389,7 +3429,7 @@ module.exports = {
                     },
                     'q-applicant-other-treatment-dmi': {
                         type: 'string',
-                        title: 'Other mental health treatment',
+                        title: 'l10nt:q-applicant-other-treatment-dmi.title{?lng,context,ns}',
                         maxLength: 499,
                         errorMessage: {
                             maxLength:
@@ -3427,7 +3467,7 @@ module.exports = {
                             errorMessage: {
                                 required: {
                                     'q-applicant-other-treatment-dmi':
-                                        'Enter any other treatment you have received for your mental injury'
+                                        'l10nt:q-applicant-other-treatment-dmi.error.required{?lng,context,ns}'
                                 }
                             }
                         }
@@ -3436,7 +3476,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-select-treatments-dmi':
-                            'Select any treatments you have received for your mental injury'
+                            'l10nt:q-applicant-select-treatments-dmi.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3475,6 +3515,33 @@ module.exports = {
             }
         },
         'p-applicant-has-your-treatment-finished-dmi': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-has-your-treatment-finished-dmi'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-has-your-treatment-finished-dmi',
+                        resources: {
+                            'q-applicant-has-your-treatment-finished-dmi': {
+                                error: {
+                                    required: 'Select yes if you have finished your treatment',
+                                    'required_someone-else':
+                                        'Select yes if they have finished their treatment'
+                                },
+                                title: 'Have you finished your treatment?',
+                                'title_someone-else': 'Have they finished their treatment?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3483,13 +3550,14 @@ module.exports = {
                 properties: {
                     'q-applicant-has-your-treatment-finished-dmi': {
                         type: 'boolean',
-                        title: 'Have you finished your treatment?'
+                        title:
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-has-your-treatment-finished-dmi':
-                            'Select yes if you have finished your treatment'
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3536,6 +3604,33 @@ module.exports = {
             }
         },
         'p-applicant-are-you-registered-with-gp': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-are-you-registered-with-gp'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-are-you-registered-with-gp',
+                        resources: {
+                            'q-applicant-are-you-registered-with-gp': {
+                                error: {
+                                    required: 'Select yes if you are registered with a GP',
+                                    'required_someone-else':
+                                        'Select yes if they are registered with a GP'
+                                },
+                                title: 'Are you registered with a GP practice?',
+                                'title_someone-else': 'Are they registered with a GP practice?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3544,13 +3639,13 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-registered-with-gp': {
                         type: 'boolean',
-                        title: 'Are you registered with a GP practice?'
+                        title: 'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-are-you-registered-with-gp':
-                            'Select yes if you are registered with a GP'
+                            'l10nt:q-applicant-are-you-registered-with-gp.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3569,6 +3664,36 @@ module.exports = {
             }
         },
         'p-applicant-have-you-seen-a-gp': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-have-you-seen-a-gp'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-have-you-seen-a-gp',
+                        resources: {
+                            'q-applicant-have-you-seen-a-gp': {
+                                description: 'This includes your mental health.',
+                                'description_someone-else': 'This includes their mental health.',
+                                error: {
+                                    required:
+                                        'Select yes if you have seen a GP about your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they have seen a GP about their injuries'
+                                },
+                                title: 'Have you seen a GP about your injuries?',
+                                'title_someone-else': 'Have they seen a GP about their injuries?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3577,14 +3702,15 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-seen-a-gp': {
                         type: 'boolean',
-                        description: 'This includes your mental health.',
-                        title: 'Have you seen a GP about your injuries?'
+                        description:
+                            'l10nt:q-applicant-have-you-seen-a-gp.description{?lng,context,ns}',
+                        title: 'l10nt:q-applicant-have-you-seen-a-gp.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-have-you-seen-a-gp':
-                            'Select yes if you have seen a GP about your injuries'
+                            'l10nt:q-applicant-have-you-seen-a-gp.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3711,6 +3837,35 @@ module.exports = {
             }
         },
         'p-applicant-dentist-visited': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-dentist-visited'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-dentist-visited',
+                        resources: {
+                            'q-applicant-dentist-visited': {
+                                error: {
+                                    required:
+                                        'Select yes if you have seen a dentist about your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they have seen a dentist about their injuries'
+                                },
+                                title: 'Have you seen a dentist about your injuries?',
+                                'title_someone-else':
+                                    'Have they seen a dentist about their injuries?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3719,13 +3874,13 @@ module.exports = {
                 properties: {
                     'q-applicant-dentist-visited': {
                         type: 'boolean',
-                        title: 'Have you seen a dentist about your injuries?'
+                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-dentist-visited':
-                            'Select yes if you have seen a dentist about your injuries'
+                            'l10nt:q-applicant-dentist-visited.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8276,15 +8431,40 @@ module.exports = {
             }
         },
         'p--context-treatment': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-treatment'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-treatment',
+                        resources: {
+                            'details-context': {
+                                description:
+                                    '<p class="govuk-body">We are going to ask for some details about your treatment</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body"We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>',
+                                title: 'Your treatment',
+                                'title_someone-else': "The child's treatment"
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'Your treatment',
-                        description:
-                            '<p class="govuk-body">We are going to ask for some details about your GP</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -8296,6 +8476,36 @@ module.exports = {
             }
         },
         'p-applicant-treatment-for-physical-injuries': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-treatment-for-physical-injuries'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-treatment-for-physical-injuries',
+                        resources: {
+                            'q-applicant-treatment-for-physical-injuries': {
+                                error: {
+                                    required:
+                                        'Describe what treatment you have received for your physical injuries',
+                                    'required_someone-else':
+                                        'Describe what treatment they have received for their physical injuries'
+                                },
+                                title:
+                                    'What treatment are you receiving for your physical injuries?',
+                                'title_someone-else':
+                                    'What treatment are they receiving for their physical injuries?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8303,7 +8513,8 @@ module.exports = {
                 properties: {
                     'q-applicant-treatment-for-physical-injuries': {
                         type: 'string',
-                        title: 'What treatment are you receiving for your physical injuries?',
+                        title:
+                            'l10nt:q-applicant-treatment-for-physical-injuries.title{?lng,context,ns}',
                         maxLength: 500,
                         errorMessage: {
                             maxLength: 'Description must be 500 characters or less'
@@ -8313,7 +8524,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-treatment-for-physical-injuries':
-                            'Describe what treatment you have received for your physical injuries'
+                            'l10nt:q-applicant-treatment-for-physical-injuries.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8329,6 +8540,35 @@ module.exports = {
             }
         },
         'p-applicant-medical-help': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-medical-help'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-medical-help',
+                        resources: {
+                            'q-applicant-medical-help': {
+                                error: {
+                                    required:
+                                        'Select yes if you got other medical help for your injuries',
+                                    'required_someone-else':
+                                        'Select yes if they got other medical help for their injuries'
+                                },
+                                title: 'Did you get other medical help for your injuries?',
+                                'title_someone-else':
+                                    'Did they get other medical help for their injuries?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -8337,13 +8577,13 @@ module.exports = {
                 properties: {
                     'q-applicant-medical-help': {
                         type: 'boolean',
-                        title: 'Did you get other medical help for your injuries?'
+                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-medical-help':
-                            'Select yes if you got other medical help for your injuries'
+                            'l10nt:q-applicant-medical-help.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -8362,10 +8602,30 @@ module.exports = {
             }
         },
         'p-applicant-treatment-address': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-treatment-address'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-treatment-address',
+                        resources: {
+                            title: 'Where did you have treatment?',
+                            'title_someone-else': 'Where did they have treatment?'
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: 'Where did you have treatment?',
+                title: 'l10nt:title{?lng,context,ns}',
                 required: [
                     'q-applicant-treatment-building-and-street',
                     'q-applicant-treatment-town-or-city',
