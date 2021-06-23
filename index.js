@@ -730,7 +730,13 @@ module.exports = {
                                 },
                                 title: 'Select reasons for the delay in making your application',
                                 'title_someone-else':
-                                    'Select reasons for the delay in making this application'
+                                    'Select reasons for the delay in making this application',
+                                value: {
+                                    'i-was-underage': 'I was under 18',
+                                    'i-was-underage_someone-else': 'The child was under 18',
+                                    'i-was-advised-to-wait': 'I was advised to wait',
+                                    'i-was-advised-to-wait_someone-else': 'The child was advised to wait'
+                                }
                             }
                         }
                     }
@@ -756,11 +762,11 @@ module.exports = {
                         items: {
                             anyOf: [
                                 {
-                                    title: 'I was under 18',
+                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-underage{?lng,context,ns}',
                                     const: 'i-was-underage'
                                 },
                                 {
-                                    title: 'I was advised to wait',
+                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-advised-to-wait{?lng,context,ns}',
                                     const: 'i-was-advised-to-wait'
                                 },
                                 {
@@ -1491,6 +1497,12 @@ module.exports = {
                                         'Select if you were under 18, unable to report the crime or other reasons',
                                     'required_someone-else':
                                         'Select if they were under 18, unable to report the crime or other reasons'
+                                },
+                                value: {
+                                    'i-was-under-18': 'I was under 18',
+                                    'i-was-under-18_someone-else': 'The child was under 18',
+                                    'unable-to-report-crime': 'Unable to report the crime',
+                                    'unable-to-report-crime_someone-else': 'The child was unable to report the crime'
                                 }
                             }
                         }
@@ -1516,11 +1528,11 @@ module.exports = {
                         items: {
                             anyOf: [
                                 {
-                                    title: 'I was under 18',
+                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.i-was-under-18{?lng,context,ns}',
                                     const: 'i-was-under-18'
                                 },
                                 {
-                                    title: 'Unable to report the crime',
+                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.unable-to-report-crime{?lng,context,ns}',
                                     const: 'unable-to-report-crime'
                                 },
                                 {
