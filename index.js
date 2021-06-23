@@ -487,7 +487,7 @@ module.exports = {
                         title: "What's the crime reference number?",
                         type: 'string',
                         description:
-                            'This is the reference number the police gave the crime when it was reported.',
+                            'This is the number the police gave the crime when it was reported. We need this to get information from the police about the crime.',
                         maxLength: 30,
                         errorMessage: {
                             maxLength: 'Crime reference number must be 30 characters or less'
