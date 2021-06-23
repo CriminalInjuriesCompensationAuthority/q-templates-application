@@ -10147,20 +10147,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'someone-else'
-                            ]
-                        },
-                        {
-                            target: 'p-applicant-are-you-18-or-over',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'myself'
-                            ]
+                            target: 'p-applicant-are-you-18-or-over'
                         }
                     ]
                 }
