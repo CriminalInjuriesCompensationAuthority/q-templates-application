@@ -3258,15 +3258,40 @@ module.exports = {
             }
         },
         'p--context-dmi-details': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-dmi-details'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-dmi-details',
+                        resources: {
+                            'details-context': {
+                                description:
+                                    '<p class="govuk-body">We\'re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We\'re going to ask how the crime affected their mental health.</p><p class="govuk-body">This helps us decide if they get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things they would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if they do not have a diagnosis yet. We\'ll tell you what medical evidence they\'ll need.</p>',
+                                title: 'Your mental health',
+                                'title_someone-else': "The child's mental health"
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'Your mental health',
-                        description:
-                            '<p class="govuk-body">We’re going to ask how the crime affected your mental health.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for mental injury.</p><h2 class="govuk-heading-m">Disabling mental injury</h2><p class="govuk-body">We can only pay for a \'disabling mental injury\' that:</p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do</li><li>lasts 6 weeks or more</li><li>is diagnosed by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We\'ll tell you what medical evidence you\'ll need.</p>'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -3278,6 +3303,38 @@ module.exports = {
             }
         },
         'p-applicant-do-you-have-disabling-mental-injury': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-do-you-have-disabling-mental-injury'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-do-you-have-disabling-mental-injury',
+                        resources: {
+                            'q-applicant-do-you-have-disabling-mental-injury': {
+                                description:
+                                    "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
+                                'description_someone-else':
+                                    "This means it's much harder than usual to do things they would normally do, like going to school, seeing friends, working or having a relationship.",
+                                error: {
+                                    required:
+                                        'Select yes if you suffered a disabling mental injury',
+                                    'required_someone-else':
+                                        'Select yes if they suffered a disabling mental injury'
+                                },
+                                title: 'Do you have a disabling mental injury?',
+                                'title_someone-else': 'Do they have a disabling mental injury?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3287,14 +3344,15 @@ module.exports = {
                     'q-applicant-do-you-have-disabling-mental-injury': {
                         type: 'boolean',
                         description:
-                            "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
-                        title: 'Do you have a disabling mental injury?'
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.description{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-do-you-have-disabling-mental-injury':
-                            'Select yes if you suffered a disabling mental injury'
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3313,6 +3371,35 @@ module.exports = {
             }
         },
         'p-applicant-mental-injury-duration': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-mental-injury-duration'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-mental-injury-duration',
+                        resources: {
+                            'q-applicant-mental-injury-duration': {
+                                error: {
+                                    required:
+                                        'Select yes if your mental injury has lasted longer than 6 weeks',
+                                    'required_someone-else':
+                                        'Select yes if their mental injury has lasted longer than 6 weeks'
+                                },
+                                title: 'Has your mental injury lasted 6 weeks or more?',
+                                'title_someone-else':
+                                    'Has this mental injury lasted 6 weeks or more?'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3321,13 +3408,13 @@ module.exports = {
                 properties: {
                     'q-applicant-mental-injury-duration': {
                         type: 'boolean',
-                        title: 'Has your mental injury lasted 6 weeks or more?'
+                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-mental-injury-duration':
-                            'Select yes if your mental injury has lasted longer than 6 weeks'
+                            'l10nt:q-applicant-mental-injury-duration.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -3576,15 +3663,42 @@ module.exports = {
             }
         },
         'p-applicant-affect-on-daily-life-dmi': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-affect-on-daily-life-dmi'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-affect-on-daily-life-dmi',
+                        resources: {
+                            'q-applicant-affect-on-daily-life-dmi': {
+                                description:
+                                    'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
+                                'description_someone-else':
+                                    'This helps us understand how the crime has affected them. You can leave this blank, but we may have to ask for more information later.',
+                                title: 'Briefly say how the crime has affected your daily life',
+                                'title_someone-else':
+                                    'Briefly say how the crime has affected their daily life'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 properties: {
                     'q-applicant-affect-on-daily-life-dmi': {
                         type: 'string',
-                        title: 'Briefly say how the crime has affected your daily life',
+                        title: 'l10nt:q-applicant-affect-on-daily-life-dmi.title{?lng,context,ns}',
                         description:
-                            'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
+                            'l10nt:q-applicant-affect-on-daily-life-dmi.description{?lng,context,ns}',
                         maxLength: 1000,
                         errorMessage: {
                             maxLength: 'Description must be 1000 characters or less'
