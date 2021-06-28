@@ -1827,6 +1827,36 @@ module.exports = {
             }
         },
         'p-applicant-have-you-applied-to-us-before': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-have-you-applied-to-us-before'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-have-you-applied-to-us-before',
+                        resources: {
+                            'q-applicant-have-you-applied-to-us-before': {
+                                title:
+                                    'Have you applied to us before?',
+                                'title_someone-else':
+                                    'Have you applied to us before on behalf of the child?',
+                                error: {
+                                    required:
+                                        'Select yes if you have applied to us before',
+                                    'required_someone-else':
+                                        'Select yes if you have applied to us before on behalf of the child'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1839,7 +1869,7 @@ module.exports = {
                 },
                 properties: {
                     'q-applicant-have-you-applied-to-us-before': {
-                        title: 'Have you applied to us before?',
+                        title: 'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
                         type: 'boolean'
                     },
                     'q-enter-your-previous-reference-number': {
@@ -1885,7 +1915,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-have-you-applied-to-us-before':
-                            'Select yes if you have applied to us before'
+                            'l10nt:q-applicant-have-you-applied-to-us-before.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -1910,6 +1940,36 @@ module.exports = {
             }
         },
         'p-applicant-have-you-applied-for-or-received-any-other-compensation': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-have-you-applied-for-or-received-any-other-compensation',
+                        resources: {
+                            'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
+                                title:
+                                    'Have you applied for or received any other form of compensation?',
+                                'title_someone-else':
+                                    'Have you applied for or received any other form of compensation on behalf of the child?',
+                                error: {
+                                    required:
+                                        'Select yes if you have applied for any other form of compensation',
+                                    'required_someone-else':
+                                        'Select yes if you have applied for any other form of compensation on behalf of the child'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1918,7 +1978,7 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
                         type: 'boolean',
-                        title: 'Have you applied for or received any other form of compensation?',
+                        title: 'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
                         description:
                             'For example, if you sought civil damages or a court decided you should get compensation.'
                     }
@@ -1926,7 +1986,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-have-you-applied-for-or-received-any-other-compensation':
-                            'Select yes if you have applied for any other form of compensation'
+                            'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -2134,11 +2194,11 @@ module.exports = {
                                 'title_someone-else': 'What other names have they used?',
                                 error: {
                                     required:
-                                        'Select yes if you have been known by any other names',
+                                        'Enter the other names you have used',
                                     maxLength:
                                         'Other names you have used must be 50 characters or less',
                                     'required_someone-else':
-                                        'Select yes if they have been known by any other names',
+                                        'Enter the other names they have used',
                                     'maxLength_someone-else':
                                         'Other names they have used must be 50 characters or less'
                                 }
@@ -3397,6 +3457,30 @@ module.exports = {
             }
         },
         'p--context-compensation': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-compensation'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-compensation',
+                        resources: {
+                            'compensation-context': {
+                                description:
+                                    '<p class="govuk-body">We\'re going to ask about any other compensation you\'ve been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you may receive.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We\'re going to ask about any other compensation the child has been paid for their injuries.</p><p class="govuk-body">This is so we can work out how much compensation the child may receive.</p>'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3405,7 +3489,7 @@ module.exports = {
                     'compensation-context': {
                         title: 'Other compensation',
                         description:
-                            '<p class="govuk-body">We\'re going to ask about any other compensation you\'ve been paid for your injuries.</p><p class="govuk-body">This is so we can work out how much compensation you can get.</p>'
+                            'l10nt:compensation-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -3417,6 +3501,30 @@ module.exports = {
             }
         },
         'p-applicant-applied-for-other-compensation-briefly-explain-why-not': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-applied-for-other-compensation-briefly-explain-why-not'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-applied-for-other-compensation-briefly-explain-why-not',
+                        resources: {
+                            'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
+                                title:
+                                    'Tell us why you have not applied for or received any other compensation',
+                                'title_someone-else':
+                                    'Tell us why you have not applied for or received any other compensation on behalf of the child',
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3424,8 +3532,7 @@ module.exports = {
                 required: ['q-applicant-applied-for-other-compensation-briefly-explain-why-not'],
                 properties: {
                     'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
-                        title:
-                            'Briefly explain why you have not applied for or received any other form of compensation',
+                        title: 'l10nt:q-applicant-applied-for-other-compensation-briefly-explain-why-not.title{?lng,context,ns}',
                         type: 'string',
                         maxLength: 500,
                         errorMessage: {
@@ -3585,15 +3692,40 @@ module.exports = {
             }
         },
         'p--context-applicant-details': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-applicant-details'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-applicant-details',
+                        resources: {
+                            'details-context': {
+                                title: 'Your details',
+                                'title_someone-else': 'Victim details',
+                                description:
+                                    '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We’re going to ask for some details about the child.</p><p class="govuk-body">We’ll use these to get a report about the crime from the police.</p>'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
                 properties: {
                     'details-context': {
-                        title: 'Your details',
-                        description:
-                            '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>'
+                        title: 'l10nt:details-context.title{?lng,context,ns}',
+                        description: 'l10nt:details-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -9994,35 +10126,6 @@ module.exports = {
             }
         },
         'p-applicant-describe-incident': {
-            l10n: {
-                vars: {
-                    lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
-                    ns: 'p-applicant-describe-incident'
-                },
-                translations: [
-                    {
-                        language: 'en',
-                        namespace: 'p-applicant-describe-incident',
-                        resources: {
-                            'q-applicant-describe-incident': {
-                                error: {
-                                    required:
-                                        'Select yes if you would like to describe the crime in your own words',
-                                    'required_someone-else':
-                                        'Select yes if you would like to briefly describe the crime'
-                                },
-                                title:
-                                    'Would you like to briefly describe the crime in your own words?',
-                                'title_someone-else': 'Do you want to briefly describe the crime?'
-                            }
-                        }
-                    }
-                ]
-            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -10031,7 +10134,7 @@ module.exports = {
                 properties: {
                     'q-applicant-describe-incident': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-describe-incident.title{?lng,context,ns}',
+                        title: 'Do you want to briefly describe the crime?',
                         description:
                             'The police will send us a report of the crime. Providing an additional description is optional.'
                     }
@@ -10039,7 +10142,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-describe-incident':
-                            'l10nt:q-applicant-describe-incident.error.required{?lng,context,ns}'
+                            'Select yes if you would like to briefly describe the crime'
                     }
                 },
                 examples: [
@@ -10058,32 +10161,6 @@ module.exports = {
             }
         },
         'p-applicant-incident-description': {
-            l10n: {
-                vars: {
-                    lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
-                    ns: 'p-applicant-incident-description'
-                },
-                translations: [
-                    {
-                        language: 'en',
-                        namespace: 'p-applicant-incident-description',
-                        resources: {
-                            'q-applicant-incident-description': {
-                                error: {
-                                    required: 'Describe the crime in your own words',
-                                    'required_someone-else': 'Describe the crime'
-                                },
-                                title: 'Briefly describe the crime in your own words',
-                                'title_someone-else': 'Briefly describe the crime'
-                            }
-                        }
-                    }
-                ]
-            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -10091,9 +10168,9 @@ module.exports = {
                 properties: {
                     'q-applicant-incident-description': {
                         type: 'string',
-                        title: 'l10nt:q-applicant-incident-description.title{?lng,context,ns}',
+                        title: 'Briefly describe the crime',
                         description:
-                            'You can add details that may not be included in the crime report.',
+                            'You can add details that may not be included in the police report.',
                         maxLength: 1000,
                         errorMessage: {
                             maxLength: 'Description must be 1000 characters or less'
@@ -10103,7 +10180,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-incident-description':
-                            'l10nt:q-applicant-incident-description.error.required{?lng,context,ns}'
+                            'Enter a brief description of the crime'
                     }
                 },
                 examples: [
@@ -10245,19 +10322,23 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--transition',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                false
-                            ]
+                            cond:
+                                [
+                                    'and',
+                                    [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        false
+                                    ],
+                                    [
+                                        '==',
+                                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                        'myself'
+                                    ]
+                                ]
                         },
                         {
-                            target: 'p-applicant-british-citizen-or-eu-national',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                true
-                            ]
+                            target: 'p-applicant-british-citizen-or-eu-national'
                         }
                     ]
                 }
@@ -10754,8 +10835,16 @@ module.exports = {
                         {
                             target: 'p--transition',
                             cond: [
-                                'dateLessThanEighteenYearsAgo',
-                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
+                                'and',
+                                [
+                                    'dateLessThanEighteenYearsAgo',
+                                    '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                    'myself'
+                                ]
                             ]
                         },
                         {
