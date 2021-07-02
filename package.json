@@ -7,7 +7,9 @@
         "test": "jest",
         "coverage": "jest --coverage",
         "lint": "eslint .",
-        "lint:fix": "eslint --fix ."
+        "lint:fix": "eslint --fix .",
+        "clean": "node ./bin/build.js",
+        "prepare": "npm run clean --silent"
     },
     "author": "CICA",
     "license": "MIT",
