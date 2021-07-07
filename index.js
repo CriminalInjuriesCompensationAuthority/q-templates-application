@@ -1594,36 +1594,6 @@ module.exports = {
             }
         },
         'p-offender-do-you-know-the-name-of-the-offender': {
-            l10n: {
-                vars: {
-                    lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
-                    ns: 'p-offender-do-you-know-the-name-of-the-offender'
-                },
-                translations: [
-                    {
-                        language: 'en',
-                        namespace: 'p-offender-do-you-know-the-name-of-the-offender',
-                        resources: {
-                            'q-offender-do-you-know-the-name-of-the-offender': {
-                                title:
-                                    "Do you know the offender's name?",
-                                'title_someone-else':
-                                    "Do they know the offender's name?",
-                                error: {
-                                    required:
-                                        "Select yes if you know the offender's name",
-                                    'required_someone-else':
-                                        "Select yes if they know the offender's name"
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -1631,7 +1601,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-offender-do-you-know-the-name-of-the-offender': {
-                        title: 'l10nt:q-offender-do-you-know-the-name-of-the-offender.title{?lng,context,ns}',
+                        title: "Do you know the offender's name?",
                         type: 'boolean'
                     },
                     'additional-info-help-text': {
@@ -1642,7 +1612,7 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-offender-do-you-know-the-name-of-the-offender':
-                            'l10nt:q-offender-do-you-know-the-name-of-the-offender.error.required{?lng,context,ns}'
+                            "Select yes if you know the offender's name"
                     }
                 },
                 examples: [
@@ -1980,7 +1950,7 @@ module.exports = {
                         type: 'boolean',
                         title: 'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
                         description:
-                            'For example, if you sought civil damages or a court decided you should get compensation.'
+                            'For example, this may be compensation awarded by a court or in a private settlement.'
                     }
                 },
                 errorMessage: {
@@ -3436,6 +3406,30 @@ module.exports = {
             }
         },
         'p--context-offender': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p--context-offender'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p--context-offender',
+                        resources: {
+                            'offender-context': {
+                                description:
+                                    '<p class="govuk-body">We’re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation you get.</p><p class="govuk-body">We will never contact the offender.</p>',
+                                'description_someone-else':
+                                    '<p class="govuk-body">We’re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if the child has contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation.</p><p class="govuk-body">We will never contact the offender.</p>'
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -3445,7 +3439,7 @@ module.exports = {
                     'offender-context': {
                         title: 'About the offender',
                         description:
-                            '<p class="govuk-body">We’re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation you get.</p><p class="govuk-body">We will never contact the offender.</p>'
+                            'l10nt:offender-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -4376,9 +4370,9 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-gp-building-and-street': "Enter the name of your GP's practice",
-                        'q-gp-building-and-street2': 'Enter the building and street of your GP',
-                        'q-gp-town-or-city': "Enter the town or city where your GP's practice is"
+                        'q-gp-building-and-street': "Enter the name of the GP's practice",
+                        'q-gp-building-and-street2': 'Enter the building and street of the GP',
+                        'q-gp-town-or-city': "Enter the town or city where the GP's practice is"
                     }
                 },
                 examples: [
@@ -4547,11 +4541,11 @@ module.exports = {
                 errorMessage: {
                     required: {
                         'q-applicant-dentist-address-building-and-street':
-                            "Enter the name of your dentist's practice",
+                            "Enter the name of the dentist's practice",
                         'q-applicant-dentist-address-building-and-street2':
-                            'Enter the building and street of your dentist',
+                            'Enter the building and street of the dentist',
                         'q-applicant-dentist-address-town-or-city':
-                            "Enter the town or city where your dentist's practice is"
+                            "Enter the town or city where the dentist's practice is"
                     }
                 },
                 examples: [
@@ -9178,7 +9172,7 @@ module.exports = {
                                 description:
                                     '<p class="govuk-body">We are going to ask for some details about your treatment</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
                                 'description_someone-else':
-                                    '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body"We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>',
+                                    '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body">We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>',
                                 title: 'Your treatment',
                                 'title_someone-else': "The child's treatment"
                             }
