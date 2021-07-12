@@ -1,4 +1,4 @@
-const template = require('../index');
+const template = require('../template');
 const fs = require('fs');
 
 function deleteKeys(obj, unwantedKeyArray) {

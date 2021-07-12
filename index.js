@@ -1,5 +1,5 @@
 'use strict';
 
-const questionnaireSchema = require('./bin/generated.json');
+const questionnaireTemplateSchema = require('./bin/generated.json');
 
-module.exports = questionnaireSchema;
+module.exports = questionnaireTemplateSchema;
