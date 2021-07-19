@@ -2,7 +2,7 @@
 
 const createTemplateValidator = require('q-template-validator');
 const ajvFormatsMobileUk = require('ajv-formats-mobile-uk');
-const template = require('./index');
+const template = require('./template');
 
 describe('application template', () => {
     it('should be valid', () => {
