@@ -3930,13 +3930,13 @@ module.exports = {
         'p-applicant-physical-injury': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
-                description: 'Select all that apply.',
                 type: 'object',
                 required: ['q-applicant-physical-injury'],
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injury': {
                         title: 'What was injured?',
+                        description: 'Select all that apply.',
                         type: 'array',
                         items: {
                             anyOf: [
