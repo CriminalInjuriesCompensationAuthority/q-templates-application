@@ -13334,145 +13334,166 @@ module.exports = {
     },
     answers: {},
     progress: ['p-applicant-fatal-claim'],
-    notifications: {
-        confirmation: {
-            l10n: {
-                vars: {
-                    lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
-                    ns: 'notification-confirmation',
-                    method:
-                        '||/answers/p-applicant-confirmation-method/q-applicant-confirmation-method||'
-                },
-                translations: [
-                    {
-                        language: 'en',
-                        namespace: 'notification-confirmation',
-                        resources: {
-                            'template-id': {
-                                email: '3948448e-0fa0-4f39-8c65-58b1aea7cec0',
-                                text: '4d09e5f2-a78c-4c79-9dfe-47ac722da5a2'
+    meta: {
+        questionnaireDocumentVersion: '2.0.0',
+        onComplete: {
+            tasks: {
+                sendEmail: {
+                    type: 'sendEmail',
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
                             },
-                            subject: {
-                                email:
-                                    'Application for compensation received – ||/answers/system/case-reference||',
-                                'email_someone-else':
-                                    'Application for compensation received – ||/answers/system/case-reference||'
-                            },
-                            body: {
-                                email: `#  We have received your application for criminal injuries compensation
-
-                                \nYour case reference number is ||/answers/system/case-reference||.
-                                
-                                \nYou will get the decision by post.
-                                
-                                \nWe will only contact you before we make a decision if:
-                                \n* we need to get medical or other information
-                                \n* we need you to clarify something on your application form
-                                \n\n
-                                \n^You must inform us immediately if any of the information you have given us changes, especially your:
-                                ^* address
-                                ^* telephone number
-                                ^* email address
-                                ^
-                                
-                                \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
-                                
-                                \nWe will not usually send an acknowledgement if you:
-                                \n* email us
-                                \n* write to us
-                                \n* send us documents
-                                
-                                \n---
-                                
-                                \n# Help us improve our service
-                                
-                                \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
-                                
-                                \nThe survey does not ask you for any details about your case, and has no effect on your application.
-                                
-                                \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`,
-                                'email_someone-else': `#  We have received your application for criminal injuries compensation
-
-                                \nYour case reference number is ||/answers/system/case-reference||.
-                
-                                \nYou need to send proof that you have the right to apply on the child's behalf.
-                
-                                \nYou should email your documents to us at centraladminaction@cica.gov.uk.
-                
-                                \nYou should only send documents if you've been asked to do so.
-                
-                                \nYou will get the decision by post.
-                                \n\n
-                                \nWe will only contact you before we make a decision if:
-                                \n* we need to get medical or other information
-                                \n* we need you to clarify something on your application form
-                
-                                \n^You must inform us immediately if any of the information you have given us changes, especially your:
-                                ^* address
-                                ^* telephone number
-                                ^* email address
-                                ^
-                
-                                \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
-                
-                                \nWe will not usually send an acknowledgement if you:
-                                \n* email us
-                                \n* write to us
-                                \n* send us documents
-                                
-                                \n---
-                
-                                \n# Help us improve our service
-                
-                                \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
-                
-                                \nThe survey does not ask you for any details about your case, and has no effect on your application.
-                
-                                \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`,
-                                text: `We've received your claim.
-
-                                Your reference number is ||/answers/system/case-reference||.
-                                
-                                We will not usually send an acknowledgement if you email us, write to us or send us documents. 
-                                
-                                Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`,
-                                'text_someone-else': `We've received your claim.
-
-                                Your reference number is ||/answers/system/case-reference||.
-                                
-                                You need to send proof that you have the right to apply on a child's behalf.
-                                
-                                You should email your documents to us at centraladminaction@cica.gov.uk.
-                                
-                                You should only send documents if you've been asked to do so.
-                                
-                                We will not usually send an acknowledgement if you email us, write to us or send us documents. 
-                                
-                                Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    subject:
+                                        'Application for compensation received – ||/answers/system/case-reference||',
+                                    'subject_someone-else':
+                                        'Application for compensation received – ||/answers/system/case-reference||',
+                                    body: `#  We have received your application for criminal injuries compensation
+        
+                                        \nYour case reference number is ||/answers/system/case-reference||.
+                                        
+                                        \nYou will get the decision by post.
+                                        
+                                        \nWe will only contact you before we make a decision if:
+                                        \n* we need to get medical or other information
+                                        \n* we need you to clarify something on your application form
+                                        \n\n
+                                        \n^You must inform us immediately if any of the information you have given us changes, especially your:
+                                        ^* address
+                                        ^* telephone number
+                                        ^* email address
+                                        ^
+                                        
+                                        \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
+                                        
+                                        \nWe will not usually send an acknowledgement if you:
+                                        \n* email us
+                                        \n* write to us
+                                        \n* send us documents
+                                        
+                                        \n---
+                                        
+                                        \n# Help us improve our service
+                                        
+                                        \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
+                                        
+                                        \nThe survey does not ask you for any details about your case, and has no effect on your application.
+                                        
+                                        \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`,
+                                    'body_someone-else': `#  We have received your application for criminal injuries compensation
+        
+                                        \nYour case reference number is ||/answers/system/case-reference||.
+                        
+                                        \nYou need to send proof that you have the right to apply on the child's behalf.
+                        
+                                        \nYou should email your documents to us at centraladminaction@cica.gov.uk.
+                        
+                                        \nYou should only send documents if you've been asked to do so.
+                        
+                                        \nYou will get the decision by post.
+                                        \n\n
+                                        \nWe will only contact you before we make a decision if:
+                                        \n* we need to get medical or other information
+                                        \n* we need you to clarify something on your application form
+                        
+                                        \n^You must inform us immediately if any of the information you have given us changes, especially your:
+                                        ^* address
+                                        ^* telephone number
+                                        ^* email address
+                                        ^
+                        
+                                        \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
+                        
+                                        \nWe will not usually send an acknowledgement if you:
+                                        \n* email us
+                                        \n* write to us
+                                        \n* send us documents
+                                        
+                                        \n---
+                        
+                                        \n# Help us improve our service
+                        
+                                        \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
+                        
+                                        \nThe survey does not ask you for any details about your case, and has no effect on your application.
+                        
+                                        \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`
+                                }
                             }
-                        }
+                        ]
+                    },
+                    data: {
+                        templateId: '3948448e-0fa0-4f39-8c65-58b1aea7cec0',
+                        emailAddress: '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                        personalisation: {
+                            subject: 'l10nt:subject{?lng,context,ns}',
+                            body: 'l10nt:body{?lng,context,ns}'
+                        },
+                        reference: null
                     }
-                ]
-            },
-            data: {
-                templateId: 'l10nt:template-id.{method}{?lng,context,ns}',
-                emailAddress:
-                    '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
-                phoneNumber:
-                    '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
-                personalisation: {
-                    subject: 'l10nt:subject.{method}{?lng,context,ns}',
-                    body: 'l10nt:body.{method}{?lng,context,ns}'
                 },
-                reference: null
+                sendSms: {
+                    type: 'sendSms',
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                            },
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    body: `We've received your claim.
+
+                                        Your reference number is ||/answers/system/case-reference||.
+                                        
+                                        We will not usually send an acknowledgement if you email us, write to us or send us documents. 
+                                        
+                                        Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`,
+                                    'body_someone-else': `We've received your claim.
+
+                                        Your reference number is ||/answers/system/case-reference||.
+                                        
+                                        You need to send proof that you have the right to apply on a child's behalf.
+                                        
+                                        You should email your documents to us at centraladminaction@cica.gov.uk.
+                                        
+                                        You should only send documents if you've been asked to do so.
+                                        
+                                        We will not usually send an acknowledgement if you email us, write to us or send us documents. 
+                                        
+                                        Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`
+                                }
+                            }
+                        ]
+                    },
+                    data: {
+                        templateId: '4d09e5f2-a78c-4c79-9dfe-47ac722da5a2',
+                        phoneNumber:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                        personalisation: {
+                            subject: 'l10nt:subject{?lng,context,ns}',
+                            body: 'l10nt:body{?lng,context,ns}'
+                        },
+                        reference: null
+                    }
+                }
             }
         }
-    },
-    meta: {
-        questionnaireDocumentVersion: '2.0.0'
     }
 };
