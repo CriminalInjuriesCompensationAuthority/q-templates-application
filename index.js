@@ -13332,7 +13332,19 @@ module.exports = {
             }
         }
     },
-    answers: {},
+    answers: {
+        'p-applicant-who-are-you-applying-for': {
+            'q-applicant-who-are-you-applying-for': 'myself'
+        },
+        'p-applicant-confirmation-method': {
+            'q-applicant-confirmation-method': 'email',
+            // 'q-applicant-enter-your-telephone-number': '07706518824'
+            'q-applicant-enter-your-email-address': 'adrian.roworth@cica.gov.uk'
+        },
+        system: {
+            'case-reference': '21\\123456'
+        }
+    },
     progress: ['p-applicant-fatal-claim'],
     meta: {
         questionnaireDocumentVersion: '2.0.0',
@@ -13392,28 +13404,52 @@ module.exports = {
                                         \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`,
                                     'body_someone-else': `#  We have received your application for criminal injuries compensation
         
-                                        \nYour case reference number is ||/answers/system/case-reference||.
+                                        \nYour reference number is ||/answers/system/case-reference||.
+
+                                        \n#Sending documents to us
                         
-                                        \nYou need to send proof that you have the right to apply on the child's behalf.
-                        
+                                        \nYou need to send proof that you have the right to apply on the child's behalf. To do so, you should copy the document in one of these ways to send to us:
+                                        \n* take a photo
+                                        \n* scan a copy
+                                        \n* make a photocopy
+                                        
                                         \nYou should email your documents to us at centraladminaction@cica.gov.uk.
-                        
+                                        
+                                        \nIf you cannot send these documents by email, you can post them to us at:
+                                        
+                                        \nCriminal Injuries Compensation Authority
+                                        \nAlexander Bain House
+                                        \nAtlantic Quay
+                                        \n15 York Street
+                                        \nGlasgow
+                                        \nG2 8JQ
+                                        \nUnited Kingdom
+                                        
                                         \nYou should only send documents if you've been asked to do so.
-                        
-                                        \nYou will get the decision by post.
-                                        \n\n
-                                        \nWe will only contact you before we make a decision if:
-                                        \n* we need to get medical or other information
-                                        \n* we need you to clarify something on your application form
-                        
-                                        \n^You must inform us immediately if any of the information you have given us changes, especially your:
-                                        ^* address
-                                        ^* telephone number
-                                        ^* email address
-                                        ^
-                        
-                                        \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
-                        
+                                        
+                                        \n# What happens next?
+                                        
+                                        \nYou will get the decision by post. We aim to make this decision within one year, but it can take longer. We may have to wait until it's clear how you have recovered from your injuries.
+                                        
+                                        \nWe will only contact you before we make a decision if we need to ask you for more information.
+                                        
+                                        \n# If information changes
+                                        
+                                        \nYou must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.
+                                        
+                                        \n# Contacting us
+                                        
+                                        \nDo not reply to this email. If you need to contact us, you can do so by:
+                                        \nEmail: info@cica.gov.uk
+                                        
+                                        \nTelephone: 0300 003 3601
+                                        
+                                        \nOutside the UK: +44 (0) 203 684 2517
+                                        
+                                        \nRelay UK: (if you cannot hear or speak on the phone) 18001 0300 003 3601
+                                        
+                                        \nOur phone lines are open Monday to Friday, 10am to 3pm.
+                                        
                                         \nWe will not usually send an acknowledgement if you:
                                         \n* email us
                                         \n* write to us
@@ -13465,14 +13501,16 @@ module.exports = {
                                         We will not usually send an acknowledgement if you email us, write to us or send us documents. 
                                         
                                         Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`,
-                                    'body_someone-else': `We've received your claim.
+                                    'body_someone-else': `We've received your application.
 
                                         Your reference number is ||/answers/system/case-reference||.
-                                        
-                                        You need to send proof that you have the right to apply on a child's behalf.
-                                        
+
+                                        Send documents: You need to send proof that you have the right to apply on a child's behalf. To do so, you should copy the document in one of these ways to send to us: take a photo; scan a copy; make a photocopy.
+
                                         You should email your documents to us at centraladminaction@cica.gov.uk.
-                                        
+
+                                        If you cannot send these documents by email, you can post them to us at: Criminal Injuries Compensation Authority, Alexander Bain House, Atlantic Quay, 15 York Street, Glasgow, G2 8JQ.
+
                                         You should only send documents if you've been asked to do so.
                                         
                                         We will not usually send an acknowledgement if you email us, write to us or send us documents. 
