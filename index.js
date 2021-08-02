@@ -13332,19 +13332,7 @@ module.exports = {
             }
         }
     },
-    answers: {
-        'p-applicant-who-are-you-applying-for': {
-            'q-applicant-who-are-you-applying-for': 'myself'
-        },
-        'p-applicant-confirmation-method': {
-            'q-applicant-confirmation-method': 'email',
-            // 'q-applicant-enter-your-telephone-number': '07706518824'
-            'q-applicant-enter-your-email-address': 'adrian.roworth@cica.gov.uk'
-        },
-        system: {
-            'case-reference': '21\\123456'
-        }
-    },
+    answers: {},
     progress: ['p-applicant-fatal-claim'],
     meta: {
         questionnaireDocumentVersion: '2.0.0',
@@ -13429,7 +13417,7 @@ module.exports = {
                                         
                                         \n# What happens next?
                                         
-                                        \nYou will get the decision by post. We aim to make this decision within one year, but it can take longer. We may have to wait until it's clear how you have recovered from your injuries.
+                                        \nYou will get the decision by post. We aim to make this decision within one year, but it can take longer. We may have to wait until it's clear how the child has recovered from their injuries.
                                         
                                         \nWe will only contact you before we make a decision if we need to ask you for more information.
                                         
