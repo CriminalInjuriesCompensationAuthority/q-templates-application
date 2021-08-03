@@ -13359,22 +13359,32 @@ module.exports = {
                                     'subject_someone-else':
                                         'Application for compensation received – ||/answers/system/case-reference||',
                                     body: `#  We have received your application for criminal injuries compensation
-        
+                                        
                                         \nYour case reference number is ||/answers/system/case-reference||.
                                         
-                                        \nYou will get the decision by post.
+                                        \n# What happens next?
                                         
-                                        \nWe will only contact you before we make a decision if:
-                                        \n* we need to get medical or other information
-                                        \n* we need you to clarify something on your application form
-                                        \n\n
-                                        \n^You must inform us immediately if any of the information you have given us changes, especially your:
-                                        ^* address
-                                        ^* telephone number
-                                        ^* email address
-                                        ^
+                                        \nYou will get the decision by post. We aim to make this decision within one year, but it can take longer. We may have to wait until it's clear how you have recovered from your injuries.
                                         
-                                        \nDo not reply to this email. If you need to contact us, email us at info@cica.gov.uk or call us on  0300 003 3601. 
+                                        \nWe will only contact you before we make a decision if we need to ask you for more information.
+                                        
+                                        \n# If information changes
+                                        
+                                        \nYou must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.
+                                        
+                                        \n# Contacting us
+                                        
+                                        \nDo not reply to this email. If you need to contact us, you can do so by:
+                                        
+                                        \nEmail: info@cica.gov.uk
+                                        
+                                        \nTelephone: 0300 003 3601
+                                        
+                                        \nOutside the UK: +44 (0) 203 684 2517
+                                        
+                                        \nRelay UK: (if you cannot hear or speak on the phone) 18001 0300 003 3601
+                                        
+                                        \nOur phone lines are open Monday to Friday, 10am to 3pm.
                                         
                                         \nWe will not usually send an acknowledgement if you:
                                         \n* email us
@@ -13382,13 +13392,13 @@ module.exports = {
                                         \n* send us documents
                                         
                                         \n---
-                                        
+                        
                                         \n# Help us improve our service
-                                        
-                                        \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
-                                        
+                        
+                                        \nIf you have not done so already, you can complete a short survey to help us improve this service.
+                        
                                         \nThe survey does not ask you for any details about your case, and has no effect on your application.
-                                        
+                        
                                         \n^ Complete the survey at https://www.surveymonkey.com/r/Privatebetafeedback`,
                                     'body_someone-else': `#  We have received your application for criminal injuries compensation
         
@@ -13396,7 +13406,7 @@ module.exports = {
 
                                         \n#Sending documents to us
                         
-                                        \nYou need to send proof that you have the right to apply on the child's behalf. To do so, you should copy the document in one of these ways to send to us:
+                                        \nYou need to send proof that you have the right to apply on the child’s behalf. To do so, you should copy the document in one of these ways to send to us:
                                         \n* take a photo
                                         \n* scan a copy
                                         \n* make a photocopy
@@ -13428,6 +13438,7 @@ module.exports = {
                                         \n# Contacting us
                                         
                                         \nDo not reply to this email. If you need to contact us, you can do so by:
+
                                         \nEmail: info@cica.gov.uk
                                         
                                         \nTelephone: 0300 003 3601
@@ -13447,7 +13458,7 @@ module.exports = {
                         
                                         \n# Help us improve our service
                         
-                                        \nIf you have not done so already, you can complete a short survey to help us improve our service.  It should only take a few minutes to complete.
+                                        \nIf you have not done so already, you can complete a short survey to help us improve this service.
                         
                                         \nThe survey does not ask you for any details about your case, and has no effect on your application.
                         
@@ -13482,13 +13493,13 @@ module.exports = {
                                 language: 'en',
                                 namespace: 'notification-confirmation',
                                 resources: {
-                                    body: `We've received your claim.
+                                    body: `We've received your application.
 
                                         Your reference number is ||/answers/system/case-reference||.
                                         
-                                        We will not usually send an acknowledgement if you email us, write to us or send us documents. 
+                                        We will not usually send a reply if you email us, write to us or send us documents.
                                         
-                                        Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`,
+                                        Help improve our service by taking a short survey: https://www.surveymonkey.com/r/Privatebetafeedback`,
                                     'body_someone-else': `We've received your application.
 
                                         Your reference number is ||/answers/system/case-reference||.
@@ -13501,9 +13512,9 @@ module.exports = {
 
                                         You should only send documents if you've been asked to do so.
                                         
-                                        We will not usually send an acknowledgement if you email us, write to us or send us documents. 
+                                        We will not usually send a reply if you email us, write to us or send us documents.
                                         
-                                        Help improve our service by taking a short survey. It should only take a few minutes to complete: https://www.surveymonkey.com/r/Privatebetafeedback`
+                                        Help improve our service by taking a short survey at https://www.surveymonkey.com/r/Privatebetafeedback`
                                 }
                             }
                         ]
