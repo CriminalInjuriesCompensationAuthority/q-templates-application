@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '3.0.0',
+    version: '3.1.0',
     sections: {
         'p-applicant-declaration': {
             schema: {
@@ -1670,7 +1670,7 @@ module.exports = {
                     },
                     'q-enter-your-previous-reference-number': {
                         type: 'string',
-                        title: 'Enter your previous reference number if you know it (optional)',
+                        title: 'Enter your previous reference number if you know it',
                         maxLength: 50,
                         errorMessage: {
                             maxLength: 'Previous reference number must be 50 characters or less'
@@ -1954,7 +1954,7 @@ module.exports = {
                         type: 'string',
                         title: 'Enter your email address',
                         description:
-                            'We may use this to contact you if we need to clarify something on your application form (optional).',
+                            'We may use this to contact you if we need to clarify something on your application form.',
                         maxLength: 50,
                         format: 'email',
                         errorMessage: {
@@ -2011,7 +2011,7 @@ module.exports = {
                     },
                     'q-applicant-county': {
                         type: 'string',
-                        title: 'County (optional)',
+                        title: 'County',
                         maxLength: 32,
                         errorMessage: {
                             maxLength: 'County must be 32 characters or less'
@@ -2019,7 +2019,7 @@ module.exports = {
                     },
                     'q-applicant-postcode': {
                         type: 'string',
-                        title: 'Postcode (optional)',
+                        title: 'Postcode',
                         maxLength: 10,
                         errorMessage: {
                             maxLength: 'Postcode must be 10 characters or less'
@@ -2091,7 +2091,7 @@ module.exports = {
                         type: 'string',
                         title: 'Enter your telephone number',
                         description:
-                            'We may use this to contact you if we need to clarify something on your application form (optional).',
+                            'We may use this to contact you if we need to clarify something on your application form.',
                         maxLength: 20,
                         pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
                         errorMessage: {
@@ -3640,7 +3640,7 @@ module.exports = {
                     },
                     'q-gp-county': {
                         type: 'string',
-                        title: 'County (optional)',
+                        title: 'County',
                         maxLength: 32,
                         errorMessage: {
                             maxLength: 'County must be 32 characters or less'
@@ -3648,7 +3648,7 @@ module.exports = {
                     },
                     'q-gp-postcode': {
                         type: 'string',
-                        title: 'Postcode (optional)',
+                        title: 'Postcode',
                         maxLength: 10,
                         errorMessage: {
                             maxLength: 'Postcode must be 10 characters or less'
@@ -3781,7 +3781,7 @@ module.exports = {
                     },
                     'q-applicant-dentist-address-county': {
                         type: 'string',
-                        title: 'County (optional)',
+                        title: 'County',
                         maxLength: 32,
                         errorMessage: {
                             maxLength: 'County must be 32 characters or less'
@@ -3789,7 +3789,7 @@ module.exports = {
                     },
                     'q-applicant-dentist-address-postcode': {
                         type: 'string',
-                        title: 'Postcode (optional)',
+                        title: 'Postcode',
                         maxLength: 10,
                         errorMessage: {
                             maxLength: 'Postcode must be 10 characters or less'
@@ -8399,7 +8399,7 @@ module.exports = {
                     },
                     'q-applicant-treatment-county': {
                         type: 'string',
-                        title: 'County (optional)',
+                        title: 'County',
                         maxLength: 32,
                         errorMessage: {
                             maxLength: 'County must be 32 characters or less'
@@ -8407,7 +8407,7 @@ module.exports = {
                     },
                     'q-applicant-treatment-postcode': {
                         type: 'string',
-                        title: 'Postcode (optional)',
+                        title: 'Postcode',
                         maxLength: 10,
                         errorMessage: {
                             maxLength: 'Postcode must be 10 characters or less'
