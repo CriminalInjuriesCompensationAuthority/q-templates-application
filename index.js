@@ -277,15 +277,15 @@ module.exports = {
                 properties: {
                     'q-applicant-british-citizen-or-eu-national': {
                         title: 'Are you a British citizen or EU national?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -298,10 +298,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-british-citizen-or-eu-national': 'true'
+                        'q-applicant-british-citizen-or-eu-national': true
                     },
                     {
-                        'q-applicant-british-citizen-or-eu-national': 'false'
+                        'q-applicant-british-citizen-or-eu-national': false
                     }
                 ],
                 invalidExamples: [
@@ -320,15 +320,15 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-18-or-over': {
                         title: 'Are you 18 or over?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -340,10 +340,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-are-you-18-or-over': 'true'
+                        'q-applicant-are-you-18-or-over': true
                     },
                     {
-                        'q-applicant-are-you-18-or-over': 'false'
+                        'q-applicant-are-you-18-or-over': false
                     }
                 ],
                 invalidExamples: [
@@ -425,15 +425,15 @@ module.exports = {
                 properties: {
                     'q--was-the-crime-reported-to-police': {
                         title: 'Was the crime reported to the police?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     },
@@ -450,10 +450,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q--was-the-crime-reported-to-police': 'true'
+                        'q--was-the-crime-reported-to-police': true
                     },
                     {
-                        'q--was-the-crime-reported-to-police': 'false'
+                        'q--was-the-crime-reported-to-police': false
                     }
                 ],
                 invalidExamples: [
@@ -1548,15 +1548,15 @@ module.exports = {
                 properties: {
                     'q-offender-do-you-know-the-name-of-the-offender': {
                         title: "Do you know the offender's name?",
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     },
@@ -1573,10 +1573,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-offender-do-you-know-the-name-of-the-offender': 'true'
+                        'q-offender-do-you-know-the-name-of-the-offender': true
                     },
                     {
-                        'q-offender-do-you-know-the-name-of-the-offender': 'false'
+                        'q-offender-do-you-know-the-name-of-the-offender': false
                     }
                 ],
                 invalidExamples: [
@@ -1633,15 +1633,15 @@ module.exports = {
                 properties: {
                     'q-offender-do-you-have-contact-with-offender': {
                         title: 'Do you have contact with the offender?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -1654,10 +1654,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-offender-do-you-have-contact-with-offender': 'true'
+                        'q-offender-do-you-have-contact-with-offender': true
                     },
                     {
-                        'q-offender-do-you-have-contact-with-offender': 'false'
+                        'q-offender-do-you-have-contact-with-offender': false
                     }
                 ],
                 invalidExamples: [
@@ -1716,15 +1716,15 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-applied-to-us-before': {
                         title: 'Have you applied to us before?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     },
@@ -1749,7 +1749,7 @@ module.exports = {
                         if: {
                             properties: {
                                 'q-applicant-have-you-applied-to-us-before': {
-                                    const: 'true'
+                                    const: true
                                 }
                             }
                         },
@@ -1776,20 +1776,20 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-have-you-applied-to-us-before': 'true',
+                        'q-applicant-have-you-applied-to-us-before': true,
                         'q-enter-your-previous-reference-number': '11//123456'
                     },
                     {
-                        'q-applicant-have-you-applied-to-us-before': 'false'
+                        'q-applicant-have-you-applied-to-us-before': false
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-applicant-have-you-applied-to-us-before': 'false',
+                        'q-applicant-have-you-applied-to-us-before': false,
                         'q-enter-your-previous-reference-number': '11//123456'
                     },
                     {
-                        'q-applicant-have-you-applied-to-us-before': 'true',
+                        'q-applicant-have-you-applied-to-us-before': true,
                         'q-enter-your-previous-reference-number': 12345
                     }
                 ]
@@ -1806,15 +1806,15 @@ module.exports = {
                         title: 'Have you applied for or received any other form of compensation?',
                         description:
                             'For example, if you sought civil damages or a court decided you should get compensation.',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -1827,12 +1827,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-have-you-applied-for-or-received-any-other-compensation':
-                            'true'
+                        'q-applicant-have-you-applied-for-or-received-any-other-compensation': true
                     },
                     {
-                        'q-applicant-have-you-applied-for-or-received-any-other-compensation':
-                            'false'
+                        'q-applicant-have-you-applied-for-or-received-any-other-compensation': false
                     }
                 ],
                 invalidExamples: [
@@ -1917,15 +1915,15 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-been-known-by-any-other-names': {
                         title: 'Have you ever been known by any other names?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -1938,10 +1936,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-have-you-been-known-by-any-other-names': 'true'
+                        'q-applicant-have-you-been-known-by-any-other-names': true
                     },
                     {
-                        'q-applicant-have-you-been-known-by-any-other-names': 'false'
+                        'q-applicant-have-you-been-known-by-any-other-names': false
                     }
                 ],
                 invalidExamples: [
@@ -3229,15 +3227,15 @@ module.exports = {
                 properties: {
                     'q-applicant-has-a-decision-been-made': {
                         title: 'Have they made a decision about your claim?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3250,10 +3248,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-has-a-decision-been-made': 'true'
+                        'q-applicant-has-a-decision-been-made': true
                     },
                     {
-                        'q-applicant-has-a-decision-been-made': 'false'
+                        'q-applicant-has-a-decision-been-made': false
                     }
                 ],
                 invalidExamples: [
@@ -3380,15 +3378,15 @@ module.exports = {
                         description:
                             "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
                         title: 'Do you have a disabling mental injury?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3401,10 +3399,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-do-you-have-disabling-mental-injury': 'true'
+                        'q-applicant-do-you-have-disabling-mental-injury': true
                     },
                     {
-                        'q-applicant-do-you-have-disabling-mental-injury': 'false'
+                        'q-applicant-do-you-have-disabling-mental-injury': false
                     }
                 ],
                 invalidExamples: [
@@ -3423,15 +3421,15 @@ module.exports = {
                 properties: {
                     'q-applicant-mental-injury-duration': {
                         title: 'Has your mental injury lasted 6 weeks or more?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3444,10 +3442,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-mental-injury-duration': 'true'
+                        'q-applicant-mental-injury-duration': true
                     },
                     {
-                        'q-applicant-mental-injury-duration': 'false'
+                        'q-applicant-mental-injury-duration': false
                     }
                 ],
                 invalidExamples: [
@@ -3594,15 +3592,15 @@ module.exports = {
                 properties: {
                     'q-applicant-has-your-treatment-finished-dmi': {
                         title: 'Have you finished your treatment?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3615,10 +3613,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-has-your-treatment-finished-dmi': 'true'
+                        'q-applicant-has-your-treatment-finished-dmi': true
                     },
                     {
-                        'q-applicant-has-your-treatment-finished-dmi': 'false'
+                        'q-applicant-has-your-treatment-finished-dmi': false
                     }
                 ],
                 invalidExamples: [
@@ -3665,15 +3663,15 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-registered-with-gp': {
                         title: 'Are you registered with a GP practice?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3686,10 +3684,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-are-you-registered-with-gp': 'true'
+                        'q-applicant-are-you-registered-with-gp': true
                     },
                     {
-                        'q-applicant-are-you-registered-with-gp': 'false'
+                        'q-applicant-are-you-registered-with-gp': false
                     }
                 ],
                 invalidExamples: [
@@ -3709,15 +3707,15 @@ module.exports = {
                     'q-applicant-have-you-seen-a-gp': {
                         description: 'This includes your mental health.',
                         title: 'Have you seen a GP about your injuries?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3730,10 +3728,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-have-you-seen-a-gp': 'true'
+                        'q-applicant-have-you-seen-a-gp': true
                     },
                     {
-                        'q-applicant-have-you-seen-a-gp': 'false'
+                        'q-applicant-have-you-seen-a-gp': false
                     }
                 ],
                 invalidExamples: [
@@ -3860,15 +3858,15 @@ module.exports = {
                 properties: {
                     'q-applicant-dentist-visited': {
                         title: 'Have you seen a dentist about your injuries?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -3881,10 +3879,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-dentist-visited': 'true'
+                        'q-applicant-dentist-visited': true
                     },
                     {
-                        'q-applicant-dentist-visited': 'false'
+                        'q-applicant-dentist-visited': false
                     }
                 ],
                 invalidExamples: [
@@ -4014,15 +4012,15 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-claiming-for-physical-injuries': {
                         title: 'Do you have physical injuries as a result of the crime?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -4035,10 +4033,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-are-you-claiming-for-physical-injuries': 'true'
+                        'q-applicant-are-you-claiming-for-physical-injuries': true
                     },
                     {
-                        'q-applicant-are-you-claiming-for-physical-injuries': 'false'
+                        'q-applicant-are-you-claiming-for-physical-injuries': false
                     }
                 ],
                 invalidExamples: [
@@ -8327,15 +8325,15 @@ module.exports = {
                 properties: {
                     'q-applicant-infections': {
                         title: 'Do you have HIV, hepatitis or an STI as a result of the crime?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8348,10 +8346,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-infections': 'true'
+                        'q-applicant-infections': true
                     },
                     {
-                        'q-applicant-infections': 'false'
+                        'q-applicant-infections': false
                     }
                 ],
                 invalidExamples: [
@@ -8422,15 +8420,15 @@ module.exports = {
                 properties: {
                     'q-applicant-pregnancy': {
                         title: 'Did you become pregnant as a result of the crime?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8443,10 +8441,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-pregnancy': 'true'
+                        'q-applicant-pregnancy': true
                     },
                     {
-                        'q-applicant-pregnancy': 'false'
+                        'q-applicant-pregnancy': false
                     }
                 ],
                 invalidExamples: [
@@ -8518,15 +8516,15 @@ module.exports = {
                 properties: {
                     'q-applicant-medical-help': {
                         title: 'Did you get other medical help for your injuries?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8539,10 +8537,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-medical-help': 'true'
+                        'q-applicant-medical-help': true
                     },
                     {
-                        'q-applicant-medical-help': 'false'
+                        'q-applicant-medical-help': false
                     }
                 ],
                 invalidExamples: [
@@ -8672,15 +8670,15 @@ module.exports = {
                         title: 'Have you been unable to work for more than 28 weeks?',
                         description:
                             'This includes working less hours or being unable to look for work',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8693,10 +8691,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-unable-to-work-duration': 'true'
+                        'q-applicant-unable-to-work-duration': true
                     },
                     {
-                        'q-applicant-unable-to-work-duration': 'false'
+                        'q-applicant-unable-to-work-duration': false
                     }
                 ],
                 invalidExamples: [
@@ -8715,15 +8713,15 @@ module.exports = {
                 properties: {
                     'q-applicant-job-when-crime-happened': {
                         title: 'Did you have a job when the crime happened?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8736,10 +8734,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-job-when-crime-happened': 'true'
+                        'q-applicant-job-when-crime-happened': true
                     },
                     {
-                        'q-applicant-job-when-crime-happened': 'false'
+                        'q-applicant-job-when-crime-happened': false
                     }
                 ],
                 invalidExamples: [
@@ -8970,15 +8968,15 @@ module.exports = {
                 properties: {
                     'q-applicant-pregnancy-loss': {
                         title: 'Did you lose a pregnancy as a result of the crime?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -8991,10 +8989,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-pregnancy-loss': 'true'
+                        'q-applicant-pregnancy-loss': true
                     },
                     {
-                        'q-applicant-pregnancy-loss': 'false'
+                        'q-applicant-pregnancy-loss': false
                     }
                 ],
                 invalidExamples: [
@@ -9013,15 +9011,15 @@ module.exports = {
                 properties: {
                     'q-applicant-non-sa-infections': {
                         title: 'Do you have HIV or hepatitis as a result of the crime?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -9034,10 +9032,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-non-sa-infections': 'true'
+                        'q-applicant-non-sa-infections': true
                     },
                     {
-                        'q-applicant-non-sa-infections': 'false'
+                        'q-applicant-non-sa-infections': false
                     }
                 ],
                 invalidExamples: [
@@ -9104,15 +9102,15 @@ module.exports = {
                 properties: {
                     'q-applicant-fatal-claim': {
                         title: 'Are you applying for someone who died from their injuries?',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -9125,10 +9123,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-fatal-claim': 'true'
+                        'q-applicant-fatal-claim': true
                     },
                     {
-                        'q-applicant-fatal-claim': 'false'
+                        'q-applicant-fatal-claim': false
                     }
                 ],
                 invalidExamples: [
@@ -9233,15 +9231,15 @@ module.exports = {
                         title: 'Would you like to add any information to your claim?',
                         description:
                             'This may include details of additional crime reference numbers, locations, dates and/or offenders.',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -9254,10 +9252,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-provide-additional-information': 'true'
+                        'q-applicant-provide-additional-information': true
                     },
                     {
-                        'q-applicant-provide-additional-information': 'false'
+                        'q-applicant-provide-additional-information': false
                     }
                 ],
                 invalidExamples: [
@@ -9313,15 +9311,15 @@ module.exports = {
                         title: 'Would you like to briefly describe the crime in your own words?',
                         description:
                             'The police will send us a report of the crime. Providing an additional description is optional.',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     }
@@ -9334,10 +9332,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-describe-incident': 'true'
+                        'q-applicant-describe-incident': true
                     },
                     {
-                        'q-applicant-describe-incident': 'false'
+                        'q-applicant-describe-incident': false
                     }
                 ],
                 invalidExamples: [
@@ -9392,15 +9390,15 @@ module.exports = {
                         title: 'Do you have a crime reference number?',
                         description:
                             'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.',
-                        type: 'string',
+                        type: 'boolean',
                         oneOf: [
                             {
                                 title: 'Yes',
-                                const: 'true'
+                                const: true
                             },
                             {
                                 title: 'No',
-                                const: 'false'
+                                const: false
                             }
                         ]
                     },
@@ -9417,10 +9415,10 @@ module.exports = {
                 },
                 examples: [
                     {
-                        'q-applicant-has-crime-reference-number': 'true'
+                        'q-applicant-has-crime-reference-number': true
                     },
                     {
-                        'q-applicant-has-crime-reference-number': 'false'
+                        'q-applicant-has-crime-reference-number': false
                     }
                 ],
                 invalidExamples: [
@@ -9504,7 +9502,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9521,7 +9519,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9529,7 +9527,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9583,7 +9581,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9591,7 +9589,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9753,7 +9751,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9761,7 +9759,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9775,7 +9773,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9783,7 +9781,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9797,7 +9795,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9805,7 +9803,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9840,7 +9838,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9848,7 +9846,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9871,7 +9869,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -9879,7 +9877,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -9912,7 +9910,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -9921,7 +9919,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation',
-                                'false'
+                                false
                             ]
                         }
                     ]
@@ -9953,7 +9951,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-has-a-decision-been-made.q-applicant-has-a-decision-been-made',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -9961,7 +9959,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-has-a-decision-been-made.q-applicant-has-a-decision-been-made',
-                                'false'
+                                false
                             ]
                         }
                     ]
@@ -10011,7 +10009,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -10019,7 +10017,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -10160,7 +10158,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -10168,7 +10166,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -10191,7 +10189,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -10199,7 +10197,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                'true'
+                                true
                             ]
                         }
                     ]
@@ -10242,32 +10240,32 @@ module.exports = {
                                 [
                                     '==',
                                     '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-infections.q-applicant-infections',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
-                                    'true'
+                                    true
                                 ]
                             ]
                         },
@@ -10285,7 +10283,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -10293,7 +10291,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -10321,12 +10319,12 @@ module.exports = {
                                 [
                                     '==',
                                     '$.answers.p-applicant-are-you-registered-with-gp.q-applicant-are-you-registered-with-gp',
-                                    'true'
+                                    true
                                 ],
                                 [
                                     '==',
                                     '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                    'true'
+                                    true
                                 ]
                             ]
                         },
@@ -10352,7 +10350,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-dentist-visited.q-applicant-dentist-visited',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -10360,7 +10358,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -10377,7 +10375,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -10402,7 +10400,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                                'false'
+                                false
                             ]
                         },
                         {
@@ -12442,7 +12440,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-infections.q-applicant-infections',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12493,7 +12491,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12510,7 +12508,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-medical-help.q-applicant-medical-help',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12545,7 +12543,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12562,7 +12560,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12606,7 +12604,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12632,7 +12630,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12640,7 +12638,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim',
-                                'false'
+                                false
                             ]
                         }
                     ]
@@ -12654,7 +12652,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12662,7 +12660,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',
-                                'false'
+                                false
                             ]
                         }
                     ]
@@ -12685,7 +12683,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
-                                'true'
+                                true
                             ]
                         },
                         {
@@ -12693,7 +12691,7 @@ module.exports = {
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
-                                'false'
+                                false
                             ]
                         }
                     ]
