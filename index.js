@@ -8,18 +8,166 @@ module.exports = {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
+                required: ['q-applicant-declaration'],
                 additionalProperties: false,
                 properties: {
                     'applicant-declaration': {
                         title: 'Declaration',
                         description:
                             '<p class="govuk-body">By submitting the application I, ||/answers/p-applicant-enter-your-name/q-applicant-title|| ||/answers/p-applicant-enter-your-name/q-applicant-first-name|| ||/answers/p-applicant-enter-your-name/q-applicant-last-name||, agree that:</p><ul class="govuk-list govuk-list--bullet"><li>the information I’ve given here is true as far as I know</li><li>CICA can share the information I’ve given in this claim with:</li><ul><li>police, prosecutors and ACRO Criminal Records Office</li><li>medical organisations and staff, including police medical staff</li><li>any other individuals or organisations needed to process my application (including medical or other experts)</li></ul><li>CICA can receive information from the organisations and individuals described above</li><li>If I deliberately provide information that I know is false or misleading, I may be prosecuted and my application for compensation may be refused.</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p><p class="govuk-body">Read our privacy notice to see <a class="govuk-link" href="https://www.gov.uk/guidance/cica-privacy-notice">how we use your data</a>.</p>'
+                    },
+                    'q-applicant-declaration': {
+                        title: 'Do you agree to this declaration?',
+                        type: 'array',
+                        items: {
+                            anyOf: [
+                                {
+                                    title: 'Yes',
+                                    const: true
+                                }
+                            ]
+                        }
                     }
                 },
-                examples: [{}],
+                errorMessage: {
+                    required: {
+                        'q-applicant-declaration': 'Select agree'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-declaration': [true]
+                    }
+                ],
                 invalidExamples: [
                     {
-                        foo: 'bar'
+                        'q-applicant-declaration': 'not-an-array'
+                    },
+                    {
+                        'q-applicant-declaration': ['not-a-key']
+                    }
+                ]
+            }
+        },
+        'p-main-applicant-declaration': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-main-applicant-declaration'],
+                additionalProperties: false,
+                properties: {
+                    'main-applicant-declaration': {
+                        title: 'Declaration',
+                        description:
+                            'This is the blurb for a main applicant - with or without an applicant who is over or under 12 years of age.'
+                    },
+                    'q-main-applicant-declaration': {
+                        title: 'Do you agree to this declaration?',
+                        type: 'array',
+                        items: {
+                            anyOf: [
+                                {
+                                    title: 'Yes',
+                                    const: true
+                                }
+                            ]
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-main-applicant-declaration': 'Select agree'
+                    }
+                },
+                examples: [
+                    {
+                        'q-main-applicant-declaration': [true]
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-main-applicant-declaration': 'not-an-array'
+                    },
+                    {
+                        'q-main-applicant-declaration': ['not-a-key']
+                    }
+                ]
+            }
+        },
+        'p-rep-declaration': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-rep-declaration'],
+                additionalProperties: false,
+                properties: {
+                    'rep-declaration': {
+                        title: 'Declaration',
+                        description:
+                            'This is the blurb for a rep - with or without an applicant who is over or under 12 years of age.'
+                    },
+                    'q-rep-declaration': {
+                        title: 'Do you agree to this declaration?',
+                        type: 'array',
+                        items: {
+                            anyOf: [
+                                {
+                                    title: 'Yes',
+                                    const: true
+                                }
+                            ]
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-rep-declaration': 'Select agree'
+                    }
+                },
+                examples: [
+                    {
+                        'q-rep-declaration': [true]
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-rep-declaration': 'not-an-array'
+                    },
+                    {
+                        'q-rep-declaration': ['not-a-key']
+                    }
+                ]
+            }
+        },
+        'p-applicant-representative': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-representative'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-representative': {
+                        type: 'boolean',
+                        title: 'Are you a representative of the person applying for compensation?'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-representative':
+                            'Select yes if you are a representative of the person applying for compensation'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-representative': true
+                    },
+                    {
+                        'q-applicant-representative': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-representative': 'foo'
                     }
                 ]
             }
@@ -735,7 +883,8 @@ module.exports = {
                                     'i-was-underage': 'I was under 18',
                                     'i-was-underage_someone-else': 'The child was under 18',
                                     'i-was-advised-to-wait': 'I was advised to wait',
-                                    'i-was-advised-to-wait_someone-else': 'The child was advised to wait'
+                                    'i-was-advised-to-wait_someone-else':
+                                        'The child was advised to wait'
                                 }
                             }
                         }
@@ -762,11 +911,13 @@ module.exports = {
                         items: {
                             anyOf: [
                                 {
-                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-underage{?lng,context,ns}',
+                                    title:
+                                        'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-underage{?lng,context,ns}',
                                     const: 'i-was-underage'
                                 },
                                 {
-                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-advised-to-wait{?lng,context,ns}',
+                                    title:
+                                        'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-advised-to-wait{?lng,context,ns}',
                                     const: 'i-was-advised-to-wait'
                                 },
                                 {
@@ -1502,7 +1653,8 @@ module.exports = {
                                     'i-was-under-18': 'I was under 18',
                                     'i-was-under-18_someone-else': 'The child was under 18',
                                     'unable-to-report-crime': 'Unable to report the crime',
-                                    'unable-to-report-crime_someone-else': 'The child was unable to report the crime'
+                                    'unable-to-report-crime_someone-else':
+                                        'The child was unable to report the crime'
                                 }
                             }
                         }
@@ -1528,11 +1680,13 @@ module.exports = {
                         items: {
                             anyOf: [
                                 {
-                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.i-was-under-18{?lng,context,ns}',
+                                    title:
+                                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.i-was-under-18{?lng,context,ns}',
                                     const: 'i-was-under-18'
                                 },
                                 {
-                                    title: 'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.unable-to-report-crime{?lng,context,ns}',
+                                    title:
+                                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.unable-to-report-crime{?lng,context,ns}',
                                     const: 'unable-to-report-crime'
                                 },
                                 {
@@ -1684,13 +1838,11 @@ module.exports = {
                         namespace: 'p-offender-do-you-have-contact-with-offender',
                         resources: {
                             'q-offender-do-you-have-contact-with-offender': {
-                                title:
-                                    'Do you have contact with the offender?',
+                                title: 'Do you have contact with the offender?',
                                 'title_someone-else':
                                     'Does the child have contact with the offender?',
                                 error: {
-                                    required:
-                                        'Select yes if you have contact with the offender',
+                                    required: 'Select yes if you have contact with the offender',
                                     'required_someone-else':
                                         'Select yes if the child has contact with the offender'
                                 }
@@ -1707,7 +1859,8 @@ module.exports = {
                 properties: {
                     'q-offender-do-you-have-contact-with-offender': {
                         type: 'boolean',
-                        title: 'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}'
+                        title:
+                            'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -1747,13 +1900,11 @@ module.exports = {
                         namespace: 'p-offender-describe-contact-with-offender',
                         resources: {
                             'q-offender-describe-contact-with-offender': {
-                                title:
-                                    'Describe your contact with the offender',
+                                title: 'Describe your contact with the offender',
                                 'title_someone-else':
                                     "Describe the child's contact with the offender",
                                 error: {
-                                    required:
-                                        'Describe your contact with the offender',
+                                    required: 'Describe your contact with the offender',
                                     'required_someone-else':
                                         "Describe the child's contact with the offender"
                                 }
@@ -1769,7 +1920,8 @@ module.exports = {
                 properties: {
                     'q-offender-describe-contact-with-offender': {
                         type: 'string',
-                        title: 'l10nt:q-offender-describe-contact-with-offender.title{?lng,context,ns}',
+                        title:
+                            'l10nt:q-offender-describe-contact-with-offender.title{?lng,context,ns}',
                         description:
                             'We cannot pay compensation if the offender may benefit from it.',
                         maxLength: 500,
@@ -1812,13 +1964,11 @@ module.exports = {
                         namespace: 'p-applicant-have-you-applied-to-us-before',
                         resources: {
                             'q-applicant-have-you-applied-to-us-before': {
-                                title:
-                                    'Have you applied to us before?',
+                                title: 'Have you applied to us before?',
                                 'title_someone-else':
                                     'Have you applied to us before on behalf of the child?',
                                 error: {
-                                    required:
-                                        'Select yes if you have applied to us before',
+                                    required: 'Select yes if you have applied to us before',
                                     'required_someone-else':
                                         'Select yes if you have applied to us before on behalf of the child'
                                 }
@@ -1839,7 +1989,8 @@ module.exports = {
                 },
                 properties: {
                     'q-applicant-have-you-applied-to-us-before': {
-                        title: 'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
                         type: 'boolean'
                     },
                     'q-enter-your-previous-reference-number': {
@@ -1922,7 +2073,8 @@ module.exports = {
                 translations: [
                     {
                         language: 'en',
-                        namespace: 'p-applicant-have-you-applied-for-or-received-any-other-compensation',
+                        namespace:
+                            'p-applicant-have-you-applied-for-or-received-any-other-compensation',
                         resources: {
                             'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
                                 title:
@@ -1948,7 +2100,8 @@ module.exports = {
                 properties: {
                     'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
                         description:
                             'For example, this may be compensation awarded by a court or in a private settlement.'
                     }
@@ -2163,12 +2316,10 @@ module.exports = {
                                 title: 'What other names have you used?',
                                 'title_someone-else': 'What other names have they used?',
                                 error: {
-                                    required:
-                                        'Enter the other names you have used',
+                                    required: 'Enter the other names you have used',
                                     maxLength:
                                         'Other names you have used must be 50 characters or less',
-                                    'required_someone-else':
-                                        'Enter the other names they have used',
+                                    'required_someone-else': 'Enter the other names they have used',
                                     'maxLength_someone-else':
                                         'Other names they have used must be 50 characters or less'
                                 }
@@ -2516,6 +2667,10 @@ module.exports = {
                                             {
                                                 id: 'p-applicant-who-are-you-applying-for',
                                                 label: 'Who are you applying for?'
+                                            },
+                                            {
+                                                id: 'p-applicant-representative',
+                                                label: 'Are you representing the applicant?'
                                             },
                                             {
                                                 id: 'p-applicant-are-you-18-or-over',
@@ -3438,8 +3593,7 @@ module.exports = {
                 properties: {
                     'offender-context': {
                         title: 'About the offender',
-                        description:
-                            'l10nt:offender-context.description{?lng,context,ns}'
+                        description: 'l10nt:offender-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -3482,8 +3636,7 @@ module.exports = {
                 properties: {
                     'compensation-context': {
                         title: 'Other compensation',
-                        description:
-                            'l10nt:compensation-context.description{?lng,context,ns}'
+                        description: 'l10nt:compensation-context.description{?lng,context,ns}'
                     }
                 },
                 examples: [{}],
@@ -3507,13 +3660,14 @@ module.exports = {
                 translations: [
                     {
                         language: 'en',
-                        namespace: 'p-applicant-applied-for-other-compensation-briefly-explain-why-not',
+                        namespace:
+                            'p-applicant-applied-for-other-compensation-briefly-explain-why-not',
                         resources: {
                             'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
                                 title:
                                     'Tell us why you have not applied for or received any other compensation',
                                 'title_someone-else':
-                                    'Tell us why you have not applied for or received any other compensation on behalf of the child',
+                                    'Tell us why you have not applied for or received any other compensation on behalf of the child'
                             }
                         }
                     }
@@ -3526,7 +3680,8 @@ module.exports = {
                 required: ['q-applicant-applied-for-other-compensation-briefly-explain-why-not'],
                 properties: {
                     'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
-                        title: 'l10nt:q-applicant-applied-for-other-compensation-briefly-explain-why-not.title{?lng,context,ns}',
+                        title:
+                            'l10nt:q-applicant-applied-for-other-compensation-briefly-explain-why-not.title{?lng,context,ns}',
                         type: 'string',
                         maxLength: 500,
                         errorMessage: {
@@ -10173,8 +10328,7 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-incident-description':
-                            'Enter a brief description of the crime'
+                        'q-applicant-incident-description': 'Enter a brief description of the crime'
                     }
                 },
                 examples: [
@@ -10294,6 +10448,24 @@ module.exports = {
                     ]
                 }
             },
+            'p-main-applicant-declaration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--confirmation'
+                        }
+                    ]
+                }
+            },
+            'p-rep-declaration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--confirmation'
+                        }
+                    ]
+                }
+            },
             'p-applicant-british-citizen-or-eu-national': {
                 on: {
                     ANSWER: [
@@ -10316,20 +10488,19 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--transition',
-                            cond:
+                            cond: [
+                                'and',
                                 [
-                                    'and',
-                                    [
-                                        '==',
-                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                        false
-                                    ],
-                                    [
-                                        '==',
-                                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                        'myself'
-                                    ]
+                                    '==',
+                                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                    'myself'
                                 ]
+                            ]
                         },
                         {
                             target: 'p-applicant-british-citizen-or-eu-national'
@@ -10338,6 +10509,23 @@ module.exports = {
                 }
             },
             'p-applicant-who-are-you-applying-for': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-representative',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-are-you-18-or-over'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-representative': {
                 on: {
                     ANSWER: [
                         {
@@ -10891,7 +11079,28 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-declaration'
+                            target: 'p-rep-declaration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-representative.q-applicant-representative',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-declaration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'myself'
+                            ]
+                        },
+                        {
+                            target: 'p-main-applicant-declaration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ]
                         }
                     ]
                 }
