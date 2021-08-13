@@ -94,84 +94,6 @@ module.exports = {
                 ]
             }
         },
-        'p-rep-declaration': {
-            schema: {
-                $schema: 'http://json-schema.org/draft-07/schema#',
-                type: 'object',
-                required: ['q-rep-declaration'],
-                additionalProperties: false,
-                properties: {
-                    'rep-declaration': {
-                        title: 'Declaration',
-                        description:
-                            'This is the blurb for a rep - with or without an applicant who is over or under 12 years of age.'
-                    },
-                    'q-rep-declaration': {
-                        title: 'Do you agree to this declaration?',
-                        type: 'array',
-                        items: {
-                            anyOf: [
-                                {
-                                    title: 'Yes',
-                                    const: true
-                                }
-                            ]
-                        }
-                    }
-                },
-                errorMessage: {
-                    required: {
-                        'q-rep-declaration': 'Select agree'
-                    }
-                },
-                examples: [
-                    {
-                        'q-rep-declaration': [true]
-                    }
-                ],
-                invalidExamples: [
-                    {
-                        'q-rep-declaration': 'not-an-array'
-                    },
-                    {
-                        'q-rep-declaration': ['not-a-key']
-                    }
-                ]
-            }
-        },
-        'p-applicant-representative': {
-            schema: {
-                $schema: 'http://json-schema.org/draft-07/schema#',
-                type: 'object',
-                required: ['q-applicant-representative'],
-                additionalProperties: false,
-                properties: {
-                    'q-applicant-representative': {
-                        type: 'boolean',
-                        title: 'Are you a representative of the person applying for compensation?'
-                    }
-                },
-                errorMessage: {
-                    required: {
-                        'q-applicant-representative':
-                            'Select yes if you are a representative of the person applying for compensation'
-                    }
-                },
-                examples: [
-                    {
-                        'q-applicant-representative': true
-                    },
-                    {
-                        'q-applicant-representative': false
-                    }
-                ],
-                invalidExamples: [
-                    {
-                        'q-applicant-representative': 'foo'
-                    }
-                ]
-            }
-        },
         'p--transition-no-phone-or-email': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
@@ -2667,10 +2589,6 @@ module.exports = {
                                             {
                                                 id: 'p-applicant-who-are-you-applying-for',
                                                 label: 'Who are you applying for?'
-                                            },
-                                            {
-                                                id: 'p-applicant-representative',
-                                                label: 'Are you representing the applicant?'
                                             },
                                             {
                                                 id: 'p-applicant-are-you-18-or-over',
@@ -10457,15 +10375,6 @@ module.exports = {
                     ]
                 }
             },
-            'p-rep-declaration': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p--confirmation'
-                        }
-                    ]
-                }
-            },
             'p-applicant-british-citizen-or-eu-national': {
                 on: {
                     ANSWER: [
@@ -10509,23 +10418,6 @@ module.exports = {
                 }
             },
             'p-applicant-who-are-you-applying-for': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-representative',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'someone-else'
-                            ]
-                        },
-                        {
-                            target: 'p-applicant-are-you-18-or-over'
-                        }
-                    ]
-                }
-            },
-            'p-applicant-representative': {
                 on: {
                     ANSWER: [
                         {
@@ -11079,14 +10971,6 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-rep-declaration',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-representative.q-applicant-representative',
-                                true
-                            ]
-                        },
-                        {
                             target: 'p-applicant-declaration',
                             cond: [
                                 '==',
@@ -11095,12 +10979,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-main-applicant-declaration',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'someone-else'
-                            ]
+                            target: 'p-main-applicant-declaration'
                         }
                     ]
                 }
