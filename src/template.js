@@ -304,9 +304,19 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-british-citizen-or-eu-national': {
-                        type: 'boolean',
                         title:
-                            'l10nt:q-applicant-british-citizen-or-eu-national.title{?lng,context,ns}'
+                            'l10nt:q-applicant-british-citizen-or-eu-national.title{?lng,context,ns}',
+                        type: 'boolean',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -366,7 +376,17 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-18-or-over': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-are-you-18-or-over.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-are-you-18-or-over.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -462,7 +482,17 @@ module.exports = {
                 properties: {
                     'q--was-the-crime-reported-to-police': {
                         title: 'Was the crime reported to the police?',
-                        type: 'boolean'
+                        type: 'boolean',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     },
                     'dont-know-if-crime-reported': {
                         description:
@@ -1731,7 +1761,17 @@ module.exports = {
                 properties: {
                     'q-offender-do-you-know-the-name-of-the-offender': {
                         title: "Do you know the offender's name?",
-                        type: 'boolean'
+                        type: 'boolean',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     },
                     'additional-info-help-text': {
                         description:
@@ -1835,7 +1875,17 @@ module.exports = {
                     'q-offender-do-you-have-contact-with-offender': {
                         type: 'boolean',
                         title:
-                            'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}'
+                            'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -1966,7 +2016,17 @@ module.exports = {
                     'q-applicant-have-you-applied-to-us-before': {
                         title:
                             'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     },
                     'q-enter-your-previous-reference-number': {
                         type: 'string',
@@ -2078,7 +2138,17 @@ module.exports = {
                         title:
                             'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
                         description:
-                            'For example, this may be compensation awarded by a court or in a private settlement.'
+                            'For example, this may be compensation awarded by a court or in a private settlement.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -2274,7 +2344,17 @@ module.exports = {
                     'q-applicant-have-you-been-known-by-any-other-names': {
                         type: 'boolean',
                         title:
-                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.title{?lng,context,ns}'
+                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -3780,7 +3860,17 @@ module.exports = {
                 properties: {
                     'q-applicant-has-a-decision-been-made': {
                         title: 'Have they made a decision about your claim?',
-                        type: 'boolean'
+                        type: 'boolean',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4004,7 +4094,17 @@ module.exports = {
                         description:
                             'l10nt:q-applicant-do-you-have-disabling-mental-injury.description{?lng,context,ns}',
                         title:
-                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.title{?lng,context,ns}'
+                            'l10nt:q-applicant-do-you-have-disabling-mental-injury.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4066,7 +4166,17 @@ module.exports = {
                 properties: {
                     'q-applicant-mental-injury-duration': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4296,7 +4406,17 @@ module.exports = {
                     'q-applicant-has-your-treatment-finished-dmi': {
                         type: 'boolean',
                         title:
-                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}'
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4411,7 +4531,18 @@ module.exports = {
                 properties: {
                     'q-applicant-are-you-registered-with-gp': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}'
+                        title:
+                            'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4476,7 +4607,17 @@ module.exports = {
                         type: 'boolean',
                         description:
                             'l10nt:q-applicant-have-you-seen-a-gp.description{?lng,context,ns}',
-                        title: 'l10nt:q-applicant-have-you-seen-a-gp.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-have-you-seen-a-gp.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4587,11 +4728,11 @@ module.exports = {
                         ],
                         errorMessage: {
                             required: {
-                                'q-gp-building-and-street': "Enter the name of your GP's practice",
+                                'q-gp-building-and-street': "Enter the name of the GP's practice",
                                 'q-gp-building-and-street2':
-                                    'Enter the building and street of your GP',
+                                    'Enter the building and street of the GP',
                                 'q-gp-town-or-city':
-                                    "Enter the town or city where your GP's practice is"
+                                    "Enter the town or city where the GP's practice is"
                             }
                         }
                     }
@@ -4682,7 +4823,17 @@ module.exports = {
                 properties: {
                     'q-applicant-dentist-visited': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4794,11 +4945,11 @@ module.exports = {
                         errorMessage: {
                             required: {
                                 'q-applicant-dentist-address-building-and-street':
-                                    "Enter the name of your dentist's practice",
+                                    "Enter the name of the dentist's practice",
                                 'q-applicant-dentist-address-building-and-street2':
-                                    'Enter the building and street of your dentist',
+                                    'Enter the building and street of the dentist',
                                 'q-applicant-dentist-address-town-or-city':
-                                    "Enter the town or city where your dentist's practice is"
+                                    "Enter the town or city where the dentist's practice is"
                             }
                         }
                     }
@@ -4890,7 +5041,17 @@ module.exports = {
                     'q-applicant-are-you-claiming-for-physical-injuries': {
                         type: 'boolean',
                         title:
-                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.title{?lng,context,ns}'
+                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -4953,9 +5114,9 @@ module.exports = {
                                 title: 'About your injuries',
                                 'title_someone-else': "About the child's injuries",
                                 description:
-                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about your mental health later in the application.</p>',
+                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask you about your mental health later in the application.</p>',
                                 'description_someone-else':
-                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask about the child\'s mental health later in the application.</p>'
+                                    '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if you\'ll get a payment for physical injuries.</p><p class="govuk-body">We’ll ask you about the child\'s mental health later in the application.</p>'
                             }
                         }
                     }
@@ -5067,7 +5228,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injury-upper': {
-                        title: 'What parts of the head, face or neck was injured?',
+                        title: 'What parts of the head, face or neck were injured?',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -9225,15 +9386,14 @@ module.exports = {
                         namespace: 'p-applicant-infections',
                         resources: {
                             'q-applicant-infections': {
-                                title:
-                                    'Do you have HIV, hepatitis or an STI as a result of the crime?',
+                                title: 'Did you get an infection as a result of the crime?',
                                 'title_someone-else':
-                                    'Do they have HIV, hepatitis or an STI as a result of the crime?',
+                                    'Did they get an infection as a result of the crime?',
                                 error: {
                                     required:
-                                        'Select yes if you have HIV, hepatitis or an STI as a result of the crime',
+                                        'Select yes if you got an infection as a result of the crime',
                                     'required_someone-else':
-                                        'Select yes if they have HIV, hepatitis or an STI as a result of the crime'
+                                        'Select yes if they got an infection as a result of the crime'
                                 }
                             }
                         }
@@ -9247,8 +9407,22 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-infections': {
-                        type: 'boolean',
-                        title: 'l10nt:q-applicant-infections.title{?lng,context,ns}'
+                        type: 'string',
+                        title: 'l10nt:q-applicant-infections.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: 'yes'
+                            },
+                            {
+                                title: 'No',
+                                const: 'no'
+                            },
+                            {
+                                title: "I'm not sure",
+                                const: 'not-sure'
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -9273,28 +9447,6 @@ module.exports = {
             }
         },
         'p-applicant-select-infections': {
-            l10n: {
-                vars: {
-                    lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
-                    ns: 'p-applicant-select-infections'
-                },
-                translations: [
-                    {
-                        language: 'en',
-                        namespace: 'p-applicant-select-infections',
-                        resources: {
-                            'q-applicant-physical-injuries': {
-                                title: 'Select what infection you have',
-                                'title_someone-else': 'What infection do they have?'
-                            }
-                        }
-                    }
-                ]
-            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -9302,7 +9454,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'l10nt:q-applicant-physical-injuries.title{?lng,context,ns}',
+                        title: 'What infection?',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -9321,14 +9473,59 @@ module.exports = {
                                 {
                                     title: 'Other sexually transmitted infection (STI)',
                                     const: 'phyinj-145'
+                                },
+                                {
+                                    title: 'Other infection',
+                                    const: 'phyinj-149'
                                 }
                             ]
+                        }
+                    },
+                    'q-applicant-infections-other': {
+                        type: 'string',
+                        title: 'Other infection',
+                        maxLength: 499,
+                        errorMessage: {
+                            maxLength: 'Other infections must be 499 characters or fewer'
                         }
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-physical-injuries': 'Select an infection from the list'
+                    }
+                },
+                allOf: [
+                    {
+                        $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                    }
+                ],
+                definitions: {
+                    'if-other-then-other-textbox-is-required': {
+                        if: {
+                            properties: {
+                                'q-applicant-physical-injuries': {
+                                    contains: {
+                                        const: 'phyinj-149'
+                                    }
+                                }
+                            },
+                            required: ['q-applicant-physical-injuries']
+                        },
+                        then: {
+                            required: ['q-applicant-infections-other'],
+                            propertyNames: {
+                                enum: [
+                                    'q-applicant-physical-injuries',
+                                    'q-applicant-infections-other'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-applicant-infections-other': 'Enter other infection'
+                                }
+                            }
+                        }
                     }
                 },
                 examples: [
@@ -9383,8 +9580,22 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-pregnancy': {
-                        type: 'boolean',
-                        title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}'
+                        type: 'string',
+                        title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: 'yes'
+                            },
+                            {
+                                title: 'No',
+                                const: 'no'
+                            },
+                            {
+                                title: "I'm not sure",
+                                const: 'not-sure'
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -9425,7 +9636,7 @@ module.exports = {
                         resources: {
                             'details-context': {
                                 description:
-                                    '<p class="govuk-body">We are going to ask for some details about your treatment</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
+                                    '<p class="govuk-body">We\'re going to ask for some details about your treatment</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if you\'ve told your GP about your injuries</li><li>who has evidence of your injuries</li></ul><p class="govuk-body">We often have to ask your GP or other health service provider for evidence about your injuries and treatment. We will let you know if we need to do this.</p>',
                                 'description_someone-else':
                                     '<p class="govuk-body">We\'re going to ask for some details about their treatment.</p><p class="govuk-body">We\'ll use these to understand:</p><ul class="govuk-list govuk-list--bullet"><li>if your GP is aware of the child\'s injuries</li><li>who has evidence of their injuries</li></ul><p class="govuk-body">We often have to ask their GP or other health service provider for evidence about the child’s injuries and treatment. We will let you know if we need to do this.</p>',
                                 title: 'Your treatment',
@@ -9555,7 +9766,17 @@ module.exports = {
                 properties: {
                     'q-applicant-medical-help': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -9751,9 +9972,23 @@ module.exports = {
                 properties: {
                     'q-applicant-unable-to-work-duration': {
                         type: 'boolean',
-                        title: 'Have you been unable to work for more than 28 weeks?',
+                        title: 'Was this for a period of six months or more?',
                         description:
-                            'This includes working less hours or being unable to look for work'
+                            'This must be 197 days or more. It can be a single period of time or cover several different times since the incident.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'details-work-duration': {
+                        description:
+                            "{% from \"components/details/macro.njk\" import govukDetails %}{{ govukDetails({summaryText: \"Help understanding the timeframe\",html: \"<p class='govuk-body'>If the child has been unable to work or look for a job for six months or more (197 days or 28 full weeks), you can apply for loss of earnings and special expenses.</p><p class='govuk-body'>This timeframe can be a single period of time or cover different time periods. For example, the child may go back to work in the same week the crime happens. But, they then cannot continue attending work due to the injuries sustained during the crime.</p><p class='govuk-body'>Our team will ask you for more details about this when they get in touch with you after you've sent the application.</p>\"})}}"
                     }
                 },
                 errorMessage: {
@@ -9778,6 +10013,38 @@ module.exports = {
             }
         },
         'p-applicant-job-when-crime-happened': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-job-when-crime-happened'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-job-when-crime-happened',
+                        resources: {
+                            'q-applicant-job-when-crime-happened': {
+                                title: 'Did you have a job when the crime happened?',
+                                'title_someone-else':
+                                    'Did the child have a job when the crime happened?',
+                                description:
+                                    'This can be a full-time, part-time, freelance, seasonal or self-employed job.',
+                                'description_someone-else':
+                                    'This can be a full-time, part-time, freelance, seasonal or self-employed job. It includes if the child had a formal job offer at the time of the crime.',
+                                error: {
+                                    required: 'Select yes if you had a job when the crime happened',
+                                    'required_someone-else':
+                                        'Select yes if the child had a job when the crime happened'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -9786,13 +10053,25 @@ module.exports = {
                 properties: {
                     'q-applicant-job-when-crime-happened': {
                         type: 'boolean',
-                        title: 'Did you have a job when the crime happened?'
+                        title: 'l10nt:q-applicant-job-when-crime-happened.title{?lng,context,ns}',
+                        description:
+                            'l10nt:q-applicant-job-when-crime-happened.description{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-job-when-crime-happened':
-                            'Select yes if you had a job when the crime happened'
+                            'l10nt:q-applicant-job-when-crime-happened.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -9818,35 +10097,37 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-work-details-option': {
-                        title: 'Select the option that applies to you',
-                        type: 'string',
-                        oneOf: [
-                            {
-                                title: 'I was too young to work',
-                                const: 'underage-for-work'
-                            },
-                            {
-                                title: 'I was in full-time education',
-                                const: 'education'
-                            },
-                            {
-                                title: 'I was caring for someone',
-                                const: 'care'
-                            },
-                            {
-                                title:
-                                    'I did not have a job but I had been in regular work for at least 3 years before the crime',
-                                const: 'employed'
-                            },
-                            {
-                                title: 'Other',
-                                const: 'other'
-                            }
-                        ]
+                        title: 'Tell us why you were not employed at this time',
+                        type: 'array',
+                        items: {
+                            anyOf: [
+                                {
+                                    title: 'I was too young to work',
+                                    const: 'underage-for-work'
+                                },
+                                {
+                                    title: 'I was in full-time education',
+                                    const: 'education'
+                                },
+                                {
+                                    title: 'I was caring for someone',
+                                    const: 'care'
+                                },
+                                {
+                                    title:
+                                        'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                                    const: 'employed'
+                                },
+                                {
+                                    title: 'Other',
+                                    const: 'other'
+                                }
+                            ]
+                        }
                     },
                     'q-applicant-work-details-other': {
                         type: 'string',
-                        title: 'Details',
+                        title: 'Other reason for not having a job',
                         maxLength: 100,
                         errorMessage: {
                             maxLength: 'Other details must be 100 characters or less'
@@ -10002,16 +10283,16 @@ module.exports = {
                 ]
             }
         },
-        'p--context-money': {
+        'p--context-crime-impact': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
                 properties: {
-                    'money-context': {
-                        title: 'Your money',
+                    'context-crime-impact': {
+                        title: 'The impact the crime has had - daily life and financially',
                         description:
-                            '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
+                            '<p class="govuk-body">We’re going to ask you questions about:</p><ul class="govuk-list govuk-list--bullet"><li>how your daily life has been impacted by the crime</li><li>if their injuries are long-term</li></ul><p class="govuk-body">The answers you give help build an understanding of how the crime has affected you.</p><p class="govuk-body">In sending this application, you will be considered for compensation for loss of earnings and special expenses.</p><h2 class="govuk-heading-m">Loss of earnings</h2><p class="govuk-body">If the medical evidence shows the injuries result in limited or no capacity to work, you may get a loss of earnings payment.</p> <h2 class="govuk-heading-m">Special expenses</h2> <p class="govuk-body">If you cannot work for more than six months or are likely to lose earnings because of how severe the injuries are, you may get a special expenses payment.</p><p class="govuk-body">Both of these payment types are to compensate for any financial losses you have because of the crime.</p>'
                     }
                 },
                 examples: [{}],
@@ -10059,8 +10340,22 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-pregnancy-loss': {
-                        type: 'boolean',
-                        title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}'
+                        type: 'string',
+                        title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: 'yes'
+                            },
+                            {
+                                title: 'No',
+                                const: 'no'
+                            },
+                            {
+                                title: "I'm not sure",
+                                const: 'not-sure'
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -10122,7 +10417,17 @@ module.exports = {
                 properties: {
                     'q-applicant-non-sa-infections': {
                         type: 'boolean',
-                        title: 'l10nt:q-applicant-non-sa-infections.title{?lng,context,ns}'
+                        title: 'l10nt:q-applicant-non-sa-infections.title{?lng,context,ns}',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -10154,7 +10459,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-physical-injuries': {
-                        title: 'Select what infection you have',
+                        title: 'What infection?',
                         type: 'array',
                         items: {
                             anyOf: [
@@ -10169,8 +10474,53 @@ module.exports = {
                                 {
                                     title: 'Hepatitis C',
                                     const: 'phyinj-143'
+                                },
+                                {
+                                    title: 'Other infection',
+                                    const: 'phyinj-149'
                                 }
                             ]
+                        }
+                    },
+                    'q-applicant-infections-other': {
+                        type: 'string',
+                        title: 'Other infection',
+                        maxLength: 499,
+                        errorMessage: {
+                            maxLength: 'Other infections must be 499 characters or fewer'
+                        }
+                    }
+                },
+                allOf: [
+                    {
+                        $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                    }
+                ],
+                definitions: {
+                    'if-other-then-other-textbox-is-required': {
+                        if: {
+                            properties: {
+                                'q-applicant-physical-injuries': {
+                                    contains: {
+                                        const: 'phyinj-149'
+                                    }
+                                }
+                            },
+                            required: ['q-applicant-physical-injuries']
+                        },
+                        then: {
+                            required: ['q-applicant-infections-other'],
+                            propertyNames: {
+                                enum: [
+                                    'q-applicant-physical-injuries',
+                                    'q-applicant-infections-other'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-applicant-infections-other': 'Enter other infection'
+                                }
+                            }
                         }
                     }
                 },
@@ -10203,7 +10553,17 @@ module.exports = {
                 properties: {
                     'q-applicant-fatal-claim': {
                         type: 'boolean',
-                        title: 'Are you applying for someone who died from their injuries?'
+                        title: 'Are you applying for someone who died from their injuries?',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -10349,7 +10709,17 @@ module.exports = {
                         type: 'boolean',
                         title: 'Would you like to add any information to your claim?',
                         description:
-                            'This may include details of additional crime reference numbers, locations, dates and/or offenders.'
+                            'This may include details of additional crime reference numbers, locations, dates and/or offenders.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -10419,7 +10789,17 @@ module.exports = {
                         type: 'boolean',
                         title: 'Do you want to briefly describe the crime?',
                         description:
-                            'The police will send us a report of the crime. Providing an additional description is optional.'
+                            'The police will send us a report of the crime. Providing an additional description is optional.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     }
                 },
                 errorMessage: {
@@ -10488,7 +10868,17 @@ module.exports = {
                         type: 'boolean',
                         title: 'Do you have a crime reference number?',
                         description:
-                            'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.'
+                            'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     },
                     'crn-info': {
                         description:
@@ -11138,7 +11528,17 @@ module.exports = {
                         title:
                             'Do you share parental responsibility for the child with another person?',
                         description:
-                            'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.'
+                            'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
                     },
                     'mainapplicant-applicant-shared-responsibility': {
                         description:
@@ -11275,6 +11675,681 @@ module.exports = {
                     },
                     {
                         'q-mainapplicant-applicant-care-order-authority': ['local authority']
+                    }
+                ]
+            }
+        },
+        'p--context-pregnancy': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'pregnancy-context': {
+                        title: 'Pregnancy',
+                        description:
+                            '<p class="govuk-body">We need to ask a few questions about pregnancy related to the crime. This helps us better understand the case and if we need to ask for more evidence from you. It also ensures you’re considered for all correct compensation from us.</p><p class="govuk-body">These questions may be difficult to answer or may not be relevant to this application. You can choose not to share this information with us by answering the following questions "No". This means we may not be able to pay compensation to you for this part of the application.</p><h2 class="govuk-heading-m">Your privacy and confidentiality</h2><p class="govuk-body">We may need to contact you or the police if we need to get more information about this. We will not share this information with anyone else.</p><h2 class="govuk-heading-m">Help and support</h2><p class="govuk-body">You can get practical and emotional support after a crime. Visit <a href="https://www.victimandwitnessinformation.org.uk/" target="new">Victim and Witness information</a> if you’re in England and Wales. Or <a href="https://www.mygov.scot/victim-witness-support/" target="new">support as a victim or witness of crime</a> in Scotland.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support with the application",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
+                    }
+                },
+                examples: [{}],
+                invalidExamples: [
+                    {
+                        foo: 'bar'
+                    }
+                ]
+            }
+        },
+        'p-applicant-unable-to-work': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-unable-to-work'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-unable-to-work': {
+                        type: 'boolean',
+                        title: 'Were you unable to work or look for a job because of the crime?',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'details-unable-to-work': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with working and looking for a job",html: \'<p class="govuk-body">Being unable to work includes missing work or having to leave your job because of the injuries you received from the crime.</p><p class="govuk-body">It can also apply to being unable to look for another job in any line of work because of the injuries.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-unable-to-work':
+                            'Select yes if you had a job when the crime happened'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-unable-to-work': true
+                    },
+                    {
+                        'q-applicant-unable-to-work': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-unable-to-work': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-se-treatment': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-se-treatment'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-se-treatment': {
+                        type: 'boolean',
+                        title:
+                            'Have you paid for treatments from the NHS or other state health service because of the incident?',
+                        description:
+                            'Other health services from outside the United Kingdom are considered.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-se-treatment': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with treatment providers",html: \'<p class="govuk-body">This applies only to costs relating to treatments you have paid for. This includes payments to the National Health Service (NHS) or other state health service outside the United Kingdom.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-se-treatment':
+                            'Select yes if you paid for treatments from the NHS or other state health service because of the incident'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-se-treatment': true
+                    },
+                    {
+                        'q-applicant-se-treatment': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-se-treatment': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-se-home-care': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-se-home-care'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-se-home-care': {
+                        type: 'boolean',
+                        title: 'Have you paid for home care services as a result of the incident?',
+                        description: 'Care applies to the child’s functions or meal preparation.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-se-home-care': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with home care services",html: \'<p class="govuk-body">This applies to costs for home care services you needed after the incident.</p><p class="govuk-body">The care you need might include:</p><ul class="govuk-list govuk-list--bullet"><li>going to the toilet</li><li>bathing</li><li>continence management</li><li>food preparation</li><li>eating</li><li>taking medication</li><li>administering other treatments</li></ul>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-se-home-care':
+                            'Select yes if you paid for home care services as a result of the incident'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-se-home-care': true
+                    },
+                    {
+                        'q-applicant-se-home-care': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-se-home-care': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-se-home-changes': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-se-home-changes'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-se-home-changes': {
+                        type: 'boolean',
+                        title:
+                            'Have you had to pay for any changes to your home because of the incident?',
+                        description:
+                            'Costs can only relate to changes within the home you stayed in at the time.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-se-home-changes': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with changes to the home",html: \'<p class="govuk-body">This applies to costs relating to changes you or the child had to make within your home at the time of the incident. This does not apply to the cost of buying a new home because of the incident.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-se-home-changes':
+                            'Select yes if you had to pay for any changes to your home because of the incident'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-se-home-changes': true
+                    },
+                    {
+                        'q-applicant-se-home-changes': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-se-home-changes': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-se-aids': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-se-aids'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-se-aids': {
+                        type: 'boolean',
+                        title: 'Have you had to buy or pay for the repair of physical aids?',
+                        description: 'They were lost or damaged during the incident.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-se-aids': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to replacing or repairing physical aids. And cannot be considered if it is an ongoing expense.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-se-aids':
+                            'Select yes if you had to buy or pay for the repair of physical aids'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-se-aids': true
+                    },
+                    {
+                        'q-applicant-se-aids': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-se-aids': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-se-other': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-se-other'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-se-other': {
+                        type: 'boolean',
+                        title: 'Have you paid for any other expenses not already mentioned?',
+                        description: 'If yes, tell us more at the end of this application.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-se-other': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with any other expenses",html: \'<p class="govuk-body">Other expenses can be the cost of:</p><ul class="govuk-list govuk-list--bullet"><li>special equipment</li><li>supervision by care professionals</li><li>administrators who handle your affairs</li><li>setting up a trust as instructed by a claims officer</li></ul>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-se-other':
+                            'Select yes if you had to buy or pay for the repair of physical aids'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-se-other': true
+                    },
+                    {
+                        'q-applicant-se-other': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-se-other': 'foo'
+                    }
+                ]
+            }
+        },
+        'p--context-special-expenses': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'se-context': {
+                        title: 'Applying for special expenses',
+                        description:
+                            '<p class="govuk-body">In applying for special expenses, you confirm you experienced one of the following for a period of six months or more because of the crime. You:</p><ul class="govuk-list govuk-list--bullet"><li>lost money from your job as you could not attend work</li><li>were unable to work due to your injuries</li></ul><p class="govuk-body">The period of six months or more must cover 197 days or more (28 full weeks). This can be a single period of time or cover several different periods of time.</p><p class="govuk-body">Special expenses you can apply for include:</p><ul class="govuk-list govuk-list--bullet"><li>physical aids lost or damaged during the incident</li><li>cost of treatments delivered by the NHS</li><li>cost of treatments delivered by a state health service outside the United Kingdom</li><li>special equipment</li><li>required changes to the home as a result of the incident</li><li>cost of care that resulted from the incident</li><li>cost of supervision by care professionals</li><li>cost of administrators who handle your affairs</li></ul>'
+                    }
+                },
+                examples: [{}],
+                invalidExamples: [
+                    {
+                        foo: 'bar'
+                    }
+                ]
+            }
+        },
+        'p-applicant-over-16': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-over-16'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-over-16': {
+                        type: 'boolean',
+                        title: 'Was the child over 16 at the time of the crime?',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-over-16':
+                            'Select yes if the child over 16 at the time of the crime'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-over-16': true
+                    },
+                    {
+                        'q-applicant-over-16': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-over-16': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-affected-daily-capacity': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-affected-daily-capacity'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-affected-daily-capacity': {
+                        type: 'boolean',
+                        title:
+                            'Has their capacity to do day-to-day activities been affected by the crime?',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-affected-daily-capacity':
+                            'Select yes if their capacity to do day-to-day activities been affected by the crime'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-affected-daily-capacity': true
+                    },
+                    {
+                        'q-applicant-affected-daily-capacity': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-affected-daily-capacity': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-affect-duration': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-affect-duration'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-affect-duration': {
+                        type: 'boolean',
+                        title: 'Has this lasted for more than 28 weeks from the date of injury?',
+                        description:
+                            'This can be a single period of time or cover several periods of time since the crime.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'help-affect-duration': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: \'<p class="govuk-body">28 weeks is more than six months.</p><p class="govuk-body">You cannot get a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-affect-duration':
+                            'Select yes if you had to buy or pay for the repair of physical aids'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-affect-duration': true
+                    },
+                    {
+                        'q-applicant-affect-duration': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-affect-duration': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-affect-future-duration': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-affect-future-duration'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-affect-future-duration': {
+                        type: 'string',
+                        title:
+                            'Is this injury likely to affect them for more than 28 weeks from the date of the injury?',
+                        description:
+                            'This can be a single period of time or cover several periods of time since the crime.',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: 'yes'
+                            },
+                            {
+                                title: 'No',
+                                const: 'no'
+                            },
+                            {
+                                title: 'I do not know',
+                                const: 'dont-know'
+                            }
+                        ]
+                    },
+                    'help-affect-future-duration': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: \'<p class="govuk-body">28 weeks is more than six months.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-affect-future-duration':
+                            'Select yes if you had to buy or pay for the repair of physical aids'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-affect-future-duration': true
+                    },
+                    {
+                        'q-applicant-affect-future-duration': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-affect-future-duration': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-future-work': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-future-work'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-future-work': {
+                        type: 'string',
+                        title:
+                            'Has the child’s ability to work in future been affected by the crime?',
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: 'yes'
+                            },
+                            {
+                                title: 'No',
+                                const: 'no'
+                            },
+                            {
+                                title: 'I do not know',
+                                const: 'dont-know'
+                            }
+                        ]
+                    },
+                    'help-future-work': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the ability to work in future",html: \'<p class="govuk-body">They must have no capacity or very limited capacity to work because of the injury. This must be for longer than 28 weeks. It can be a full-time, part-time, freelance, seasonal or self-employed job. It includes if the child had a formal job offer at the time of the crime. This is the only situation in which we can make a loss of earnings payment.</p><p class="govuk-body">You cannot get a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-future-work':
+                            'Select yes if you had to buy or pay for the repair of physical aids'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-future-work': true
+                    },
+                    {
+                        'q-applicant-future-work': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-future-work': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-applicant-work-details-option-rep': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-applicant-work-details-option-rep'],
+                additionalProperties: false,
+                properties: {
+                    'q-applicant-work-details-option-rep': {
+                        title: 'Tell us why the child did not have a job at this time',
+                        description: 'Select all that apply.',
+                        type: 'array',
+                        items: {
+                            anyOf: [
+                                {
+                                    title: 'At school, college or university',
+                                    const: 'education'
+                                },
+                                {
+                                    title: 'Searching for a job',
+                                    const: 'searching'
+                                },
+                                {
+                                    title: 'Caring for someone',
+                                    const: 'care'
+                                },
+                                {
+                                    title: 'Other',
+                                    const: 'other'
+                                }
+                            ]
+                        }
+                    },
+                    'q-applicant-work-details-rep-other': {
+                        type: 'string',
+                        title: 'Other reason for not having a job',
+                        maxLength: 100,
+                        errorMessage: {
+                            maxLength: 'Other details must be 100 characters or less'
+                        }
+                    }
+                },
+                allOf: [
+                    {
+                        $ref:
+                            '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                    }
+                ],
+                definitions: {
+                    'if-other-then-q-applicant-work-details-other-is-required': {
+                        if: {
+                            properties: {
+                                'q-applicant-work-details-option-rep': {
+                                    const: 'other'
+                                }
+                            },
+                            required: ['q-applicant-work-details-option-rep']
+                        },
+                        then: {
+                            required: ['q-applicant-work-details-rep-other'],
+                            propertyNames: {
+                                enum: [
+                                    'q-applicant-work-details-option-rep',
+                                    'q-applicant-work-details-rep-other'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-applicant-work-details-rep-other': 'Enter other details'
+                                }
+                            }
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-applicant-work-details-option-rep':
+                            'Select the option that applies to you'
+                    }
+                },
+                examples: [
+                    {
+                        'q-applicant-work-details-option-rep': 'care'
+                    },
+                    {
+                        'q-applicant-work-details-option-rep': 'other',
+                        'q-applicant-work-details-rep-other': 'a string'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-applicant-work-details-option-rep': 1234
+                    },
+                    {
+                        'q-applicant-work-details-option-rep': 'other'
+                    },
+                    {
+                        'q-applicant-work-details-option-rep': 'other',
+                        'q-applicant-work-details-rep-other': 1234
                     }
                 ]
             }
@@ -11991,7 +13066,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details',
+                            target: 'p-applicant-infections',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
@@ -12022,7 +13097,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-affect-on-daily-life-dmi',
+                            target: 'p--context-crime-impact',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
@@ -12044,7 +13119,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-affect-on-daily-life-dmi'
+                            target: 'p--context-crime-impact'
                         }
                     ]
                 }
@@ -12070,7 +13145,7 @@ module.exports = {
             'p-applicant-affect-on-daily-life-dmi': {
                 on: {
                     ANSWER: [
-                        {
+                        /*{
                             target: 'p--context-treatment',
                             cond: [
                                 'or',
@@ -12105,9 +13180,9 @@ module.exports = {
                                     true
                                 ]
                             ]
-                        },
+                        },*/
                         {
-                            target: 'p--context-money'
+                            target: 'p--context-special-expenses'
                         }
                     ]
                 }
@@ -12199,7 +13274,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-money'
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
@@ -12216,7 +13291,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-money'
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
@@ -12241,7 +13316,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-money'
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
@@ -12282,7 +13357,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12363,7 +13438,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12460,7 +13535,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12549,7 +13624,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12630,7 +13705,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12703,7 +13778,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12768,7 +13843,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12825,7 +13900,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12874,7 +13949,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12915,7 +13990,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -12948,7 +14023,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13021,7 +14096,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13102,7 +14177,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13175,7 +14250,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13240,7 +14315,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13297,7 +14372,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13346,7 +14421,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13387,7 +14462,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13420,7 +14495,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13445,7 +14520,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13518,7 +14593,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13591,7 +14666,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13656,7 +14731,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13713,7 +14788,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13762,7 +14837,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13803,7 +14878,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13836,7 +14911,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13861,7 +14936,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13878,7 +14953,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -13951,7 +15026,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14016,7 +15091,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14073,7 +15148,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14122,7 +15197,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14163,7 +15238,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14196,7 +15271,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14221,7 +15296,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14238,7 +15313,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14247,7 +15322,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-dmi-details'
+                            target: 'p-applicant-infections'
                         }
                     ]
                 }
@@ -14256,15 +15331,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-infections',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
-                                'SEX'
-                            ]
-                        },
-                        {
-                            target: 'p-applicant-non-sa-infections'
+                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
                         }
                     ]
                 }
@@ -14275,21 +15342,55 @@ module.exports = {
                         {
                             target: 'p-applicant-select-infections',
                             cond: [
-                                '==',
-                                '$.answers.p-applicant-infections.q-applicant-infections',
-                                true
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-infections.q-applicant-infections',
+                                    'yes'
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                    'SEX'
+                                ]
                             ]
                         },
                         {
-                            target: 'p-applicant-pregnancy',
+                            target: 'p-applicant-select-non-sa-infections',
                             cond: [
-                                '==',
-                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
-                                'SEX'
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-infections.q-applicant-infections',
+                                    'yes'
+                                ],
+                                [
+                                    '!=',
+                                    '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                    'SEX'
+                                ]
                             ]
                         },
                         {
-                            target: 'p-applicant-pregnancy-loss'
+                            target: 'p--context-pregnancy',
+                            cond: [
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-infections.q-applicant-infections',
+                                    'no'
+                                ],
+                                [
+                                    'operatorDateCompareToToday',
+                                    '>',
+                                    '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
+                                    7,
+                                    'years'
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -14298,15 +15399,17 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-pregnancy',
+                            target: 'p--context-pregnancy',
                             cond: [
-                                '==',
-                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
-                                'SEX'
+                                'operatorDateCompareToToday',
+                                '>',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
+                                7,
+                                'years'
                             ]
                         },
                         {
-                            target: 'p-applicant-pregnancy-loss'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -14349,7 +15452,7 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p--context-money'
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
@@ -14358,16 +15461,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p--context-money'
-                        }
-                    ]
-                }
-            },
-            'p--context-money': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-unable-to-work-duration'
+                            target: 'p--context-compensation'
                         }
                     ]
                 }
@@ -14376,15 +15470,15 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-job-when-crime-happened',
+                            target: 'p-applicant-future-work',
                             cond: [
                                 '==',
-                                '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
-                                true
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
                             ]
                         },
                         {
-                            target: 'p--context-compensation'
+                            target: 'p-applicant-affect-on-daily-life-dmi'
                         }
                     ]
                 }
@@ -14393,7 +15487,23 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-expenses',
+                            target: 'p-applicant-work-details-option-rep',
+                            cond: [
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
+                                    true
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                    'someone-else'
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-unable-to-work',
                             cond: [
                                 '==',
                                 '$.answers.p-applicant-job-when-crime-happened.q-applicant-job-when-crime-happened',
@@ -14410,7 +15520,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-expenses'
+                            target: 'p-applicant-unable-to-work'
                         }
                     ]
                 }
@@ -14428,24 +15538,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-are-you-claiming-for-physical-injuries'
-                        }
-                    ]
-                }
-            },
-            'p-applicant-non-sa-infections': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-select-non-sa-infections',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
-                                true
-                            ]
-                        },
-                        {
-                            target: 'p-applicant-pregnancy-loss'
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -14454,7 +15547,17 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-applicant-pregnancy-loss'
+                            target: 'p--context-pregnancy',
+                            cond: [
+                                'operatorDateCompareToToday',
+                                '>',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
+                                7,
+                                'years'
+                            ]
+                        },
+                        {
+                            target: 'p--context-dmi-details'
                         }
                     ]
                 }
@@ -14719,6 +15822,201 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p--context-applicant-details'
+                        }
+                    ]
+                }
+            },
+            'p--context-pregnancy': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-pregnancy',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-incident-type.q-applicant-incident-type',
+                                'SEX'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-pregnancy-loss'
+                        }
+                    ]
+                }
+            },
+            'p--context-crime-impact': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-over-16',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-job-when-crime-happened'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-unable-to-work': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-unable-to-work-duration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-future-work',
+                            cond: [
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                    'someone-else'
+                                ]
+                            ]
+                        },
+                        {
+                            target: 'p--context-treatment'
+                        }
+                    ]
+                }
+            },
+            'p--context-special-expenses': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-se-treatment'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-se-treatment': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-se-home-care'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-se-home-care': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-se-home-changes'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-se-home-changes': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-se-aids'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-se-aids': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-se-other'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-se-other': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-treatment'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-over-16': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-affected-daily-capacity',
+                            cond: ['==', '$.answers.p-applicant-over-16.q-applicant-over-16', false]
+                        },
+                        {
+                            target: 'p-applicant-job-when-crime-happened'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-future-work': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-affect-on-daily-life-dmi'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-affected-daily-capacity': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-affect-duration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-affected-daily-capacity.q-applicant-affected-daily-capacity',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-future-work'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-affect-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-affect-future-duration',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-affect-duration.q-applicant-affect-duration',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p-applicant-future-work'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-affect-future-duration': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-future-work'
+                        }
+                    ]
+                }
+            },
+            'p-applicant-work-details-option-rep': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-applicant-unable-to-work'
                         }
                     ]
                 }
