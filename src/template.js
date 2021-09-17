@@ -57,7 +57,7 @@ module.exports = {
                 },
                 properties: {
                     'q-applicant-confirmation-method': {
-                        title: "How should we tell you we've got your application?",
+                        title: "How should we tell you we've got the application?",
                         type: 'string',
                         oneOf: [
                             {
@@ -269,6 +269,34 @@ module.exports = {
             }
         },
         'p-applicant-british-citizen-or-eu-national': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-british-citizen-or-eu-national'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-british-citizen-or-eu-national',
+                        resources: {
+                            'q-applicant-british-citizen-or-eu-national': {
+                                title: 'Are you a British citizen or EU national?',
+                                'title_someone-else': 'Are they a British citizen or EU national?',
+                                error: {
+                                    required:
+                                        'Select yes if you are a British citizen or EU national',
+                                    'required_someone-else':
+                                        'Select yes if they are a British citizen or EU national'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -276,24 +304,15 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-british-citizen-or-eu-national': {
-                        title: 'Are you a British citizen or EU national?',
                         type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        title:
+                            'l10nt:q-applicant-british-citizen-or-eu-national.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
                         'q-applicant-british-citizen-or-eu-national':
-                            'Select yes if you are a British citizen or EU national'
+                            'l10nt:q-applicant-british-citizen-or-eu-national.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -312,6 +331,33 @@ module.exports = {
             }
         },
         'p-applicant-are-you-18-or-over': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-are-you-18-or-over'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-are-you-18-or-over',
+                        resources: {
+                            'q-applicant-are-you-18-or-over': {
+                                title: 'Are you 18 or over?',
+                                'title_someone-else': 'Is the person 18 or over?',
+                                error: {
+                                    required: 'Select yes if you are 18 or over',
+                                    'required_someone-else':
+                                        'Select yes if the person is 18 or over'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -319,23 +365,14 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-are-you-18-or-over': {
-                        title: 'Are you 18 or over?',
                         type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        title: 'l10nt:q-applicant-are-you-18-or-over.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-are-you-18-or-over': 'Select yes if you are 18 or over'
+                        'q-applicant-are-you-18-or-over':
+                            'l10nt:q-applicant-are-you-18-or-over.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -425,17 +462,7 @@ module.exports = {
                 properties: {
                     'q--was-the-crime-reported-to-police': {
                         title: 'Was the crime reported to the police?',
-                        type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        type: 'boolean'
                     },
                     'dont-know-if-crime-reported': {
                         description:
@@ -1740,9 +1767,9 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-offender-do-you-have-contact-with-offender': {
+                        type: 'boolean',
                         title:
-                            'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}',
-                        type: 'boolean'
+                            'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -2153,9 +2180,9 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-have-you-been-known-by-any-other-names': {
+                        type: 'boolean',
                         title:
-                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.title{?lng,context,ns}',
-                        type: 'boolean'
+                            'l10nt:q-applicant-have-you-been-known-by-any-other-names.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -3628,17 +3655,7 @@ module.exports = {
                 properties: {
                     'q-applicant-has-a-decision-been-made': {
                         title: 'Have they made a decision about your claim?',
-                        type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        type: 'boolean'
                     }
                 },
                 errorMessage: {
@@ -3923,8 +3940,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-mental-injury-duration': {
-                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -4152,9 +4169,9 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-has-your-treatment-finished-dmi': {
+                        type: 'boolean',
                         title:
-                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}',
-                        type: 'boolean'
+                            'l10nt:q-applicant-has-your-treatment-finished-dmi.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -4268,9 +4285,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-are-you-registered-with-gp': {
-                        title:
-                            'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -4504,8 +4520,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-dentist-visited': {
-                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -4677,9 +4693,9 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-are-you-claiming-for-physical-injuries': {
+                        type: 'boolean',
                         title:
-                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.title{?lng,context,ns}',
-                        type: 'boolean'
+                            'l10nt:q-applicant-are-you-claiming-for-physical-injuries.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9036,8 +9052,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-infections': {
-                        title: 'l10nt:q-applicant-infections.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-infections.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9172,8 +9188,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-pregnancy': {
-                        title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9343,8 +9359,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-medical-help': {
-                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9505,20 +9521,10 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-unable-to-work-duration': {
+                        type: 'boolean',
                         title: 'Have you been unable to work for more than 28 weeks?',
                         description:
-                            'This includes working less hours or being unable to look for work',
-                        type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                            'This includes working less hours or being unable to look for work'
                     }
                 },
                 errorMessage: {
@@ -9550,18 +9556,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-job-when-crime-happened': {
-                        title: 'Did you have a job when the crime happened?',
                         type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        title: 'Did you have a job when the crime happened?'
                     }
                 },
                 errorMessage: {
@@ -9834,8 +9830,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-pregnancy-loss': {
-                        title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9896,8 +9892,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-non-sa-infections': {
-                        title: 'l10nt:q-applicant-non-sa-infections.title{?lng,context,ns}',
-                        type: 'boolean'
+                        type: 'boolean',
+                        title: 'l10nt:q-applicant-non-sa-infections.title{?lng,context,ns}'
                     }
                 },
                 errorMessage: {
@@ -9977,18 +9973,8 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-fatal-claim': {
-                        title: 'Are you applying for someone who died from their injuries?',
                         type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                        title: 'Are you applying for someone who died from their injuries?'
                     }
                 },
                 errorMessage: {
@@ -10131,20 +10117,10 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-provide-additional-information': {
+                        type: 'boolean',
                         title: 'Would you like to add any information to your claim?',
                         description:
-                            'This may include details of additional crime reference numbers, locations, dates and/or offenders.',
-                        type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                            'This may include details of additional crime reference numbers, locations, dates and/or offenders.'
                     }
                 },
                 errorMessage: {
@@ -10280,20 +10256,10 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-has-crime-reference-number': {
+                        type: 'boolean',
                         title: 'Do you have a crime reference number?',
                         description:
-                            'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.',
-                        type: 'boolean',
-                        oneOf: [
-                            {
-                                title: 'Yes',
-                                const: true
-                            },
-                            {
-                                title: 'No',
-                                const: false
-                            }
-                        ]
+                            'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.'
                     },
                     'crn-info': {
                         description:
@@ -10337,6 +10303,749 @@ module.exports = {
                 invalidExamples: [
                     {
                         foo: 'bar'
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-parent': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-parent'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-parent': {
+                        type: 'boolean',
+                        title: "Are you the child's parent?",
+                        description:
+                            "This means you have parental responsibility for the child as their birth, step or adoptive parent. Or, you're named on a special guardianship order.",
+                        oneOf: [
+                            {
+                                title: 'Yes',
+                                const: true
+                            },
+                            {
+                                title: 'No',
+                                const: false
+                            }
+                        ]
+                    },
+                    'can-i-apply-for-child': {
+                        description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Can I apply for the child?",html: "<p class='govuk-body'>You need to prove you have parental responsibility for the child to apply.</p><p class='govuk-body'>To prove this, you'll need relevant documents your name is on, such as:</p><ul class='govuk-list govuk-list--bullet'><li>the child's full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class='govuk-body'>If you're still unsure about parental responsibility and what they mean, you can find out more <a href='https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility'>on the UK Government website</a> (opens in new tab).</p>"})}}`
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-parent': "Select yes if you are the child's parent"
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-parent': true
+                    },
+                    {
+                        'q-mainapplicant-parent': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-parent': 'foo'
+                    }
+                ]
+            }
+        },
+        'p--context-authority': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'authority-to-apply': {
+                        title:
+                            'You need to send proof you have parental responsibility for the child',
+                        description:
+                            '<p class="govuk-body">We need proof so we know you have the right to apply on the child\'s behalf.</p><p class="govuk-body">This proof can be:</p><ul class="govuk-list govuk-list--bullet"><li>the child\'s full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class="govuk-body">You can:</p><ul class="govuk-list govuk-list--bullet"><li>take or scan a photo and send it via email</li><li>send a photocopy of this to us via post</li></ul><p class="govuk-body">If your name or the child\'s name has changed, you\'ll have to show proof of this change.</p><p class="govuk-body">We\'ll tell you how to send this at the end of the application.</p>'
+                    }
+                },
+                examples: [{}],
+                invalidExamples: [
+                    {
+                        foo: 'bar'
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-context-details': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'details-context': {
+                        title: 'Your details',
+                        description:
+                            '<p class="govuk-body">We\'re going to ask for some details about you.</p><p class="govuk-body">We\'ll use these to contact you about this application.</p>'
+                    }
+                },
+                examples: [{}],
+                invalidExamples: [
+                    {
+                        foo: 'bar'
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-confirmation-method': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                propertyNames: {
+                    enum: [
+                        'q-mainapplicant-confirmation-method',
+                        'q-mainapplicant-enter-your-email-address',
+                        'q-mainapplicant-enter-your-telephone-number'
+                    ]
+                },
+                properties: {
+                    'q-mainapplicant-confirmation-method': {
+                        title: "How should we tell you we've got your application?",
+                        type: 'string',
+                        oneOf: [
+                            {
+                                title: 'Email',
+                                const: 'email'
+                            },
+                            {
+                                title: 'Text message',
+                                const: 'text'
+                            },
+                            {
+                                title: "I don't have an email address or UK mobile phone number",
+                                const: 'none'
+                            }
+                        ]
+                    },
+                    'q-mainapplicant-enter-your-email-address': {
+                        type: 'string',
+                        title: 'Email address',
+                        maxLength: 50,
+                        format: 'email',
+                        errorMessage: {
+                            maxLength: 'Email address must be 50 characters or less',
+                            format:
+                                'Enter an email address in the correct format, like name@example.com'
+                        }
+                    },
+                    'q-mainapplicant-enter-your-telephone-number': {
+                        type: 'string',
+                        title: 'UK mobile phone number',
+                        maxLength: 20,
+                        format: 'mobile-uk',
+                        errorMessage: {
+                            format:
+                                'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
+                            maxLength: 'Telephone number must be 20 characters or less'
+                        }
+                    }
+                },
+                required: ['q-mainapplicant-confirmation-method'],
+                allOf: [
+                    {
+                        $ref:
+                            '#/definitions/if-email-then-q-mainapplicant-enter-your-email-address-is-required'
+                    },
+                    {
+                        $ref:
+                            '#/definitions/if-text-then-q-mainapplicant-enter-your-telephone-number-is-required'
+                    },
+                    {
+                        $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
+                    }
+                ],
+                definitions: {
+                    'if-email-then-q-mainapplicant-enter-your-email-address-is-required': {
+                        if: {
+                            properties: {
+                                'q-mainapplicant-confirmation-method': {
+                                    const: 'email'
+                                }
+                            },
+                            required: ['q-mainapplicant-confirmation-method']
+                        },
+                        then: {
+                            required: ['q-mainapplicant-enter-your-email-address'],
+                            propertyNames: {
+                                enum: [
+                                    'q-mainapplicant-confirmation-method',
+                                    'q-mainapplicant-enter-your-email-address'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-mainapplicant-enter-your-email-address':
+                                        'Enter an email address'
+                                }
+                            }
+                        }
+                    },
+                    'if-text-then-q-mainapplicant-enter-your-telephone-number-is-required': {
+                        if: {
+                            properties: {
+                                'q-mainapplicant-confirmation-method': {
+                                    const: 'text'
+                                }
+                            },
+                            required: ['q-mainapplicant-confirmation-method']
+                        },
+                        then: {
+                            required: ['q-mainapplicant-enter-your-telephone-number'],
+                            propertyNames: {
+                                enum: [
+                                    'q-mainapplicant-confirmation-method',
+                                    'q-mainapplicant-enter-your-telephone-number'
+                                ]
+                            },
+                            errorMessage: {
+                                required: {
+                                    'q-mainapplicant-enter-your-telephone-number':
+                                        'Enter a UK mobile phone number'
+                                }
+                            }
+                        }
+                    },
+                    'if-none-then-phone-and-email-explicitly-not-required': {
+                        if: {
+                            properties: {
+                                'q-mainapplicant-confirmation-method': {
+                                    const: 'none'
+                                }
+                            },
+                            required: ['q-mainapplicant-confirmation-method']
+                        },
+                        then: {
+                            additionalProperties: false,
+                            properties: {
+                                'q-mainapplicant-confirmation-method': {
+                                    const: 'none'
+                                }
+                            },
+                            required: ['q-mainapplicant-confirmation-method']
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-confirmation-method':
+                            'Select how you want to get your confirmation message'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-confirmation-method': 'none'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'email',
+                        'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-telephone-number': '07701 234567'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-confirmation-method': 'none',
+                        'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'none',
+                        'q-mainapplicant-enter-your-telephone-number': '07701 234567'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'email'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'email',
+                        'q-mainapplicant-enter-your-telephone-number': '07701 234567'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'email',
+                        'q-mainapplicant-enter-your-email-address': 'not an email address'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-telephone-number':
+                            'not a UK mobile phone number'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-telephone-number': '0141 420 5000'
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 10
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': false
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': true,
+                        'q-mainapplicant-enter-your-email-address': true
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'none',
+                        'q-mainapplicant-enter-your-email-address': ['something']
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'none',
+                        'q-mainapplicant-enter-your-email-address': 123
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-email-address': true
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'text',
+                        'q-mainapplicant-enter-your-telephone-number': 123
+                    },
+                    {
+                        'q-mainapplicant-confirmation-method': 'email',
+                        'q-mainapplicant-enter-your-telephone-number': false
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-enter-your-name': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                title: 'Enter your name',
+                type: 'object',
+                required: [
+                    'q-mainapplicant-title',
+                    'q-mainapplicant-first-name',
+                    'q-mainapplicant-last-name'
+                ],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-title': {
+                        title: 'Title',
+                        type: 'string',
+                        maxLength: 6,
+                        errorMessage: {
+                            maxLength: 'Title must be 6 characters or less'
+                        }
+                    },
+                    'q-mainapplicant-first-name': {
+                        title: 'First name',
+                        type: 'string',
+                        maxLength: 70,
+                        errorMessage: {
+                            maxLength: 'First name must be 70 characters or less'
+                        }
+                    },
+                    'q-mainapplicant-last-name': {
+                        title: 'Last name',
+                        type: 'string',
+                        maxLength: 70,
+                        errorMessage: {
+                            maxLength: 'Last name must be 70 characters or less'
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-title': 'Enter your title',
+                        'q-mainapplicant-first-name': 'Enter your first name',
+                        'q-mainapplicant-last-name': 'Enter your last name'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-title': 'Mr',
+                        'q-mainapplicant-first-name': 'Foo',
+                        'q-mainapplicant-last-name': 'Bar'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-title': 12345,
+                        'q-mainapplicant-first-name': 'Foo',
+                        'q-mainapplicant-last-name': 'Bar'
+                    },
+                    {
+                        'q-mainapplicant-title': 'Mr',
+                        'q-mainapplicant-first-name': 12345,
+                        'q-mainapplicant-last-name': 'Bar'
+                    },
+                    {
+                        'q-mainapplicant-title': 'Mr',
+                        'q-mainapplicant-first-name': 'Foo',
+                        'q-mainapplicant-last-name': 12345
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-enter-your-address': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                title: 'Enter your address',
+                required: ['q-mainapplicant-building-and-street', 'q-mainapplicant-town-or-city'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-building-and-street': {
+                        type: 'string',
+                        title: 'Building and street',
+                        maxLength: 60,
+                        errorMessage: {
+                            maxLength: 'First line of address must be less than 60 characters'
+                        }
+                    },
+                    'q-mainapplicant-building-and-street-2': {
+                        type: 'string',
+                        title: 'Building and street line 2',
+                        maxLength: 60,
+                        errorMessage: {
+                            maxLength: 'Second line of address must be less than 60 characters'
+                        }
+                    },
+                    'q-mainapplicant-town-or-city': {
+                        type: 'string',
+                        title: 'Town or city',
+                        maxLength: 32,
+                        errorMessage: {
+                            maxLength: 'Town or city must be 32 characters or less'
+                        }
+                    },
+                    'q-mainapplicant-county': {
+                        type: 'string',
+                        title: 'County (optional)',
+                        maxLength: 32,
+                        errorMessage: {
+                            maxLength: 'County must be 32 characters or less'
+                        }
+                    },
+                    'q-mainapplicant-postcode': {
+                        type: 'string',
+                        title: 'Postcode (optional)',
+                        maxLength: 10,
+                        errorMessage: {
+                            maxLength: 'Postcode must be 10 characters or less'
+                        }
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-building-and-street':
+                            'Enter the building and street where you live',
+                        'q-mainapplicant-town-or-city': 'Enter the town or city where you live'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-building-and-street': '1 Foo Lane',
+                        'q-mainapplicant-building-and-street-2': 'Flat 2/3',
+                        'q-mainapplicant-town-or-city': 'FooCity',
+                        'q-mainapplicant-county': 'FooCounty',
+                        'q-mainapplicant-postcode': 'G1 1XX'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-building-and-street': 12345,
+                        'q-mainapplicant-building-and-street-2': 'Flat 2/3',
+                        'q-mainapplicant-town-or-city': 'FooCity',
+                        'q-mainapplicant-county': 'FooCounty',
+                        'q-mainapplicant-postcode': 'G1 1XX'
+                    },
+                    {
+                        'q-mainapplicant-building-and-street': '1 Foo Lane',
+                        'q-mainapplicant-building-and-street-2': 12345,
+                        'q-mainapplicant-town-or-city': 'FooCity',
+                        'q-mainapplicant-county': 'FooCounty',
+                        'q-mainapplicant-postcode': 'G1 1XX'
+                    },
+                    {
+                        'q-mainapplicant-building-and-street': '1 Foo Lane',
+                        'q-mainapplicant-building-and-street-2': 'Flat 2/3',
+                        'q-mainapplicant-town-or-city': 12345,
+                        'q-mainapplicant-county': 'FooCounty',
+                        'q-mainapplicant-postcode': 'G1 1XX'
+                    },
+                    {
+                        'q-mainapplicant-building-and-street': '1 Foo Lane',
+                        'q-mainapplicant-building-and-street-2': 'Flat 2/3',
+                        'q-mainapplicant-town-or-city': 'FooCity',
+                        'q-mainapplicant-county': 12345,
+                        'q-mainapplicant-postcode': 'G1 1XX'
+                    },
+                    {
+                        'q-mainapplicant-building-and-street': '1 Foo Lane',
+                        'q-mainapplicant-building-and-street-2': 'Flat 2/3',
+                        'q-mainapplicant-town-or-city': 'FooCity',
+                        'q-mainapplicant-county': 'FooCounty',
+                        'q-mainapplicant-postcode': 12345
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-enter-your-email-address': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-enter-your-email-address': {
+                        type: 'string',
+                        title: 'Enter your email address',
+                        description:
+                            'We may use this to contact you if we need to clarify something on your application form (optional).',
+                        maxLength: 50,
+                        format: 'email',
+                        errorMessage: {
+                            maxLength: 'Email address must be 50 characters or less',
+                            format: 'Enter your email address, for example john.smith@email.com'
+                        }
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-enter-your-email-address': 'foo@domain.com'
+                    },
+                    {}
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-enter-your-email-address': 12345
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-enter-your-telephone-number': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-enter-your-telephone-number': {
+                        type: 'string',
+                        title: 'Enter your telephone number',
+                        description:
+                            'We may use this to contact you if we need to clarify something on your application form (optional).',
+                        maxLength: 20,
+                        pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
+                        errorMessage: {
+                            maxLength: 'Telephone number must be 20 characters or less',
+                            pattern:
+                                'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
+                        }
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-enter-your-telephone-number': '01632 960 001'
+                    },
+                    {}
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-enter-your-telephone-number': 12345
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-applicant-relationship': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-applicant-relationship'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-applicant-relationship': {
+                        type: 'string',
+                        title: 'What is your relationship to the child?',
+                        description: 'For example, you’re their mother, father, grandparent etc.'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-applicant-relationship':
+                            'Enter your relationship with the child'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-applicant-relationship': 'mother'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-applicant-relationship': true
+                    },
+                    {
+                        'q-mainapplicant-applicant-relationship': 123
+                    },
+                    {
+                        'q-mainapplicant-applicant-relationship': ['father']
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-applicant-shared-responsibility': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-applicant-shared-responsibility'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-applicant-shared-responsibility': {
+                        type: 'boolean',
+                        title:
+                            'Do you share parental responsibility for the child with another person?',
+                        description:
+                            'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.'
+                    },
+                    'mainapplicant-applicant-shared-responsibility': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-applicant-shared-responsibility':
+                            'Select yes if you share parental responsibility for the child with another person'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility': true
+                    },
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-applicant-shared-responsibility-name': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-applicant-shared-responsibility-name'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-applicant-shared-responsibility-name': {
+                        type: 'string',
+                        title: 'What is their full name?',
+                        description:
+                            'We will never contact this person without your consent unless there is an exceptional situation where we have to.'
+                    },
+                    'mainapplicant-applicant-shared-responsibility-name': {
+                        description:
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-applicant-shared-responsibility-name':
+                            'Enter their full name'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility-name': 'Mr Foo Bar'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility-name': 123
+                    },
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility-name': true
+                    },
+                    {
+                        'q-mainapplicant-applicant-shared-responsibility-name': ['Mr Foo Bar']
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-applicant-care-order': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-applicant-care-order'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-applicant-care-order': {
+                        type: 'boolean',
+                        title:
+                            'Is there a care, supervision or other local authority order in place for the child?',
+                        description: 'This includes an interim care order.'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-applicant-care-order':
+                            'Select yes if there is a care, supervision or other local authority order in place for the child'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-applicant-care-order': true
+                    },
+                    {
+                        'q-mainapplicant-applicant-care-order': false
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-applicant-care-order': 'foo'
+                    }
+                ]
+            }
+        },
+        'p-mainapplicant-applicant-care-order-authority': {
+            schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                type: 'object',
+                required: ['q-mainapplicant-applicant-care-order-authority'],
+                additionalProperties: false,
+                properties: {
+                    'q-mainapplicant-applicant-care-order-authority': {
+                        type: 'string',
+                        title: 'What local authority is this with?'
+                    }
+                },
+                errorMessage: {
+                    required: {
+                        'q-mainapplicant-applicant-care-order-authority':
+                            'Enter the local authority this is with'
+                    }
+                },
+                examples: [
+                    {
+                        'q-mainapplicant-applicant-care-order-authority': 'local authority'
+                    }
+                ],
+                invalidExamples: [
+                    {
+                        'q-mainapplicant-applicant-care-order-authority': 123
+                    },
+                    {
+                        'q-mainapplicant-applicant-care-order-authority': true
+                    },
+                    {
+                        'q-mainapplicant-applicant-care-order-authority': ['local authority']
                     }
                 ]
             }
@@ -10396,6 +11105,14 @@ module.exports = {
                                 '==',
                                 '$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national',
                                 false
+                            ]
+                        },
+                        {
+                            target: 'p-mainapplicant-parent',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
                             ]
                         },
                         {
@@ -13611,6 +14328,168 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-provide-additional-information'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-parent': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--transition',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                false
+                            ]
+                        },
+                        {
+                            target: 'p--context-authority'
+                        }
+                    ]
+                }
+            },
+            'p--context-authority': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-context-details'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-context-details': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-confirmation-method'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-confirmation-method': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--transition-no-phone-or-email',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
+                                'none'
+                            ]
+                        },
+                        {
+                            target: 'p-mainapplicant-enter-your-name'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-enter-your-name': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-enter-your-address'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-enter-your-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-enter-your-telephone-number',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
+                                'email'
+                            ]
+                        },
+                        {
+                            target: 'p-mainapplicant-enter-your-email-address',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
+                                'text'
+                            ]
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-enter-your-telephone-number': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-relationship'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-enter-your-email-address': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-relationship'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-applicant-relationship': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-shared-responsibility'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-applicant-shared-responsibility': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-shared-responsibility-name',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-applicant-shared-responsibility.q-mainapplicant-applicant-shared-responsibility',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p-mainapplicant-applicant-care-order'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-applicant-shared-responsibility-name': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-care-order'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-applicant-care-order': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p-mainapplicant-applicant-care-order-authority',
+                            cond: [
+                                '==',
+                                '$.answers.p-mainapplicant-applicant-care-order.q-mainapplicant-applicant-care-order',
+                                true
+                            ]
+                        },
+                        {
+                            target: 'p--context-applicant-details'
+                        }
+                    ]
+                }
+            },
+            'p-mainapplicant-applicant-care-order-authority': {
+                on: {
+                    ANSWER: [
+                        {
+                            target: 'p--context-applicant-details'
                         }
                     ]
                 }
