@@ -1,6 +1,8 @@
 'use strict';
 
 const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
+const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
+const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
@@ -111,7 +113,6 @@ const applicantWorkDetailsOption = require('./lib/resource/sections/applicant-wo
 const applicantExpenses = require('./lib/resource/sections/applicant-expenses.js');
 const contextMoney = require('./lib/resource/sections/context-money.js');
 const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
-const applicantNonSaInfections = require('./lib/resource/sections/applicant-non-sa-infections.js');
 const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
 const applicantIncidentType = require('./lib/resource/sections/applicant-incident-type.js');
@@ -122,12 +123,42 @@ const applicantIncidentDescription = require('./lib/resource/sections/applicant-
 const applicantHasCrimeReferenceNumber = require('./lib/resource/sections/applicant-has-crime-reference-number.js');
 const contextAdditionalInfo = require('./lib/resource/sections/context-additional-info.js');
 const system = require('./lib/resource/sections/system.js');
+const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
+const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
+const contextAuthority = require('./lib/resource/sections/context-authority');
+const mainapplicantContextDetails = require('./lib/resource/sections/mainapplicant-context-details.js');
+const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
+const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
+const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
+const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/mainapplicant-enter-your-email-address.js');
+const mainapplicantEnterYourTelephoneNumber = require('./lib/resource/sections/mainapplicant-enter-your-telephone-number.js');
+const mainapplicantRelationship = require('./lib/resource/sections/mainapplicant-relationship.js');
+const mainapplicantSharedResponsibility = require('./lib/resource/sections/mainapplicant-shared-responsibility.js');
+const mainapplicantSharedResponsibilityName = require('./lib/resource/sections/mainapplicant-shared-responsibility-name.js');
+const mainapplicantCareOrder = require('./lib/resource/sections/mainapplicant-care-order.js');
+const mainapplicantCareOrderAuthority = require('./lib/resource/sections/mainapplicant-care-order-authority.js');
+const contextPregnancy = require('./lib/resource/sections/context-pregnancy.js');
+const applicantUnableToWork = require('./lib/resource/sections/applicant-unable-to-work.js');
+const applicantSeTreatment = require('./lib/resource/sections/applicant-se-treatment.js');
+const applicantSeHomeCare = require('./lib/resource/sections/applicant-se-home-care.js');
+const applicantSeHomeChanges = require('./lib/resource/sections/applicant-se-home-changes.js');
+const applicantSeAids = require('./lib/resource/sections/applicant-se-aids.js');
+const applicantSeEquipment = require('./lib/resource/sections/applicant-se-equipment.js');
+const applicantSeOther = require('./lib/resource/sections/applicant-se-other.js');
+const contextSpecialExpenses = require('./lib/resource/sections/context-special-expenses.js');
+const applicantOver16 = require('./lib/resource/sections/applicant-over-16.js');
+const applicantAffectedDailyCapacity = require('./lib/resource/sections/applicant-affected-daily-capacity.js');
+const applicantAffectDuration = require('./lib/resource/sections/applicant-affect-duration.js');
+const applicantAffectFutureDuration = require('./lib/resource/sections/applicant-affect-future-duration.js');
+const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
 
 module.exports = {
     type: 'apply-for-compensation',
     version: '5.2.2',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
+        'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
+        'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
@@ -250,7 +281,6 @@ module.exports = {
         'p-applicant-expenses': applicantExpenses.section,
         'p--context-money': contextMoney.section,
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
-        'p-applicant-non-sa-infections': applicantNonSaInfections.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
         'p-applicant-incident-type': applicantIncidentType.section,
@@ -260,15 +290,50 @@ module.exports = {
         'p-applicant-incident-description': applicantIncidentDescription.section,
         'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.section,
         'p--context-additional-info': contextAdditionalInfo.section,
-        system: system.section
+        system: system.section,
+        'p--context-crime-impact': contextCrimeImpact.section,
+        'p-mainapplicant-parent': mainapplicantParent.section,
+        'p--context-authority': contextAuthority.section,
+        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
+        'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
+        'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
+        'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
+        'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
+        'p-mainapplicant-enter-your-telephone-number':
+            mainapplicantEnterYourTelephoneNumber.section,
+        'p-mainapplicant-relationship': mainapplicantRelationship.section,
+        'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.section,
+        'p-mainapplicant-shared-responsibility-name': mainapplicantSharedResponsibilityName.section,
+        'p-mainapplicant-care-order': mainapplicantCareOrder.section,
+        'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.section,
+        'p--context-pregnancy': contextPregnancy.section,
+        'p-applicant-unable-to-work': applicantUnableToWork.section,
+        'p-applicant-se-treatment': applicantSeTreatment.section,
+        'p-applicant-se-home-care': applicantSeHomeCare.section,
+        'p-applicant-se-home-changes': applicantSeHomeChanges.section,
+        'p-applicant-se-aids': applicantSeAids.section,
+        'p-applicant-se-equipment': applicantSeEquipment.section,
+        'p-applicant-se-other': applicantSeOther.section,
+        'p--context-special-expenses': contextSpecialExpenses.section,
+        'p-applicant-over-16': applicantOver16.section,
+        'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.section,
+        'p-applicant-affect-duration': applicantAffectDuration.section,
+        'p-applicant-affect-future-duration': applicantAffectFutureDuration.section,
+        'p-applicant-future-work': applicantFutureWork.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
-        summary: 'p-applicant-declaration',
+        summary: [
+            'p-applicant-declaration',
+            'p-mainapplicant-declaration-under-12',
+            'p-mainapplicant-declaration-12-and-over'
+        ],
         confirmation: 'p--confirmation',
         states: {
             'p-applicant-declaration': applicantDeclaration.route,
+            'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
+            'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
@@ -396,7 +461,6 @@ module.exports = {
             'p-applicant-work-details-option': applicantWorkDetailsOption.route,
             'p-applicant-expenses': applicantExpenses.route,
             'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
-            'p-applicant-non-sa-infections': applicantNonSaInfections.route,
             'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
             'p-applicant-fatal-claim': applicantFatalClaim.route,
             'p-applicant-provide-additional-information':
@@ -406,19 +470,83 @@ module.exports = {
             'p-applicant-incident-description': applicantIncidentDescription.route,
             'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.route,
             'p--context-additional-info': contextAdditionalInfo.route,
-            system: system.route
+            system: system.route,
+            'p--context-crime-impact': contextCrimeImpact.route,
+            'p-mainapplicant-parent': mainapplicantParent.route,
+            'p--context-authority': contextAuthority.route,
+            'p-mainapplicant-context-details': mainapplicantContextDetails.route,
+            'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
+            'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
+            'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
+            'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.route,
+            'p-mainapplicant-enter-your-telephone-number':
+                mainapplicantEnterYourTelephoneNumber.route,
+            'p-mainapplicant-relationship': mainapplicantRelationship.route,
+            'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.route,
+            'p-mainapplicant-shared-responsibility-name':
+                mainapplicantSharedResponsibilityName.route,
+            'p-mainapplicant-care-order': mainapplicantCareOrder.route,
+            'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.route,
+            'p--context-pregnancy': contextPregnancy.route,
+            'p-applicant-unable-to-work': applicantUnableToWork.route,
+            'p-applicant-se-treatment': applicantSeTreatment.route,
+            'p-applicant-se-home-care': applicantSeHomeCare.route,
+            'p-applicant-se-home-changes': applicantSeHomeChanges.route,
+            'p-applicant-se-aids': applicantSeAids.route,
+            'p-applicant-se-equipment': applicantSeEquipment.route,
+            'p-applicant-se-other': applicantSeOther.route,
+            'p--context-special-expenses': contextSpecialExpenses.route,
+            'p-applicant-over-16': applicantOver16.route,
+            'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
+            'p-applicant-affect-duration': applicantAffectDuration.route,
+            'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
+            'p-applicant-future-work': applicantFutureWork.route
         }
     },
     answers: {},
     progress: ['p-applicant-fatal-claim'],
     taxonomies: {
         theme: {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'theme'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'theme',
+                        resources: {
+                            applicant_details: {
+                                title: 'Your details',
+                                'title_someone-else': 'Victim details'
+                            },
+                            injuries: {
+                                title: 'Your injuries',
+                                'title_someone-else': "The child's injuries"
+                            },
+                            mental_health: {
+                                title: 'Your mental health',
+                                'title_someone-else': "The child's mental health"
+                            },
+                            treatment: {
+                                title: 'Your treatment',
+                                'title_someone-else': "The child's treatment"
+                            }
+                        }
+                    }
+                ]
+            },
             taxa: {
                 'about-application': {
                     title: 'About your application'
                 },
                 'applicant-details': {
-                    title: 'Your details'
+                    title: 'l10nt:applicant_details.title{?lng,context,ns}'
                 },
                 crime: {
                     title: 'About the crime'
@@ -427,55 +555,115 @@ module.exports = {
                     title: 'About the offender'
                 },
                 injuries: {
-                    title: 'Your injuries'
+                    title: 'l10nt:injuries.title{?lng,context,ns}'
                 },
                 pregnancy: {
                     title: 'Pregnancy'
                 },
                 'mental-health': {
-                    title: 'Your mental health'
+                    title: 'l10nt:mental_health.title{?lng,context,ns}'
                 },
                 impact: {
-                    title: 'The impact the crime has had — daily life and financially'
+                    title: 'The impact the injuries have had'
                 },
                 'special-expenses': {
                     title: 'Special expenses'
                 },
                 treatment: {
-                    title: 'Your treatment'
+                    title: 'l10nt:treatment.title{?lng,context,ns}'
                 },
                 'other-compensation': {
                     title: 'Other compensation'
                 },
                 'additional-info': {
                     title: 'Additional information'
+                },
+                main_applicant_details: {
+                    title: 'Your details'
+                },
+                default: {
+                    title: 'Other Information'
                 }
             }
         }
     },
     meta: {
-        questionnaireDocumentVersion: '3.0.0',
+        questionnaireDocumentVersion: '4.0.0',
         onComplete: {
-            tasks: [
-                {
+            tasks: {
+                sendEmail: {
                     type: 'sendEmail',
-                    templateId: 'cb79653c-cf6e-44d4-8c03-087ba21cfd01',
-                    templatePlaceholderMap: {
-                        emailAddress:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address',
-                        caseReference: '/answers/system/case-reference'
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                            },
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    templateId: '0a8224c3-9600-4d14-9491-72609dc1dece',
+                                    'templateId_someone-else':
+                                        'b4b08849-c56f-4e82-9f8a-14ab2a50f607',
+                                    emailAddress:
+                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                                    'emailAddress_someone-else':
+                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||'
+                                }
+                            }
+                        ]
+                    },
+                    data: {
+                        templateId: 'l10nt:templateId{?lng,context,ns}',
+                        emailAddress: 'l10nt:emailAddress{?lng,context,ns}',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null // required for notify api
                     }
                 },
-                {
+                sendSms: {
                     type: 'sendSms',
-                    templateId: '3c847bb8-957a-4bba-9fad-090657bb5c71',
-                    templatePlaceholderMap: {
-                        phoneNumber:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number',
-                        caseReference: '/answers/system/case-reference'
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                            },
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    templateId: '0905cf29-054a-4650-9044-a58768fd9381',
+                                    'templateId_someone-else':
+                                        'c2f8f580-3214-4144-bab1-1bbb30863deb',
+                                    phoneNumber:
+                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                                    'phoneNumber_someone-else':
+                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||'
+                                }
+                            }
+                        ]
+                    },
+                    data: {
+                        templateId: 'l10nt:templateId{?lng,context,ns}',
+                        phoneNumber: 'l10nt:phoneNumber{?lng,context,ns}',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null // required for notify api
                     }
                 }
-            ]
+            }
         },
         attributes: {'q-applicant-physical-injuries': {title: 'What was injured?'}}
     }

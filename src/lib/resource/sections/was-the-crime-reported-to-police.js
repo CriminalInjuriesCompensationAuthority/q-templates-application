@@ -12,8 +12,14 @@ module.exports = {
                     title: 'Was the crime reported to the police?',
                     type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -33,10 +39,18 @@ module.exports = {
                 }
             },
             examples: [
-                {'q--was-the-crime-reported-to-police': true},
-                {'q--was-the-crime-reported-to-police': false}
+                {
+                    'q--was-the-crime-reported-to-police': true
+                },
+                {
+                    'q--was-the-crime-reported-to-police': false
+                }
             ],
-            invalidExamples: [{'q--was-the-crime-reported-to-police': 'foo'}]
+            invalidExamples: [
+                {
+                    'q--was-the-crime-reported-to-police': 'foo'
+                }
+            ]
         }
     },
     route: {

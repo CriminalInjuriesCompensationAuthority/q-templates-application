@@ -5,3 +5,5 @@ coverage
 #! m0-end
 
 dist
+
+.vscode

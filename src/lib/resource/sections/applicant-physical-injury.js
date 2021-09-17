@@ -14,10 +14,22 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Head, face or neck', const: 'upper'},
-                            {title: 'Torso', const: 'torso'},
-                            {title: 'Arms or hands', const: 'arms'},
-                            {title: 'Legs or feet', const: 'legs'}
+                            {
+                                title: 'Head, face or neck',
+                                const: 'upper'
+                            },
+                            {
+                                title: 'Torso',
+                                const: 'torso'
+                            },
+                            {
+                                title: 'Arms or hands',
+                                const: 'arms'
+                            },
+                            {
+                                title: 'Legs or feet',
+                                const: 'legs'
+                            }
                         ]
                     },
                     meta: {
@@ -28,23 +40,49 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injury': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injury': 'Select an injury from the list'
+                }
             },
             examples: [
-                {'q-applicant-physical-injury': ['legs']},
-                {'q-applicant-physical-injury': ['arms']},
-                {'q-applicant-physical-injury': ['arms', 'legs']},
-                {'q-applicant-physical-injury': ['torso']},
-                {'q-applicant-physical-injury': ['torso', 'legs']},
-                {'q-applicant-physical-injury': ['torso', 'arms']},
-                {'q-applicant-physical-injury': ['upper']},
-                {'q-applicant-physical-injury': ['upper', 'legs']},
-                {'q-applicant-physical-injury': ['upper', 'arms']},
-                {'q-applicant-physical-injury': ['upper', 'torso']}
+                {
+                    'q-applicant-physical-injury': ['legs']
+                },
+                {
+                    'q-applicant-physical-injury': ['arms']
+                },
+                {
+                    'q-applicant-physical-injury': ['arms', 'legs']
+                },
+                {
+                    'q-applicant-physical-injury': ['torso']
+                },
+                {
+                    'q-applicant-physical-injury': ['torso', 'legs']
+                },
+                {
+                    'q-applicant-physical-injury': ['torso', 'arms']
+                },
+                {
+                    'q-applicant-physical-injury': ['upper']
+                },
+                {
+                    'q-applicant-physical-injury': ['upper', 'legs']
+                },
+                {
+                    'q-applicant-physical-injury': ['upper', 'arms']
+                },
+                {
+                    'q-applicant-physical-injury': ['upper', 'torso']
+                }
             ],
             invalidExamples: [
-                {'q-applicant-physical-injury': ['not-a-key']},
-                {'q-applicant-physical-injury': 'not-an-array'}
+                {
+                    'q-applicant-physical-injury': ['not-a-key']
+                },
+                {
+                    'q-applicant-physical-injury': 'not-an-array'
+                }
             ]
         }
     },
@@ -83,7 +121,9 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {
+                    target: 'p-applicant-infections'
+                }
             ]
         }
     }

@@ -13,12 +13,30 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Shoulder', const: 'shoulder'},
-                            {title: 'Arm', const: 'arm'},
-                            {title: 'Elbow', const: 'elbow'},
-                            {title: 'Wrist', const: 'wrist'},
-                            {title: 'Hand', const: 'hand'},
-                            {title: 'Finger and thumb', const: 'digit'},
+                            {
+                                title: 'Shoulder',
+                                const: 'shoulder'
+                            },
+                            {
+                                title: 'Arm',
+                                const: 'arm'
+                            },
+                            {
+                                title: 'Elbow',
+                                const: 'elbow'
+                            },
+                            {
+                                title: 'Wrist',
+                                const: 'wrist'
+                            },
+                            {
+                                title: 'Hand',
+                                const: 'hand'
+                            },
+                            {
+                                title: 'Finger and thumb',
+                                const: 'digit'
+                            },
                             {
                                 title: 'Skin',
                                 const: 'skin',
@@ -42,49 +60,127 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injury-arms': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injury-arms': 'Select an injury from the list'
+                }
             },
             examples: [
-                {'q-applicant-physical-injury-arms': ['shoulder']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'arm']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'elbow']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'wrist']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'hand']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'digit']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'skin']},
-                {'q-applicant-physical-injury-arms': ['shoulder', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['arm']},
-                {'q-applicant-physical-injury-arms': ['arm', 'elbow']},
-                {'q-applicant-physical-injury-arms': ['arm', 'wrist']},
-                {'q-applicant-physical-injury-arms': ['arm', 'hand']},
-                {'q-applicant-physical-injury-arms': ['arm', 'digit']},
-                {'q-applicant-physical-injury-arms': ['arm', 'skin']},
-                {'q-applicant-physical-injury-arms': ['arm', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['elbow']},
-                {'q-applicant-physical-injury-arms': ['elbow', 'wrist']},
-                {'q-applicant-physical-injury-arms': ['elbow', 'hand']},
-                {'q-applicant-physical-injury-arms': ['elbow', 'digit']},
-                {'q-applicant-physical-injury-arms': ['elbow', 'skin']},
-                {'q-applicant-physical-injury-arms': ['elbow', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['wrist']},
-                {'q-applicant-physical-injury-arms': ['wrist', 'hand']},
-                {'q-applicant-physical-injury-arms': ['wrist', 'digit']},
-                {'q-applicant-physical-injury-arms': ['wrist', 'skin']},
-                {'q-applicant-physical-injury-arms': ['wrist', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['hand']},
-                {'q-applicant-physical-injury-arms': ['hand', 'digit']},
-                {'q-applicant-physical-injury-arms': ['hand', 'skin']},
-                {'q-applicant-physical-injury-arms': ['hand', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['digit']},
-                {'q-applicant-physical-injury-arms': ['digit', 'skin']},
-                {'q-applicant-physical-injury-arms': ['digit', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['skin']},
-                {'q-applicant-physical-injury-arms': ['skin', 'muscle']},
-                {'q-applicant-physical-injury-arms': ['muscle']}
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'arm']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'elbow']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'wrist']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'hand']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['shoulder', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'elbow']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'wrist']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'hand']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['arm', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow', 'wrist']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow', 'hand']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow', 'digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['elbow', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['wrist']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['wrist', 'hand']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['wrist', 'digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['wrist', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['wrist', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['hand']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['hand', 'digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['hand', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['hand', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['digit']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['digit', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['digit', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['skin']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['skin', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['muscle']
+                }
             ],
             invalidExamples: [
-                {'q-applicant-physical-injury-arms': 'not-an-array'},
-                {'q-applicant-physical-injury-arms': ['not-a-key']}
+                {
+                    'q-applicant-physical-injury-arms': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-arms': ['not-a-key']
+                }
             ]
         }
     },
@@ -155,7 +251,7 @@ module.exports = {
                         'muscle'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

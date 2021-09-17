@@ -13,16 +13,28 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Buying or repairing physical aids', const: 'aids'},
-                            {title: 'Alterations to my home', const: 'alterations'},
-                            {title: 'Home care', const: 'home-care'},
+                            {
+                                title: 'Buying or repairing physical aids',
+                                const: 'aids'
+                            },
+                            {
+                                title: 'Alterations to my home',
+                                const: 'alterations'
+                            },
+                            {
+                                title: 'Home care',
+                                const: 'home-care'
+                            },
                             {
                                 title: "NHS treatment I've paid for",
                                 const: 'treatment',
                                 description:
                                     'Or treatment from the state health service in another country'
                             },
-                            {title: 'I have not had these expenses', const: 'no-expenses'}
+                            {
+                                title: 'I have not had these expenses',
+                                const: 'no-expenses'
+                            }
                         ]
                     },
                     meta: {
@@ -32,11 +44,21 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-q-applicant-expenses-max-one-item'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-q-applicant-expenses-max-one-item'
+                }
+            ],
             definitions: {
                 'if-other-then-q-applicant-expenses-max-one-item': {
                     if: {
-                        properties: {'q-applicant-expenses': {contains: {const: 'no-expenses'}}},
+                        properties: {
+                            'q-applicant-expenses': {
+                                contains: {
+                                    const: 'no-expenses'
+                                }
+                            }
+                        },
                         required: ['q-applicant-expenses']
                     },
                     then: {
@@ -53,13 +75,33 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {required: {'q-applicant-expenses': 'Select expenses from the list'}},
-            examples: [{'q-applicant-expenses': ['home-care']}],
+            errorMessage: {
+                required: {
+                    'q-applicant-expenses': 'Select expenses from the list'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-expenses': ['home-care']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-expenses': 'not-an-array'},
-                {'q-applicant-expenses': ['not-a-key']}
+                {
+                    'q-applicant-expenses': 'not-an-array'
+                },
+                {
+                    'q-applicant-expenses': ['not-a-key']
+                }
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--context-compensation'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-compensation'
+                }
+            ]
+        }
+    }
 };

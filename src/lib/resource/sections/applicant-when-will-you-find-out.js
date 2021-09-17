@@ -26,10 +26,30 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {required: {'q-when-will-you-find-out': 'Enter an approximate date'}},
-            examples: [{'q-when-will-you-find-out': 'blah'}],
-            invalidExamples: [{'q-when-will-you-find-out': 12345}]
+            errorMessage: {
+                required: {
+                    'q-when-will-you-find-out': 'Enter an approximate date'
+                }
+            },
+            examples: [
+                {
+                    'q-when-will-you-find-out': 'blah'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-when-will-you-find-out': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--context-additional-info'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-additional-info'
+                }
+            ]
+        }
+    }
 };

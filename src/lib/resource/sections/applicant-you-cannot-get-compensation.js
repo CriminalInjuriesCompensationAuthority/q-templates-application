@@ -10,12 +10,24 @@ module.exports = {
                 'you-cannot-get-compensation': {
                     title: 'You cannot get compensation',
                     description:
-                        '<p class="govuk-body">If the crime has not been reported to the police we cannot pay compensation.</p><p class="govuk-body">You may continue your application, but any future application for the same injuries will be refused.</p>'
+                        '{% from "components/warning-text/macro.njk" import govukWarningText %}<p class="govuk-body">You cannot get compensation if the crime has not been reported to the police.</p>{{ govukWarningText({text: "If you submit a claim before the crime has been reported to the police, the claim will be refused and you will not be able to try again.",iconFallbackText: "Warning"}) }}'
                 }
             },
             examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
+            invalidExamples: [
+                {
+                    foo: 'bar'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-who-are-you-applying-for'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-who-are-you-applying-for'
+                }
+            ]
+        }
+    }
 };

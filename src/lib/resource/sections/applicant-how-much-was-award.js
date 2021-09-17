@@ -11,7 +11,9 @@ module.exports = {
                     title: 'How much compensation were you awarded?',
                     type: 'string',
                     maxLength: 50,
-                    errorMessage: {maxLength: 'Award amount must be 50 characters or less'},
+                    errorMessage: {
+                        maxLength: 'Award amount must be 50 characters or less'
+                    },
                     meta: {
                         classifications: {
                             theme: 'other-compensation'
@@ -19,10 +21,30 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {required: {'q-how-much-was-award': 'Enter an amount'}},
-            examples: [{'q-how-much-was-award': 'blah'}],
-            invalidExamples: [{'q-how-much-was-award': 12345}]
+            errorMessage: {
+                required: {
+                    'q-how-much-was-award': 'Enter an amount'
+                }
+            },
+            examples: [
+                {
+                    'q-how-much-was-award': 'blah'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-how-much-was-award': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--context-additional-info'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-additional-info'
+                }
+            ]
+        }
+    }
 };

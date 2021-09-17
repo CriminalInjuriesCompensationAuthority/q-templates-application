@@ -119,11 +119,11 @@ module.exports = {
                     errorMessage: {
                         required: {
                             'q-applicant-dentist-address-building-and-street':
-                                "Enter the name of your dentist's practice",
+                                "Enter the name of the dentist's practice",
                             'q-applicant-dentist-address-building-and-street2':
-                                'Enter the building and street of your dentist',
+                                'Enter the building and street of the dentist',
                             'q-applicant-dentist-address-town-or-city':
-                                "Enter the town or city where your dentist's practice is"
+                                "Enter the town or city where the dentist's practice is"
                         }
                     }
                 }
@@ -187,7 +187,9 @@ module.exports = {
                         false
                     ]
                 },
-                {target: 'p--context-money'}
+                {
+                    target: 'p--context-compensation'
+                }
             ]
         }
     }

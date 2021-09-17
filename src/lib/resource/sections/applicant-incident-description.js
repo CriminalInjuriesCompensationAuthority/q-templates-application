@@ -9,11 +9,13 @@ module.exports = {
             properties: {
                 'q-applicant-incident-description': {
                     type: 'string',
-                    title: 'Briefly describe the crime in your own words',
+                    title: 'Briefly describe the crime',
                     description:
                         'You can add details that may not be included in the crime report.',
                     maxLength: 1000,
-                    errorMessage: {maxLength: 'Description must be 1000 characters or less'},
+                    errorMessage: {
+                        maxLength: 'Description must be 1000 characters or less'
+                    },
                     meta: {
                         classifications: {
                             theme: 'crime'
@@ -26,12 +28,28 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-incident-description': 'Describe the crime in your own words'
+                    'q-applicant-incident-description': 'Enter a brief description of the crime'
                 }
             },
-            examples: [{'q-applicant-incident-description': 'Some description'}],
-            invalidExamples: [{'q-applicant-incident-description': 12345}]
+            examples: [
+                {
+                    'q-applicant-incident-description': 'Some description'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-incident-description': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--context-offender'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-offender'
+                }
+            ]
+        }
+    }
 };

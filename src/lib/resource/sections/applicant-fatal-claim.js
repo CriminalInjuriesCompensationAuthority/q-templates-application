@@ -9,11 +9,17 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-fatal-claim': {
-                    title: 'Are you applying because someone died from their injuries?',
                     type: 'boolean',
+                    title: 'Are you applying because someone died from their injuries?',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -31,8 +37,19 @@ module.exports = {
                         'Select yes if you are applying for someone who died from their injuries'
                 }
             },
-            examples: [{'q-applicant-fatal-claim': true}, {'q-applicant-fatal-claim': false}],
-            invalidExamples: [{'q-applicant-fatal-claim': 'foo'}]
+            examples: [
+                {
+                    'q-applicant-fatal-claim': true
+                },
+                {
+                    'q-applicant-fatal-claim': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-fatal-claim': 'foo'
+                }
+            ]
         }
     },
     route: {

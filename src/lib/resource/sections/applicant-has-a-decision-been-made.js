@@ -12,8 +12,14 @@ module.exports = {
                     title: 'Have they made a decision about your claim?',
                     type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -32,10 +38,18 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-has-a-decision-been-made': true},
-                {'q-applicant-has-a-decision-been-made': false}
+                {
+                    'q-applicant-has-a-decision-been-made': true
+                },
+                {
+                    'q-applicant-has-a-decision-been-made': false
+                }
             ],
-            invalidExamples: [{'q-applicant-has-a-decision-been-made': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-has-a-decision-been-made': 'foo'
+                }
+            ]
         }
     },
     route: {

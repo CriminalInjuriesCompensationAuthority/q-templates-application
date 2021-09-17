@@ -13,14 +13,38 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Broken collarbone', const: 'phyinj-063'},
-                            {title: 'Broken breast bone', const: 'phyinj-078'},
-                            {title: 'Chest surgery', const: 'phyinj-057'},
-                            {title: 'Broken rib', const: 'phyinj-075'},
-                            {title: 'Punctured lung', const: 'phyinj-070'},
-                            {title: 'Collapsed lung', const: 'phyinj-071'},
-                            {title: 'Lung damage from smoke or chemicals', const: 'phyinj-072'},
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Broken collarbone',
+                                const: 'phyinj-063'
+                            },
+                            {
+                                title: 'Broken breast bone',
+                                const: 'phyinj-078'
+                            },
+                            {
+                                title: 'Chest surgery',
+                                const: 'phyinj-057'
+                            },
+                            {
+                                title: 'Broken rib',
+                                const: 'phyinj-075'
+                            },
+                            {
+                                title: 'Punctured lung',
+                                const: 'phyinj-070'
+                            },
+                            {
+                                title: 'Collapsed lung',
+                                const: 'phyinj-071'
+                            },
+                            {
+                                title: 'Lung damage from smoke or chemicals',
+                                const: 'phyinj-072'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -46,12 +70,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -73,12 +105,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-072']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-072']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -149,7 +191,7 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

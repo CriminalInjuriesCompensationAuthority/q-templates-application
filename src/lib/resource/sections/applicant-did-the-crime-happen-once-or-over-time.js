@@ -12,8 +12,14 @@ module.exports = {
                     title: 'Did the crime happen once or over a period of time?',
                     type: 'string',
                     oneOf: [
-                        {title: 'Once', const: 'once'},
-                        {title: 'Over a period of time', const: 'over-a-period-of-time'}
+                        {
+                            title: 'Once',
+                            const: 'once'
+                        },
+                        {
+                            title: 'Over a period of time',
+                            const: 'over-a-period-of-time'
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -29,12 +35,20 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-did-the-crime-happen-once-or-over-time': 'once'},
-                {'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'}
+                {
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'once'
+                },
+                {
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'over-a-period-of-time'
+                }
             ],
             invalidExamples: [
-                {'q-applicant-did-the-crime-happen-once-or-over-time': 'never'},
-                {'q-applicant-did-the-crime-happen-once-or-over-time': 12345}
+                {
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 'never'
+                },
+                {
+                    'q-applicant-did-the-crime-happen-once-or-over-time': 12345
+                }
             ]
         }
     },

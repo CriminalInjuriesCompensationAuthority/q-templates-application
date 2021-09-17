@@ -29,9 +29,26 @@ module.exports = {
                     }
                 }
             },
-            examples: [{'q-applicant-enter-your-telephone-number': '01632 960 001'}, {}],
-            invalidExamples: [{'q-applicant-enter-your-telephone-number': 12345}]
+            examples: [
+                {
+                    'q-applicant-enter-your-telephone-number': '01632 960 001'
+                },
+                {}
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-enter-your-telephone-number': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--before-you-continue'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--before-you-continue'
+                }
+            ]
+        }
+    }
 };

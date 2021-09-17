@@ -13,9 +13,18 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Dislocated hip', const: 'phyinj-120'},
-                            {title: 'Broken hip', const: 'phyinj-121'},
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Dislocated hip',
+                                const: 'phyinj-120'
+                            },
+                            {
+                                title: 'Broken hip',
+                                const: 'phyinj-121'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -31,7 +40,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other hip injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other hip injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other hip injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'
@@ -39,12 +50,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -66,12 +85,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-120']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-120']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -134,7 +163,7 @@ module.exports = {
                         'muscle'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }
