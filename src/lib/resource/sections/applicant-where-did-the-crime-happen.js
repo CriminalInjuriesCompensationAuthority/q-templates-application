@@ -12,10 +12,22 @@ module.exports = {
                     title: 'Where did the crime happen?',
                     type: 'string',
                     oneOf: [
-                        {title: 'England', const: 'england'},
-                        {title: 'Scotland', const: 'scotland'},
-                        {title: 'Wales', const: 'wales'},
-                        {title: 'Somewhere else', const: 'somewhere-else'}
+                        {
+                            title: 'England',
+                            const: 'england'
+                        },
+                        {
+                            title: 'Scotland',
+                            const: 'scotland'
+                        },
+                        {
+                            title: 'Wales',
+                            const: 'wales'
+                        },
+                        {
+                            title: 'Somewhere else',
+                            const: 'somewhere-else'
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -35,14 +47,26 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-where-did-the-crime-happen': 'england'},
-                {'q-applicant-where-did-the-crime-happen': 'scotland'},
-                {'q-applicant-where-did-the-crime-happen': 'wales'},
-                {'q-applicant-where-did-the-crime-happen': 'somewhere-else'}
+                {
+                    'q-applicant-where-did-the-crime-happen': 'england'
+                },
+                {
+                    'q-applicant-where-did-the-crime-happen': 'scotland'
+                },
+                {
+                    'q-applicant-where-did-the-crime-happen': 'wales'
+                },
+                {
+                    'q-applicant-where-did-the-crime-happen': 'somewhere-else'
+                }
             ],
             invalidExamples: [
-                {'q-applicant-where-did-the-crime-happen': 'Japan'},
-                {'q-applicant-where-did-the-crime-happen': 12345}
+                {
+                    'q-applicant-where-did-the-crime-happen': 'Japan'
+                },
+                {
+                    'q-applicant-where-did-the-crime-happen': 12345
+                }
             ]
         }
     },

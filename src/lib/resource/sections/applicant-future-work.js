@@ -1,0 +1,65 @@
+'use strict';
+
+module.exports = {
+    section: {
+        schema: {
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            type: 'object',
+            required: ['q-applicant-future-work'],
+            additionalProperties: false,
+            properties: {
+                'q-applicant-future-work': {
+                    type: 'string',
+                    title:
+                        'Has the child’s ability to work in future been affected by their injuries?',
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: 'yes'
+                        },
+                        {
+                            title: 'No',
+                            const: 'no'
+                        },
+                        {
+                            title: 'I do not know',
+                            const: 'dont-know'
+                        }
+                    ]
+                },
+                'help-future-work': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the ability to work in future",html: \'<p class="govuk-body">They must have no capacity or very limited capacity to work because of the injury. This must be for longer than 28 weeks.</p><p class="govuk-body">We cannot make a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
+                }
+            },
+            errorMessage: {
+                required: {
+                    'q-applicant-future-work':
+                        'Select yes if you had to buy or pay for the repair of physical aids'
+                }
+            },
+            examples: [
+                {
+                    'q-applicant-future-work': true
+                },
+                {
+                    'q-applicant-future-work': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-future-work': 'foo'
+                }
+            ]
+        }
+    },
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-affect-on-daily-life-dmi'
+                }
+            ]
+        }
+    }
+};

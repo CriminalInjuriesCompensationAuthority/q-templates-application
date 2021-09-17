@@ -9,15 +9,30 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injuries': {
-                    title: 'Select any injuries to the skin on your torso',
+                    title: 'Select any injuries to the skin on the torso',
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Cuts', const: 'phyinj-079'},
-                            {title: 'Bruises', const: 'phyinj-080'},
-                            {title: 'Scars', const: 'phyinj-055'},
-                            {title: 'Burns', const: 'phyinj-054'},
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Cuts',
+                                const: 'phyinj-079'
+                            },
+                            {
+                                title: 'Bruises',
+                                const: 'phyinj-080'
+                            },
+                            {
+                                title: 'Scars',
+                                const: 'phyinj-055'
+                            },
+                            {
+                                title: 'Burns',
+                                const: 'phyinj-054'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -43,12 +58,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -70,12 +93,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-054']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-054']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -106,7 +139,7 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

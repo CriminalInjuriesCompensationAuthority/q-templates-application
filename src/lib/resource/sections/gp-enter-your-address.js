@@ -118,10 +118,9 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-gp-building-and-street': "Enter the name of your GP's practice",
-                            'q-gp-building-and-street2': 'Enter the building and street of your GP',
-                            'q-gp-town-or-city':
-                                "Enter the town or city where your GP's practice is"
+                            'q-gp-building-and-street': "Enter the name of the GP's practice",
+                            'q-gp-building-and-street2': 'Enter the building and street of the GP',
+                            'q-gp-town-or-city': "Enter the town or city where the GP's practice is"
                         }
                     }
                 }
@@ -193,7 +192,9 @@ module.exports = {
                         false
                     ]
                 },
-                {target: 'p--context-money'}
+                {
+                    target: 'p--context-compensation'
+                }
             ]
         }
     }

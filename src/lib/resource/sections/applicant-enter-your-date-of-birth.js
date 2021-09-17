@@ -2,6 +2,38 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-enter-your-date-of-birth'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-enter-your-date-of-birth',
+                    resources: {
+                        'q-applicant-enter-your-date-of-birth': {
+                            title: 'Enter your date of birth',
+                            'title_someone-else': 'Enter their date of birth',
+                            error: {
+                                required:
+                                    'Enter your date of birth and include a day, month and year',
+                                format:
+                                    'Enter your date of birth and include a day, month and year',
+                                'required_someone-else':
+                                    'Enter their date of birth and include a day, month and year',
+                                'format_someone-else':
+                                    'Enter their date of birth and include a day, month and year'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,7 +41,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-enter-your-date-of-birth': {
-                    title: 'Enter your date of birth',
+                    title: 'l10nt:q-applicant-enter-your-date-of-birth.title{?lng,context,ns}',
                     meta: {
                         keywords: {
                             format: {
@@ -27,23 +59,32 @@ module.exports = {
                     format: 'date-time',
                     description: 'For example, 31 3 1980.',
                     errorMessage: {
-                        format: 'Enter your date of birth and include a day, month and year'
+                        format:
+                            'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}'
                     }
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-enter-your-date-of-birth':
-                        'Enter your date of birth and include a day, month and year'
+                        'l10nt:q-applicant-enter-your-date-of-birth.error.required{?lng,context,ns}'
                 }
             },
             examples: [
-                {'q-applicant-enter-your-date-of-birth': '1970-01-01T00:00:00.000Z'},
-                {'q-applicant-enter-your-date-of-birth': '2019-01-01T00:00:00.000Z'}
+                {
+                    'q-applicant-enter-your-date-of-birth': '1970-01-01T00:00:00.000Z'
+                },
+                {
+                    'q-applicant-enter-your-date-of-birth': '2019-01-01T00:00:00.000Z'
+                }
             ],
             invalidExamples: [
-                {'q-applicant-enter-your-date-of-birth': 12345},
-                {'q-applicant-enter-your-date-of-birth': 'not a date'}
+                {
+                    'q-applicant-enter-your-date-of-birth': 12345
+                },
+                {
+                    'q-applicant-enter-your-date-of-birth': 'not a date'
+                }
             ]
         }
     },
@@ -53,11 +94,21 @@ module.exports = {
                 {
                     target: 'p--transition',
                     cond: [
-                        'dateLessThanEighteenYearsAgo',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
+                        'and',
+                        [
+                            'dateLessThanEighteenYearsAgo',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'myself'
+                        ]
                     ]
                 },
-                {target: 'p-applicant-enter-your-address'}
+                {
+                    target: 'p-applicant-enter-your-address'
+                }
             ]
         }
     }

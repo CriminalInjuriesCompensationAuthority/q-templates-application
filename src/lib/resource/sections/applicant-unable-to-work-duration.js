@@ -9,19 +9,24 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-unable-to-work-duration': {
-                    title: 'Have you been unable to work for more than 28 weeks?',
-                    description:
-                        'This includes working less hours or being unable to look for work',
                     type: 'boolean',
+                    title: 'Has this been for more than 28 weeks?',
+                    description:
+                        'This can be a single period of time or cover several periods of time since the crime.',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
-                    ],
-                    meta: {
-                        classifications: {
-                            theme: 'impact'
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
                         }
-                    }
+                    ]
+                },
+                'details-work-duration': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: "<p class=\'govuk-body\'>28 weeks is more than six months.</p><p class=\'govuk-body\'>We cannot make a payment for the first 28 weeks of any loss of earnings suffered.</p>"})}}'
                 }
             },
             errorMessage: {
@@ -31,24 +36,34 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-unable-to-work-duration': true},
-                {'q-applicant-unable-to-work-duration': false}
+                {
+                    'q-applicant-unable-to-work-duration': true
+                },
+                {
+                    'q-applicant-unable-to-work-duration': false
+                }
             ],
-            invalidExamples: [{'q-applicant-unable-to-work-duration': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-unable-to-work-duration': 'foo'
+                }
+            ]
         }
     },
     route: {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-job-when-crime-happened',
+                    target: 'p-applicant-future-work',
                     cond: [
                         '==',
-                        '$.answers.p-applicant-unable-to-work-duration.q-applicant-unable-to-work-duration',
-                        true
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'someone-else'
                     ]
                 },
-                {target: 'p--context-compensation'}
+                {
+                    target: 'p-applicant-affect-on-daily-life-dmi'
+                }
             ]
         }
     }

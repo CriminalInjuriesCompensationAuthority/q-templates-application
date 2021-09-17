@@ -2,6 +2,33 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-offender-do-you-have-contact-with-offender'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-offender-do-you-have-contact-with-offender',
+                    resources: {
+                        'q-offender-do-you-have-contact-with-offender': {
+                            title: 'Do you have contact with the offender?',
+                            'title_someone-else': 'Does the child have contact with the offender?',
+                            error: {
+                                required: 'Select yes if you have contact with the offender',
+                                'required_someone-else':
+                                    'Select yes if the child has contact with the offender'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,11 +36,18 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-offender-do-you-have-contact-with-offender': {
-                    title: 'Do you have contact with the offender?',
                     type: 'boolean',
+                    title:
+                        'l10nt:q-offender-do-you-have-contact-with-offender.title{?lng,context,ns}',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -25,14 +59,22 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-offender-do-you-have-contact-with-offender':
-                        'Select yes if you have contact with the offender'
+                        'l10nt:q-offender-do-you-have-contact-with-offender.error.required{?lng,context,ns}'
                 }
             },
             examples: [
-                {'q-offender-do-you-have-contact-with-offender': true},
-                {'q-offender-do-you-have-contact-with-offender': false}
+                {
+                    'q-offender-do-you-have-contact-with-offender': true
+                },
+                {
+                    'q-offender-do-you-have-contact-with-offender': false
+                }
             ],
-            invalidExamples: [{'q-offender-do-you-have-contact-with-offender': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-offender-do-you-have-contact-with-offender': 'foo'
+                }
+            ]
         }
     },
     route: {

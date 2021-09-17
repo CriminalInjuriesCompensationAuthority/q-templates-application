@@ -13,20 +13,62 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Dislocated thumb', const: 'phyinj-110'},
-                            {title: 'Dislocated index finger', const: 'phyinj-109'},
-                            {title: 'Dislocated finger on one hand', const: 'phyinj-088'},
-                            {title: 'Dislocated fingers on both hands', const: 'phyinj-089'},
-                            {title: 'Broken thumb', const: 'phyinj-090'},
-                            {title: 'Broken index finger', const: 'phyinj-091'},
-                            {title: 'Broken finger on one hand', const: 'phyinj-092'},
-                            {title: 'Broken fingers on both hands', const: 'phyinj-093'},
-                            {title: 'Loss of thumb', const: 'phyinj-111'},
-                            {title: 'Loss of finger', const: 'phyinj-094'},
-                            {title: 'Loss of part of finger', const: 'phyinj-095'},
-                            {title: 'Loss of fingernail', const: 'phyinj-106'},
-                            {title: 'Paralysed finger', const: 'phyinj-147'},
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Dislocated thumb',
+                                const: 'phyinj-110'
+                            },
+                            {
+                                title: 'Dislocated index finger',
+                                const: 'phyinj-109'
+                            },
+                            {
+                                title: 'Dislocated finger on one hand',
+                                const: 'phyinj-088'
+                            },
+                            {
+                                title: 'Dislocated fingers on both hands',
+                                const: 'phyinj-089'
+                            },
+                            {
+                                title: 'Broken thumb',
+                                const: 'phyinj-090'
+                            },
+                            {
+                                title: 'Broken index finger',
+                                const: 'phyinj-091'
+                            },
+                            {
+                                title: 'Broken finger on one hand',
+                                const: 'phyinj-092'
+                            },
+                            {
+                                title: 'Broken fingers on both hands',
+                                const: 'phyinj-093'
+                            },
+                            {
+                                title: 'Loss of thumb',
+                                const: 'phyinj-111'
+                            },
+                            {
+                                title: 'Loss of finger',
+                                const: 'phyinj-094'
+                            },
+                            {
+                                title: 'Loss of part of finger',
+                                const: 'phyinj-095'
+                            },
+                            {
+                                title: 'Loss of fingernail',
+                                const: 'phyinj-106'
+                            },
+                            {
+                                title: 'Paralysed finger',
+                                const: 'phyinj-147'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -52,12 +94,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -79,12 +129,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-110']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-110']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -115,7 +175,7 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

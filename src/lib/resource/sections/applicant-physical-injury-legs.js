@@ -13,12 +13,30 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Hip', const: 'hip'},
-                            {title: 'Leg', const: 'leg'},
-                            {title: 'Knee', const: 'knee'},
-                            {title: 'Ankle', const: 'ankle'},
-                            {title: 'Foot', const: 'foot'},
-                            {title: 'Toes', const: 'toes'},
+                            {
+                                title: 'Hip',
+                                const: 'hip'
+                            },
+                            {
+                                title: 'Leg',
+                                const: 'leg'
+                            },
+                            {
+                                title: 'Knee',
+                                const: 'knee'
+                            },
+                            {
+                                title: 'Ankle',
+                                const: 'ankle'
+                            },
+                            {
+                                title: 'Foot',
+                                const: 'foot'
+                            },
+                            {
+                                title: 'Toes',
+                                const: 'toes'
+                            },
                             {
                                 title: 'Skin',
                                 const: 'skin',
@@ -42,49 +60,127 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injury-legs': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injury-legs': 'Select an injury from the list'
+                }
             },
             examples: [
-                {'q-applicant-physical-injury-legs': ['hip']},
-                {'q-applicant-physical-injury-legs': ['hip', 'leg']},
-                {'q-applicant-physical-injury-legs': ['hip', 'knee']},
-                {'q-applicant-physical-injury-legs': ['hip', 'ankle']},
-                {'q-applicant-physical-injury-legs': ['hip', 'foot']},
-                {'q-applicant-physical-injury-legs': ['hip', 'toes']},
-                {'q-applicant-physical-injury-legs': ['hip', 'skin']},
-                {'q-applicant-physical-injury-legs': ['hip', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['leg']},
-                {'q-applicant-physical-injury-legs': ['leg', 'knee']},
-                {'q-applicant-physical-injury-legs': ['leg', 'ankle']},
-                {'q-applicant-physical-injury-legs': ['leg', 'foot']},
-                {'q-applicant-physical-injury-legs': ['leg', 'toes']},
-                {'q-applicant-physical-injury-legs': ['leg', 'skin']},
-                {'q-applicant-physical-injury-legs': ['leg', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['knee']},
-                {'q-applicant-physical-injury-legs': ['knee', 'ankle']},
-                {'q-applicant-physical-injury-legs': ['knee', 'foot']},
-                {'q-applicant-physical-injury-legs': ['knee', 'toes']},
-                {'q-applicant-physical-injury-legs': ['knee', 'skin']},
-                {'q-applicant-physical-injury-legs': ['knee', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['ankle']},
-                {'q-applicant-physical-injury-legs': ['ankle', 'foot']},
-                {'q-applicant-physical-injury-legs': ['ankle', 'toes']},
-                {'q-applicant-physical-injury-legs': ['ankle', 'skin']},
-                {'q-applicant-physical-injury-legs': ['ankle', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['foot']},
-                {'q-applicant-physical-injury-legs': ['foot', 'toes']},
-                {'q-applicant-physical-injury-legs': ['foot', 'skin']},
-                {'q-applicant-physical-injury-legs': ['foot', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['toes']},
-                {'q-applicant-physical-injury-legs': ['toes', 'skin']},
-                {'q-applicant-physical-injury-legs': ['toes', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['skin']},
-                {'q-applicant-physical-injury-legs': ['skin', 'muscle']},
-                {'q-applicant-physical-injury-legs': ['muscle']}
+                {
+                    'q-applicant-physical-injury-legs': ['hip']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'leg']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'knee']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'ankle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['hip', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'knee']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'ankle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['leg', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee', 'ankle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee', 'foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee', 'toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['knee', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle', 'foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle', 'toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['ankle', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['foot']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['foot', 'toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['foot', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['foot', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['toes']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['toes', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['toes', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['skin']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['skin', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['muscle']
+                }
             ],
             invalidExamples: [
-                {'q-applicant-physical-injury-legs': 'not-an-array'},
-                {'q-applicant-physical-injury-legs': ['not-a-key']}
+                {
+                    'q-applicant-physical-injury-legs': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-legs': ['not-a-key']
+                }
             ]
         }
     },
@@ -155,7 +251,7 @@ module.exports = {
                         'muscle'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

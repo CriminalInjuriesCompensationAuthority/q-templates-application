@@ -2,12 +2,45 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-enter-your-address'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-enter-your-address',
+                    resources: {
+                        title: 'Enter your address',
+                        'title_someone-else': 'Enter their address',
+                        'q-applicant-building-and-street': {
+                            error: {
+                                required: 'Enter the building and street where you live',
+                                'required_someone-else':
+                                    'Enter the building and street where they live'
+                            }
+                        },
+                        'q-applicant-town-or-city': {
+                            error: {
+                                required: 'Enter the town or city where you live',
+                                'required_someone-else': 'Enter the town or city where they live'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             allOf: [
                 {
-                    title: 'Enter your address',
+                    title: 'l10nt:title{?lng,context,ns}',
                     meta: {
                         compositeId: 'applicant-address',
                         classifications: {
@@ -119,8 +152,9 @@ module.exports = {
                     errorMessage: {
                         required: {
                             'q-applicant-building-and-street':
-                                'Enter the building and street where you live',
-                            'q-applicant-town-or-city': 'Enter the town or city where you live'
+                                'l10nt:q-applicant-building-and-street.error.required{?lng,context,ns}',
+                            'q-applicant-town-or-city':
+                                'l10nt:q-applicant-town-or-city.error.required{?lng,context,ns}'
                         }
                     }
                 }
@@ -176,6 +210,14 @@ module.exports = {
     route: {
         on: {
             ANSWER: [
+                {
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'someone-else'
+                    ]
+                },
                 {
                     target: 'p-applicant-enter-your-telephone-number',
                     cond: [

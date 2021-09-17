@@ -2,6 +2,37 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace:
+                        'p-applicant-have-you-applied-for-or-received-any-other-compensation',
+                    resources: {
+                        'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
+                            title:
+                                'Have you applied for or received any other form of compensation?',
+                            'title_someone-else':
+                                'Have you applied for or received any other form of compensation on behalf of the child?',
+                            error: {
+                                required:
+                                    'Select yes if you have applied for any other form of compensation',
+                                'required_someone-else':
+                                    'Select yes if you have applied for any other form of compensation on behalf of the child'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,13 +40,20 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
-                    title: 'Have you applied for or received any other form of compensation?',
-                    description:
-                        'For example, if you sought civil damages or a court decided you should get compensation.',
                     type: 'boolean',
+                    title:
+                        'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
+                    description:
+                        'For example, this may be compensation awarded by a court or in a private settlement.',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -30,15 +68,21 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-have-you-applied-for-or-received-any-other-compensation':
-                        'Select yes if you have applied for any other form of compensation'
+                        'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.error.required{?lng,context,ns}'
                 }
             },
             examples: [
-                {'q-applicant-have-you-applied-for-or-received-any-other-compensation': true},
-                {'q-applicant-have-you-applied-for-or-received-any-other-compensation': false}
+                {
+                    'q-applicant-have-you-applied-for-or-received-any-other-compensation': true
+                },
+                {
+                    'q-applicant-have-you-applied-for-or-received-any-other-compensation': false
+                }
             ],
             invalidExamples: [
-                {'q-applicant-have-you-applied-for-or-received-any-other-compensation': 'foo'}
+                {
+                    'q-applicant-have-you-applied-for-or-received-any-other-compensation': 'foo'
+                }
             ]
         }
     },

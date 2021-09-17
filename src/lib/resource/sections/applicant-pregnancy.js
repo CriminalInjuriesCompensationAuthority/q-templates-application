@@ -2,6 +2,35 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-pregnancy'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-pregnancy',
+                    resources: {
+                        'q-applicant-pregnancy': {
+                            title: 'Did you become pregnant as a result of the crime?',
+                            'title_someone-else':
+                                'Did they become pregnant as a result of the crime?',
+                            error: {
+                                required:
+                                    'Select yes if you became pregnant as a result of the crime',
+                                'required_someone-else':
+                                    'Select yes if they became pregnant as a result of the crime'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,11 +38,21 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-pregnancy': {
-                    title: 'Did you become pregnant as a result of the crime?',
-                    type: 'boolean',
+                    type: 'string',
+                    title: 'l10nt:q-applicant-pregnancy.title{?lng,context,ns}',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: 'yes'
+                        },
+                        {
+                            title: 'No',
+                            const: 'no'
+                        },
+                        {
+                            title: "I'm not sure",
+                            const: 'not-sure'
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -28,12 +67,31 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-pregnancy':
-                        'Select yes if you became pregnant as a result of the crime'
+                        'l10nt:q-applicant-pregnancy.error.required{?lng,context,ns}'
                 }
             },
-            examples: [{'q-applicant-pregnancy': true}, {'q-applicant-pregnancy': false}],
-            invalidExamples: [{'q-applicant-pregnancy': 'foo'}]
+            examples: [
+                {
+                    'q-applicant-pregnancy': true
+                },
+                {
+                    'q-applicant-pregnancy': false
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy': 'foo'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-pregnancy-loss'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-pregnancy-loss'
+                }
+            ]
+        }
+    }
 };

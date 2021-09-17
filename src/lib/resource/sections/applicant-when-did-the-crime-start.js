@@ -41,12 +41,28 @@ module.exports = {
                         'Enter the date the crime started and include a month and year'
                 }
             },
-            examples: [{'q-applicant-when-did-the-crime-start': '2020-01-01T00:00:00.000Z'}],
+            examples: [
+                {
+                    'q-applicant-when-did-the-crime-start': '2020-01-01T00:00:00.000Z'
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-when-did-the-crime-start': 12345},
-                {'q-applicant-when-did-the-crime-start': 'not a date'}
+                {
+                    'q-applicant-when-did-the-crime-start': 12345
+                },
+                {
+                    'q-applicant-when-did-the-crime-start': 'not a date'
+                }
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-when-did-the-crime-stop'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-when-did-the-crime-stop'
+                }
+            ]
+        }
+    }
 };

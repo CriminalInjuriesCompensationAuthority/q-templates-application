@@ -14,8 +14,20 @@ module.exports = {
                 }
             },
             examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
+            invalidExamples: [
+                {
+                    foo: 'bar'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--confirmation'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--confirmation'
+                }
+            ]
+        }
+    }
 };
