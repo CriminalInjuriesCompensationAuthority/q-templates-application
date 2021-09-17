@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-dentist-visited'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-dentist-visited',
+                    resources: {
+                        'q-applicant-dentist-visited': {
+                            error: {
+                                required:
+                                    'Select yes if you have seen a dentist about your injuries',
+                                'required_someone-else':
+                                    'Select yes if they have seen a dentist about their injuries'
+                            },
+                            title: 'Have you seen a dentist about your injuries?',
+                            'title_someone-else': 'Have they seen a dentist about their injuries?'
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,11 +37,17 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-dentist-visited': {
-                    title: 'Have you seen a dentist about your injuries?',
                     type: 'boolean',
+                    title: 'l10nt:q-applicant-dentist-visited.title{?lng,context,ns}',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -28,14 +62,22 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-dentist-visited':
-                        'Select yes if you have seen a dentist about your injuries'
+                        'l10nt:q-applicant-dentist-visited.error.required{?lng,context,ns}'
                 }
             },
             examples: [
-                {'q-applicant-dentist-visited': true},
-                {'q-applicant-dentist-visited': false}
+                {
+                    'q-applicant-dentist-visited': true
+                },
+                {
+                    'q-applicant-dentist-visited': false
+                }
             ],
-            invalidExamples: [{'q-applicant-dentist-visited': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-dentist-visited': 'foo'
+                }
+            ]
         }
     },
     route: {
@@ -57,7 +99,9 @@ module.exports = {
                         false
                     ]
                 },
-                {target: 'p--context-money'}
+                {
+                    target: 'p--context-compensation'
+                }
             ]
         }
     }

@@ -47,7 +47,10 @@ module.exports = {
                                 {
                                     title: 'Your details',
                                     questions: [
-                                        {id: 'p-applicant-enter-your-name', label: 'Name'},
+                                        {
+                                            id: 'p-applicant-enter-your-name',
+                                            label: 'Name'
+                                        },
                                         {
                                             id:
                                                 'p-applicant-have-you-been-known-by-any-other-names',
@@ -387,7 +390,10 @@ module.exports = {
                                             id: 'p-applicant-have-you-seen-a-gp',
                                             label: 'Have you seen a GP about your injuries?'
                                         },
-                                        {id: 'p-gp-enter-your-address', label: "GP's address"},
+                                        {
+                                            id: 'p-gp-enter-your-address',
+                                            label: "GP's address"
+                                        },
                                         {
                                             id: 'p-applicant-medical-help',
                                             label: 'Did you seek other medical help?'
@@ -430,7 +436,10 @@ module.exports = {
                                             id: 'p-applicant-work-details-option',
                                             label: 'Reason for not having paid work'
                                         },
-                                        {id: 'p-applicant-expenses', label: 'Expenses'}
+                                        {
+                                            id: 'p-applicant-expenses',
+                                            label: 'Expenses'
+                                        }
                                     ]
                                 },
                                 {
@@ -477,7 +486,10 @@ module.exports = {
                                 {
                                     title: 'Contact details',
                                     questions: [
-                                        {id: 'p-applicant-enter-your-address', label: 'Address'},
+                                        {
+                                            id: 'p-applicant-enter-your-address',
+                                            label: 'Address'
+                                        },
                                         {
                                             id: 'p-applicant-enter-your-email-address',
                                             label: 'Email address'
@@ -847,8 +859,20 @@ module.exports = {
                 }
             },
             examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
+            invalidExamples: [
+                {
+                    foo: 'bar'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-declaration'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-declaration'
+                }
+            ]
+        }
+    }
 };

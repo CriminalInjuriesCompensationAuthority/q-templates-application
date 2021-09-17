@@ -9,13 +9,19 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-has-crime-reference-number': {
+                    type: 'boolean',
                     title: 'Do you have a crime reference number?',
                     description:
                         'This is the number the police gave the crime when it was reported. We need this to get information about the crime from them. You will need to add this later in the application.',
-                    type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -35,11 +41,27 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-has-crime-reference-number': true},
-                {'q-applicant-has-crime-reference-number': false}
+                {
+                    'q-applicant-has-crime-reference-number': true
+                },
+                {
+                    'q-applicant-has-crime-reference-number': false
+                }
             ],
-            invalidExamples: [{'q-applicant-has-crime-reference-number': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-has-crime-reference-number': 'foo'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-who-are-you-applying-for'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-who-are-you-applying-for'
+                }
+            ]
+        }
+    }
 };

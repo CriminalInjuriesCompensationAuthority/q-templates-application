@@ -14,11 +14,17 @@ module.exports = {
             },
             properties: {
                 'q-applicant-confirmation-method': {
-                    title: "How should we tell you we've got your application?",
+                    title: "How should we tell you we've got the application?",
                     type: 'string',
                     oneOf: [
-                        {title: 'Email', const: 'email'},
-                        {title: 'Text message', const: 'text'},
+                        {
+                            title: 'Email',
+                            const: 'email'
+                        },
+                        {
+                            title: 'Text message',
+                            const: 'text'
+                        },
                         {
                             title: "I don't have an email address or UK mobile phone number",
                             const: 'none'
@@ -76,12 +82,18 @@ module.exports = {
                     $ref:
                         '#/definitions/if-text-then-q-applicant-enter-your-telephone-number-is-required'
                 },
-                {$ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'}
+                {
+                    $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
+                }
             ],
             definitions: {
                 'if-email-then-q-applicant-enter-your-email-address-is-required': {
                     if: {
-                        properties: {'q-applicant-confirmation-method': {const: 'email'}},
+                        properties: {
+                            'q-applicant-confirmation-method': {
+                                const: 'email'
+                            }
+                        },
                         required: ['q-applicant-confirmation-method']
                     },
                     then: {
@@ -101,7 +113,11 @@ module.exports = {
                 },
                 'if-text-then-q-applicant-enter-your-telephone-number-is-required': {
                     if: {
-                        properties: {'q-applicant-confirmation-method': {const: 'text'}},
+                        properties: {
+                            'q-applicant-confirmation-method': {
+                                const: 'text'
+                            }
+                        },
                         required: ['q-applicant-confirmation-method']
                     },
                     then: {
@@ -122,12 +138,20 @@ module.exports = {
                 },
                 'if-none-then-phone-and-email-explicitly-not-required': {
                     if: {
-                        properties: {'q-applicant-confirmation-method': {const: 'none'}},
+                        properties: {
+                            'q-applicant-confirmation-method': {
+                                const: 'none'
+                            }
+                        },
                         required: ['q-applicant-confirmation-method']
                     },
                     then: {
                         additionalProperties: false,
-                        properties: {'q-applicant-confirmation-method': {const: 'none'}},
+                        properties: {
+                            'q-applicant-confirmation-method': {
+                                const: 'none'
+                            }
+                        },
                         required: ['q-applicant-confirmation-method']
                     }
                 }
@@ -139,7 +163,9 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-confirmation-method': 'none'},
+                {
+                    'q-applicant-confirmation-method': 'none'
+                },
                 {
                     'q-applicant-confirmation-method': 'email',
                     'q-applicant-enter-your-email-address': 'foo@bar.com'
@@ -158,8 +184,12 @@ module.exports = {
                     'q-applicant-confirmation-method': 'none',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
                 },
-                {'q-applicant-confirmation-method': 'email'},
-                {'q-applicant-confirmation-method': 'text'},
+                {
+                    'q-applicant-confirmation-method': 'email'
+                },
+                {
+                    'q-applicant-confirmation-method': 'text'
+                },
                 {
                     'q-applicant-confirmation-method': 'email',
                     'q-applicant-enter-your-telephone-number': '07701 234567'
@@ -180,8 +210,12 @@ module.exports = {
                     'q-applicant-confirmation-method': 'text',
                     'q-applicant-enter-your-telephone-number': '0141 420 5000'
                 },
-                {'q-applicant-confirmation-method': 10},
-                {'q-applicant-confirmation-method': false},
+                {
+                    'q-applicant-confirmation-method': 10
+                },
+                {
+                    'q-applicant-confirmation-method': false
+                },
                 {
                     'q-applicant-confirmation-method': true,
                     'q-applicant-enter-your-email-address': true
@@ -220,7 +254,9 @@ module.exports = {
                         'none'
                     ]
                 },
-                {target: 'p-applicant-enter-your-name'}
+                {
+                    target: 'p-applicant-enter-your-name'
+                }
             ]
         }
     }

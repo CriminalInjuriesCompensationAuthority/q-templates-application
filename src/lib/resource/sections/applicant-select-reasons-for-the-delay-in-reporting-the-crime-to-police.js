@@ -2,6 +2,42 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace:
+                        'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                    resources: {
+                        'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
+                            description: 'Select all options that apply to you.',
+                            'description_someone-else': 'Select all options that apply.',
+                            error: {
+                                required:
+                                    'Select if you were under 18, unable to report the crime or other reasons',
+                                'required_someone-else':
+                                    'Select if they were under 18, unable to report the crime or other reasons'
+                            },
+                            value: {
+                                'i-was-under-18': 'I was under 18',
+                                'i-was-under-18_someone-else': 'The child was under 18',
+                                'unable-to-report-crime': 'Unable to report the crime',
+                                'unable-to-report-crime_someone-else':
+                                    'The child was unable to report the crime'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -16,12 +52,24 @@ module.exports = {
                     type: 'array',
                     maxItems: 3,
                     uniqueItems: true,
-                    description: 'Select all options that apply to you.',
+                    description:
+                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.description{?lng,context,ns}',
                     items: {
                         anyOf: [
-                            {title: 'I was under 18', const: 'i-was-under-18'},
-                            {title: 'Unable to report the crime', const: 'unable-to-report-crime'},
-                            {title: 'Other reasons', const: 'other'}
+                            {
+                                title:
+                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.i-was-under-18{?lng,context,ns}',
+                                const: 'i-was-under-18'
+                            },
+                            {
+                                title:
+                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.unable-to-report-crime{?lng,context,ns}',
+                                const: 'unable-to-report-crime'
+                            },
+                            {
+                                title: 'Other reasons',
+                                const: 'other'
+                            }
                         ]
                     },
                     meta: {
@@ -37,7 +85,9 @@ module.exports = {
                     title: 'Briefly explain these reasons',
                     type: 'string',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'},
+                    errorMessage: {
+                        maxLength: 'Explanation must be 500 characters or less'
+                    },
                     meta: {
                         classifications: {
                             theme: 'crime'
@@ -52,7 +102,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                        'Select if you were under 18, unable to report the crime or other reasons',
+                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.error.required{?lng,context,ns}',
                     'q-applicant-explain-reason-for-delay-reporting':
                         'Explain the reasons for the delay in reporting the crime to the police'
                 }
@@ -91,5 +141,13 @@ module.exports = {
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--which-police-force-is-investigating-the-crime'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--which-police-force-is-investigating-the-crime'
+                }
+            ]
+        }
+    }
 };

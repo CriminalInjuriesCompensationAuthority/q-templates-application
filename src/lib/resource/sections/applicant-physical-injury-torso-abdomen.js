@@ -13,13 +13,34 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Kidney damage', const: 'phyinj-069'},
-                            {title: 'Loss of kidney', const: 'phyinj-068'},
-                            {title: 'Loss of pancreas', const: 'phyinj-073'},
-                            {title: 'Loss of spleen', const: 'phyinj-077'},
-                            {title: 'Hernia', const: 'phyinj-067'},
-                            {title: 'Keyhole surgery on torso', const: 'phyinj-056'},
-                            {title: 'Stoma', const: 'phyinj-058'},
+                            {
+                                title: 'Kidney damage',
+                                const: 'phyinj-069'
+                            },
+                            {
+                                title: 'Loss of kidney',
+                                const: 'phyinj-068'
+                            },
+                            {
+                                title: 'Loss of pancreas',
+                                const: 'phyinj-073'
+                            },
+                            {
+                                title: 'Loss of spleen',
+                                const: 'phyinj-077'
+                            },
+                            {
+                                title: 'Hernia',
+                                const: 'phyinj-067'
+                            },
+                            {
+                                title: 'Keyhole surgery on torso',
+                                const: 'phyinj-056'
+                            },
+                            {
+                                title: 'Stoma',
+                                const: 'phyinj-058'
+                            },
                             {
                                 title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
                                 const: 'phyinj-139'
@@ -28,7 +49,10 @@ module.exports = {
                                 title: 'Hemiplegia (paralysis of one side of the the body)',
                                 const: 'phyinj-137'
                             },
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -54,12 +78,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -81,12 +113,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-058']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-058']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -149,7 +191,7 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

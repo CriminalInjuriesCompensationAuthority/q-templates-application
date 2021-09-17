@@ -122,6 +122,34 @@ const applicantIncidentDescription = require('./lib/resource/sections/applicant-
 const applicantHasCrimeReferenceNumber = require('./lib/resource/sections/applicant-has-crime-reference-number.js');
 const contextAdditionalInfo = require('./lib/resource/sections/context-additional-info.js');
 const system = require('./lib/resource/sections/system.js');
+const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
+const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
+const contextAuthority = require('./lib/resource/sections/context-authority');
+const mainapplicantContextDetails = require('./lib/resource/sections/mainapplicant-context-details.js');
+const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
+const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
+const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
+const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/mainapplicant-enter-your-email-address.js');
+const mainapplicantEnterYourTelephoneNumber = require('./lib/resource/sections/mainapplicant-enter-your-telephone-number.js');
+const mainapplicantRelationship = require('./lib/resource/sections/mainapplicant-relationship.js');
+const mainapplicantSharedResponsibility = require('./lib/resource/sections/mainapplicant-shared-responsibility.js');
+const mainapplicantSharedResponsibilityName = require('./lib/resource/sections/mainapplicant-shared-responsibility-name.js');
+const mainapplicantCareOrder = require('./lib/resource/sections/mainapplicant-care-order.js');
+const mainapplicantCareOrderAuthority = require('./lib/resource/sections/mainapplicant-care-order-authority.js');
+const contextPregnancy = require('./lib/resource/sections/context-pregnancy.js');
+const applicantUnableToWork = require('./lib/resource/sections/applicant-unable-to-work.js');
+const applicantSeTreatment = require('./lib/resource/sections/applicant-se-treatment.js');
+const applicantSeHomeCare = require('./lib/resource/sections/applicant-se-home-care.js');
+const applicantSeHomeChanges = require('./lib/resource/sections/applicant-se-home-changes.js');
+const applicantSeAids = require('./lib/resource/sections/applicant-se-aids.js');
+const applicantSeEquipment = require('./lib/resource/sections/applicant-se-equipment.js');
+const applicantSeOther = require('./lib/resource/sections/applicant-se-other.js');
+const contextSpecialExpenses = require('./lib/resource/sections/context-special-expenses.js');
+const applicantOver16 = require('./lib/resource/sections/applicant-over-16.js');
+const applicantAffectedDailyCapacity = require('./lib/resource/sections/applicant-affected-daily-capacity.js');
+const applicantAffectDuration = require('./lib/resource/sections/applicant-affect-duration.js');
+const applicantAffectFutureDuration = require('./lib/resource/sections/applicant-affect-future-duration.js');
+const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -260,7 +288,36 @@ module.exports = {
         'p-applicant-incident-description': applicantIncidentDescription.section,
         'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.section,
         'p--context-additional-info': contextAdditionalInfo.section,
-        system: system.section
+        system: system.section,
+        'p--context-crime-impact': contextCrimeImpact.section,
+        'p-mainapplicant-parent': mainapplicantParent.section,
+        'p--context-authority': contextAuthority.section,
+        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
+        'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
+        'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
+        'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
+        'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
+        'p-mainapplicant-enter-your-telephone-number':
+            mainapplicantEnterYourTelephoneNumber.section,
+        'p-mainapplicant-relationship': mainapplicantRelationship.section,
+        'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.section,
+        'p-mainapplicant-shared-responsibility-name': mainapplicantSharedResponsibilityName.section,
+        'p-mainapplicant-care-order': mainapplicantCareOrder.section,
+        'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.section,
+        'p--context-pregnancy': contextPregnancy.section,
+        'p-applicant-unable-to-work': applicantUnableToWork.section,
+        'p-applicant-se-treatment': applicantSeTreatment.section,
+        'p-applicant-se-home-care': applicantSeHomeCare.section,
+        'p-applicant-se-home-changes': applicantSeHomeChanges.section,
+        'p-applicant-se-aids': applicantSeAids.section,
+        'p-applicant-se-equipment': applicantSeEquipment.section,
+        'p-applicant-se-other': applicantSeOther.section,
+        'p--context-special-expenses': contextSpecialExpenses.section,
+        'p-applicant-over-16': applicantOver16.section,
+        'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.section,
+        'p-applicant-affect-duration': applicantAffectDuration.section,
+        'p-applicant-affect-future-duration': applicantAffectFutureDuration.section,
+        'p-applicant-future-work': applicantFutureWork.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -406,7 +463,37 @@ module.exports = {
             'p-applicant-incident-description': applicantIncidentDescription.route,
             'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.route,
             'p--context-additional-info': contextAdditionalInfo.route,
-            system: system.route
+            system: system.route,
+            'p--context-crime-impact': contextCrimeImpact.route,
+            'p-mainapplicant-parent': mainapplicantParent.route,
+            'p--context-authority': contextAuthority.route,
+            'p-mainapplicant-context-details': mainapplicantContextDetails.route,
+            'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
+            'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
+            'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
+            'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.route,
+            'p-mainapplicant-enter-your-telephone-number':
+                mainapplicantEnterYourTelephoneNumber.route,
+            'p-mainapplicant-relationship': mainapplicantRelationship.route,
+            'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.route,
+            'p-mainapplicant-shared-responsibility-name':
+                mainapplicantSharedResponsibilityName.route,
+            'p-mainapplicant-care-order': mainapplicantCareOrder.route,
+            'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.route,
+            'p--context-pregnancy': contextPregnancy.route,
+            'p-applicant-unable-to-work': applicantUnableToWork.route,
+            'p-applicant-se-treatment': applicantSeTreatment.route,
+            'p-applicant-se-home-care': applicantSeHomeCare.route,
+            'p-applicant-se-home-changes': applicantSeHomeChanges.route,
+            'p-applicant-se-aids': applicantSeAids.route,
+            'p-applicant-se-equipment': applicantSeEquipment.route,
+            'p-applicant-se-other': applicantSeOther.route,
+            'p--context-special-expenses': contextSpecialExpenses.route,
+            'p-applicant-over-16': applicantOver16.route,
+            'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
+            'p-applicant-affect-duration': applicantAffectDuration.route,
+            'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
+            'p-applicant-future-work': applicantFutureWork.route
         }
     },
     answers: {},

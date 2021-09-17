@@ -2,6 +2,32 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-incident-type'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-incident-type',
+                    resources: {
+                        'q-applicant-incident-type': {
+                            error: {
+                                required: 'Select what led to your injuries',
+                                'required_someone-else': 'Select what led to their injuries'
+                            },
+                            title: 'What led to your injuries?',
+                            'title_someone-else': "What led to the child's injuries?"
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,19 +35,49 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-incident-type': {
-                    title: 'What led to your injuries?',
+                    title: 'l10nt:q-applicant-incident-type.title{?lng,context,ns}',
                     type: 'string',
                     oneOf: [
-                        {title: 'Physical assault', const: 'ASST'},
-                        {title: 'Assault with a weapon', const: 'WEAP'},
-                        {title: 'Sexual assault or abuse', const: 'SEX'},
-                        {title: 'Domestic or family violence', const: 'FMLY'},
-                        {title: 'Arson', const: 'ARSN'},
-                        {title: 'Poisoning', const: 'PSNG'},
-                        {title: 'Animal attack', const: 'ANIMAL'},
-                        {title: 'Vehicle attack', const: 'VEHICLE'},
-                        {title: 'Witnessing an incident', const: 'SECV'},
-                        {title: 'Other', const: 'OTHER'}
+                        {
+                            title: 'Physical assault',
+                            const: 'ASST'
+                        },
+                        {
+                            title: 'Assault with a weapon',
+                            const: 'WEAP'
+                        },
+                        {
+                            title: 'Sexual assault or abuse',
+                            const: 'SEX'
+                        },
+                        {
+                            title: 'Domestic or family violence',
+                            const: 'FMLY'
+                        },
+                        {
+                            title: 'Arson',
+                            const: 'ARSN'
+                        },
+                        {
+                            title: 'Poisoning',
+                            const: 'PSNG'
+                        },
+                        {
+                            title: 'Animal attack',
+                            const: 'ANIMAL'
+                        },
+                        {
+                            title: 'Vehicle attack',
+                            const: 'VEHICLE'
+                        },
+                        {
+                            title: 'Witnessing an incident',
+                            const: 'SECV'
+                        },
+                        {
+                            title: 'Other',
+                            const: 'OTHER'
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -31,18 +87,43 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-incident-type': 'Select what led to your injuries'}
+                required: {
+                    'q-applicant-incident-type':
+                        'l10nt:q-applicant-incident-type.error.required{?lng,context,ns}'
+                }
             },
-            examples: [{'q-applicant-incident-type': 'ANIMAL'}],
+            examples: [
+                {
+                    'q-applicant-incident-type': 'ANIMAL'
+                }
+            ],
             invalidExamples: [
                 {},
-                {'q-applicant-incident-type': 'ABCD'},
-                {'q-applicant-incident-type': ''},
-                {'q-applicant-incident-type': 123},
-                {'q-applicant-incident-type': []},
-                {'q-applicant-incident-type': true}
+                {
+                    'q-applicant-incident-type': 'ABCD'
+                },
+                {
+                    'q-applicant-incident-type': ''
+                },
+                {
+                    'q-applicant-incident-type': 123
+                },
+                {
+                    'q-applicant-incident-type': []
+                },
+                {
+                    'q-applicant-incident-type': true
+                }
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-did-the-crime-happen-once-or-over-time'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-did-the-crime-happen-once-or-over-time'
+                }
+            ]
+        }
+    }
 };

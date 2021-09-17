@@ -13,14 +13,38 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Broken big toe', const: 'phyinj-129'},
-                            {title: 'Broken toe', const: 'phyinj-130'},
-                            {title: '2 or more broken toes', const: 'phyinj-136'},
-                            {title: 'Amputated big toe', const: 'phyinj-131'},
-                            {title: '1 amputated toe', const: 'phyinj-132'},
-                            {title: '2 or more amputated toes', const: 'phyinj-133'},
-                            {title: 'Paralysed toe', const: 'phyinj-148'},
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Broken big toe',
+                                const: 'phyinj-129'
+                            },
+                            {
+                                title: 'Broken toe',
+                                const: 'phyinj-130'
+                            },
+                            {
+                                title: '2 or more broken toes',
+                                const: 'phyinj-136'
+                            },
+                            {
+                                title: 'Amputated big toe',
+                                const: 'phyinj-131'
+                            },
+                            {
+                                title: '1 amputated toe',
+                                const: 'phyinj-132'
+                            },
+                            {
+                                title: '2 or more amputated toes',
+                                const: 'phyinj-133'
+                            },
+                            {
+                                title: 'Paralysed toe',
+                                const: 'phyinj-148'
+                            },
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -36,7 +60,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other toe injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other toe injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other toe injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'
@@ -44,12 +70,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -71,12 +105,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-129']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-129']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -99,7 +143,7 @@ module.exports = {
                         'muscle'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

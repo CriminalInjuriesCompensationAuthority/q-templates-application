@@ -13,10 +13,22 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Broken vertebra', const: 'phyinj-059'},
-                            {title: 'Slipped disc', const: 'phyinj-060'},
-                            {title: 'Back strain', const: 'phyinj-061'},
-                            {title: 'Broken tailbone', const: 'phyinj-064'},
+                            {
+                                title: 'Broken vertebra',
+                                const: 'phyinj-059'
+                            },
+                            {
+                                title: 'Slipped disc',
+                                const: 'phyinj-060'
+                            },
+                            {
+                                title: 'Back strain',
+                                const: 'phyinj-061'
+                            },
+                            {
+                                title: 'Broken tailbone',
+                                const: 'phyinj-064'
+                            },
                             {
                                 title: 'Quadriplegia or tetraplegia (paralysis of all 4 limbs)',
                                 const: 'phyinj-139'
@@ -25,7 +37,10 @@ module.exports = {
                                 title: 'Hemiplegia (paralysis of one side of the the body)',
                                 const: 'phyinj-137'
                             },
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -51,12 +66,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -78,12 +101,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-064']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-064']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -138,7 +171,9 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {
+                    target: 'p-applicant-infections'
+                }
             ]
         }
     }

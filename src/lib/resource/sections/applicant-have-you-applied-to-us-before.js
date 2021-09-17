@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-have-you-applied-to-us-before'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-have-you-applied-to-us-before',
+                    resources: {
+                        'q-applicant-have-you-applied-to-us-before': {
+                            title: 'Have you applied to us before?',
+                            'title_someone-else':
+                                'Have you applied to us before on behalf of the child?',
+                            error: {
+                                required: 'Select yes if you have applied to us before',
+                                'required_someone-else':
+                                    'Select yes if you have applied to us before on behalf of the child'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -14,11 +42,17 @@ module.exports = {
             },
             properties: {
                 'q-applicant-have-you-applied-to-us-before': {
-                    title: 'Have you applied to us before?',
+                    title: 'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
                     type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -49,7 +83,13 @@ module.exports = {
             ],
             definitions: {
                 'if-true-then-q-enter-your-previous-reference-number-is-required': {
-                    if: {properties: {'q-applicant-have-you-applied-to-us-before': {const: true}}},
+                    if: {
+                        properties: {
+                            'q-applicant-have-you-applied-to-us-before': {
+                                const: true
+                            }
+                        }
+                    },
                     then: {
                         propertyNames: {
                             enum: [
@@ -58,13 +98,17 @@ module.exports = {
                             ]
                         }
                     },
-                    else: {propertyNames: {enum: ['q-applicant-have-you-applied-to-us-before']}}
+                    else: {
+                        propertyNames: {
+                            enum: ['q-applicant-have-you-applied-to-us-before']
+                        }
+                    }
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-have-you-applied-to-us-before':
-                        'Select yes if you have applied to us before'
+                        'l10nt:q-applicant-have-you-applied-to-us-before.error.required{?lng,context,ns}'
                 }
             },
             examples: [
@@ -72,7 +116,9 @@ module.exports = {
                     'q-applicant-have-you-applied-to-us-before': true,
                     'q-enter-your-previous-reference-number': '11//123456'
                 },
-                {'q-applicant-have-you-applied-to-us-before': false}
+                {
+                    'q-applicant-have-you-applied-to-us-before': false
+                }
             ],
             invalidExamples: [
                 {
@@ -89,7 +135,9 @@ module.exports = {
     route: {
         on: {
             ANSWER: [
-                {target: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'}
+                {
+                    target: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'
+                }
             ]
         }
     }

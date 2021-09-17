@@ -40,12 +40,20 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-when-did-the-crime-happen': '2020-01-01T00:00:00.000Z'},
-                {'q-applicant-when-did-the-crime-happen': '2010-01-01T00:00:00.000Z'}
+                {
+                    'q-applicant-when-did-the-crime-happen': '2020-01-01T00:00:00.000Z'
+                },
+                {
+                    'q-applicant-when-did-the-crime-happen': '2010-01-01T00:00:00.000Z'
+                }
             ],
             invalidExamples: [
-                {'q-applicant-when-did-the-crime-happen': 12345},
-                {'q-applicant-when-did-the-crime-happen': 'not a date'}
+                {
+                    'q-applicant-when-did-the-crime-happen': 12345
+                },
+                {
+                    'q-applicant-when-did-the-crime-happen': 'not a date'
+                }
             ]
         }
     },
@@ -59,7 +67,9 @@ module.exports = {
                         '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen'
                     ]
                 },
-                {target: 'p-applicant-where-did-the-crime-happen'}
+                {
+                    target: 'p-applicant-where-did-the-crime-happen'
+                }
             ]
         }
     }

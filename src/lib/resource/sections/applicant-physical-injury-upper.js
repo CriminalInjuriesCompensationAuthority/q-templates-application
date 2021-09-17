@@ -9,17 +9,38 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-injury-upper': {
-                    title: 'What parts of the head, face or neck was injured?',
+                    title: 'What parts of the head, face or neck were injured?',
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Head or brain', const: 'head'},
-                            {title: 'Face or jaw', const: 'face'},
-                            {title: 'Eye or eyesight', const: 'eye'},
-                            {title: 'Ear or hearing', const: 'ear'},
-                            {title: 'Nose', const: 'nose'},
-                            {title: 'Mouth', const: 'mouth'},
-                            {title: 'Neck', const: 'neck'},
+                            {
+                                title: 'Head or brain',
+                                const: 'head'
+                            },
+                            {
+                                title: 'Face or jaw',
+                                const: 'face'
+                            },
+                            {
+                                title: 'Eye or eyesight',
+                                const: 'eye'
+                            },
+                            {
+                                title: 'Ear or hearing',
+                                const: 'ear'
+                            },
+                            {
+                                title: 'Nose',
+                                const: 'nose'
+                            },
+                            {
+                                title: 'Mouth',
+                                const: 'mouth'
+                            },
+                            {
+                                title: 'Neck',
+                                const: 'neck'
+                            },
                             {
                                 title: 'Skin',
                                 const: 'skin',
@@ -43,58 +64,154 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injury-upper': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injury-upper': 'Select an injury from the list'
+                }
             },
             examples: [
-                {'q-applicant-physical-injury-upper': ['head']},
-                {'q-applicant-physical-injury-upper': ['head', 'face']},
-                {'q-applicant-physical-injury-upper': ['head', 'eye']},
-                {'q-applicant-physical-injury-upper': ['head', 'ear']},
-                {'q-applicant-physical-injury-upper': ['head', 'nose']},
-                {'q-applicant-physical-injury-upper': ['head', 'mouth']},
-                {'q-applicant-physical-injury-upper': ['head', 'neck']},
-                {'q-applicant-physical-injury-upper': ['head', 'skin']},
-                {'q-applicant-physical-injury-upper': ['head', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['face']},
-                {'q-applicant-physical-injury-upper': ['face', 'eye']},
-                {'q-applicant-physical-injury-upper': ['face', 'ear']},
-                {'q-applicant-physical-injury-upper': ['face', 'nose']},
-                {'q-applicant-physical-injury-upper': ['face', 'mouth']},
-                {'q-applicant-physical-injury-upper': ['face', 'neck']},
-                {'q-applicant-physical-injury-upper': ['face', 'skin']},
-                {'q-applicant-physical-injury-upper': ['face', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['eye']},
-                {'q-applicant-physical-injury-upper': ['eye', 'ear']},
-                {'q-applicant-physical-injury-upper': ['eye', 'nose']},
-                {'q-applicant-physical-injury-upper': ['eye', 'mouth']},
-                {'q-applicant-physical-injury-upper': ['eye', 'neck']},
-                {'q-applicant-physical-injury-upper': ['eye', 'skin']},
-                {'q-applicant-physical-injury-upper': ['eye', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['ear']},
-                {'q-applicant-physical-injury-upper': ['ear', 'nose']},
-                {'q-applicant-physical-injury-upper': ['ear', 'mouth']},
-                {'q-applicant-physical-injury-upper': ['ear', 'neck']},
-                {'q-applicant-physical-injury-upper': ['ear', 'skin']},
-                {'q-applicant-physical-injury-upper': ['ear', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['nose']},
-                {'q-applicant-physical-injury-upper': ['nose', 'mouth']},
-                {'q-applicant-physical-injury-upper': ['nose', 'neck']},
-                {'q-applicant-physical-injury-upper': ['nose', 'skin']},
-                {'q-applicant-physical-injury-upper': ['nose', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['mouth']},
-                {'q-applicant-physical-injury-upper': ['mouth', 'neck']},
-                {'q-applicant-physical-injury-upper': ['mouth', 'skin']},
-                {'q-applicant-physical-injury-upper': ['mouth', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['neck']},
-                {'q-applicant-physical-injury-upper': ['neck', 'skin']},
-                {'q-applicant-physical-injury-upper': ['neck', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['skin']},
-                {'q-applicant-physical-injury-upper': ['skin', 'muscle']},
-                {'q-applicant-physical-injury-upper': ['muscle']}
+                {
+                    'q-applicant-physical-injury-upper': ['head']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'face']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'eye']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'ear']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'nose']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['head', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'eye']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'ear']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'nose']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['face', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'ear']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'nose']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['eye', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear', 'nose']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear', 'mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['ear', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['nose']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['nose', 'mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['nose', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['nose', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['nose', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['mouth']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['mouth', 'neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['mouth', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['mouth', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['neck']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['neck', 'skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['neck', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['skin']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['skin', 'muscle']
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['muscle']
+                }
             ],
             invalidExamples: [
-                {'q-applicant-physical-injury-upper': 'not-an-array'},
-                {'q-applicant-physical-injury-upper': ['not-a-key']}
+                {
+                    'q-applicant-physical-injury-upper': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injury-upper': ['not-a-key']
+                }
             ]
         }
     },
@@ -173,7 +290,9 @@ module.exports = {
                         'muscle'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {
+                    target: 'p-applicant-infections'
+                }
             ]
         }
     }
