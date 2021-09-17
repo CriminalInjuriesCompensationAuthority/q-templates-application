@@ -85,7 +85,10 @@ module.exports = {
                     'q-applicant-english-town-or-city': 12345,
                     'q-applicant-english-location': 'Some location'
                 },
-                {'q-applicant-english-town-or-city': 'York', 'q-applicant-english-location': 12345}
+                {
+                    'q-applicant-english-town-or-city': 'York',
+                    'q-applicant-english-location': 12345
+                }
             ]
         }
     },

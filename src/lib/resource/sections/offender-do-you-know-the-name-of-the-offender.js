@@ -12,8 +12,14 @@ module.exports = {
                     title: "Do you know the offender's name?",
                     type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -23,7 +29,7 @@ module.exports = {
                 },
                 'additional-info-help-text': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than 1 offender, you can provide additional details later in this claim.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than one offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {
@@ -33,10 +39,18 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-offender-do-you-know-the-name-of-the-offender': true},
-                {'q-offender-do-you-know-the-name-of-the-offender': false}
+                {
+                    'q-offender-do-you-know-the-name-of-the-offender': true
+                },
+                {
+                    'q-offender-do-you-know-the-name-of-the-offender': false
+                }
             ],
-            invalidExamples: [{'q-offender-do-you-know-the-name-of-the-offender': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-offender-do-you-know-the-name-of-the-offender': 'foo'
+                }
+            ]
         }
     },
     route: {

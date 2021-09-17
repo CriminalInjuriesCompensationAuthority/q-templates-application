@@ -2,12 +2,32 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-treatment-address'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-treatment-address',
+                    resources: {
+                        title: 'Where did you have treatment?',
+                        'title_someone-else': 'Where did they have treatment?'
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             allOf: [
                 {
-                    title: 'Where did you have treatment?',
+                    title: 'l10nt:title{?lng,context,ns}',
                     meta: {
                         compositeId: 'applicant-treatment-address',
                         classifications: {
@@ -175,5 +195,13 @@ module.exports = {
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--context-money'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-compensation'
+                }
+            ]
+        }
+    }
 };

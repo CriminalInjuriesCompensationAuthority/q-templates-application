@@ -1,16 +1,20 @@
 'use strict';
 
 function deleteKeys(obj, unwantedKeyArray) {
+    if (obj === null || obj === undefined) {
+        return obj;
+    }
+    const result = obj;
     unwantedKeyArray.forEach(unwantedKey => {
-        Object.keys(obj).forEach(key => {
+        Object.keys(result).forEach(key => {
             if (unwantedKey === key) {
-                delete obj[key];
-            } else if (typeof obj[key] === 'object') {
-                deleteKeys(obj[key], unwantedKeyArray);
+                delete result[key];
+            } else if (typeof result[key] === 'object') {
+                deleteKeys(result[key], unwantedKeyArray);
             }
         });
     });
-    return obj;
+    return result;
 }
 
 module.exports = deleteKeys;

@@ -14,8 +14,14 @@ module.exports = {
                 }
             },
             examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
+            invalidExamples: [
+                {
+                    foo: 'bar'
+                }
+            ]
         }
     },
-    route: {type: 'final'}
+    route: {
+        type: 'final'
+    }
 };

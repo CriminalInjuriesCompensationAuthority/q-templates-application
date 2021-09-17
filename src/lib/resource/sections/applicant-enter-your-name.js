@@ -2,12 +2,50 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-enter-your-name'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-enter-your-name',
+                    resources: {
+                        title: 'Enter your name',
+                        'title_someone-else': "Enter the child's name",
+                        'q-applicant-title': {
+                            error: {
+                                required: 'Enter your title',
+                                'required_someone-else': "Enter the child's title"
+                            }
+                        },
+                        'q-applicant-first-name': {
+                            error: {
+                                required: 'Enter your first name',
+                                'required_someone-else': "Enter the child's first name"
+                            }
+                        },
+                        'q-applicant-last-name': {
+                            error: {
+                                required: 'Enter your last name',
+                                'required_someone-else': "Enter the child's last name"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             allOf: [
                 {
-                    title: 'Enter your name',
+                    title: 'l10nt:title{?lng,context,ns}',
                     meta: {
                         compositeId: 'applicant-name',
                         classifications: {
@@ -36,7 +74,9 @@ module.exports = {
                                     title: 'Title',
                                     type: 'string',
                                     maxLength: 6,
-                                    errorMessage: {maxLength: 'Title must be 6 characters or less'},
+                                    errorMessage: {
+                                        maxLength: 'Title must be 6 characters or less'
+                                    },
                                     meta: {
                                         classifications: {
                                             theme: 'applicant-details'
@@ -82,9 +122,12 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-title': 'Enter your title',
-                            'q-applicant-first-name': 'Enter your first name',
-                            'q-applicant-last-name': 'Enter your last name'
+                            'q-applicant-title':
+                                'l10nt:q-applicant-title.error.required{?lng,context,ns}',
+                            'q-applicant-first-name':
+                                'l10nt:q-applicant-first-name.error.required{?lng,context,ns}',
+                            'q-applicant-last-name':
+                                'l10nt:q-applicant-last-name.error.required{?lng,context,ns}'
                         }
                     }
                 }
@@ -115,5 +158,13 @@ module.exports = {
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-have-you-been-known-by-any-other-names'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-have-you-been-known-by-any-other-names'
+                }
+            ]
+        }
+    }
 };

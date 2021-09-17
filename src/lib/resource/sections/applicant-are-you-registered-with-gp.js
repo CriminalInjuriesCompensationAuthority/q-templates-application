@@ -2,6 +2,33 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-are-you-registered-with-gp'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-are-you-registered-with-gp',
+                    resources: {
+                        'q-applicant-are-you-registered-with-gp': {
+                            error: {
+                                required: 'Select yes if you are registered with a GP',
+                                'required_someone-else':
+                                    'Select yes if they are registered with a GP'
+                            },
+                            title: 'Are you registered with a GP practice?',
+                            'title_someone-else': 'Are they registered with a GP practice?'
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,11 +36,17 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-are-you-registered-with-gp': {
-                    title: 'Are you registered with a GP practice?',
                     type: 'boolean',
+                    title: 'l10nt:q-applicant-are-you-registered-with-gp.title{?lng,context,ns}',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -25,15 +58,31 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-are-you-registered-with-gp':
-                        'Select yes if you are registered with a GP'
+                        'l10nt:q-applicant-are-you-registered-with-gp.error.required{?lng,context,ns}'
                 }
             },
             examples: [
-                {'q-applicant-are-you-registered-with-gp': true},
-                {'q-applicant-are-you-registered-with-gp': false}
+                {
+                    'q-applicant-are-you-registered-with-gp': true
+                },
+                {
+                    'q-applicant-are-you-registered-with-gp': false
+                }
             ],
-            invalidExamples: [{'q-applicant-are-you-registered-with-gp': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-are-you-registered-with-gp': 'foo'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-have-you-seen-a-gp'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-have-you-seen-a-gp'
+                }
+            ]
+        }
+    }
 };

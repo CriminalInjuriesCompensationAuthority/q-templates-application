@@ -11,7 +11,7 @@ module.exports = {
                     type: 'string',
                     title: 'Enter your email address',
                     description:
-                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                        'We may use this to contact you if we need to clarify something in this application form (optional).',
                     maxLength: 50,
                     format: 'email',
                     errorMessage: {
@@ -29,11 +29,25 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-enter-your-email-address': 'foo@hhjhjk34h5jkh24kj5h2k45.com'},
+                {
+                    'q-applicant-enter-your-email-address': 'foo@hhjhjk34h5jkh24kj5h2k45.com'
+                },
                 {}
             ],
-            invalidExamples: [{'q-applicant-enter-your-email-address': 12345}]
+            invalidExamples: [
+                {
+                    'q-applicant-enter-your-email-address': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--before-you-continue'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--before-you-continue'
+                }
+            ]
+        }
+    }
 };

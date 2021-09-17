@@ -42,10 +42,18 @@ module.exports = {
                         'Enter the date the crime was reported to the police'
                 }
             },
-            examples: [{'q--when-was-the-crime-reported-to-police': '2020-01-01T00:00:00.000Z'}],
+            examples: [
+                {
+                    'q--when-was-the-crime-reported-to-police': '2020-01-01T00:00:00.000Z'
+                }
+            ],
             invalidExamples: [
-                {'q--when-was-the-crime-reported-to-police': 12345},
-                {'q--when-was-the-crime-reported-to-police': 'not a date'}
+                {
+                    'q--when-was-the-crime-reported-to-police': 12345
+                },
+                {
+                    'q--when-was-the-crime-reported-to-police': 'not a date'
+                }
             ]
         }
     },
@@ -70,7 +78,9 @@ module.exports = {
                         '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop'
                     ]
                 },
-                {target: 'p--which-police-force-is-investigating-the-crime'}
+                {
+                    target: 'p--which-police-force-is-investigating-the-crime'
+                }
             ]
         }
     }

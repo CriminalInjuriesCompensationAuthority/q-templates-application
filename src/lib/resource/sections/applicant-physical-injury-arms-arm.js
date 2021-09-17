@@ -13,15 +13,30 @@ module.exports = {
                     type: 'array',
                     items: {
                         anyOf: [
-                            {title: 'Broken arm', const: 'phyinj-099'},
-                            {title: 'Nerve damage', const: 'phyinj-005'},
-                            {title: 'Loss of arm', const: 'phyinj-084'},
-                            {title: 'Paralysed arm', const: 'phyinj-085'},
+                            {
+                                title: 'Broken arm',
+                                const: 'phyinj-099'
+                            },
+                            {
+                                title: 'Nerve damage',
+                                const: 'phyinj-005'
+                            },
+                            {
+                                title: 'Loss of arm',
+                                const: 'phyinj-084'
+                            },
+                            {
+                                title: 'Paralysed arm',
+                                const: 'phyinj-085'
+                            },
                             {
                                 title: 'Hemiplegia (paralysis of one side of the the body)',
                                 const: 'phyinj-137'
                             },
-                            {title: 'Other', const: 'phyinj-149'}
+                            {
+                                title: 'Other',
+                                const: 'phyinj-149'
+                            }
                         ]
                     },
                     meta: {
@@ -37,7 +52,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other arm injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other arm injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other arm injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'
@@ -45,12 +62,20 @@ module.exports = {
                     }
                 }
             },
-            allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],
+            allOf: [
+                {
+                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                }
+            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
                         properties: {
-                            'q-applicant-physical-injuries': {contains: {const: 'phyinj-149'}}
+                            'q-applicant-physical-injuries': {
+                                contains: {
+                                    const: 'phyinj-149'
+                                }
+                            }
                         },
                         required: ['q-applicant-physical-injuries']
                     },
@@ -72,12 +97,22 @@ module.exports = {
                 }
             },
             errorMessage: {
-                required: {'q-applicant-physical-injuries': 'Select an injury from the list'}
+                required: {
+                    'q-applicant-physical-injuries': 'Select an injury from the list'
+                }
             },
-            examples: [{'q-applicant-physical-injuries': ['phyinj-099']}],
+            examples: [
+                {
+                    'q-applicant-physical-injuries': ['phyinj-099']
+                }
+            ],
             invalidExamples: [
-                {'q-applicant-physical-injuries': 'not-an-array'},
-                {'q-applicant-physical-injuries': ['not-a-key']}
+                {
+                    'q-applicant-physical-injuries': 'not-an-array'
+                },
+                {
+                    'q-applicant-physical-injuries': ['not-a-key']
+                }
             ]
         }
     },
@@ -140,7 +175,7 @@ module.exports = {
                         'legs'
                     ]
                 },
-                {target: 'p--context-dmi-details'}
+                {target: 'p-applicant-infections'}
             ]
         }
     }

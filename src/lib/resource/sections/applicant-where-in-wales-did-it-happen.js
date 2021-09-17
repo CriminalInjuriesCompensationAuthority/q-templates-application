@@ -85,7 +85,10 @@ module.exports = {
                     'q-applicant-welsh-town-or-city': 12345,
                     'q-applicant-welsh-location': 'Some location'
                 },
-                {'q-applicant-welsh-town-or-city': 'Some town', 'q-applicant-welsh-location': 12345}
+                {
+                    'q-applicant-welsh-town-or-city': 'Some town',
+                    'q-applicant-welsh-location': 12345
+                }
             ]
         }
     },

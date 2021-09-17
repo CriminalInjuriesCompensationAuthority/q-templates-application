@@ -32,9 +32,25 @@ module.exports = {
                         'Describe what additional information you want to provide'
                 }
             },
-            examples: [{'q-applicant-additional-information': 'Some info'}],
-            invalidExamples: [{'q-applicant-additional-information': 12345}]
+            examples: [
+                {
+                    'q-applicant-additional-information': 'Some info'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-additional-information': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p--check-your-answers'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--check-your-answers'
+                }
+            ]
+        }
+    }
 };

@@ -9,13 +9,19 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-describe-incident': {
-                    title: 'Would you like to briefly describe the crime in your own words?',
+                    type: 'boolean',
+                    title: 'Do you want to briefly describe the crime in your own words?',
                     description:
                         'The police will send us a report of the crime. Providing an additional description is optional.',
-                    type: 'boolean',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -30,14 +36,22 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-describe-incident':
-                        'Select yes if you would like to describe the crime in your own words'
+                        'Select yes if you would like to briefly describe the crime'
                 }
             },
             examples: [
-                {'q-applicant-describe-incident': true},
-                {'q-applicant-describe-incident': false}
+                {
+                    'q-applicant-describe-incident': true
+                },
+                {
+                    'q-applicant-describe-incident': false
+                }
             ],
-            invalidExamples: [{'q-applicant-describe-incident': 'foo'}]
+            invalidExamples: [
+                {
+                    'q-applicant-describe-incident': 'foo'
+                }
+            ]
         }
     },
     route: {

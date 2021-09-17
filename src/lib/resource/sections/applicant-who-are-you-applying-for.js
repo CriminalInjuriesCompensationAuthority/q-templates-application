@@ -12,8 +12,14 @@ module.exports = {
                     title: 'Who are you applying for?',
                     type: 'string',
                     oneOf: [
-                        {title: 'Myself', const: 'myself'},
-                        {title: 'Someone else', const: 'someone-else'}
+                        {
+                            title: 'Myself',
+                            const: 'myself'
+                        },
+                        {
+                            title: 'Someone else',
+                            const: 'someone-else'
+                        }
                     ],
                     meta: {
                         classifications: {
@@ -29,30 +35,25 @@ module.exports = {
                 }
             },
             examples: [
-                {'q-applicant-who-are-you-applying-for': 'myself'},
-                {'q-applicant-who-are-you-applying-for': 'someone-else'}
+                {
+                    'q-applicant-who-are-you-applying-for': 'myself'
+                },
+                {
+                    'q-applicant-who-are-you-applying-for': 'someone-else'
+                }
             ],
-            invalidExamples: [{'q-applicant-who-are-you-applying-for': 12345}]
+            invalidExamples: [
+                {
+                    'q-applicant-who-are-you-applying-for': 12345
+                }
+            ]
         }
     },
     route: {
         on: {
             ANSWER: [
                 {
-                    target: 'p--transition',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'someone-else'
-                    ]
-                },
-                {
-                    target: 'p-applicant-are-you-18-or-over',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'myself'
-                    ]
+                    target: 'p-applicant-are-you-18-or-over'
                 }
             ]
         }

@@ -47,7 +47,10 @@ module.exports = {
                                 {
                                     title: 'Your details',
                                     questions: [
-                                        {id: 'p-applicant-enter-your-name', label: 'Name'},
+                                        {
+                                            id: 'p-applicant-enter-your-name',
+                                            label: 'Name'
+                                        },
                                         {
                                             id:
                                                 'p-applicant-have-you-been-known-by-any-other-names',
@@ -170,10 +173,6 @@ module.exports = {
                                         {
                                             id: 'p-applicant-infections',
                                             label: 'Do you have HIV, hepatitis or an STI?'
-                                        },
-                                        {
-                                            id: 'p-applicant-non-sa-infections',
-                                            label: 'Do you have HIV or hepatitis?'
                                         },
                                         {
                                             id: 'p-applicant-select-infections',
@@ -387,7 +386,10 @@ module.exports = {
                                             id: 'p-applicant-have-you-seen-a-gp',
                                             label: 'Have you seen a GP about your injuries?'
                                         },
-                                        {id: 'p-gp-enter-your-address', label: "GP's address"},
+                                        {
+                                            id: 'p-gp-enter-your-address',
+                                            label: "GP's address"
+                                        },
                                         {
                                             id: 'p-applicant-medical-help',
                                             label: 'Did you seek other medical help?'
@@ -430,7 +432,10 @@ module.exports = {
                                             id: 'p-applicant-work-details-option',
                                             label: 'Reason for not having paid work'
                                         },
-                                        {id: 'p-applicant-expenses', label: 'Expenses'}
+                                        {
+                                            id: 'p-applicant-expenses',
+                                            label: 'Expenses'
+                                        }
                                     ]
                                 },
                                 {
@@ -477,7 +482,10 @@ module.exports = {
                                 {
                                     title: 'Contact details',
                                     questions: [
-                                        {id: 'p-applicant-enter-your-address', label: 'Address'},
+                                        {
+                                            id: 'p-applicant-enter-your-address',
+                                            label: 'Address'
+                                        },
                                         {
                                             id: 'p-applicant-enter-your-email-address',
                                             label: 'Email address'
@@ -847,8 +855,47 @@ module.exports = {
                 }
             },
             examples: [{}],
-            invalidExamples: [{foo: 'bar'}]
+            invalidExamples: [
+                {
+                    foo: 'bar'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-declaration'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-declaration',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'myself'
+                    ]
+                },
+                {
+                    target: 'p-mainapplicant-declaration-under-12',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'someone-else'
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '<', // is less than ...
+                            '-12', // 12 ...
+                            'years' // years (before, due to the negative (-12) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-mainapplicant-declaration-12-and-over'
+                }
+            ]
+        }
+    }
 };

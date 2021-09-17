@@ -31,9 +31,25 @@ module.exports = {
                         'Enter who you applied to or received compensation from'
                 }
             },
-            examples: [{'q-applicant-who-did-you-apply-to': 'blah'}],
-            invalidExamples: [{'q-applicant-who-did-you-apply-to': 12345}]
+            examples: [
+                {
+                    'q-applicant-who-did-you-apply-to': 'blah'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-who-did-you-apply-to': 12345
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-has-a-decision-been-made'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p-applicant-has-a-decision-been-made'
+                }
+            ]
+        }
+    }
 };

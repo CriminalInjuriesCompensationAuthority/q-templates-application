@@ -2,6 +2,41 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-pregnancy-loss'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-pregnancy-loss',
+                    resources: {
+                        'q-applicant-pregnancy-loss': {
+                            title: 'Did you lose a pregnancy as a result of the crime?',
+                            'title_someone-else':
+                                'Did they lose a pregnancy as a result of the crime?',
+                            error: {
+                                required:
+                                    'Select yes if you lost a pregnancy as a result of the crime',
+                                'required_someone-else':
+                                    'Select yes if they lost a pregnancy as a result of the crime'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Did you lose a pregnancy?',
+                                    'title_someone-else': 'Did they lose a pregnancy?',
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,18 +44,28 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-pregnancy-loss': {
-                    title: 'Did you lose a pregnancy as a result of the crime?',
-                    type: 'boolean',
+                    type: 'string',
+                    title: 'l10nt:q-applicant-pregnancy-loss.title{?lng,context,ns}',
                     oneOf: [
-                        {title: 'Yes', const: true},
-                        {title: 'No', const: false}
+                        {
+                            title: 'Yes',
+                            const: 'yes'
+                        },
+                        {
+                            title: 'No',
+                            const: 'no'
+                        },
+                        {
+                            title: "I'm not sure",
+                            const: 'not-sure'
+                        }
                     ],
                     meta: {
                         classifications: {
                             theme: 'pregnancy'
                         },
                         summary: {
-                            title: 'Did you lose a pregnancy?'
+                            title: 'l10nt:q-applicant-pregnancy-loss.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }
@@ -28,12 +73,31 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-pregnancy-loss':
-                        'Select yes if you lost a pregnancy as a result of the crime'
+                        'l10nt:q-applicant-pregnancy-loss.error.required{?lng,context,ns}'
                 }
             },
-            examples: [{'q-applicant-pregnancy-loss': true}, {'q-applicant-pregnancy-loss': false}],
-            invalidExamples: [{'q-applicant-pregnancy-loss': 'foo'}]
+            examples: [
+                {
+                    'q-applicant-pregnancy-loss': 'yes'
+                },
+                {
+                    'q-applicant-pregnancy-loss': 'no'
+                }
+            ],
+            invalidExamples: [
+                {
+                    'q-applicant-pregnancy-loss': 'foo'
+                }
+            ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-are-you-claiming-for-physical-injuries'}]}}
+    route: {
+        on: {
+            ANSWER: [
+                {
+                    target: 'p--context-dmi-details'
+                }
+            ]
+        }
+    }
 };
