@@ -4,12 +4,13 @@
     "description": "Apply for compensation questionnaire template",
     "main": "dist/template.json",
     "scripts": {
+        "pretest": "npm run build",
         "test": "jest",
         "coverage": "jest --coverage",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "clean": "node ./src/build.js",
-        "prepare": "npm run clean --silent"
+        "build": "node ./src/build.js",
+        "prepare": "npm run build --silent"
     },
     "author": "CICA",
     "license": "MIT",
@@ -50,7 +51,6 @@
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-jest": "^23.3.0",
         "eslint-plugin-prettier": "^3.1.2",
-        "fs-extra": "^8.1.0",
         "husky": "^4.0.3",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
