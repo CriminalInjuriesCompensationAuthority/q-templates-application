@@ -9330,7 +9330,7 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-fatal-claim': {
-                        title: 'Are you applying for someone who died from their injuries?',
+                        title: 'Are you applying because someone died from their injuries?',
                         type: 'boolean',
                         oneOf: [
                             {
