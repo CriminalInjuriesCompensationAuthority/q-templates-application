@@ -1040,41 +1040,59 @@ module.exports = {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: 'Where in Wales did it happen?',
-                required: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location'],
-                additionalProperties: false,
-                properties: {
-                    'q-applicant-welsh-town-or-city': {
-                        type: 'string',
-                        title: 'Town or city',
-                        maxLength: 60,
+                allOf: [
+                    {
+                        title: 'Where in Wales did it happen?',
+                        required: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location'],
+                        propertyNames: {
+                            enum: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location']
+                        },
+                        allOf: [
+                            {
+                                properties: {
+                                    'q-applicant-welsh-town-or-city': {
+                                        type: 'string',
+                                        title: 'Town or city',
+                                        maxLength: 60,
+                                        errorMessage: {
+                                            maxLength: 'Town or city must be 60 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-welsh-location': {
+                                        type: 'string',
+                                        title: 'Location',
+                                        description:
+                                            'For example, the name of a street, business, building or nearby local landmark. You can enter more than one.',
+                                        maxLength: 60,
+                                        errorMessage: {
+                                            maxLength: 'Location must be 60 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'additional-info-help-text': {
+                                        description:
+                                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
+                                    }
+                                }
+                            }
+                        ],
                         errorMessage: {
-                            maxLength: 'Town or city must be 60 characters or less'
+                            required: {
+                                'q-applicant-welsh-location':
+                                    'Enter the name of a street, business, building or nearby local landmark',
+                                'q-applicant-welsh-town-or-city':
+                                    'Enter the town or city where the crime happened'
+                            }
                         }
-                    },
-                    'q-applicant-welsh-location': {
-                        type: 'string',
-                        title: 'Location',
-                        description:
-                            'For example, the name of a street, business, building or nearby local landmark. You can enter more than one.',
-                        maxLength: 60,
-                        errorMessage: {
-                            maxLength: 'Location must be 60 characters or less'
-                        }
-                    },
-                    'additional-info-help-text': {
-                        description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
                     }
-                },
-                errorMessage: {
-                    required: {
-                        'q-applicant-welsh-location':
-                            'Enter the name of a street, business, building or nearby local landmark',
-                        'q-applicant-welsh-town-or-city':
-                            'Enter the town or city where the crime happened'
-                    }
-                },
+                ],
                 examples: [
                     {
                         'q-applicant-welsh-town-or-city': 'Some town',
