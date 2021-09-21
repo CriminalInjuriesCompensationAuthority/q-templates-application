@@ -1843,43 +1843,69 @@ module.exports = {
         'p-applicant-enter-your-name': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
-                title: 'Enter your name',
                 type: 'object',
-                required: ['q-applicant-title', 'q-applicant-first-name', 'q-applicant-last-name'],
-                additionalProperties: false,
-                properties: {
-                    'q-applicant-title': {
-                        title: 'Title',
-                        type: 'string',
-                        maxLength: 6,
+                allOf: [
+                    {
+                        title: 'Enter your name',
+                        required: [
+                            'q-applicant-title',
+                            'q-applicant-first-name',
+                            'q-applicant-last-name'
+                        ],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-title',
+                                'q-applicant-first-name',
+                                'q-applicant-last-name'
+                            ]
+                        },
+                        allOf: [
+                            {
+                                properties: {
+                                    'q-applicant-title': {
+                                        title: 'Title',
+                                        type: 'string',
+                                        maxLength: 6,
+                                        errorMessage: {
+                                            maxLength: 'Title must be 6 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-first-name': {
+                                        title: 'First name',
+                                        type: 'string',
+                                        maxLength: 70,
+                                        errorMessage: {
+                                            maxLength: 'First name must be 70 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-last-name': {
+                                        title: 'Last name',
+                                        type: 'string',
+                                        maxLength: 70,
+                                        errorMessage: {
+                                            maxLength: 'Last name must be 70 characters or less'
+                                        }
+                                    }
+                                }
+                            }
+                        ],
                         errorMessage: {
-                            maxLength: 'Title must be 6 characters or less'
-                        }
-                    },
-                    'q-applicant-first-name': {
-                        title: 'First name',
-                        type: 'string',
-                        maxLength: 70,
-                        errorMessage: {
-                            maxLength: 'First name must be 70 characters or less'
-                        }
-                    },
-                    'q-applicant-last-name': {
-                        title: 'Last name',
-                        type: 'string',
-                        maxLength: 70,
-                        errorMessage: {
-                            maxLength: 'Last name must be 70 characters or less'
+                            required: {
+                                'q-applicant-title': 'Enter your title',
+                                'q-applicant-first-name': 'Enter your first name',
+                                'q-applicant-last-name': 'Enter your last name'
+                            }
                         }
                     }
-                },
-                errorMessage: {
-                    required: {
-                        'q-applicant-title': 'Enter your title',
-                        'q-applicant-first-name': 'Enter your first name',
-                        'q-applicant-last-name': 'Enter your last name'
-                    }
-                },
+                ],
                 examples: [
                     {
                         'q-applicant-title': 'Mr',
