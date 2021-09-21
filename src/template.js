@@ -3991,65 +3991,99 @@ module.exports = {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                title: "What is the dentist's address?",
-                required: [
-                    'q-applicant-dentist-address-building-and-street',
-                    'q-applicant-dentist-address-town-or-city',
-                    'q-applicant-dentist-address-building-and-street2'
+                allOf: [
+                    {
+                        title: "What is the dentist's address?",
+                        required: [
+                            'q-applicant-dentist-address-building-and-street',
+                            'q-applicant-dentist-address-town-or-city',
+                            'q-applicant-dentist-address-building-and-street2'
+                        ],
+                        propertyNames: {
+                            enum: [
+                                'q-applicant-dentist-address-building-and-street',
+                                'q-applicant-dentist-address-building-and-street2',
+                                'q-applicant-dentist-address-town-or-city',
+                                'q-applicant-dentist-address-county',
+                                'q-applicant-dentist-address-postcode'
+                            ]
+                        },
+                        allOf: [
+                            {
+                                properties: {
+                                    'q-applicant-dentist-address-building-and-street': {
+                                        type: 'string',
+                                        title: 'Practice name',
+                                        maxLength: 60,
+                                        errorMessage: {
+                                            maxLength:
+                                                'Practice name must be less than 60 characters'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-dentist-address-building-and-street2': {
+                                        type: 'string',
+                                        title: 'Building and street',
+                                        maxLength: 60,
+                                        errorMessage: {
+                                            maxLength:
+                                                'Building and street must be less than 60 characters'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-dentist-address-town-or-city': {
+                                        type: 'string',
+                                        title: 'Town or city',
+                                        maxLength: 32,
+                                        errorMessage: {
+                                            maxLength: 'Town or city must be 32 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-dentist-address-county': {
+                                        type: 'string',
+                                        title: 'County (optional)',
+                                        maxLength: 32,
+                                        errorMessage: {
+                                            maxLength: 'County must be 32 characters or less'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                properties: {
+                                    'q-applicant-dentist-address-postcode': {
+                                        type: 'string',
+                                        title: 'Postcode (optional)',
+                                        maxLength: 10,
+                                        errorMessage: {
+                                            maxLength: 'Postcode must be 10 characters or less'
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        errorMessage: {
+                            required: {
+                                'q-applicant-dentist-address-building-and-street':
+                                    "Enter the name of your dentist's practice",
+                                'q-applicant-dentist-address-building-and-street2':
+                                    'Enter the building and street of your dentist',
+                                'q-applicant-dentist-address-town-or-city':
+                                    "Enter the town or city where your dentist's practice is"
+                            }
+                        }
+                    }
                 ],
-                additionalProperties: false,
-                properties: {
-                    'q-applicant-dentist-address-building-and-street': {
-                        type: 'string',
-                        title: 'Practice name',
-                        maxLength: 60,
-                        errorMessage: {
-                            maxLength: 'Practice name must be less than 60 characters'
-                        }
-                    },
-                    'q-applicant-dentist-address-building-and-street2': {
-                        type: 'string',
-                        title: 'Building and street',
-                        maxLength: 60,
-                        errorMessage: {
-                            maxLength: 'Building and street must be less than 60 characters'
-                        }
-                    },
-                    'q-applicant-dentist-address-town-or-city': {
-                        type: 'string',
-                        title: 'Town or city',
-                        maxLength: 32,
-                        errorMessage: {
-                            maxLength: 'Town or city must be 32 characters or less'
-                        }
-                    },
-                    'q-applicant-dentist-address-county': {
-                        type: 'string',
-                        title: 'County (optional)',
-                        maxLength: 32,
-                        errorMessage: {
-                            maxLength: 'County must be 32 characters or less'
-                        }
-                    },
-                    'q-applicant-dentist-address-postcode': {
-                        type: 'string',
-                        title: 'Postcode (optional)',
-                        maxLength: 10,
-                        errorMessage: {
-                            maxLength: 'Postcode must be 10 characters or less'
-                        }
-                    }
-                },
-                errorMessage: {
-                    required: {
-                        'q-applicant-dentist-address-building-and-street':
-                            "Enter the name of your dentist's practice",
-                        'q-applicant-dentist-address-building-and-street2':
-                            'Enter the building and street of your dentist',
-                        'q-applicant-dentist-address-town-or-city':
-                            "Enter the town or city where your dentist's practice is"
-                    }
-                },
                 examples: [
                     {
                         'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
