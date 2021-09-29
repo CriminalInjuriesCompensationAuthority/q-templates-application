@@ -2340,7 +2340,7 @@ module.exports = {
                                             {
                                                 id: 'p-applicant-fatal-claim',
                                                 label:
-                                                    'Are you applying for someone who died from their injuries?'
+                                                    'Are you applying because someone died from their injuries?'
                                             },
                                             {
                                                 id: 'p-applicant-who-are-you-applying-for',
