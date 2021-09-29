@@ -2,7 +2,7 @@
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '4.0.0',
+    version: '5.0.0',
     sections: {
         'p-applicant-declaration': {
             schema: {
