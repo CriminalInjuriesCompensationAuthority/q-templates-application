@@ -11424,7 +11424,7 @@ module.exports = {
                         type: 'string',
                         title: 'Enter your email address',
                         description:
-                            'We may use this to contact you if we need to clarify something on your application form (optional).',
+                            'We may use this to contact you if we need to clarify something in your application (optional).',
                         maxLength: 50,
                         format: 'email',
                         errorMessage: {
@@ -11772,7 +11772,7 @@ module.exports = {
                     },
                     'help-se-treatment': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with treatment providers",html: \'<p class="govuk-body">This applies only to costs relating to treatments you have paid for. This includes payments to the National Health Service (NHS) or other state health service outside the United Kingdom.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the costs of NHS and state health service treatments",html: \'<p class="govuk-body">This applies only to costs relating to treatments you have paid for. This includes payments to the National Health Service (NHS) or other state health service outside the United Kingdom.</p>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -11963,10 +11963,6 @@ module.exports = {
                                 const: false
                             }
                         ]
-                    },
-                    'help-se-other': {
-                        description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with any other expenses",html: \'<p class="govuk-body">Other expenses can be the cost of:</p><ul class="govuk-list govuk-list--bullet"><li>special equipment</li><li>supervision by care professionals</li><li>administrators who handle your affairs</li><li>setting up a trust as instructed by a claims officer</li></ul>\'})}}'
                     }
                 },
                 errorMessage: {
