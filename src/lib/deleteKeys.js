@@ -10,7 +10,7 @@ function deleteKeys(obj, unwantedKeyArray) {
             }
         });
     });
-    return obj
+    return obj;
 }
 
 module.exports = deleteKeys;
