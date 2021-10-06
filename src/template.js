@@ -10937,7 +10937,7 @@ module.exports = {
                         type: 'boolean',
                         title: "Are you the child's parent?",
                         description:
-                            "This means you have parental responsibility for the child as their birth, step or adoptive parent. Or, you're named on a special guardianship order.",
+                            'This means you have parental responsibility for the child as their birth, step or adoptive parent.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -10950,7 +10950,7 @@ module.exports = {
                         ]
                     },
                     'can-i-apply-for-child': {
-                        description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Can I apply for the child?",html: "<p class='govuk-body'>You need to prove you have parental responsibility for the child to apply.</p><p class='govuk-body'>To prove this, you'll need relevant documents your name is on, such as:</p><ul class='govuk-list govuk-list--bullet'><li>the child's full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class='govuk-body'>If you're still unsure about parental responsibility and what they mean, you can find out more <a href='https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility'>on the UK Government website</a> (opens in new tab).</p>"})}}`
+                        description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Can I apply for the child?",html: "<p class='govuk-body'>You need to prove you have parental responsibility for the child to apply.</p><p class='govuk-body'>To prove this, you'll need relevant documents your name is on, such as:</p><ul class='govuk-list govuk-list--bullet'><li>the child's full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class='govuk-body'>If you're still unsure about parental responsibility and what it means, you can find out more <a target="_blank" href='https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility'>on the UK Government website</a> (opens in new tab).</p>"})}}`
                     }
                 },
                 errorMessage: {
@@ -11542,7 +11542,7 @@ module.exports = {
                     },
                     'mainapplicant-applicant-shared-responsibility': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -11581,7 +11581,7 @@ module.exports = {
                     },
                     'mainapplicant-applicant-shared-responsibility-name': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
                     }
                 },
                 errorMessage: {
