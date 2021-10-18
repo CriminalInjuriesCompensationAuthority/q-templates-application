@@ -3879,6 +3879,9 @@ module.exports = {
                 allOf: [
                     {
                         title: "What is the GP's address?",
+                        meta: {
+                            id: 'applicant-gp-address'
+                        },
                         required: [
                             'q-gp-building-and-street',
                             'q-gp-town-or-city',
