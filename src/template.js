@@ -1049,6 +1049,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Where in Wales did it happen?',
+                        meta: {
+                            id: 'crime-location-wales'
+                        },
                         required: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location'],
                         propertyNames: {
                             enum: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location']
