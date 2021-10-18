@@ -916,7 +916,7 @@ module.exports = {
                     {
                         title: 'Where in England did it happen?',
                         meta: {
-                            id: 'crime-location-england'
+                            compositeId: 'crime-location-england'
                         },
                         required: [
                             'q-applicant-english-town-or-city',
@@ -1000,7 +1000,7 @@ module.exports = {
                     {
                         title: 'Where in Scotland did it happen?',
                         meta: {
-                            id: 'crime-location-scotland'
+                            compositeId: 'crime-location-scotland'
                         },
                         required: [
                             'q-applicant-scottish-town-or-city',
@@ -1084,7 +1084,7 @@ module.exports = {
                     {
                         title: 'Where in Wales did it happen?',
                         meta: {
-                            id: 'crime-location-wales'
+                            compositeId: 'crime-location-wales'
                         },
                         required: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location'],
                         propertyNames: {
@@ -1957,7 +1957,7 @@ module.exports = {
                     {
                         title: 'Enter your name',
                         meta: {
-                            id: 'applicant-name'
+                            compositeId: 'applicant-name'
                         },
                         required: [
                             'q-applicant-title',
@@ -2209,7 +2209,7 @@ module.exports = {
                     {
                         title: 'Enter your address',
                         meta: {
-                            id: 'applicant-address'
+                            compositeId: 'applicant-address'
                         },
                         required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
                         propertyNames: {
@@ -3930,7 +3930,7 @@ module.exports = {
                     {
                         title: "What is the GP's address?",
                         meta: {
-                            id: 'applicant-gp-address'
+                            compositeId: 'applicant-gp-address'
                         },
                         required: [
                             'q-gp-building-and-street',
@@ -4120,7 +4120,7 @@ module.exports = {
                     {
                         title: "What is the dentist's address?",
                         meta: {
-                            id: 'applicant-dentist-address'
+                            compositeId: 'applicant-dentist-address'
                         },
                         required: [
                             'q-applicant-dentist-address-building-and-street',
@@ -8815,7 +8815,7 @@ module.exports = {
                     {
                         title: 'Where did you have treatment?',
                         meta: {
-                            id: 'applicant-treatment-address'
+                            compositeId: 'applicant-treatment-address'
                         },
                         required: [
                             'q-applicant-treatment-building-and-street',
