@@ -2129,9 +2129,16 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-enter-your-date-of-birth': {
+                        title: 'Enter your date of birth',
+                        meta: {
+                            keywords: {
+                                format: {
+                                    precision: 'YYYY-MM-DD'
+                                }
+                            }
+                        },
                         type: 'string',
                         format: 'date-time',
-                        title: 'Enter your date of birth',
                         description: 'For example, 31 3 1980.',
                         errorMessage: {
                             format: 'Enter your date of birth and include a day, month and year'
