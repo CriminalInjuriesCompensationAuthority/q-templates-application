@@ -712,9 +712,19 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-when-did-the-crime-stop': {
+                        title: 'When did it stop?',
+                        meta: {
+                            keywords: {
+                                format: {
+                                    precision: 'YYYY-MM',
+                                    defaults: {
+                                        DD: '01'
+                                    }
+                                }
+                            }
+                        },
                         type: 'string',
                         format: 'date-time',
-                        title: 'When did it stop?',
                         description: 'For example, 03 2020. You can enter an approximate date.',
                         errorMessage: {
                             format: 'Enter the date the crime stopped and include a month and year'
