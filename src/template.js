@@ -1913,6 +1913,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Enter your name',
+                        meta: {
+                            id: 'applicant-name'
+                        },
                         required: [
                             'q-applicant-title',
                             'q-applicant-first-name',
