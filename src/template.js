@@ -2158,6 +2158,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Enter your address',
+                        meta: {
+                            id: 'applicant-address'
+                        },
                         required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
                         propertyNames: {
                             enum: [
