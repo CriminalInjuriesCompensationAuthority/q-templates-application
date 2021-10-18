@@ -13007,6 +13007,11 @@ module.exports = {
                     }
                 }
             ]
+        },
+        attributes: {
+            'q-applicant-physical-injuries': {
+                title: 'What was injured?'
+            }
         }
     }
 };
