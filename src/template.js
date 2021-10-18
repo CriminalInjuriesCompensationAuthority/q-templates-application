@@ -660,9 +660,19 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-when-did-the-crime-start': {
+                        title: 'When did it start?',
+                        meta: {
+                            keywords: {
+                                format: {
+                                    precision: 'YYYY-MM',
+                                    defaults: {
+                                        DD: '01'
+                                    }
+                                }
+                            }
+                        },
                         type: 'string',
                         format: 'date-time',
-                        title: 'When did it start?',
                         description: 'For example, 02 2020. You can enter an approximate date.',
                         errorMessage: {
                             format: 'Enter the date the crime started and include a month and year'
