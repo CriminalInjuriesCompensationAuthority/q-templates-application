@@ -8764,6 +8764,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Where did you have treatment?',
+                        meta: {
+                            id: 'applicant-treatment-address'
+                        },
                         required: [
                             'q-applicant-treatment-building-and-street',
                             'q-applicant-treatment-town-or-city',
