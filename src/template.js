@@ -965,6 +965,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Where in Scotland did it happen?',
+                        meta: {
+                            id: 'crime-location-scotland'
+                        },
                         required: [
                             'q-applicant-scottish-town-or-city',
                             'q-applicant-scottish-location'
