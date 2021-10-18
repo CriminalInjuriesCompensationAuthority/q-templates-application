@@ -4069,6 +4069,9 @@ module.exports = {
                 allOf: [
                     {
                         title: "What is the dentist's address?",
+                        meta: {
+                            id: 'applicant-dentist-address'
+                        },
                         required: [
                             'q-applicant-dentist-address-building-and-street',
                             'q-applicant-dentist-address-town-or-city',
