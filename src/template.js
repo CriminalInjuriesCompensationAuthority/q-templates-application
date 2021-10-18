@@ -881,6 +881,9 @@ module.exports = {
                 allOf: [
                     {
                         title: 'Where in England did it happen?',
+                        meta: {
+                            id: 'crime-location-england'
+                        },
                         required: [
                             'q-applicant-english-town-or-city',
                             'q-applicant-english-location'
