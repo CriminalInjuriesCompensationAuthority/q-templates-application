@@ -10086,6 +10086,38 @@ module.exports = {
             }
         },
         'p-applicant-work-details-option': {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'p-applicant-work-details-option'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'p-applicant-work-details-option',
+                        resources: {
+                            'q-applicant-work-details-option': {
+                                title: 'Tell us why you were not employed at this time',
+                                'title_someone-else':
+                                    'Tell us why they were not employed at this time',
+                                value: {
+                                    'searching': 'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                                    'searching_someone-else': 'Searching for a job'
+                                },
+                                error: {
+                                    required: 'Select the option that applies to you',
+                                    'required_someone-else':
+                                        'Select the option that applies to them'
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
@@ -10093,26 +10125,22 @@ module.exports = {
                 additionalProperties: false,
                 properties: {
                     'q-applicant-work-details-option': {
-                        title: 'Tell us why you were not employed at this time',
+                        title: 'l10nt:q-applicant-work-details-option.title{?lng,context,ns}',
                         type: 'array',
                         items: {
                             anyOf: [
                                 {
-                                    title: 'I was too young to work',
-                                    const: 'underage-for-work'
-                                },
-                                {
-                                    title: 'I was in full-time education',
+                                    title: 'At school, college or university',
                                     const: 'education'
                                 },
                                 {
-                                    title: 'I was caring for someone',
-                                    const: 'care'
+                                    title:
+                                        'l10nt:q-applicant-work-details-option.value.searching{?lng,context,ns}',
+                                    const: 'searching'
                                 },
                                 {
-                                    title:
-                                        'I did not have a job but I had been in regular work for at least 3 years before the crime',
-                                    const: 'employed'
+                                    title: 'Caring for someone',
+                                    const: 'care'
                                 },
                                 {
                                     title: 'Other',
@@ -10164,7 +10192,7 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-work-details-option': 'Select the option that applies to you'
+                        'q-applicant-work-details-option': 'l10nt:q-applicant-work-details-option.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -11475,14 +11503,14 @@ module.exports = {
                 ]
             }
         },
-        'p-mainapplicant-applicant-relationship': {
+        'p-mainapplicant-relationship': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                required: ['q-mainapplicant-applicant-relationship'],
+                required: ['q-mainapplicant-relationship'],
                 additionalProperties: false,
                 properties: {
-                    'q-mainapplicant-applicant-relationship': {
+                    'q-mainapplicant-relationship': {
                         type: 'string',
                         title: 'What is your relationship to the child?',
                         description: 'For example, you’re their mother, father, grandparent etc.'
@@ -11490,36 +11518,36 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-applicant-relationship':
+                        'q-mainapplicant-relationship':
                             'Enter your relationship with the child'
                     }
                 },
                 examples: [
                     {
-                        'q-mainapplicant-applicant-relationship': 'mother'
+                        'q-mainapplicant-relationship': 'mother'
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-mainapplicant-applicant-relationship': true
+                        'q-mainapplicant-relationship': true
                     },
                     {
-                        'q-mainapplicant-applicant-relationship': 123
+                        'q-mainapplicant-relationship': 123
                     },
                     {
-                        'q-mainapplicant-applicant-relationship': ['father']
+                        'q-mainapplicant-relationship': ['father']
                     }
                 ]
             }
         },
-        'p-mainapplicant-applicant-shared-responsibility': {
+        'p-mainapplicant-shared-responsibility': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                required: ['q-mainapplicant-applicant-shared-responsibility'],
+                required: ['q-mainapplicant-shared-responsibility'],
                 additionalProperties: false,
                 properties: {
-                    'q-mainapplicant-applicant-shared-responsibility': {
+                    'q-mainapplicant-shared-responsibility': {
                         type: 'boolean',
                         title:
                             'Do you share parental responsibility for the child with another person?',
@@ -11536,82 +11564,82 @@ module.exports = {
                             }
                         ]
                     },
-                    'mainapplicant-applicant-shared-responsibility': {
+                    'mainapplicant-shared-responsibility': {
                         description:
                             '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
                     }
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-applicant-shared-responsibility':
+                        'q-mainapplicant-shared-responsibility':
                             'Select yes if you share parental responsibility for the child with another person'
                     }
                 },
                 examples: [
                     {
-                        'q-mainapplicant-applicant-shared-responsibility': true
+                        'q-mainapplicant-shared-responsibility': true
                     },
                     {
-                        'q-mainapplicant-applicant-shared-responsibility': false
+                        'q-mainapplicant-shared-responsibility': false
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-mainapplicant-applicant-shared-responsibility': 'foo'
+                        'q-mainapplicant-shared-responsibility': 'foo'
                     }
                 ]
             }
         },
-        'p-mainapplicant-applicant-shared-responsibility-name': {
+        'p-mainapplicant-shared-responsibility-name': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                required: ['q-mainapplicant-applicant-shared-responsibility-name'],
+                required: ['q-mainapplicant-shared-responsibility-name'],
                 additionalProperties: false,
                 properties: {
-                    'q-mainapplicant-applicant-shared-responsibility-name': {
+                    'q-mainapplicant-shared-responsibility-name': {
                         type: 'string',
                         title: 'What is their full name?',
                         description:
                             'We will never contact this person without your consent unless there is an exceptional situation where we have to.'
                     },
-                    'mainapplicant-applicant-shared-responsibility-name': {
+                    'mainapplicant-shared-responsibility-name': {
                         description:
                             '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website</a> (opens in new tab).</p>\'})}}'
                     }
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-applicant-shared-responsibility-name':
+                        'q-mainapplicant-shared-responsibility-name':
                             'Enter their full name'
                     }
                 },
                 examples: [
                     {
-                        'q-mainapplicant-applicant-shared-responsibility-name': 'Mr Foo Bar'
+                        'q-mainapplicant-shared-responsibility-name': 'Mr Foo Bar'
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-mainapplicant-applicant-shared-responsibility-name': 123
+                        'q-mainapplicant-shared-responsibility-name': 123
                     },
                     {
-                        'q-mainapplicant-applicant-shared-responsibility-name': true
+                        'q-mainapplicant-shared-responsibility-name': true
                     },
                     {
-                        'q-mainapplicant-applicant-shared-responsibility-name': ['Mr Foo Bar']
+                        'q-mainapplicant-shared-responsibility-name': ['Mr Foo Bar']
                     }
                 ]
             }
         },
-        'p-mainapplicant-applicant-care-order': {
+        'p-mainapplicant-care-order': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                required: ['q-mainapplicant-applicant-care-order'],
+                required: ['q-mainapplicant-care-order'],
                 additionalProperties: false,
                 properties: {
-                    'q-mainapplicant-applicant-care-order': {
+                    'q-mainapplicant-care-order': {
                         type: 'boolean',
                         title:
                             'Is there a care, supervision or other local authority order in place for the child?',
@@ -11630,57 +11658,57 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-applicant-care-order':
+                        'q-mainapplicant-care-order':
                             'Select yes if there is a care, supervision or other local authority order in place for the child'
                     }
                 },
                 examples: [
                     {
-                        'q-mainapplicant-applicant-care-order': true
+                        'q-mainapplicant-care-order': true
                     },
                     {
-                        'q-mainapplicant-applicant-care-order': false
+                        'q-mainapplicant-care-order': false
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-mainapplicant-applicant-care-order': 'foo'
+                        'q-mainapplicant-care-order': 'foo'
                     }
                 ]
             }
         },
-        'p-mainapplicant-applicant-care-order-authority': {
+        'p-mainapplicant-care-order-authority': {
             schema: {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
-                required: ['q-mainapplicant-applicant-care-order-authority'],
+                required: ['q-mainapplicant-care-order-authority'],
                 additionalProperties: false,
                 properties: {
-                    'q-mainapplicant-applicant-care-order-authority': {
+                    'q-mainapplicant-care-order-authority': {
                         type: 'string',
                         title: 'What local authority is this with?'
                     }
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-applicant-care-order-authority':
+                        'q-mainapplicant-care-order-authority':
                             'Enter the local authority this is with'
                     }
                 },
                 examples: [
                     {
-                        'q-mainapplicant-applicant-care-order-authority': 'local authority'
+                        'q-mainapplicant-care-order-authority': 'local authority'
                     }
                 ],
                 invalidExamples: [
                     {
-                        'q-mainapplicant-applicant-care-order-authority': 123
+                        'q-mainapplicant-care-order-authority': 123
                     },
                     {
-                        'q-mainapplicant-applicant-care-order-authority': true
+                        'q-mainapplicant-care-order-authority': true
                     },
                     {
-                        'q-mainapplicant-applicant-care-order-authority': ['local authority']
+                        'q-mainapplicant-care-order-authority': ['local authority']
                     }
                 ]
             }
@@ -12290,108 +12318,6 @@ module.exports = {
                 invalidExamples: [
                     {
                         'q-applicant-future-work': 'foo'
-                    }
-                ]
-            }
-        },
-        'p-applicant-work-details-option-rep': {
-            schema: {
-                $schema: 'http://json-schema.org/draft-07/schema#',
-                type: 'object',
-                required: ['q-applicant-work-details-option-rep'],
-                additionalProperties: false,
-                properties: {
-                    'q-applicant-work-details-option-rep': {
-                        title: 'Tell us why the child did not have a job',
-                        description: 'Select all that apply.',
-                        type: 'array',
-                        items: {
-                            anyOf: [
-                                {
-                                    title: 'At school, college or university',
-                                    const: 'education'
-                                },
-                                {
-                                    title: 'Searching for a job',
-                                    const: 'searching'
-                                },
-                                {
-                                    title: 'Caring for someone',
-                                    const: 'care'
-                                },
-                                {
-                                    title: 'Other',
-                                    const: 'other'
-                                }
-                            ]
-                        }
-                    },
-                    'q-applicant-work-details-rep-other': {
-                        type: 'string',
-                        title: 'Other reason for not having a job',
-                        maxLength: 100,
-                        errorMessage: {
-                            maxLength: 'Other details must be 100 characters or less'
-                        }
-                    }
-                },
-                allOf: [
-                    {
-                        $ref:
-                            '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
-                    }
-                ],
-                definitions: {
-                    'if-other-then-q-applicant-work-details-other-is-required': {
-                        if: {
-                            properties: {
-                                'q-applicant-work-details-option-rep': {
-                                    const: 'other'
-                                }
-                            },
-                            required: ['q-applicant-work-details-option-rep']
-                        },
-                        then: {
-                            required: ['q-applicant-work-details-rep-other'],
-                            propertyNames: {
-                                enum: [
-                                    'q-applicant-work-details-option-rep',
-                                    'q-applicant-work-details-rep-other'
-                                ]
-                            },
-                            errorMessage: {
-                                required: {
-                                    'q-applicant-work-details-rep-other': 'Enter other details'
-                                }
-                            }
-                        }
-                    }
-                },
-                errorMessage: {
-                    required: {
-                        'q-applicant-work-details-option-rep':
-                            'Select the option that applies to you'
-                    }
-                },
-                examples: [
-                    {
-                        'q-applicant-work-details-option-rep': 'care'
-                    },
-                    {
-                        'q-applicant-work-details-option-rep': 'other',
-                        'q-applicant-work-details-rep-other': 'a string'
-                    }
-                ],
-                invalidExamples: [
-                    {
-                        'q-applicant-work-details-option-rep': 1234
-                    },
-                    {
-                        'q-applicant-work-details-option-rep': 'other'
-                    },
-                    {
-                        'q-applicant-work-details-option-rep': 'other',
-                        'q-applicant-work-details-rep-other': 1234
                     }
                 ]
             }
@@ -13203,42 +13129,6 @@ module.exports = {
             'p-applicant-affect-on-daily-life-dmi': {
                 on: {
                     ANSWER: [
-                        /*{
-                            target: 'p--context-treatment',
-                            cond: [
-                                'or',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-claiming-for-physical-injuries.q-applicant-are-you-claiming-for-physical-injuries',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-infections.q-applicant-infections',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-pregnancy.q-applicant-pregnancy',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-pregnancy-loss.q-applicant-pregnancy-loss',
-                                    true
-                                ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-non-sa-infections.q-applicant-non-sa-infections',
-                                    true
-                                ]
-                            ]
-                        },*/
                         {
                             target: 'p--context-special-expenses'
                         }
@@ -15545,14 +15435,6 @@ module.exports = {
                             ]
                         },
                         {
-                            target: 'p-applicant-work-details-option-rep',
-                            cond: [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'someone-else'
-                            ]
-                        },
-                        {
                             target: 'p-applicant-work-details-option'
                         }
                     ]
@@ -15561,6 +15443,14 @@ module.exports = {
             'p-applicant-work-details-option': {
                 on: {
                     ANSWER: [
+                        {
+                            target: 'p-applicant-affected-daily-capacity',
+                            cond: [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ]
+                        },
                         {
                             target: 'p-applicant-unable-to-work'
                         }
@@ -15793,7 +15683,7 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-relationship'
+                            target: 'p-mainapplicant-relationship'
                         }
                     ]
                 }
@@ -15802,54 +15692,54 @@ module.exports = {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-relationship'
+                            target: 'p-mainapplicant-relationship'
                         }
                     ]
                 }
             },
-            'p-mainapplicant-applicant-relationship': {
+            'p-mainapplicant-relationship': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-shared-responsibility'
+                            target: 'p-mainapplicant-shared-responsibility'
                         }
                     ]
                 }
             },
-            'p-mainapplicant-applicant-shared-responsibility': {
+            'p-mainapplicant-shared-responsibility': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-shared-responsibility-name',
+                            target: 'p-mainapplicant-shared-responsibility-name',
                             cond: [
                                 '==',
-                                '$.answers.p-mainapplicant-applicant-shared-responsibility.q-mainapplicant-applicant-shared-responsibility',
+                                '$.answers.p-mainapplicant-shared-responsibility.q-mainapplicant-shared-responsibility',
                                 true
                             ]
                         },
                         {
-                            target: 'p-mainapplicant-applicant-care-order'
+                            target: 'p-mainapplicant-care-order'
                         }
                     ]
                 }
             },
-            'p-mainapplicant-applicant-shared-responsibility-name': {
+            'p-mainapplicant-shared-responsibility-name': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-care-order'
+                            target: 'p-mainapplicant-care-order'
                         }
                     ]
                 }
             },
-            'p-mainapplicant-applicant-care-order': {
+            'p-mainapplicant-care-order': {
                 on: {
                     ANSWER: [
                         {
-                            target: 'p-mainapplicant-applicant-care-order-authority',
+                            target: 'p-mainapplicant-care-order-authority',
                             cond: [
                                 '==',
-                                '$.answers.p-mainapplicant-applicant-care-order.q-mainapplicant-applicant-care-order',
+                                '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
                                 true
                             ]
                         },
@@ -15859,7 +15749,7 @@ module.exports = {
                     ]
                 }
             },
-            'p-mainapplicant-applicant-care-order-authority': {
+            'p-mainapplicant-care-order-authority': {
                 on: {
                     ANSWER: [
                         {
@@ -16059,15 +15949,6 @@ module.exports = {
                     ANSWER: [
                         {
                             target: 'p-applicant-future-work'
-                        }
-                    ]
-                }
-            },
-            'p-applicant-work-details-option-rep': {
-                on: {
-                    ANSWER: [
-                        {
-                            target: 'p-applicant-affected-daily-capacity'
                         }
                     ]
                 }
