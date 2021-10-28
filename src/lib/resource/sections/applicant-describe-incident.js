@@ -16,7 +16,12 @@ module.exports = {
                     oneOf: [
                         {title: 'Yes', const: true},
                         {title: 'No', const: false}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 }
             },
             errorMessage: {

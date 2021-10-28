@@ -14,6 +14,11 @@ module.exports = {
                     maxLength: 50,
                     errorMessage: {
                         maxLength: 'Other names you have used must be 50 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'applicant-details'
+                        }
                     }
                 }
             },

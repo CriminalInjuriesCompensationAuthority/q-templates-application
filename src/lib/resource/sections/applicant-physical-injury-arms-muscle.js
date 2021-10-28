@@ -19,6 +19,11 @@ module.exports = {
                             {title: 'Cartilage', const: 'phyinj-161'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-arms-muscle-other': {
@@ -28,6 +33,11 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Other tissue injuries to arms or hands must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

@@ -27,13 +27,23 @@ module.exports = {
                             },
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-torso-back-other': {
                     type: 'string',
                     title: 'Other back injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other back injuries must be 499 characters or fewer'}
+                    errorMessage: {maxLength: 'Other back injuries must be 499 characters or fewer'},
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

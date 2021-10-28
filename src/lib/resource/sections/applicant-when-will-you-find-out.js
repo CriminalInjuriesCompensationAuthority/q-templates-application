@@ -15,6 +15,11 @@ module.exports = {
                     maxLength: 50,
                     errorMessage: {
                         maxLength: 'When will you find out must be 50 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        }
                     }
                 }
             },

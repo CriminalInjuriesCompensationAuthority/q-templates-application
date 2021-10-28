@@ -13,7 +13,12 @@ module.exports = {
                     type: 'string',
                     description: 'We will never contact the offender.',
                     maxLength: 120,
-                    errorMessage: {maxLength: "Offender's name must be 120 characters or less"}
+                    errorMessage: {maxLength: "Offender's name must be 120 characters or less"},
+                    meta: {
+                        classifications: {
+                            theme: 'offender'
+                        }
+                    }
                 },
                 'additional-info-help-text': {
                     description:

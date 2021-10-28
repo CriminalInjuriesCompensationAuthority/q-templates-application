@@ -19,13 +19,23 @@ module.exports = {
                             {title: 'Paralysed foot', const: 'phyinj-162'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-foot-other': {
                     type: 'string',
                     title: 'Other foot injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other foot injuries must be 499 characters or fewer'}
+                    errorMessage: {maxLength: 'Other foot injuries must be 499 characters or fewer'},
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

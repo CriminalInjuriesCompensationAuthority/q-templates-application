@@ -18,6 +18,11 @@ module.exports = {
                             {title: 'Sprained ankle', const: 'phyinj-116'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-ankle-other': {
@@ -26,6 +31,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other ankle injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

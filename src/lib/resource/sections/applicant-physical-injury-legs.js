@@ -30,6 +30,11 @@ module.exports = {
                                 description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

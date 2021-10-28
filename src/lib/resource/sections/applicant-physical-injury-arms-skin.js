@@ -19,6 +19,11 @@ module.exports = {
                             {title: 'Burns', const: 'phyinj-082'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-arms-skin-other': {
@@ -28,6 +33,11 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Other skin injuries on arms or hands must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

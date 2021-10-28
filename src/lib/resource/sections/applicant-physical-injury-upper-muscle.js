@@ -19,6 +19,11 @@ module.exports = {
                             {title: 'Cartilage', const: 'phyinj-153'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-upper-muscle-other': {
@@ -28,6 +33,11 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Other tissue injuries to head, face or neck must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

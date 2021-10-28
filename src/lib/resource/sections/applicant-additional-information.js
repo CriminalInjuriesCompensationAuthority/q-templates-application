@@ -15,6 +15,11 @@ module.exports = {
                     maxLength: 1000,
                     errorMessage: {
                         maxLength: 'Additional information must be 1000 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: "additional-info",
+                        }
                     }
                 }
             },

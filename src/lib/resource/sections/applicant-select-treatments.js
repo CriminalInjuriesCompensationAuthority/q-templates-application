@@ -25,6 +25,11 @@ module.exports = {
                             {title: 'Psychotherapy', const: 'psychotherapy'},
                             {title: 'Other', const: 'other'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'treatment'
+                        }
                     }
                 },
                 'q-applicant-other-treatment-dmi': {
@@ -33,6 +38,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other mental health treatment must be 499 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'treatment'
+                        }
                     }
                 }
             },

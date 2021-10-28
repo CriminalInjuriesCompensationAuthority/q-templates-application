@@ -411,6 +411,51 @@ module.exports = {
     },
     answers: {},
     progress: ['p-applicant-fatal-claim'],
+    taxonomies: {
+        theme: {
+            taxa: {
+                'about-application': {
+                    "title": "About your application"
+                },
+                'applicant-details': {
+                    "title": "Your details"
+                },
+                crime: {
+                    "title": "About the crime"
+                },
+                offender: {
+                    "title": "About the offender"
+                },
+                injuries: {
+                    "title": "Your injuries"
+                },
+                pregnancy: {
+                    "title": "Pregnancy"
+                },
+                'mental-health': {
+                    "title": "Your mental health"
+                },
+                'loss-of-earnings': {
+                    "title": "Loss of earnings"
+                },
+                impact: {
+                    "title": "The impact the crime has had — daily life and financially"
+                },
+                'special-expenses': {
+                    "title": "Special expenses"
+                },
+                treatment: {
+                    "title": "Your treatment"
+                },
+                'other-compensation': {
+                    "title": "Other compensation"
+                },
+                'additional-info': {
+                    "title": "Additional information"
+                },
+            }
+        }
+    },
     meta: {
         questionnaireDocumentVersion: '2.0.0',
         onComplete: {

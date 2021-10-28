@@ -19,7 +19,12 @@ module.exports = {
                     oneOf: [
                         {title: 'Yes', const: true},
                         {title: 'No', const: false}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        }
+                    }
                 },
                 'q-enter-your-previous-reference-number': {
                     type: 'string',
@@ -27,6 +32,11 @@ module.exports = {
                     maxLength: 50,
                     errorMessage: {
                         maxLength: 'Previous reference number must be 50 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        }
                     }
                 }
             },

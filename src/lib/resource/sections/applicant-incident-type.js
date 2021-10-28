@@ -22,7 +22,12 @@ module.exports = {
                         {title: 'Vehicle attack', const: 'VEHICLE'},
                         {title: 'Witnessing an incident', const: 'SECV'},
                         {title: 'Other', const: 'OTHER'}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 }
             },
             errorMessage: {

@@ -10,7 +10,16 @@ module.exports = {
             properties: {
                 'q--when-was-the-crime-reported-to-police': {
                     title: 'When was the crime reported to the police?',
-                    meta: {keywords: {format: {precision: 'YYYY-MM-DD'}}},
+                    meta: {
+                        keywords: {
+                            format: {
+                                precision: 'YYYY-MM-DD'
+                            }
+                        },
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    },
                     type: 'string',
                     format: 'date-time',
                     description: 'For example, 28 2 2020. You can enter an approximate date.',

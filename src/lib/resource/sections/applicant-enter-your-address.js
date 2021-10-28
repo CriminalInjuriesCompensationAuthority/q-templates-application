@@ -8,7 +8,10 @@ module.exports = {
             allOf: [
                 {
                     title: 'Enter your address',
-                    meta: {compositeId: 'applicant-address'},
+                    meta: {
+                        compositeId: 'applicant-address',
+                        theme: 'applicant-details'
+                    },
                     required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
                     propertyNames: {
                         enum: [
@@ -29,6 +32,11 @@ module.exports = {
                                     errorMessage: {
                                         maxLength:
                                             'First line of address must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
@@ -42,6 +50,11 @@ module.exports = {
                                     errorMessage: {
                                         maxLength:
                                             'Second line of address must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
@@ -54,6 +67,11 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength: 'Town or city must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
@@ -66,6 +84,11 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength: 'County must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
@@ -78,6 +101,11 @@ module.exports = {
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }

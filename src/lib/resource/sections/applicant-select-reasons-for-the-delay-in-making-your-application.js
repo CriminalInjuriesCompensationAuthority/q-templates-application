@@ -24,13 +24,23 @@ module.exports = {
                             {title: 'Medical reasons', const: 'medical-reasons'},
                             {title: 'Other reasons', const: 'other-reasons'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
                     }
                 },
                 'q-applicant-explain-reason-for-delay-application': {
                     title: 'Briefly explain these reasons',
                     type: 'string',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'}
+                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 }
             },
             errorMessage: {

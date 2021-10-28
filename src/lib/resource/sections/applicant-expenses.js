@@ -24,6 +24,11 @@ module.exports = {
                             },
                             {title: 'I have not had these expenses', const: 'no-expenses'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'special-expenses'
+                        }
                     }
                 }
             },

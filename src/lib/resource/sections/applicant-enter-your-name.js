@@ -8,7 +8,12 @@ module.exports = {
             allOf: [
                 {
                     title: 'Enter your name',
-                    meta: {compositeId: 'applicant-name'},
+                    meta: {
+                        compositeId: 'applicant-name',
+                        classifications: {
+                            theme: 'applicant-details'
+                        }
+                    },
                     required: [
                         'q-applicant-title',
                         'q-applicant-first-name',
@@ -28,7 +33,12 @@ module.exports = {
                                     title: 'Title',
                                     type: 'string',
                                     maxLength: 6,
-                                    errorMessage: {maxLength: 'Title must be 6 characters or less'}
+                                    errorMessage: {maxLength: 'Title must be 6 characters or less'},
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
+                                    }
                                 }
                             }
                         },
@@ -40,6 +50,11 @@ module.exports = {
                                     maxLength: 70,
                                     errorMessage: {
                                         maxLength: 'First name must be 70 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
@@ -52,6 +67,11 @@ module.exports = {
                                     maxLength: 70,
                                     errorMessage: {
                                         maxLength: 'Last name must be 70 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
                                     }
                                 }
                             }
