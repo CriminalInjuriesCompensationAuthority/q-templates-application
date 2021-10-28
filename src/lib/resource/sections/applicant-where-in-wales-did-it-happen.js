@@ -8,7 +8,12 @@ module.exports = {
             allOf: [
                 {
                     title: 'Where in Wales did it happen?',
-                    meta: {compositeId: 'crime-location-wales'},
+                    meta: {
+                        compositeId: 'crime-location-wales',
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    },
                     required: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location'],
                     propertyNames: {
                         enum: ['q-applicant-welsh-town-or-city', 'q-applicant-welsh-location']
@@ -22,6 +27,11 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength: 'Town or city must be 60 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
                                     }
                                 }
                             }
@@ -36,6 +46,11 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength: 'Location must be 60 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
                                     }
                                 }
                             }

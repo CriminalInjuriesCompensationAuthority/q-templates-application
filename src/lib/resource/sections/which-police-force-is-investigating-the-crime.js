@@ -103,7 +103,12 @@ module.exports = {
                         {title: 'Gwent', const: 10000147},
                         {title: 'North Wales', const: 10000187},
                         {title: 'South Wales', const: 10000215}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 },
                 'additional-info-help-text': {
                     description:

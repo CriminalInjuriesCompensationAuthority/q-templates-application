@@ -16,7 +16,12 @@ module.exports = {
                         {title: 'Scotland', const: 'scotland'},
                         {title: 'Wales', const: 'wales'},
                         {title: 'Somewhere else', const: 'somewhere-else'}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 },
                 'additional-info-help-text': {
                     description:

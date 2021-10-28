@@ -19,13 +19,28 @@ module.exports = {
                             {title: 'Nerve damage', const: 'phyinj-168'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Hand injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-arms-hand-other': {
                     type: 'string',
                     title: 'Other hand injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other hand injuries must be 499 characters or fewer'}
+                    errorMessage: {
+                        maxLength: 'Other hand injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

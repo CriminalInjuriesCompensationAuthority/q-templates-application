@@ -22,13 +22,26 @@ module.exports = {
                             {title: 'Paralysed toe', const: 'phyinj-148'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Toe injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-toes-other': {
                     type: 'string',
                     title: 'Other toe injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other toe injuries must be 499 characters or fewer'}
+                    errorMessage: {maxLength: 'Other toe injuries must be 499 characters or fewer'},
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

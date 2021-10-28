@@ -18,13 +18,28 @@ module.exports = {
                             {title: 'Removal of kneecap', const: 'phyinj-125'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Knee injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-knee-other': {
                     type: 'string',
                     title: 'Other knee injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other knee injuries must be 499 characters or fewer'}
+                    errorMessage: {
+                        maxLength: 'Other knee injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

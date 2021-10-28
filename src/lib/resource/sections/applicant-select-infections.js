@@ -21,6 +21,11 @@ module.exports = {
                                 const: 'phyinj-145'
                             }
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

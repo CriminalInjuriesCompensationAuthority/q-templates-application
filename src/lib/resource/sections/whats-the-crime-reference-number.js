@@ -16,6 +16,11 @@ module.exports = {
                     maxLength: 30,
                     errorMessage: {
                         maxLength: 'Crime reference number must be 30 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
                     }
                 },
                 'i-dont-know-the-crime-reference': {

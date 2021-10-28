@@ -17,6 +17,11 @@ module.exports = {
                             {title: 'Hepatitis B', const: 'phyinj-142'},
                             {title: 'Hepatitis C', const: 'phyinj-143'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

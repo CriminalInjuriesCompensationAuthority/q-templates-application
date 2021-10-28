@@ -31,6 +31,14 @@ module.exports = {
                                 description: 'Including muscles, ligaments, tendons or cartilage'
                             }
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Head, face or neck injuries'
+                        }
                     }
                 }
             },

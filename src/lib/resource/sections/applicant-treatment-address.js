@@ -8,7 +8,12 @@ module.exports = {
             allOf: [
                 {
                     title: 'Where did you have treatment?',
-                    meta: {compositeId: 'applicant-treatment-address'},
+                    meta: {
+                        compositeId: 'applicant-treatment-address',
+                        classifications: {
+                            theme: 'treatment'
+                        }
+                    },
                     required: [
                         'q-applicant-treatment-building-and-street',
                         'q-applicant-treatment-town-or-city',
@@ -32,6 +37,11 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength: 'Place name must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
                                     }
                                 }
                             }
@@ -45,6 +55,11 @@ module.exports = {
                                     errorMessage: {
                                         maxLength:
                                             'Building and street must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
                                     }
                                 }
                             }
@@ -57,6 +72,11 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength: 'Town or city must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
                                     }
                                 }
                             }
@@ -69,6 +89,11 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength: 'County must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
                                     }
                                 }
                             }
@@ -81,6 +106,11 @@ module.exports = {
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
                                     }
                                 }
                             }

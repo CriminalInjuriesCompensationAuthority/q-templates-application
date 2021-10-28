@@ -14,7 +14,15 @@ module.exports = {
                     oneOf: [
                         {title: 'Yes', const: true},
                         {title: 'No', const: false}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Have you been known by another name?'
+                        }
+                    }
                 }
             },
             errorMessage: {

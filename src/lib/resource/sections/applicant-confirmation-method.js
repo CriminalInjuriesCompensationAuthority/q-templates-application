@@ -23,7 +23,15 @@ module.exports = {
                             title: "I don't have an email address or UK mobile phone number",
                             const: 'none'
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Confirmation method'
+                        }
+                    }
                 },
                 'q-applicant-enter-your-email-address': {
                     type: 'string',
@@ -34,6 +42,11 @@ module.exports = {
                         maxLength: 'Email address must be 50 characters or less',
                         format:
                             'Enter an email address in the correct format, like name@example.com'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'applicant-details'
+                        }
                     }
                 },
                 'q-applicant-enter-your-telephone-number': {
@@ -45,6 +58,11 @@ module.exports = {
                         format:
                             'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
                         maxLength: 'Telephone number must be 20 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'applicant-details'
+                        }
                     }
                 }
             },

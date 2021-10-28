@@ -21,6 +21,14 @@ module.exports = {
                             {title: 'Loss of smell or taste', const: 'phyinj-040'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Mouth injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-upper-mouth-other': {
@@ -29,6 +37,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other mouth injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

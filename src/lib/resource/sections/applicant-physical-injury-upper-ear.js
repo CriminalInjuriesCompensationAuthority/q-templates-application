@@ -22,6 +22,14 @@ module.exports = {
                             {title: 'Injury affecting balance', const: 'phyinj-012'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Ear injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-upper-ear-other': {
@@ -30,6 +38,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other ear or hearing injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

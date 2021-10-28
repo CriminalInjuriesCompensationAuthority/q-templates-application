@@ -14,7 +14,15 @@ module.exports = {
                     oneOf: [
                         {title: 'Yes', const: true},
                         {title: 'No', const: false}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'pregnancy'
+                        },
+                        summary: {
+                            title: 'Did you become pregnant?'
+                        }
+                    }
                 }
             },
             errorMessage: {

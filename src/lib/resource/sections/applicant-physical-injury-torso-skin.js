@@ -19,6 +19,14 @@ module.exports = {
                             {title: 'Burns', const: 'phyinj-054'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Torso skin injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-torso-skin-other': {
@@ -27,6 +35,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other skin injuries on torso must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

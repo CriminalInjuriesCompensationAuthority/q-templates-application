@@ -14,6 +14,14 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Who you applied to or received compensation from must be 50 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        },
+                        summary: {
+                            title: 'Who have you applied for compensation from?'
+                        }
                     }
                 }
             },

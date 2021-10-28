@@ -11,7 +11,15 @@ module.exports = {
                     type: 'string',
                     title: 'What treatment are you receiving for your physical injuries?',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Description must be 500 characters or less'}
+                    errorMessage: {maxLength: 'Description must be 500 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'treatment'
+                        },
+                        summary: {
+                            title: 'Treatment for physical injuries'
+                        }
+                    }
                 }
             },
             errorMessage: {

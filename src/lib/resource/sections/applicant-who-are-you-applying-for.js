@@ -14,7 +14,12 @@ module.exports = {
                     oneOf: [
                         {title: 'Myself', const: 'myself'},
                         {title: 'Someone else', const: 'someone-else'}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'about-application'
+                        }
+                    }
                 }
             },
             errorMessage: {

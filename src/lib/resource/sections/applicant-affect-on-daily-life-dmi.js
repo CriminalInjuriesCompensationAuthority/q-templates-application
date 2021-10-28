@@ -12,7 +12,12 @@ module.exports = {
                     description:
                         'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
                     maxLength: 1000,
-                    errorMessage: {maxLength: 'Description must be 1000 characters or less'}
+                    errorMessage: {maxLength: 'Description must be 1000 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        }
+                    }
                 }
             },
             examples: [{'q-applicant-affect-on-daily-life-dmi': 'Some description'}],

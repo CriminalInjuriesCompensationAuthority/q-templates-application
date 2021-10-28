@@ -12,7 +12,15 @@ module.exports = {
                     title: 'Describe your contact with the offender',
                     description: 'We cannot pay compensation if the offender may benefit from it.',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Description must be 500 characters or less'}
+                    errorMessage: {maxLength: 'Description must be 500 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'offender'
+                        },
+                        summary: {
+                            title: 'Brief description'
+                        }
+                    }
                 }
             },
             errorMessage: {

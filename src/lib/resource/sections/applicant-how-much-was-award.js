@@ -11,7 +11,12 @@ module.exports = {
                     title: 'How much compensation were you awarded?',
                     type: 'string',
                     maxLength: 50,
-                    errorMessage: {maxLength: 'Award amount must be 50 characters or less'}
+                    errorMessage: {maxLength: 'Award amount must be 50 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        }
+                    }
                 }
             },
             errorMessage: {required: {'q-how-much-was-award': 'Enter an amount'}},
