@@ -19,6 +19,14 @@ module.exports = {
                             {title: 'Burns', const: 'phyinj-112'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Leg skin injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-skin-other': {
@@ -28,6 +36,11 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Other skin injuries on legs or feet must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

@@ -14,7 +14,12 @@ module.exports = {
                     oneOf: [
                         {title: 'Once', const: 'once'},
                         {title: 'Over a period of time', const: 'over-a-period-of-time'}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    }
                 }
             },
             errorMessage: {

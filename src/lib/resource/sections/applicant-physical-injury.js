@@ -19,6 +19,11 @@ module.exports = {
                             {title: 'Arms or hands', const: 'arms'},
                             {title: 'Legs or feet', const: 'legs'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

@@ -19,6 +19,14 @@ module.exports = {
                             {title: 'Cartilage', const: 'phyinj-167'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Leg tissue injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-muscle-other': {
@@ -28,6 +36,11 @@ module.exports = {
                     errorMessage: {
                         maxLength:
                             'Other tissue injuries to legs or feet must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

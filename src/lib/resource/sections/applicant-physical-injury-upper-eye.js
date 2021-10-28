@@ -33,13 +33,26 @@ module.exports = {
                             {title: 'Injury affecting eye movement', const: 'phyinj-150'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Eye injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-upper-eye-other': {
                     type: 'string',
                     title: 'Other eye injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other eye injuries must be 499 characters or fewer'}
+                    errorMessage: {maxLength: 'Other eye injuries must be 499 characters or fewer'},
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

@@ -23,13 +23,29 @@ module.exports = {
                             {title: 'Unable to report the crime', const: 'unable-to-report-crime'},
                             {title: 'Other reasons', const: 'other'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Reasons for delay in reporting'
+                        }
                     }
                 },
                 'q-applicant-explain-reason-for-delay-reporting': {
                     title: 'Briefly explain these reasons',
                     type: 'string',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'}
+                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Brief explanation'
+                        }
+                    }
                 }
             },
             errorMessage: {

@@ -8,7 +8,12 @@ module.exports = {
             allOf: [
                 {
                     title: 'Where in Scotland did it happen?',
-                    meta: {compositeId: 'crime-location-scotland'},
+                    meta: {
+                        compositeId: 'crime-location-scotland',
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    },
                     required: [
                         'q-applicant-scottish-town-or-city',
                         'q-applicant-scottish-location'
@@ -25,6 +30,11 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength: 'Town or city must be 60 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
                                     }
                                 }
                             }
@@ -39,6 +49,11 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength: 'Location must be 60 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
                                     }
                                 }
                             }

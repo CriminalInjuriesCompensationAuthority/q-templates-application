@@ -14,7 +14,15 @@ module.exports = {
                     oneOf: [
                         {title: 'Yes', const: true},
                         {title: 'No', const: false}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        },
+                        summary: {
+                            title: 'Have they made a decision?'
+                        }
+                    }
                 }
             },
             errorMessage: {

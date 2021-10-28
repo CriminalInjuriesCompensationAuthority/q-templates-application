@@ -29,13 +29,28 @@ module.exports = {
                             },
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Face injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-upper-face-other': {
                     type: 'string',
                     title: 'Other face injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other face injuries must be 499 characters or fewer'}
+                    errorMessage: {
+                        maxLength: 'Other face injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

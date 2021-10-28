@@ -30,6 +30,14 @@ module.exports = {
                             },
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Abdomen injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-torso-abdomen-other': {
@@ -38,6 +46,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other abdomen injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

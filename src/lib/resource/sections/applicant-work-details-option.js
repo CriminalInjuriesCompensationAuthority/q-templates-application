@@ -21,13 +21,26 @@ module.exports = {
                             const: 'employed'
                         },
                         {title: 'Other', const: 'other'}
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'loss-of-earnings'
+                        },
+                        summary: {
+                            title: 'Reason for not having a job'
+                        }
+                    }
                 },
                 'q-applicant-work-details-other': {
                     type: 'string',
                     title: 'Details',
                     maxLength: 100,
-                    errorMessage: {maxLength: 'Other details must be 100 characters or less'}
+                    errorMessage: {maxLength: 'Other details must be 100 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'loss-of-earnings'
+                        }
+                    }
                 }
             },
             allOf: [

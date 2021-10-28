@@ -17,6 +17,14 @@ module.exports = {
                             {title: 'Infertility', const: 'phyinj-066'},
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Genital injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-torso-genitals-other': {
@@ -25,6 +33,11 @@ module.exports = {
                     maxLength: 499,
                     errorMessage: {
                         maxLength: 'Other genital injuries must be 499 characters or fewer'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
                     }
                 }
             },

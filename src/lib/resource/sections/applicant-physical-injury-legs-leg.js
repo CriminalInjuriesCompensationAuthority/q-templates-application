@@ -28,13 +28,26 @@ module.exports = {
                             },
                             {title: 'Other', const: 'phyinj-149'}
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Leg injuries'
+                        }
                     }
                 },
                 'q-applicant-physical-injuries-legs-leg-other': {
                     type: 'string',
                     title: 'Other leg injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other leg injuries must be 499 characters or fewer'}
+                    errorMessage: {maxLength: 'Other leg injuries must be 499 characters or fewer'},
+                    meta: {
+                        classifications: {
+                            theme: 'injuries'
+                        }
+                    }
                 }
             },
             allOf: [{$ref: '#/definitions/if-other-then-other-textbox-is-required'}],

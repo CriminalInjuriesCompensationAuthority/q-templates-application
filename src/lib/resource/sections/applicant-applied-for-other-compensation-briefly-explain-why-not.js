@@ -13,7 +13,15 @@ module.exports = {
                         'Briefly explain why you have not applied for or received any other form of compensation',
                     type: 'string',
                     maxLength: 500,
-                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'}
+                    errorMessage: {maxLength: 'Explanation must be 500 characters or less'},
+                    meta: {
+                        classifications: {
+                            theme: 'other-compensation'
+                        },
+                        summary: {
+                            title: 'Reasons for not applying for other compensation'
+                        }
+                    }
                 }
             },
             errorMessage: {
