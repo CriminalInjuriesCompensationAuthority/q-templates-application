@@ -4460,7 +4460,8 @@ module.exports = {
                                     'This helps us understand how the crime has affected you. You can leave this blank, but we may have to ask for more information later.',
                                 'description_someone-else':
                                     'This helps us understand how the crime has affected them. You can leave this blank, but we may have to ask for more information later.',
-                                title: 'Briefly say how your injuries have affected your daily life',
+                                title:
+                                    'Briefly say how your injuries have affected your daily life',
                                 'title_someone-else':
                                     'Briefly say how their injuries have affected their daily life'
                             }
@@ -9988,7 +9989,7 @@ module.exports = {
                     },
                     'details-work-duration': {
                         description:
-                            "{% from \"components/details/macro.njk\" import govukDetails %}{{ govukDetails({summaryText: \"Help understanding the timeframe of 28 weeks\",html: \"<p class='govuk-body'>28 weeks is more than six months.</p><p class='govuk-body'>You cannot get a payment for the first 28 weeks of any loss of earnings suffered.</p>\"})}}"
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: "<p class=\'govuk-body\'>28 weeks is more than six months.</p><p class=\'govuk-body\'>We cannot make a payment for the first 28 weeks of any loss of earnings suffered.</p>"})}}'
                     }
                 },
                 errorMessage: {
@@ -10051,7 +10052,7 @@ module.exports = {
                         type: 'boolean',
                         title: 'l10nt:q-applicant-job-when-crime-happened.title{?lng,context,ns}',
                         description:
-                            'This can be a full-time, part-time, freelance, seasonal or self-employed job.',
+                            'This can be a full-time, part-time, freelance, seasonal or self-employed job. We may ask for evidence of this later.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -10105,7 +10106,8 @@ module.exports = {
                                 'title_someone-else':
                                     'Tell us why they were not employed at this time',
                                 value: {
-                                    'searching': 'I did not have a job but I had been in regular work for at least 3 years before the crime',
+                                    searching:
+                                        'I did not have a job but I had been in regular work for at least 3 years before the crime',
                                     'searching_someone-else': 'Searching for a job'
                                 },
                                 error: {
@@ -10192,7 +10194,8 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-applicant-work-details-option': 'l10nt:q-applicant-work-details-option.error.required{?lng,context,ns}'
+                        'q-applicant-work-details-option':
+                            'l10nt:q-applicant-work-details-option.error.required{?lng,context,ns}'
                     }
                 },
                 examples: [
@@ -10316,7 +10319,7 @@ module.exports = {
                     'context-crime-impact': {
                         title: 'The impact the injuries have had — daily life and financially',
                         description:
-                            "<p class='govuk-body'>We’re going to ask you questions about:</p><ul class='govuk-list govuk-list--bullet'><li>how the child’s daily life has been impacted by their injuries</li><li>if their injuries are long-term</li></ul><p class='govuk-body'>The answers you give help build an understanding of how their injuries have affected them.</p><p class='govuk-body'>In sending this application, the child will be considered for compensation for loss of earnings and special expenses.</p><h2 class='govuk-heading-m'>Loss of earnings</h2><p class='govuk-body'>If the medical evidence shows the injuries result in limited or no capacity to work, they may get a loss of earnings payment.</p> <h2 class='govuk-heading-m'>Special expenses</h2> <p class='govuk-body'>If the child cannot work for more than six months or is likely to lose earnings because of how severe the injuries are, they may get a special expenses payment.</p><p class='govuk-body'>Both of these payment types are to compensate for any financial losses they have because of their injuries.</p>"
+                            "<p class='govuk-body'>We’re going to ask you questions about:</p><ul class='govuk-list govuk-list--bullet'><li>how the child’s daily life has been impacted by their injuries</li><li>if their injuries are long-term</li></ul><p class='govuk-body'>The answers you give help build an understanding of how their injuries have affected them.</p><p class='govuk-body'>In sending this application, the child will be considered for compensation for loss of earnings and special expenses.</p><h2 class='govuk-heading-m'>Loss of earnings</h2><p class='govuk-body'>If the medical evidence shows the injuries result in very limited or no capacity to work, they may get a loss of earnings payment.</p> <h2 class='govuk-heading-m'>Special expenses</h2> <p class='govuk-body'>If the child cannot work for more than 28 weeks or is likely to lose earnings because of how severe the injuries are, or is incapacitated to a similar extent, they may receive a special expenses payment.</p><p class='govuk-body'>Both of these payment types are to compensate for any financial losses they have because of their injuries.</p>"
                     }
                 },
                 examples: [{}],
@@ -11518,8 +11521,7 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-relationship':
-                            'Enter your relationship with the child'
+                        'q-mainapplicant-relationship': 'Enter your relationship with the child'
                     }
                 },
                 examples: [
@@ -11610,8 +11612,7 @@ module.exports = {
                 },
                 errorMessage: {
                     required: {
-                        'q-mainapplicant-shared-responsibility-name':
-                            'Enter their full name'
+                        'q-mainapplicant-shared-responsibility-name': 'Enter their full name'
                     }
                 },
                 examples: [
@@ -11742,8 +11743,10 @@ module.exports = {
                 properties: {
                     'q-applicant-unable-to-work': {
                         type: 'boolean',
-                        title: 'Are they incapable of working or have very limited capacity to work due to their injuries?',
-                        description: 'Very limited capacity means they are not capable of undertaking paid work for more than a few hours each week.',
+                        title:
+                            'Are they incapable of working or do they have very limited capacity to work due to their injuries?',
+                        description:
+                            'Very limited capacity means they are not capable of undertaking paid work for more than a few hours each week.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -11789,7 +11792,7 @@ module.exports = {
                         title:
                             'Have you paid for any costs relating to treatments from the NHS or other state health service because of the injuries?',
                         description:
-                            'This can include paying for costs towards certain treatments. Or paying towards other related costs such as prescriptions, dental fees, opticians and travel.',
+                            'For example, paying for costs towards certain treatments. Or paying towards other related costs such as prescriptions, dental fees, opticians and travel.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -11803,7 +11806,7 @@ module.exports = {
                     },
                     'help-se-treatment': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the costs of NHS and state health service treatments",html: \'<p class="govuk-body">Not all treatments provided by the NHS or other state health service are free.</p><p class="govuk-body">You can find out more about the <a href="https://www.nhs.uk/nhs-services/help-with-health-costs/when-you-need-to-pay-towards-nhs-care/" target="_blank">cost of NHS treatments (opens in new tab)</a> and <a href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs" target="_blank">cost of NHS Scotland treatments (opens in new tab)</a>.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the costs of NHS and state health service treatments",html: \'<p class="govuk-body">Not all treatments provided by the NHS or other state health services are free.</p><p class="govuk-body">You can find out more about the <a href="https://www.nhs.uk/nhs-services/help-with-health-costs/when-you-need-to-pay-towards-nhs-care/" target="_blank">cost of NHS treatments (opens in new tab)</a> and <a href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs" target="_blank">cost of NHS Scotland treatments (opens in new tab)</a>.</p>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -11837,7 +11840,8 @@ module.exports = {
                     'q-applicant-se-home-care': {
                         type: 'boolean',
                         title: 'Have they required care or supervision because of their injuries?',
-                        description: 'This can be care provided by a family member or care provider. It includes preparation of meals and help going to the bathroom, if the person is unable to do these daily tasks themselves.',
+                        description:
+                            'This can be care provided by a family member or care provider.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -11848,6 +11852,9 @@ module.exports = {
                                 const: false
                             }
                         ]
+                    },
+                    'help-understanding-care': {
+                        description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding care and supervision",html: "<p class="govuk-body">This means they cannot do daily tasks themselves. For example, care for the victim may include but is not limited to.</p><ul class="govuk-list govuk-list--bullet"><li>preparing meals</li><li>helping them to eat</li><li>helping them go to the bathroom</li><li>taking medication</li><li>administering other medical treatments</li></ul><h2 class="govuk-heading-s">Supervision</h2><p class="govuk-body">This means they pose a substantial danger to themselves or others.</p>"})}}`
                     }
                 },
                 errorMessage: {
@@ -11880,10 +11887,9 @@ module.exports = {
                 properties: {
                     'q-applicant-se-home-changes': {
                         type: 'boolean',
-                        title:
-                            'Have you paid for any changes to the home because of the injuries?',
+                        title: 'Have you paid for any changes to the home because of the injuries?',
                         description:
-                            'This can be costs for changes to both the inside and outside of the home to improve independence or ability to get around.',
+                            'This may be costs for changes to both the inside and outside of the home to improve independence or ability to get around.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -11897,7 +11903,7 @@ module.exports = {
                     },
                     'help-se-home-changes': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with changes to the home",html: "<p class=\'govuk-body\'>Changes to the home can include but are not limited to:</p><ul class=\'govuk-list govuk-list--bullet\'><li>building a ramp</li><li>installing a stair lift</li></ul><p class=\'govuk-body\'>This payment does not apply to the cost of buying a new home because of the injuries.</p>"})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with changes to the home",html: "<p class=\'govuk-body\'>Changes to the home may include but are not limited to:</p><ul class=\'govuk-list govuk-list--bullet\'><li>building a ramp</li><li>installing a stair lift</li></ul><p class=\'govuk-body\'>This payment does not apply to the cost of buying a new home because of the injuries.</p>"})}}'
                     }
                 },
                 errorMessage: {
@@ -11930,8 +11936,10 @@ module.exports = {
                 properties: {
                     'q-applicant-se-aids': {
                         type: 'boolean',
-                        title: 'Have you paid to replace or repair physical aids because of the crime?',
-                        description: 'These may have been damaged or you had to replace them because of the crime.',
+                        title:
+                            'Have you paid to replace or repair physical aids because of the crime?',
+                        description:
+                            'These may have been damaged or you had to replace them because of the crime.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -11945,7 +11953,7 @@ module.exports = {
                     },
                     'help-se-aids': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing or repairing physical aids you use.</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing physical aids used by the child before they were injured. These can include but are not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -11992,7 +12000,7 @@ module.exports = {
                     },
                     'help-se-equipment': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with special equipment",html: \'<p class="govuk-body">For example, special equipment can include:</p><ul class="govuk-list govuk-list--bullet"><li>walking aids</li><li>wheelchairs</li><li>kitchen implements</li><li>specially-adapted vehicles</li></ul><p class="govuk-body">We can only consider an award for these costs if the equipment is needed.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with special equipment",html: \'<p class="govuk-body">For example, special equipment may include but is not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking aids</li><li>wheelchairs</li><li>kitchen implements</li><li>specially-adapted vehicles</li></ul>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -12025,8 +12033,10 @@ module.exports = {
                 properties: {
                     'q-applicant-se-other': {
                         type: 'boolean',
-                        title: 'Have you paid for anything else not already asked about?',
-                        description: "This may include administering the applicant’s affairs or court of protection costs. Add more information about this at the end of the application.",
+                        title:
+                            'Have you paid for anything else or are you likely to pay for any of the expenses already mentioned in future?',
+                        description:
+                            'Add more information about this at the end of the application.',
                         oneOf: [
                             {
                                 title: 'Yes',
@@ -12037,6 +12047,9 @@ module.exports = {
                                 const: false
                             }
                         ]
+                    },
+                    'help-understanding-expenses': {
+                        description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding your current and future expenses",html: "<p class='govuk-body'>You may have expenses, now or in future, due to the injuries suffered. This may include but is not limited to:</p><ul class='govuk-list govuk-list--bullet'><li>NHS or other state health services treatments</li><li>care or supervision</li><li>changes to your home</li><li>special equipment</li><li>replacing or repairing physical aids</li><li>costs of administering the child's affairs if they lack mental capacity to do so</li><li>fees to the Court of Protection, Public Guardian or Sheriff Court</li></ul>"})}}`
                     }
                 },
                 errorMessage: {
@@ -12069,7 +12082,7 @@ module.exports = {
                     'se-context': {
                         title: 'Special expenses',
                         description:
-                            '<p class="govuk-body">We’re going to ask you about specific payments you may have had to make, or will make, because of the injuries caused by the crime.</p><p class="govuk-body">We can only consider certain expenses – known as “special expenses” – and will ask you questions to find out if you’ve had any of these.</p><p class="govuk-body">We’ll consider this application for special expenses if the victim has experienced one of the following for more than 28 weeks due to their injuries:</p><ul class="govuk-list govuk-list--bullet"><li>lost earnings</li><li>lost earning capacity</li><li>or been incapacitated to a similar extent</li></ul><p class="govuk-body">The 28 weeks can be a single period of time or cover several periods of time since the crime. Any special expense payment will include payment for the first 28 weeks from when the injuries were received.</p><p class="govuk-body">We may ask you to give proof of payments made or received. This ensures any money you’ve paid for products or services are not available free of charge from other sources. We may also ask you to provide evidence of this or if applicable items were recommended by a specialist.</p>'
+                            '<p class="govuk-body">We’re going to ask you about specific payments you may have had to make, or will make, because of the injuries caused by the crime.</p><p class="govuk-body">We can only consider certain expenses – known as “special expenses” – and will ask you questions about these.</p><p class="govuk-body">We’ll consider this application for special expenses if the victim has experienced one of the following for more than 28 weeks due to their injuries:</p><ul class="govuk-list govuk-list--bullet"><li>lost earnings</li><li>lost earning capacity</li><li>or been incapacitated to a similar extent</li></ul><p class="govuk-body">The 28 weeks can be a single period of time or cover several periods of time since the crime. Any special expenses payment will include payment for the first 28 weeks from when they were injured.</p><p class="govuk-body">We will ask you to:</p><ul class="govuk-list govuk-list--bullet"><li>give proof of payments made or received</li><li>provide evidence of this</li></ul><p class="govuk-body">We may ask you:</p><ul class="govuk-list govuk-list--bullet"><li>if applicable items were recommended by a specialist</li></ul><p class="govuk-body">This ensures any money you’ve paid or are likely to pay for products or services are not available free of charge from other sources.</p>'
                     }
                 },
                 examples: [{}],
@@ -12192,7 +12205,7 @@ module.exports = {
                     },
                     'help-affect-duration': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: \'<p class="govuk-body">28 weeks is more than six months.</p><p class="govuk-body">You cannot get a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the timeframe of 28 weeks",html: \'<p class="govuk-body">28 weeks is more than six months.</p><p class="govuk-body">We cannot make a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -12225,8 +12238,7 @@ module.exports = {
                 properties: {
                     'q-applicant-affect-future-duration': {
                         type: 'string',
-                        title:
-                            'Are their injuries likely to affect them for more than 28 weeks?',
+                        title: 'Are their injuries likely to affect them for more than 28 weeks?',
                         description:
                             'This can be a single period of time or cover several periods of time since the crime.',
                         oneOf: [
@@ -12298,7 +12310,7 @@ module.exports = {
                     },
                     'help-future-work': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the ability to work in future",html: \'<p class="govuk-body">They must have no capacity or very limited capacity to work because of the injury. This must be for longer than 28 weeks. It can be a full-time, part-time, freelance, seasonal or self-employed job. It includes if the child had a formal job offer at the time of the crime. This is the only situation in which we can make a loss of earnings payment.</p><p class="govuk-body">You cannot get a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding the ability to work in future",html: \'<p class="govuk-body">They must have no capacity or very limited capacity to work because of the injury. This must be for longer than 28 weeks.</p><p class="govuk-body">We cannot make a payment for the first 28 weeks of any loss of earnings suffered.</p>\'})}}'
                     }
                 },
                 errorMessage: {
