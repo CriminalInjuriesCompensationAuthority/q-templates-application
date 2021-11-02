@@ -27,6 +27,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Reasons for delay in reporting'
                         }
                     }
                 },
@@ -38,6 +41,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Brief explanation'
                         }
                     }
                 }

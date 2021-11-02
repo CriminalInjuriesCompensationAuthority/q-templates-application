@@ -28,6 +28,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Nose injuries'
                         }
                     }
                 },
@@ -35,7 +38,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other nose injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other nose injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other nose injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

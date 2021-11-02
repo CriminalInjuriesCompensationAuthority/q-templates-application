@@ -20,6 +20,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Would you like to describe the crime?'
                         }
                     }
                 }

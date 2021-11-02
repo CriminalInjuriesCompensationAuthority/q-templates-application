@@ -29,6 +29,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Neck injuries'
                         }
                     }
                 },
@@ -36,7 +39,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other neck injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other neck injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other neck injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

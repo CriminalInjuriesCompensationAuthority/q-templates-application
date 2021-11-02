@@ -18,6 +18,9 @@ module.exports = {
                         },
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'When was the crime reported?'
                         }
                     },
                     type: 'string',

@@ -19,6 +19,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'treatment'
+                        },
+                        summary: {
+                            title: 'Have you seen a GP?'
                         }
                     }
                 }

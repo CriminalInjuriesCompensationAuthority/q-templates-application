@@ -16,6 +16,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'offender'
+                        },
+                        summary: {
+                            title: 'Brief description'
                         }
                     }
                 }

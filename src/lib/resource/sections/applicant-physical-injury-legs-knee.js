@@ -22,6 +22,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Knee injuries'
                         }
                     }
                 },
@@ -29,7 +32,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other knee injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other knee injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other knee injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

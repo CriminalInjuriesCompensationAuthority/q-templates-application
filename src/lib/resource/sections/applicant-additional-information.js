@@ -18,7 +18,10 @@ module.exports = {
                     },
                     meta: {
                         classifications: {
-                            theme: "additional-info",
+                            theme: 'additional-info'
+                        },
+                        summary: {
+                            title: 'Additional information'
                         }
                     }
                 }

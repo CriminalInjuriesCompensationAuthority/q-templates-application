@@ -23,6 +23,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Foot injuries'
                         }
                     }
                 },
@@ -30,7 +33,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other foot injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other foot injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other foot injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

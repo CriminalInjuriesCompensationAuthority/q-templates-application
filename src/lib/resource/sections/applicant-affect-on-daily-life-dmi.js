@@ -15,7 +15,7 @@ module.exports = {
                     errorMessage: {maxLength: 'Description must be 1000 characters or less'},
                     meta: {
                         classifications: {
-                            theme: "impact",
+                            theme: 'impact'
                         }
                     }
                 }

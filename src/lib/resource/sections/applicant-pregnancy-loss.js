@@ -19,6 +19,9 @@ module.exports = {
                 meta: {
                     classifications: {
                         theme: 'pregnancy'
+                    },
+                    summary: {
+                        title: 'Did you lose a pregnancy?'
                     }
                 }
             },

@@ -26,6 +26,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Toe injuries'
                         }
                     }
                 },

@@ -23,6 +23,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Hand injuries'
                         }
                     }
                 },
@@ -30,7 +33,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other hand injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other hand injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other hand injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

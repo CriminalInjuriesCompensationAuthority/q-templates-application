@@ -20,6 +20,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'additional-info'
+                        },
+                        summary: {
+                            title: 'Would you like to add any information?'
                         }
                     }
                 }

@@ -18,6 +18,9 @@ module.exports = {
                         },
                         classifications: {
                             theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Date of birth'
                         }
                     },
                     type: 'string',
