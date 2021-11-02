@@ -415,44 +415,44 @@ module.exports = {
         theme: {
             taxa: {
                 'about-application': {
-                    "title": "About your application"
+                    title: 'About your application'
                 },
                 'applicant-details': {
-                    "title": "Your details"
+                    title: 'Your details'
                 },
                 crime: {
-                    "title": "About the crime"
+                    title: 'About the crime'
                 },
                 offender: {
-                    "title": "About the offender"
+                    title: 'About the offender'
                 },
                 injuries: {
-                    "title": "Your injuries"
+                    title: 'Your injuries'
                 },
                 pregnancy: {
-                    "title": "Pregnancy"
+                    title: 'Pregnancy'
                 },
                 'mental-health': {
-                    "title": "Your mental health"
+                    title: 'Your mental health'
                 },
                 'loss-of-earnings': {
-                    "title": "Loss of earnings"
+                    title: 'Loss of earnings'
                 },
                 impact: {
-                    "title": "The impact the crime has had — daily life and financially"
+                    title: 'The impact the crime has had — daily life and financially'
                 },
                 'special-expenses': {
-                    "title": "Special expenses"
+                    title: 'Special expenses'
                 },
                 treatment: {
-                    "title": "Your treatment"
+                    title: 'Your treatment'
                 },
                 'other-compensation': {
-                    "title": "Other compensation"
+                    title: 'Other compensation'
                 },
                 'additional-info': {
-                    "title": "Additional information"
-                },
+                    title: 'Additional information'
+                }
             }
         }
     },

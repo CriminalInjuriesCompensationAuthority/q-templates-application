@@ -17,7 +17,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: "about-application",
+                            theme: 'about-application'
                         }
                     }
                 }

@@ -38,7 +38,9 @@ module.exports = {
                     type: 'string',
                     title: 'Other back injuries',
                     maxLength: 499,
-                    errorMessage: {maxLength: 'Other back injuries must be 499 characters or fewer'},
+                    errorMessage: {
+                        maxLength: 'Other back injuries must be 499 characters or fewer'
+                    },
                     meta: {
                         classifications: {
                             theme: 'injuries'

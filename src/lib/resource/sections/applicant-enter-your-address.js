@@ -10,7 +10,9 @@ module.exports = {
                     title: 'Enter your address',
                     meta: {
                         compositeId: 'applicant-address',
-                        theme: 'applicant-details'
+                        classifications: {
+                            theme: 'applicant-details'
+                        }
                     },
                     required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
                     propertyNames: {
