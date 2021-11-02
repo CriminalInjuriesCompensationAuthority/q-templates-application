@@ -18,6 +18,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'other-compensation'
+                        },
+                        summary: {
+                            title: 'Have they made a decision?'
                         }
                     }
                 }

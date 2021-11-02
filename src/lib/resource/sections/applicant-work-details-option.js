@@ -25,6 +25,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'loss-of-earnings'
+                        },
+                        summary: {
+                            title: 'Reason for not having a job'
                         }
                     }
                 },

@@ -18,6 +18,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'mental-health'
+                        },
+                        summary: {
+                            title: 'Has it lasted 6 weeks or more?'
                         }
                     }
                 }

@@ -12,6 +12,9 @@ module.exports = {
                         compositeId: 'applicant-address',
                         classifications: {
                             theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Your address'
                         }
                     },
                     required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],

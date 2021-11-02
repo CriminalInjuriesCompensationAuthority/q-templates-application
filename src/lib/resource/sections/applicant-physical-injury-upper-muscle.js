@@ -23,6 +23,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'injuries'
+                        },
+                        summary: {
+                            title: 'Head, face or neck tissue injuries'
                         }
                     }
                 },

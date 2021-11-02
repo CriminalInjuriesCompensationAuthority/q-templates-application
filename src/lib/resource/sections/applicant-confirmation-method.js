@@ -27,6 +27,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Confirmation method'
                         }
                     }
                 },

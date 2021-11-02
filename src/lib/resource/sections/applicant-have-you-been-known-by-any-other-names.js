@@ -18,6 +18,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Have you been known by another name?'
                         }
                     }
                 }

@@ -28,6 +28,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Reasons for delay in applying'
                         }
                     }
                 },
@@ -39,6 +42,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'crime'
+                        },
+                        summary: {
+                            title: 'Brief explanation'
                         }
                     }
                 }

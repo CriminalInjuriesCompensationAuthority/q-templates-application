@@ -21,6 +21,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'applicant-details'
+                        },
+                        summary: {
+                            title: 'Email address'
                         }
                     }
                 }
