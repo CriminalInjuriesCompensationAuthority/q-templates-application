@@ -1606,7 +1606,7 @@ module.exports = {
                     },
                     'additional-info-help-text': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales</a> (opens in a new tab)</p><p class="govuk-body">If you can’t find the police force in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than 1 police force is investigating the crime, you can provide additional details later in this claim.</p><p class="govuk-body">See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales (opens in a new tab)</a>.</p><p class="govuk-body">If you can’t find the police force in the list, make the closest selection you can then provide additional details later in this claim.</p>\'})}}'
                     }
                 },
                 errorMessage: {
@@ -11483,7 +11483,7 @@ module.exports = {
                         type: 'string',
                         title: 'Enter your telephone number',
                         description:
-                            'We may use this to contact you if we need to clarify something in your application (optional).',
+                            'We may use this to contact you if we need to clarify something in this application (optional).',
                         maxLength: 20,
                         pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
                         errorMessage: {
@@ -11723,7 +11723,7 @@ module.exports = {
                     'pregnancy-context': {
                         title: 'Pregnancy',
                         description:
-                            '<p class="govuk-body">We need to ask questions about pregnancy related to the crime. These questions may be difficult to answer or may not be relevant to the child.</p><p class="govuk-body">By answering them, it ensures you’re considered for all correct compensation from us. This helps us better understand the case and if we need to ask for more evidence from you.</p><h2 class="govuk-heading-m">Help and support</h2><p class="govuk-body">The following links open in a new tab.</p><p class="govuk-body">You can get practical and emotional support after a crime. Visit <a href="https://www.victimandwitnessinformation.org.uk/" target="new">Victim and Witness information</a> if you’re in England and Wales. Or <a href="https://www.mygov.scot/victim-witness-support/" target="new">support as a victim or witness of crime</a> in Scotland.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support with the application",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
+                            '<p class="govuk-body">We need to ask questions about pregnancy related to the crime. These questions may be difficult to answer or may not be relevant to the child.</p><p class="govuk-body">By answering them, it ensures the child is considered for all correct compensation from us. This helps us better understand the case and if we need to ask for more evidence from you.</p><h2 class="govuk-heading-m">Help and support</h2><p class="govuk-body">The following links open in a new tab.</p><p class="govuk-body">You can get practical and emotional support after a crime. Visit <a href="https://www.victimandwitnessinformation.org.uk/" target="new">Victim and Witness information</a> if you’re in England and Wales. Or <a href="https://www.mygov.scot/victim-witness-support/" target="new">support as a victim or witness of crime</a> in Scotland.</p>{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "If you need help or support with the application",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml + \'<p class="govuk-body">You can <a class="govuk-link" href="https://www.victimandwitnessinformation.org.uk/">get practical or emotional support</a> after a crime.</p><p class="govuk-body">There is different practical or emotional support <a class="govuk-link" href="https://www.mygov.scot/victim-witness-support/">if you live in Scotland</a>.</p>\'})}}'
                     }
                 },
                 examples: [{}],
@@ -11954,7 +11954,7 @@ module.exports = {
                     },
                     'help-se-aids': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing physical aids used by the child before they were injured. These can include but are not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing physical aids used by the child before they were injured. These may include but are not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
                     }
                 },
                 errorMessage: {
