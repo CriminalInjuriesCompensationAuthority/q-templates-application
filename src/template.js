@@ -11855,7 +11855,7 @@ module.exports = {
                     },
                     'help-understanding-care': {
                         description:
-                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<h2 class="govuk-heading-s">Care</h2><p class="govuk-body">This means they cannot do daily tasks themselves. For example, care for the victim may include but is not limited to.</p><ul class="govuk-list govuk-list--bullet"><li>preparing meals</li><li>helping them to eat</li><li>helping them go to the bathroom</li><li>taking medication</li><li>administering other medical treatments</li></ul><h2 class="govuk-heading-s">Supervision</h2><p class="govuk-body">This means they pose a substantial danger to themselves or others without supervision.</p>\'})}}'
+                            '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding care and supervision",html: \'<h2 class="govuk-heading-s">Care</h2><p class="govuk-body">This means they cannot do daily tasks themselves. For example, care for the victim may include but is not limited to.</p><ul class="govuk-list govuk-list--bullet"><li>preparing meals</li><li>helping them to eat</li><li>helping them go to the bathroom</li><li>taking medication</li><li>administering other medical treatments</li></ul><h2 class="govuk-heading-s">Supervision</h2><p class="govuk-body">This means they pose a substantial danger to themselves or others without supervision.</p>\'})}}'
                     }
                 },
                 errorMessage: {
