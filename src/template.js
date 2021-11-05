@@ -125,7 +125,7 @@ const system = require('./lib/resource/sections/system.js');
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '5.1.1',
+    version: '5.2.1',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
