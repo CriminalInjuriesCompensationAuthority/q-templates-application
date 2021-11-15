@@ -111,7 +111,6 @@ const applicantWorkDetailsOption = require('./lib/resource/sections/applicant-wo
 const applicantExpenses = require('./lib/resource/sections/applicant-expenses.js');
 const contextMoney = require('./lib/resource/sections/context-money.js');
 const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
-const applicantNonSaInfections = require('./lib/resource/sections/applicant-non-sa-infections.js');
 const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
 const applicantIncidentType = require('./lib/resource/sections/applicant-incident-type.js');
@@ -278,7 +277,6 @@ module.exports = {
         'p-applicant-expenses': applicantExpenses.section,
         'p--context-money': contextMoney.section,
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
-        'p-applicant-non-sa-infections': applicantNonSaInfections.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
         'p-applicant-incident-type': applicantIncidentType.section,
@@ -453,7 +451,6 @@ module.exports = {
             'p-applicant-work-details-option': applicantWorkDetailsOption.route,
             'p-applicant-expenses': applicantExpenses.route,
             'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
-            'p-applicant-non-sa-infections': applicantNonSaInfections.route,
             'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
             'p-applicant-fatal-claim': applicantFatalClaim.route,
             'p-applicant-provide-additional-information':

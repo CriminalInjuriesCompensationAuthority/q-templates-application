@@ -175,10 +175,6 @@ module.exports = {
                                             label: 'Do you have HIV, hepatitis or an STI?'
                                         },
                                         {
-                                            id: 'p-applicant-non-sa-infections',
-                                            label: 'Do you have HIV or hepatitis?'
-                                        },
-                                        {
                                             id: 'p-applicant-select-infections',
                                             label: 'Select what infection you have'
                                         },
