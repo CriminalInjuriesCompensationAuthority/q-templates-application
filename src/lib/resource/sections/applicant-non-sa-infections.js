@@ -83,19 +83,9 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            ANSWER:  [
                 {
-                    target: 'p--context-pregnancy',
-                    cond: [
-                        'operatorDateCompareToToday',
-                        '>',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
-                        7,
-                        'years'
-                    ]
-                },
-                {
-                    target: 'p--context-dmi-details'
+                    "target": "p-applicant-pregnancy-loss"
                 }
             ]
         }

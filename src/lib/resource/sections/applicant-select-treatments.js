@@ -23,7 +23,7 @@ module.exports = {
                                 'required_someone-else':
                                     'Enter any other treatment they have received for their mental injury'
                             },
-                            title: 'Other mental health treatment'
+                            title: 'Other treatments'
                         },
                         'q-applicant-select-treatments-dmi': {
                             description: "Include any treatment you're waiting to get.",
@@ -93,7 +93,7 @@ module.exports = {
                     title: 'l10nt:q-applicant-other-treatment-dmi.title{?lng,context,ns}',
                     maxLength: 499,
                     errorMessage: {
-                        maxLength: 'Other mental health treatment must be 499 characters or less'
+                        maxLength: 'Other treatments must be 499 characters or less'
                     },
                     meta: {
                         classifications: {

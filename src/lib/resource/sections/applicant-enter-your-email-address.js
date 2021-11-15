@@ -11,7 +11,7 @@ module.exports = {
                     type: 'string',
                     title: 'Enter your email address',
                     description:
-                        'We may use this to contact you if we need to clarify something on your application form (optional).',
+                        'We may use this to contact you if we need to clarify something in this application form (optional).',
                     maxLength: 50,
                     format: 'email',
                     errorMessage: {
