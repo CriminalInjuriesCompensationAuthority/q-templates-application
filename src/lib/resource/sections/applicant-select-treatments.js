@@ -23,7 +23,7 @@ module.exports = {
                                 'required_someone-else':
                                     'Enter any other treatment they have received for their mental injury'
                             },
-                            title: 'Other treatments'
+                            title: 'Other mental health treatment'
                         },
                         'q-applicant-select-treatments-dmi': {
                             description: "Include any treatment you're waiting to get.",
