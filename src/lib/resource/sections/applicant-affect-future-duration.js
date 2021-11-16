@@ -41,10 +41,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-affect-future-duration': true
+                    'q-applicant-affect-future-duration': 'yes'
                 },
                 {
-                    'q-applicant-affect-future-duration': false
+                    'q-applicant-affect-future-duration': 'no'
                 }
             ],
             invalidExamples: [

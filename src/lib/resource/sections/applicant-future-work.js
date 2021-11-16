@@ -40,10 +40,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-future-work': true
+                    'q-applicant-future-work': 'yes'
                 },
                 {
-                    'q-applicant-future-work': false
+                    'q-applicant-future-work': 'no'
                 }
             ],
             invalidExamples: [

@@ -56,7 +56,7 @@
         "lint-staged": "^9.5.0",
         "prettier": "^1.19.1",
         "q-base-config": "github:CriminalInjuriesCompensationAuthority/q-base-config#v0.9.0",
-        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v3.0.0"
+        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#l10n"
     },
     "dependencies": {}
 }
