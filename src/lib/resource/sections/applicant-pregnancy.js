@@ -72,10 +72,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-pregnancy': true
+                    'q-applicant-pregnancy': 'yes'
                 },
                 {
-                    'q-applicant-pregnancy': false
+                    'q-applicant-pregnancy': 'no'
                 }
             ],
             invalidExamples: [
