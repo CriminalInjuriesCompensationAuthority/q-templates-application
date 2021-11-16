@@ -125,10 +125,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-work-details-option': 'care'
+                    'q-applicant-work-details-option': ['care']
                 },
                 {
-                    'q-applicant-work-details-option': 'other',
+                    'q-applicant-work-details-option': ['other'],
                     'q-applicant-work-details-other': 'a string'
                 }
             ],

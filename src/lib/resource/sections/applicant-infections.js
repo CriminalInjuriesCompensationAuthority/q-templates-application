@@ -72,10 +72,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-infections': true
+                    'q-applicant-infections': 'yes'
                 },
                 {
-                    'q-applicant-infections': false
+                    'q-applicant-infections': 'no'
                 }
             ],
             invalidExamples: [
