@@ -18,7 +18,7 @@ module.exports = {
                     resources: {
                         'q-applicant-work-details-option': {
                             title: 'Tell us why you were not employed at this time',
-                            'title_someone-else': 'Tell us why they were not employed at this time',
+                            'title_someone-else': 'Tell us why the child did not have a job',
                             value: {
                                 searching:
                                     'I did not have a job but I had been in regular work for at least 3 years before the crime',
@@ -41,6 +41,7 @@ module.exports = {
             properties: {
                 'q-applicant-work-details-option': {
                     title: 'l10nt:q-applicant-work-details-option.title{?lng,context,ns}',
+                    description: 'Select all that apply.',
                     type: 'array',
                     items: {
                         anyOf: [
