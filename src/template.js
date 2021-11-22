@@ -508,6 +508,10 @@ module.exports = {
         },
         'p-applicant-enter-your-date-of-birth': {
             'q-applicant-enter-your-date-of-birth': '2015-11-15T23:48:11.154Z'
+        },
+        'p-applicant-confirmation-method': {
+            'q-applicant-confirmation-method': 'text',
+            'q-applicant-enter-your-telephone-number': '07706518824'
         }
     },
     progress: ['p--check-your-answers'],
