@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-describe-incident': {
                     type: 'boolean',
-                    title: 'Do you want to briefly describe the crime?',
+                    title: 'Do you want to briefly describe the crime in your own words?',
                     description:
                         'The police will send us a report of the crime. Providing an additional description is optional.',
                     oneOf: [
