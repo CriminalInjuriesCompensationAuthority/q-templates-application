@@ -17,7 +17,7 @@ module.exports = {
                     namespace: 'p-applicant-work-details-option',
                     resources: {
                         'q-applicant-work-details-option': {
-                            title: 'Tell us why you were not employed at this time',
+                            title: 'Tell us why you did not have a job at this time',
                             'title_someone-else': 'Tell us why the child did not have a job',
                             value: {
                                 searching:
