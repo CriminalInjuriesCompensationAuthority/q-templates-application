@@ -16,7 +16,7 @@ module.exports = {
                 },
                 'mainapplicant-shared-responsibility-name': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website(opens in new tab)</a>.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="_blank">on the UK Government website(opens in new tab)</a>.</p>\'})}}'
                 }
             },
             errorMessage: {
