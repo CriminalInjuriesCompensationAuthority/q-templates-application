@@ -520,7 +520,7 @@ module.exports = {
                     title: 'Your mental health'
                 },
                 impact: {
-                    title: 'The impact the crime has had — daily life and financially'
+                    title: 'The impact the injuries have had'
                 },
                 'special-expenses': {
                     title: 'Special expenses'
