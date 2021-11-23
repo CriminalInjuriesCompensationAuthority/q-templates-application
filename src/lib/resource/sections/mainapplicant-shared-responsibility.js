@@ -27,7 +27,7 @@ module.exports = {
                 },
                 'mainapplicant-shared-responsibility': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="new">on the UK Government website(opens in new tab)</a>.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding shared parental responsibility",html: \'<p class="govuk-body">There are a wide range of situations where a person holds parental responsibility for a child. You may or may not hold parental responsibility for the child and not know.</p><p class="govuk-body">Find out if you have parental responsibility and what this means <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="_blank">on the UK Government website(opens in new tab)</a>.</p>\'})}}'
                 }
             },
             errorMessage: {
