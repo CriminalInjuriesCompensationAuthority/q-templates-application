@@ -324,7 +324,7 @@ module.exports = {
         'p-applicant-future-work': applicantFutureWork.section
     },
     routes: {
-        initial: 'p--check-your-answers',
+        initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: 'p-applicant-declaration',
         confirmation: 'p--confirmation',
@@ -502,19 +502,8 @@ module.exports = {
             'p-applicant-future-work': applicantFutureWork.route
         }
     },
-    answers: {
-        'p-applicant-who-are-you-applying-for': {
-            'q-applicant-who-are-you-applying-for': 'someone-else'
-        },
-        'p-applicant-enter-your-date-of-birth': {
-            'q-applicant-enter-your-date-of-birth': '2015-11-15T23:48:11.154Z'
-        },
-        'p-applicant-confirmation-method': {
-            'q-applicant-confirmation-method': 'text',
-            'q-applicant-enter-your-telephone-number': '07706518824'
-        }
-    },
-    progress: ['p--check-your-answers'],
+    answers: {},
+    progress: ['p-applicant-fatal-claim'],
     taxonomies: {
         theme: {
             taxa: {
