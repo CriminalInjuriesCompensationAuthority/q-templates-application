@@ -858,6 +858,16 @@ module.exports = {
                     }
                 }
             },
+            meta: {
+                request: {
+                    headers: {
+                        'Cache-Control': 'private, no-cache, no-store, must-revalidate',
+                        Expires: '-1',
+                        Pragma: 'no-cache',
+                        'Adrian-Test-Header': 'Foo Bar Baz'
+                    }
+                }
+            },
             examples: [{}],
             invalidExamples: [
                 {

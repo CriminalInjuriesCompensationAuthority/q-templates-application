@@ -24,16 +24,14 @@ module.exports = {
                         {
                             properties: {
                                 'q-applicant-declaration': {
-                                    type: 'array',
-                                    items: {
-                                        anyOf: [
-                                            {
-                                                title:
-                                                    'I have read and understood the <a href="#declaration" class="govuk-link">information and declaration</a>',
-                                                const: 'i-agree'
-                                            }
-                                        ]
-                                    }
+                                    type: 'string',
+                                    oneOf: [
+                                        {
+                                            title:
+                                                'I have read and understood the <a href="#declaration" class="govuk-link">information and declaration</a>',
+                                            const: 'i-agree'
+                                        }
+                                    ]
                                 }
                             }
                         }
