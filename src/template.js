@@ -1,6 +1,8 @@
 'use strict';
 
 const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
+const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
+const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
@@ -155,6 +157,8 @@ module.exports = {
     version: '5.2.1',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
+        'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
+        'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
@@ -320,10 +324,16 @@ module.exports = {
     routes: {
         initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
-        summary: ['p-applicant-declaration'],
+        summary: [
+            'p-applicant-declaration',
+            'p-mainapplicant-declaration-under-12',
+            'p-mainapplicant-declaration-12-and-over'
+        ],
         confirmation: 'p--confirmation',
         states: {
             'p-applicant-declaration': applicantDeclaration.route,
+            'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
+            'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
