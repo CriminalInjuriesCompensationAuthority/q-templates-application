@@ -1,6 +1,9 @@
 'use strict';
 
 function deleteKeys(obj, unwantedKeyArray) {
+    if (obj === null || obj === undefined) {
+        return obj;
+    }
     const result = obj;
     unwantedKeyArray.forEach(unwantedKey => {
         Object.keys(result).forEach(key => {

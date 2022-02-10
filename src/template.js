@@ -590,26 +590,80 @@ module.exports = {
     meta: {
         questionnaireDocumentVersion: '4.0.0',
         onComplete: {
-            tasks: [
-                {
+            tasks: {
+                sendEmail: {
                     type: 'sendEmail',
-                    templateId: 'cb79653c-cf6e-44d4-8c03-087ba21cfd01',
-                    templatePlaceholderMap: {
-                        emailAddress:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address',
-                        caseReference: '/answers/system/case-reference'
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                            },
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    templateId: '0a8224c3-9600-4d14-9491-72609dc1dece',
+                                    'templateId_someone-else':
+                                        'b4b08849-c56f-4e82-9f8a-14ab2a50f607',
+                                    emailAddress:
+                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                                    'emailAddress_someone-else':
+                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||'
+                                }
+                            }
+                        ]
+                    },
+                    data: {
+                        templateId: 'l10nt:templateId{?lng,context,ns}',
+                        emailAddress: 'l10nt:emailAddress{?lng,context,ns}',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null // required for notify api
                     }
                 },
-                {
+                sendSms: {
                     type: 'sendSms',
-                    templateId: '3c847bb8-957a-4bba-9fad-090657bb5c71',
-                    templatePlaceholderMap: {
-                        phoneNumber:
-                            '/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number',
-                        caseReference: '/answers/system/case-reference'
+                    l10n: {
+                        vars: {
+                            lng: 'en',
+                            context: {
+                                $data:
+                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                            },
+                            ns: 'notification-confirmation'
+                        },
+                        translations: [
+                            {
+                                language: 'en',
+                                namespace: 'notification-confirmation',
+                                resources: {
+                                    templateId: '0905cf29-054a-4650-9044-a58768fd9381',
+                                    'templateId_someone-else':
+                                        'c2f8f580-3214-4144-bab1-1bbb30863deb',
+                                    phoneNumber:
+                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                                    'phoneNumber_someone-else':
+                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||'
+                                }
+                            }
+                        ]
+                    },
+                    data: {
+                        templateId: 'l10nt:templateId{?lng,context,ns}',
+                        phoneNumber: 'l10nt:phoneNumber{?lng,context,ns}',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null // required for notify api
                     }
                 }
-            ]
+            }
         },
         attributes: {'q-applicant-physical-injuries': {title: 'What was injured?'}}
     }
