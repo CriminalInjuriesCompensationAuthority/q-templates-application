@@ -497,12 +497,46 @@ module.exports = {
     progress: ['p-applicant-fatal-claim'],
     taxonomies: {
         theme: {
+            l10n: {
+                vars: {
+                    lng: 'en',
+                    context: {
+                        $data:
+                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                    },
+                    ns: 'theme'
+                },
+                translations: [
+                    {
+                        language: 'en',
+                        namespace: 'theme',
+                        resources: {
+                            applicant_details: {
+                                title: 'Your details',
+                                'title_someone-else': 'Victim details'
+                            },
+                            injuries: {
+                                title: 'Your injuries',
+                                'title_someone-else': "The child's injuries"
+                            },
+                            mental_health: {
+                                title: 'Your mental health',
+                                'title_someone-else': "The child's mental health"
+                            },
+                            treatment: {
+                                title: 'Your treatment',
+                                'title_someone-else': "The child's treatment"
+                            }
+                        }
+                    }
+                ]
+            },
             taxa: {
                 'about-application': {
                     title: 'About your application'
                 },
                 'applicant-details': {
-                    title: 'Your details'
+                    title: 'l10nt:applicant_details.title{?lng,context,ns}'
                 },
                 crime: {
                     title: 'About the crime'
@@ -511,13 +545,13 @@ module.exports = {
                     title: 'About the offender'
                 },
                 injuries: {
-                    title: 'Your injuries'
+                    title: 'l10nt:injuries.title{?lng,context,ns}'
                 },
                 pregnancy: {
                     title: 'Pregnancy'
                 },
                 'mental-health': {
-                    title: 'Your mental health'
+                    title: 'l10nt:mental_health.title{?lng,context,ns}'
                 },
                 impact: {
                     title: 'The impact the injuries have had'
@@ -526,13 +560,19 @@ module.exports = {
                     title: 'Special expenses'
                 },
                 treatment: {
-                    title: 'Your treatment'
+                    title: 'l10nt:treatment.title{?lng,context,ns}'
                 },
                 'other-compensation': {
                     title: 'Other compensation'
                 },
                 'additional-info': {
                     title: 'Additional information'
+                },
+                main_applicant_details: {
+                    title: 'Your details'
+                },
+                'default': {
+                    title: 'Other Information'
                 }
             }
         }
