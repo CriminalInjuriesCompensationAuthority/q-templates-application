@@ -320,7 +320,7 @@ module.exports = {
     routes: {
         initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
-        summary: 'p-applicant-declaration',
+        summary: ['p-applicant-declaration'],
         confirmation: 'p--confirmation',
         states: {
             'p-applicant-declaration': applicantDeclaration.route,
@@ -581,7 +581,7 @@ module.exports = {
         }
     },
     meta: {
-        questionnaireDocumentVersion: '3.0.0',
+        questionnaireDocumentVersion: '4.0.0',
         onComplete: {
             tasks: [
                 {
