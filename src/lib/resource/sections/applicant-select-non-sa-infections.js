@@ -102,11 +102,12 @@ module.exports = {
                 {
                     target: 'p--context-pregnancy',
                     cond: [
-                        'operatorDateCompareToToday',
-                        '>',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
-                        7,
-                        'years'
+                        'dateCompare',
+                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                        '>', // is more than ...
+                        '-7', // 7 ...
+                        'years' // years (before, due to the negative (-7) ...
+                        // today's date (no second date given. defaults to today's date).
                     ]
                 },
                 {
