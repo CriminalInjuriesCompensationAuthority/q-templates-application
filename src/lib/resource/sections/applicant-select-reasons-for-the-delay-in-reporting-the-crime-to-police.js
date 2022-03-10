@@ -43,7 +43,8 @@ module.exports = {
                             theme: 'crime'
                         },
                         summary: {
-                            title: 'Brief explanation'
+                            title:
+                                'Briefly explain reasons for the delay in reporting the crime to the police'
                         }
                     }
                 }

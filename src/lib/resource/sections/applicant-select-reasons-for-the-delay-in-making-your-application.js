@@ -44,7 +44,8 @@ module.exports = {
                             theme: 'crime'
                         },
                         summary: {
-                            title: 'Brief explanation'
+                            title:
+                                'Briefly explain reasons for the delay in making your application'
                         }
                     }
                 }
