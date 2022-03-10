@@ -435,9 +435,6 @@ module.exports = {
                 'mental-health': {
                     title: 'Your mental health'
                 },
-                'loss-of-earnings': {
-                    title: 'Loss of earnings'
-                },
                 impact: {
                     title: 'The impact the crime has had — daily life and financially'
                 },
