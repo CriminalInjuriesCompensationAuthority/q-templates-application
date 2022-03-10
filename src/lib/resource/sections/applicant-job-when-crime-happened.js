@@ -17,7 +17,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'loss-of-earnings'
+                            theme: 'impact'
                         }
                     }
                 }

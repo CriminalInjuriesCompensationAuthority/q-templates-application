@@ -24,7 +24,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'loss-of-earnings'
+                            theme: 'impact'
                         },
                         summary: {
                             title: 'Reason for not having a job'
@@ -38,7 +38,7 @@ module.exports = {
                     errorMessage: {maxLength: 'Other details must be 100 characters or less'},
                     meta: {
                         classifications: {
-                            theme: 'loss-of-earnings'
+                            theme: 'impact'
                         }
                     }
                 }
