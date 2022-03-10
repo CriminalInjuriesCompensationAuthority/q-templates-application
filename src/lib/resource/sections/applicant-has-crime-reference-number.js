@@ -19,7 +19,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'crime'
+                            theme: 'about-application'
                         }
                     }
                 },
