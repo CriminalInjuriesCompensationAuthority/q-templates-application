@@ -25,7 +25,13 @@ module.exports = {
                                     'Select yes if they have seen a GP about their injuries'
                             },
                             title: 'Have you seen a GP about your injuries?',
-                            'title_someone-else': 'Have they seen a GP about their injuries?'
+                            'title_someone-else': 'Have they seen a GP about their injuries?',
+                            meta: {
+                                summary:{
+                                    title: 'Have you seen a GP?',
+                                    'title_someone-else': 'Have they seen a GP?',
+                                }
+                            }
                         }
                     }
                 }
@@ -57,7 +63,7 @@ module.exports = {
                             theme: 'treatment'
                         },
                         summary: {
-                            title: 'Have you seen a GP?'
+                            title: 'l10nt:q-applicant-have-you-seen-a-gp.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

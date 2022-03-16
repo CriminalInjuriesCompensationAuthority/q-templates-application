@@ -25,6 +25,12 @@ module.exports = {
                                     'Select yes if you became pregnant as a result of the crime',
                                 'required_someone-else':
                                     'Select yes if they became pregnant as a result of the crime'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Did you become pregnant?',
+                                    'title_someone-else': 'Did they become pregnant?',
+                                }
                             }
                         }
                     }
@@ -59,7 +65,7 @@ module.exports = {
                             theme: 'pregnancy'
                         },
                         summary: {
-                            title: 'Did you become pregnant?'
+                            title: 'l10nt:q-applicant-pregnancy.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

@@ -30,6 +30,12 @@ module.exports = {
                                 required: 'Enter the town or city where you live',
                                 'required_someone-else': 'Enter the town or city where they live'
                             }
+                        },
+                        meta: {
+                            summary:{
+                                title: 'Your address',
+                                'title_someone-else': 'Their address',
+                            }
                         }
                     }
                 }
@@ -47,7 +53,7 @@ module.exports = {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title: 'Your address'
+                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
                         }
                     },
                     required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],

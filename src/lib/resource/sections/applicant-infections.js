@@ -25,6 +25,12 @@ module.exports = {
                                     'Select yes if you got an infection as a result of the crime',
                                 'required_someone-else':
                                     'Select yes if they got an infection as a result of the crime'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Did you get any infections?',
+                                    'title_someone-else': 'Did they get any infections?',
+                                }
                             }
                         }
                     }
@@ -59,7 +65,7 @@ module.exports = {
                             theme: 'injuries'
                         },
                         summary: {
-                            title: 'Did you get any infections?'
+                            title: 'l10nt:q-applicant-infections.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

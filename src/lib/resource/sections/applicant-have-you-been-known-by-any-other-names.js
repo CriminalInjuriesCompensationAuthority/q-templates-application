@@ -23,6 +23,12 @@ module.exports = {
                                 required: 'Select yes if you have been known by any other names',
                                 'required_someone-else':
                                     'Select yes if they have been known by any other names'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Have you been known by another name?',
+                                    'title_someone-else': 'Have they been known by another name?',
+                                }
                             }
                         }
                     }
@@ -54,7 +60,7 @@ module.exports = {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title: 'Have you been known by another name?'
+                            title: 'l10nt:q-applicant-have-you-been-known-by-any-other-names.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

@@ -23,7 +23,13 @@ module.exports = {
                                 'This helps us understand how the crime has affected them. You can leave this blank, but we may have to ask for more information later.',
                             title: 'Briefly say how your injuries have affected your daily life',
                             'title_someone-else':
-                                'Briefly say how their injuries have affected their daily life'
+                                'Briefly say how their injuries have affected their daily life',
+                            meta: {
+                                summary:{
+                                    title: 'How your injuries have affected your daily life',
+                                    'title_someone-else': 'How their injuries have affected their daily life',
+                                }
+                            }
                         }
                     }
                 }
@@ -45,6 +51,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'impact'
+                        },
+                        summary: {
+                            title: 'l10nt:q-applicant-affect-on-daily-life-dmi.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

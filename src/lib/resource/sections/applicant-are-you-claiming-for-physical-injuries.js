@@ -25,6 +25,12 @@ module.exports = {
                                     'Select yes if you have physical injuries as a result of the crime',
                                 'required_someone-else':
                                     'Select yes if they have physical injuries as a result of the crime'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Do you have physical injuries?',
+                                    'title_someone-else': 'Do they have physical injuries?',
+                                }
                             }
                         }
                     }
@@ -56,7 +62,7 @@ module.exports = {
                             theme: 'injuries'
                         },
                         summary: {
-                            title: 'Do you have physical injuries?'
+                            title: 'l10nt:q-applicant-are-you-claiming-for-physical-injuries.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

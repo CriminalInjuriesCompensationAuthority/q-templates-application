@@ -25,6 +25,12 @@ module.exports = {
                                     'Select yes if you lost a pregnancy as a result of the crime',
                                 'required_someone-else':
                                     'Select yes if they lost a pregnancy as a result of the crime'
+                            },
+                            meta: {
+                                summary:{
+                                    title: 'Did you lose a pregnancy?',
+                                    'title_someone-else': 'Did they lose a pregnancy?',
+                                }
                             }
                         }
                     }
@@ -59,7 +65,7 @@ module.exports = {
                             theme: 'pregnancy'
                         },
                         summary: {
-                            title: 'Did you lose a pregnancy?'
+                            title: 'l10nt:q-applicant-pregnancy-loss.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }
