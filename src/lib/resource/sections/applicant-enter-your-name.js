@@ -35,6 +35,12 @@ module.exports = {
                                 required: 'Enter your last name',
                                 'required_someone-else': "Enter the child's last name"
                             }
+                        },
+                        meta: {
+                            summary:{
+                                title: 'Your name',
+                                'title_someone-else': "The child's name",
+                            }
                         }
                     }
                 }
@@ -52,7 +58,7 @@ module.exports = {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title: 'Your name'
+                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
                         }
                     },
                     required: [
