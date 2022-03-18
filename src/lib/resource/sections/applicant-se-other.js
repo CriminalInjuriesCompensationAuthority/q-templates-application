@@ -22,7 +22,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'special-expenses'
+                        },
+                        summary: {
+                            title: 'Any other expenses or future expenses'
+                        }
+                    }
                 },
                 'help-understanding-expenses': {
                     description: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help understanding your current and future expenses",html: "<p class='govuk-body'>You may have expenses, now or in future, due to the injuries suffered.</p><ul class='govuk-list govuk-list--bullet'><li>NHS or other state health services treatments</li><li>care or supervision</li><li>changes to your home</li><li>special equipment</li><li>replacing or repairing physical aids</li><li>costs of administering their affairs if they lack mental capacity to do so</li><li>fees to the Court of Protection, Public Guardian or Sheriff Court</li></ul>"})}}`

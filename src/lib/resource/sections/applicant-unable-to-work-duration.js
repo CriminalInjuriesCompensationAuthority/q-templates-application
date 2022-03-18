@@ -22,7 +22,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        },
+                        summary: {
+                            title: 'Has this been for more than 28 weeks?'
+                        }
+                    }
                 },
                 'details-work-duration': {
                     description:

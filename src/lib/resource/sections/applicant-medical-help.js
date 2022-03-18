@@ -27,9 +27,9 @@ module.exports = {
                             'title_someone-else':
                                 'Did they get other medical help for their injuries?',
                             meta: {
-                                summary:{
+                                summary: {
                                     title: 'Did you get other medical help?',
-                                    'title_someone-else': 'Did they get other medical help?',
+                                    'title_someone-else': 'Did they get other medical help?'
                                 }
                             }
                         }
@@ -61,7 +61,8 @@ module.exports = {
                             theme: 'treatment'
                         },
                         summary: {
-                            title: 'l10nt:q-applicant-medical-help.meta.summary.title{?lng,context,ns}'
+                            title:
+                                'l10nt:q-applicant-medical-help.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

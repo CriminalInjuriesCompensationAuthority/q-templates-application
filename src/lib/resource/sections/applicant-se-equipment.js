@@ -20,7 +20,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'special-expenses'
+                        },
+                        summary: {
+                            title: 'Special equipment'
+                        }
+                    }
                 },
                 'help-se-equipment': {
                     description:

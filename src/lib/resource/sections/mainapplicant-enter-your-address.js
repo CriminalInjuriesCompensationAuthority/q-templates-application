@@ -5,58 +5,126 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            title: 'Enter your address',
-            required: ['q-mainapplicant-building-and-street', 'q-mainapplicant-town-or-city'],
-            additionalProperties: false,
-            properties: {
-                'q-mainapplicant-building-and-street': {
-                    type: 'string',
-                    title: 'Building and street',
-                    maxLength: 60,
+            allOf: [
+                {
+                    title: 'Enter your address',
+                    meta: {
+                        compositeId: 'mainapplicant-address',
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        }
+                    },
+                    required: [
+                        'q-mainapplicant-building-and-street',
+                        'q-mainapplicant-town-or-city'
+                    ],
+                    propertyNames: {
+                        enum: [
+                            'q-mainapplicant-building-and-street',
+                            'q-mainapplicant-building-and-street-2',
+                            'q-mainapplicant-town-or-city',
+                            'q-mainapplicant-county',
+                            'q-mainapplicant-postcode'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-mainapplicant-building-and-street': {
+                                    type: 'string',
+                                    title: 'Building and street',
+                                    maxLength: 60,
+                                    errorMessage: {
+                                        maxLength:
+                                            'First line of address must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-building-and-street-2': {
+                                    type: 'string',
+                                    title: 'Building and street line 2',
+                                    maxLength: 60,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Second line of address must be less than 60 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-town-or-city': {
+                                    type: 'string',
+                                    title: 'Town or city',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength: 'Town or city must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-county': {
+                                    type: 'string',
+                                    title: 'County (optional)',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength: 'County must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-postcode': {
+                                    type: 'string',
+                                    title: 'Postcode (optional)',
+                                    maxLength: 10,
+                                    errorMessage: {
+                                        maxLength: 'Postcode must be 10 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
                     errorMessage: {
-                        maxLength: 'First line of address must be less than 60 characters'
-                    }
-                },
-                'q-mainapplicant-building-and-street-2': {
-                    type: 'string',
-                    title: 'Building and street line 2',
-                    maxLength: 60,
-                    errorMessage: {
-                        maxLength: 'Second line of address must be less than 60 characters'
-                    }
-                },
-                'q-mainapplicant-town-or-city': {
-                    type: 'string',
-                    title: 'Town or city',
-                    maxLength: 32,
-                    errorMessage: {
-                        maxLength: 'Town or city must be 32 characters or less'
-                    }
-                },
-                'q-mainapplicant-county': {
-                    type: 'string',
-                    title: 'County (optional)',
-                    maxLength: 32,
-                    errorMessage: {
-                        maxLength: 'County must be 32 characters or less'
-                    }
-                },
-                'q-mainapplicant-postcode': {
-                    type: 'string',
-                    title: 'Postcode (optional)',
-                    maxLength: 10,
-                    errorMessage: {
-                        maxLength: 'Postcode must be 10 characters or less'
+                        required: {
+                            'q-mainapplicant-building-and-street':
+                                'Enter the building and street where you live',
+                            'q-mainapplicant-town-or-city': 'Enter the town or city where you live'
+                        }
                     }
                 }
-            },
-            errorMessage: {
-                required: {
-                    'q-mainapplicant-building-and-street':
-                        'Enter the building and street where you live',
-                    'q-mainapplicant-town-or-city': 'Enter the town or city where you live'
-                }
-            },
+            ],
             examples: [
                 {
                     'q-mainapplicant-building-and-street': '1 Foo Lane',

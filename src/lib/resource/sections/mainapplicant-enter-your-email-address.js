@@ -17,6 +17,11 @@ module.exports = {
                     errorMessage: {
                         maxLength: 'Email address must be 50 characters or less',
                         format: 'Enter your email address, for example john.smith@email.com'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        }
                     }
                 }
             },

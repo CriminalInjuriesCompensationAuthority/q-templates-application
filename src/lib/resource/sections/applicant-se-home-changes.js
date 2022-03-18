@@ -22,7 +22,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'special-expenses'
+                        },
+                        summary: {
+                            title: 'Changes to the home'
+                        }
+                    }
                 },
                 'help-se-home-changes': {
                     description:
