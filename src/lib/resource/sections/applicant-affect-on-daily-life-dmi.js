@@ -25,9 +25,10 @@ module.exports = {
                             'title_someone-else':
                                 'Briefly say how their injuries have affected their daily life',
                             meta: {
-                                summary:{
+                                summary: {
                                     title: 'How your injuries have affected your daily life',
-                                    'title_someone-else': 'How their injuries have affected their daily life',
+                                    'title_someone-else':
+                                        'How their injuries have affected their daily life'
                                 }
                             }
                         }
@@ -53,7 +54,8 @@ module.exports = {
                             theme: 'impact'
                         },
                         summary: {
-                            title: 'l10nt:q-applicant-affect-on-daily-life-dmi.meta.summary.title{?lng,context,ns}'
+                            title:
+                                'l10nt:q-applicant-affect-on-daily-life-dmi.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

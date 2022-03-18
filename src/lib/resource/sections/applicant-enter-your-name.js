@@ -37,9 +37,9 @@ module.exports = {
                             }
                         },
                         meta: {
-                            summary:{
+                            summary: {
                                 title: 'Your name',
-                                'title_someone-else': "The child's name",
+                                'title_someone-else': "The child's name"
                             }
                         }
                     }

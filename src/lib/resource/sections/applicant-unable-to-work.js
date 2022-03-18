@@ -24,7 +24,13 @@ module.exports = {
                             description:
                                 'Very limited capacity means you are not capable of undertaking paid work for more than a few hours each week.',
                             'description_someone-else':
-                                'Very limited capacity means they are not capable of undertaking paid work for more than a few hours each week.'
+                                'Very limited capacity means they are not capable of undertaking paid work for more than a few hours each week.',
+                            meta: {
+                                summary: {
+                                    title: 'Do you have limited capacity to work?',
+                                    'title_someone-else': 'Do they have limited capacity to work?'
+                                }
+                            }
                         }
                     }
                 }
@@ -49,7 +55,16 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        },
+                        summary: {
+                            title:
+                                'l10nt:q-applicant-unable-to-work.meta.summary.title{?lng,context,ns}'
+                        }
+                    }
                 }
             },
             errorMessage: {

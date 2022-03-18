@@ -578,7 +578,7 @@ module.exports = {
                 'additional-info': {
                     title: 'Additional information'
                 },
-                main_applicant_details: {
+                'main-applicant-details': {
                     title: 'Your details'
                 },
                 default: {

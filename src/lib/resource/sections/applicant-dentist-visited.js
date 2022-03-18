@@ -26,9 +26,9 @@ module.exports = {
                             title: 'Have you seen a dentist about your injuries?',
                             'title_someone-else': 'Have they seen a dentist about their injuries?',
                             meta: {
-                                summary:{
+                                summary: {
                                     title: 'Have you seen a dentist?',
-                                    'title_someone-else': 'Have they seen a dentist?',
+                                    'title_someone-else': 'Have they seen a dentist?'
                                 }
                             }
                         }
@@ -60,7 +60,8 @@ module.exports = {
                             theme: 'treatment'
                         },
                         summary: {
-                            title: 'l10nt:q-applicant-dentist-visited.meta.summary.title{?lng,context,ns}'
+                            title:
+                                'l10nt:q-applicant-dentist-visited.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

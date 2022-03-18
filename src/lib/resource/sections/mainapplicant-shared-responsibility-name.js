@@ -12,7 +12,15 @@ module.exports = {
                     type: 'string',
                     title: 'What is their full name?',
                     description:
-                        'We will never contact this person without your consent unless there is an exceptional situation where we have to.'
+                        'We will never contact this person without your consent unless there is an exceptional situation where we have to.',
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        },
+                        summary: {
+                            title: 'With who?'
+                        }
+                    }
                 },
                 'mainapplicant-shared-responsibility-name': {
                     description:
