@@ -27,9 +27,9 @@ module.exports = {
                                     'Select yes if they became pregnant as a result of the crime'
                             },
                             meta: {
-                                summary:{
+                                summary: {
                                     title: 'Did you become pregnant?',
-                                    'title_someone-else': 'Did they become pregnant?',
+                                    'title_someone-else': 'Did they become pregnant?'
                                 }
                             }
                         }

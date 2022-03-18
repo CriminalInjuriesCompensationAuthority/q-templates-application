@@ -4,47 +4,90 @@ module.exports = {
     section: {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
-            title: 'Enter your name',
             type: 'object',
-            required: [
-                'q-mainapplicant-title',
-                'q-mainapplicant-first-name',
-                'q-mainapplicant-last-name'
+            allOf: [
+                {
+                    title: 'Enter your name',
+                    meta: {
+                        compositeId: 'mainapplicant-name',
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        }
+                    },
+                    required: [
+                        'q-mainapplicant-title',
+                        'q-mainapplicant-first-name',
+                        'q-mainapplicant-last-name'
+                    ],
+                    propertyNames: {
+                        enum: [
+                            'q-mainapplicant-title',
+                            'q-mainapplicant-first-name',
+                            'q-mainapplicant-last-name'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-mainapplicant-title': {
+                                    title: 'Title',
+                                    type: 'string',
+                                    maxLength: 6,
+                                    errorMessage: {
+                                        maxLength: 'Title must be 6 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-first-name': {
+                                    title: 'First name',
+                                    type: 'string',
+                                    maxLength: 70,
+                                    errorMessage: {
+                                        maxLength: 'First name must be 70 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-mainapplicant-last-name': {
+                                    title: 'Last name',
+                                    type: 'string',
+                                    maxLength: 70,
+                                    errorMessage: {
+                                        maxLength: 'Last name must be 70 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'main-applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-mainapplicant-title': 'Enter your title',
+                            'q-mainapplicant-first-name': 'Enter your first name',
+                            'q-mainapplicant-last-name': 'Enter your last name'
+                        }
+                    }
+                }
             ],
-            additionalProperties: false,
-            properties: {
-                'q-mainapplicant-title': {
-                    title: 'Title',
-                    type: 'string',
-                    maxLength: 6,
-                    errorMessage: {
-                        maxLength: 'Title must be 6 characters or less'
-                    }
-                },
-                'q-mainapplicant-first-name': {
-                    title: 'First name',
-                    type: 'string',
-                    maxLength: 70,
-                    errorMessage: {
-                        maxLength: 'First name must be 70 characters or less'
-                    }
-                },
-                'q-mainapplicant-last-name': {
-                    title: 'Last name',
-                    type: 'string',
-                    maxLength: 70,
-                    errorMessage: {
-                        maxLength: 'Last name must be 70 characters or less'
-                    }
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-mainapplicant-title': 'Enter your title',
-                    'q-mainapplicant-first-name': 'Enter your first name',
-                    'q-mainapplicant-last-name': 'Enter your last name'
-                }
-            },
             examples: [
                 {
                     'q-mainapplicant-title': 'Mr',

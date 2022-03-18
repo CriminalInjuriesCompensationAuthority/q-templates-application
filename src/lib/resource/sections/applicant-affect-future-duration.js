@@ -26,7 +26,12 @@ module.exports = {
                             title: 'I do not know',
                             const: 'dont-know'
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        }
+                    }
                 },
                 'help-affect-future-duration': {
                     description:

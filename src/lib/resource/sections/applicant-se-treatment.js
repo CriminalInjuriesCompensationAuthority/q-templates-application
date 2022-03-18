@@ -23,7 +23,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'special-expenses'
+                        },
+                        summary: {
+                            title: 'NHS or other state health service treatment'
+                        }
+                    }
                 },
                 'help-se-treatment': {
                     description:

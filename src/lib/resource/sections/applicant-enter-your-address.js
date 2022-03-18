@@ -32,9 +32,9 @@ module.exports = {
                             }
                         },
                         meta: {
-                            summary:{
+                            summary: {
                                 title: 'Your address',
-                                'title_someone-else': 'Their address',
+                                'title_someone-else': 'Their address'
                             }
                         }
                     }
