@@ -21,7 +21,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        },
+                        summary: {
+                            title: 'Is their capacity for day-to-day activities affected?'
+                        }
+                    }
                 }
             },
             errorMessage: {

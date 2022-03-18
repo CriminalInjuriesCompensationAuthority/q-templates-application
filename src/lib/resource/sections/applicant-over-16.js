@@ -20,7 +20,12 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'impact'
+                        }
+                    }
                 }
             },
             errorMessage: {

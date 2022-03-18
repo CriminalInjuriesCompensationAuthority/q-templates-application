@@ -22,6 +22,12 @@ module.exports = {
                             error: {
                                 required: 'Select yes if you are 18 or over',
                                 'required_someone-else': 'Select yes if the person is 18 or over'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'Are you 18 or over?',
+                                    'title_someone-else': 'Is the person 18 or over?'
+                                }
                             }
                         }
                     }
@@ -50,6 +56,10 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'about-application'
+                        },
+                        summary: {
+                            title:
+                                'l10nt:q-applicant-are-you-18-or-over.meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }

@@ -23,7 +23,15 @@ module.exports = {
                             title: 'No',
                             const: false
                         }
-                    ]
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        },
+                        summary: {
+                            title: 'Do you share parental responsibility?'
+                        }
+                    }
                 },
                 'mainapplicant-shared-responsibility': {
                     description:

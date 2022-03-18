@@ -10,7 +10,12 @@ module.exports = {
             properties: {
                 'q-mainapplicant-care-order-authority': {
                     type: 'string',
-                    title: 'What local authority is this with?'
+                    title: 'What local authority is this with?',
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        }
+                    }
                 }
             },
             errorMessage: {
