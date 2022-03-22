@@ -28,7 +28,7 @@ module.exports = {
                             theme: 'crime'
                         },
                         summary: {
-                            title: 'Would you like to describe the crime?'
+                            title: 'Do you want to describe the crime?'
                         }
                     }
                 }
