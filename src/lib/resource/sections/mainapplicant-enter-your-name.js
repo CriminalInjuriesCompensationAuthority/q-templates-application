@@ -12,6 +12,9 @@ module.exports = {
                         compositeId: 'mainapplicant-name',
                         classifications: {
                             theme: 'main-applicant-details'
+                        },
+                        summary: {
+                            title: 'Your name'
                         }
                     },
                     required: [

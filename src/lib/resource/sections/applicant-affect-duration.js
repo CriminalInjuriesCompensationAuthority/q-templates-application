@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-affect-duration': {
                     type: 'boolean',
-                    title: 'Has this lasted for more than 28 weeks?',
+                    title: 'Has this lasted for over 28 weeks?',
                     description:
                         'This can be a single period of time or cover several periods of time since the crime.',
                     oneOf: [
