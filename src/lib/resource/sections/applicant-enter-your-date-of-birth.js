@@ -94,15 +94,38 @@ module.exports = {
                 {
                     target: 'p--transition',
                     cond: [
-                        'and',
+                        'or',
                         [
-                            'dateLessThanEighteenYearsAgo',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth'
+                            'and',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '<', // is less than ...
+                                '-18', // 18 ...
+                                'years' // years (before, due to the negative (-18) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'myself'
+                            ]
                         ],
                         [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'myself'
+                            'and',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '>=', // is more than or equal to ...
+                                '-18', // 18 ...
+                                'years' // years (before, due to the negative (-18) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ]
                         ]
                     ]
                 },
