@@ -20,9 +20,9 @@ module.exports = {
                             title: 'About your injuries',
                             'title_someone-else': "About the child's injuries",
                             description:
-                                '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if a payment can be made for any physical injuries.</p><p class="govuk-body">We’ll ask you about your mental health later in the application.</p>',
+                                '<p class="govuk-body">We\'re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if a payment can be made for any physical injuries.</p><p class="govuk-body">We\'ll ask you about your mental health later in the application.</p>',
                             'description_someone-else':
-                                '<p class="govuk-body">We’re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if a payment can be made for any physical injuries.</p><p class="govuk-body">We’ll ask you about the child\'s mental health later in the application.</p>'
+                                '<p class="govuk-body">We\'re going to ask about any physical injuries caused by the crime.</p><p class="govuk-body">This helps us decide if a payment can be made for any physical injuries.</p><p class="govuk-body">We\'ll ask you about the child\'s mental health later in the application.</p>'
                         }
                     }
                 }

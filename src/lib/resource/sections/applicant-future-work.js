@@ -11,7 +11,7 @@ module.exports = {
                 'q-applicant-future-work': {
                     type: 'string',
                     title:
-                        'Has the child’s ability to work in future been affected by their injuries?',
+                        "Has the child's ability to work in future been affected by their injuries?",
                     oneOf: [
                         {
                             title: 'Yes',
