@@ -11,7 +11,7 @@ module.exports = {
                 'q-mainapplicant-relationship': {
                     type: 'string',
                     title: 'What is your relationship to the child?',
-                    description: 'For example, you’re their mother, father, grandparent etc.',
+                    description: "For example, you're their mother, father, grandparent etc.",
                     meta: {
                         classifications: {
                             theme: 'main-applicant-details'

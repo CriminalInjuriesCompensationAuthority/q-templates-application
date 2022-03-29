@@ -20,9 +20,9 @@ module.exports = {
                             title: 'Your details',
                             'title_someone-else': 'Victim details',
                             description:
-                                '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>',
+                                '<p class="govuk-body">We\'re going to ask for some details about you.</p><p class="govuk-body">We\'ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>',
                             'description_someone-else':
-                                '<p class="govuk-body">We’re going to ask for some details about the child.</p><p class="govuk-body">We’ll use these to get a report about the crime from the police.</p>'
+                                '<p class="govuk-body">We\'re going to ask for some details about the child.</p><p class="govuk-body">We\'ll use these to get a report about the crime from the police.</p>'
                         }
                     }
                 }

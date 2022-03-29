@@ -25,7 +25,7 @@ module.exports = {
                 },
                 'i-dont-know-the-crime-reference': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: \'<p class="govuk-body">If you have more than one crime reference number, you can add these numbers to the ‘additional details’ section at the end of the application.</p><p class="govuk-body">If you do not have your crime reference number, call 101 to speak to your local police station. They can help you get this.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with your crime reference number",html: \'<p class="govuk-body">If you have more than one crime reference number, you can add these numbers to the \'additional details\' section at the end of the application.</p><p class="govuk-body">If you do not have your crime reference number, call 101 to speak to your local police station. They can help you get this.</p>\'})}}'
                 }
             },
             errorMessage: {
