@@ -2,6 +2,32 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
+                ns: 'p-applicant-unable-to-work-duration'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-unable-to-work-duration',
+                    resources: {
+                        'q-applicant-unable-to-work-duration': {
+                            error: {
+                                required:
+                                    'Select yes if you have been unable to work for more than 28 weeks',
+                                'required_someone-else':
+                                    'Select yes if they have been unable to work for more than 28 weeks'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -40,7 +66,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-unable-to-work-duration':
-                        'Select yes if you have been unable to work for more than 28 weeks'
+                        'l10nt:q-applicant-unable-to-work-duration.error.required{?lng,context,ns}'
                 }
             },
             examples: [
