@@ -43,7 +43,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-future-work':
-                        'Select yes if you had to buy or pay for the repair of physical aids'
+                        "Select yes if the child's ability to work in future has been affected by their injuries"
                 }
             },
             examples: [

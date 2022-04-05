@@ -9,12 +9,12 @@ module.exports = {
                     $data:
                         '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
                 },
-                ns: 'p-applicant-unable-to-work-duration'
+                ns: 'p-applicant-unable-to-work'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-unable-to-work-duration',
+                    namespace: 'p-applicant-unable-to-work',
                     resources: {
                         'q-applicant-unable-to-work': {
                             title:
@@ -25,6 +25,12 @@ module.exports = {
                                 'Very limited capacity means you are not capable of undertaking paid work for more than a few hours each week.',
                             'description_someone-else':
                                 'Very limited capacity means they are not capable of undertaking paid work for more than a few hours each week.',
+                            error: {
+                                required:
+                                    'Select yes if you are incapable of working or have very limited capacity to work due to your injuries',
+                                'required_someone-else':
+                                    'Select yes if they are incapable of working or have very limited capacity to work due to their injuries'
+                            },
                             meta: {
                                 summary: {
                                     title: 'Do you have limited capacity to work?',
@@ -70,7 +76,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-unable-to-work':
-                        'Select yes if they are incapable of working or have very limited capacity to work due to their injuries'
+                        'l10nt:q-applicant-unable-to-work.error.required{?lng,context,ns}'
                 }
             },
             examples: [
