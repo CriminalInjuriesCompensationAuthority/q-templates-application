@@ -36,8 +36,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-affect-duration':
-                        'Select yes if you had to buy or pay for the repair of physical aids'
+                    'q-applicant-affect-duration': 'Select yes if this has lasted for over 28 weeks'
                 }
             },
             examples: [
