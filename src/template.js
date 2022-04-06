@@ -322,7 +322,7 @@ module.exports = {
         'p-applicant-future-work': applicantFutureWork.section
     },
     routes: {
-        initial: 'p-applicant-fatal-claim',
+        initial: 'p-applicant-upload-example',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -504,7 +504,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p-applicant-fatal-claim'],
+    progress: ['p-applicant-upload-example'],
     taxonomies: {
         theme: {
             l10n: {
