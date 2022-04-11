@@ -154,7 +154,7 @@ const applicantFutureWork = require('./lib/resource/sections/applicant-future-wo
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '5.2.2',
+    version: '6.0.0',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
