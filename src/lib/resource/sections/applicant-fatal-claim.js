@@ -56,7 +56,12 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-upload-example'
+                    target: 'p--transition',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                },
+                {
+                    target: 'p--was-the-crime-reported-to-police',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                 }
             ]
         }
