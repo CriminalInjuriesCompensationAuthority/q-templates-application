@@ -115,6 +115,7 @@ const contextMoney = require('./lib/resource/sections/context-money.js');
 const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
 const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
+const mainapplicantDoYouWantToUploadNow = require('./lib/resource/sections/do-you-want-to-upload-now.js');
 const applicantIncidentType = require('./lib/resource/sections/applicant-incident-type.js');
 const applicantProvideAdditionalInformation = require('./lib/resource/sections/applicant-provide-additional-information.js');
 const applicantAdditionalInformation = require('./lib/resource/sections/applicant-additional-information.js');
@@ -284,6 +285,7 @@ module.exports = {
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
+        'p-mainapplicant-do-you-want-to-upload-now': mainapplicantDoYouWantToUploadNow.section,
         'p-applicant-incident-type': applicantIncidentType.section,
         'p-applicant-provide-additional-information': applicantProvideAdditionalInformation.section,
         'p-applicant-additional-information': applicantAdditionalInformation.section,
@@ -324,7 +326,7 @@ module.exports = {
         'p-applicant-upload-example': uploadExample.section
     },
     routes: {
-        initial: 'p-applicant-upload-example',
+        initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -476,6 +478,7 @@ module.exports = {
             'p--context-crime-impact': contextCrimeImpact.route,
             'p-mainapplicant-parent': mainapplicantParent.route,
             'p--context-authority': contextAuthority.route,
+            'p-mainapplicant-do-you-want-to-upload-now': mainapplicantDoYouWantToUploadNow.route,
             'p-mainapplicant-context-details': mainapplicantContextDetails.route,
             'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
             'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
@@ -507,7 +510,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p-applicant-upload-example'],
+    progress: ['p-applicant-fatal-claim'],
     taxonomies: {
         theme: {
             l10n: {

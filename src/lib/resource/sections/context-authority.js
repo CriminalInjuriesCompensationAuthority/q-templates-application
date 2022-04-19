@@ -25,7 +25,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-context-details'
+                    target: 'p-mainapplicant-do-you-want-to-upload-now'
                 }
             ]
         }

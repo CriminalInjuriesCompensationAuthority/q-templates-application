@@ -9,9 +9,8 @@ module.exports = {
             properties: {
                 'q-applicant-upload-example': {
                     type: 'object',
-                    title: 'Upload a document for us',
-                    description:
-                        'Documents can be pdfs, text documents etc',
+                    title: `Upload your child's full birth certificate`,
+                    description: 'You can upload a scan or photo.',
                     errorMessage: {
                         fileSize: 'Document should be less than 2Gb'
                     },
@@ -47,7 +46,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-fatal-claim'
+                    target: 'p-mainapplicant-context-details'
                 }
             ]
         }
