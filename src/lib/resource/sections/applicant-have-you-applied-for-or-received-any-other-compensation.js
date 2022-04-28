@@ -44,7 +44,7 @@ module.exports = {
                     title:
                         'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
                     description:
-                        'For example, this may be compensation awarded by a court or in a private settlement.',
+                        'For example, this may be compensation or damages awarded by a court or in a private settlement.',
                     oneOf: [
                         {
                             title: 'Yes',
