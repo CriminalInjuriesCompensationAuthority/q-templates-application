@@ -527,15 +527,15 @@ module.exports = {
                             },
                             injuries: {
                                 title: 'Your injuries',
-                                'title_someone-else': "The child's injuries"
+                                'title_someone-else': "The victim's injuries"
                             },
                             mental_health: {
                                 title: 'Your mental health',
-                                'title_someone-else': "The child's mental health"
+                                'title_someone-else': "The victim's mental health"
                             },
                             treatment: {
                                 title: 'Your treatment',
-                                'title_someone-else': "The child's treatment"
+                                'title_someone-else': "The victim's treatment"
                             }
                         }
                     }

@@ -11,7 +11,7 @@ module.exports = {
                 'q-applicant-future-work': {
                     type: 'string',
                     title:
-                        "Has the child's ability to work in future been affected by their injuries?",
+                        "Has the victim's ability to work in future been affected by their injuries?",
                     oneOf: [
                         {
                             title: 'Yes',
@@ -43,7 +43,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-future-work':
-                        "Select yes if the child's ability to work in future has been affected by their injuries"
+                        "Select yes if the victim's ability to work in future has been affected by their injuries"
                 }
             },
             examples: [

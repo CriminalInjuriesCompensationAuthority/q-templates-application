@@ -18,7 +18,7 @@ module.exports = {
                     resources: {
                         'q-applicant-work-details-option': {
                             title: 'Tell us why you did not have a job at this time',
-                            'title_someone-else': 'Tell us why the child did not have a job',
+                            'title_someone-else': 'Tell us why the victim did not have a job',
                             value: {
                                 searching:
                                     'I did not have a job but I had been in regular work for at least 3 years before the crime',

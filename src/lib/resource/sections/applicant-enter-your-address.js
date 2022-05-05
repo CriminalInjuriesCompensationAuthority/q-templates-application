@@ -34,7 +34,7 @@ module.exports = {
                         meta: {
                             summary: {
                                 title: 'Your address',
-                                'title_someone-else': "The child's address"
+                                'title_someone-else': "The victim's address"
                             }
                         }
                     }

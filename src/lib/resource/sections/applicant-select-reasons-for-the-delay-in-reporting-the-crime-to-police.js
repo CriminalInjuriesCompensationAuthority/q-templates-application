@@ -28,10 +28,10 @@ module.exports = {
                             },
                             value: {
                                 'i-was-under-18': 'I was under 18',
-                                'i-was-under-18_someone-else': 'The child was under 18',
+                                'i-was-under-18_someone-else': 'The victim was under 18',
                                 'unable-to-report-crime': 'Unable to report the crime',
                                 'unable-to-report-crime_someone-else':
-                                    'The child was unable to report the crime'
+                                    'The victim was unable to report the crime'
                             }
                         }
                     }

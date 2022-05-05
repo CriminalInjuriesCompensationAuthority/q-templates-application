@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-over-16': {
                     type: 'boolean',
-                    title: 'Was the child 16 or over at the time of the crime?',
+                    title: 'Was the victim 16 or over at the time of the crime?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -31,7 +31,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-over-16':
-                        'Select yes if the child over 16 at the time of the crime'
+                        'Select yes if the victim was over 16 at the time of the crime'
                 }
             },
             examples: [
