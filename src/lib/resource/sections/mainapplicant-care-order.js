@@ -11,7 +11,7 @@ module.exports = {
                 'q-mainapplicant-care-order': {
                     type: 'boolean',
                     title:
-                        'Is there a care, supervision or other local authority order in place for the child?',
+                        'Is there a care, supervision or other local authority order in place for the victim?',
                     description: 'This includes an interim care order.',
                     oneOf: [
                         {
@@ -33,7 +33,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-mainapplicant-care-order':
-                        'Select yes if there is a care, supervision or other local authority order in place for the child'
+                        'Select yes if there is a care, supervision or other local authority order in place for the victim'
                 }
             },
             examples: [

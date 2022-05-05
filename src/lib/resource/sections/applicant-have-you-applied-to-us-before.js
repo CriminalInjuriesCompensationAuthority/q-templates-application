@@ -22,7 +22,7 @@ module.exports = {
                             error: {
                                 required: 'Select yes if you have applied to us before',
                                 'required_someone-else':
-                                    'Select yes if you have applied to us before on behalf of the child'
+                                    'Select yes if you have applied to us before on behalf of the victim'
                             }
                         }
                     }

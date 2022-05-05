@@ -39,10 +39,10 @@ module.exports = {
                                 'Select reasons for the delay in making this application',
                             value: {
                                 'i-was-underage': 'I was under 18',
-                                'i-was-underage_someone-else': 'The child was under 18',
+                                'i-was-underage_someone-else': 'The victim was under 18',
                                 'i-was-advised-to-wait': 'I was advised to wait',
                                 'i-was-advised-to-wait_someone-else':
-                                    'The child was advised to wait'
+                                    'The victim was advised to wait'
                             }
                         }
                     }

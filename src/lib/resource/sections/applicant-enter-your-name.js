@@ -17,29 +17,29 @@ module.exports = {
                     namespace: 'p-applicant-enter-your-name',
                     resources: {
                         title: 'Enter your name',
-                        'title_someone-else': "Enter the child's name",
+                        'title_someone-else': "Enter the victim's name",
                         'q-applicant-title': {
                             error: {
                                 required: 'Enter your title',
-                                'required_someone-else': "Enter the child's title"
+                                'required_someone-else': "Enter the victim's title"
                             }
                         },
                         'q-applicant-first-name': {
                             error: {
                                 required: 'Enter your first name',
-                                'required_someone-else': "Enter the child's first name"
+                                'required_someone-else': "Enter the victim's first name"
                             }
                         },
                         'q-applicant-last-name': {
                             error: {
                                 required: 'Enter your last name',
-                                'required_someone-else': "Enter the child's last name"
+                                'required_someone-else': "Enter the victim's last name"
                             }
                         },
                         meta: {
                             summary: {
                                 title: 'Your name',
-                                'title_someone-else': "The child's name"
+                                'title_someone-else': "The victim's name"
                             }
                         }
                     }

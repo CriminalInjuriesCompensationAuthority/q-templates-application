@@ -18,11 +18,11 @@ module.exports = {
                     resources: {
                         'q-offender-do-you-have-contact-with-offender': {
                             title: 'Do you have contact with the offender?',
-                            'title_someone-else': 'Does the child have contact with the offender?',
+                            'title_someone-else': 'Does the victim have contact with the offender?',
                             error: {
                                 required: 'Select yes if you have contact with the offender',
                                 'required_someone-else':
-                                    'Select yes if the child has contact with the offender'
+                                    'Select yes if the victim has contact with the offender'
                             }
                         }
                     }

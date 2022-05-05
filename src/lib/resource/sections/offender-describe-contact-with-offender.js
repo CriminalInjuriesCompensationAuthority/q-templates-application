@@ -18,11 +18,11 @@ module.exports = {
                     resources: {
                         'q-offender-describe-contact-with-offender': {
                             title: 'Describe your contact with the offender',
-                            'title_someone-else': "Describe the child's contact with the offender",
+                            'title_someone-else': "Describe the victim's contact with the offender",
                             error: {
                                 required: 'Describe your contact with the offender',
                                 'required_someone-else':
-                                    "Describe the child's contact with the offender"
+                                    "Describe the victim's contact with the offender"
                             }
                         }
                     }

@@ -34,7 +34,7 @@ module.exports = {
                 },
                 'help-se-aids': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing physical aids used by the child before they were injured. These may include but are not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with physical aids",html: \'<p class="govuk-body">This applies to the cost of replacing physical aids used by the victim before they were injured. These may include but are not limited to:</p><ul class="govuk-list govuk-list--bullet"><li>walking stick</li><li>spectacles</li><li>dentures</li></ul>\'})}}'
                 }
             },
             errorMessage: {

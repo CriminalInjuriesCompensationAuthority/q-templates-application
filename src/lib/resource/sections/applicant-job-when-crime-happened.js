@@ -19,11 +19,11 @@ module.exports = {
                         'q-applicant-job-when-crime-happened': {
                             title: 'Did you have a job when the crime happened?',
                             'title_someone-else':
-                                'Did the child have a job when the crime happened?',
+                                'Did the victim have a job when the crime happened?',
                             error: {
                                 required: 'Select yes if you had a job when the crime happened',
                                 'required_someone-else':
-                                    'Select yes if the child had a job when the crime happened'
+                                    'Select yes if the victim had a job when the crime happened'
                             }
                         }
                     }

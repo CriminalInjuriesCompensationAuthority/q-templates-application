@@ -22,7 +22,7 @@ module.exports = {
                                 'required_someone-else': 'Select what led to their injuries'
                             },
                             title: 'What led to your injuries?',
-                            'title_someone-else': "What led to the child's injuries?"
+                            'title_someone-else': "What led to the victim's injuries?"
                         }
                     }
                 }

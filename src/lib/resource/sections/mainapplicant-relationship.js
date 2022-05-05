@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-mainapplicant-relationship': {
                     type: 'string',
-                    title: 'What is your relationship to the child?',
+                    title: 'What is your relationship to the victim?',
                     description: 'For example, you’re their mother, father, grandparent etc.',
                     meta: {
                         classifications: {
@@ -21,7 +21,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-mainapplicant-relationship': 'Enter your relationship with the child'
+                    'q-mainapplicant-relationship': 'Enter your relationship with the victim'
                 }
             },
             examples: [
