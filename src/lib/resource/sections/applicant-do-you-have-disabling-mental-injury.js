@@ -18,9 +18,9 @@ module.exports = {
                     resources: {
                         'q-applicant-do-you-have-disabling-mental-injury': {
                             description:
-                                "This means it's much harder than usual to do things you would normally do, like going to work, seeing friends, or having a relationship.",
+                                "This means it's much harder than usual to do things you would normally do, like going to school or university, seeing friends, working or having a relationship.",
                             'description_someone-else':
-                                "This means it's much harder than usual to do things they would normally do, like going to school, seeing friends, working or having a relationship.",
+                                "This means it's much harder than usual to do things they would normally do, like going to school or university, seeing friends, working or having a relationship.",
                             error: {
                                 required: 'Select yes if you suffered a disabling mental injury',
                                 'required_someone-else':
