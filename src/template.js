@@ -151,6 +151,7 @@ const applicantAffectedDailyCapacity = require('./lib/resource/sections/applican
 const applicantAffectDuration = require('./lib/resource/sections/applicant-affect-duration.js');
 const applicantAffectFutureDuration = require('./lib/resource/sections/applicant-affect-future-duration.js');
 const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
+const contextRepDetails = require('./lib/resource/sections/context-rep-details.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -319,7 +320,8 @@ module.exports = {
         'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.section,
         'p-applicant-affect-duration': applicantAffectDuration.section,
         'p-applicant-affect-future-duration': applicantAffectFutureDuration.section,
-        'p-applicant-future-work': applicantFutureWork.section
+        'p-applicant-future-work': applicantFutureWork.section,
+        'p-context-rep-details': contextRepDetails.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -500,7 +502,8 @@ module.exports = {
             'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
             'p-applicant-affect-duration': applicantAffectDuration.route,
             'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
-            'p-applicant-future-work': applicantFutureWork.route
+            'p-applicant-future-work': applicantFutureWork.route,
+            'p-context-rep-details': contextRepDetails.route
         }
     },
     answers: {},
