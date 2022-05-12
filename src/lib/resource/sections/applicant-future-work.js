@@ -10,8 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-future-work': {
                     type: 'string',
-                    title:
-                        "Has the victim's ability to work in future been affected by their injuries?",
+                    title: 'Has their ability to work in future been affected by their injuries?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -43,7 +42,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-future-work':
-                        "Select yes if the victim's ability to work in future has been affected by their injuries"
+                        'Select yes if their ability to work in future has been affected by their injuries'
                 }
             },
             examples: [
