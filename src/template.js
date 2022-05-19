@@ -154,6 +154,7 @@ const applicantFutureWork = require('./lib/resource/sections/applicant-future-wo
 const contextRepDetails = require('./lib/resource/sections/context-rep-details.js');
 const repType = require('./lib/resource/sections/rep-type.js');
 const repConfirmationMethod = require('./lib/resource/sections/rep-confirmation-method.js');
+const repName = require('./lib/resource/sections/rep-name.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -325,7 +326,8 @@ module.exports = {
         'p-applicant-future-work': applicantFutureWork.section,
         'p-context-rep-details': contextRepDetails.section,
         'p-rep-type': repType.section,
-        'p-rep-confirmation-method': repConfirmationMethod.section
+        'p-rep-confirmation-method': repConfirmationMethod.section,
+        'p-rep-name': repName.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -509,7 +511,8 @@ module.exports = {
             'p-applicant-future-work': applicantFutureWork.route,
             'p-context-rep-details': contextRepDetails.route,
             'p-rep-type': repType.route,
-            'p-rep-confirmation-method': repConfirmationMethod.route
+            'p-rep-confirmation-method': repConfirmationMethod.route,
+            'p-rep-name': repName.route
         }
     },
     answers: {},
