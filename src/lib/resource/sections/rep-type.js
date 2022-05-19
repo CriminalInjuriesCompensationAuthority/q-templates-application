@@ -72,7 +72,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue'
+                    target: 'p-rep-confirmation-method'
                 }
             ]
         }
