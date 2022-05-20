@@ -156,6 +156,7 @@ const repType = require('./lib/resource/sections/rep-type.js');
 const repConfirmationMethod = require('./lib/resource/sections/rep-confirmation-method.js');
 const repName = require('./lib/resource/sections/rep-name.js');
 const repOrganisationName = require('./lib/resource/sections/rep-organisation-name.js');
+const repAddress = require('./lib/resource/sections/rep-address.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -329,7 +330,8 @@ module.exports = {
         'p-rep-type': repType.section,
         'p-rep-confirmation-method': repConfirmationMethod.section,
         'p-rep-name': repName.section,
-        'p-rep-organisation-name': repOrganisationName.section
+        'p-rep-organisation-name': repOrganisationName.section,
+        'p-rep-address': repAddress.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -515,7 +517,8 @@ module.exports = {
             'p-rep-type': repType.route,
             'p-rep-confirmation-method': repConfirmationMethod.route,
             'p-rep-name': repName.route,
-            'p-rep-organisation-name': repOrganisationName.route
+            'p-rep-organisation-name': repOrganisationName.route,
+            'p-rep-address': repAddress.route
         }
     },
     answers: {},
