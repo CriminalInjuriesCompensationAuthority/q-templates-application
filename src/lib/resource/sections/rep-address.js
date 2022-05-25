@@ -177,6 +177,14 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-rep-email-address',
+                    cond: [
+                        '==',
+                        '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
+                        'text'
+                    ]
+                },
+                {
                     target: 'p--before-you-continue'
                 }
             ]
