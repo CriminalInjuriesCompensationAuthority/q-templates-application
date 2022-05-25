@@ -185,6 +185,14 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p-rep-telephone-number',
+                    cond: [
+                        '==',
+                        '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
+                        'email'
+                    ]
+                },
+                {
                     target: 'p--before-you-continue'
                 }
             ]
