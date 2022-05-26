@@ -46,6 +46,10 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-rep-claims-management-reg',
+                    cond: ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO']
+                },
+                {
                     target: 'p-rep-reference-number',
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
                 },
