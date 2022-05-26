@@ -159,6 +159,7 @@ const repOrganisationName = require('./lib/resource/sections/rep-organisation-na
 const repAddress = require('./lib/resource/sections/rep-address.js');
 const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
+const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -335,7 +336,8 @@ module.exports = {
         'p-rep-organisation-name': repOrganisationName.section,
         'p-rep-address': repAddress.section,
         'p-rep-email-address': repEmailAddress.section,
-        'p-rep-telephone-number': repTelephoneNumber.section
+        'p-rep-telephone-number': repTelephoneNumber.section,
+        'p-rep-reference-number': repReferenceNumber.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -524,7 +526,8 @@ module.exports = {
             'p-rep-organisation-name': repOrganisationName.route,
             'p-rep-address': repAddress.route,
             'p-rep-email-address': repEmailAddress.route,
-            'p-rep-telephone-number': repTelephoneNumber.route
+            'p-rep-telephone-number': repTelephoneNumber.route,
+            'p-rep-reference-number': repReferenceNumber.route
         }
     },
     answers: {},
