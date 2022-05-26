@@ -21,7 +21,7 @@ module.exports = {
                     },
                     meta: {
                         classifications: {
-                            theme: 'reps-details'
+                            theme: 'rep-details'
                         },
                         summary: {
                             title: 'Email address'
@@ -46,7 +46,11 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue'
+                    target: 'p-rep-reference-number',
+                    cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
+                },
+                {
+                    target: 'p-rep-reference-number'
                 }
             ]
         }
