@@ -2,104 +2,17 @@
 
 module.exports = {
     section: {
-        l10n: {
-            vars: {
-                lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
-                ns: 'p-applicant-select-reasons-for-the-delay-in-making-your-application'
-            },
-            translations: [
-                {
-                    language: 'en',
-                    namespace:
-                        'p-applicant-select-reasons-for-the-delay-in-making-your-application',
-                    resources: {
-                        'q-applicant-explain-reason-for-delay-application': {
-                            error: {
-                                required:
-                                    'Explain the reasons for the delay in making your application',
-                                'required_someone-else':
-                                    'Explain the reasons for the delay in making this application'
-                            }
-                        },
-                        'q-applicant-select-reasons-for-the-delay-in-making-your-application': {
-                            description: 'Select all options that apply to you.',
-                            'description_someone-else': 'Select all options that apply.',
-                            error: {
-                                required:
-                                    'Select if you were under 18, advised to wait, medical reasons or other reasons',
-                                'required_someone-else':
-                                    'Select if they were under 18, advised to wait, medical reasons or other reasons'
-                            },
-                            title: 'Select reasons for the delay in making your application',
-                            'title_someone-else':
-                                'Select reasons for the delay in making this application',
-                            value: {
-                                'i-was-underage': 'I was under 18',
-                                'i-was-underage_someone-else': 'The victim was under 18',
-                                'i-was-advised-to-wait': 'I was advised to wait',
-                                'i-was-advised-to-wait_someone-else':
-                                    'The victim was advised to wait'
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: [
-                'q-applicant-explain-reason-for-delay-application',
-                'q-applicant-select-reasons-for-the-delay-in-making-your-application'
-            ],
+            required: ['q-applicant-explain-reason-for-delay-application'],
             additionalProperties: false,
             properties: {
-                'q-applicant-select-reasons-for-the-delay-in-making-your-application': {
-                    title:
-                        'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.title{?lng,context,ns}',
-                    type: 'array',
-                    maxItems: 4,
-                    uniqueItems: true,
-                    description:
-                        'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.description{?lng,context,ns}',
-                    items: {
-                        anyOf: [
-                            {
-                                title:
-                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-underage{?lng,context,ns}',
-                                const: 'i-was-underage'
-                            },
-                            {
-                                title:
-                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.value.i-was-advised-to-wait{?lng,context,ns}',
-                                const: 'i-was-advised-to-wait'
-                            },
-                            {
-                                title: 'Medical reasons',
-                                const: 'medical-reasons'
-                            },
-                            {
-                                title: 'Other reasons',
-                                const: 'other-reasons'
-                            }
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'crime'
-                        },
-                        summary: {
-                            title: 'Reasons for delay in applying'
-                        }
-                    }
-                },
                 'q-applicant-explain-reason-for-delay-application': {
-                    title: 'Briefly explain these reasons',
+                    title: 'Tell us the reason why this application was not sent until now',
                     type: 'string',
+                    description:
+                        'There is a time limit to make this application. The time limit can be extended where you could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.',
                     maxLength: 500,
                     errorMessage: {
                         maxLength: 'Explanation must be 500 characters or less'
@@ -109,44 +22,28 @@ module.exports = {
                             theme: 'crime'
                         },
                         summary: {
-                            title:
-                                'Briefly explain reasons for the delay in making your application'
+                            title: 'Reason why this application was not sent until now'
                         }
                     }
+                },
+                'help-reason-for-delay': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with why we ask about the application not being sent until now",html: \'<h2 class="govuk-heading-s">If the victim was an adult at the time of the crime (18 years or older)</h2><p class="govuk-body">The application must be sent as soon as is reasonably practicable and in any event, no later than 2 years after the crime.</p><h2 class="govuk-heading-s">If the victim was a child at the time of the crime (under 18 years old)</h2><p class="govuk-body">The application must be received:<ul class="govuk-list govuk-list--bullet"><li>on or before their 20th birthday, if the crime was reported to police before their 18th birthday</li><li>within 2 years of the crime first being reported to police, if the incident was reported on or after their 18th birthday</li></ul></p><h2 class="govuk-heading-s">Extending the time limits</h2><p class="govuk-body">We can only extend the time limits where:<ul class="govuk-list govuk-list--bullet"><li>due to exceptional circumstances, the application could not be made earlier (for example, where injuries stopped the victim applying)</li></ul><p>and <br></p><ul class="govuk-list govuk-list--bullet"><li>the evidence provided to support the application means it can be decided without further extensive enquiries</li></ul></p><p class="govuk-body">You may have to provide evidence to support any reason for a delay in applying. This evidence may include a letter from your GP or other medical professional.</p><p class="govuk-body">Any evidence to support your application should:<ul class="govuk-list govuk-list--bullet"><li>show why this application could not have been made earlier and explain the entire period of the delay  </li><li>provide us with enough information to make a decision on an application without the need for further extensive enquiries</li></ul></p>\'})}}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application':
-                        'l10nt:q-applicant-select-reasons-for-the-delay-in-making-your-application.error.required{?lng,context,ns}',
                     'q-applicant-explain-reason-for-delay-application':
-                        'l10nt:q-applicant-explain-reason-for-delay-application.error.required{?lng,context,ns}'
+                        'Tell us the reason why this application was not sent until now'
                 }
             },
             examples: [
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        'i-was-underage',
-                        'medical-reasons'
-                    ],
                     'q-applicant-explain-reason-for-delay-application': 'some reason'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        'not a valid answer'
-                    ],
-                    'q-applicant-explain-reason-for-delay-application': 'Because reasons'
-                },
-                {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [12345],
-                    'q-applicant-explain-reason-for-delay-application': 'Because reasons'
-                },
-                {
-                    'q-applicant-select-reasons-for-the-delay-in-making-your-application': [
-                        'i-was-underage'
-                    ],
                     'q-applicant-explain-reason-for-delay-application': 12345
                 }
             ]
