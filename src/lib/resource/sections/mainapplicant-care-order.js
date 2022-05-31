@@ -56,7 +56,7 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-context-rep-details',
-                    cond: ['!=', '$.system.env', 'production']
+                    cond: ['!=', '$.answers.system.env', 'prod']
                 },
                 {
                     target: 'p-mainapplicant-care-order-authority',
