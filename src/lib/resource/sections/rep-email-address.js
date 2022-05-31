@@ -54,7 +54,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
                 },
                 {
-                    target: 'p-rep-reference-number'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

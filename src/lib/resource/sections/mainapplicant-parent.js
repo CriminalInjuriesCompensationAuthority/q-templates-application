@@ -57,8 +57,12 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--transition',
-                    cond: ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false]
+                    target: 'p-context-rep-details',
+                    cond: [
+                        'and',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['!=', '$.system.env', 'production']
+                    ]
                 },
                 {
                     target: 'p--context-authority'
