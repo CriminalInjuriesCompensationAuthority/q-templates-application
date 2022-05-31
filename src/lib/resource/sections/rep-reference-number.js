@@ -118,7 +118,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-crime-impact'
+                    target: 'p--before-you-continue'
                 }
             ]
         }
