@@ -3,6 +3,10 @@
     "version": "6.0.5",
     "description": "Apply for compensation questionnaire template",
     "main": "dist/template.json",
+    "engines": {
+        "npm": ">=8.5.2",
+        "node": ">=16.0.0"
+    },
     "scripts": {
         "pretest": "npm run build",
         "test": "jest",
@@ -16,8 +20,8 @@
     "license": "MIT",
     "devDependencies": {
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^6.9.0",
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-jest": "^23.3.0",
@@ -27,6 +31,5 @@
         "lint-staged": "^9.5.0",
         "prettier": "^1.19.1",
         "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v4.1.0"
-    },
-    "dependencies": {}
+    }
 }
