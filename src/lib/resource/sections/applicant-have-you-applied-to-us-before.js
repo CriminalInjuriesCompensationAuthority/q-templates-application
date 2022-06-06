@@ -18,11 +18,12 @@ module.exports = {
                     resources: {
                         'q-applicant-have-you-applied-to-us-before': {
                             title: 'Have you applied to us before?',
-                            'title_someone-else': 'Have you applied to us before?',
+                            'title_someone-else':
+                                'Has anyone applied to us before on behalf of the victim?',
                             error: {
                                 required: 'Select yes if you have applied to us before',
                                 'required_someone-else':
-                                    'Select yes if you have applied to us before on behalf of the victim'
+                                    'Select yes if anyone has applied to us before on behalf of the victim'
                             }
                         }
                     }
