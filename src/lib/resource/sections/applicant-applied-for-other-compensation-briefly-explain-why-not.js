@@ -20,7 +20,7 @@ module.exports = {
                             title:
                                 'Tell us why you have not applied for or received any other compensation',
                             'title_someone-else':
-                                'Tell us why you have not applied for or received any other compensation on behalf of the victim'
+                                'Tell us why no application has been made or payment received for any other form of compensation'
                         }
                     }
                 }
