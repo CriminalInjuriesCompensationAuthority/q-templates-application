@@ -21,12 +21,18 @@ module.exports = {
                             title:
                                 'Have you applied for or received any other form of compensation?',
                             'title_someone-else':
-                                'Have you applied for or received any other form of compensation on behalf of the victim?',
+                                'Has anyone applied for or received any other form of compensation on behalf of the victim?',
                             error: {
                                 required:
                                     'Select yes if you have applied for any other form of compensation',
                                 'required_someone-else':
-                                    'Select yes if you have applied for any other form of compensation on behalf of the victim'
+                                    'Select yes if anyone has applied for or received any other form of compensation on behalf of the victim'
+                            }
+                        },
+                        meta: {
+                            summary: {
+                                title: 'Have you applied for other compensation?',
+                                'title_someone-else': 'Has anyone applied for other compensation?'
                             }
                         }
                     }
@@ -60,7 +66,7 @@ module.exports = {
                             theme: 'other-compensation'
                         },
                         summary: {
-                            title: 'Have you applied for other compensation?'
+                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
                         }
                     }
                 }
