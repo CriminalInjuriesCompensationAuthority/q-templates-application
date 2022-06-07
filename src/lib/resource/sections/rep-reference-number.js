@@ -33,7 +33,7 @@ module.exports = {
                             theme: 'rep-details'
                         },
                         summary: {
-                            title: 'Your reference number'
+                            title: 'Do you have your own reference number?'
                         }
                     }
                 },

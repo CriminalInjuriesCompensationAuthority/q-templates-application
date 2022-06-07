@@ -36,7 +36,7 @@ module.exports = {
                                     maxLength: 60,
                                     errorMessage: {
                                         maxLength:
-                                            'First line of address must be 60 characters or less'
+                                            'Building and street must be 60 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -118,9 +118,8 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-rep-building-and-street':
-                                'Enter the building and street where you live',
-                            'q-rep-town-or-city': 'Enter the town or city where you live'
+                            'q-rep-building-and-street': 'Enter the building and street',
+                            'q-rep-town-or-city': 'Enter the town or city'
                         }
                     }
                 }
