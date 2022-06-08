@@ -72,7 +72,7 @@ module.exports = {
                                 'q-applicant-building-and-street': {
                                     type: 'string',
                                     title: 'Building and street',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
                                             'First line of address must be less than 60 characters'
@@ -90,7 +90,7 @@ module.exports = {
                                 'q-applicant-building-and-street-2': {
                                     type: 'string',
                                     title: 'Building and street line 2',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
                                             'Second line of address must be less than 60 characters'

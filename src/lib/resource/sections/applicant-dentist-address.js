@@ -51,7 +51,7 @@ module.exports = {
                                 'q-applicant-dentist-address-building-and-street2': {
                                     type: 'string',
                                     title: 'Building and street',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
                                             'Building and street must be less than 60 characters'
