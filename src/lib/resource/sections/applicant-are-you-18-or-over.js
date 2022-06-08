@@ -18,15 +18,15 @@ module.exports = {
                     resources: {
                         'q-applicant-are-you-18-or-over': {
                             title: 'Are you 18 or over?',
-                            'title_someone-else': 'Is the person 18 or over?',
+                            'title_someone-else': 'Is the victim 18 or over?',
                             error: {
                                 required: 'Select yes if you are 18 or over',
-                                'required_someone-else': 'Select yes if the person is 18 or over'
+                                'required_someone-else': 'Select yes if the victim is 18 or over'
                             },
                             meta: {
                                 summary: {
                                     title: 'Are you 18 or over?',
-                                    'title_someone-else': 'Is the person 18 or over?'
+                                    'title_someone-else': 'Is the victim 18 or over?'
                                 }
                             }
                         }
