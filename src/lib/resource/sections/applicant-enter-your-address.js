@@ -75,7 +75,7 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'First line of address must be less than 60 characters'
+                                            'First line of address must be less than 32 characters'
                                     },
                                     meta: {
                                         classifications: {
@@ -93,7 +93,7 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Second line of address must be less than 60 characters'
+                                            'Second line of address must be less than 32 characters'
                                     },
                                     meta: {
                                         classifications: {
