@@ -54,7 +54,7 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be less than 60 characters'
+                                            'Building and street must be less than 32 characters'
                                     },
                                     meta: {
                                         classifications: {
