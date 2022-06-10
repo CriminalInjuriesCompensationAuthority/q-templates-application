@@ -36,7 +36,7 @@ module.exports = {
                                     title: 'Practice name',
                                     maxLength: 60,
                                     errorMessage: {
-                                        maxLength: 'Practice name must be less than 60 characters'
+                                        maxLength: 'Practice name must be 60 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -54,7 +54,7 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be less than 32 characters'
+                                            'Building and street must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
