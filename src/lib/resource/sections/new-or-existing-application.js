@@ -30,8 +30,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q--new-or-existing-application':
-                        'Select what you would like to do'
+                    'q--new-or-existing-application': 'Select what you would like to do'
                 }
             },
             examples: [
