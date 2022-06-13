@@ -30,8 +30,7 @@ module.exports = {
             examples: [
                 {
                     'q-rep-organisation-name': 'My organisation'
-                },
-                {}
+                }
             ],
             invalidExamples: [
                 {
