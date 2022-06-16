@@ -166,7 +166,7 @@ const contactCica = require('./lib/resource/sections/contact-cica');
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '6.0.3',
+    version: '7.0.3',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
