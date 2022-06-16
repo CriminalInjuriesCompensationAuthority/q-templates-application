@@ -89,14 +89,6 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-mainapplicant-parent',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'someone-else'
-                    ]
-                },
-                {
                     target: 'p--context-applicant-details'
                 }
             ]
