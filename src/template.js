@@ -163,6 +163,7 @@ const repReferenceNumber = require('./lib/resource/sections/rep-reference-number
 const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
 const newOrExistingApp = require('./lib/resource/sections/new-or-existing-application');
 const contactCica = require('./lib/resource/sections/contact-cica');
+const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -343,7 +344,8 @@ module.exports = {
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
         'p--new-or-existing-application': newOrExistingApp.section,
-        'p--contact-cica': contactCica.section
+        'p--contact-cica': contactCica.section,
+        'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -536,7 +538,8 @@ module.exports = {
             'p-rep-reference-number': repReferenceNumber.route,
             'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
             'p--new-or-existing-application': newOrExistingApp.route,
-            'p--contact-cica': contactCica.route
+            'p--contact-cica': contactCica.route,
+            'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route
         }
     },
     answers: {},

@@ -217,19 +217,35 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'someone-else'
+                    target: 'p-mainapplicant-parent',
+                    cond:['and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'someone-else'
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '<',
+                            '-18',
+                            'years'
+                        ]
                     ]
                 },
                 {
-                    target: 'p-applicant-enter-your-telephone-number',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                        'email'
+                    target: 'p-mainapplicant-parent',
+                    cond:['and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'someone-else'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                            false
+                        ]
                     ]
                 },
                 {
@@ -239,6 +255,9 @@ module.exports = {
                         '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
                         'text'
                     ]
+                },
+                {
+                    target: 'p-applicant-enter-your-telephone-number'
                 }
             ]
         }
