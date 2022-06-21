@@ -164,6 +164,7 @@ const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims
 const newOrExistingApp = require('./lib/resource/sections/new-or-existing-application');
 const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
+const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -345,7 +346,8 @@ module.exports = {
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
         'p--new-or-existing-application': newOrExistingApp.section,
         'p--contact-cica': contactCica.section,
-        'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section
+        'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
+        'p--context-mainapplicant-details': contextMainAppDetails.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -539,7 +541,8 @@ module.exports = {
             'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
             'p--new-or-existing-application': newOrExistingApp.route,
             'p--contact-cica': contactCica.route,
-            'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route
+            'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
+            'p--context-mainapplicant-details': contextMainAppDetails.route
         }
     },
     answers: {},

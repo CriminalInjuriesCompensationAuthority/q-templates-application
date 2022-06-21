@@ -217,35 +217,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-parent',
-                    cond:['and',
-                        [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
-                        ],
+                    target: 'p--context-mainapplicant-details',
+                    cond:['or',
                         [
                             'dateCompare',
                             '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
                             '<',
                             '-18',
                             'years'
-                        ]
-                    ]
-                },
-                {
-                    target: 'p-mainapplicant-parent',
-                    cond:['and',
-                        [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
                         ],
                         [
                             '==',
                             '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
                             false
-                        ]
+                        ],
                     ]
                 },
                 {
