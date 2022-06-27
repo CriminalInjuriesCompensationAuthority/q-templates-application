@@ -164,6 +164,8 @@ const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims
 const newOrExistingApp = require('./lib/resource/sections/new-or-existing-application');
 const contactCica = require('./lib/resource/sections/contact-cica');
 
+const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
+
 module.exports = {
     type: 'apply-for-compensation',
     version: '7.0.3',
@@ -343,10 +345,11 @@ module.exports = {
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
         'p--new-or-existing-application': newOrExistingApp.section,
-        'p--contact-cica': contactCica.section
+        'p--contact-cica': contactCica.section,
+        'p--has-legal-authority': flowHasLegalAuthority.section
     },
     routes: {
-        initial: 'p--new-or-existing-application',
+        initial: 'p--has-legal-authority',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -619,6 +622,91 @@ module.exports = {
                 },
                 default: {
                     title: 'Other Information'
+                }
+            }
+        }
+    },
+    attributes: {
+        _roles: {
+            applicant: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'An applicant',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'myself'
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            proxy: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'A type of proxy for the applicant',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'someone-else'
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            mainapplicant: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Main Applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            rep: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Rep role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            child: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Child applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        false
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            adult: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Adult applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        true
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
                 }
             }
         }
