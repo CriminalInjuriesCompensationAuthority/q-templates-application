@@ -543,7 +543,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p--new-or-existing-application'],
+    progress: ['p--has-legal-authority'],
     taxonomies: {
         theme: {
             l10n: {
