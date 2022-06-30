@@ -57,7 +57,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-context-rep-details',
+                    target: 'p-mainapplicant-authority',
                     cond: [
                         'and',
                         ['!=', '$.answers.system.env', 'prod'],

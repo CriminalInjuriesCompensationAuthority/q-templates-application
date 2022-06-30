@@ -24,7 +24,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'applicant_details'
+                            theme: 'applicant-details'
                         },
                         summary: {
                             title:

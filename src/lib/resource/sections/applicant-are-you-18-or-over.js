@@ -105,6 +105,27 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p--transition',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                            true
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'someone-else'
+                        ],
+                        [
+                            '==',
+                            '$.answers.system.env',
+                            'prod'
+                        ],
+                    ]
+                },
+                {
                     target: 'p-applicant-british-citizen-or-eu-national'
                 }
             ]
