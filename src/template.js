@@ -166,6 +166,7 @@ const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
+const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -349,7 +350,8 @@ module.exports = {
         'p--contact-cica': contactCica.section,
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
-        'p-mainapplicant-authority': mainApplicantAuthorityToApply.section
+        'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
+        'p--download-your-answers': downloadAnswers.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -545,7 +547,8 @@ module.exports = {
             'p--contact-cica': contactCica.route,
             'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
             'p--context-mainapplicant-details': contextMainAppDetails.route,
-            'p-mainapplicant-authority': mainApplicantAuthorityToApply.route
+            'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
+            'p--download-your-answers': downloadAnswers.route
         }
     },
     answers: {},
