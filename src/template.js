@@ -169,7 +169,7 @@ const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainappli
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '7.0.3',
+    version: '8.0.2',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,

@@ -269,10 +269,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--before-you-continue',
-                    cond: [
-                        '!=', '$.answers.system.env', 'prod'
-                    ]
+                    target: 'p--before-you-continue'
                 }
             ]
         }
