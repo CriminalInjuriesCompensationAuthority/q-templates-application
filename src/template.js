@@ -629,6 +629,9 @@ module.exports = {
                 'main-applicant-details': {
                     title: 'Your details'
                 },
+                'rep-details': {
+                    title: 'Your details'
+                },
                 default: {
                     title: 'Other Information'
                 }
