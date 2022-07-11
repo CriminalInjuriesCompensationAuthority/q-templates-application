@@ -18,7 +18,7 @@ module.exports = {
                     },
                     meta: {
                         classifications: {
-                            theme: 'rep_details'
+                            theme: 'rep-details'
                         }
                     },
                     summary: {
