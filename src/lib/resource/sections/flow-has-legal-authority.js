@@ -54,7 +54,7 @@ module.exports = {
                 'q--has-legal-authority': {
                     type: 'boolean',
                     // prettier-ignore
-                    title: ['|l10nt',
+                    "~_title_~":  ['|l10nt',
                         ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.title.proxy.child',
                         ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.title.proxy.adult'
                     ],
@@ -82,7 +82,7 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {
+            '~_errorMessage_~': {
                 required: {
                     // prettier-ignore
                     'q--has-legal-authority': ['|l10nt',
@@ -110,7 +110,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--represents-legal-authority',
+                    target: 'p--contact-cica',
                     cond: ['|role.all', 'rep', 'adult']
                 },
                 {

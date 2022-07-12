@@ -539,7 +539,8 @@ module.exports = {
             'p-rep-reference-number': repReferenceNumber.route,
             'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
             'p--new-or-existing-application': newOrExistingApp.route,
-            'p--contact-cica': contactCica.route
+            'p--contact-cica': contactCica.route,
+            'p--has-legal-authority': flowHasLegalAuthority.route
         }
     },
     answers: {},
