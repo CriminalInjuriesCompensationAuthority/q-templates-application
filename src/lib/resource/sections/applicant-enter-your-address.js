@@ -218,7 +218,8 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--before-you-continue',
-                    cond: ['and',
+                    cond: [
+                        'and',
                         [
                             '==',
                             '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',

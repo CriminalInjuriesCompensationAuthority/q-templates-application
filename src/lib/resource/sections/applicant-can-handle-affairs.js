@@ -11,7 +11,8 @@ module.exports = {
                 'q-applicant-can-handle-affairs': {
                     type: 'boolean',
                     title: 'Are they able to handle their affairs?',
-                    description: "This means they have the capacity to make decisions for themselves when they're required to do so",
+                    description:
+                        "This means they have the capacity to make decisions for themselves when they're required to do so",
                     oneOf: [
                         {
                             title: 'Yes',
@@ -27,8 +28,7 @@ module.exports = {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title:
-                                'Are they able to handle their affairs?'
+                            title: 'Are they able to handle their affairs?'
                         }
                     }
                 }
