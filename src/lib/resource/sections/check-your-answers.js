@@ -877,26 +877,10 @@ module.exports = {
                     target: 'p--download-your-answers',
                     cond: [
                         'or',
-                        [
-                            '==',
-                            '$.answers.p-rep-type.q-rep-type',
-                            'SOLS'
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-rep-type.q-rep-type',
-                            'CMCO'
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-rep-type.q-rep-type',
-                            'SUPP'
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-rep-type.q-rep-type',
-                            'SSER'
-                        ]
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SUPP'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SSER']
                     ]
                 },
                 {

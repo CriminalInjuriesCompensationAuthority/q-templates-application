@@ -90,17 +90,14 @@ module.exports = {
                 },
                 {
                     target: 'p--context-mainapplicant-details',
-                    cond: [ 'and',
+                    cond: [
+                        'and',
                         [
                             '==',
                             '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
                             'someone-else'
                         ],
-                        [
-                            '!=',
-                            '$.answers.system.env',
-                            'prod'
-                        ]
+                        ['!=', '$.answers.system.env', 'prod']
                     ]
                 },
                 {

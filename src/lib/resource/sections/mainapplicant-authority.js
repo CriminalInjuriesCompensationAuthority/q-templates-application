@@ -6,8 +6,7 @@ module.exports = {
             vars: {
                 lng: 'en',
                 context: {
-                    $data:
-                        '/answers/p-applicant-are-you-18-or-over/q-applicant-are-you-18-or-over'
+                    $data: '/answers/p-applicant-are-you-18-or-over/q-applicant-are-you-18-or-over'
                 },
                 ns: 'p-mainapplicant-authority'
             },
@@ -18,10 +17,12 @@ module.exports = {
                     resources: {
                         'q-mainapplicant-authority': {
                             title: 'Do you have parental responsibility for them?',
-                            'title_true': 'Do you have legal authority to act on behalf of the victim?',
+                            title_true:
+                                'Do you have legal authority to act on behalf of the victim?',
                             error: {
                                 required: 'Select yes if you have parental responsibility for them',
-                                'required_true': 'Select yes if you have legal authority to act on behalf of the victim'
+                                required_true:
+                                    'Select yes if you have legal authority to act on behalf of the victim'
                             }
                         }
                     }
@@ -36,7 +37,7 @@ module.exports = {
             properties: {
                 'q-mainapplicant-authority': {
                     type: 'boolean',
-                    title: "l10nt:q-mainapplicant-authority.title{?lng,context,ns}",
+                    title: 'l10nt:q-mainapplicant-authority.title{?lng,context,ns}',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -56,7 +57,8 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-mainapplicant-authority': 'l10nt:q-mainapplicant-authority.error.required{?lng,context,ns}'
+                    'q-mainapplicant-authority':
+                        'l10nt:q-mainapplicant-authority.error.required{?lng,context,ns}'
                 }
             },
             examples: [
