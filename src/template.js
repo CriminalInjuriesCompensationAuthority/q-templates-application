@@ -358,6 +358,7 @@ module.exports = {
         ],
         confirmation: 'p--confirmation',
         states: {
+            'p--has-legal-authority': flowHasLegalAuthority.route,
             'p-applicant-declaration': applicantDeclaration.route,
             'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
             'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,

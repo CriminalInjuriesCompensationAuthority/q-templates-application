@@ -5,6 +5,10 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
+                context: {
+                    $data:
+                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
+                },
                 ns: 'p--has-legal-authority'
             },
             translations: [
@@ -110,7 +114,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--represents-legal-authority',
+                    target: 'p--transition', // p--represents-legal-authority',
                     cond: ['|role.all', 'rep', 'adult']
                 },
                 {
