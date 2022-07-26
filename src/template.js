@@ -349,7 +349,7 @@ module.exports = {
         'p--has-legal-authority': flowHasLegalAuthority.section
     },
     routes: {
-        initial: 'p--has-legal-authority',
+        initial: 'p--new-or-existing-application',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -544,7 +544,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p--has-legal-authority'],
+    progress: ['p--new-or-existing-application'],
     taxonomies: {
         theme: {
             l10n: {
