@@ -167,7 +167,7 @@ const contactCica = require('./lib/resource/sections/contact-cica');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 
 module.exports = {
-    type: 'apply-for-compensation',
+    type: 'apply-for-compensationSTEEVIEWEEVIE444555777888000AAABBBCCCdddyyy',
     version: '7.0.3',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
