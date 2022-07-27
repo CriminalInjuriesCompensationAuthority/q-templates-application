@@ -14,7 +14,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "build": "node ./src/build.js",
-        "prepare": "npm run build --silent"
+        "prepare": "npm run build --silent",
+        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build"
     },
     "author": "CICA",
     "license": "MIT",
@@ -29,6 +30,7 @@
         "husky": "^4.0.3",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
+        "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
         "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v5.1.0"
     }
