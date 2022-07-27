@@ -9,7 +9,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q--new-or-existing-application': {
-                    title: 'What would you like to do?111',
+                    title: 'What would you like to do?',
                     type: 'string',
                     oneOf: [
                         {
