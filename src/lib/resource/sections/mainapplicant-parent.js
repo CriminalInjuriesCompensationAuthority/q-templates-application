@@ -57,15 +57,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-context-rep-details',
-                    cond: [
-                        'and',
-                        ['!=', '$.answers.system.env', 'prod'],
-                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false]
-                    ]
-                },
-                {
-                    target: 'p--transition',
+                    target: 'p--has-legal-authority',
                     cond: ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false]
                 },
                 {
