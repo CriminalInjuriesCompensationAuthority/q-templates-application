@@ -167,6 +167,8 @@ const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
+const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
+const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -351,7 +353,9 @@ module.exports = {
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
         'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
-        'p--download-your-answers': downloadAnswers.section
+        'p--download-your-answers': downloadAnswers.section,
+        'p--has-legal-authority': flowHasLegalAuthority.section,
+        'p--represents-legal-authority': flowRepresentsLegalAuthority.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -548,7 +552,9 @@ module.exports = {
             'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
             'p--context-mainapplicant-details': contextMainAppDetails.route,
             'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
-            'p--download-your-answers': downloadAnswers.route
+            'p--download-your-answers': downloadAnswers.route,
+            'p--has-legal-authority': flowHasLegalAuthority.route,
+            'p--represents-legal-authority': flowRepresentsLegalAuthority.route
         }
     },
     answers: {},
@@ -639,7 +645,7 @@ module.exports = {
         }
     },
     meta: {
-        questionnaireDocumentVersion: '4.0.0',
+        questionnaireDocumentVersion: '4.1.0',
         onComplete: {
             tasks: {
                 sendEmail: {
@@ -717,5 +723,76 @@ module.exports = {
             }
         },
         attributes: {'q-applicant-physical-injuries': {title: 'What was injured?'}}
+    },
+    attributes: {
+        q__roles: {
+            proxy: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'A type of proxy for the applicant e.g. mainapplicant, rep',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'someone-else'
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            child: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Child applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        false
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            adult: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Adult applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        true
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            mainapplicant: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Main Applicant role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            rep: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Rep role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            }
+        }
     }
 };
