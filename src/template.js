@@ -788,7 +788,10 @@ module.exports = {
                     title: 'Rep role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                    const: ['or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                    ],
                     examples: [{}],
                     invalidExamples: [{}]
                 }

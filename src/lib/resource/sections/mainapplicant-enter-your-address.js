@@ -2,19 +2,69 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-enter-your-address'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-enter-your-address',
+                    resources: {
+                        title: {
+                            mainapplicant: 'Enter your address',
+                            rep: 'Enter their address'
+                        },
+                        meta: {
+                            summary: {
+                                title: {
+                                    mainapplicant: 'Your address',
+                                    rep: 'Their address'
+                                }
+                            }
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-building-and-street': {
+                                    mainapplicant: 'Enter the building and street where you live',
+                                    rep: 'Enter the building and street where they live'
+                                },
+                                'q-mainapplicant-town-or-city': {
+                                    mainapplicant: 'Enter the town or city where you live',
+                                    rep: 'Enter the town or city where they live'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             allOf: [
                 {
-                    title: 'Enter your address',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'title.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'title.rep'
+                    ],
                     meta: {
                         compositeId: 'mainapplicant-address',
                         classifications: {
                             theme: 'main-applicant-details'
                         },
                         summary: {
-                            title: 'Your address'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'meta.summary.title.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'meta.summary.title.rep'
+                            ]
                         }
                     },
                     required: [
@@ -121,9 +171,20 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-mainapplicant-building-and-street':
-                                'Enter the building and street where you live',
-                            'q-mainapplicant-town-or-city': 'Enter the town or city where you live'
+                            'q-mainapplicant-building-and-street': [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'errorMessage.required.q-mainapplicant-building-and-street.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'errorMessage.required.q-mainapplicant-building-and-street.rep'
+                            ],
+                            'q-mainapplicant-town-or-city': [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'errorMessage.required.q-mainapplicant-town-or-city.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'errorMessage.required.q-mainapplicant-town-or-city.rep'
+                            ]
                         }
                     }
                 }
