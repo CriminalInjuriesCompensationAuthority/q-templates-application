@@ -2,6 +2,46 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-relationship'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-relationship',
+                    resources: {
+                        'q-mainapplicant-relationship': {
+                            title: {
+                                mainapplicant: 'What is your relationship to the victim?',
+                                rep: "What is this person's relationship to the victim?"
+                            },
+                            description: {
+                                mainapplicant:
+                                    "For example, you're their mother, father, grandparent etc.",
+                                rep:
+                                    "For example, they are the victim's mother, father, grandparent etc"
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'What is your relationship to the victim?',
+                                    rep: 'What is their relationship to the victim?'
+                                }
+                            }
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-relationship': {
+                                    mainapplicant: 'Enter your relationship with the victim',
+                                    rep: 'Enter their relationship with the victim'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,18 +50,53 @@ module.exports = {
             properties: {
                 'q-mainapplicant-relationship': {
                     type: 'string',
-                    title: 'What is your relationship to the victim?',
-                    description: 'For example, you’re their mother, father, grandparent etc.',
+                    maxLength: 50,
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'q-mainapplicant-relationship.title.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'q-mainapplicant-relationship.title.rep'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'q-mainapplicant-relationship.description.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'q-mainapplicant-relationship.description.rep'
+                    ],
                     meta: {
                         classifications: {
                             theme: 'main-applicant-details'
+                        },
+                        summary: {
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'q-mainapplicant-relationship.meta.summary.title.rep'
+                            ]
                         }
+                    },
+                    errorMessage: {
+                        maxLength: 'Relationship to the victim must be 50 characters or less'
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-mainapplicant-relationship': 'Enter your relationship with the victim'
+                    'q-mainapplicant-relationship': [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
+                        ['|role.all', 'mainapplicant'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep',
+                        ['|role.all', 'rep'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep'
+                    ]
                 }
             },
             examples: [
@@ -46,7 +121,23 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-shared-responsibility'
+                    target: 'p-mainapplicant-shared-responsibility',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        false
+                    ]
+                },
+                {
+                    target: 'p--context-rep-details',
+                    cond: [
+                        'or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                    ]
+                },
+                {
+                    target: 'p--context-applicant-details'
                 }
             ]
         }
