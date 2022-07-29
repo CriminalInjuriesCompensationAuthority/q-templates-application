@@ -241,20 +241,15 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-enter-your-telephone-number',
-                    cond: [
-                        '==',
-                        '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
-                        'email'
-                    ]
-                },
-                {
                     target: 'p-mainapplicant-enter-your-email-address',
                     cond: [
                         '==',
                         '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
                         'text'
                     ]
+                },
+                {
+                    target: 'p-mainapplicant-enter-your-telephone-number'
                 }
             ]
         }
