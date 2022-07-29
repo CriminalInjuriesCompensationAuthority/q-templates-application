@@ -1,6 +1,40 @@
 'use strict';
 
 module.exports = {
+    l10n: {
+        vars: {
+            lng: 'en',
+            ns: 'p-mainapplicant-enter-your-telephone-number'
+        },
+        translations: [
+            {
+                language: 'en',
+                namespace: 'p-mainapplicant-enter-your-telephone-number',
+                resources: {
+                    'q-mainapplicant-enter-your-telephone-number': {
+                        title: {
+                            mainapplicant: 'Enter your telephone number',
+                            rep: 'Enter their telephone number'
+                        },
+                        meta: {
+                            summary: {
+                                title: {
+                                    mainapplicant: 'Telephone number',
+                                    rep: 'Their telephone number'
+                                }
+                            }
+                        },
+                        description: {
+                            mainapplicant:
+                                'We may use this to contact you if we need to clarify something in this application (optional).',
+                            rep:
+                                'We will only use this to contact this person in the event we cannot contact you via one of your contact preferences you provide (optional).'
+                        }
+                    }
+                }
+            }
+        ]
+    },
     section: {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
@@ -9,9 +43,20 @@ module.exports = {
             properties: {
                 'q-mainapplicant-enter-your-telephone-number': {
                     type: 'string',
-                    title: 'Enter your telephone number',
-                    description:
-                        'We may use this to contact you if we need to clarify something in this application (optional).',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'q-mainapplicant-enter-your-telephone-number.title.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'q-mainapplicant-enter-your-telephone-number.title.rep'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'q-mainapplicant-enter-your-telephone-number.description.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'q-mainapplicant-enter-your-telephone-number.description.rep'
+                    ],
                     maxLength: 20,
                     pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
                     errorMessage: {
@@ -23,9 +68,13 @@ module.exports = {
                         classifications: {
                             theme: 'main-applicant-details'
                         },
-                        summary: {
-                            title: 'Telephone number'
-                        }
+                        summary: [
+                            '|l10nt',
+                            ['|role.all', 'mainapplicant'],
+                            'q-mainapplicant-enter-your-telephone-number.meta.summary.title.mainapplicant',
+                            ['|role.all', 'rep'],
+                            'q-mainapplicant-enter-your-telephone-number.meta.summary.title.rep'
+                        ]
                     }
                 }
             },
