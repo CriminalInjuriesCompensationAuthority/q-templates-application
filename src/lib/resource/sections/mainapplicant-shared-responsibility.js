@@ -1,53 +1,53 @@
 'use strict';
 
 module.exports = {
-    l10n: {
-        vars: {
-            lng: 'en',
-            ns: 'p-mainapplicant-shared-responsibility'
-        },
-        translations: [
-            {
-                language: 'en',
-                namespace: 'p-mainapplicant-shared-responsibility',
-                resources: {
-                    'q-mainapplicant-shared-responsibility': {
-                        title: {
-                            mainapplicant:
-                                'Do you share parental responsibility for the child with another person?',
-                            rep:
-                                "Do they share parental responsibility for the child with another person?'"
-                        },
-                        description: {
-                            mainapplicant:
-                                'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.',
-                            rep:
-                                "This means they share this with another person named as the child's birth, step or adoptive parent. Or, someone named on a special guardianship order."
-                        },
-                        meta: {
-                            summary: {
-                                title: {
-                                    mainapplicant: 'Do you share parental responsibility?',
-                                    rep: 'Do they share parental responsibility?'
+    section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-shared-responsibility'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-shared-responsibility',
+                    resources: {
+                        'q-mainapplicant-shared-responsibility': {
+                            title: {
+                                mainapplicant:
+                                    'Do you share parental responsibility for the child with another person?',
+                                rep:
+                                    "Do they share parental responsibility for the child with another person?'"
+                            },
+                            description: {
+                                mainapplicant:
+                                    'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.',
+                                rep:
+                                    "This means they share this with another person named as the child's birth, step or adoptive parent. Or, someone named on a special guardianship order."
+                            },
+                            meta: {
+                                summary: {
+                                    title: {
+                                        mainapplicant: 'Do you share parental responsibility?',
+                                        rep: 'Do they share parental responsibility?'
+                                    }
                                 }
                             }
-                        }
-                    },
-                    errorMessage: {
-                        required: {
-                            'q-mainapplicant-relationship': {
-                                mainapplicant:
-                                    'Select yes if you share parental responsibility for the child with another person',
-                                rep:
-                                    'Select yes if they share parental responsibility for the child with another person'
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-relationship': {
+                                    mainapplicant:
+                                        'Select yes if you share parental responsibility for the child with another person',
+                                    rep:
+                                        'Select yes if they share parental responsibility for the child with another person'
+                                }
                             }
                         }
                     }
                 }
-            }
-        ]
-    },
-    section: {
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
