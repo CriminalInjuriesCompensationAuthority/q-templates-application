@@ -2,19 +2,80 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-enter-your-name'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-enter-your-name',
+                    resources: {
+                        title: {
+                            mainapplicant: 'Enter your name',
+                            rep: {
+                                child:
+                                    'Enter the name of the person with parental responsibility for the victim',
+                                adult:
+                                    'Enter the name of the person with legal authority to act on behalf of the victim'
+                            }
+                        },
+                        meta: {
+                            summary: {
+                                title: {
+                                    mainapplicant: 'Your name',
+                                    rep: 'Their name'
+                                }
+                            }
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-title': {
+                                    mainapplicant: 'Enter your title',
+                                    rep: 'Enter their title'
+                                },
+                                'q-mainapplicant-first-name': {
+                                    mainapplicant: 'Enter your first name',
+                                    rep: 'Enter their first name'
+                                },
+                                'q-mainapplicant-last-name': {
+                                    mainapplicant: 'Enter your last name',
+                                    rep: 'Enter their last name'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             allOf: [
                 {
-                    title: 'Enter your name',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'mainapplicant'],
+                        'title.mainapplicant',
+                        ['|role.all', 'rep', 'child'],
+                        'title.rep.child',
+                        ['|role.all', 'rep', 'adult'],
+                        'title.rep.adult'
+                    ],
                     meta: {
                         compositeId: 'mainapplicant-name',
                         classifications: {
                             theme: 'main-applicant-details'
                         },
                         summary: {
-                            title: 'Your name'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'meta.summary.title.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'meta.summary.title.rep'
+                            ]
                         }
                     },
                     required: [
@@ -84,9 +145,27 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-mainapplicant-title': 'Enter your title',
-                            'q-mainapplicant-first-name': 'Enter your first name',
-                            'q-mainapplicant-last-name': 'Enter your last name'
+                            'q-mainapplicant-title': [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'errorMessage.required.q-mainapplicant-title.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'errorMessage.required.q-mainapplicant-title.rep'
+                            ],
+                            'q-mainapplicant-first-name': [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'errorMessage.required.q-mainapplicant-first-name.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'errorMessage.required.q-mainapplicant-first-name.rep'
+                            ],
+                            'q-mainapplicant-last-name': [
+                                '|l10nt',
+                                ['|role.all', 'mainapplicant'],
+                                'errorMessage.required.q-mainapplicant-last-name.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'errorMessage.required.q-mainapplicant-last-name.rep'
+                            ]
                         }
                     }
                 }
