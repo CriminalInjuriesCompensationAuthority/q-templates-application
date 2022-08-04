@@ -15,15 +15,15 @@ module.exports = {
                         'q-mainapplicant-shared-responsibility': {
                             title: {
                                 mainapplicant:
-                                    'Do you share parental responsibility for the child with another person?',
+                                    'Do you share parental responsibility for the victim with another person?',
                                 rep:
-                                    "Do they share parental responsibility for the child with another person?'"
+                                    "Do they share parental responsibility for the victim with another person?'"
                             },
                             description: {
                                 mainapplicant:
                                     'This means you share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.',
                                 rep:
-                                    "This means they share this with another person named as the child's birth, step or adoptive parent. Or, someone named on a special guardianship order."
+                                    'This means they share this with another person named as their birth, step or adoptive parent. Or, someone named on a special guardianship order.'
                             },
                             meta: {
                                 summary: {
@@ -38,9 +38,9 @@ module.exports = {
                             required: {
                                 'q-mainapplicant-relationship': {
                                     mainapplicant:
-                                        'Select yes if you share parental responsibility for the child with another person',
+                                        'Select yes if you share parental responsibility for the victim with another person',
                                     rep:
-                                        'Select yes if they share parental responsibility for the child with another person'
+                                        'Select yes if they share parental responsibility for the victim with another person'
                                 }
                             }
                         }
