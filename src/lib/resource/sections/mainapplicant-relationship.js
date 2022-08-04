@@ -90,10 +90,6 @@ module.exports = {
                         '|l10nt',
                         ['|role.all', 'mainapplicant'],
                         'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
-                        ['|role.all', 'mainapplicant'],
-                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
-                        ['|role.all', 'rep'],
-                        'errorMessage.required.q-mainapplicant-relationship.rep',
                         ['|role.all', 'rep'],
                         'errorMessage.required.q-mainapplicant-relationship.rep'
                     ]
