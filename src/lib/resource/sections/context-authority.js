@@ -41,7 +41,7 @@ module.exports = {
                                             <li>court order showing you have legal authority to act on behalf of the victim</li>
                                         </ul>
                                         <h2 class="govuk-heading-s">Sending us certified documents</h2>
-                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a "true copy".</p>
+                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
                                         <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
                                         <p class="govuk-body"><a href="https://www.gov.uk/certifying-a-document" target="_blank">Discover more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
                                         <p class="govuk-body">If your name or the victim's name has changed, you'll have to show proof of this change.</p>
@@ -74,14 +74,14 @@ module.exports = {
                                             <li>court order showing they have legal authority to act on behalf of the victim</li>
                                         </ul>
                                         <h2 class="govuk-heading-s">Sending us certified documents</h2>
-                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a "true copy".</p>
+                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
                                         <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
                                         <p class="govuk-body"><a href="https://www.gov.uk/certifying-a-document" target="_blank">Discover more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
                                         <p class="govuk-body">If their name or the victim's name has changed, you'll have to show proof of this change.</p>
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                     `,
                                     adultNoLegalAuthority: `
-                                        <p class="govuk-body">We need the details of the person with legal authority to act on behalf of the victim to begin processing this application. However, we understand this might not be confirmed as yet. Unfortunately, we're unable to progress the application any further until we have these details though.</p>
+                                        <p class="govuk-body">We need the details of the person with legal authority to act on behalf of the victim to begin processing this application. However, we understand this might not be confirmed as yet. Unfortunately, we're unable to progress the application any further until we have these details.</p>
                                         <p class="govuk-body">You can still submit this application today without providing these details. And then send this on to us at a later date.</p>
                                         <p class="govuk-body">This proof should be a certified copy of a:</p>
                                         <ul class="govuk-list govuk-list--bullet">
@@ -89,7 +89,7 @@ module.exports = {
                                             <li>court order showing they have legal authority to act on behalf of the victim</li>
                                         </ul>
                                         <h2 class="govuk-heading-s">Sending us certified documents</h2>
-                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a "true copy".</p>
+                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
                                         <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
                                         <p class="govuk-body"><a href="https://www.gov.uk/certifying-a-document" target="_blank">Discover more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
                                         <p class="govuk-body">We'll tell you more about this at the end of the application.</p>
