@@ -14,14 +14,8 @@ module.exports = {
                     resources: {
                         'q-mainapplicant-relationship': {
                             title: {
-                                mainapplicant: {
-                                    adult: 'What is your relationship to the victim?',
-                                    child: 'What is your relationship to the child?'
-                                },
-                                rep: {
-                                    adult: "What is this person's relationship to the victim?",
-                                    child: "What is this person's relationship to the child?"
-                                }
+                                mainapplicant: 'What is your relationship to the victim?',
+                                rep: "What is this person's relationship to the victim?"
                             },
                             description: {
                                 mainapplicant:
@@ -31,30 +25,16 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: {
-                                        mainapplicant: {
-                                            adult: 'What is your relationship to the victim?',
-                                            child: 'What is your relationship to the child?'
-                                        },
-                                        rep: {
-                                            adult: 'What is their relationship to the victim?',
-                                            child: 'What is their relationship to the child?'
-                                        }
-                                    }
+                                    title: 'What is your relationship to the victim?',
+                                    rep: 'What is their relationship to the victim?'
                                 }
                             }
                         },
                         errorMessage: {
                             required: {
                                 'q-mainapplicant-relationship': {
-                                    mainapplicant: {
-                                        adult: 'Enter your relationship with the victim',
-                                        child: 'Enter your relationship with the child?'
-                                    },
-                                    rep: {
-                                        adult: 'Enter their relationship with the victim',
-                                        child: 'Enter their relationship with the child'
-                                    }
+                                    mainapplicant: 'Enter your relationship with the victim',
+                                    rep: 'Enter their relationship with the victim'
                                 }
                             }
                         }
@@ -70,16 +50,13 @@ module.exports = {
             properties: {
                 'q-mainapplicant-relationship': {
                     type: 'string',
+                    maxLength: 50,
                     title: [
                         '|l10nt',
-                        ['|role.all', 'mainapplicant', 'adult'],
-                        'q-mainapplicant-relationship.title.mainapplicant.adult',
-                        ['|role.all', 'mainapplicant', 'child'],
-                        'q-mainapplicant-relationship.title.mainapplicant.child',
-                        ['|role.all', 'rep', 'adult'],
-                        'q-mainapplicant-relationship.title.rep.adult',
-                        ['|role.all', 'rep', 'child'],
-                        'q-mainapplicant-relationship.title.rep.child'
+                        ['|role.all', 'mainapplicant'],
+                        'q-mainapplicant-relationship.title.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'q-mainapplicant-relationship.title.rep'
                     ],
                     description: [
                         '|l10nt',
@@ -95,16 +72,15 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
-                                ['|role.all', 'mainapplicant', 'adult'],
-                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.adult',
-                                ['|role.all', 'mainapplicant', 'child'],
-                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.child',
-                                ['|role.all', 'rep', 'adult'],
-                                'q-mainapplicant-relationship.meta.summary.title.rep.adult',
-                                ['|role.all', 'rep', 'child'],
-                                'q-mainapplicant-relationship.meta.summary.title.rep.child'
+                                ['|role.all', 'mainapplicant'],
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant',
+                                ['|role.all', 'rep'],
+                                'q-mainapplicant-relationship.meta.summary.title.rep'
                             ]
                         }
+                    },
+                    errorMessage: {
+                        maxLength: 'Relationship to the victim must be 50 characters or less'
                     }
                 }
             },
@@ -112,14 +88,14 @@ module.exports = {
                 required: {
                     'q-mainapplicant-relationship': [
                         '|l10nt',
-                        ['|role.all', 'mainapplicant', 'adult'],
-                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.adult',
-                        ['|role.all', 'mainapplicant', 'child'],
-                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.child',
-                        ['|role.all', 'rep', 'adult'],
-                        'errorMessage.required.q-mainapplicant-relationship.rep.adult',
-                        ['|role.all', 'rep', 'child'],
-                        'errorMessage.required.q-mainapplicant-relationship.rep.child'
+                        ['|role.all', 'mainapplicant'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
+                        ['|role.all', 'mainapplicant'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
+                        ['|role.all', 'rep'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep',
+                        ['|role.all', 'rep'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep'
                     ]
                 }
             },
