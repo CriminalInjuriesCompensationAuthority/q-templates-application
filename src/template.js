@@ -4,6 +4,7 @@ const applicantDeclaration = require('./lib/resource/sections/applicant-declarat
 const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
 const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
 const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
+const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
@@ -179,6 +180,7 @@ module.exports = {
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
         'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
+        'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
@@ -373,6 +375,7 @@ module.exports = {
             'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
             'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
             'p-rep-declaration-under-12': repDeclarationUnder12.route,
+            'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,

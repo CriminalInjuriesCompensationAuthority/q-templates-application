@@ -903,7 +903,23 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-mainapplicant-declaration-12-and-over'
+                    target: 'p-mainapplicant-declaration-12-and-over',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equeal too ...
+                            '-12', // 12 ...
+                            'years' // years (before, due to the negative (-12) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ]
+                    ]
                 },
                 {
                     target: 'p-rep-declaration-under-12',
@@ -922,6 +938,29 @@ module.exports = {
                             'dateCompare',
                             '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
                             '<', // is less than ...
+                            '-12', // 12 ...
+                            'years' // years (before, due to the negative (-12) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-rep-declaration-12-and-over',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            [
+                                '==',
+                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                false
+                            ],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equeal too ...
                             '-12', // 12 ...
                             'years' // years (before, due to the negative (-12) ...
                             // today's date (no second date given. defaults to today's date).
