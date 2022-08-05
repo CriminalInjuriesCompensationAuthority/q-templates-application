@@ -888,9 +888,9 @@ module.exports = {
                     cond: [
                         'and',
                         [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
+                            'or',
+                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
                         ],
                         [
                             'dateCompare',
