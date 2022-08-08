@@ -163,7 +163,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-mainapplicant-shared-responsibilit'
+                    target: 'p-mainapplicant-shared-responsibility'
                 }
             ]
         }
