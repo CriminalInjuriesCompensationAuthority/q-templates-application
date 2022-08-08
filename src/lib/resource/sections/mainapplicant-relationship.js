@@ -25,8 +25,10 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'What is your relationship to the victim?',
-                                    rep: 'What is their relationship to the victim?'
+                                    title: {
+                                        mainapplicant: 'What is your relationship to the victim?',
+                                        rep: 'What is their relationship to the victim?'
+                                    }
                                 }
                             }
                         },

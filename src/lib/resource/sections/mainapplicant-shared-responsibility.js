@@ -36,7 +36,7 @@ module.exports = {
                         },
                         errorMessage: {
                             required: {
-                                'q-mainapplicant-relationship': {
+                                'q-mainapplicant-shared-responsibility': {
                                     mainapplicant:
                                         'Select yes if you share parental responsibility for the victim with another person',
                                     rep:
