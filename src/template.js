@@ -795,6 +795,28 @@ module.exports = {
                     examples: [{}],
                     invalidExamples: [{}]
                 }
+            },
+            noAuthority: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Rep role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const:  ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            incapableAdult: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Rep role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const:  ['==', '$.answers.q-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
             }
         }
     }
