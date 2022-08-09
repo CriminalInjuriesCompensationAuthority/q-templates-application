@@ -118,7 +118,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-applicant-details'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

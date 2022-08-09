@@ -217,23 +217,49 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue',
+                    target: 'p-applicant-enter-your-telephone-number',
                     cond: [
-                        'and',
+                        'or',
                         [
                             '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
+                            '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                            'email'
                         ],
-                        ['==', '$.answers.system.env', 'prod']
+                        [
+                            'and',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '>=', // is more than or equal to ...
+                                '-18', // 18 ...
+                                'years' // years (before, due to the negative (-18) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                true
+                            ]
+                        ]
                     ]
                 },
                 {
-                    target: 'p-applicant-enter-your-telephone-number',
+                    target: 'p--context-mainapplicant-details',
                     cond: [
-                        '==',
-                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                        'email'
+                        'or',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '<', // is less than ...
+                            '-18', // 18 ...
+                            'years' // years (before, due to the negative (-18) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                            false
+                        ]
                     ]
                 },
                 {
@@ -242,31 +268,6 @@ module.exports = {
                         '==',
                         '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
                         'text'
-                    ]
-                },
-                {
-                    target: 'p-applicant-enter-your-telephone-number',
-                    cond: [
-                        'and',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is more than or equal to ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
-                            true
-                        ],
-                        ['!=', '$.answers.system.env', 'prod']
                     ]
                 },
                 {
