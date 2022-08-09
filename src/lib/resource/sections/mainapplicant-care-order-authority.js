@@ -45,7 +45,17 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-applicant-details'
+                    target: 'p--context-rep-details',
+                    cond: [
+                        // Rep role
+                        'or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                    ]
+                },
+                {
+                    target: 'p--before-you-continue'
+                    // Main Applicant role
                 }
             ]
         }
