@@ -146,6 +146,12 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p--context-rep-details',
+                    // prettier-ignore
+                    // NoAuthority role
+                    cond: ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
+                },
+                {
                     target: 'p-mainapplicant-enter-your-name'
                 }
             ]
