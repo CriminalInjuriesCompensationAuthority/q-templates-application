@@ -244,6 +244,14 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p-applicant-enter-your-email-address',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                        'text'
+                    ]
+                },
+                {
                     target: 'p--context-mainapplicant-details',
                     cond: [
                         'or',
@@ -260,14 +268,6 @@ module.exports = {
                             '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
                             false
                         ]
-                    ]
-                },
-                {
-                    target: 'p-applicant-enter-your-email-address',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                        'text'
                     ]
                 },
                 {
