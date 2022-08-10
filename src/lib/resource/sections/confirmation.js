@@ -25,7 +25,7 @@ module.exports = {
                                     {% if caseReferenceNumber %}
                                       {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                     {% else %}
-                                      {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                      {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                     {% endif %}
                                     <p class="govuk-body">All links on this page open in a new tab.</p>
                                     {{ govukPanel({
@@ -61,7 +61,7 @@ module.exports = {
                                     <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                     <h2 class="govuk-heading-m">Contact us</h2>
                                     <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                    {% include \\'contact.njk\\' %}
+                                    {% include \'contact.njk\' %}
                                     <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                       <ul class="govuk-list govuk-list--bullet">
                                           <li>email us</li>
@@ -85,7 +85,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -138,7 +138,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
@@ -161,7 +161,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -220,7 +220,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
@@ -245,7 +245,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -281,7 +281,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
@@ -304,7 +304,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -364,7 +364,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
@@ -387,7 +387,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -440,7 +440,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
@@ -463,7 +463,7 @@ module.exports = {
                                         {% if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
-                                        {% set html =  "<p>We\\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
+                                        {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
                                         {% endif %}
                                         <p class="govuk-body">All links on this page open in a new tab.</p>
                                         {{ govukPanel({
@@ -516,7 +516,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body govuk-!-margin-bottom-1">Email: <a href="mailto:info@cica.gov.uk" class="govuk-link">info@cica.gov.uk</a></p>
-                                        {% include \\'contact.njk\\' %}
+                                        {% include \'contact.njk\' %}
                                         <p class="govuk-body">We will not always send an acknowledgement if you:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>email us</li>
