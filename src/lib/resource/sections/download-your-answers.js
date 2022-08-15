@@ -38,12 +38,20 @@ module.exports = {
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
                         [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-12', // 12 ...
-                            'years' // years (before, due to the negative (-12) ...
-                            // today's date (no second date given. defaults to today's date).
+                            'or',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '<', // is less than ...
+                                '-12', // 12 ...
+                                'years' // years (before, due to the negative (-12) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                false
+                            ]
                         ]
                     ]
                 },
