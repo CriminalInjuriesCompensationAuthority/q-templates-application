@@ -893,12 +893,51 @@ module.exports = {
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
                         ],
                         [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-12', // 12 ...
-                            'years' // years (before, due to the negative (-12) ...
-                            // today's date (no second date given. defaults to today's date).
+                            'or',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '<', // is less than ...
+                                '-12', // 12 ...
+                                'years' // years (before, due to the negative (-12) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                false
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-rep-declaration-under-12',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            [
+                                '==',
+                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                false
+                            ],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ],
+                        [
+                            'or',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '<', // is less than ...
+                                '-12', // 12 ...
+                                'years' // years (before, due to the negative (-12) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                false
+                            ]
                         ]
                     ]
                 },
@@ -921,29 +960,7 @@ module.exports = {
                         ]
                     ]
                 },
-                {
-                    target: 'p-rep-declaration-under-12',
-                    cond: [
-                        'and',
-                        [
-                            'or',
-                            [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
-                            ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                        ],
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-12', // 12 ...
-                            'years' // years (before, due to the negative (-12) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ]
-                    ]
-                },
+
                 {
                     target: 'p-rep-declaration-12-and-over',
                     cond: [
