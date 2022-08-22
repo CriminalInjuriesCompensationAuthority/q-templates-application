@@ -48,9 +48,17 @@ module.exports = {
                                 // today's date (no second date given. defaults to today's date).
                             ],
                             [
-                                '==',
-                                '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
-                                false
+                                'and',
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                    true
+                                ]
                             ]
                         ]
                     ]
