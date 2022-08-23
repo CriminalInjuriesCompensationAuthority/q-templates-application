@@ -795,8 +795,12 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                        [
+                            'and',
+                            ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
+                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', true]
+                        ]
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -805,21 +809,41 @@ module.exports = {
             noAuthority: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
-                    title: 'Rep role',
+                    title: 'no authority role',
                     type: 'boolean',
                     // prettier-ignore
-                    const:  ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false],
+                    const:
+                        ['and',
+                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
+                        ],
                     examples: [{}],
                     invalidExamples: [{}]
                 }
             },
-            incapableAdult: {
+            incapable: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
-                    title: 'Rep role',
+                    title: 'incapable role',
                     type: 'boolean',
                     // prettier-ignore
-                    const:  ['==', '$.answers.q-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                    const:  ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            capable: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'capable role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['or',
+                        ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', true],
+                        ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'myself']
+                    ],
                     examples: [{}],
                     invalidExamples: [{}]
                 }
