@@ -17,7 +17,7 @@ module.exports = {
                                 mainapplicant:
                                     'Do you share parental responsibility for the victim with another person?',
                                 rep:
-                                    "Do they share parental responsibility for the victim with another person?'"
+                                    'Do they share parental responsibility for the victim with another person?'
                             },
                             description: {
                                 mainapplicant:
