@@ -151,15 +151,8 @@ module.exports = {
                             // today's date (no second date given. defaults to today's date).
                         ],
                         // Rep role
-                        [
-                            'or',
-                            [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
-                            ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                        ]
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                     ]
                 },
                 {
