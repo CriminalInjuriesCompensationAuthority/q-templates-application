@@ -69,20 +69,22 @@ module.exports = {
         }
     },
     route: {
-        on: {
-            ANSWER: [
-                {
-                    target: 'p--context-rep-details',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'someone-else'
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue'
-                }
-            ]
+        route: {
+            on: {
+                ANSWER: [
+                    {
+                        target: 'p--context-rep-details',
+                        cond: [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'someone-else'
+                        ]
+                    },
+                    {
+                        target: 'p--before-you-continue'
+                    }
+                ]
+            }
         }
     }
 };
