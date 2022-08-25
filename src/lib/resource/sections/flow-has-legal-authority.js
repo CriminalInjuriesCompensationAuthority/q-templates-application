@@ -110,17 +110,46 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--represents-legal-authority',
+                    target: 'p--context-authority',
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                         [
+                            'or',
+                            [
+                                'dateCompare',
+                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                '<', // is less than ...
+                                '-12', // 12 ...
+                                'years' // years (before, due to the negative (-12) ...
+                                // today's date (no second date given. defaults to today's date).
+                            ],
+                            [
                             'dateCompare',
                             '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is greater than or equal to ...
+                            '<', // is greater than or equal to ...
                             '-18', // 18 ...
                             'years' // years (before, due to the negative (-18) ...
                             // today's date (no second date given. defaults to today's date).
+                            ]                           
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--represents-legal-authority',
+
+                    cond: [
+                        'and',
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                        [
+                            '==',
+                            '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                            true
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                            false
                         ]
                     ]
                 },
