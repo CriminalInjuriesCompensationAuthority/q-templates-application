@@ -56,15 +56,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-authority',
-                    cond: [
-                        '==',
-                        '$.answers.p--represents-legal-authority.q--represents-legal-authority',
-                        true
-                    ]
-                },
-                {
-                    target: 'p--context-rep-details'
+                    target: 'p--context-authority'
                 }
             ]
         }
