@@ -45,9 +45,9 @@ module.exports = {
                     title: 'l10nt:q-applicant-affect-on-daily-life-dmi.title{?lng,context,ns}',
                     description:
                         'l10nt:q-applicant-affect-on-daily-life-dmi.description{?lng,context,ns}',
-                    maxLength: 1000,
+                    maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Description must be 1000 characters or less'
+                        maxLength: 'Description must be 2000 characters or less'
                     },
                     meta: {
                         classifications: {

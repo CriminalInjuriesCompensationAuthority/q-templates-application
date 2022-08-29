@@ -12,9 +12,9 @@ module.exports = {
                     title: 'Briefly describe the crime',
                     description:
                         'You can add details that may not be included in the crime report.',
-                    maxLength: 1000,
+                    maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Description must be 1000 characters or less'
+                        maxLength: 'Description must be 2000 characters or less'
                     },
                     meta: {
                         classifications: {

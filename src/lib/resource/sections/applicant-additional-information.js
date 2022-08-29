@@ -12,9 +12,9 @@ module.exports = {
                     title: 'Enter additional information',
                     description:
                         'You can provide any extra information, including additional crime reference numbers, details of additional crimes, locations, dates and/or offenders here.',
-                    maxLength: 1000,
+                    maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Additional information must be 1000 characters or less'
+                        maxLength: 'Additional information must be 2000 characters or less'
                     },
                     meta: {
                         classifications: {

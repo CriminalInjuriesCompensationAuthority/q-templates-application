@@ -639,7 +639,7 @@ module.exports = {
         }
     },
     meta: {
-        questionnaireDocumentVersion: '4.0.0',
+        questionnaireDocumentVersion: '4.1.0',
         onComplete: {
             tasks: {
                 sendEmail: {
