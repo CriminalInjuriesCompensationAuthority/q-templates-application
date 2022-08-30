@@ -122,7 +122,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-treatment'
+                    target: 'p-applicant-affect-on-daily-life-dmi'
                 }
             ]
         }

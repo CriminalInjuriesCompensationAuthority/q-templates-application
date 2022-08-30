@@ -76,6 +76,14 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-treatment',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
+                        false
+                    ]
+                },
+                {
                     target: 'p--context-special-expenses'
                 }
             ]
