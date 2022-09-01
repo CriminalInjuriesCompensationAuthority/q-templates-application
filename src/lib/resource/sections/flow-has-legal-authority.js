@@ -70,7 +70,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'main-applicant-details'
+                            theme: 'about-application'
                         },
                         summary: {
                             // prettier-ignore
