@@ -570,10 +570,6 @@ module.exports = {
             l10n: {
                 vars: {
                     lng: 'en',
-                    context: {
-                        $data:
-                            '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                    },
                     ns: 'theme'
                 },
                 translations: [
@@ -581,21 +577,48 @@ module.exports = {
                         language: 'en',
                         namespace: 'theme',
                         resources: {
-                            applicant_details: {
-                                title: 'Your details',
-                                'title_someone-else': 'Victim details'
+                            'applicant-details': {
+                                title: {
+                                    adult: {
+                                        capable: 'Your details'
+                                    },
+                                    proxy: 'Victim details'
+                                }
                             },
                             injuries: {
-                                title: 'Your injuries',
-                                'title_someone-else': "The victim's injuries"
+                                title: {
+                                    adult: {
+                                        capable: 'Your injuries'
+                                    },
+                                    proxy: "The victim's injuries"
+                                }
                             },
-                            mental_health: {
-                                title: 'Your mental health',
-                                'title_someone-else': "The victim's mental health"
+                            'mental-health': {
+                                title: {
+                                    adult: {
+                                        capable: 'Your mental health'
+                                    },
+                                    proxy: "The victim's mental health"
+                                }
                             },
                             treatment: {
-                                title: 'Your treatment',
-                                'title_someone-else': "The victim's treatment"
+                                title: {
+                                    adult: {
+                                        capable: 'Your treatment'
+                                    },
+                                    proxy: "The victim's treatment"
+                                }
+                            },
+                            'main-applicant-details': {
+                                title: {
+                                    rep: {
+                                        child: 'Person with authority to apply',
+                                        adult: {
+                                            incapable: 'Person with authority to apply'
+                                        }
+                                    },
+                                    proxy: 'Your details'
+                                }
                             }
                         }
                     }
@@ -606,7 +629,13 @@ module.exports = {
                     title: 'About your application'
                 },
                 'applicant-details': {
-                    title: 'l10nt:applicant_details.title{?lng,context,ns}'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'applicant-details.title.proxy',
+                        ['|role.all', 'adult', 'capable'],
+                        'applicant-details.title.adult.capable'
+                    ]
                 },
                 crime: {
                     title: 'About the crime'
@@ -615,13 +644,25 @@ module.exports = {
                     title: 'About the offender'
                 },
                 injuries: {
-                    title: 'l10nt:injuries.title{?lng,context,ns}'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'injuries.title.proxy',
+                        ['|role.all', 'adult', 'capable'],
+                        'injuries.title.adult.capable'
+                    ]
                 },
                 pregnancy: {
                     title: 'Pregnancy'
                 },
                 'mental-health': {
-                    title: 'l10nt:mental_health.title{?lng,context,ns}'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'mental-health.title.proxy',
+                        ['|role.all', 'adult', 'capable'],
+                        'mental-health.title.adult.capable'
+                    ]
                 },
                 impact: {
                     title: 'The impact the injuries have had'
@@ -630,7 +671,13 @@ module.exports = {
                     title: 'Special expenses'
                 },
                 treatment: {
-                    title: 'l10nt:treatment.title{?lng,context,ns}'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'treatment.title.proxy',
+                        ['|role.all', 'adult', 'capable'],
+                        'treatment.title.adult.capable'
+                    ]
                 },
                 'other-compensation': {
                     title: 'Other compensation'
@@ -639,7 +686,15 @@ module.exports = {
                     title: 'Additional information'
                 },
                 'main-applicant-details': {
-                    title: 'Your details'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'rep', 'child'],
+                        'main-applicant-details.title.rep.child',
+                        ['|role.all', 'rep', 'adult', 'incapable'],
+                        'main-applicant-details.title.rep.adult.incapable',
+                        ['|role.all', 'proxy'],
+                        'main-applicant-details.title.proxy'
+                    ]
                 },
                 'rep-details': {
                     title: 'Your details'
@@ -795,10 +850,25 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
+                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', false],
+                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
+                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
+                        ],
+                        // ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                        [
+                            'and',
+                            ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
+                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', true]
                         ]
                     ],
