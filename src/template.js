@@ -170,7 +170,7 @@ const downloadAnswers = require('./lib/resource/sections/download-your-answers')
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '8.0.2',
+    version: '8.0.4',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
