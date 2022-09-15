@@ -115,6 +115,30 @@ module.exports = {
                             false
                         ],
                         [
+                            'and',
+                            [
+                                '==',
+                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                                'someone-else'
+                            ],
+                            [
+                                '==',
+                                '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                false
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-applicant-affect-on-daily-life-dmi',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
+                            false
+                        ],
+                        [
                             '==',
                             '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
                             'someone-else'
