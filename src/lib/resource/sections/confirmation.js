@@ -53,7 +53,7 @@ module.exports = {
                                       iconFallbackText: "Warning"
                                     }) }}
                                     <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                    <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                    <p class="govuk-body">You should send us any updates using our contact form.</p>
                                     <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                     <ul class="govuk-list govuk-list--bullet">
                                         <li>your contact or personal details change</li>
@@ -130,7 +130,7 @@ module.exports = {
                                         iconFallbackText: "Warning"
                                         }) }}
                                         <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                        <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                        <p class="govuk-body">You should send us any updates using our contact form.</p>
                                         <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>your contact or personal details change</li>
@@ -212,7 +212,7 @@ module.exports = {
                                         iconFallbackText: "Warning"
                                         }) }}
                                         <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                        <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                        <p class="govuk-body">You should send us any updates using our contact form.</p>
                                         <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>your contact or personal details change</li>
@@ -274,7 +274,7 @@ module.exports = {
                                             iconFallbackText: "Warning"
                                             }) }}
                                             <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                            <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                            <p class="govuk-body">You should send us any updates using our contact form.</p>
                                             <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                             <ul class="govuk-list govuk-list--bullet">
                                                 <li>your contact or personal details change</li>
@@ -350,7 +350,7 @@ module.exports = {
                                             iconFallbackText: "Warning"
                                             }) }}
                                             <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                            <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                            <p class="govuk-body">You should send us any updates using our contact form.</p>
                                             <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                             <ul class="govuk-list govuk-list--bullet">
                                                 <li>your contact or personal details change</li>
@@ -434,7 +434,7 @@ module.exports = {
                                         iconFallbackText: "Warning"
                                         }) }}
                                         <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                        <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                        <p class="govuk-body">You should send us any updates using our contact form.</p>
                                         <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>your contact or personal details change</li>
@@ -511,7 +511,7 @@ module.exports = {
                                         iconFallbackText: "Warning"
                                         }) }}
                                         <h2 class="govuk-heading-m">Sending updated information about your application</h2>
-                                        <p class="govuk-body">You should send us any updates using our contact form. If we need more information, we'll contact you within 10 days.</p>
+                                        <p class="govuk-body">You should send us any updates using our contact form.</p>
                                         <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>your contact or personal details change</li>
