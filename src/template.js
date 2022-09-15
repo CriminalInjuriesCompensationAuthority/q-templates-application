@@ -710,80 +710,254 @@ module.exports = {
     meta: {
         questionnaireDocumentVersion: '4.2.0',
         onComplete: {
-            tasks: {
-                sendEmail: {
+            actions: [
+                {
+                    description: 'Confirmation email - applicant:adult',
                     type: 'sendEmail',
-                    l10n: {
-                        vars: {
-                            lng: 'en',
-                            context: {
-                                $data:
-                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                            },
-                            ns: 'notification-confirmation'
-                        },
-                        translations: [
-                            {
-                                language: 'en',
-                                namespace: 'notification-confirmation',
-                                resources: {
-                                    templateId: '0a8224c3-9600-4d14-9491-72609dc1dece',
-                                    'templateId_someone-else':
-                                        'b4b08849-c56f-4e82-9f8a-14ab2a50f607',
-                                    emailAddress:
-                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
-                                    'emailAddress_someone-else':
-                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||'
-                                }
-                            }
-                        ]
-                    },
+                    // prettier-ignore
+                    cond: ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                     data: {
-                        templateId: 'l10nt:templateId{?lng,context,ns}',
-                        emailAddress: 'l10nt:emailAddress{?lng,context,ns}',
+                        templateId: '5d207246-99d7-4bb9-83e1-75a7847bb8fd',
+                        emailAddress:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
-                        reference: null // required for notify api
+                        reference: null
                     }
                 },
-                sendSms: {
-                    type: 'sendSms',
-                    l10n: {
-                        vars: {
-                            lng: 'en',
-                            context: {
-                                $data:
-                                    '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                            },
-                            ns: 'notification-confirmation'
-                        },
-                        translations: [
-                            {
-                                language: 'en',
-                                namespace: 'notification-confirmation',
-                                resources: {
-                                    templateId: '0905cf29-054a-4650-9044-a58768fd9381',
-                                    'templateId_someone-else':
-                                        'c2f8f580-3214-4144-bab1-1bbb30863deb',
-                                    phoneNumber:
-                                        '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
-                                    'phoneNumber_someone-else':
-                                        '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||'
-                                }
-                            }
-                        ]
-                    },
+                {
+                    description: 'Confirmation email - mainapplicant.applicant:adult:incapable',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable']
+                    ],
                     data: {
-                        templateId: 'l10nt:templateId{?lng,context,ns}',
-                        phoneNumber: 'l10nt:phoneNumber{?lng,context,ns}',
+                        templateId: '80843f77-a68c-4d7a-b3c9-42fd0de271c2',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
-                        reference: null // required for notify api
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - mainapplicant.applicant:child',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'mainapplicant', 'child']
+                    ],
+                    data: {
+                        templateId: '668fac4a-3e1c-40e7-b7ac-090a410fbb03',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.applicant:adult:capable',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'adult', 'capable']
+                    ],
+                    data: {
+                        templateId: 'b21f1aa7-cc16-41e7-8b8e-5c69e52f21f9',
+                        emailAddress:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.mainapplicant.applicant:adult:incapable',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority']
+                    ],
+                    data: {
+                        templateId: 'a6583a82-51ca-4f8e-b8b8-cbca763dc59a',
+                        emailAddress:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.mainapplicant.applicant:child',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'child']
+                    ],
+                    data: {
+                        templateId: 'a0c7b011-b0df-4645-8ce3-6bd8f7905dfc',
+                        emailAddress:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep:no-legal-authority.applicant',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'noauthority']
+                    ],
+                    data: {
+                        templateId: 'fb865d9c-37b1-4077-b519-aacfe42c9951',
+                        emailAddress:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - applicant:adult',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                    data: {
+                        templateId: '3f1a741b-20de-4b0d-b8e8-224098291beb',
+                        phoneNumber:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - mainapplicant.applicant:adult:incapable',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable']
+                    ],
+                    data: {
+                        templateId: '3e625f9f-75c4-4903-818e-220829bfc2af',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - mainapplicant.applicant:child',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'mainapplicant', 'child']
+                    ],
+                    data: {
+                        templateId: 'd2185426-2177-4049-a5b1-b9c6b12e1a79',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.applicant:adult:capable',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'adult', 'capable']
+                    ],
+                    data: {
+                        templateId: 'b51e5e19-f469-4f8a-a5a2-00499da6f027',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.mainapplicant.applicant:adult:incapable',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority']
+                    ],
+                    data: {
+                        templateId: '94a82598-6f6b-4ad0-abc3-ad3a157eb4a3',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.mainapplicant.applicant:child',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'child']
+                    ],
+                    data: {
+                        templateId: '38047478-4b70-4add-b06c-62c7d93e8a23',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep:no-legal-authority.applicant',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'noauthority']
+                    ],
+                    data: {
+                        templateId: '29674076-46ba-4150-adf0-5215c8fe8aa9',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
                     }
                 }
-            }
+            ]
         },
         attributes: {'q-applicant-physical-injuries': {title: 'What was injured?'}}
     },
@@ -924,6 +1098,20 @@ module.exports = {
                         ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'myself']
                     ],
                     examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            authority: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Legal authority role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['or',
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true],
+                        ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
+                    ],
+                    examples: [true, false],
                     invalidExamples: [{}]
                 }
             }
