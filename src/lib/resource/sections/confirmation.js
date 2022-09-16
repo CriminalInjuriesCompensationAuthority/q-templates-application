@@ -455,7 +455,7 @@ module.exports = {
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
-                                    noAuthority: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
+                                    noauthority: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -554,8 +554,8 @@ module.exports = {
                         'confirmation.description.mainapplicant.child',
                         ['|role.all', 'rep', 'adult', 'capable'],
                         'confirmation.description.rep.adult.capable',
-                        ['|role.all', 'rep', 'noAuthority'],
-                        'confirmation.description.rep.noAuthority',
+                        ['|role.all', 'rep', 'noauthority'],
+                        'confirmation.description.rep.noauthority',
                         ['|role.all', 'rep', 'adult', 'incapable'],
                         'confirmation.description.rep.adult.incapable',
                         ['|role.all', 'rep', 'child'],

@@ -148,7 +148,7 @@ module.exports = {
                 {
                     target: 'p--context-rep-details',
                     // prettier-ignore
-                    // NoAuthority role
+                    // noauthority role
                     cond: ['and',
                         ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
                         ['==', '$.answers.q-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
