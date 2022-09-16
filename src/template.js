@@ -706,7 +706,7 @@ module.exports = {
         }
     },
     meta: {
-        questionnaireDocumentVersion: '4.1.0',
+        questionnaireDocumentVersion: '4.2.0',
         onComplete: {
             tasks: {
                 sendEmail: {
@@ -883,7 +883,7 @@ module.exports = {
                     invalidExamples: [{}]
                 }
             },
-            noAuthority: {
+            noauthority: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
                     title: 'no authority role',
