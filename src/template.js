@@ -367,7 +367,9 @@ module.exports = {
         summary: [
             'p-applicant-declaration',
             'p-mainapplicant-declaration-under-12',
-            'p-mainapplicant-declaration-12-and-over'
+            'p-mainapplicant-declaration-12-and-over',
+            'p-rep-declaration-under-12',
+            'p-rep-declaration-12-and-over'
         ],
         confirmation: 'p--confirmation',
         states: {
