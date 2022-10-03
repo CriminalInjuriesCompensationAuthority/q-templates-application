@@ -78,9 +78,17 @@ module.exports = {
                 {
                     target: 'p--context-treatment',
                     cond: [
-                        '==',
-                        '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
-                        false
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                            'myself'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
+                            false
+                        ]
                     ]
                 },
                 {
