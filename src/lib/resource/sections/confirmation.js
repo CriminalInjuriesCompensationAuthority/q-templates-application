@@ -267,7 +267,7 @@ module.exports = {
                                                 <li>make a decision</li>
                                                 <li>send our decision letter by post</li>
                                             </ul>
-                                            <p class="govuk-body">We aim to make a decision within 12 months but it can take longer. We may have to wait until there’s enough information about your injuries and recovery.</p>
+                                            <p class="govuk-body">We aim to make a decision within 12 months but it can take longer. We may have to wait until there’s enough information about the victim’s injuries and recovery.</p>
                                             <p class="govuk-body">Read our <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Customer Charter</a></p>
                                             {{ govukWarningText({
                                             text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",
