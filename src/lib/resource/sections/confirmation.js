@@ -237,7 +237,7 @@ module.exports = {
                                 rep: {
                                     adult: {
                                         capable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||" %}
+                                            {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
@@ -296,7 +296,7 @@ module.exports = {
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                         incapable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||" %}
+                                            {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
@@ -373,7 +373,7 @@ module.exports = {
                                         `
                                     },
                                     child: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||" %}
+                                        {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
@@ -456,7 +456,7 @@ module.exports = {
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
                                     noauthority: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||" %}
+                                        {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}

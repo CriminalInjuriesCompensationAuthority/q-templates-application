@@ -8,7 +8,7 @@ module.exports = {
             propertyNames: {
                 enum: [
                     'q-rep-confirmation-method',
-                    'q-rep-enter-your-email-address',
+                    'q-rep-email-address',
                     'q-rep-enter-your-telephone-number'
                 ]
             },
@@ -39,7 +39,7 @@ module.exports = {
                         }
                     }
                 },
-                'q-rep-enter-your-email-address': {
+                'q-rep-email-address': {
                     type: 'string',
                     title: 'Email address',
                     maxLength: 50,
@@ -75,7 +75,7 @@ module.exports = {
             required: ['q-rep-confirmation-method'],
             allOf: [
                 {
-                    $ref: '#/definitions/if-email-then-q-rep-enter-your-email-address-is-required'
+                    $ref: '#/definitions/if-email-then-q-rep-email-address-is-required'
                 },
                 {
                     $ref: '#/definitions/if-text-then-q-rep-enter-your-telephone-number-is-required'
@@ -85,7 +85,7 @@ module.exports = {
                 }
             ],
             definitions: {
-                'if-email-then-q-rep-enter-your-email-address-is-required': {
+                'if-email-then-q-rep-email-address-is-required': {
                     if: {
                         properties: {
                             'q-rep-confirmation-method': {
@@ -95,13 +95,13 @@ module.exports = {
                         required: ['q-rep-confirmation-method']
                     },
                     then: {
-                        required: ['q-rep-enter-your-email-address'],
+                        required: ['q-rep-email-address'],
                         propertyNames: {
-                            enum: ['q-rep-confirmation-method', 'q-rep-enter-your-email-address']
+                            enum: ['q-rep-confirmation-method', 'q-rep-email-address']
                         },
                         errorMessage: {
                             required: {
-                                'q-rep-enter-your-email-address': 'Enter an email address'
+                                'q-rep-email-address': 'Enter an email address'
                             }
                         }
                     }
@@ -160,7 +160,7 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'email',
-                    'q-rep-enter-your-email-address': 'foo@bar.com'
+                    'q-rep-email-address': 'foo@bar.com'
                 },
                 {
                     'q-rep-confirmation-method': 'text',
@@ -170,7 +170,7 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-rep-confirmation-method': 'none',
-                    'q-rep-enter-your-email-address': 'foo@bar.com'
+                    'q-rep-email-address': 'foo@bar.com'
                 },
                 {
                     'q-rep-confirmation-method': 'none',
@@ -188,11 +188,11 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-email-address': 'foo@bar.com'
+                    'q-rep-email-address': 'foo@bar.com'
                 },
                 {
                     'q-rep-confirmation-method': 'email',
-                    'q-rep-enter-your-email-address': 'not an email address'
+                    'q-rep-email-address': 'not an email address'
                 },
                 {
                     'q-rep-confirmation-method': 'text',
@@ -210,19 +210,19 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': true,
-                    'q-rep-enter-your-email-address': true
+                    'q-rep-email-address': true
                 },
                 {
                     'q-rep-confirmation-method': 'none',
-                    'q-rep-enter-your-email-address': ['something']
+                    'q-rep-email-address': ['something']
                 },
                 {
                     'q-rep-confirmation-method': 'none',
-                    'q-rep-enter-your-email-address': 123
+                    'q-rep-email-address': 123
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-email-address': true
+                    'q-rep-email-address': true
                 },
                 {
                     'q-rep-confirmation-method': 'text',

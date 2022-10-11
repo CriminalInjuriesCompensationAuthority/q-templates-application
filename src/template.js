@@ -772,8 +772,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'b21f1aa7-cc16-41e7-8b8e-5c69e52f21f9',
-                        emailAddress:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -790,8 +789,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'a6583a82-51ca-4f8e-b8b8-cbca763dc59a',
-                        emailAddress:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -808,8 +806,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'a0c7b011-b0df-4645-8ce3-6bd8f7905dfc',
-                        emailAddress:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -826,8 +823,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'fb865d9c-37b1-4077-b519-aacfe42c9951',
-                        emailAddress:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-email-address||',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
