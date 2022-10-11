@@ -5,10 +5,10 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-can-handle-affairs'],
+            required: ['q-applicant-capable'],
             additionalProperties: false,
             properties: {
-                'q-applicant-can-handle-affairs': {
+                'q-applicant-capable': {
                     type: 'boolean',
                     title: 'Are they able to handle their affairs?',
                     description:
@@ -35,21 +35,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-can-handle-affairs':
-                        'Select yes if they are able to handle their affairs'
+                    'q-applicant-capable': 'Select yes if they are able to handle their affairs'
                 }
             },
             examples: [
                 {
-                    'q-applicant-can-handle-affairs': true
+                    'q-applicant-capable': true
                 },
                 {
-                    'q-applicant-can-handle-affairs': false
+                    'q-applicant-capable': false
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-can-handle-affairs': 'foo'
+                    'q-applicant-capable': 'foo'
                 }
             ]
         }
