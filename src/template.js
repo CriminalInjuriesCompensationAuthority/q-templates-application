@@ -1052,7 +1052,7 @@ module.exports = {
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
                             ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', true]
+                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true]
                         ]
                     ],
                     examples: [{}],
@@ -1068,7 +1068,7 @@ module.exports = {
                     const:
                         ['and',
                             ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
@@ -1082,7 +1082,7 @@ module.exports = {
                     title: 'incapable role',
                     type: 'boolean',
                     // prettier-ignore
-                    const:  ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', false],
+                    const:  ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                     examples: [{}],
                     invalidExamples: [{}]
                 }
@@ -1094,7 +1094,7 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs', true],
+                        ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true],
                         ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'myself']
                     ],
                     examples: [{}],

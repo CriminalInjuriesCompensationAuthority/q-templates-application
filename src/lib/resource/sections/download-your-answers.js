@@ -51,7 +51,7 @@ module.exports = {
                                 'and',
                                 [
                                     '==',
-                                    '$.answers.p-applicant-can-handle-affairs.q-applicant-can-handle-affairs',
+                                    '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
                                     false
                                 ],
                                 [
