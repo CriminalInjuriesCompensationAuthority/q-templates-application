@@ -236,7 +236,7 @@ module.exports = {
                                 },
                                 rep: {
                                     adult: {
-                                        capable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
+                                        capable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
@@ -295,7 +295,7 @@ module.exports = {
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                        incapable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
+                                        incapable: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
@@ -372,7 +372,7 @@ module.exports = {
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
                                     },
-                                    child: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
+                                    child: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -455,7 +455,7 @@ module.exports = {
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
-                                    noauthority: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||" %}
+                                    noauthority: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
