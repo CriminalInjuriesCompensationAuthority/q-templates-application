@@ -6,11 +6,7 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             propertyNames: {
-                enum: [
-                    'q-rep-confirmation-method',
-                    'q-rep-email-address',
-                    'q-rep-enter-your-telephone-number'
-                ]
+                enum: ['q-rep-confirmation-method', 'q-rep-email-address', 'q-rep-telephone-number']
             },
             properties: {
                 'q-rep-confirmation-method': {
@@ -55,7 +51,7 @@ module.exports = {
                         }
                     }
                 },
-                'q-rep-enter-your-telephone-number': {
+                'q-rep-telephone-number': {
                     type: 'string',
                     title: 'UK mobile phone number',
                     maxLength: 20,
@@ -78,7 +74,7 @@ module.exports = {
                     $ref: '#/definitions/if-email-then-q-rep-email-address-is-required'
                 },
                 {
-                    $ref: '#/definitions/if-text-then-q-rep-enter-your-telephone-number-is-required'
+                    $ref: '#/definitions/if-text-then-q-rep-telephone-number-is-required'
                 },
                 {
                     $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
@@ -106,7 +102,7 @@ module.exports = {
                         }
                     }
                 },
-                'if-text-then-q-rep-enter-your-telephone-number-is-required': {
+                'if-text-then-q-rep-telephone-number-is-required': {
                     if: {
                         properties: {
                             'q-rep-confirmation-method': {
@@ -116,14 +112,13 @@ module.exports = {
                         required: ['q-rep-confirmation-method']
                     },
                     then: {
-                        required: ['q-rep-enter-your-telephone-number'],
+                        required: ['q-rep-telephone-number'],
                         propertyNames: {
-                            enum: ['q-rep-confirmation-method', 'q-rep-enter-your-telephone-number']
+                            enum: ['q-rep-confirmation-method', 'q-rep-telephone-number']
                         },
                         errorMessage: {
                             required: {
-                                'q-rep-enter-your-telephone-number':
-                                    'Enter a UK mobile phone number'
+                                'q-rep-telephone-number': 'Enter a UK mobile phone number'
                             }
                         }
                     }
@@ -164,7 +159,7 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-telephone-number': '07701 234567'
+                    'q-rep-telephone-number': '07701 234567'
                 }
             ],
             invalidExamples: [
@@ -174,7 +169,7 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'none',
-                    'q-rep-enter-your-telephone-number': '07701 234567'
+                    'q-rep-telephone-number': '07701 234567'
                 },
                 {
                     'q-rep-confirmation-method': 'email'
@@ -184,7 +179,7 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'email',
-                    'q-rep-enter-your-telephone-number': '07701 234567'
+                    'q-rep-telephone-number': '07701 234567'
                 },
                 {
                     'q-rep-confirmation-method': 'text',
@@ -196,11 +191,11 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-telephone-number': 'not a UK mobile phone number'
+                    'q-rep-telephone-number': 'not a UK mobile phone number'
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-telephone-number': '0141 420 5000'
+                    'q-rep-telephone-number': '0141 420 5000'
                 },
                 {
                     'q-rep-confirmation-method': 10
@@ -226,11 +221,11 @@ module.exports = {
                 },
                 {
                     'q-rep-confirmation-method': 'text',
-                    'q-rep-enter-your-telephone-number': 123
+                    'q-rep-telephone-number': 123
                 },
                 {
                     'q-rep-confirmation-method': 'email',
-                    'q-rep-enter-your-telephone-number': false
+                    'q-rep-telephone-number': false
                 }
             ]
         }

@@ -892,7 +892,7 @@ module.exports = {
                     data: {
                         templateId: 'b51e5e19-f469-4f8a-a5a2-00499da6f027',
                         phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -910,7 +910,7 @@ module.exports = {
                     data: {
                         templateId: '94a82598-6f6b-4ad0-abc3-ad3a157eb4a3',
                         phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -928,7 +928,7 @@ module.exports = {
                     data: {
                         templateId: '38047478-4b70-4add-b06c-62c7d93e8a23',
                         phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -946,7 +946,7 @@ module.exports = {
                     data: {
                         templateId: '29674076-46ba-4150-adf0-5215c8fe8aa9',
                         phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-enter-your-telephone-number||',
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
