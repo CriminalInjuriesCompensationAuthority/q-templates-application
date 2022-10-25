@@ -57,7 +57,7 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
-                    description: 'For example, 31 3 1980.',
+                    description: 'For example, 31 12 1989.',
                     errorMessage: {
                         format:
                             'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}'
