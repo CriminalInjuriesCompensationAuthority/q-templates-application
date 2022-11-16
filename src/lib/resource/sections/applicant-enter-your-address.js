@@ -61,6 +61,7 @@ module.exports = {
                         enum: [
                             'q-applicant-building-and-street',
                             'q-applicant-building-and-street-2',
+                            'q-applicant-building-and-street-3',
                             'q-applicant-town-or-city',
                             'q-applicant-county',
                             'q-applicant-postcode'
@@ -94,6 +95,24 @@ module.exports = {
                                     errorMessage: {
                                         maxLength:
                                             'Second line of address must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'applicant-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-building-and-street-3': {
+                                    type: 'string',
+                                    title: 'Building and street line 3',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Third line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -169,6 +188,7 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': '1 Foo Lane',
                     'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
@@ -178,6 +198,7 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': 12345,
                     'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
@@ -185,6 +206,7 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': '1 Foo Lane',
                     'q-applicant-building-and-street-2': 12345,
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
@@ -192,6 +214,15 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': '1 Foo Lane',
                     'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 12345,
+                    'q-applicant-town-or-city': 'FooCity',
+                    'q-applicant-county': 'FooCounty',
+                    'q-applicant-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-building-and-street': '1 Foo Lane',
+                    'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 12345,
                     'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
@@ -199,6 +230,7 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': '1 Foo Lane',
                     'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-county': 12345,
                     'q-applicant-postcode': 'G1 1XX'
@@ -206,6 +238,7 @@ module.exports = {
                 {
                     'q-applicant-building-and-street': '1 Foo Lane',
                     'q-applicant-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 12345
