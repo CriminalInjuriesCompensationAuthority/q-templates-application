@@ -16,8 +16,8 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-enter-your-address',
                     resources: {
-                        title: 'Enter your address',
-                        'title_someone-else': 'Enter their address',
+                        title: 'What is your address?',
+                        'title_someone-else': 'What is their address?',
                         'q-applicant-building-and-street': {
                             error: {
                                 required: 'Enter the building and street where you live',
