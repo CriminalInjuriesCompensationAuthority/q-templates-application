@@ -25,7 +25,7 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
-                    description: 'For example, 28 2 2020. You can enter an approximate date.',
+                    description: 'For example, 31 12 2022. You can enter an approximate date.',
                     errorMessage: {
                         format:
                             'Enter the date the crime was reported to police and include a day, month and year'
