@@ -15,14 +15,16 @@ module.exports = {
                         }
                     },
                     required: [
+                        'q-gp-organisation-name',
                         'q-gp-building-and-street',
-                        'q-gp-town-or-city',
-                        'q-gp-building-and-street2'
+                        'q-gp-town-or-city'
                     ],
                     propertyNames: {
                         enum: [
+                            'q-gp-organisation-name',
                             'q-gp-building-and-street',
-                            'q-gp-building-and-street2',
+                            'q-gp-building-and-street-2',
+                            'q-gp-building-and-street-3',
                             'q-gp-town-or-city',
                             'q-gp-county',
                             'q-gp-postcode'
@@ -31,7 +33,7 @@ module.exports = {
                     allOf: [
                         {
                             properties: {
-                                'q-gp-building-and-street': {
+                                'q-gp-organisation-name': {
                                     type: 'string',
                                     title: 'Practice name',
                                     maxLength: 60,
@@ -48,13 +50,49 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-gp-building-and-street2': {
+                                'q-gp-building-and-street': {
                                     type: 'string',
                                     title: 'Building and street',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
+                                            'First line of address must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-gp-building-and-street-2': {
+                                    type: 'string',
+                                    title: 'Building and street line 2',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
                                             'Building and street must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-gp-building-and-street-3': {
+                                    type: 'string',
+                                    title: 'Building and street line 3',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Third line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -118,8 +156,8 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-gp-building-and-street': "Enter the name of the GP's practice",
-                            'q-gp-building-and-street2': 'Enter the building and street of the GP',
+                            'q-gp-organisation-name': "Enter the name of the GP's practice",
+                            'q-gp-building-and-street': 'Enter the building and street of the GP',
                             'q-gp-town-or-city': "Enter the town or city where the GP's practice is"
                         }
                     }
@@ -127,8 +165,10 @@ module.exports = {
             ],
             examples: [
                 {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': '1 Foo Lane',
-                    'q-gp-building-and-street2': 'Flat 2/3',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-county': 'FooCounty',
                     'q-gp-postcode': 'G1 1XX'
@@ -136,36 +176,64 @@ module.exports = {
             ],
             invalidExamples: [
                 {
+                    'q-gp-organisation-name': 12345,
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': 12345,
-                    'q-gp-building-and-street2': 'Flat 2/3',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-county': 'FooCounty',
                     'q-gp-postcode': 'G1 1XX'
                 },
                 {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': '1 Foo Lane',
-                    'q-gp-building-and-street2': 12345,
+                    'q-gp-building-and-street-2': 12345,
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-county': 'FooCounty',
                     'q-gp-postcode': 'G1 1XX'
                 },
                 {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': '1 Foo Lane',
-                    'q-gp-building-and-street2': 'Flat 2/3',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 12345,
+                    'q-gp-town-or-city': 'FooCity',
+                    'q-gp-county': 'FooCounty',
+                    'q-gp-postcode': 'G1 1XX'
+                },
+                {
+                    'q-gp-organisation-name': 'GP Practice Name',
+                    'q-gp-building-and-street': '1 Foo Lane',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 12345,
                     'q-gp-county': 'FooCounty',
                     'q-gp-postcode': 'G1 1XX'
                 },
                 {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': '1 Foo Lane',
-                    'q-gp-building-and-street2': 'Flat 2/3',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-county': 12345,
                     'q-gp-postcode': 'G1 1XX'
                 },
                 {
+                    'q-gp-organisation-name': 'GP Practice Name',
                     'q-gp-building-and-street': '1 Foo Lane',
-                    'q-gp-building-and-street2': 'Flat 2/3',
+                    'q-gp-building-and-street-2': 'Flat 2/3',
+                    'q-gp-building-and-street-3': 'FooLocality',
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-county': 'FooCounty',
                     'q-gp-postcode': 12345
