@@ -15,14 +15,16 @@ module.exports = {
                         }
                     },
                     required: [
+                        'q-applicant-dentist-organisation-name',
                         'q-applicant-dentist-address-building-and-street',
-                        'q-applicant-dentist-address-town-or-city',
-                        'q-applicant-dentist-address-building-and-street2'
+                        'q-applicant-dentist-address-town-or-city'
                     ],
                     propertyNames: {
                         enum: [
+                            'q-applicant-dentist-organisation-name',
                             'q-applicant-dentist-address-building-and-street',
-                            'q-applicant-dentist-address-building-and-street2',
+                            'q-applicant-dentist-address-building-and-street-2',
+                            'q-applicant-dentist-address-building-and-street-3',
                             'q-applicant-dentist-address-town-or-city',
                             'q-applicant-dentist-address-county',
                             'q-applicant-dentist-address-postcode'
@@ -31,7 +33,7 @@ module.exports = {
                     allOf: [
                         {
                             properties: {
-                                'q-applicant-dentist-address-building-and-street': {
+                                'q-applicant-dentist-organisation-name': {
                                     type: 'string',
                                     title: 'Practice name',
                                     maxLength: 60,
@@ -48,13 +50,49 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-applicant-dentist-address-building-and-street2': {
+                                'q-applicant-dentist-address-building-and-street': {
                                     type: 'string',
                                     title: 'Building and street',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be 32 characters or less'
+                                            'First line of address must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-dentist-address-building-and-street-2': {
+                                    type: 'string',
+                                    title: 'Building and street line 2',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Second line of address must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-dentist-address-building-and-street-3': {
+                                    type: 'string',
+                                    title: 'Building and street line 3',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Third line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -118,9 +156,9 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-dentist-address-building-and-street':
+                            'q-applicant-dentist-organisation-name':
                                 "Enter the name of the dentist's practice",
-                            'q-applicant-dentist-address-building-and-street2':
+                            'q-applicant-dentist-address-building-and-street':
                                 'Enter the building and street of the dentist',
                             'q-applicant-dentist-address-town-or-city':
                                 "Enter the town or city where the dentist's practice is"
@@ -130,8 +168,10 @@ module.exports = {
             ],
             examples: [
                 {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
@@ -139,36 +179,64 @@ module.exports = {
             ],
             invalidExamples: [
                 {
+                    'q-applicant-dentist-organisation-name': 12345,
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': 12345,
-                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street2': 12345,
+                    'q-applicant-dentist-address-building-and-street-2': 12345,
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 12345,
+                    'q-applicant-dentist-address-town-or-city': 'FooCity',
+                    'q-applicant-dentist-address-county': 'FooCounty',
+                    'q-applicant-dentist-address-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
+                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 12345,
                     'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-county': 12345,
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
                     'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 12345
