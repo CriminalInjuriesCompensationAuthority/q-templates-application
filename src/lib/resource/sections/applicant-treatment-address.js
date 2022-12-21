@@ -35,14 +35,16 @@ module.exports = {
                         }
                     },
                     required: [
+                        'q-applicant-treatment-organisation-name',
                         'q-applicant-treatment-building-and-street',
-                        'q-applicant-treatment-town-or-city',
-                        'q-applicant-treatment-building-and-street2'
+                        'q-applicant-treatment-town-or-city'
                     ],
                     propertyNames: {
                         enum: [
+                            'q-applicant-treatment-organisation-name',
                             'q-applicant-treatment-building-and-street',
-                            'q-applicant-treatment-building-and-street2',
+                            'q-applicant-treatment-building-and-street-2',
+                            'q-applicant-treatment-building-and-street-3',
                             'q-applicant-treatment-town-or-city',
                             'q-applicant-treatment-county',
                             'q-applicant-treatment-postcode'
@@ -51,7 +53,7 @@ module.exports = {
                     allOf: [
                         {
                             properties: {
-                                'q-applicant-treatment-building-and-street': {
+                                'q-applicant-treatment-organisation-name': {
                                     type: 'string',
                                     title: 'Name of place',
                                     maxLength: 60,
@@ -68,13 +70,49 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-applicant-treatment-building-and-street2': {
+                                'q-applicant-treatment-building-and-street': {
                                     type: 'string',
                                     title: 'Address line 1',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be less than 60 characters'
+                                            'First line of address must be less than 32 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-treatment-building-and-street-2': {
+                                    type: 'string',
+                                    title: 'Address line 2',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Second line of address must be less than 32 characters'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-treatment-building-and-street-3': {
+                                    type: 'string',
+                                    title: 'Address line 3',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Third line of address must be less than 32 characters'
                                     },
                                     meta: {
                                         classifications: {
@@ -138,9 +176,9 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-treatment-building-and-street':
+                            'q-applicant-treatment-organisation-name':
                                 'Enter the name of the place',
-                            'q-applicant-treatment-building-and-street2':
+                            'q-applicant-treatment-building-and-street':
                                 'Enter the building and street',
                             'q-applicant-treatment-town-or-city': 'Enter the town or city'
                         }
@@ -149,8 +187,10 @@ module.exports = {
             ],
             examples: [
                 {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
@@ -158,36 +198,64 @@ module.exports = {
             ],
             invalidExamples: [
                 {
+                    'q-applicant-treatment-organisation-name': 12345,
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': 12345,
-                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street2': 12345,
+                    'q-applicant-treatment-building-and-street-2': 12345,
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 12345,
+                    'q-applicant-treatment-town-or-city': 'FooCity',
+                    'q-applicant-treatment-county': 'FooCounty',
+                    'q-applicant-treatment-postcode': 'G1 1XX'
+                },
+                {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
+                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 12345,
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 12345,
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
+                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
                     'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
+                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 12345
