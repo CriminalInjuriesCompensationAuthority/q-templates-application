@@ -22,6 +22,7 @@ module.exports = {
                         enum: [
                             'q-rep-building-and-street',
                             'q-rep-building-and-street-2',
+                            'q-rep-building-and-street-3',
                             'q-rep-town-or-city',
                             'q-rep-county',
                             'q-rep-postcode'
@@ -51,10 +52,28 @@ module.exports = {
                                 'q-rep-building-and-street-2': {
                                     type: 'string',
                                     title: 'Building and street line 2',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Second line of address must be 60 characters or less'
+                                            'Second line of address must be 32 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'rep-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-rep-building-and-street-3': {
+                                    type: 'string',
+                                    title: 'Building and street line 3',
+                                    maxLength: 32,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Second line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -128,6 +147,7 @@ module.exports = {
                 {
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
@@ -137,6 +157,7 @@ module.exports = {
                 {
                     'q-rep-building-and-street': 12345,
                     'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
@@ -144,6 +165,7 @@ module.exports = {
                 {
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 12345,
+                    'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
@@ -151,6 +173,7 @@ module.exports = {
                 {
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 12345,
                     'q-rep-town-or-city': 12345,
                     'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
@@ -158,6 +181,15 @@ module.exports = {
                 {
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
+                    'q-rep-town-or-city': 'FooCity',
+                    'q-rep-county': 'FooCounty',
+                    'q-rep-postcode': 'G1 1XX'
+                },
+                {
+                    'q-rep-building-and-street': '1 Foo Lane',
+                    'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-county': 12345,
                     'q-rep-postcode': 'G1 1XX'
@@ -165,6 +197,7 @@ module.exports = {
                 {
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 12345
