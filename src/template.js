@@ -159,6 +159,7 @@ const repConfirmationMethod = require('./lib/resource/sections/rep-confirmation-
 const repName = require('./lib/resource/sections/rep-name.js');
 const repOrganisationName = require('./lib/resource/sections/rep-organisation-name.js');
 const repAddress = require('./lib/resource/sections/rep-address.js');
+const repOrganisationAddress = require('./lib/resource/sections/rep-organisation-address.js');
 const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
 const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
@@ -348,6 +349,7 @@ module.exports = {
         'p-rep-name': repName.section,
         'p-rep-organisation-name': repOrganisationName.section,
         'p-rep-address': repAddress.section,
+        'p-rep-organisation-address': repOrganisationAddress.section,
         'p-rep-email-address': repEmailAddress.section,
         'p-rep-telephone-number': repTelephoneNumber.section,
         'p-rep-reference-number': repReferenceNumber.section,
@@ -551,6 +553,7 @@ module.exports = {
             'p-rep-name': repName.route,
             'p-rep-organisation-name': repOrganisationName.route,
             'p-rep-address': repAddress.route,
+            'p-rep-organisation-address': repOrganisationAddress.route,
             'p-rep-email-address': repEmailAddress.route,
             'p-rep-telephone-number': repTelephoneNumber.route,
             'p-rep-reference-number': repReferenceNumber.route,
