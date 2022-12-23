@@ -113,7 +113,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-rep-organisation-name',
+                    target: 'p-rep-organisation-address',
                     cond: [
                         'or',
                         ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
