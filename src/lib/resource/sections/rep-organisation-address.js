@@ -9,7 +9,7 @@ module.exports = {
                 {
                     title: 'Enter your address',
                     meta: {
-                        compositeId: 'rep-address',
+                        compositeId: 'rep-organisation-address',
                         classifications: {
                             theme: 'rep-details'
                         },
@@ -17,9 +17,14 @@ module.exports = {
                             title: 'Your address'
                         }
                     },
-                    required: ['q-rep-building-and-street', 'q-rep-town-or-city'],
+                    required: [
+                        'q-rep-organisation-name',
+                        'q-rep-building-and-street',
+                        'q-rep-town-or-city'
+                    ],
                     propertyNames: {
                         enum: [
+                            'q-rep-organisation-name',
                             'q-rep-building-and-street',
                             'q-rep-building-and-street-2',
                             'q-rep-building-and-street-3',
@@ -29,6 +34,23 @@ module.exports = {
                         ]
                     },
                     allOf: [
+                        {
+                            properties: {
+                                'q-rep-organisation-name': {
+                                    type: 'string',
+                                    title: 'Organisation Name',
+                                    maxLength: 70,
+                                    errorMessage: {
+                                        maxLength: 'Organisation name must be 70 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'rep-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         {
                             properties: {
                                 'q-rep-building-and-street': {
@@ -137,6 +159,8 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
+                            'q-rep-organisation-name':
+                                'Enter the name of the organisation you work for',
                             'q-rep-building-and-street': 'Enter the building and street',
                             'q-rep-town-or-city': 'Enter the town or city'
                         }
@@ -145,6 +169,7 @@ module.exports = {
             ],
             examples: [
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
@@ -155,6 +180,16 @@ module.exports = {
             ],
             invalidExamples: [
                 {
+                    'q-rep-organisation-name': 12345,
+                    'q-rep-building-and-street': '1 Foo Lane',
+                    'q-rep-building-and-street-2': 'Flat 2/3',
+                    'q-rep-building-and-street-3': 'FooLocality',
+                    'q-rep-town-or-city': 'FooCity',
+                    'q-rep-county': 'FooCounty',
+                    'q-rep-postcode': 'G1 1XX'
+                },
+                {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': 12345,
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
@@ -163,6 +198,7 @@ module.exports = {
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 12345,
                     'q-rep-building-and-street-3': 'FooLocality',
@@ -171,6 +207,7 @@ module.exports = {
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 12345,
@@ -179,6 +216,7 @@ module.exports = {
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
@@ -187,6 +225,7 @@ module.exports = {
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
@@ -195,6 +234,7 @@ module.exports = {
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
+                    'q-rep-organisation-name': 'Foo Solictitors',
                     'q-rep-building-and-street': '1 Foo Lane',
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
