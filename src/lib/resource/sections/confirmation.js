@@ -98,7 +98,7 @@ module.exports = {
                                         })}}
                                         <p class="govuk-body">Thank you for submitting this application.</p>
                                         
-                                        <h2 class="govuk-heading-m">Send certified documents to prove you have the legal authority to apply on the victim’s behalf</h2>
+                                        <h2 class="govuk-heading-m">Send certified documents to prove you have the legal authority to act on the victim’s behalf</h2>
                                         <p class="govuk-body">This proof should be a certified copy of a:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>power of attorney document you’re named on</li>
@@ -318,7 +318,7 @@ module.exports = {
                                             })}}
                                             <p class="govuk-body">Thank you for submitting this application.</p>
                                             
-                                            <h2 class="govuk-heading-m">Send certified documents to prove the person with legal authority can apply on the victim’s behalf</h2>
+                                            <h2 class="govuk-heading-m">Send certified documents to prove the person with legal authority can act on the victim’s behalf</h2>
                                             <p class="govuk-body">This proof should be a certified copy of a:</p>
                                             <ul class="govuk-list govuk-list--bullet">
                                                 <li>power of attorney document they’re named on</li>
@@ -477,7 +477,7 @@ module.exports = {
                                         html: html
                                         })}}
                                         <p class="govuk-body">Thank you for submitting this application.</p>
-                                        <h2 class="govuk-heading-m">Send certified documents to prove the person with legal authority can apply on the victim’s behalf</h2>
+                                        <h2 class="govuk-heading-m">Send certified documents to prove who has legal authority to act on the victim’s behalf</h2>
                                         <p class="govuk-body">We understand this might not be confirmed as yet. Unfortunately, we’re unable to progress the application any further until we have these details though. You can send this to us at a later date.</p>
                                         <p class="govuk-body">This proof should be a certified copy of a:</p>
                                         <ul class="govuk-list govuk-list--bullet">
