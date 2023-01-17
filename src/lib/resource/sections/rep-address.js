@@ -34,10 +34,10 @@ module.exports = {
                                 'q-rep-building-and-street': {
                                     type: 'string',
                                     title: 'Building and street',
-                                    maxLength: 60,
+                                    maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be 60 characters or less'
+                                            'Building and street must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -73,7 +73,7 @@ module.exports = {
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Second line of address must be 32 characters or less'
+                                            'Third line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
