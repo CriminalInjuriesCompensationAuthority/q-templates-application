@@ -72,7 +72,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street': {
                                     type: 'string',
-                                    title: 'Address line 1',
+                                    title: 'Building and street',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -90,7 +90,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Address line 2',
+                                    title: 'Building and street line 2',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -108,7 +108,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Address line 3',
+                                    title: 'Building and street line 3',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
