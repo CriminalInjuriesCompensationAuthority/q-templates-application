@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-enter-your-address'
             },
             translations: [
@@ -16,25 +12,31 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-enter-your-address',
                     resources: {
-                        title: 'What is your address?',
-                        'title_someone-else': 'What is their address?',
+                        title: {
+                            myself: 'What is your address?',
+                            proxy: 'What is their address?'
+                        },
                         'q-applicant-building-and-street': {
                             error: {
-                                required: 'Enter the building and street where you live',
-                                'required_someone-else':
-                                    'Enter the building and street where they live'
+                                myself: 'Enter the building and street where you live',
+                                proxy: 'Enter the building and street where they live'
                             }
                         },
                         'q-applicant-town-or-city': {
                             error: {
-                                required: 'Enter the town or city where you live',
-                                'required_someone-else': 'Enter the town or city where they live'
+                                myself: 'Enter the town or city where you live',
+                                proxy: 'Enter the town or city where they live'
                             }
                         },
                         meta: {
                             summary: {
-                                title: 'Your address',
-                                'title_someone-else': "The victim's address"
+                                title: {
+                                    myself: 'Your address',
+                                    proxy: {
+                                        nonDeceased: "The victim's address",
+                                        deceased: "The claimant's address"
+                                    }
+                                }
                             }
                         }
                     }
@@ -46,14 +48,28 @@ module.exports = {
             type: 'object',
             allOf: [
                 {
-                    title: 'l10nt:title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'title.myself',
+                        ['|role.all', 'proxy'],
+                        'title.proxy'
+                    ],
                     meta: {
                         compositeId: 'applicant-address',
                         classifications: {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'meta.summary.title.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'meta.summary.title.proxy.nonDeceased',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'meta.summary.title.proxy.deceased'
+                            ]
                         }
                     },
                     required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
@@ -176,10 +192,24 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-building-and-street':
-                                'l10nt:q-applicant-building-and-street.error.required{?lng,context,ns}',
-                            'q-applicant-town-or-city':
-                                'l10nt:q-applicant-town-or-city.error.required{?lng,context,ns}'
+                            'q-applicant-building-and-street': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-building-and-street.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'q-applicant-building-and-street.error.proxy',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'q-applicant-building-and-street.error.proxy'
+                            ],
+                            'q-applicant-town-or-city': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-town-or-city.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'q-applicant-town-or-city.error.proxy',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'q-applicant-town-or-city.error.proxy'
+                            ]
                         }
                     }
                 }
