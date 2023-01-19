@@ -45,11 +45,24 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        ],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+                {
                     target: 'p--context-rep-details',
                     cond: [
                         'and',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                     ]
                 },
                 {
