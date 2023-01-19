@@ -56,7 +56,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--transition',
+                    target: 'p--context-deceased-details',
                     cond: ['|role.all', 'deceased']
                 },
                 {
