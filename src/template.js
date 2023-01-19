@@ -172,6 +172,32 @@ const downloadAnswers = require('./lib/resource/sections/download-your-answers')
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const owner = require('./lib/resource/sections/owner');
+const contextDeceasedDetails = require('./lib/resource/sections/context-deceased-details.js');
+const deceasedName = require('./lib/resource/sections/deceased-name.js');
+const deceasedDateOfBirth = require('./lib/resource/sections/deceased-date-of-birth.js');
+const deceasedDateOfDeath = require('./lib/resource/sections/deceased-date-of-death.js');
+const deceasedAddress = require('./lib/resource/sections/deceased-address.js');
+const contextFuneralCost = require('./lib/resource/sections/context-funeral-costs.js');
+const applicantFuneralCostsPaid = require('./lib/resource/sections/applicant-funeral-costs-paid.js');
+const applicantFuneralCostsOtherContributor = require('./lib/resource/sections/applicant-funeral-costs-other-contributor');
+const applicantFuneralCostsWhoContributed = require('./lib/resource/sections/applicant-funeral-costs-who-contributed.js');
+const applicantFuneralCostsTotal = require('./lib/resource/sections/applicant-funeral-costs-total.js');
+const contextRelationshipToDeceased = require('./lib/resource/sections/context-relationship-to-deceased.js');
+const applicantRelationshipToDeceased = require('./lib/resource/sections/applicant-relationship-to-deceased.js');
+const applicantLivingTogether = require('./lib/resource/sections/applicant-living-together.js');
+const applicantLivingTogetherDuration = require('./lib/resource/sections/applicant-living-together-duration.js');
+const applicantLivingApart = require('./lib/resource/sections/applicant-living-apart.js');
+const applicantContactWithDeceased = require('./lib/resource/sections/applicant-contact-with-deceased.js');
+const applicantContactMoreDetails = require('./lib/resource/sections/applicant-contact-more-details.js');
+const applicantContactOutOfTouch = require('./lib/resource/sections/applicant-contact-out-of-touch.js');
+const applicantFinancialHelp = require('./lib/resource/sections/applicant-financial-help.js');
+const otherClaimants = require('./lib/resource/sections/other-claimants.js');
+const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-details.js');
+const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
+const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
+const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
+const applicantImmediateAftermath = require('./lib/resource/sections/applicant-immediate-aftermath.js');
+const applicantDisablingMentalInjury = require('./lib/resource/sections/applicant-disabling-mental-injury.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -361,7 +387,34 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        owner: owner.section
+        owner: owner.section,
+        'p--context-deceased-details': contextDeceasedDetails.section,
+        'p-deceased-name': deceasedName.section,
+        'p-deceased-date-of-birth': deceasedDateOfBirth.section,
+        'p-deceased-date-of-death': deceasedDateOfDeath.section,
+        'p-deceased-address': deceasedAddress.section,
+        'p--context-funeral-costs': contextFuneralCost.section,
+        'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.section,
+        'p-applicant-funeral-costs-other-contributor':
+            applicantFuneralCostsOtherContributor.section,
+        'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
+        'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
+        'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
+        'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.section,
+        'p-applicant-living-together': applicantLivingTogether.section,
+        'p-applicant-living-together-duration': applicantLivingTogetherDuration.section,
+        'p-applicant-living-apart': applicantLivingApart.section,
+        'p-applicant-contact-with-deceased': applicantContactWithDeceased.section,
+        'p-applicant-contact-more-details': applicantContactMoreDetails.section,
+        'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.section,
+        'p-applicant-financial-help': applicantFinancialHelp.section,
+        'p-other-claimants': otherClaimants.section,
+        'p-other-claimants-details': otherClaimantsDetails.section,
+        'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
+        'p-applicant-physical-help': applicantPhysicalHelp.section,
+        'p-applicant-claim-type': applicantClaimType.section,
+        'p-applicant-immediate-aftermath': applicantImmediateAftermath.section,
+        'p-applicant-disabling-mental-injury': applicantDisablingMentalInjury.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -565,7 +618,34 @@ module.exports = {
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            owner: owner.route
+            owner: owner.route,
+            'p--context-deceased-details': contextDeceasedDetails.route,
+            'p-deceased-name': deceasedName.route,
+            'p-deceased-date-of-birth': deceasedDateOfBirth.route,
+            'p-deceased-date-of-death': deceasedDateOfDeath.route,
+            'p-deceased-address': deceasedAddress.route,
+            'p--context-funeral-costs': contextFuneralCost.route,
+            'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
+            'p-applicant-funeral-costs-other-contributor':
+                applicantFuneralCostsOtherContributor.route,
+            'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.route,
+            'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
+            'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
+            'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
+            'p-applicant-living-together': applicantLivingTogether.route,
+            'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
+            'p-applicant-living-apart': applicantLivingApart.route,
+            'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
+            'p-applicant-contact-more-details': applicantContactMoreDetails.route,
+            'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
+            'p-applicant-financial-help': applicantFinancialHelp.route,
+            'p-other-claimants': otherClaimants.route,
+            'p-other-claimants-details': otherClaimantsDetails.route,
+            'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
+            'p-applicant-physical-help': applicantPhysicalHelp.route,
+            'p-applicant-claim-type': applicantClaimType.route,
+            'p-applicant-immediate-aftermath': applicantImmediateAftermath.route,
+            'p-applicant-disabling-mental-injury': applicantDisablingMentalInjury.route
         }
     },
     answers: {},
@@ -703,6 +783,15 @@ module.exports = {
                 },
                 'rep-details': {
                     title: 'Your details'
+                },
+                deceased: {
+                    title: 'About the deceased'
+                },
+                'funeral-costs': {
+                    title: 'Funeral costs'
+                },
+                'relationship-to-deceased': {
+                    title: 'Relationship to deceased'
                 },
                 default: {
                     title: 'Other Information'
@@ -976,6 +1065,20 @@ module.exports = {
                     invalidExamples: [{}]
                 }
             },
+            myself: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Myself journey role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'myself'
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
             child: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1116,11 +1219,22 @@ module.exports = {
             deceased: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
-                    title: 'A type of proxy for the applicant e.g. mainapplicant, rep',
+                    title: 'Deceased role',
                     type: 'boolean',
                     // prettier-ignore
                     const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
-                    examples: [{}],
+                    examples: [true, false],
+                    invalidExamples: [{}]
+                }
+            },
+            nonDeceased: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Non Deceased journey role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false],
+                    examples: [true, false],
                     invalidExamples: [{}]
                 }
             },
