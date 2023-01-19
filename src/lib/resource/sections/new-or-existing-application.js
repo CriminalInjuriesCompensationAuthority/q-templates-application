@@ -63,7 +63,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-fatal-claim'
+                    target: 'p-applicant-who-are-you-applying-for'
                 }
             ]
         }

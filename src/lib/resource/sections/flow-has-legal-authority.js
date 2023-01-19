@@ -16,8 +16,12 @@ module.exports = {
                             title: {
                                 proxy: {
                                     child: 'Do you have parental responsibility for them?',
-                                    adult:
-                                        'Do you have legal authority to act on behalf of the victim?'
+                                    adult: {
+                                        deceased:
+                                            'Do you have legal authority to act on behalf of the claimant?',
+                                        nonDeceased:
+                                            'Do you have legal authority to act on behalf of the victim?'
+                                    }
                                 }
                             },
                             error: {
@@ -25,8 +29,12 @@ module.exports = {
                                     proxy: {
                                         child:
                                             'Select yes if you have parental responsibility for them',
-                                        adult:
-                                            'Select yes if you have legal authority to act on behalf of the victim'
+                                        adult: {
+                                            deceased:
+                                                'Select yes if you have legal authority to act on behalf of the claimant',
+                                            nonDeceased:
+                                                'Select yes if you have legal authority to act on behalf of the victim'
+                                        }
                                     }
                                 }
                             },
@@ -56,7 +64,8 @@ module.exports = {
                     // prettier-ignore
                     title: ['|l10nt',
                         ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.title.proxy.child',
-                        ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.title.proxy.adult'
+                        ['|role.all', 'proxy', 'adult','incapable', 'deceased'], 'q--has-legal-authority.title.proxy.adult.deceased',
+                        ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.title.proxy.adult.nonDeceased'
                     ],
                     oneOf: [
                         {
@@ -87,7 +96,8 @@ module.exports = {
                     // prettier-ignore
                     'q--has-legal-authority': ['|l10nt',
                         ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.error.required.proxy.child',
-                        ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.error.required.proxy.adult'
+                        ['|role.all', 'proxy', 'adult', 'incapable', 'deceased'], 'q--has-legal-authority.error.required.proxy.adult.deceased',
+                        ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.error.required.proxy.adult.nonDeceased'
                     ]
                 }
             },

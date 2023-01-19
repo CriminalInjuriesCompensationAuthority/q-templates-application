@@ -49,6 +49,10 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-offender',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                },
+                {
                     target: 'p-applicant-describe-incident'
                 }
             ]

@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-have-you-applied-to-us-before'
             },
             translations: [
@@ -16,14 +12,19 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-have-you-applied-to-us-before',
                     resources: {
-                        'q-applicant-have-you-applied-to-us-before': {
-                            title: 'Have you applied to us before?',
-                            'title_someone-else':
-                                'Has anyone applied to us before on behalf of the victim?',
+                        'applicant-have-you-applied-to-us-before': {
+                            title: {
+                                myself: 'Have you applied to us before?',
+                                proxy: 'Has anyone applied to us before on behalf of the victim?',
+                                deceased:
+                                    'Has the claimant applied to us before in connection with this or any other crime?'
+                            },
                             error: {
-                                required: 'Select yes if you have applied to us before',
-                                'required_someone-else':
-                                    'Select yes if anyone has applied to us before on behalf of the victim'
+                                myself: 'Select yes if you have applied to us before',
+                                proxy:
+                                    'Select yes if anyone has applied to us before on behalf of the victim',
+                                deceased:
+                                    'Select yes if anyone has applied to us before on behalf of the claimant in connection with this or any other crime'
                             }
                         }
                     }
@@ -42,7 +43,15 @@ module.exports = {
             },
             properties: {
                 'q-applicant-have-you-applied-to-us-before': {
-                    title: 'l10nt:q-applicant-have-you-applied-to-us-before.title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-have-you-applied-to-us-before.title.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'applicant-have-you-applied-to-us-before.title.proxy',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'applicant-have-you-applied-to-us-before.title.deceased'
+                    ],
                     type: 'boolean',
                     oneOf: [
                         {
@@ -107,8 +116,15 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-have-you-applied-to-us-before':
-                        'l10nt:q-applicant-have-you-applied-to-us-before.error.required{?lng,context,ns}'
+                    'q-applicant-have-you-applied-to-us-before': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-have-you-applied-to-us-before.error.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'applicant-have-you-applied-to-us-before.error.proxy',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'applicant-have-you-applied-to-us-before.error.deceased'
+                    ]
                 }
             },
             examples: [

@@ -15,10 +15,18 @@ module.exports = {
                         title: {
                             mainapplicant: 'Enter your name',
                             rep: {
-                                child:
-                                    'Enter the name of the person with parental responsibility for the victim',
-                                adult:
-                                    'Enter the name of the person with legal authority to act on behalf of the victim'
+                                nonDeceased: {
+                                    child:
+                                        'Enter the name of the person with parental responsibility for the victim',
+                                    adult:
+                                        'Enter the name of the person with legal authority to act on behalf of the victim'
+                                },
+                                deceased: {
+                                    child:
+                                        'Enter the name of the person with parental responsibility for the claimant',
+                                    adultIncapable:
+                                        'Enter the name of the person with legal authority to act on behalf of the claimant'
+                                }
                             }
                         },
                         meta: {
@@ -56,12 +64,16 @@ module.exports = {
                 {
                     title: [
                         '|l10nt',
+                        ['|role.all', 'rep', 'child', 'deceased'],
+                        'title.rep.deceased.child',
+                        ['|role.all', 'rep', 'child', 'nonDeceased'],
+                        'title.rep.nonDeceased.child',
+                        ['|role.all', 'rep', 'adult', 'incapable', 'deceased'],
+                        'title.rep.deceased.adultIncapable',
+                        ['|role.all', 'rep', 'adult', 'incapable', 'nonDeceased'],
+                        'title.rep.nonDeceased.adult',
                         ['|role.all', 'mainapplicant'],
-                        'title.mainapplicant',
-                        ['|role.all', 'rep', 'child'],
-                        'title.rep.child',
-                        ['|role.all', 'rep', 'adult'],
-                        'title.rep.adult'
+                        'title.mainapplicant'
                     ],
                     meta: {
                         compositeId: 'mainapplicant-name',

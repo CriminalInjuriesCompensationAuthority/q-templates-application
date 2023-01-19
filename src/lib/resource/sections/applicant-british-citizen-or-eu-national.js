@@ -89,7 +89,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-applicant-details'
+                    target: 'p--was-the-crime-reported-to-police'
                 }
             ]
         }

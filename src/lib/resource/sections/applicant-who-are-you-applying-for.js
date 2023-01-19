@@ -14,10 +14,13 @@ module.exports = {
                     oneOf: [
                         {
                             title: 'Myself',
+                            description: 'I am the person claiming compensation.',
                             const: 'myself'
                         },
                         {
                             title: 'Someone else',
+                            description:
+                                'I am a representative filling out the form for someone else.',
                             const: 'someone-else'
                         }
                     ],
@@ -27,14 +30,13 @@ module.exports = {
                         },
                         integration: {
                             hideOnSummary: true
-                        }            
+                        }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-who-are-you-applying-for':
-                        'Select myself if you are applying for yourself'
+                    'q-applicant-who-are-you-applying-for': 'Select who you are applying for'
                 }
             },
             examples: [
