@@ -5,29 +5,22 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                ns: 'p-applicant-are-you-18-or-over'
+                ns: 'p-applicant-funeral-costs-paid'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-are-you-18-or-over',
+                    namespace: 'p-applicant-funeral-costs-paid',
                     resources: {
-                        'q-applicant-are-you-18-or-over': {
+                        'applicant-funeral-costs-paid': {
                             title: {
-                                myself: 'Are you 18 or over?',
-                                proxy: 'Are they 18 or over?'
+                                myself: 'Are you paying for any of the funeral costs?',
+                                proxy: 'Is the claimant paying for any of the funeral costs'
                             },
                             error: {
-                                myself: 'Select yes if you are 18 or over',
-                                proxy: 'Select yes if they are 18 or over'
-                            },
-                            meta: {
-                                summary: {
-                                    title: {
-                                        myself: 'Are you 18 or over?',
-                                        proxy: 'Are they 18 or over?'
-                                    }
-                                }
+                                myself: 'Select yes if you are paying for any of the funeral costs',
+                                proxy:
+                                    'Select yes if the claimant is paying for any of the funeral costs'
                             }
                         }
                     }
@@ -37,17 +30,17 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-are-you-18-or-over'],
+            required: ['q-applicant-funeral-costs-paid'],
             additionalProperties: false,
             properties: {
-                'q-applicant-are-you-18-or-over': {
+                'q-applicant-funeral-costs-paid': {
                     type: 'boolean',
                     title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.title.myself',
+                        'applicant-funeral-costs-paid.title.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.title.proxy'
+                        'applicant-funeral-costs-paid.title.proxy'
                     ],
                     oneOf: [
                         {
@@ -61,15 +54,15 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'about-application'
+                            theme: 'funeral-costs'
                         },
                         summary: {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'myself'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.myself',
+                                'applicant-funeral-costs-paid.title.myself',
                                 ['|role.all', 'proxy'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.proxy'
+                                'applicant-funeral-costs-paid.title.proxy'
                             ]
                         }
                     }
@@ -77,26 +70,26 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-are-you-18-or-over': [
+                    'q-applicant-funeral-costs-paid': [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.error.myself',
+                        'applicant-funeral-costs-paid.error.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.error.proxy'
+                        'applicant-funeral-costs-paid.error.proxy'
                     ]
                 }
             },
             examples: [
                 {
-                    'q-applicant-are-you-18-or-over': true
+                    'q-applicant-funeral-costs-paid': true
                 },
                 {
-                    'q-applicant-are-you-18-or-over': false
+                    'q-applicant-funeral-costs-paid': false
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-are-you-18-or-over': 'foo'
+                    'q-applicant-funeral-costs-paid': 'foo'
                 }
             ]
         }
@@ -105,11 +98,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-british-citizen-or-eu-national',
-                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
-                },
-                {
-                    target: 'p--transition'
+                    target: 'p-applicant-funeral-costs-other-contributor'
                 }
             ]
         }

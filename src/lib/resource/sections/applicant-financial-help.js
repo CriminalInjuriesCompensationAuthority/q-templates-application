@@ -5,29 +5,25 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                ns: 'p-applicant-are-you-18-or-over'
+                ns: 'p-applicant-financial-help'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-are-you-18-or-over',
+                    namespace: 'p-applicant-financial-help',
                     resources: {
-                        'q-applicant-are-you-18-or-over': {
+                        'applicant-financial-help': {
                             title: {
-                                myself: 'Are you 18 or over?',
-                                proxy: 'Are they 18 or over?'
+                                myself:
+                                    'Were you reliant on the person who died for regular financial help?',
+                                proxy:
+                                    'Was the claimant reliant on the person who died for regular financial help?'
                             },
                             error: {
-                                myself: 'Select yes if you are 18 or over',
-                                proxy: 'Select yes if they are 18 or over'
-                            },
-                            meta: {
-                                summary: {
-                                    title: {
-                                        myself: 'Are you 18 or over?',
-                                        proxy: 'Are they 18 or over?'
-                                    }
-                                }
+                                myself:
+                                    'Select yes if you were reliant on the person who died for regular financial help',
+                                proxy:
+                                    'Select yes if the claimant was reliant on the person who died for regular financial help.'
                             }
                         }
                     }
@@ -37,18 +33,18 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-are-you-18-or-over'],
+            required: ['q-applicant-financial-help'],
             additionalProperties: false,
             properties: {
-                'q-applicant-are-you-18-or-over': {
-                    type: 'boolean',
+                'q-applicant-financial-help': {
                     title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.title.myself',
+                        'applicant-financial-help.title.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.title.proxy'
+                        'applicant-financial-help.title.proxy'
                     ],
+                    type: 'boolean',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -61,42 +57,46 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'about-application'
+                            theme: 'relationship-to-deceased'
                         },
                         summary: {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'myself'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.myself',
+                                'applicant-financial-help.title.myself',
                                 ['|role.all', 'proxy'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.proxy'
+                                'applicant-financial-help.title.proxy'
                             ]
                         }
                     }
+                },
+                'financial-help-info': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What financial help means",html: \'<p class="govuk-body">Financial help includes regular help with the cost of household bills, or day to day expenses and living costs.</p>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-are-you-18-or-over': [
+                    'q-applicant-financial-help': [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.error.myself',
+                        'applicant-financial-help.error.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.error.proxy'
+                        'applicant-financial-help.error.proxy'
                     ]
                 }
             },
             examples: [
                 {
-                    'q-applicant-are-you-18-or-over': true
+                    'q-applicant-financial-help': 'true'
                 },
                 {
-                    'q-applicant-are-you-18-or-over': false
+                    'q-applicant-financial-help': 'false'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-are-you-18-or-over': 'foo'
+                    'q-applicant-financial-help': 'foo'
                 }
             ]
         }
@@ -105,11 +105,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-british-citizen-or-eu-national',
-                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
-                },
-                {
-                    target: 'p--transition'
+                    target: 'p-applicant-physical-help'
                 }
             ]
         }
