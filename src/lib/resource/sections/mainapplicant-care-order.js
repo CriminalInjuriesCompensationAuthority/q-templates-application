@@ -55,6 +55,21 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
+                            false
+                        ],
+                        // Main Applicant role
+                        ['|role.all', 'mainapplicant'],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+
+                {
                     target: 'p--before-you-continue',
                     cond: [
                         'and',
@@ -63,7 +78,8 @@ module.exports = {
                             '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
                             false
                         ],
-                        ['|role.all', 'mainapplicant']
+                        ['|role.all', 'mainapplicant'],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                     ]
                 },
                 {

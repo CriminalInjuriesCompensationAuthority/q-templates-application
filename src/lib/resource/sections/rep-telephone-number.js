@@ -46,6 +46,15 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        ['!=', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
+                        ['!=', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+                {
                     target: 'p-rep-claims-management-reg',
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO']
                 },

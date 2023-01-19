@@ -25,6 +25,10 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-applicant-when-did-the-crime-happen',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                },
+                {
                     target: 'p-applicant-incident-type'
                 }
             ]
