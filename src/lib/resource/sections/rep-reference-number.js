@@ -118,6 +118,10 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                },
+                {
                     target: 'p--before-you-continue'
                 }
             ]

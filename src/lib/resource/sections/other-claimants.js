@@ -5,29 +5,21 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                ns: 'p-applicant-are-you-18-or-over'
+                ns: 'p-other-claimants'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-are-you-18-or-over',
+                    namespace: 'p-other-claimants',
                     resources: {
-                        'q-applicant-are-you-18-or-over': {
+                        'other-claimants': {
                             title: {
-                                myself: 'Are you 18 or over?',
-                                proxy: 'Are they 18 or over?'
+                                myself: 'Do you know if anyone else might apply?',
+                                proxy: 'Do they know if anyone else might apply?'
                             },
                             error: {
-                                myself: 'Select yes if you are 18 or over',
-                                proxy: 'Select yes if they are 18 or over'
-                            },
-                            meta: {
-                                summary: {
-                                    title: {
-                                        myself: 'Are you 18 or over?',
-                                        proxy: 'Are they 18 or over?'
-                                    }
-                                }
+                                myself: 'Select yes if you know if anyone else might apply',
+                                proxy: 'Select yes if you they know if anyone else might apply'
                             }
                         }
                     }
@@ -37,18 +29,18 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-are-you-18-or-over'],
+            required: ['q-other-claimants'],
             additionalProperties: false,
             properties: {
-                'q-applicant-are-you-18-or-over': {
-                    type: 'boolean',
+                'q-other-claimants': {
                     title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.title.myself',
+                        'other-claimants.title.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.title.proxy'
+                        'other-claimants.title.proxy'
                     ],
+                    type: 'boolean',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -61,42 +53,46 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'about-application'
+                            theme: 'relationship-to-deceased'
                         },
                         summary: {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'myself'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.myself',
+                                'other-claimants.title.myself',
                                 ['|role.all', 'proxy'],
-                                'q-applicant-are-you-18-or-over.meta.summary.title.proxy'
+                                'other-claimants.title.proxy'
                             ]
                         }
                     }
+                },
+                'other-claimants-info': {
+                    description:
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else might apply",html: \'<p class="govuk-body">Other people who might apply could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or former civil partners</li><li>partners</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-are-you-18-or-over': [
+                    'q-other-claimants': [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'q-applicant-are-you-18-or-over.error.myself',
+                        'other-claimants.error.myself',
                         ['|role.all', 'proxy'],
-                        'q-applicant-are-you-18-or-over.error.proxy'
+                        'other-claimants.error.proxy'
                     ]
                 }
             },
             examples: [
                 {
-                    'q-applicant-are-you-18-or-over': true
+                    'q-other-claimants': 'true'
                 },
                 {
-                    'q-applicant-are-you-18-or-over': false
+                    'q-other-claimants': 'false'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-are-you-18-or-over': 'foo'
+                    'q-other-claimants': 'foo'
                 }
             ]
         }
@@ -105,11 +101,12 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-british-citizen-or-eu-national',
-                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
+                    target: 'p--context-deceased-details',
+                    cond: ['==', '$.answers.p-other-claimants.q-other-claimants', false]
                 },
                 {
-                    target: 'p--transition'
+                    target: 'p-other-claimants-details',
+                    cond: ['==', '$.answers.p-other-claimants.q-other-claimants', true]
                 }
             ]
         }

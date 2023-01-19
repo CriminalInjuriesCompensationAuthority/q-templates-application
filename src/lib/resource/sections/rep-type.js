@@ -2,6 +2,44 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-rep-type'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-rep-type',
+                    resources: {
+                        'rep-type': {
+                            title: {
+                                proxy: {
+                                    nonDeceased:
+                                        'In what capacity are you applying on behalf of the victim?',
+                                    deceased:
+                                        'In what capacity are you applying on behalf of the claimant?'
+                                }
+                            },
+                            description: {
+                                proxy: {
+                                    nonDeceased:
+                                        'This tells us who you are in relation to the victim.',
+                                    deceased:
+                                        'In what capacity are you applying on behalf of the claimant?'
+                                }
+                            },
+                            error: {
+                                nonDeceased:
+                                    'Select in what capacity you are applying on behalf of the victim',
+                                deceased:
+                                    'Select in what capacity you are applying on behalf of the claimant'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,8 +47,20 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-rep-type': {
-                    title: 'In what capacity are you applying on behalf of the victim?',
-                    description: 'This tells us who you are in relation to the victim.',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'rep-type.title.proxy.nonDeceased',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'rep-type.title.proxy.deceased'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'rep-type.description.proxy.nonDeceased',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'rep-type.description.proxy.deceased'
+                    ],
                     type: 'string',
                     oneOf: [
                         {
@@ -50,7 +100,13 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-rep-type': 'Select in what capacity you are applying on behalf of the victim'
+                    'q-rep-type': [
+                        '|l10nt',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'rep-type.error.nonDeceased',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'rep-type.error.deceased'
+                    ]
                 }
             },
             examples: [
