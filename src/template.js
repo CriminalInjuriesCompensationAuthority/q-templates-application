@@ -361,7 +361,7 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        'p--contextDeceasedDetails': contextDeceasedDetails.section
+        'p--context-deceased-details': contextDeceasedDetails.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -565,7 +565,7 @@ module.exports = {
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            'p--contextDeceasedDetails': contextDeceasedDetails.route
+            'p--context-deceased-details': contextDeceasedDetails.route
         }
     },
     answers: {},
