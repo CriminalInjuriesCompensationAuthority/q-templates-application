@@ -18,9 +18,6 @@ module.exports = {
                         }
                     },
                     required: ['q-deceased-title', 'q-deceased-first-name', 'q-deceased-last-name'],
-                    propertyNames: {
-                        enum: ['q-deceased-title', 'q-deceased-first-name', 'q-deceased-last-name']
-                    },
                     allOf: [
                         {
                             properties: {
@@ -28,9 +25,6 @@ module.exports = {
                                     title: 'Title',
                                     type: 'string',
                                     maxLength: 6,
-                                    errorMessage: {
-                                        maxLength: 'Title must be 6 characters or less'
-                                    },
                                     meta: {
                                         classifications: {
                                             theme: 'deceased'
@@ -45,9 +39,6 @@ module.exports = {
                                     title: 'First name',
                                     type: 'string',
                                     maxLength: 70,
-                                    errorMessage: {
-                                        maxLength: 'First name must be 70 characters or less'
-                                    },
                                     meta: {
                                         classifications: {
                                             theme: 'deceased'
@@ -62,9 +53,6 @@ module.exports = {
                                     title: 'Last name',
                                     type: 'string',
                                     maxLength: 70,
-                                    errorMessage: {
-                                        maxLength: 'Last name must be 70 characters or less'
-                                    },
                                     meta: {
                                         classifications: {
                                             theme: 'adeceased'
@@ -76,12 +64,9 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-deceased-title':
-                                'l10nt:q-applicant-title.error.required{?lng,context,ns}',
-                            'q-deceased-first-name':
-                                'l10nt:q-applicant-first-name.error.required{?lng,context,ns}',
-                            'q-deceased-last-name':
-                                'l10nt:q-applicant-last-name.error.required{?lng,context,ns}'
+                            'q-deceased-title': 'Title must be 6 characters or less',
+                            'q-deceased-first-name': 'First name must be 70 characters or less',
+                            'q-deceased-last-name': 'Last name must be 70 characters or less'
                         }
                     }
                 }
@@ -128,7 +113,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-context-deceased-details'
+                    target: 'p-applicant-fatal-claim'
                 }
             ]
         }
