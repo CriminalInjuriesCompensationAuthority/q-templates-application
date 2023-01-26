@@ -173,6 +173,7 @@ const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-au
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const contextDeceasedDetails = require('./lib/resource/sections/context-deceased-details.js');
 const deceasedName = require('./lib/resource/sections/deceased-name.js');
+const deceasedDateOfBirth = require('./lib/resource/sections/deceased-date-of-birth.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -363,7 +364,8 @@ module.exports = {
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
         'p--context-deceased-details': contextDeceasedDetails.section,
-        'p-deceased-name': deceasedName.section
+        'p-deceased-name': deceasedName.section,
+        'p-deceased-date-of-birth': deceasedDateOfBirth.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -568,7 +570,8 @@ module.exports = {
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
             'p--context-deceased-details': contextDeceasedDetails.route,
-            'p-deceased-name': deceasedName.route
+            'p-deceased-name': deceasedName.route,
+            'p-deceased-date-of-birth': deceasedDateOfBirth.route
         }
     },
     answers: {},
@@ -709,6 +712,9 @@ module.exports = {
                 },
                 default: {
                     title: 'Other Information'
+                },
+                deceased: {
+                    title: 'About the deceased'
                 }
             }
         }
