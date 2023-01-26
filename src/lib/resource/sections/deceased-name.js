@@ -11,10 +11,10 @@ module.exports = {
                     meta: {
                         compositeId: 'deceased-name',
                         classifications: {
-                            theme: 'Deceased'
+                            theme: 'deceased'
                         },
                         summary: {
-                            title: 'About the deceased'
+                            title: 'Their name'
                         }
                     },
                     required: ['q-deceased-title', 'q-deceased-first-name', 'q-deceased-last-name'],
@@ -25,9 +25,12 @@ module.exports = {
                                     title: 'Title',
                                     type: 'string',
                                     maxLength: 6,
+                                    errorMessage: {
+                                        maxLength: 'Title must be 6 characters or less'
+                                    },
                                     meta: {
                                         classifications: {
-                                            theme: 'Deceased'
+                                            theme: 'deceased'
                                         }
                                     }
                                 }
@@ -39,9 +42,12 @@ module.exports = {
                                     title: 'First name',
                                     type: 'string',
                                     maxLength: 70,
+                                    errorMessage: {
+                                        maxLength: 'First name must be 70 characters or less'
+                                    },
                                     meta: {
                                         classifications: {
-                                            theme: 'Deceased'
+                                            theme: 'deceased'
                                         }
                                     }
                                 }
@@ -53,9 +59,12 @@ module.exports = {
                                     title: 'Last name',
                                     type: 'string',
                                     maxLength: 70,
+                                    errorMessage: {
+                                        maxLength: 'Last name must be 70 characters or less'
+                                    },
                                     meta: {
                                         classifications: {
-                                            theme: 'Deceased'
+                                            theme: 'deceased'
                                         }
                                     }
                                 }
@@ -64,9 +73,9 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-deceased-title': 'Title must be 6 characters or less',
-                            'q-deceased-first-name': 'First name must be 70 characters or less',
-                            'q-deceased-last-name': 'Last name must be 70 characters or less'
+                            'q-deceased-title': 'Enter their title',
+                            'q-deceased-first-name': 'Enter their first name',
+                            'q-deceased-last-name': 'Enter their last name'
                         }
                     }
                 }
