@@ -11,7 +11,7 @@ module.exports = {
                     meta: {
                         compositeId: 'deceased-name',
                         classifications: {
-                            theme: 'deceased'
+                            theme: 'Deceased'
                         },
                         summary: {
                             title: 'About the deceased'
@@ -27,7 +27,7 @@ module.exports = {
                                     maxLength: 6,
                                     meta: {
                                         classifications: {
-                                            theme: 'deceased'
+                                            theme: 'Deceased'
                                         }
                                     }
                                 }
@@ -41,7 +41,7 @@ module.exports = {
                                     maxLength: 70,
                                     meta: {
                                         classifications: {
-                                            theme: 'deceased'
+                                            theme: 'Deceased'
                                         }
                                     }
                                 }
@@ -55,7 +55,7 @@ module.exports = {
                                     maxLength: 70,
                                     meta: {
                                         classifications: {
-                                            theme: 'adeceased'
+                                            theme: 'Deceased'
                                         }
                                     }
                                 }
@@ -113,7 +113,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-fatal-claim'
+                    target: 'p-deceased-date-of-birth'
                 }
             ]
         }
