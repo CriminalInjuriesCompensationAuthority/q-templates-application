@@ -62,7 +62,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-fatal-claim'
+                    target: 'p-deceased-address'
                 }
             ]
         }
