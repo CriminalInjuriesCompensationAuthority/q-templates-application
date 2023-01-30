@@ -171,6 +171,7 @@ const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainappli
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
+const user = require('./lib/resource/sections/user');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -359,7 +360,8 @@ module.exports = {
         'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
-        'p--represents-legal-authority': flowRepresentsLegalAuthority.section
+        'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
+        user: user.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -562,7 +564,8 @@ module.exports = {
             'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
-            'p--represents-legal-authority': flowRepresentsLegalAuthority.route
+            'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
+            user: user.route
         }
     },
     answers: {},
