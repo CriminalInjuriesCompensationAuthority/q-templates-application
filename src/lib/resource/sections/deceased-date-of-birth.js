@@ -30,14 +30,14 @@ module.exports = {
                     format: 'date-time',
                     description: 'For example, 20 12 1980.',
                     errorMessage: {
-                        format: 'Enter the date the crime started and include a month and year'
+                        format: 'Enter their date of birth and include a day, month and year'
                     }
                 }
             },
             errorMessage: {
                 required: {
                     'q-deceased-date-of-birth':
-                        'Enter their date of birth and include a day, month and year,'
+                        'Enter their date of birth and include a day, month and year'
                 }
             },
             examples: [
