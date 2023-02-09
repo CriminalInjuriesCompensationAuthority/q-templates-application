@@ -120,35 +120,39 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--before-you-continue',
-                    cond: [
-                        'and',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is greater than or equal to ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        // Main Applicant role
-                        [
-                            'or',
-                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        ]
-                    ]
+                    cond: ['|role.all', 'adult', 'mainapplicant']
+
+                    // [
+                    //     'and',
+                    //     [
+                    //         'dateCompare',
+                    //         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                    //         '>=', // is greater than or equal to ...
+                    //         '-18', // 18 ...
+                    //         'years' // years (before, due to the negative (-18) ...
+                    //         // today's date (no second date given. defaults to today's date).
+                    //     ],
+                    //     // Main Applicant role
+                    //     [
+                    //         'or',
+                    //         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                    //         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                    //     ]
+                    // ]
                 },
                 {
                     target: 'p--context-rep-details',
                     cond: [
                         'and',
                         [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is greater than or equal to ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
+                            '|role.all',
+                            'adult'
+                            // 'dateCompare',
+                            // '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            // '>=', // is greater than or equal to ...
+                            // '-18', // 18 ...
+                            // 'years' // years (before, due to the negative (-18) ...
+                            // // today's date (no second date given. defaults to today's date).
                         ],
                         // Rep role
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],

@@ -34,11 +34,12 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-declaration',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'myself'
-                    ]
+                    cond: ['|role.all', 'proxy']
+                    // [
+                    //     '==',
+                    //     '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                    //     'myself'
+                    // ]
                 },
                 {
                     target: 'p--download-your-answers',
@@ -54,11 +55,12 @@ module.exports = {
                     target: 'p-mainapplicant-declaration-under-12',
                     cond: [
                         'and',
-                        [
-                            'or',
-                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        ],
+                        ['|role.all', 'mainapplicant'],
+                        // [
+                        //     'or',
+                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        // ],
                         [
                             'or',
                             [
@@ -76,11 +78,12 @@ module.exports = {
                                     '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
                                     false
                                 ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                    true
-                                ]
+                                ['|role.all', 'adult']
+                                // [
+                                //     '==',
+                                //     '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                //     true
+                                // ]
                             ]
                         ]
                     ]
@@ -115,11 +118,12 @@ module.exports = {
                                     '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
                                     false
                                 ],
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                    true
-                                ]
+                                ['|role.all', 'adult']
+                                // [
+                                //     '==',
+                                //     '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                //     true
+                                // ]
                             ]
                         ]
                     ]
@@ -128,11 +132,12 @@ module.exports = {
                     target: 'p-mainapplicant-declaration-12-and-over',
                     cond: [
                         'and',
-                        [
-                            'or',
-                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        ],
+                        ['|role.all', 'mainapplicant'],
+                        // [
+                        //     'or',
+                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        // ],
                         [
                             'dateCompare',
                             '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...

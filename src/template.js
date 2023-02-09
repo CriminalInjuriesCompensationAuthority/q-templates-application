@@ -979,9 +979,15 @@ module.exports = {
                     title: 'Child applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['==',
-                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                        false
+                    const: ['or',
+                        ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', false],
+                        ['dateCompare',
+                         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                         '<', // is more than or equal to ...
+                         '-18', // 18 ...
+                         'years' // years (before, due to the negative (-18) ...
+                         // today's date (no second date given. defaults to today's date).
+                        ]   
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -993,9 +999,15 @@ module.exports = {
                     title: 'Adult applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['==',
-                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                        true
+                    const: ['or',
+                        ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                        ['dateCompare',
+                         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                         '>=', // is more than or equal to ...
+                         '-18', // 18 ...
+                         'years' // years (before, due to the negative (-18) ...
+                        // today's date (no second date given. defaults to today's date).
+                        ]   
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -1108,6 +1120,17 @@ module.exports = {
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
                     ],
                     examples: [true, false],
+                    invalidExamples: [{}]
+                }
+            },
+            deceased: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'A type of proxy for the applicant e.g. mainapplicant, rep',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                    examples: [{}],
                     invalidExamples: [{}]
                 }
             }
