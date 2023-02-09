@@ -140,16 +140,20 @@ module.exports = {
                     target: 'p-mainapplicant-confirmation-method',
                     // prettier-ignore
                     // mainapplicant role
-                    cond: ['or',
-                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                    ]
+                    cond: ['|role.all', 'mainapplicant']
+
+                    // ['or',
+                    //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                    //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                    // ]
                 },
                 {
                     target: 'p--context-rep-details',
                     // prettier-ignore
                     // noauthority role
-                    cond: ['and',
+                    cond: 
+                    
+                    ['and',
                         ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
                         ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
