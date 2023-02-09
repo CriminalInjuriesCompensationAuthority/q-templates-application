@@ -63,12 +63,13 @@ module.exports = {
                             '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
                             false
                         ],
+                        ['|role.all', 'mainapplicant']
                         // Main Applicant role
-                        [
-                            'or',
-                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        ]
+                        // [
+                        //     'or',
+                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        // ]
                     ]
                 },
                 {

@@ -51,11 +51,13 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-enter-your-name',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'someone-else'
-                    ]
+                    cond: ['|role.all', 'proxy']
+
+                    // [
+                    //     '==',
+                    //     '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                    //     'someone-else'
+                    // ]
                 },
                 {
                     target: 'p-applicant-confirmation-method'

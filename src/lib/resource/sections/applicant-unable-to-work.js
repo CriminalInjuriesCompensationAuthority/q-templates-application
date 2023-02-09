@@ -138,11 +138,12 @@ module.exports = {
                             '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
                             false
                         ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                            'someone-else'
-                        ]
+                        ['|role.all', 'proxy']
+                        // [
+                        //     '==',
+                        //     '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        //     'someone-else'
+                        // ]
                     ]
                 },
                 {
