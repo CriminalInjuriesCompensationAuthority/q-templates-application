@@ -139,13 +139,7 @@ module.exports = {
                 {
                     target: 'p-mainapplicant-confirmation-method',
                     // prettier-ignore
-                    // mainapplicant role
                     cond: ['|role.all', 'mainapplicant']
-
-                    // ['or',
-                    //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                    //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                    // ]
                 },
                 {
                     target: 'p--context-rep-details',

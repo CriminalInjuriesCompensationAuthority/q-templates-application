@@ -52,15 +52,6 @@ module.exports = {
                 {
                     target: 'p-mainapplicant-parent',
                     cond: ['|role.all', 'child']
-
-                    // [
-                    //     'dateCompare',
-                    //     '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                    //     '<', // is less than ...
-                    //     '-18', // 18 ...
-                    //     'years' // years (before, due to the negative (-18) ...
-                    //     // today's date (no second date given. defaults to today's date).
-                    // ]
                 },
                 {
                     target: 'p--has-legal-authority'
