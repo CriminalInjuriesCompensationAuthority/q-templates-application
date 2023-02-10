@@ -64,12 +64,6 @@ module.exports = {
                             false
                         ],
                         ['|role.all', 'mainapplicant']
-                        // Main Applicant role
-                        // [
-                        //     'or',
-                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        // ]
                     ]
                 },
                 {
