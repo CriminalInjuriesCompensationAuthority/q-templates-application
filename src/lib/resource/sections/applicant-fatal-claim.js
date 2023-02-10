@@ -56,8 +56,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    // target: 'p--transition',
-                    // cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    target: 'p--transition',
                     cond: ['|role.all', 'deceased']
                 },
                 {

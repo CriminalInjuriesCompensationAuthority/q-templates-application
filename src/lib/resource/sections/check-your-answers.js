@@ -34,12 +34,11 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-declaration',
-                    cond: ['|role.all', 'proxy']
-                    // [
-                    //     '==',
-                    //     '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                    //     'myself'
-                    // ]
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'myself'
+                    ]
                 },
                 {
                     target: 'p--download-your-answers',
@@ -56,11 +55,6 @@ module.exports = {
                     cond: [
                         'and',
                         ['|role.all', 'mainapplicant'],
-                        // [
-                        //     'or',
-                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        // ],
                         [
                             'or',
                             [
@@ -79,11 +73,6 @@ module.exports = {
                                     false
                                 ],
                                 ['|role.all', 'adult']
-                                // [
-                                //     '==',
-                                //     '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                //     true
-                                // ]
                             ]
                         ]
                     ]
@@ -119,11 +108,6 @@ module.exports = {
                                     false
                                 ],
                                 ['|role.all', 'adult']
-                                // [
-                                //     '==',
-                                //     '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                                //     true
-                                // ]
                             ]
                         ]
                     ]
@@ -133,11 +117,6 @@ module.exports = {
                     cond: [
                         'and',
                         ['|role.all', 'mainapplicant'],
-                        // [
-                        //     'or',
-                        //     ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        //     ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        // ],
                         [
                             'dateCompare',
                             '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...

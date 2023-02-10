@@ -90,30 +90,7 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-british-citizen-or-eu-national',
-                    cond: [
-                        'or',
-                        // '==',
-                        // '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        // 'someone-else'
-
-                        ['|role.all', 'proxy'],
-                        ['|role.all', 'adult', 'capable']
-                        // [
-                        //     'and',
-                        //     [
-                        //         // '==',
-                        //         // '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                        //         // true
-
-                        //         ['|role.all', 'adult']
-                        //     ],
-                        //     [
-                        //         '==',
-                        //         '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        //         'myself'
-                        //     ]
-                        // ]
-                    ]
+                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
                 },
                 {
                     target: 'p--transition'
