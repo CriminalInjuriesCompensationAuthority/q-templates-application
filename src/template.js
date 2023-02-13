@@ -163,7 +163,6 @@ const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
 const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
 const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
-const newOrExistingApp = require('./lib/resource/sections/new-or-existing-application');
 const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
@@ -353,7 +352,6 @@ module.exports = {
         'p-rep-telephone-number': repTelephoneNumber.section,
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
-        'p--new-or-existing-application': newOrExistingApp.section,
         'p--contact-cica': contactCica.section,
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
@@ -364,7 +362,7 @@ module.exports = {
         owner: owner.section
     },
     routes: {
-        initial: 'p--new-or-existing-application',
+        initial: 'p-applicant-fatal-claim',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -557,7 +555,6 @@ module.exports = {
             'p-rep-telephone-number': repTelephoneNumber.route,
             'p-rep-reference-number': repReferenceNumber.route,
             'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
-            'p--new-or-existing-application': newOrExistingApp.route,
             'p--contact-cica': contactCica.route,
             'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
             'p--context-mainapplicant-details': contextMainAppDetails.route,
@@ -569,7 +566,7 @@ module.exports = {
         }
     },
     answers: {},
-    progress: ['p--new-or-existing-application'],
+    progress: ['p-applicant-fatal-claim'],
     taxonomies: {
         theme: {
             l10n: {
