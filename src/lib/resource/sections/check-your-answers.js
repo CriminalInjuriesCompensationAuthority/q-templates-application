@@ -404,15 +404,7 @@ module.exports = {
                                 'years' // years (before, due to the negative (-12) ...
                                 // today's date (no second date given. defaults to today's date).
                             ],
-                            [
-                                'and',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
-                                    false
-                                ],
-                                ['|role.all', 'adult']
-                            ]
+                            ['|role.all', 'adult', 'incapable']
                         ]
                     ]
                 },
@@ -439,15 +431,7 @@ module.exports = {
                                 'years' // years (before, due to the negative (-12) ...
                                 // today's date (no second date given. defaults to today's date).
                             ],
-                            [
-                                'and',
-                                [
-                                    '==',
-                                    '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
-                                    false
-                                ],
-                                ['|role.all', 'adult']
-                            ]
+                            ['|role.all', 'adult', 'incapable']
                         ]
                     ]
                 },
