@@ -112,9 +112,17 @@ module.exports = {
                 {
                     target: 'p--context-authority',
                     // prettier-ignore
-                    cond: ['and',
+                    cond: [
+                        'and',
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        ['|role.all', 'child']                        
+                        [
+                        'dateCompare',
+                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                        '<', // is greater than or equal to ...
+                        '-18', // 18 ...
+                        'years' // years (before, due to the negative (-18) ...
+                        // today's date (no second date given. defaults to today's date).
+                        ]                                              
                     ]
                 },
                 {

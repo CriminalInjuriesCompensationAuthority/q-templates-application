@@ -1055,7 +1055,6 @@ module.exports = {
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
-                        // ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
