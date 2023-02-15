@@ -123,12 +123,7 @@ module.exports = {
                     cond: [
                         'and',
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        ['|role.all', 'adult'],
-                        [
-                            '==',
-                            '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
-                            false
-                        ]
+                        ['|role.all', 'adult', 'incapable']
                     ]
                 },
                 {

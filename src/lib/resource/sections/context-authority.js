@@ -144,15 +144,7 @@ module.exports = {
                 {
                     target: 'p--context-rep-details',
                     // prettier-ignore
-                    // noauthority role
-                    cond: 
-                    
-                    ['and',
-                        ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                        ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
-                    ]
+                    cond: ['|role.all', 'noauthority' ]
                 },
                 {
                     target: 'p-mainapplicant-enter-your-name'
