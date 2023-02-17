@@ -37,18 +37,7 @@ module.exports = {
                             ],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
-                        [
-                            'or',
-                            [
-                                'dateCompare',
-                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                '<', // is less than ...
-                                '-12', // 12 ...
-                                'years' // years (before, due to the negative (-12) ...
-                                // today's date (no second date given. defaults to today's date).
-                            ],
-                            ['|role.all', 'adult', 'incapable']
-                        ]
+                        ['or', ['|role.all', 'childUnder12'], ['|role.all', 'adult', 'incapable']]
                     ]
                 },
                 {
@@ -64,14 +53,15 @@ module.exports = {
                             ],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is greater than or equeal too ...
-                            '-12', // 12 ...
-                            'years' // years (before, due to the negative (-12) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ]
+                        ['|role.all', 'childOver12']
+                        //     [
+                        //         'dateCompare',
+                        //         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                        //         '>=', // is greater than or equeal too ...
+                        //         '-12', // 12 ...
+                        //         'years' // years (before, due to the negative (-12) ...
+                        //         // today's date (no second date given. defaults to today's date).
+                        //     ]
                     ]
                 }
             ]
