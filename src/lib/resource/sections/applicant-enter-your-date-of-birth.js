@@ -93,33 +93,11 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--transition',
-                    cond: [
-                        'and',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        ['|role.all', 'capable']
-                    ]
+                    cond: ['|role.all', 'capable', 'child']
                 },
                 {
                     target: 'p-applicant-can-handle-affairs',
-                    cond: [
-                        'and',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '>=', // is more than or equal to ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        ['|role.all', 'proxy']
-                    ]
+                    cond: ['|role.all', 'proxy', 'adult']
                 },
                 {
                     target: 'p-applicant-enter-your-address'
