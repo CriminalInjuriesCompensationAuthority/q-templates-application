@@ -54,14 +54,6 @@ module.exports = {
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
                         ['|role.all', 'childOver12']
-                        //     [
-                        //         'dateCompare',
-                        //         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                        //         '>=', // is greater than or equeal too ...
-                        //         '-12', // 12 ...
-                        //         'years' // years (before, due to the negative (-12) ...
-                        //         // today's date (no second date given. defaults to today's date).
-                        //     ]
                     ]
                 }
             ]
