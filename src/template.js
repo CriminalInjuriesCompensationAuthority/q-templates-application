@@ -722,11 +722,14 @@ module.exports = {
                 'rep-details': {
                     title: 'Your details'
                 },
-                default: {
-                    title: 'Other Information'
-                },
                 deceased: {
                     title: 'About the deceased'
+                },
+                'funeral-costs': {
+                    title: 'Funeral costs'
+                },
+                default: {
+                    title: 'Other Information'
                 }
             }
         }

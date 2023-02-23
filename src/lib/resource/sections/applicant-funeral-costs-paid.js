@@ -23,7 +23,7 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'funeral_costs'
+                            theme: 'funeral-costs'
                         }
                     }
                 }
