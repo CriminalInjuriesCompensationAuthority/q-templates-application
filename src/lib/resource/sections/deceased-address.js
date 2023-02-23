@@ -217,7 +217,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-compensation'
+                    target: 'p-context-funeral-costs'
                 }
             ]
         }
