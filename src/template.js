@@ -363,7 +363,6 @@ module.exports = {
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
-        referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
             'p-mainapplicant-declaration-under-12',
