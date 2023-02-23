@@ -177,6 +177,7 @@ const deceasedDateOfBirth = require('./lib/resource/sections/deceased-date-of-bi
 const deceasedDateOfDeath = require('./lib/resource/sections/deceased-date-of-death.js');
 const deceasedAddress = require('./lib/resource/sections/deceased-address.js');
 const contextFuneralCost = require('./lib/resource/sections/context-funeral-costs.js');
+const applicantFuneralCostsPaid = require('./lib/resource/sections/applicant-funeral-costs-paid.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -371,7 +372,8 @@ module.exports = {
         'p-deceased-date-of-birth': deceasedDateOfBirth.section,
         'p-deceased-date-of-death': deceasedDateOfDeath.section,
         'p-deceased-address': deceasedAddress.section,
-        'p-context-funeral-costs': contextFuneralCost.section
+        'p-context-funeral-costs': contextFuneralCost.section,
+        'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -580,7 +582,8 @@ module.exports = {
             'p-deceased-date-of-birth': deceasedDateOfBirth.route,
             'p-deceased-date-of-death': deceasedDateOfDeath.route,
             'p-deceased-address': deceasedAddress.route,
-            'p-context-funeral-costs': contextFuneralCost.route
+            'p-context-funeral-costs': contextFuneralCost.route,
+            'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route
         }
     },
     answers: {},
