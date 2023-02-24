@@ -179,6 +179,7 @@ const deceasedAddress = require('./lib/resource/sections/deceased-address.js');
 const contextFuneralCost = require('./lib/resource/sections/context-funeral-costs.js');
 const applicantFuneralCostsPaid = require('./lib/resource/sections/applicant-funeral-costs-paid.js');
 const applicantFuneralCostsOtherContributor = require('./lib/resource/sections/applicant-funeral-costs-other-contributor');
+const applicantFuneralCostsWhoContributed = require('./lib/resource/sections/applicant-funeral-costs-who-contributed.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -375,7 +376,9 @@ module.exports = {
         'p-deceased-address': deceasedAddress.section,
         'p-context-funeral-costs': contextFuneralCost.section,
         'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.section,
-        'p-applicant-funeral-costs-other-contributor': applicantFuneralCostsOtherContributor.section
+        'p-applicant-funeral-costs-other-contributor':
+            applicantFuneralCostsOtherContributor.section,
+        'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -587,7 +590,8 @@ module.exports = {
             'p-context-funeral-costs': contextFuneralCost.route,
             'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
             'p-applicant-funeral-costs-other-contributor':
-                applicantFuneralCostsOtherContributor.route
+                applicantFuneralCostsOtherContributor.route,
+            'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.route
         }
     },
     answers: {},
