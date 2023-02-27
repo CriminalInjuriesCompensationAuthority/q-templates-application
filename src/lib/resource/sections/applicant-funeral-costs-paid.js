@@ -24,6 +24,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'funeral-costs'
+                        },
+                        summary: {
+                            title: 'Funeral costs'
                         }
                     }
                 }
