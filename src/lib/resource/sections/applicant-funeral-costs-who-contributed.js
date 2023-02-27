@@ -47,7 +47,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-funeral-costs-total'
+                    target: 'p-applicant-funeral-costs-total'
                 }
             ]
         }
