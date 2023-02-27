@@ -34,13 +34,33 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-funeral-costs-total': '30:00'
+                    'q-applicant-funeral-costs-total': '30.00'
                 },
-                {}
+                {
+                    'q-applicant-funeral-costs-total': '1'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '1234'
+                }
             ],
             invalidExamples: [
                 {
                     'q-applicant-funeral-costs-total': 'AAAA'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '1:00'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '12:00'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '12.000'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '-12.00'
+                },
+                {
+                    'q-applicant-funeral-costs-total': '12.0%'
                 }
             ]
         }
@@ -49,7 +69,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-compensation'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

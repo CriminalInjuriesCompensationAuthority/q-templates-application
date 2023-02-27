@@ -24,6 +24,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'funeral-costs'
+                        },
+                        summary: {
+                            title: 'Funeral costs'
                         }
                     }
                 }
@@ -61,19 +64,11 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--before-you-continue',
+                    target: 'p-applicant-funeral-costs-total',
                     cond: [
-                        'and',
-                        [
-                            '==',
-                            '$.answers.p-applicant-funeral-costs-other-contributor.q-applicant-funeral-costs-other-contributor',
-                            false
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid',
-                            false
-                        ]
+                        '==',
+                        '$.answers.p-applicant-funeral-costs-other-contributor.q-applicant-funeral-costs-other-contributor',
+                        false
                     ]
                 }
             ]
