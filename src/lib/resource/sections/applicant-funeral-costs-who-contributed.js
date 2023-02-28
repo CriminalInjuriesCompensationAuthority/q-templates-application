@@ -21,6 +21,9 @@ module.exports = {
                             meta: {
                                 classifications: {
                                     theme: 'funeral-costs'
+                                },
+                                summary: {
+                                    title: 'Funeral costs'
                                 }
                             }
                         }
@@ -35,6 +38,12 @@ module.exports = {
                     }
                 }
             ],
+            errorMessage: {
+                required: {
+                    'q-applicant-funeral-costs-who-contributed':
+                        'Tell us who else has contributed to the funeral costs'
+                }
+            },
             examples: [{}],
             invalidExamples: [
                 {
