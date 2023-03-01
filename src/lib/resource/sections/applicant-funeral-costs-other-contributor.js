@@ -66,9 +66,33 @@ module.exports = {
                 {
                     target: 'p-applicant-funeral-costs-total',
                     cond: [
-                        '==',
-                        '$.answers.p-applicant-funeral-costs-other-contributor.q-applicant-funeral-costs-other-contributor',
-                        false
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-other-contributor.q-applicant-funeral-costs-other-contributor',
+                            false
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--before-you-continue',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-other-contributor.q-applicant-funeral-costs-other-contributor',
+                            false
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid',
+                            false
+                        ]
                     ]
                 }
             ]
