@@ -136,9 +136,8 @@ module.exports = {
                     errorMessage: {
                         required: {
                             'q-deceased-building-and-street':
-                                'Enter the building and street where the deceased live',
-                            'q-deceased-town-or-city':
-                                'Enter the town or city where the deceased lived'
+                                'Enter the building and street where they lived',
+                            'q-deceased-town-or-city': 'Enter the town or city where they lived'
                         }
                     }
                 }
