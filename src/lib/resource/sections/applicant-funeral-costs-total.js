@@ -21,10 +21,10 @@ module.exports = {
                     },
                     meta: {
                         classifications: {
-                            theme: 'funeral_costs'
+                            theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'Funeral costs'
+                            title: 'What was the total cost of the funeral?'
                         }
                     }
                 }
