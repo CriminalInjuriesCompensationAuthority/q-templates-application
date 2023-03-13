@@ -13,7 +13,7 @@ module.exports = {
                             type: 'string',
                             title: 'Who else has contributed to the funeral costs?',
                             description:
-                                'Enter the names of people, charities or organisations who helped to pay the funeral.',
+                                'Enter the names of people, charities or organisations who helped to pay for the funeral.',
                             maxLength: 2000,
                             errorMessage: {
                                 maxLength: 'Description must be 2000 characters or less'
