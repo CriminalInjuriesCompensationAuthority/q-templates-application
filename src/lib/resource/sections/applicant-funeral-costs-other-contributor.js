@@ -26,7 +26,7 @@ module.exports = {
                             theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'Funeral costs'
+                            title: 'Did anyone else contribute to the funeral costs?'
                         }
                     }
                 }
