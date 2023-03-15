@@ -15,11 +15,13 @@
         "lint:fix": "eslint --fix .",
         "build": "node ./src/build.js",
         "prepare": "npm run build --silent",
-        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build"
+        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
+        "gauge:test": "gauge run --parallel -n=4 specs"
     },
     "author": "CICA",
     "license": "MIT",
     "devDependencies": {
+        "ajv-errors": "^1.0.1",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
@@ -32,6 +34,13 @@
         "lint-staged": "^9.5.0",
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
-        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v5.4.0"
+        "q-router": "github:CriminalInjuriesCompensationAuthority/q-router",
+        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v5.4.0",
+        "taiko": "^1.3.9",
+        "uuid": "^9.0.0"
+    },
+    "dependencies": {
+        "ajv": "^6.12.6",
+        "jsonpath": "^1.1.1"
     }
 }
