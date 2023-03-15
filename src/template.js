@@ -181,6 +181,17 @@ const applicantFuneralCostsPaid = require('./lib/resource/sections/applicant-fun
 const applicantFuneralCostsOtherContributor = require('./lib/resource/sections/applicant-funeral-costs-other-contributor');
 const applicantFuneralCostsWhoContributed = require('./lib/resource/sections/applicant-funeral-costs-who-contributed.js');
 const applicantFuneralCostsTotal = require('./lib/resource/sections/applicant-funeral-costs-total.js');
+const contextRelationshipToDeceased = require('./lib/resource/sections/context-relationship-to-deceased.js');
+const applicantRelationshipToDeceased = require('./lib/resource/sections/applicant-relationship-to-deceased.js');
+const applicantLivingTogether = require('./lib/resource/sections/applicant-living-together.js');
+const applicantLivingTogetherDuration = require('./lib/resource/sections/applicant-living-together-duration.js');
+const applicantLivingApart = require('./lib/resource/sections/applicant-living-apart.js');
+const applicantContactWithDeceased = require('./lib/resource/sections/applicant-contact-with-deceased.js');
+const applicantContactMoreDetails = require('./lib/resource/sections/applicant-contact-more-details.js');
+const applicantContactOutOfTouch = require('./lib/resource/sections/applicant-contact-out-of-touch.js');
+const applicantFinancialHelp = require('./lib/resource/sections/applicant-financial-help.js');
+const otherClaimants = require('./lib/resource/sections/other-claimants.js');
+const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-details.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -380,7 +391,18 @@ module.exports = {
         'p-applicant-funeral-costs-other-contributor':
             applicantFuneralCostsOtherContributor.section,
         'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
-        'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section
+        'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
+        'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
+        'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.section,
+        'p-applicant-living-together': applicantLivingTogether.section,
+        'p-applicant-living-together-duration': applicantLivingTogetherDuration.section,
+        'p-applicant-living-apart': applicantLivingApart.section,
+        'p-applicant-contact-with-deceased': applicantContactWithDeceased.section,
+        'p-applicant-contact-more-details': applicantContactMoreDetails.section,
+        'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.section,
+        'p-applicant-financial-help': applicantFinancialHelp.section,
+        'p-other-claimants': otherClaimants.section,
+        'p-other-claimants-details': otherClaimantsDetails.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -594,7 +616,18 @@ module.exports = {
             'p-applicant-funeral-costs-other-contributor':
                 applicantFuneralCostsOtherContributor.route,
             'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.route,
-            'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route
+            'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
+            'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
+            'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
+            'p-applicant-living-together': applicantLivingTogether.route,
+            'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
+            'p-applicant-living-apart': applicantLivingApart.route,
+            'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
+            'p-applicant-contact-more-details': applicantContactMoreDetails.route,
+            'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
+            'p-applicant-financial-help': applicantFinancialHelp.route,
+            'p-other-claimants': otherClaimants.route,
+            'p-other-claimants-details': otherClaimantsDetails.route
         }
     },
     answers: {},
@@ -738,6 +771,9 @@ module.exports = {
                 },
                 'funeral-costs': {
                     title: 'Funeral costs'
+                },
+                'relationship-to-deceased': {
+                    title: 'Relationship to deceased'
                 },
                 default: {
                     title: 'Other Information'
@@ -1151,11 +1187,11 @@ module.exports = {
             deceased: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
-                    title: 'A type of proxy for the applicant e.g. mainapplicant, rep',
+                    title: 'Deceased role',
                     type: 'boolean',
                     // prettier-ignore
                     const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
-                    examples: [{}],
+                    examples: [true, false],
                     invalidExamples: [{}]
                 }
             },
