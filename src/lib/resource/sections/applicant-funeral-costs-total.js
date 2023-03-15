@@ -71,7 +71,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue'
+                    target: 'p--context-relationship-to-deceased'
                 }
             ]
         }
