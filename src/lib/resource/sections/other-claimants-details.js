@@ -27,8 +27,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-other-claimants-details':
-                        'Tell us more about who else might apply, Description must be 2000 characters or less'
+                    'q-other-claimants-details': 'Tell us more about who else might apply.'
                 }
             },
             examples: [

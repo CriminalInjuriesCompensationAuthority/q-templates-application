@@ -29,7 +29,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-contact-more-details':
-                        'Tell us more about how you were in contact, Description must be 2000 characters or less'
+                        'Tell us more about how you were in contact.'
                 }
             },
             examples: [
