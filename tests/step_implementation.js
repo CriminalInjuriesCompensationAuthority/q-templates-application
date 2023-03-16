@@ -3,8 +3,6 @@
 /* global beforeSpec, afterSpec, beforeScenario, afterScenario, gauge, step */
 /* eslint no-undef: "error" */
 
-const Ajv = require('ajv');
-const AjvErrors = require('ajv-errors');
 const path = require('path');
 const {v4: uuidv4} = require('uuid');
 const assert = require('assert');
@@ -26,6 +24,7 @@ const {
     // dropDown
 } = require('taiko');
 const templates = require('./templateFactory');
+const {answerQuestion} = require('./routing/testHelper');
 
 const applicationEntryPointUrl = process.env.application_entry_point_url;
 const windowSizeWidth = process.env.window_size_width;
@@ -37,17 +36,8 @@ const pageIdPrefixRegex = /^p-{1,2}/;
 // const browserTestsHelper = require('./browser/browserTestsHelper');
 
 let questionnaire;
+exports.questionnaire = questionnaire;
 let currentBrowserTestPageId;
-
-const ajv = new Ajv({
-    allErrors: true,
-    jsonPointers: true,
-    format: 'full',
-    coerceTypes: true
-});
-
-AjvErrors(ajv);
-// ajv.addFormat('mobile-uk', ajvFormatsMobileUk);
 
 beforeSpec(async () => {
     const uuidV4 = uuidv4();
@@ -96,25 +86,6 @@ gauge.customScreenshotWriter = async function() {
     return path.basename(screenshotFilePath);
 };
 
-function getSection(sectionId, qRouter) {
-    let section;
-    if (sectionId === 'system') {
-        const currentSection = qRouter.current();
-        section = {
-            id: 'system',
-            // Get the context (questionnaire) from the current section
-            context: currentSection.context
-        };
-    } else {
-        // Ensure the requested sectionId is available
-        section = qRouter.current(sectionId);
-        if (!section) {
-            throw new Error(`Section "${sectionId}" not found`);
-        }
-    }
-    return section;
-}
-
 function isDateQuestion(questionId, section) {
     const format = jp.query(section, `$..properties["${questionId}"].format`);
     if (format.length !== 0 && format[0] === 'date-time') {
@@ -142,64 +113,6 @@ async function enterAnswerBrowserTests(questionId, answer) {
     }
 }
 
-function pageContainsAnsweredQuestions(pageId) {
-    return questionnaire.answers[pageId] !== undefined;
-}
-
-function answerQuestion(questionId, answer) {
-    const pageId = questionnaire.currentSectionId;
-    const section = questionnaire.sections[pageId];
-    const node = jp.query(
-        section,
-        `$..properties["${questionId}"].oneOf[?(@.title == "${answer}")]`
-    );
-
-    const answerObj = {};
-    if (node.length !== 0) {
-        answerObj[questionId] = node[0].const;
-    } else {
-        answerObj[questionId] = answer;
-    }
-
-    const questionAnswer = JSON.parse(JSON.stringify(answerObj));
-    const questionnaireDefinition = questionnaire;
-    const qRouter = createQRouter(questionnaireDefinition);
-    const sectionDetails = getSection(pageId, qRouter);
-
-    const validate = ajv.compile(section);
-    // The AJV validate function coerces the answers and mutates the answers object
-    const valid = validate(questionAnswer);
-    const coercedAnswers = questionAnswer;
-
-    if (!valid) {
-        const validationError = new Error({
-            name: 'JSONSchemaValidationError',
-            info: {
-                schema: sectionDetails,
-                answers: answerObj,
-                coercedAnswers,
-                schemaErrors: validate.errors
-            }
-        });
-
-        throw validationError;
-    }
-
-    let answeredQuestionnaire;
-    if (sectionDetails.id === 'system') {
-        const currentSection = qRouter.current();
-        currentSection.context.answers.system = coercedAnswers;
-        answeredQuestionnaire = currentSection.context;
-        questionnaire = answeredQuestionnaire;
-    } else if (pageContainsAnsweredQuestions(pageId)) {
-        const mergeAnswers = Object.assign(questionnaire.answers[pageId], coercedAnswers);
-        questionnaire.answers[pageId] = mergeAnswers;
-        console.log(questionnaire.answers[pageId]);
-    } else {
-        questionnaire.answers[pageId] = coercedAnswers;
-        console.log(questionnaire.answers[pageId]);
-    }
-}
 /* eslint func-names: ["error", "never"] */
 step('Given the user is on page <pageId>', async function(pageId) {
     if (runBrowserTests) {
@@ -237,7 +150,7 @@ step('When they answer <answer> to question <questionId>', async function(answer
             await click(answer);
         }
     } else {
-        answerQuestion(questionId, answer);
+        answerQuestion(questionnaire, questionId, answer);
     }
 });
 
@@ -261,7 +174,7 @@ step('And they enter <answer> into question <questionId>', async function(answer
     if (runBrowserTests) {
         await enterAnswerBrowserTests(questionId, answer);
     } else {
-        answerQuestion(questionId, answer);
+        answerQuestion(questionnaire, questionId, answer);
     }
 });
 
@@ -270,7 +183,7 @@ step('When they enter <answer> into question <questionId>', async function(answe
     if (runBrowserTests) {
         await enterAnswerBrowserTests(questionId, answer);
     } else {
-        answerQuestion(questionId, answer);
+        answerQuestion(questionnaire, questionId, answer);
     }
 });
 
