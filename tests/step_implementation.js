@@ -20,11 +20,7 @@ const {
 } = require('taiko');
 const templates = require('./templateFactory');
 const {answerQuestion} = require('./routing/testHelper');
-const {
-    isDateQuestion,
-    enterDateComponentsIntoTextBoxes,
-    enterAnswerBrowserTests
-} = require('./isDateQuestion');
+const {enterAnswerBrowserTests} = require('./browser/testHelper');
 
 const applicationEntryPointUrl = process.env.application_entry_point_url;
 const windowSizeWidth = process.env.window_size_width;
@@ -111,20 +107,6 @@ step('Then the user is on page <pageId>', async function(pageId) {
 });
 
 /* eslint func-names: ["error", "never"] */
-step('When they answer <answer> to question <questionId>', async function(answer, questionId) {
-    if (runBrowserTests) {
-        const section = questionnaire.sections[currentBrowserTestPageId];
-        if (isDateQuestion(questionId, section)) {
-            await enterDateComponentsIntoTextBoxes(section, answer);
-        } else {
-            await click(answer);
-        }
-    } else {
-        answerQuestion(questionnaire, questionId, answer);
-    }
-});
-
-/* eslint func-names: ["error", "never"] */
 step('And they <buttonName>', async function(buttonName) {
     if (runBrowserTests) {
         await click(buttonName);
@@ -136,6 +118,15 @@ step('And they <buttonName>', async function(buttonName) {
         );
         const answeredQuestionnaire = nextSection.context;
         questionnaire = answeredQuestionnaire;
+    }
+});
+
+/* eslint func-names: ["error", "never"] */
+step('When they answer <answer> to question <questionId>', async function(answer, questionId) {
+    if (runBrowserTests) {
+        await enterAnswerBrowserTests(questionnaire, currentBrowserTestPageId, questionId, answer);
+    } else {
+        answerQuestion(questionnaire, questionId, answer);
     }
 });
 
