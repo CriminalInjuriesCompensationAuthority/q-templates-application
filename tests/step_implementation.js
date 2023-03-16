@@ -131,16 +131,7 @@ step('When they answer <answer> to question <questionId>', async function(answer
 });
 
 /* eslint func-names: ["error", "never"] */
-step('And they enter <answer> into question <questionId>', async function(answer, questionId) {
-    if (runBrowserTests) {
-        await enterAnswerBrowserTests(questionnaire, currentBrowserTestPageId, questionId, answer);
-    } else {
-        answerQuestion(questionnaire, questionId, answer);
-    }
-});
-
-/* eslint func-names: ["error", "never"] */
-step('When they enter <answer> into question <questionId>', async function(answer, questionId) {
+step('And they answer <answer> to question <questionId>', async function(answer, questionId) {
     if (runBrowserTests) {
         await enterAnswerBrowserTests(questionnaire, currentBrowserTestPageId, questionId, answer);
     } else {
