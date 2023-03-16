@@ -26,7 +26,7 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Where you living with them when they died?'
+                            title: 'Were you living with them when they died?'
                         }
                     }
                 }
@@ -34,7 +34,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-living-together':
-                        'Select yes if you where living with them when they died?'
+                        'Select yes if you were living with them when they died?'
                 }
             },
             examples: [
