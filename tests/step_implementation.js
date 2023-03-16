@@ -6,25 +6,25 @@
 const path = require('path');
 const {v4: uuidv4} = require('uuid');
 const assert = require('assert');
-const jp = require('jsonpath');
 const createQRouter = require('q-router');
 
 const {
     openBrowser,
-    write,
     closeBrowser,
     goto,
     screenshot,
     click,
-    // text,
-    into,
-    textBox,
     currentURL,
     resizeWindow
     // dropDown
 } = require('taiko');
 const templates = require('./templateFactory');
 const {answerQuestion} = require('./routing/testHelper');
+const {
+    isDateQuestion,
+    enterDateComponentsIntoTextBoxes,
+    enterAnswerBrowserTests
+} = require('./isDateQuestion');
 
 const applicationEntryPointUrl = process.env.application_entry_point_url;
 const windowSizeWidth = process.env.window_size_width;
@@ -33,10 +33,7 @@ const headless = process.env.headless_chrome === 'true';
 const runBrowserTests = process.env.run_ui_tests === 'true';
 const pageIdPrefixRegex = /^p-{1,2}/;
 
-// const browserTestsHelper = require('./browser/browserTestsHelper');
-
 let questionnaire;
-exports.questionnaire = questionnaire;
 let currentBrowserTestPageId;
 
 beforeSpec(async () => {
@@ -85,33 +82,6 @@ gauge.customScreenshotWriter = async function() {
     await screenshot({path: screenshotFilePath});
     return path.basename(screenshotFilePath);
 };
-
-function isDateQuestion(questionId, section) {
-    const format = jp.query(section, `$..properties["${questionId}"].format`);
-    if (format.length !== 0 && format[0] === 'date-time') {
-        return true;
-    }
-    return false;
-}
-async function enterDateComponentsIntoTextBoxes(section, answer) {
-    const precision = jp.query(section, `$..precision`)[0];
-    // date is in ISO 8601 format
-    const d = new Date(answer);
-    if (precision.includes('DD')) {
-        await write(d.getDay(), into(textBox('Day')));
-    }
-    await write(d.getMonth(), into(textBox('Month')));
-    await write(d.getFullYear(), into(textBox('Year')));
-}
-async function enterAnswerBrowserTests(questionId, answer) {
-    const section = questionnaire.sections[currentBrowserTestPageId];
-    if (isDateQuestion(questionId, section)) {
-        await enterDateComponentsIntoTextBoxes(section, answer);
-    } else {
-        const questionTitle = jp.query(section, `$..properties["${questionId}"].title`);
-        await write(answer, into(textBox(questionTitle[0])));
-    }
-}
 
 /* eslint func-names: ["error", "never"] */
 step('Given the user is on page <pageId>', async function(pageId) {
@@ -172,7 +142,7 @@ step('And they <buttonName>', async function(buttonName) {
 /* eslint func-names: ["error", "never"] */
 step('And they enter <answer> into question <questionId>', async function(answer, questionId) {
     if (runBrowserTests) {
-        await enterAnswerBrowserTests(questionId, answer);
+        await enterAnswerBrowserTests(questionnaire, currentBrowserTestPageId, questionId, answer);
     } else {
         answerQuestion(questionnaire, questionId, answer);
     }
@@ -181,7 +151,7 @@ step('And they enter <answer> into question <questionId>', async function(answer
 /* eslint func-names: ["error", "never"] */
 step('When they enter <answer> into question <questionId>', async function(answer, questionId) {
     if (runBrowserTests) {
-        await enterAnswerBrowserTests(questionId, answer);
+        await enterAnswerBrowserTests(questionnaire, currentBrowserTestPageId, questionId, answer);
     } else {
         answerQuestion(questionnaire, questionId, answer);
     }
