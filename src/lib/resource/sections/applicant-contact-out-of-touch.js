@@ -28,7 +28,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-contact-out-of-touch':
-                        'Tell us why you were out of touch with each other, Description must be 2000 characters or less'
+                        'Tell us why you were out of touch with each other.'
                 }
             },
             examples: [

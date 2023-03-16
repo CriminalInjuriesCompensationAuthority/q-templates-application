@@ -86,7 +86,7 @@ module.exports = {
                         errorMessage: {
                             required: {
                                 'q-applicant-enter-your-relationship-details':
-                                    'There is a  problem tell us how you are related'
+                                    'Tell us how you are related.'
                             }
                         }
                     }
