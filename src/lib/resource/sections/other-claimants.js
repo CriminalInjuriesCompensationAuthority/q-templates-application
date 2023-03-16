@@ -46,14 +46,14 @@ module.exports = {
                                 }
                             }
                         }
-                    ]
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-other-claimants': 'Select yes if you know if anyone else might claim'
+                        }
+                    }
                 }
             ],
-            errorMessage: {
-                required: {
-                    'q-other-claimants': 'Select yes if you know if anyone else might claim'
-                }
-            },
             examples: [
                 {
                     'q-other-claimants': 'true'
