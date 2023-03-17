@@ -82,7 +82,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-financial-help',
+                    target: 'p-other-claimants',
                     cond: [
                         'and',
                         [
