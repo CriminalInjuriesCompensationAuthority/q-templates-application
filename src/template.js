@@ -192,6 +192,7 @@ const applicantContactOutOfTouch = require('./lib/resource/sections/applicant-co
 const applicantFinancialHelp = require('./lib/resource/sections/applicant-financial-help.js');
 const otherClaimants = require('./lib/resource/sections/other-claimants.js');
 const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-details.js');
+const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -402,7 +403,8 @@ module.exports = {
         'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.section,
         'p-applicant-financial-help': applicantFinancialHelp.section,
         'p-other-claimants': otherClaimants.section,
-        'p-other-claimants-details': otherClaimantsDetails.section
+        'p-other-claimants-details': otherClaimantsDetails.section,
+        'p-context-funeral-costs-proof': contextFuneralCostsProof.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -627,7 +629,8 @@ module.exports = {
             'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
             'p-applicant-financial-help': applicantFinancialHelp.route,
             'p-other-claimants': otherClaimants.route,
-            'p-other-claimants-details': otherClaimantsDetails.route
+            'p-other-claimants-details': otherClaimantsDetails.route,
+            'p-context-funeral-costs-proof': contextFuneralCostsProof.route
         }
     },
     answers: {},
