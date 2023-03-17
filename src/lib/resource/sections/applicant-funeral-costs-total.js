@@ -71,7 +71,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased'
+                    target: 'p-context-funeral-costs-proof'
                 }
             ]
         }
