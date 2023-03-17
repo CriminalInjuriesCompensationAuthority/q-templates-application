@@ -42,7 +42,7 @@ module.exports = {
                             properties: {
                                 'q-other-claimants-info': {
                                     description:
-                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else could claim?",html: \'<p class="govuk-body">This could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>Parents</li><li>Children</li><li>Spouses or civil partners</li><li>Former spouses or civil partners</li><li>Partners</li></ul>\'}) }}'
+                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else could claim?",html: \'<p class="govuk-body">This could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or civil partners</li><li>partners</li></ul>\'}) }}'
                                 }
                             }
                         }
