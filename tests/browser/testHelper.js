@@ -9,6 +9,10 @@ const {
     textBox
 } = require('taiko');
 
+const jsonTranslator = require('./getValueContextualiser');
+
+const l10nPrefixRegex = /^l10nt/;
+
 function isDateQuestion(questionId, section) {
     const format = jp.query(section, `$..properties["${questionId}"].format`);
     if (format.length !== 0 && format[0] === 'date-time') {
@@ -16,7 +20,7 @@ function isDateQuestion(questionId, section) {
     }
     return false;
 }
-exports.isDateQuestion = isDateQuestion;
+
 async function enterDateComponentsIntoTextBoxes(section, answer) {
     const precision = jp.query(section, `$..precision`)[0];
     // date is in ISO 8601 format
@@ -27,8 +31,13 @@ async function enterDateComponentsIntoTextBoxes(section, answer) {
     await write(d.getMonth(), into(textBox('Month')));
     await write(d.getFullYear(), into(textBox('Year')));
 }
-exports.enterDateComponentsIntoTextBoxes = enterDateComponentsIntoTextBoxes;
+
 async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer) {
+    // hardcoding here to handle drop down selection
+    if (questionId === 'q-police-force-id') {
+        await write('Manc', into(textBox('Which')));
+    }
+
     const section = questionnaire.sections[pageId];
     if (isDateQuestion(questionId, section)) {
         await enterDateComponentsIntoTextBoxes(section, answer);
@@ -41,6 +50,9 @@ async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer
         await click(answer);
     } else {
         const questionTitle = jp.query(section, `$..properties["${questionId}"].title`);
+        if (l10nPrefixRegex.test(questionTitle[0])) {
+            questionTitle[0] = jsonTranslator(section, questionnaire.answers);
+        }
         await write(answer, into(textBox(questionTitle[0])));
     }
 }
