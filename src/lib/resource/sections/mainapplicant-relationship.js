@@ -124,13 +124,7 @@ module.exports = {
                 },
                 {
                     target: 'p--context-rep-details',
-                    cond: [
-                        'and',
-                        ['|role.all', 'adult'],
-                        // Rep role
-                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                    ]
+                    cond: ['|role.all', 'adult', 'rep']
                 },
                 {
                     target: 'p-mainapplicant-shared-responsibility'
