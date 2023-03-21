@@ -216,7 +216,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-context-funeral-costs'
+                    target: 'p--context-funeral-costs'
                 }
             ]
         }
