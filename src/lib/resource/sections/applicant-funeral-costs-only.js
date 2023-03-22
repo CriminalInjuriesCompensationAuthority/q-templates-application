@@ -10,7 +10,7 @@ module.exports = {
                     title: 'What do you want to claim?',
                     meta: {
                         classifications: {
-                            theme: 'about_application'
+                            theme: 'about-application'
                         },
                         summary: {
                             title: 'What do you want to claim?'
