@@ -35,6 +35,7 @@ async function enterDateComponentsIntoTextBoxes(section, answer) {
 async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer) {
     // hardcoding here to handle drop down selection
     if (questionId === 'q-police-force-id') {
+        // we use Greater Manchester Police as our standard search
         await write('Manc', into(textBox('Which')));
     }
 
@@ -43,7 +44,7 @@ async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer
         await enterDateComponentsIntoTextBoxes(section, answer);
         return;
     }
-    // $..properties["q--new-or-existing-application"].oneOf
+
     const isSelectable = jp.query(section, `$..properties["${questionId}"].oneOf`).length === 1;
 
     if (isSelectable) {
