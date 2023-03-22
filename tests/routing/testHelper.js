@@ -23,7 +23,16 @@ function pageContainsAnsweredQuestions(questionnaire, pageId) {
     return questionnaire.answers[pageId] !== undefined;
 }
 
-function anyOfAnswerResolver(answer, section, questionId, answerObj) {
+function anyOfSingleAnswerResolver(section, questionId, answer, answerObj) {
+    const lookup = jp.query(
+        section,
+        `$..properties["${questionId}"].items.anyOf[?(@.title == "${answer}")]`
+    )[0].const;
+
+    answerObj[questionId] = [lookup];
+}
+
+function mapAnswersToLookupConstants(answer) {
     const answerArray = [];
     let selectableElement = '';
     Array.from(answer).forEach(char => {
@@ -39,6 +48,11 @@ function anyOfAnswerResolver(answer, section, questionId, answerObj) {
             }
         }
     });
+    return answerArray;
+}
+
+function anyOfArrayAnswerResolver(answer, section, questionId, answerObj) {
+    const answerArray = mapAnswersToLookupConstants(answer);
 
     const newArray = answerArray.map(function(selection) {
         return jp.query(
@@ -47,6 +61,15 @@ function anyOfAnswerResolver(answer, section, questionId, answerObj) {
         )[0].const;
     });
     answerObj[questionId] = newArray;
+}
+
+function anyOfAnswerResolver(answer, section, questionId, answerObj) {
+    if (answerIsAnArrayRegex.test(answer)) {
+        anyOfArrayAnswerResolver(answer, section, questionId, answerObj);
+    } else {
+        anyOfSingleAnswerResolver(section, questionId, answer, answerObj);
+    }
+
     return answerObj;
 }
 
@@ -54,12 +77,19 @@ function resultFound(queryResultArray) {
     return queryResultArray.length !== 0;
 }
 
+function isQuestionAnAnyOf(section, questionId) {
+    const queryResultArray = jp.query(section, `$..properties["${questionId}"].items.anyOf`);
+    if (resultFound(queryResultArray)) {
+        return true;
+    }
+    return false;
+}
+
+// TODO refactor out to own js file
 function answerResolver(section, questionId, answer) {
     const answerObj = {};
-    // TODO more to do here, change to answer is for anyOf
-    // then work out whether it's an array.
-    if (answerIsAnArrayRegex.test(answer)) {
-        // extract to new function
+
+    if (isQuestionAnAnyOf(section, questionId)) {
         return anyOfAnswerResolver(answer, section, questionId, answerObj);
     }
 
