@@ -60,7 +60,7 @@ module.exports = {
                     cond: ['|role.all', 'deceased']
                 },
                 {
-                    target: 'p--was-the-crime-reported-to-police',
+                    target: 'p--context-applicant-details',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                 }
             ]
