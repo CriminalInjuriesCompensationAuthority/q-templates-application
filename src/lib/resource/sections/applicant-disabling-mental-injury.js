@@ -76,7 +76,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-foo'
+                    target: 'p--context-offender'
                 }
             ]
         }
