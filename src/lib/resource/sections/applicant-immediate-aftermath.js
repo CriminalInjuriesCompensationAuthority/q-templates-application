@@ -14,7 +14,8 @@ module.exports = {
                             theme: 'crime'
                         },
                         summary: {
-                            title: 'About the crime'
+                            title:
+                                'Were you there when the crime happened, or involved in the immediate aftermath?'
                         }
                     },
                     required: ['q-applicant-immediate-aftermath'],
