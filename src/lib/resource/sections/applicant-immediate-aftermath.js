@@ -76,7 +76,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-foo'
+                    target: 'p-applicant-disabling-mental-injury',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-immediate-aftermath.q-applicant-immediate-aftermath',
+                        true
+                    ]
+                },
+                {
+                    target: 'p--context-offender',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-immediate-aftermath.q-applicant-immediate-aftermath',
+                        false
+                    ]
                 }
             ]
         }
