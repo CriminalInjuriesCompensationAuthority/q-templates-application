@@ -119,6 +119,23 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equal to ...
+                            '-18', // 18 ...
+                            'years' // years (before, due to the negative (-18) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ],
+                        // Main Applicant role
+                        ['|role.all', 'mainapplicant'],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+                {
                     target: 'p--before-you-continue',
                     cond: [
                         'and',
@@ -130,7 +147,8 @@ module.exports = {
                             'years' // years (before, due to the negative (-18) ...
                             // today's date (no second date given. defaults to today's date).
                         ],
-                        ['|role.all', 'mainapplicant']
+                        ['|role.all', 'mainapplicant'],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                     ]
                 },
                 {

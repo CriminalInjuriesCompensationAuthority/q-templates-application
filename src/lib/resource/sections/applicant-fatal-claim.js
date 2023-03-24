@@ -62,6 +62,9 @@ module.exports = {
                 {
                     target: 'p--context-applicant-details',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
+                },
+                {
+                    target: 'p-applicant-funeral-costs-only'
                 }
             ]
         }
