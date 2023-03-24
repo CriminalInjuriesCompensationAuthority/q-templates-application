@@ -76,7 +76,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-other-claimants'
+                    target: 'p-applicant-physical-help'
                 }
             ]
         }
