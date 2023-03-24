@@ -25,7 +25,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

@@ -73,7 +73,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--before-you-continue',
+                    target: 'p--context-deceased-details',
                     cond: ['==', '$.answers.p-other-claimants.q-other-claimants', false]
                 },
                 {
