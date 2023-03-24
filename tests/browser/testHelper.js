@@ -12,6 +12,7 @@ const {
 const jsonTranslator = require('./getValueContextualiser');
 
 const l10nPrefixRegex = /^l10nt/;
+const answerIsAnArrayRegex = /^\{.*\}$/;
 
 function isDateQuestion(questionId, section) {
     const format = jp.query(section, `$..properties["${questionId}"].format`);
@@ -32,6 +33,31 @@ async function enterDateComponentsIntoTextBoxes(section, answer) {
     await write(d.getFullYear(), into(textBox('Year')));
 }
 
+// TODO duplicate functionlaity refactor and rename
+async function mapAnyOfAnswersToLookupConstants(answer) {
+    const answerArray = [];
+    if (!answerIsAnArrayRegex.test(answer)) {
+        answerArray.push(answer);
+        return answerArray;
+    }
+
+    let selectableElement = '';
+    Array.from(answer).forEach(char => {
+        if (char === ',' && selectableElement === '') {
+            return;
+        }
+        if (char !== '{') {
+            if (char === '}') {
+                answerArray.push(selectableElement.trim());
+                selectableElement = '';
+            } else {
+                selectableElement = selectableElement.concat(char);
+            }
+        }
+    });
+    return answerArray;
+}
+
 async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer) {
     // hardcoding here to handle drop down selection
     if (questionId === 'q-police-force-id') {
@@ -42,6 +68,20 @@ async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer
     const section = questionnaire.sections[pageId];
     if (isDateQuestion(questionId, section)) {
         await enterDateComponentsIntoTextBoxes(section, answer);
+        return;
+    }
+
+    const isMultiSelectable =
+        jp.query(section, `$..properties["${questionId}"].items.anyOf`).length === 1;
+
+    if (isMultiSelectable) {
+        const selections = await mapAnyOfAnswersToLookupConstants(answer);
+
+        /* eslint-disable */
+        for (const selection of selections) {
+            await click(selection);
+        }
+        /* eslint-enable */
         return;
     }
 
