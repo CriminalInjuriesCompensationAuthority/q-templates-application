@@ -55,6 +55,25 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
+                            false
+                        ],
+                        // Main Applicant role
+                        [
+                            'or',
+                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        ],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+
+                {
                     target: 'p--before-you-continue',
                     cond: [
                         'and',
@@ -68,7 +87,8 @@ module.exports = {
                             'or',
                             ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                        ]
+                        ],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                     ]
                 },
                 {

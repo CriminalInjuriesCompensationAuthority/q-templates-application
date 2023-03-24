@@ -23,7 +23,7 @@ module.exports = {
                     allOf: [
                         {
                             properties: {
-                                'q-applicant-physical-helpp': {
+                                'q-applicant-physical-help': {
                                     type: 'boolean',
                                     oneOf: [
                                         {

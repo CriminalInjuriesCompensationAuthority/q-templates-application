@@ -57,6 +57,18 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-compensation',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
+                            false
+                        ],
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    ]
+                },
+                {
                     target: 'p--context-physical-injuries',
                     cond: [
                         '==',
