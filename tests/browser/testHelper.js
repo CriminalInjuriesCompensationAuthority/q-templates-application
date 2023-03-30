@@ -60,6 +60,7 @@ async function mapAnyOfAnswersToLookupConstants(answer) {
 
 async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer) {
     // hardcoding here to handle drop down selection
+    // TODO move this further down
     if (questionId === 'q-police-force-id') {
         // we use Greater Manchester Police as our standard search
         await write('Manc', into(textBox('Which')));
@@ -85,7 +86,10 @@ async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer
         return;
     }
 
-    const isSelectable = jp.query(section, `$..properties["${questionId}"].oneOf`).length === 1;
+    // TODO can this be reduced to just the .const check?
+    const isSelectable =
+        jp.query(section, `$..properties["${questionId}"].oneOf`).length === 1 ||
+        jp.query(section, `$..properties["${questionId}"].const`).length === 1;
 
     if (isSelectable) {
         await click(answer);

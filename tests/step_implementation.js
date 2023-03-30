@@ -15,13 +15,14 @@ const {
     screenshot,
     click,
     currentURL,
-    resizeWindow
-    // dropDown
+    resizeWindow,
+    text
 } = require('taiko');
 const templates = require('./templateFactory');
 const {answerQuestion} = require('./routing/testHelper');
 const {enterAnswerBrowserTests} = require('./browser/testHelper');
 
+const {environment} = process.env;
 const applicationEntryPointUrl = process.env.application_entry_point_url;
 const windowSizeWidth = process.env.window_size_width;
 const windowSizeHeight = process.env.window_size_height;
@@ -32,15 +33,14 @@ const pageIdPrefixRegex = /^p-{1,2}/;
 let questionnaire;
 let currentBrowserTestPageId;
 
-beforeSpec(async () => {
-    const uuidV4 = uuidv4();
-    questionnaire = templates['sexual-assault'](uuidV4);
-    questionnaire.currentSectionId = questionnaire.routes.initial;
-});
+beforeSpec(async () => {});
 
 afterSpec(async () => {});
 
 beforeScenario(async () => {
+    const uuidV4 = uuidv4();
+    questionnaire = templates['sexual-assault'](uuidV4);
+    questionnaire.currentSectionId = questionnaire.routes.initial;
     if (runBrowserTests) {
         console.log(`Running browser tests: ${runBrowserTests}`);
         console.log(`Running in headless mode: ${headless}`);
@@ -139,4 +139,28 @@ step('And they answer <answer> to question <questionId>', async function(answer,
     }
 });
 
-/// ////////////////////////////////////////////////////////////////////
+/* eslint func-names: ["error", "never"] */
+step('Assert page content contains <content>', async function(content) {
+    if (runBrowserTests) {
+        try {
+            assert.ok(await text(content).exists(0, 0));
+            await resizeWindow({width: 1440, height: 3456});
+            await gauge.screenshot();
+        } catch (error) {
+            if (environment === 'local') {
+                console.log(
+                    '\nIS YOUR VPN ENABLED? THE CHECK CONTENT OF CONFIRMATION STEP WILL FAIL !'
+                );
+            }
+            throw error;
+        }
+    }
+});
+
+step('Assert page content contains a valid CRN', async function() {
+    if (runBrowserTests && environment !== 'local') {
+        assert.ok(await text(/\d{2}\\\d{6}/).exists());
+    } else {
+        gauge.message(`Ignoring CRN check for this environment: ${environment}`);
+    }
+});
