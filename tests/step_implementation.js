@@ -102,6 +102,10 @@ step('Then the user is on page <pageId>', async function(pageId) {
             const page = await currentURL();
             assert.ok(page.includes(pageId.replace(pageIdPrefixRegex, '')));
             currentBrowserTestPageId = pageId;
+            if (page.includes('check-your-answers')) {
+                await resizeWindow({width: 1440, height: 7680});
+                await gauge.screenshot();
+            }
         } catch (error) {
             if (pageId === 'p--confirmation' && environment === 'local') {
                 console.log('\nIS YOUR VPN ENABLED? p--confirmation page check will fail !!');
