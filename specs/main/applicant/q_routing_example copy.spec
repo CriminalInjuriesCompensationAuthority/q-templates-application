@@ -1,6 +1,6 @@
-# Journey for applicant adult
+# Journey for applicant adult copy
 
-## applicant:adult email notification
+## applicant:adult email notification copy
 * Given the user is on page "p--new-or-existing-application"
 * When they answer "Start a new application" to question "q--new-or-existing-application"
 * And they "Continue"
@@ -26,7 +26,7 @@
 * And they "Continue"
 * Then the user is on page "p-applicant-confirmation-method"
 * When they answer "Email" to question "q-applicant-confirmation-method"
-* And they answer <file:/specs/data/email_recipient.txt> to question "q-applicant-enter-your-email-address"
+* And they answer "foo.bar.copy@somewhere.com" to question "q-applicant-enter-your-email-address"
 * And they "Continue"
 * Then the user is on page "p-applicant-enter-your-name"
 * When they answer "Miss" to question "q-applicant-title"
@@ -40,7 +40,7 @@
 * When they answer "1990-03-31T00:00:00.000Z" to question "q-applicant-enter-your-date-of-birth"
 * And they "Continue"
 * Then the user is on page "p-applicant-enter-your-address"
-* When they answer "Alexander Bain House" to question "q-applicant-building-and-street"
+* When they answer "Alexander Brain House" to question "q-applicant-building-and-street"
 * And they answer "15 York Street" to question "q-applicant-building-and-street-2"
 * And they answer "Financial District" to question "q-applicant-building-and-street-3"
 * And they answer "Glasgow" to question "q-applicant-town-or-city"
@@ -157,7 +157,7 @@
 * When they answer "Yes" to question "q-applicant-have-you-seen-a-gp"
 * And they "Continue"
 * Then the user is on page "p-gp-enter-your-address"
-* When they answer "GP Practice" to question "q-gp-organisation-name"
+* When they answer "GP Practice Copy" to question "q-gp-organisation-name"
 * And they answer "GP Building" to question "q-gp-building-and-street"
 * And they answer "GP Street" to question "q-gp-building-and-street-2"
 * And they answer "GP Street Line 3" to question "q-gp-building-and-street-3"
@@ -169,7 +169,7 @@
 * When they answer "Yes" to question "q-applicant-dentist-visited"
 * And they "Continue"
 * Then the user is on page "p-applicant-dentist-address"
-* When they answer "Dentist Practice" to question "q-applicant-dentist-organisation-name"
+* When they answer "Dentist Practice Copy" to question "q-applicant-dentist-organisation-name"
 * And they answer "Dentist Building" to question "q-applicant-dentist-address-building-and-street"
 * And they answer "Dentist Street" to question "q-applicant-dentist-address-building-and-street-2"
 * And they answer "Dentist Street Line 3" to question "q-applicant-dentist-address-building-and-street-3"

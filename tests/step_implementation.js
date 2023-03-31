@@ -98,9 +98,16 @@ step('Given the user is on page <pageId>', async function(pageId) {
 /* eslint func-names: ["error", "never"] */
 step('Then the user is on page <pageId>', async function(pageId) {
     if (runBrowserTests) {
-        const page = await currentURL();
-        assert.ok(page.includes(pageId.replace(pageIdPrefixRegex, '')));
-        currentBrowserTestPageId = pageId;
+        try {
+            const page = await currentURL();
+            assert.ok(page.includes(pageId.replace(pageIdPrefixRegex, '')));
+            currentBrowserTestPageId = pageId;
+        } catch (error) {
+            if (pageId === 'p--confirmation' && environment === 'local') {
+                console.log('\nIS YOUR VPN ENABLED? p--confirmation page check will fail !!');
+            }
+            throw error;
+        }
     } else {
         assert.equal(pageId, questionnaire.currentSectionId);
     }
