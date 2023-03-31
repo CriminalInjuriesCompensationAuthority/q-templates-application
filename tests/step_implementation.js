@@ -158,7 +158,12 @@ step('Assert page content contains <content>', async function(content) {
 });
 
 step('Assert page content contains a valid CRN', async function() {
-    if (runBrowserTests && environment !== 'local') {
+    if (!runBrowserTests) {
+        gauge.message(`Ignoring CRN check for low level routign tests: ${environment}`);
+        return;
+    }
+
+    if (environment !== 'local') {
         assert.ok(await text(/\d{2}\\\d{6}/).exists());
     } else {
         gauge.message(`Ignoring CRN check for this environment: ${environment}`);
