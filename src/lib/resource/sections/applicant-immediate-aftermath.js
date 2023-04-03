@@ -44,7 +44,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-immediate-aftermath-info': {
                                     description:
-                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does immediate aftermath mean?",html: \'<p class="govuk-body">You were usual involved in the immediate aftermath if you arrived at the scene of the crime straight after it happened.</p></p>\'}) }}'
+                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does immediate aftermath mean?",html: \'<p class="govuk-body">You were usually involved in the immediate aftermath if you arrived at the scene of the crime straight after it happened.</p></p>\'}) }}'
                                 }
                             }
                         }
