@@ -21,6 +21,7 @@ const {
 const templates = require('./templateFactory');
 const {answerQuestion} = require('./routing/testHelper');
 const {answerBrowserQuestion} = require('./browser/testHelper');
+const logger = require('./logger');
 
 const {environment} = process.env;
 const applicationEntryPointUrl = process.env.application_entry_point_url;
@@ -38,9 +39,9 @@ beforeScenario(async () => {
     questionnaire = templates['sexual-assault'](uuidV4);
     questionnaire.currentSectionId = questionnaire.routes.initial;
     if (runBrowserTests) {
-        console.log(`Running browser tests: ${runBrowserTests}`);
-        console.log(`Running in headless mode: ${headless}`);
-        console.log(`Application entry point url: ${applicationEntryPointUrl}`);
+        logger.info(`Running browser tests: ${runBrowserTests}`);
+        logger.info(`Running in headless mode: ${headless}`);
+        logger.info(`Application entry point url: ${applicationEntryPointUrl}`);
         await openBrowser({
             headless,
             args: [
@@ -56,6 +57,8 @@ beforeScenario(async () => {
         });
         await goto(applicationEntryPointUrl);
         await click('Accept all cookies');
+    } else {
+        logger.info(`Running routing tests: ${!runBrowserTests}`);
     }
 });
 
@@ -86,7 +89,7 @@ step('Given the user is on page <pageId>', async function(pageId) {
         }
         currentBrowserTestPageId = pageId;
     } else {
-        console.log(questionnaire.id);
+        logger.debug(questionnaire.id);
         assert.equal(pageId, questionnaire.currentSectionId);
     }
 });
@@ -104,7 +107,7 @@ step('Then the user is on page <pageId>', async function(pageId) {
             }
         } catch (error) {
             if (pageId === 'p--confirmation' && environment === 'local') {
-                console.log('\nIS YOUR VPN ENABLED? p--confirmation page check will fail !!');
+                logger.error('\nIS YOUR VPN ENABLED? p--confirmation page check will fail !!');
             }
             throw error;
         }
@@ -155,7 +158,7 @@ step('Assert page content contains <content>', async function(content) {
             await gauge.screenshot();
         } catch (error) {
             if (environment === 'local') {
-                console.log(
+                logger.error(
                     '\nIS YOUR VPN ENABLED? THE CHECK CONTENT OF CONFIRMATION STEP WILL FAIL !'
                 );
             }

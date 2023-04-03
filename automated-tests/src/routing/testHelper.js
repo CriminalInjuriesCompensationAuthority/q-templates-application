@@ -5,6 +5,7 @@ const AjvErrors = require('ajv-errors');
 const jp = require('jsonpath');
 const createQRouter = require('q-router');
 const {getSection} = require('./getSection');
+const logger = require('../logger');
 
 const answerIsAnArrayRegex = /^\{.*\}$/;
 
@@ -85,7 +86,6 @@ function isQuestionAnAnyOf(section, questionId) {
     return false;
 }
 
-// TODO refactor out to own js file
 function answerResolver(section, questionId, answer) {
     const answerObj = {};
 
@@ -166,6 +166,6 @@ function answerQuestion(questionnaire, questionId, answer) {
 
     /* eslint no-param-reassign: ["error", { "props": false }] */
     questionnaire.answers[pageId] = answers;
-    console.log(questionnaire.answers[pageId]);
+    logger.debug(questionnaire.answers[pageId]);
 }
 exports.answerQuestion = answerQuestion;
