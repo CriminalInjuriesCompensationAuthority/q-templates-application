@@ -9,14 +9,14 @@
     },
     "scripts": {
         "pretest": "npm run build",
-        "test": "jest",
+        "test": "jest && npm run gauge:test",
         "coverage": "jest --coverage",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "build": "node ./src/build.js",
         "prepare": "npm run build --silent",
         "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
-        "gauge:test": "gauge run --parallel -n=4 specs"
+        "gauge:test": "gauge run --max-retries-count=3 --parallel -n=4 automated-tests/specs"
     },
     "author": "CICA",
     "license": "MIT",

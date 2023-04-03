@@ -20,7 +20,11 @@ const config = {
         'jest/expect-expect': ['error'],
         // https://github.com/eslint/eslint/issues/8953#issuecomment-317697474
         strict: ['error', 'safe'],
-        'import/extensions': ['off']
+        'import/extensions': ['off'],
+        'import/no-extraneous-dependencies': [
+            'error',
+            {devDependencies: ['**/*tests*/**', '**/*.spec.js']}
+        ]
     },
     plugins: ['prettier']
 };

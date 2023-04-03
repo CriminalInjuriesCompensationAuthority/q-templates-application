@@ -1,6 +1,6 @@
 'use strict';
 
-const applicationTemplate = require('../dist/template.json');
+const applicationTemplate = require('../../dist/template.json');
 
 const applicationTemplateAsJson = JSON.stringify(applicationTemplate);
 

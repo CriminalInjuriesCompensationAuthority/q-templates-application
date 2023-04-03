@@ -1,6 +1,6 @@
 'use strict';
 
-/* global beforeSpec, afterSpec, beforeScenario, afterScenario, gauge, step */
+/* global beforeScenario, afterScenario, gauge, step */
 /* eslint no-undef: "error" */
 
 const path = require('path');
@@ -32,10 +32,6 @@ const pageIdPrefixRegex = /^p-{1,2}/;
 
 let questionnaire;
 let currentBrowserTestPageId;
-
-beforeSpec(async () => {});
-
-afterSpec(async () => {});
 
 beforeScenario(async () => {
     const uuidV4 = uuidv4();
