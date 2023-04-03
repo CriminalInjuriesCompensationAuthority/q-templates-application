@@ -89,7 +89,7 @@ function isSingleSelectionQuestion(section, questionId) {
     );
 }
 
-async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer) {
+async function answerBrowserQuestion(questionnaire, pageId, questionId, answer) {
     const section = questionnaire.sections[pageId];
     if (isDateQuestion(questionId, section)) {
         await enterDateAnswerIntoTextBoxes(section, answer);
@@ -107,4 +107,4 @@ async function enterAnswerBrowserTests(questionnaire, pageId, questionId, answer
         await enterAnswerIntoTextBox(section, questionId, questionnaire, answer);
     }
 }
-exports.enterAnswerBrowserTests = enterAnswerBrowserTests;
+exports.answerBrowserQuestion = answerBrowserQuestion;
