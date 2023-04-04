@@ -7,3 +7,10 @@ coverage
 dist
 
 .vscode
+
+# Gauge start
+/reports
+automated-tests/logs
+/logs
+.gauge
+# Gauge end
