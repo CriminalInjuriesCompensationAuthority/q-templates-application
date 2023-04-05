@@ -234,6 +234,14 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--transition-no-phone-or-email',
+                    cond: [
+                        '==',
+                        '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
+                        'none'
+                    ]
+                },
+                {
                     target: 'p-rep-name'
                 }
             ]
