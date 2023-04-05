@@ -139,11 +139,27 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-financial-help',
+                    target: 'p--context-deceased-details',
                     cond: [
                         '==',
-                        '$.answers.p-applicant-relationship-to-deceased.q-applicant-relationship-to-deceased',
-                        'formerSpouseOrCivilPartner'
+                        '$.answers.p-applicant-funeral-costs-only.q-applicant-funeral-costs-only',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-financial-help',
+                    cond: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-relationship-to-deceased.q-applicant-relationship-to-deceased',
+                            'formerSpouseOrCivilPartner'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-only.q-applicant-funeral-costs-only',
+                            false
+                        ]
                     ]
                 },
                 {
