@@ -170,7 +170,7 @@ const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainappli
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
-const user = require('./lib/resource/sections/user');
+const owner = require('./lib/resource/sections/owner');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -359,7 +359,7 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        user: user.section
+        owner: owner.section
     },
     routes: {
         initial: 'p-applicant-fatal-claim',
@@ -561,7 +561,7 @@ module.exports = {
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            user: user.route
+            owner: owner.route
         }
     },
     answers: {},
