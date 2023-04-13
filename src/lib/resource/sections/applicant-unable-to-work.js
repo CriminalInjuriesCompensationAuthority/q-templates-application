@@ -116,11 +116,7 @@ module.exports = {
                         ],
                         [
                             'and',
-                            [
-                                '==',
-                                '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                                'someone-else'
-                            ],
+                            ['|role.all', 'proxy'],
                             [
                                 '==',
                                 '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
