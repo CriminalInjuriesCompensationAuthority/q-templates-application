@@ -110,22 +110,8 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-authority',
-                    // prettier-ignore
-                    cond: [
-                        'and',
-                        ['|role.all', 'child'],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],                                              
-                    ]
-                },
-                {
                     target: 'p--represents-legal-authority',
-
-                    cond: [
-                        'and',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        ['|role.all', 'adult', 'incapable']
-                    ]
+                    cond: ['|role.all', 'adult', 'incapable', 'rep']
                 },
                 {
                     target: 'p--context-authority'

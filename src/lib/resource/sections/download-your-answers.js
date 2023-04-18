@@ -28,32 +28,20 @@ module.exports = {
                     target: 'p-rep-declaration-under-12',
                     cond: [
                         'and',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
                         [
                             'or',
-                            [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
-                            ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                        ],
-                        ['or', ['|role.all', 'childUnder12'], ['|role.all', 'adult', 'incapable']]
+                            ['|role.all', 'childUnder12', 'rep'],
+                            ['|role.all', 'adult', 'incapable', 'rep']
+                        ]
                     ]
                 },
                 {
                     target: 'p-rep-declaration-12-and-over',
                     cond: [
                         'and',
-                        [
-                            'or',
-                            [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
-                            ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                        ],
-                        ['|role.all', 'childOver12']
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['|role.all', 'childOver12', 'rep']
                     ]
                 }
             ]

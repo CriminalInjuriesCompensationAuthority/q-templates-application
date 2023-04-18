@@ -126,18 +126,6 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-affect-on-daily-life-dmi',
-                    cond: [
-                        'and',
-                        [
-                            '==',
-                            '$.answers.p-applicant-unable-to-work.q-applicant-unable-to-work',
-                            false
-                        ],
-                        ['|role.all', 'proxy']
-                    ]
-                },
-                {
                     target: 'p-applicant-affect-on-daily-life-dmi'
                 }
             ]
