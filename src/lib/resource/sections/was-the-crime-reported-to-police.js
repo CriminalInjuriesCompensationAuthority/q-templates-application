@@ -29,7 +29,7 @@ module.exports = {
                 },
                 'dont-know-if-crime-reported': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "I do not know if the crime was reported to the police",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "I do not know if the crime was reported to the police",html: \'<p class="govuk-body">If you do not know if the crime was reported to the police, call 101 to speak to your local police station. They can help you with this.</p>\'})}}'
                 }
             },
             errorMessage: {
