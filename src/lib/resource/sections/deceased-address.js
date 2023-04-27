@@ -51,6 +51,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-building-and-street-2': {
                                     type: 'string',
+                                    title: 'Building and street line 2',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -68,6 +69,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-building-and-street-3': {
                                     type: 'string',
+                                    title: 'Building and street line 3',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
