@@ -23,6 +23,7 @@
     "devDependencies": {
         "ajv-errors": "^1.0.1",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
+        "bdd-template-test-framework": "github:CriminalInjuriesCompensationAuthority/bdd-template-test-framework",
         "cross-env": "^7.0.3",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
@@ -36,8 +37,5 @@
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
         "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v5.4.0"
-    },
-    "dependencies": {
-        "bdd-test-framework": "file:../bdd-test-framework"
     }
 }
