@@ -16,11 +16,11 @@
         "build": "node ./src/build.js",
         "prepare": "npm run build --silent",
         "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
-        "gauge:test": "cross-env template_under_test=$npm_package_name#$npm_package_version gauge run --parallel -n=4 specs"
+        "bdd:test": "cross-env template_under_test=$npm_package_name#$npm_package_version gauge run --parallel -n=4 specs"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run test && npm run gauge:test"
+            "pre-commit": "npm run test && npm run bdd:test"
         }
     },
     "author": "CICA",
