@@ -15,6 +15,7 @@ module.exports = {
                 'q-applicant-relationship-to-deceased': {
                     title: 'What is your relationship to the person who died?',
                     type: 'string',
+                    description: 'This tells us who you are in relation to the person who died.',
                     oneOf: [
                         {
                             title: 'Parent',
@@ -25,7 +26,7 @@ module.exports = {
                             const: 'child'
                         },
                         {
-                            title: 'Spouse or Civil Partner',
+                            title: 'Spouse or civil Partner',
                             const: 'spouseOrCivilPartner'
                         },
                         {
@@ -33,7 +34,7 @@ module.exports = {
                             const: 'partner'
                         },
                         {
-                            title: 'Former Spouse or Civil Partner',
+                            title: 'Former spouse or former civil Partner',
                             const: 'formerSpouseOrCivilPartner'
                         },
                         {
