@@ -15,19 +15,28 @@
         "lint:fix": "eslint --fix .",
         "build": "node ./src/build.js",
         "prepare": "npm run build --silent",
-        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build"
+        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
+        "bdd:test": "cross-env template_under_test=$npm_package_name#$npm_package_version gauge run --parallel -n=4 specs"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run test && npm run bdd:test"
+        }
     },
     "author": "CICA",
     "license": "MIT",
     "devDependencies": {
+        "ajv-errors": "^1.0.1",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
+        "bdd-template-test-framework": "github:CriminalInjuriesCompensationAuthority/bdd-template-test-framework",
+        "cross-env": "^7.0.3",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^6.9.0",
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-jest": "^23.3.0",
         "eslint-plugin-prettier": "^3.1.2",
-        "husky": "^4.0.3",
+        "husky": "^4.3.8",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
         "nodemon": "^2.0.19",
