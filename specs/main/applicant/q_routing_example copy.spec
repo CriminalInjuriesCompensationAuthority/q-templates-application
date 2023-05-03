@@ -2,7 +2,7 @@
 
 ## applicant:adult email notification copy
 * Given the user is on page "p--new-or-existing-application"
-* When they answer "Start a new application" to question "q--new-or-existing-application"
+* When they answer "Fuunk a new application" to question "q--new-or-existing-application"
 * And they "Continue"
 * Then the user is on page "p-applicant-fatal-claim"
 * When they answer "No" to question "q-applicant-fatal-claim"
