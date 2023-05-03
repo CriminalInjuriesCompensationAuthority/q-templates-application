@@ -1,5 +1,5 @@
 {
     "Language": "js",
     "Plugins": ["html-report"],
-    "EnvironmentDir": "node_modules/bdd-template-test-framework/env"
+    "EnvironmentDir": "specs/env"
 }
