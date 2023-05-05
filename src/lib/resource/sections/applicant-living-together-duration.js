@@ -11,7 +11,7 @@ module.exports = {
                 'q-applicant-living-together-duration': {
                     type: 'boolean',
                     title:
-                        'When your partner died had you been living together for 2 years or more?',
+                        'When your partner died, had you been living together continuously for 2 years or more?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -28,7 +28,7 @@ module.exports = {
                         },
                         summary: {
                             title:
-                                'When your partner died had you been living together for 2 years or more?'
+                                'Select yes if when your partner died you had been living together continuously for 2 years or more'
                         }
                     }
                 }
@@ -36,7 +36,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-living-together-duration':
-                        ' Select yes if when your partner died you had been living together for two years or more'
+                        'Select yes if when your partner died you had been living together continuously for 2 years or more'
                 }
             },
             examples: [

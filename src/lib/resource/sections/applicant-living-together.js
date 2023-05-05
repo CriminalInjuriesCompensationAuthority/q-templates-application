@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-living-together': {
                     type: 'boolean',
-                    title: 'Were you living with them when they died',
+                    title: 'Were you living with them when they died?',
                     oneOf: [
                         {
                             title: 'Yes',

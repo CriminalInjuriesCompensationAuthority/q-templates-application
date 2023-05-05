@@ -9,7 +9,7 @@ module.exports = {
             properties: {
                 'q-applicant-contact-out-of-touch': {
                     type: 'string',
-                    title: 'Tell us why you were out of touch with each other',
+                    title: 'Tell us why you were not in contact',
                     description: 'This helps us to understand your eligibility',
                     maxLength: 2000,
                     errorMessage: {
@@ -20,15 +20,14 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Tell us why you were out of touch with each other'
+                            title: 'Tell us why you were not in contact'
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-contact-out-of-touch':
-                        'Tell us why you were out of touch with each other.'
+                    'q-applicant-contact-out-of-touch': 'Tell us why you not in contact'
                 }
             },
             examples: [
