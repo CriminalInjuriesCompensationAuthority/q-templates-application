@@ -28,7 +28,7 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
-                    description: 'For example, 20 12 1980.',
+                    description: 'For example, 16 12 2022.',
                     errorMessage: {
                         format: 'Enter their date of death and include a day, month and year'
                     }
