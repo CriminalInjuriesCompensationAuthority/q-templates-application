@@ -9,7 +9,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-other-claimants': {
-                    title: 'Do you know if anyone else might claim?',
+                    title: 'Do you know if anyone else might apply?',
                     type: 'boolean',
                     oneOf: [
                         {
@@ -26,18 +26,18 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Do you know if anyone else might claim?'
+                            title: 'Do you know if anyone else might apply?'
                         }
                     }
                 },
                 'other-claimants-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else could claim?",html: \'<p class="govuk-body">This could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or civil partners</li><li>partners</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else might apply",html: \'<p class="govuk-body">Other people who might apply could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or civil partners</li><li>partners</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-other-claimants': 'Select yes if you know if anyone else might claim'
+                    'q-other-claimants': 'Select yes if you know if anyone else might apply'
                 }
             },
             examples: [

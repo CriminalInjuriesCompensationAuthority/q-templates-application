@@ -21,7 +21,7 @@ module.exports = {
                             const: 'occasionally'
                         },
                         {
-                            title: 'We were out of touch with each other',
+                            title: 'We were not in contact',
                             const: 'never'
                         }
                     ],
@@ -37,8 +37,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-contact-with-deceased':
-                        'Select how often you were in contact when the person died'
+                    'q-applicant-contact-with-deceased': 'Select how often you were in contact'
                 }
             },
             examples: [

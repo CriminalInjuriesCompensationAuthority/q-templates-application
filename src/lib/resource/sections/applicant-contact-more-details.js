@@ -10,8 +10,7 @@ module.exports = {
                 'q-applicant-contact-more-details': {
                     type: 'string',
                     title: 'Tell us more about how you were in contact',
-                    description:
-                        'Letting us know how close you were to the person who died helps us understand your eligibility',
+                    description: 'This helps us understand your eligibility.',
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'
@@ -28,8 +27,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-contact-more-details':
-                        'Tell us more about how you were in contact.'
+                    'q-applicant-contact-more-details': 'Tell us more about how you were in contact'
                 }
             },
             examples: [

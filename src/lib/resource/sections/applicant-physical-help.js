@@ -9,7 +9,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-help': {
-                    title: 'Was the person who died your main carer?',
+                    title: 'Were you reliant on the person who died for regular physical help?',
                     type: 'boolean',
                     oneOf: [
                         {
@@ -26,19 +26,20 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Was the person who died your main carer?'
+                            title:
+                                'Were you reliant on the person who died for regular physical help?'
                         }
                     }
                 },
                 'physical-help-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who is a main carer?",html: \'<p class="govuk-body">A main carer is someone who provides regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What physical help means",html: \'<p class="govuk-body">Physical help includes regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-physical-help':
-                        'Select yes if the person who died was your main carer'
+                        'Select yes if you were reliant on the person who died for regular physical help'
                 }
             },
             examples: [

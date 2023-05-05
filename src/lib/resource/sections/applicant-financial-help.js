@@ -9,8 +9,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-financial-help': {
-                    title:
-                        'Where you reliant on the person who died for regular physical or financial help?',
+                    title: 'Were you reliant on the person who died for regular financial help?',
                     type: 'boolean',
                     oneOf: [
                         {
@@ -28,19 +27,19 @@ module.exports = {
                         },
                         summary: {
                             title:
-                                'Where you reliant on the person who died for regular physical or financial help?'
+                                'Were you reliant on the person who died for regular financial help?'
                         }
                     }
                 },
                 'financial-help-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does physical or financial help mean?",html: \'<p class="govuk-body">Physical help includes regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does financial help mean?",html: \'<p class="govuk-body">Financial help includes regular help with the cost of household bills, or day to day expenses and living costs.</p>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-financial-help':
-                        'Select yes if you were reliant on the person who died for regular physical or financial help'
+                        'Select yes if you were reliant on the person who died for regular financial help'
                 }
             },
             examples: [
