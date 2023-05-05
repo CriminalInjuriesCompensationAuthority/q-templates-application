@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-funeral-costs-paid': {
                     type: 'boolean',
-                    title: 'Did you pay for any of the funeral costs?',
+                    title: 'Are you paying for any of the funeral costs?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -26,7 +26,7 @@ module.exports = {
                             theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'Did you pay for any of the funeral costs?'
+                            title: 'Are you paying for any of the funeral costs?'
                         }
                     }
                 }
