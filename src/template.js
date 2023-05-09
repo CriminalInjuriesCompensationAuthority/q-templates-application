@@ -979,15 +979,9 @@ module.exports = {
                     title: 'Child applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['or',
-                        ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', false],
-                        ['dateCompare',
-                         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                         '<', // is more than or equal to ...
-                         '-18', // 18 ...
-                         'years' // years (before, due to the negative (-18) ...
-                         // today's date (no second date given. defaults to today's date).
-                        ]   
+                    const: ['==',
+                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                    false
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -999,15 +993,9 @@ module.exports = {
                     title: 'Adult applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['or',
-                        ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                        ['dateCompare',
-                         '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                         '>=', // is more than or equal to ...
-                         '-18', // 18 ...
-                         'years' // years (before, due to the negative (-18) ...
-                        // today's date (no second date given. defaults to today's date).
-                        ]   
+                    const: ['==',
+                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                    true
                     ],
                     examples: [{}],
                     invalidExamples: [{}]

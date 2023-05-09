@@ -120,11 +120,33 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--before-you-continue',
-                    cond: ['|role.all', 'mainapplicant', 'adult']
+                    cond: [
+                        'and',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equal to ...
+                            '-18', // 18 ...
+                            'years' // years (before, due to the negative (-18) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ],
+                        ['|role.all', 'mainapplicant']
+                    ]
                 },
                 {
                     target: 'p--context-rep-details',
-                    cond: ['|role.all', 'adult', 'rep']
+                    cond: [
+                        'and',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equal to ...
+                            '-18', // 18 ...
+                            'years' // years (before, due to the negative (-18) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ],
+                        ['|role.all', 'adult', 'rep']
+                    ]
                 },
                 {
                     target: 'p-mainapplicant-shared-responsibility'
