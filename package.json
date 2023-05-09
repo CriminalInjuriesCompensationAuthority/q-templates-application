@@ -18,11 +18,6 @@
         "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
         "bdd:test": "cross-env template_under_test=$npm_package_name#$npm_package_version gauge run --parallel -n=4 specs"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run test && npm run bdd:test"
-        }
-    },
     "author": "CICA",
     "license": "MIT",
     "devDependencies": {
