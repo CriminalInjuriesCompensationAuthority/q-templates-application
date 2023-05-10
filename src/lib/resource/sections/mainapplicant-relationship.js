@@ -145,7 +145,7 @@ module.exports = {
                             'years' // years (before, due to the negative (-18) ...
                             // today's date (no second date given. defaults to today's date).
                         ],
-                        ['|role.all', 'adult', 'rep']
+                        ['|role.all', 'rep']
                     ]
                 },
                 {
