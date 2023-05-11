@@ -26,7 +26,7 @@ module.exports = {
                             const: 'child'
                         },
                         {
-                            title: 'Spouse or civil Partner',
+                            title: 'Spouse or civil partner',
                             const: 'spouseOrCivilPartner'
                         },
                         {

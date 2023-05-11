@@ -34,7 +34,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-funeral-costs-paid':
-                        'Select yes if you paid for any of the funeral costs'
+                        'Select yes if you are paying for any of the funeral costs'
                 }
             },
             examples: [
