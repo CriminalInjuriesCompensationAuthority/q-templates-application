@@ -141,7 +141,7 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--context-deceased-details',
-                    cond: ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]y
+                    cond: ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]
                 },
                 {
                     target: 'p-applicant-financial-help',
