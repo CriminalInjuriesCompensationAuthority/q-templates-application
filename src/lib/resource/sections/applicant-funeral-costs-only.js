@@ -5,10 +5,10 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-claim-type'],
+            required: ['q-applicant-funeral-costs-only'],
             additionalProperties: false,
             properties: {
-                'q-applicant-claim-type': {
+                'q-applicant-funeral-costs-only': {
                     title: 'What do you want to claim?',
                     type: 'boolean',
                     oneOf: [
@@ -41,20 +41,20 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-claim-type': 'Select what you want to claim'
+                    'q-applicant-funeral-costs-only': 'Select what you want to claim'
                 }
             },
             examples: [
                 {
-                    'q-applicant-claim-type': 'true'
+                    'q-applicant-funeral-costs-only': 'true'
                 },
                 {
-                    'q-applicant-claim-type': 'false'
+                    'q-applicant-funeral-costs-only': 'false'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-claim-type': 'foo'
+                    'q-applicant-funeral-costs-only': 'foo'
                 }
             ]
         }

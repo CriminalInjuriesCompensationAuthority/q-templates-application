@@ -141,7 +141,11 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--context-deceased-details',
-                    cond: ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-funeral-costs-only.q-applicant-funeral-costs-only',
+                        true
+                    ]
                 },
                 {
                     target: 'p-applicant-financial-help',
@@ -152,7 +156,11 @@ module.exports = {
                             '$.answers.p-applicant-relationship-to-deceased.q-applicant-relationship-to-deceased',
                             'formerSpouseOrCivilPartner'
                         ],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false]
+                        [
+                            '==',
+                            '$.answers.p-applicant-funeral-costs-only.q-applicant-funeral-costs-only',
+                            false
+                        ]
                     ]
                 },
                 {

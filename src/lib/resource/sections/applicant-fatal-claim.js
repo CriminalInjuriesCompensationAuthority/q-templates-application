@@ -60,7 +60,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                 },
                 {
-                    target: 'p-applicant-claim-type'
+                    target: 'p-applicant-funeral-costs-only'
                 }
             ]
         }
