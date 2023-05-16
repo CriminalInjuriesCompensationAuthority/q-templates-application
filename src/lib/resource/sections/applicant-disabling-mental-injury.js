@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-disabling-mental-injury': {
                     title:
-                        'Do you have a disabling mental injury as a result of witnessing the crime?',
+                        'Do you have a disabling mental injury as a result of witnessing the crime? ',
                     type: 'boolean',
                     oneOf: [
                         {
@@ -34,7 +34,7 @@ module.exports = {
                 },
                 'disabling-mental-injury-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does disabling mental injury mean?",html: \'<p class="govuk-body">A disabling mental injury is something that significantly affects your ability to carry out day-to-day activities. For example, it may affect your performance at work or school, your social or sexual relationships. Mental injuries must be diagnosed by a psychiatrist or clinical psychologist before compensation can be given</p></p>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What is a disabling mental injury?",html: \'<p class="govuk-body">We can only pay for a disabling mental injury that:</p></p><ul class="govuk-list govuk-list--bullet"><li>makes it much harder to do things you would normally do, like going to school or university, seeing friends, working or having a relationship</li><li>lasts six weeks or more</li><li>is confirmed by a diagnosis or prognosis by a clinical psychologist or psychiatrist</li></ul><p class="govuk-body">You can apply if you do not have a diagnosis yet. We’ll tell you what medical evidence you’ll need. This may be a copy of your medical records, a GP report or a specialist report.</p>\'}) }}'
                 }
             },
             errorMessage: {
