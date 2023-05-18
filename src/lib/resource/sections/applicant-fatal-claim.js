@@ -56,7 +56,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-funeral-costs-only',
+                    target: 'p-applicant-claim-type',
                     cond: ['|role.all', 'deceased']
                 },
                 {
@@ -64,7 +64,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                 },
                 {
-                    target: 'p-applicant-funeral-costs-only'
+                    target: 'applicant-claim-type'
                 }
             ]
         }
