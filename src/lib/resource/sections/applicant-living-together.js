@@ -2,6 +2,32 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-living-together'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-living-together',
+                    resources: {
+                        'applicant-living-together': {
+                            title: {
+                                myself: 'Were you living with them when they died?',
+                                proxy:
+                                    'Did the claimant and the person who died live together at the time of the death?'
+                            },
+                            error: {
+                                myself: 'Select yes if you were living with them when they died',
+                                proxy:
+                                    'Select yes if the claimant and the person who died lived together at the time of the death'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,7 +36,13 @@ module.exports = {
             properties: {
                 'q-applicant-living-together': {
                     type: 'boolean',
-                    title: 'Were you living with them when they died',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.title.proxy'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -26,15 +58,26 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Were you living with them when they died?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-living-together':
-                        'Select yes if you were living with them when they died?'
+                    'q-applicant-living-together': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.error.proxy'
+                    ]
                 }
             },
             examples: [

@@ -2,6 +2,54 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-relationship-to-deceased'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-relationship-to-deceased',
+                    resources: {
+                        'applicant-relationship-to-deceased': {
+                            title: {
+                                myself: 'What is your relationship to the person who died?',
+                                proxy: 'What is the claimant’s relationship to the person who died?'
+                            },
+                            description: {
+                                myself:
+                                    'This tells us who you are in relation to the person who died.',
+                                proxy:
+                                    'This tells us who the claimant is in relation to the person who died.'
+                            },
+                            optionTitle: {
+                                myself: 'Tell us how you are related',
+                                proxy: 'Tell us how the claimant is related to the person who died'
+                            },
+                            error: {
+                                noSelection: {
+                                    myself: 'Select your relationship to the person who died',
+                                    proxy:
+                                        'Select the claimant’s relationship to the person who died'
+                                },
+                                conditionalOption: {
+                                    myself: 'Tell us how you are related.',
+                                    proxy:
+                                        'Tell us how the claimant is related to the person who died.'
+                                },
+                                characterCount: {
+                                    myself:
+                                        'Tell us how you are related must be 50 characters or less.',
+                                    proxy:
+                                        'Tell us how the claimant is related to the person who died must be 50 characters or less.'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,7 +58,20 @@ module.exports = {
             },
             properties: {
                 'q-applicant-relationship-to-deceased': {
-                    title: 'What is your relationship to the person who died?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'context-relationship-to-deceased.title.myself',
+                        ['|role.all', 'proxy'],
+                        'context-relationship-to-deceased.title.proxy'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'context-relationship-to-deceased.description.myself',
+                        ['|role.all', 'proxy'],
+                        'context-relationship-to-deceased.description.proxy'
+                    ],
                     type: 'string',
                     oneOf: [
                         {
@@ -22,7 +83,7 @@ module.exports = {
                             const: 'child'
                         },
                         {
-                            title: 'Spouse or Civil Partner',
+                            title: 'Spouse or civil partner',
                             const: 'spouseOrCivilPartner'
                         },
                         {
@@ -30,7 +91,7 @@ module.exports = {
                             const: 'partner'
                         },
                         {
-                            title: 'Former Spouse or Civil Partner',
+                            title: 'Former spouse or civil partner',
                             const: 'formerSpouseOrCivilPartner'
                         },
                         {
@@ -43,16 +104,34 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'What is your relationship to the person who died?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'context-relationship-to-deceased.optionTitle.myself',
+                                ['|role.all', 'proxy'],
+                                'context-relationship-to-deceased.optionTitle.proxy'
+                            ]
                         }
                     }
                 },
                 'q-applicant-relationship-other': {
-                    title: 'Other relationship',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'context-relationship-to-deceased.optionTitle.myself',
+                        ['|role.all', 'proxy'],
+                        'context-relationship-to-deceased.optionTitle.proxy'
+                    ],
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
-                        maxLength: 'Tell us how you are related must be 50 characters or less.'
+                        maxLength: [
+                            '|l10nt',
+                            ['|role.all', 'myself'],
+                            'context-relationship-to-deceased.error.characterCount.myself',
+                            ['|role.all', 'proxy'],
+                            'context-relationship-to-deceased.error.characterCount.proxy'
+                        ]
                     }
                 }
             },
@@ -82,7 +161,13 @@ module.exports = {
                         },
                         errorMessage: {
                             required: {
-                                'q-q-applicant-relationship-other': 'Tell us how you are related.'
+                                'q-applicant-relationship-other': [
+                                    '|l10nt',
+                                    ['|role.all', 'myself'],
+                                    'context-relationship-to-deceased.error.conditionalOption.myself',
+                                    ['|role.all', 'proxy'],
+                                    'context-relationship-to-deceased.error.conditionalOption.proxy'
+                                ]
                             }
                         }
                     }
@@ -90,8 +175,13 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-relationship-to-deceased':
-                        'Select your relationship to the person who died'
+                    'q-applicant-relationship-to-deceased': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'context-relationship-to-deceased.error.noSelection.myself',
+                        ['|role.all', 'proxy'],
+                        'context-relationship-to-deceased.error.noSelection.proxy'
+                    ]
                 }
             },
             examples: [

@@ -9,10 +9,10 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-funeral-costs-who-contributed': {
-                    title: 'Who else has contributed to the funeral costs?',
+                    title: 'Who else is contributing to the funeral costs?',
                     type: 'string',
                     description:
-                        'Enter the names of people, charities or organisations who helped to pay for the funeral.',
+                        'Enter the full names of any people, charities or organisations who are helping to pay for the funeral.',
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'
@@ -28,13 +28,13 @@ module.exports = {
                 },
                 'funeral-costs-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What funeral costs you can claim?",html: \'<p class="govuk-body">Funeral costs can include:</p></p><ul class="govuk-list govuk-list--bullet"><li>funeral service (including casket, burial or cremation)</li><li>tombtone/memorial (if reasonable)</li><li>flowers</li><li>newspaper announcements</li><li>catering and refreshments (up to a limit of £500 only)</li><li>costs of transporting the person who died back to their country of origin</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What funeral costs can be claimed",html: \'<p class="govuk-body">Funeral costs can include:</p></p><ul class="govuk-list govuk-list--bullet"><li>funeral service (including casket, burial or cremation)</li><li>tombstone</li><li>memorials</li><li>flowers</li><li>newspaper announcements</li><li>catering and non-alcoholic refreshments</li><li>costs of transporting the person who died back to their country of origin</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
                     'q-applicant-funeral-costs-who-contributed':
-                        'Tell us who else has contributed to the funeral costs'
+                        'Tell us who else is contributing to the funeral costs'
                 }
             },
             examples: [{}],

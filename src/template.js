@@ -1062,6 +1062,20 @@ module.exports = {
                     invalidExamples: [{}]
                 }
             },
+            myself: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Myself journey role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==',
+                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
+                        'myself'
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
             child: {
                 schema: {
                     $schema: 'http://json-schema.org/draft-07/schema#',
@@ -1206,6 +1220,17 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                    examples: [true, false],
+                    invalidExamples: [{}]
+                }
+            },
+            nonDeceased: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'Non Deceased journey role',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false],
                     examples: [true, false],
                     invalidExamples: [{}]
                 }
