@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-contact-more-details'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-contact-more-details',
+                    resources: {
+                        'applicant-contact-more-details': {
+                            title: {
+                                myself: 'Tell us more about how you were in contact',
+                                proxy: 'Tell us more about how they were in contact'
+                            },
+                            description: {
+                                myself: 'This helps us understand your eligibility.',
+                                proxy: 'This helps us understand their eligibility.'
+                            },
+                            error: {
+                                myself: 'Tell us more about how you were in contact',
+                                proxy: 'Tell us more about how they were in contact.'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,9 +37,20 @@ module.exports = {
             properties: {
                 'q-applicant-contact-more-details': {
                     type: 'string',
-                    title: 'Tell us more about how you were in contact',
-                    description:
-                        'Letting us know how close you were to the person who died helps us understand your eligibility',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-contact-more-details.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-contact-more-details.title.proxy'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-contact-more-details.description.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-contact-more-details.description.proxy'
+                    ],
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'
@@ -21,15 +60,26 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Tell us more about how you were in contact'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-contact-more-details.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-contact-more-details.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-contact-more-details':
-                        'Tell us more about how you were in contact.'
+                    'q-applicant-contact-more-details': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-contact-more-details.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-contact-more-details.error.proxy'
+                    ]
                 }
             },
             examples: [

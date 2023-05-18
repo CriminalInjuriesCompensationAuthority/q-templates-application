@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-enter-your-name'
             },
             translations: [
@@ -16,30 +12,41 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-enter-your-name',
                     resources: {
-                        title: 'Enter your name',
-                        'title_someone-else': "Enter the victim's name",
+                        title: {
+                            myself: 'Enter your name',
+                            proxy: {
+                                nonDeceased: "Enter the victim's name",
+                                deceased: "Enter the claimant's details"
+                            }
+                        },
                         'q-applicant-title': {
                             error: {
-                                required: 'Enter your title',
-                                'required_someone-else': "Enter the victim's title"
+                                myself: 'Enter your title',
+                                nonDeceased: "Enter the victim's title",
+                                deceased: 'Enter the claimant’s title'
                             }
                         },
                         'q-applicant-first-name': {
                             error: {
-                                required: 'Enter your first name',
-                                'required_someone-else': "Enter the victim's first name"
+                                myself: 'Enter your first name',
+                                nonDeceased: "Enter the victim's first name",
+                                deceased: 'Enter the claimant’s first name'
                             }
                         },
                         'q-applicant-last-name': {
                             error: {
-                                required: 'Enter your last name',
-                                'required_someone-else': "Enter the victim's last name"
+                                myself: 'Enter your last name',
+                                nonDeceased: "Enter the victim's first name",
+                                deceased: "Enter the claimant's last name"
                             }
                         },
                         meta: {
                             summary: {
-                                title: 'Your name',
-                                'title_someone-else': "The victim's name"
+                                title: {
+                                    myself: 'Your name',
+                                    nonDeceased: "The victim's name",
+                                    deceased: "The claimant's name"
+                                }
                             }
                         }
                     }
@@ -51,14 +58,30 @@ module.exports = {
             type: 'object',
             allOf: [
                 {
-                    title: 'l10nt:title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'title.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'title.proxy.nonDeceased',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'title.proxy.deceased'
+                    ],
                     meta: {
                         compositeId: 'applicant-name',
                         classifications: {
                             theme: 'applicant-details'
                         },
                         summary: {
-                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'meta.summary.title.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'meta.summary.title.proxy.nonDeceased',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'meta.summary.title.proxy.deceased'
+                            ]
                         }
                     },
                     required: [
@@ -128,12 +151,33 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-title':
-                                'l10nt:q-applicant-title.error.required{?lng,context,ns}',
-                            'q-applicant-first-name':
-                                'l10nt:q-applicant-first-name.error.required{?lng,context,ns}',
-                            'q-applicant-last-name':
-                                'l10nt:q-applicant-last-name.error.required{?lng,context,ns}'
+                            'q-applicant-title': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-title.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'q-applicant-title.error.nonDeceased',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'q-applicant-title.error.deceased'
+                            ],
+                            'q-applicant-first-name': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-first-name.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'q-applicant-first-name.error.nonDeceased',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'q-applicant-first-name.error.deceased'
+                            ],
+                            'q-applicant-last-name': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-last-name.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'q-applicant-last-name.error.nonDeceased',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'q-applicant-last-name.error.deceased'
+                            ]
                         }
                     }
                 }

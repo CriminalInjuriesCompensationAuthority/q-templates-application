@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-funeral-costs-other-contributor': {
                     type: 'boolean',
-                    title: 'Did anyone else contribute to the funeral costs?',
+                    title: 'Is anyone else contributing to the funeral costs?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -26,7 +26,7 @@ module.exports = {
                             theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'Did anyone else contribute to the funeral costs?'
+                            title: 'Is anyone else contributing to the funeral costs?'
                         }
                     }
                 }
@@ -34,7 +34,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-funeral-costs-other-contributor':
-                        'Select yes if anyone else contributed to the funeral costs'
+                        'Select yes if anyone else is contributing to the funeral costs'
                 }
             },
             examples: [

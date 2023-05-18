@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-are-you-18-or-over'
             },
             translations: [
@@ -17,16 +13,20 @@ module.exports = {
                     namespace: 'p-applicant-are-you-18-or-over',
                     resources: {
                         'q-applicant-are-you-18-or-over': {
-                            title: 'Are you 18 or over?',
-                            'title_someone-else': 'Is the victim 18 or over?',
+                            title: {
+                                myself: 'Are you 18 or over?',
+                                proxy: 'Are they 18 or over?'
+                            },
                             error: {
-                                required: 'Select yes if you are 18 or over',
-                                'required_someone-else': 'Select yes if the victim is 18 or over'
+                                myself: 'Select yes if you are 18 or over',
+                                proxy: 'Select yes if they are 18 or over'
                             },
                             meta: {
                                 summary: {
-                                    title: 'Are you 18 or over?',
-                                    'title_someone-else': 'Is the victim 18 or over?'
+                                    title: {
+                                        myself: 'Are you 18 or over?',
+                                        proxy: 'Are they 18 or over?'
+                                    }
                                 }
                             }
                         }
@@ -42,7 +42,13 @@ module.exports = {
             properties: {
                 'q-applicant-are-you-18-or-over': {
                     type: 'boolean',
-                    title: 'l10nt:q-applicant-are-you-18-or-over.title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'q-applicant-are-you-18-or-over.title.myself',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-are-you-18-or-over.title.proxy'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -58,16 +64,26 @@ module.exports = {
                             theme: 'about-application'
                         },
                         summary: {
-                            title:
-                                'l10nt:q-applicant-are-you-18-or-over.meta.summary.title{?lng,context,ns}'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-are-you-18-or-over.meta.summary.title.myself',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-are-you-18-or-over.meta.summary.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-are-you-18-or-over':
-                        'l10nt:q-applicant-are-you-18-or-over.error.required{?lng,context,ns}'
+                    'q-applicant-are-you-18-or-over': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'q-applicant-are-you-18-or-over.error.myself',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-are-you-18-or-over.error.proxy'
+                    ]
                 }
             },
             examples: [

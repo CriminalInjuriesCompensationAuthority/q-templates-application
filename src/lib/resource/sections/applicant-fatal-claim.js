@@ -10,7 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-fatal-claim': {
                     type: 'boolean',
-                    title: 'Are you applying because someone died from their injuries?',
+                    title: 'Are you applying because someone died?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -34,7 +34,7 @@ module.exports = {
             errorMessage: {
                 required: {
                     'q-applicant-fatal-claim':
-                        'Select yes if you are applying for someone who died from their injuries'
+                        'Select yes if you are applying because someone has died'
                 }
             },
             examples: [
@@ -64,7 +64,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                 },
                 {
-                    target: 'applicant-claim-type'
+                    target: 'p-applicant-claim-type'
                 }
             ]
         }

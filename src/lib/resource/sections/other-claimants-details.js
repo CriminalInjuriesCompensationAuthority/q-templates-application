@@ -10,7 +10,7 @@ module.exports = {
                 'q-other-claimants-details': {
                     type: 'string',
                     title: 'Tell us more about who else might apply',
-                    description: 'Include their full name and relationship to the deceased',
+                    description: 'Include their full name and relationship to the person who died',
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'

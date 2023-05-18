@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-financial-help'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-financial-help',
+                    resources: {
+                        'applicant-financial-help': {
+                            title: {
+                                myself:
+                                    'Were you reliant on the person who died for regular financial help?',
+                                proxy:
+                                    'Was the claimant reliant on the person who died for regular financial help?'
+                            },
+                            error: {
+                                myself:
+                                    'Select yes if you were reliant on the person who died for regular financial help',
+                                proxy:
+                                    'Select yes if the claimant was reliant on the person who died for regular financial help.'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,8 +37,13 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-financial-help': {
-                    title:
-                        'Where you reliant on the person who died for regular physical or financial help?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-financial-help.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-financial-help.title.proxy'
+                    ],
                     type: 'boolean',
                     oneOf: [
                         {
@@ -27,20 +60,30 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title:
-                                'Where you reliant on the person who died for regular physical or financial help?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-financial-help.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-financial-help.title.proxy'
+                            ]
                         }
                     }
                 },
                 'financial-help-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What does physical or financial help mean?",html: \'<p class="govuk-body">Physical help includes regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What financial help means",html: \'<p class="govuk-body">Financial help includes regular help with the cost of household bills, or day to day expenses and living costs.</p>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-financial-help':
-                        'Select yes if you were reliant on the person who died for regular physical or financial help'
+                    'q-applicant-financial-help': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-financial-help.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-financial-help.error.proxy'
+                    ]
                 }
             },
             examples: [

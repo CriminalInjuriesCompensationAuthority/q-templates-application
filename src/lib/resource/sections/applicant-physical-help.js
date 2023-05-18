@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-physical-help'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-physical-help',
+                    resources: {
+                        'applicant-physical-help': {
+                            title: {
+                                myself:
+                                    'Were you reliant on the person who died for regular physical help?',
+                                proxy:
+                                    'Was the claimant reliant on the person who died for regular physical help?'
+                            },
+                            error: {
+                                myself:
+                                    'Select yes if you were reliant on the person who died for regular physical help',
+                                proxy:
+                                    'Select yes if the claimant was reliant on the person who died for regular physical help.'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,7 +37,13 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-physical-help': {
-                    title: 'Was the person who died your main carer?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-physical-help.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-physical-help.title.proxy'
+                    ],
                     type: 'boolean',
                     oneOf: [
                         {
@@ -26,19 +60,30 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'Was the person who died your main carer?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-physical-help.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-physical-help.title.proxy'
+                            ]
                         }
                     }
                 },
                 'physical-help-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who is a main carer?",html: \'<p class="govuk-body">A main carer is someone who provides regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What physical help means",html: \'<p class="govuk-body">Physical help includes regular help with care needs such as:</p></p><ul class="govuk-list govuk-list--bullet"><li>personal hygiene</li><li>continence management</li><li>food preparation and eating</li><li>medication and simple treatments</li><li>keeping you safe from harm</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-physical-help':
-                        'Select yes if the person who died was your main carer'
+                    'q-applicant-physical-help': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-physical-help.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-physical-help.error.proxy'
+                    ]
                 }
             },
             examples: [

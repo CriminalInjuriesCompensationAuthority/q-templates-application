@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-living-together'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-living-together',
+                    resources: {
+                        'applicant-living-together': {
+                            title: {
+                                myself:
+                                    'Did you live apart from the person who died because either of you were ill or infirm?',
+                                proxy:
+                                    'Did the claimant and the person who died live apart because either of them were ill or infirm?'
+                            },
+                            error: {
+                                myself:
+                                    'Select yes if you lived apart from the person who died because either of you were ill or infirm',
+                                proxy:
+                                    'Select yes if the claimant and the person who died lived apart because either of them were ill or infirm'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,8 +38,13 @@ module.exports = {
             properties: {
                 'q-applicant-living-apart': {
                     type: 'boolean',
-                    title:
-                        'Did you live apart from the person who died because either of you were ill or infirm?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.title.proxy'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -27,16 +60,26 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title:
-                                'Did you live apart from the person who died because either of you were ill or infirm?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-living-apart':
-                        'Select yes if you lived apart from the person who died because either of you were ill or infirm'
+                    'q-applicant-living-apart': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.error.proxy'
+                    ]
                 }
             },
             examples: [

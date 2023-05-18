@@ -10,9 +10,9 @@ module.exports = {
             properties: {
                 'q-applicant-funeral-costs-total': {
                     type: 'string',
-                    title: 'What was the total cost of the funeral?',
+                    title: 'What is the total cost of the funeral?',
                     description:
-                        'If you are not sure what the total cost was, enter an estimate in pounds.',
+                        'If you are not sure what the total cost is, enter an estimate in pounds.',
                     maxLength: 50,
                     pattern: '^[0-9]{1,}(\\.[0-9]{2})?$',
                     errorMessage: {
@@ -24,7 +24,7 @@ module.exports = {
                             theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'What was the total cost of the funeral?'
+                            title: 'What is the total cost of the funeral?'
                         }
                     }
                 }

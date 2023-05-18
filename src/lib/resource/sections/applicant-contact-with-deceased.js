@@ -2,6 +2,31 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-living-together'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-living-together',
+                    resources: {
+                        'applicant-living-together': {
+                            title: {
+                                myself: 'When the person died, how often were you in contact?',
+                                proxy:
+                                    'When the person died, how often were they in contact with the claimant?'
+                            },
+                            error: {
+                                myself: 'Select how often you were in contact',
+                                proxy: 'Select how often they were in contact'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,7 +34,13 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q-applicant-contact-with-deceased': {
-                    title: 'When the person died, how often were you in contact?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.title.proxy'
+                    ],
                     type: 'string',
                     oneOf: [
                         {
@@ -21,7 +52,7 @@ module.exports = {
                             const: 'occasionally'
                         },
                         {
-                            title: 'We were out of touch with each other',
+                            title: 'We were not in contact',
                             const: 'never'
                         }
                     ],
@@ -30,15 +61,26 @@ module.exports = {
                             theme: 'relationship-to-deceased'
                         },
                         summary: {
-                            title: 'When the person died, how often were you in contact?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-contact-with-deceased':
-                        'Select how often you were in contact when the person died'
+                    'q-applicant-contact-with-deceased': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-living-together.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-living-together.error.proxy'
+                    ]
                 }
             },
             examples: [
