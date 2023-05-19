@@ -6,10 +6,7 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             propertyNames: {
-                enum: [
-                    'q-applicant-relationship-to-deceased',
-                    'q-applicant-enter-your-relationship-details'
-                ]
+                enum: ['q-applicant-relationship-to-deceased', 'q-applicant-relationship-other']
             },
             properties: {
                 'q-applicant-relationship-to-deceased': {
@@ -50,7 +47,8 @@ module.exports = {
                         }
                     }
                 },
-                'q-applicant-enter-your-relationship-details': {
+                'q-applicant-relationship-other': {
+                    title: 'Other relationship',
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
@@ -61,12 +59,11 @@ module.exports = {
             required: ['q-applicant-relationship-to-deceased'],
             allOf: [
                 {
-                    $ref:
-                        '#/definitions/if-other-then-q-applicant-enter-your-relationship-details-is-required'
+                    $ref: '#/definitions/if-other-then-q-applicant-relationship-other-is-required'
                 }
             ],
             definitions: {
-                'if-other-then-q-applicant-enter-your-relationship-details-is-required': {
+                'if-other-then-q-applicant-relationship-other-is-required': {
                     if: {
                         properties: {
                             'q-applicant-relationship-to-deceased': {
@@ -76,17 +73,16 @@ module.exports = {
                         required: ['q-applicant-relationship-to-deceased']
                     },
                     then: {
-                        required: ['q-applicant-enter-your-relationship-details'],
+                        required: ['q-applicant-relationship-other'],
                         propertyNames: {
                             enum: [
                                 'q-applicant-relationship-to-deceased',
-                                'q-applicant-enter-your-relationship-details'
+                                'q-applicant-relationship-other'
                             ]
                         },
                         errorMessage: {
                             required: {
-                                'q-applicant-enter-your-relationship-details':
-                                    'Tell us how you are related.'
+                                'q-q-applicant-relationship-other': 'Tell us how you are related.'
                             }
                         }
                     }
@@ -116,7 +112,7 @@ module.exports = {
                 },
                 {
                     'q-applicant-relationship-to-deceased': 'other',
-                    'q-applicant-enter-your-relationship-details': 'testcase'
+                    'q-applicant-relationship-other': 'testcase'
                 }
             ],
             invalidExamples: [
