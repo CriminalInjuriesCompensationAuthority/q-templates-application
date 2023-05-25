@@ -32,7 +32,7 @@ module.exports = {
                 },
                 'other-claimants-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else might apply",html: \'<p class="govuk-body">Other people who might apply could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or civil partners</li><li>partners</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Who else might apply",html: \'<p class="govuk-body">Other people who might apply could include:</p></p><ul class="govuk-list govuk-list--bullet"><li>parents</li><li>children</li><li>spouses or civil partners</li><li>former spouses or former civil partners</li><li>partners</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
