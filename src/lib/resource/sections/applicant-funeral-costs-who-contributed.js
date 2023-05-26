@@ -28,7 +28,7 @@ module.exports = {
                 },
                 'funeral-costs-info': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What funeral costs can be claimed?",html: \'<p class="govuk-body">Funeral costs can include:</p></p><ul class="govuk-list govuk-list--bullet"><li>funeral service (including casket, burial or cremation)</li><li>tombtone</li><li>memorial</li><li>flowers</li><li>newspaper announcements</li><li>catering and non-alcoholics refreshments</li><li>costs of transporting the person who died back to their country of origin</li></ul>\'}) }}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What funeral costs can be claimed",html: \'<p class="govuk-body">Funeral costs can include:</p></p><ul class="govuk-list govuk-list--bullet"><li>funeral service (including casket, burial or cremation)</li><li>tombstone</li><li>memorials</li><li>flowers</li><li>newspaper announcements</li><li>catering and non-alcoholic refreshments</li><li>costs of transporting the person who died back to their country of origin</li></ul>\'}) }}'
                 }
             },
             errorMessage: {
