@@ -11,6 +11,10 @@ module.exports = {
                 'q-mainapplicant-shared-responsibility-name': {
                     type: 'string',
                     title: 'What is their full name?',
+                    maxLength: 50,
+                    errorMessage: {
+                        maxLength: 'Name must be 50 characters or less'
+                    },
                     description:
                         'We will never contact this person without your consent unless there is an exceptional situation where we have to.',
                     meta: {
