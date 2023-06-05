@@ -97,7 +97,27 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--which-police-force-is-investigating-the-crime',
-                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                    cond: [
+                        'and',
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                        [
+                            '==',
+                            '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-applicant-immediate-aftermath',
+                    cond: [
+                        'and',
+                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                        [
+                            '==',
+                            '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
+                            false
+                        ]
+                    ]
                 },
                 {
                     target: 'p-applicant-describe-incident',
