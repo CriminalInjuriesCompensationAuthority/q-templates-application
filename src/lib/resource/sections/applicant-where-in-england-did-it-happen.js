@@ -99,7 +99,7 @@ module.exports = {
                     target: 'p--which-police-force-is-investigating-the-crime',
                     cond: [
                         'and',
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                        ['|role.all', 'deceased'],
                         [
                             '==',
                             '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
@@ -111,7 +111,7 @@ module.exports = {
                     target: 'p-applicant-immediate-aftermath',
                     cond: [
                         'and',
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
+                        ['|role.all', 'deceased'],
                         [
                             '==',
                             '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',
