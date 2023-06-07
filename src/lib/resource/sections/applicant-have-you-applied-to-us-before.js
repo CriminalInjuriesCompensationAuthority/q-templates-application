@@ -45,9 +45,7 @@ module.exports = {
                 'q-applicant-have-you-applied-to-us-before': {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'myself', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.title.myself',
-                        ['|role.all', 'myself', 'deceased'],
+                        ['|role.all', 'myself'],
                         'applicant-have-you-applied-to-us-before.title.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
                         'applicant-have-you-applied-to-us-before.title.proxy',
@@ -120,9 +118,7 @@ module.exports = {
                 required: {
                     'q-applicant-have-you-applied-to-us-before': [
                         '|l10nt',
-                        ['|role.all', 'myself', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.error.myself',
-                        ['|role.all', 'myself', 'deceased'],
+                        ['|role.all', 'myself'],
                         'applicant-have-you-applied-to-us-before.error.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
                         'applicant-have-you-applied-to-us-before.error.proxy',

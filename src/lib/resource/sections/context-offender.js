@@ -35,9 +35,7 @@ module.exports = {
                     title: 'About the offender',
                     description: [
                         '|l10nt',
-                        ['|role.all', 'myself', 'nonDeceased'],
-                        'offender-context.description.myself',
-                        ['|role.all', 'myself', 'deceased'],
+                        ['|role.all', 'myself'],
                         'offender-context.description.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
                         'offender-context.description.proxy',

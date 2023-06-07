@@ -35,9 +35,7 @@ module.exports = {
                     title: 'Other compensation',
                     description: [
                         '|l10nt',
-                        ['|role.all', 'myself', 'nonDeceased'],
-                        'compensation-context.description.myself',
-                        ['|role.all', 'myself', 'deceased'],
+                        ['|role.all', 'myself'],
                         'compensation-context.description.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
                         'compensation-context.description.proxy',
