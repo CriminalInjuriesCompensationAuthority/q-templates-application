@@ -10,15 +10,17 @@ module.exports = {
             properties: {
                 'q-applicant-fatal-claim': {
                     type: 'boolean',
-                    title: 'Are you applying because someone died?',
+                    title: 'Select why you are applying',
                     oneOf: [
                         {
-                            title: 'Yes',
-                            const: true
+                            title: 'I am applying because of an injury',
+                            description:
+                                'This could include abuse over a period of time, or a disabling mental injury as a result of witnessing a crime',
+                            const: false
                         },
                         {
-                            title: 'No',
-                            const: false
+                            title: 'I am applying because someone has died',
+                            const: true
                         }
                     ],
                     meta: {
@@ -33,8 +35,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-fatal-claim':
-                        'Select yes if you are applying because someone has died'
+                    'q-applicant-fatal-claim': 'Select why you are applying'
                 }
             },
             examples: [
@@ -61,10 +62,7 @@ module.exports = {
                 },
                 {
                     target: 'p--context-applicant-details',
-                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
-                },
-                {
-                    target: 'p-applicant-claim-type'
+                    cond: ['|role.all', 'nonDeceased']
                 }
             ]
         }

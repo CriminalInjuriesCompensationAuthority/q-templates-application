@@ -61,16 +61,16 @@ module.exports = {
                     title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'context-relationship-to-deceased.title.myself',
+                        'applicant-relationship-to-deceased.title.myself',
                         ['|role.all', 'proxy'],
-                        'context-relationship-to-deceased.title.proxy'
+                        'applicant-relationship-to-deceased.title.proxy'
                     ],
                     description: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'context-relationship-to-deceased.description.myself',
+                        'applicant-relationship-to-deceased.description.myself',
                         ['|role.all', 'proxy'],
-                        'context-relationship-to-deceased.description.proxy'
+                        'applicant-relationship-to-deceased.description.proxy'
                     ],
                     type: 'string',
                     oneOf: [
@@ -91,7 +91,7 @@ module.exports = {
                             const: 'partner'
                         },
                         {
-                            title: 'Former spouse or civil partner',
+                            title: 'Former spouse or former civil partner',
                             const: 'formerSpouseOrCivilPartner'
                         },
                         {
@@ -107,9 +107,9 @@ module.exports = {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'myself'],
-                                'context-relationship-to-deceased.optionTitle.myself',
+                                'applicant-relationship-to-deceased.optionTitle.myself',
                                 ['|role.all', 'proxy'],
-                                'context-relationship-to-deceased.optionTitle.proxy'
+                                'applicant-relationship-to-deceased.optionTitle.proxy'
                             ]
                         }
                     }
@@ -118,9 +118,9 @@ module.exports = {
                     title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'context-relationship-to-deceased.optionTitle.myself',
+                        'applicant-relationship-to-deceased.optionTitle.myself',
                         ['|role.all', 'proxy'],
-                        'context-relationship-to-deceased.optionTitle.proxy'
+                        'applicant-relationship-to-deceased.optionTitle.proxy'
                     ],
                     type: 'string',
                     maxLength: 50,
@@ -128,9 +128,9 @@ module.exports = {
                         maxLength: [
                             '|l10nt',
                             ['|role.all', 'myself'],
-                            'context-relationship-to-deceased.error.characterCount.myself',
+                            'applicant-relationship-to-deceased.error.characterCount.myself',
                             ['|role.all', 'proxy'],
-                            'context-relationship-to-deceased.error.characterCount.proxy'
+                            'applicant-relationship-to-deceased.error.characterCount.proxy'
                         ]
                     }
                 }
@@ -164,9 +164,9 @@ module.exports = {
                                 'q-applicant-relationship-other': [
                                     '|l10nt',
                                     ['|role.all', 'myself'],
-                                    'context-relationship-to-deceased.error.conditionalOption.myself',
+                                    'applicant-relationship-to-deceased.error.conditionalOption.myself',
                                     ['|role.all', 'proxy'],
-                                    'context-relationship-to-deceased.error.conditionalOption.proxy'
+                                    'applicant-relationship-to-deceased.error.conditionalOption.proxy'
                                 ]
                             }
                         }
@@ -178,9 +178,9 @@ module.exports = {
                     'q-applicant-relationship-to-deceased': [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'context-relationship-to-deceased.error.noSelection.myself',
+                        'applicant-relationship-to-deceased.error.noSelection.myself',
                         ['|role.all', 'proxy'],
-                        'context-relationship-to-deceased.error.noSelection.proxy'
+                        'applicant-relationship-to-deceased.error.noSelection.proxy'
                     ]
                 }
             },

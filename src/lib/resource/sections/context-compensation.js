@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p--context-compensation'
             },
             translations: [
@@ -17,10 +13,14 @@ module.exports = {
                     namespace: 'p--context-compensation',
                     resources: {
                         'compensation-context': {
-                            description:
-                                '<p class="govuk-body">We\'re going to ask about any other compensation or damages you are or may be entitled to from any source.</p><p class="govuk-body">This includes any compensation or damages you\'ve not already received.</p><p class="govuk-body">This is so we can work out how much compensation you may receive.</p>',
-                            'description_someone-else':
-                                '<p class="govuk-body">We\'re going to ask about any other compensation or damages the victim has been paid for their injuries from any other source.</p><p class="govuk-body">This includes any compensation or damages they have not already received.</p><p class="govuk-body">This is so we can work out how much compensation they may receive.</p>'
+                            description: {
+                                myself:
+                                    '<p class="govuk-body">We\'re going to ask about any other compensation or damages you are or may be entitled to from any source.</p><p class="govuk-body">This includes any compensation or damages you\'ve not already received.</p><p class="govuk-body">This is so we can work out how much compensation you may receive.</p>',
+                                proxy:
+                                    '<p class="govuk-body">We\'re going to ask about any other compensation or damages the victim has been paid for their injuries from any other source.</p><p class="govuk-body">This includes any compensation or damages they have not already received.</p><p class="govuk-body">This is so we can work out how much compensation they may receive.</p>',
+                                deceased:
+                                    '<p class="govuk-body">We\'re going to ask about any other compensation or damages the claimant is or may be entitled to from any source.</p><p class="govuk-body">This includes any compensation or damages they have not already received.</p><p class="govuk-body">This is so we can work out how much compensation they may receive.</p>'
+                            }
                         }
                     }
                 }
@@ -33,7 +33,17 @@ module.exports = {
             properties: {
                 'compensation-context': {
                     title: 'Other compensation',
-                    description: 'l10nt:compensation-context.description{?lng,context,ns}'
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself', 'nonDeceased'],
+                        'compensation-context.description.myself',
+                        ['|role.all', 'myself', 'deceased'],
+                        'compensation-context.description.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'compensation-context.description.proxy',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'compensation-context.description.deceased'
+                    ]
                 }
             },
             examples: [{}],
