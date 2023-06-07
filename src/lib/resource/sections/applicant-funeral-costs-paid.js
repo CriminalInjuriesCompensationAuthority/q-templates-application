@@ -2,6 +2,31 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-funeral-costs-paid'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-funeral-costs-paid',
+                    resources: {
+                        'applicant-funeral-costs-paid': {
+                            title: {
+                                myself: 'Are you paying for any of the funeral costs?',
+                                proxy: 'Is the claimant paying for any of the funeral costs'
+                            },
+                            error: {
+                                myself: 'Select yes if you are paying for any of the funeral costs',
+                                proxy:
+                                    'Select yes if the claimant is paying for any of the funeral costs'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,7 +35,13 @@ module.exports = {
             properties: {
                 'q-applicant-funeral-costs-paid': {
                     type: 'boolean',
-                    title: 'Are you paying for any of the funeral costs?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-funeral-costs-paid.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-funeral-costs-paid.title.proxy'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -26,15 +57,26 @@ module.exports = {
                             theme: 'funeral-costs'
                         },
                         summary: {
-                            title: 'Are you paying for any of the funeral costs?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-funeral-costs-paid.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-funeral-costs-paid.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-funeral-costs-paid':
-                        'Select yes if you are paying for any of the funeral costs'
+                    'q-applicant-funeral-costs-paid': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-funeral-costs-paid.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-funeral-costs-paid.error.proxy'
+                    ]
                 }
             },
             examples: [
