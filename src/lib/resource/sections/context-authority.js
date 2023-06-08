@@ -20,7 +20,9 @@ module.exports = {
                                     adult:
                                         'You need to send proof you have legal authority to act on behalf of the victim',
                                     childDeceased:
-                                        'You need to send proof you have parental responsibility for the claimant'
+                                        'You need to send proof you have parental responsibility for the claimant',
+                                    adultDeceased:
+                                        'You need to send proof you have legal authority to act on behalf of the claimant'
                                 },
                                 rep: {
                                     child:
@@ -50,7 +52,21 @@ module.exports = {
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                     `,
                                     childDeceased:
-                                        '<p class="govuk-body">We need proof so we know you have the right to apply on the claimant\'s behalf.</p><p class="govuk-body">This proof can be:</p><ul class="govuk-list govuk-list--bullet"><li>the claimant\'s full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class="govuk-body">You can:</p><ul class="govuk-list govuk-list--bullet"><li>take or scan a photo and send it via email</li><li>send a photocopy of this to us via post</li></ul><p class="govuk-body">If your name or the claimant\'s name has changed, you\'ll have to show proof of this change.</p><p class="govuk-body">We\'ll tell you how to send this at the end of the application.</p>'
+                                        '<p class="govuk-body">We need proof so we know you have the right to apply on the claimant\'s behalf.</p><p class="govuk-body">This proof can be:</p><ul class="govuk-list govuk-list--bullet"><li>the claimant\'s full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class="govuk-body">You can:</p><ul class="govuk-list govuk-list--bullet"><li>take or scan a photo and send it via email</li><li>send a photocopy of this to us via post</li></ul><p class="govuk-body">If your name or the claimant\'s name has changed, you\'ll have to show proof of this change.</p><p class="govuk-body">We\'ll tell you how to send this at the end of the application.</p>',
+                                    adultDeceased: `
+                                        <p class="govuk-body">We need proof so we know you have the right to apply on the claimant's behalf.</p>
+                                        <p class="govuk-body">This proof should be a certified copy of a:</p>
+                                        <ul class="govuk-list govuk-list--bullet">
+                                            <li>power of attorney document you're named on</li>
+                                            <li>court order showing you have legal authority to act on behalf of the claimant</li>
+                                        </ul>
+                                        <h2 class="govuk-heading-s">Sending us certified documents</h2>
+                                        <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
+                                        <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
+                                        <p class="govuk-body"><a href="https://www.gov.uk/certifying-a-document" target="_blank">Discover more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
+                                        <p class="govuk-body">If your name or the claimant's name has changed, you'll have to show proof of this change.</p>
+                                        <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
+                                    `
                                 },
                                 rep: {
                                     child: `
@@ -115,6 +131,7 @@ module.exports = {
                     title: ['|l10nt',
                         ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'], 'authority-to-apply.title.mainapplicant.childDeceased',
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.title.mainapplicant.child',
+                        ['|role.all', 'mainapplicant', 'incapable', 'deceased'], 'authority-to-apply.title.mainapplicant.adultDeceased',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.title.mainapplicant.adult',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.title.rep.child',
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false], 'authority-to-apply.title.rep.adultNoLegalAuthority',
@@ -124,6 +141,7 @@ module.exports = {
                     description: ['|l10nt',
                         ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'], 'authority-to-apply.description.mainapplicant.childDeceased',
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.description.mainapplicant.child',
+                        ['|role.all', 'mainapplicant', 'incapable', 'deceased'], 'authority-to-apply.description.mainapplicant.adultDeceased',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.description.mainapplicant.adult',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.description.rep.child',
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false], 'authority-to-apply.description.rep.adultNoLegalAuthority',
