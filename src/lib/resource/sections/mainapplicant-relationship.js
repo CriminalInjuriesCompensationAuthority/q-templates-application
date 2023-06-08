@@ -91,9 +91,9 @@ module.exports = {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
-                                'q-mainapplicant-relationship.meta.summary.mainapplicant.claimant',
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.claimant',
                                 ['|role.all', 'mainapplicant'],
-                                'q-mainapplicant-relationship.meta.summary.mainapplicant.victim',
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.victim',
                                 ['|role.all', 'rep'],
                                 'q-mainapplicant-relationship.meta.summary.title.rep'
                             ]
