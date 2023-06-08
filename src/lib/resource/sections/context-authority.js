@@ -18,7 +18,9 @@ module.exports = {
                                     child:
                                         'You need to send proof you have parental responsibility for the victim',
                                     adult:
-                                        'You need to send proof you have legal authority to act on behalf of the victim'
+                                        'You need to send proof you have legal authority to act on behalf of the victim',
+                                    childDeceased:
+                                        'You need to send proof you have parental responsibility for the claimant'
                                 },
                                 rep: {
                                     child:
@@ -26,7 +28,7 @@ module.exports = {
                                     adult:
                                         'You need to send proof the person has legal authority to act on behalf of the victim',
                                     adultNoLegalAuthority:
-                                        'Sending us details of the person with legal authority to act on behalf of the victim'
+                                        'Sending us details of the person with legal authority to act on behalf of the claimant'
                                 }
                             },
                             description: {
@@ -46,7 +48,9 @@ module.exports = {
                                         <p class="govuk-body"><a href="https://www.gov.uk/certifying-a-document" target="_blank">Discover more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
                                         <p class="govuk-body">If your name or the victim's name has changed, you'll have to show proof of this change.</p>
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
-                                    `
+                                    `,
+                                    childDeceased:
+                                        '<p class="govuk-body">We need proof so we know you have the right to apply on the claimant\'s behalf.</p><p class="govuk-body">This proof can be:</p><ul class="govuk-list govuk-list--bullet"><li>the claimant\'s full birth certificate</li><li>adoption documents</li><li>a parental responsibility agreement</li><li>a court order</li></ul><p class="govuk-body">You can:</p><ul class="govuk-list govuk-list--bullet"><li>take or scan a photo and send it via email</li><li>send a photocopy of this to us via post</li></ul><p class="govuk-body">If your name or the claimant\'s name has changed, you\'ll have to show proof of this change.</p><p class="govuk-body">We\'ll tell you how to send this at the end of the application.</p>'
                                 },
                                 rep: {
                                     child: `
@@ -109,6 +113,7 @@ module.exports = {
                 'authority-to-apply': {
                     // prettier-ignore
                     title: ['|l10nt',
+                        ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'], 'authority-to-apply.title.mainapplicant.childDeceased',
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.title.mainapplicant.child',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.title.mainapplicant.adult',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.title.rep.child',
@@ -117,6 +122,7 @@ module.exports = {
                     ],
                     // prettier-ignore
                     description: ['|l10nt',
+                        ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'], 'authority-to-apply.description.mainapplicant.childDeceased',
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.description.mainapplicant.child',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.description.mainapplicant.adult',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.description.rep.child',
