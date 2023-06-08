@@ -14,19 +14,25 @@ module.exports = {
                     resources: {
                         'q-mainapplicant-relationship': {
                             title: {
-                                mainapplicant: 'What is your relationship to the victim?',
+                                mainapplicant: {
+                                    victim: 'What is your relationship to the victim?',
+                                    claimant: 'What is your relationship to the claimant?'
+                                },
                                 rep: "What is this person's relationship to the victim?"
                             },
                             description: {
                                 mainapplicant:
-                                    "For example, you're their mother, father, grandparent etc.",
+                                    "For example, you're their mother, father, grandparent",
                                 rep:
                                     "For example, they are the victim's mother, father, grandparent etc"
                             },
                             meta: {
                                 summary: {
                                     title: {
-                                        mainapplicant: 'What is your relationship to the victim?',
+                                        mainapplicant: {
+                                            victim: 'What is your relationship to the victim?',
+                                            claimant: 'What is your relationship to the claimant?'
+                                        },
                                         rep: 'What is their relationship to the victim?'
                                     }
                                 }
@@ -35,9 +41,17 @@ module.exports = {
                         errorMessage: {
                             required: {
                                 'q-mainapplicant-relationship': {
-                                    mainapplicant: 'Enter your relationship with the victim',
+                                    mainapplicant: {
+                                        victim: 'Enter your relationship with the victim',
+                                        claimant: 'Enter your rleationship with the claimant'
+                                    },
                                     rep: 'Enter their relationship with the victim'
                                 }
+                            },
+                            characterCount: {
+                                claimant:
+                                    'Relationship to the claimant must be 50 characters or less',
+                                victim: 'Relationship to the victim must be 50 characters or less'
                             }
                         }
                     }
@@ -55,8 +69,12 @@ module.exports = {
                     maxLength: 50,
                     title: [
                         '|l10nt',
+                        ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                        'q-mainapplicant-relationship.title.mainapplicant.claimant',
+                        ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
+                        'q-mainapplicant-relationship.title.mainapplicant.claimant',
                         ['|role.all', 'mainapplicant'],
-                        'q-mainapplicant-relationship.title.mainapplicant',
+                        'q-mainapplicant-relationship.title.mainapplicant.victim',
                         ['|role.all', 'rep'],
                         'q-mainapplicant-relationship.title.rep'
                     ],
@@ -74,15 +92,29 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.claimant',
+                                ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.claimant',
                                 ['|role.all', 'mainapplicant'],
-                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant',
+                                'q-mainapplicant-relationship.meta.summary.title.mainapplicant.victim',
                                 ['|role.all', 'rep'],
                                 'q-mainapplicant-relationship.meta.summary.title.rep'
                             ]
                         }
                     },
                     errorMessage: {
-                        maxLength: 'Relationship to the victim must be 50 characters or less'
+                        maxLength: [
+                            '|l10nt',
+                            ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                            'errorMessage.characterCount.claimant',
+                            ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
+                            'errorMessage.characterCount.claimant',
+                            ['|role.all', 'mainapplicant'],
+                            'errorMessage.characterCount.victim',
+                            ['|role.all', 'rep'],
+                            'errorMessage.characterCount.victim'
+                        ]
                     }
                 }
             },
@@ -90,8 +122,12 @@ module.exports = {
                 required: {
                     'q-mainapplicant-relationship': [
                         '|l10nt',
+                        ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.claimant',
+                        ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.claimant',
                         ['|role.all', 'mainapplicant'],
-                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant',
+                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.victim',
                         ['|role.all', 'rep'],
                         'errorMessage.required.q-mainapplicant-relationship.rep'
                     ]
