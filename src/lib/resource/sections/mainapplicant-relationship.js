@@ -18,13 +18,20 @@ module.exports = {
                                     victim: 'What is your relationship to the victim?',
                                     claimant: 'What is your relationship to the claimant?'
                                 },
-                                rep: "What is this person's relationship to the victim?"
+                                rep: {
+                                    victim: "What is this person's relationship to the victim?",
+                                    claimant: "What is this person's relationship to the claimant?"
+                                }
                             },
                             description: {
                                 mainapplicant:
                                     "For example, you're their mother, father, grandparent",
-                                rep:
-                                    "For example, they are the victim's mother, father, grandparent etc"
+                                rep: {
+                                    victim:
+                                        "For example, they are the victim's mother, father, grandparent",
+                                    claimant:
+                                        "For example, they are the claimant's mother, father, grandparent"
+                                }
                             },
                             meta: {
                                 summary: {
@@ -33,7 +40,10 @@ module.exports = {
                                             victim: 'What is your relationship to the victim?',
                                             claimant: 'What is your relationship to the claimant?'
                                         },
-                                        rep: 'What is their relationship to the victim?'
+                                        rep: {
+                                            victim: 'What is their relationship to the victim?',
+                                            claimant: 'What is their relationship to the claimant?'
+                                        }
                                     }
                                 }
                             }
@@ -45,7 +55,10 @@ module.exports = {
                                         victim: 'Enter your relationship with the victim',
                                         claimant: 'Enter your rleationship with the claimant'
                                     },
-                                    rep: 'Enter their relationship with the victim'
+                                    rep: {
+                                        victim: 'Enter their relationship with the victim',
+                                        claimant: 'Enter their relationship with the claimant'
+                                    }
                                 }
                             },
                             characterCount: {
@@ -75,15 +88,19 @@ module.exports = {
                         'q-mainapplicant-relationship.title.mainapplicant.claimant',
                         ['|role.all', 'mainapplicant'],
                         'q-mainapplicant-relationship.title.mainapplicant.victim',
-                        ['|role.all', 'rep'],
-                        'q-mainapplicant-relationship.title.rep'
+                        ['|role.all', 'rep', 'deceased'],
+                        'q-mainapplicant-relationship.title.rep.claimant',
+                        ['|role.all', 'rep', 'nonDeceased'],
+                        'q-mainapplicant-relationship.title.rep.victim'
                     ],
                     description: [
                         '|l10nt',
                         ['|role.all', 'mainapplicant'],
                         'q-mainapplicant-relationship.description.mainapplicant',
-                        ['|role.all', 'rep'],
-                        'q-mainapplicant-relationship.description.rep'
+                        ['|role.all', 'rep', 'deceased'],
+                        'q-mainapplicant-relationship.description.rep.claimant',
+                        ['|role.all', 'rep', 'nonDeceased'],
+                        'q-mainapplicant-relationship.description.rep.victim'
                     ],
                     meta: {
                         classifications: {
@@ -98,8 +115,10 @@ module.exports = {
                                 'q-mainapplicant-relationship.meta.summary.title.mainapplicant.claimant',
                                 ['|role.all', 'mainapplicant'],
                                 'q-mainapplicant-relationship.meta.summary.title.mainapplicant.victim',
-                                ['|role.all', 'rep'],
-                                'q-mainapplicant-relationship.meta.summary.title.rep'
+                                ['|role.all', 'rep', 'deceased'],
+                                'q-mainapplicant-relationship.meta.summary.title.rep.claimant',
+                                ['|role.all', 'rep', 'nonDeceased'],
+                                'q-mainapplicant-relationship.meta.summary.title.rep.victim'
                             ]
                         }
                     },
