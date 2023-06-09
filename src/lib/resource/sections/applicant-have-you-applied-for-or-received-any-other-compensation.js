@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'
             },
             translations: [
@@ -17,22 +13,21 @@ module.exports = {
                     namespace:
                         'p-applicant-have-you-applied-for-or-received-any-other-compensation',
                     resources: {
-                        'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
-                            title:
-                                'Have you applied for or received any other form of compensation?',
-                            'title_someone-else':
-                                'Has anyone applied for or received any other form of compensation on behalf of the victim?',
+                        'applicant-have-you-applied-for-or-received-any-other-compensation': {
+                            title: {
+                                myself:
+                                    'Have you applied for or received any other form of compensation?',
+                                proxy: 'Has anyone applied to us before on behalf of the victim?',
+                                deceased:
+                                    'Has the claimant applied for or received any other form of compensation or damages in connection with this crime?'
+                            },
                             error: {
-                                required:
+                                myself:
                                     'Select yes if you have applied for any other form of compensation',
-                                'required_someone-else':
-                                    'Select yes if anyone has applied for or received any other form of compensation on behalf of the victim'
-                            }
-                        },
-                        meta: {
-                            summary: {
-                                title: 'Have you applied for other compensation?',
-                                'title_someone-else': 'Has anyone applied for other compensation?'
+                                proxy:
+                                    'Select yes if anyone has applied for or received any other form of compensation on behalf of the victim',
+                                deceased:
+                                    'Select yes if the claimant has applied for or received any other form of compensation or damages in connection with this crime'
                             }
                         }
                     }
@@ -47,8 +42,15 @@ module.exports = {
             properties: {
                 'q-applicant-have-you-applied-for-or-received-any-other-compensation': {
                     type: 'boolean',
-                    title:
-                        'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.title.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.title.proxy',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.title.deceased'
+                    ],
                     description:
                         'For example, this may be compensation or damages awarded by a court or in a private settlement.',
                     oneOf: [
@@ -66,15 +68,30 @@ module.exports = {
                             theme: 'other-compensation'
                         },
                         summary: {
-                            title: 'l10nt:meta.summary.title{?lng,context,ns}'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-have-you-applied-for-or-received-any-other-compensation.title.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'applicant-have-you-applied-for-or-received-any-other-compensation.title.proxy',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'applicant-have-you-applied-for-or-received-any-other-compensation.title.deceased'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-have-you-applied-for-or-received-any-other-compensation':
-                        'l10nt:q-applicant-have-you-applied-for-or-received-any-other-compensation.error.required{?lng,context,ns}'
+                    'q-applicant-have-you-applied-for-or-received-any-other-compensation': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.error.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.error.proxy',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'applicant-have-you-applied-for-or-received-any-other-compensation.error.deceased'
+                    ]
                 }
             },
             examples: [

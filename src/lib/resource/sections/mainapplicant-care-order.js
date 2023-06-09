@@ -2,6 +2,34 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-care-order'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-care-order',
+                    resources: {
+                        'mainapplicant-care-order': {
+                            title: {
+                                nonDeceased:
+                                    'Is there a care, supervision or other local authority order in place for the victim?',
+                                deceased:
+                                    'Is there a care, supervision or other local authority order in place for the claimant?'
+                            },
+                            error: {
+                                nonDeceased:
+                                    'Select yes if there is a care, supervision or other local authority order in place for the victim',
+                                deceased:
+                                    'Select yes if there is a care, supervision or other local authority order in place for the claimant'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -10,8 +38,13 @@ module.exports = {
             properties: {
                 'q-mainapplicant-care-order': {
                     type: 'boolean',
-                    title:
-                        'Is there a care, supervision or other local authority order in place for the victim?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'nonDeceased'],
+                        'mainapplicant-care-order.title.nonDeceased',
+                        ['|role.all', 'deceased'],
+                        'mainapplicant-care-order.title.deceased'
+                    ],
                     description: 'This includes an interim care order.',
                     oneOf: [
                         {
@@ -32,8 +65,13 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-mainapplicant-care-order':
-                        'Select yes if there is a care, supervision or other local authority order in place for the victim'
+                    'q-mainapplicant-care-order': [
+                        '|l10nt',
+                        ['|role.all', 'nonDeceased'],
+                        'mainapplicant-care-order.error.nonDeceased',
+                        ['|role.all', 'deceased'],
+                        'mainapplicant-care-order.error.deceased'
+                    ]
                 }
             },
             examples: [
