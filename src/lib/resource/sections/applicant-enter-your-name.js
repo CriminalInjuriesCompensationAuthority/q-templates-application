@@ -78,9 +78,9 @@ module.exports = {
                                 ['|role.all', 'myself'],
                                 'meta.summary.title.myself',
                                 ['|role.all', 'proxy', 'nonDeceased'],
-                                'meta.summary.title.proxy.nonDeceased',
+                                'meta.summary.title.nonDeceased',
                                 ['|role.all', 'proxy', 'deceased'],
-                                'meta.summary.title.proxy.deceased'
+                                'meta.summary.title.deceased'
                             ]
                         }
                     },
