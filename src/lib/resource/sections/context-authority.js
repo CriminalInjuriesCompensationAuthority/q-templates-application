@@ -27,6 +27,8 @@ module.exports = {
                                 rep: {
                                     child:
                                         'You need to send proof of who has parental responsibility for the victim',
+                                    childDeceased:
+                                        'You need to send proof of who has parental responsibility for the claimant',
                                     adult:
                                         'You need to send proof the person has legal authority to act on behalf of the victim',
                                     adultNoLegalAuthority:
@@ -70,6 +72,23 @@ module.exports = {
                                 },
                                 rep: {
                                     child: `
+                                        <p class="govuk-body">We need proof so we know they have the right to apply on the victim's behalf.</p>
+                                        <p class="govuk-body">This proof can be:</p>
+                                        <ul class="govuk-list govuk-list--bullet">
+                                            <li>the victim's full birth certificate</li>
+                                            <li>adoption documents</li>
+                                            <li>a parental responsibility agreement</li>
+                                            <li>a court order showing they have parental responsibility, which means they have legal authority, for the victim</li>
+                                        </ul>
+                                        <p class="govuk-body">You can:</p>
+                                        <ul class="govuk-list govuk-list--bullet">
+                                            <li>take or scan a photo and send it via email</li>
+                                            <li>send a photocopy of this to us via post</li>
+                                        </ul>
+                                        <p class="govuk-body">If their name or the victim's name has changed, you'll have to show proof of this change.</p>
+                                        <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
+                                    `,
+                                    childDeceased: `
                                         <p class="govuk-body">We need proof so we know they have the right to apply on the victim's behalf.</p>
                                         <p class="govuk-body">This proof can be:</p>
                                         <ul class="govuk-list govuk-list--bullet">
@@ -133,6 +152,7 @@ module.exports = {
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.title.mainapplicant.child',
                         ['|role.all', 'mainapplicant', 'incapable', 'deceased'], 'authority-to-apply.title.mainapplicant.adultDeceased',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.title.mainapplicant.adult',
+                        ['|role.all', 'rep', 'child', 'deceased'], 'authority-to-apply.title.rep.childDeceased',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.title.rep.child',
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false], 'authority-to-apply.title.rep.adultNoLegalAuthority',
                         ['|role.all', 'rep', 'adult'], 'authority-to-apply.title.rep.adult',
@@ -143,6 +163,7 @@ module.exports = {
                         ['|role.all', 'mainapplicant', 'child'], 'authority-to-apply.description.mainapplicant.child',
                         ['|role.all', 'mainapplicant', 'incapable', 'deceased'], 'authority-to-apply.description.mainapplicant.adultDeceased',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.description.mainapplicant.adult',
+                        ['|role.all', 'rep', 'child', 'deceased'], 'authority-to-apply.description.rep.childDeceased',
                         ['|role.all', 'rep', 'child'], 'authority-to-apply.description.rep.child',
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false], 'authority-to-apply.description.rep.adultNoLegalAuthority',
                         ['|role.all', 'rep', 'adult'], 'authority-to-apply.description.rep.adult'
