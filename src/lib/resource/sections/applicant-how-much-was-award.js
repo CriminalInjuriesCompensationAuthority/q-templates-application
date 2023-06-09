@@ -2,13 +2,39 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-how-much-was-award'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-how-much-was-award',
+                    resources: {
+                        'how-much-was-award': {
+                            title: {
+                                myself: 'How much compensation were you awarded?',
+                                proxy: 'How much were they awarded?'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             required: ['q-how-much-was-award'],
             properties: {
                 'q-how-much-was-award': {
-                    title: 'How much compensation were you awarded?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'how-much-was-award.title.myself',
+                        ['|role.all', 'proxy'],
+                        'how-much-was-award.title.proxy'
+                    ],
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
@@ -17,6 +43,15 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'other-compensation'
+                        },
+                        summary: {
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'how-much-was-award.title.myself',
+                                ['|role.all', 'proxy'],
+                                'how-much-was-award.title.proxy'
+                            ]
                         }
                     }
                 }

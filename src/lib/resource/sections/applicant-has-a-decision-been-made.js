@@ -2,6 +2,31 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-has-a-decision-been-made'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-has-a-decision-been-made',
+                    resources: {
+                        'applicant-has-a-decision-been-made': {
+                            title: {
+                                myself: 'Have they made a decision about your claim?',
+                                proxy: 'Has a decision been made about their claim?'
+                            },
+                            error: {
+                                myself:
+                                    'Select yes if you have received a decision about the other compensation claim',
+                                proxy: 'Select yes if a decision has been made about their claim'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -9,7 +34,13 @@ module.exports = {
             required: ['q-applicant-has-a-decision-been-made'],
             properties: {
                 'q-applicant-has-a-decision-been-made': {
-                    title: 'Have they made a decision about your claim?',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-has-a-decision-been-made.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-has-a-decision-been-made.title.proxy'
+                    ],
                     type: 'boolean',
                     oneOf: [
                         {
@@ -26,15 +57,26 @@ module.exports = {
                             theme: 'other-compensation'
                         },
                         summary: {
-                            title: 'Have they made a decision?'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-has-a-decision-been-made.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-has-a-decision-been-made.title.proxy'
+                            ]
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-has-a-decision-been-made':
-                        'Select yes if you have received a decision about the other compensation claim'
+                    'q-applicant-has-a-decision-been-made': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-has-a-decision-been-made.error.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-has-a-decision-been-made.error.proxy'
+                    ]
                 }
             },
             examples: [
