@@ -5,31 +5,31 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['id', 'isAuthenticated'],
+            required: ['owner-id', 'is-authenticated'],
             properties: {
-                id: {
+                'owner-id': {
                     type: 'string'
                 },
-                isAuthenticated: {
+                'is-authenticated': {
                     type: 'boolean'
                 }
             },
             errorMessage: {
                 required: {
-                    id: 'User id is required',
-                    isAuthenticated: 'isAuthenticated is required'
+                    'owner-id': 'User id is required',
+                    'is-authenticated': 'isAuthenticated is required'
                 }
             },
             examples: [
                 {
-                    id: 'urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=',
-                    isAuthenticated: true
+                    'owner-id': 'urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=',
+                    'is-authenticated': true
                 }
             ],
             invalidExamples: [
                 {
-                    id: 12345,
-                    isAuthenticated: 'foobar'
+                    'owner-id': 12345,
+                    'is-authenticated': 'foobar'
                 }
             ]
         }
