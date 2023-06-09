@@ -23,7 +23,9 @@ module.exports = {
                                 },
                                 deceased: {
                                     child:
-                                        'Enter the name of the person with parental responsibility for the claimant'
+                                        'Enter the name of the person with parental responsibility for the claimant',
+                                    adultIncapable:
+                                        'Enter the name of the person with legal authority to act on behalf of the claimant'
                                 }
                             }
                         },
@@ -62,14 +64,16 @@ module.exports = {
                 {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'mainapplicant'],
-                        'title.mainapplicant',
                         ['|role.all', 'rep', 'child', 'deceased'],
                         'title.rep.deceased.child',
                         ['|role.all', 'rep', 'child', 'nonDeceased'],
                         'title.rep.nonDeceased.child',
-                        ['|role.all', 'rep', 'adult'],
-                        'title.rep.nonDeceased.adult'
+                        ['|role.all', 'rep', 'adult', 'incapable', 'deceased'],
+                        'title.rep.deceased.adultIncapable',
+                        ['|role.all', 'rep', 'adult', 'incapable', 'nonDeceased'],
+                        'title.rep.nonDeceased.adult',
+                        ['|role.all', 'mainapplicant'],
+                        'title.mainapplicant'
                     ],
                     meta: {
                         compositeId: 'mainapplicant-name',
