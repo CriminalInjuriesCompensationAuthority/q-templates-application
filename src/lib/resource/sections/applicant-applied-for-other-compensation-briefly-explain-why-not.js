@@ -5,10 +5,6 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
                 ns: 'p-applicant-applied-for-other-compensation-briefly-explain-why-not'
             },
             translations: [
@@ -16,11 +12,13 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-applied-for-other-compensation-briefly-explain-why-not',
                     resources: {
-                        'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
-                            title:
-                                'Tell us why you have not applied for or received any other compensation',
-                            'title_someone-else':
-                                'Tell us why no application has been made or payment received for any other form of compensation'
+                        'applicant-applied-for-other-compensation-briefly-explain-why-not': {
+                            title: {
+                                myself:
+                                    'Tell us why you have not applied for or received any other compensation or damages',
+                                proxy:
+                                    'Tell us why no application has been made or payment received for any other form of compensation or damages'
+                            }
                         }
                     }
                 }
@@ -33,8 +31,13 @@ module.exports = {
             required: ['q-applicant-applied-for-other-compensation-briefly-explain-why-not'],
             properties: {
                 'q-applicant-applied-for-other-compensation-briefly-explain-why-not': {
-                    title:
-                        'l10nt:q-applicant-applied-for-other-compensation-briefly-explain-why-not.title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'applicant-applied-for-other-compensation-briefly-explain-why-not.title.myself',
+                        ['|role.all', 'proxy'],
+                        'applicant-applied-for-other-compensation-briefly-explain-why-not.title.proxy'
+                    ],
                     type: 'string',
                     maxLength: 500,
                     errorMessage: {
@@ -45,7 +48,13 @@ module.exports = {
                             theme: 'other-compensation'
                         },
                         summary: {
-                            title: 'Reasons for not applying for other compensation'
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-applied-for-other-compensation-briefly-explain-why-not.title.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-applied-for-other-compensation-briefly-explain-why-not.title.proxy'
+                            ]
                         }
                     }
                 }

@@ -2,6 +2,28 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-mainapplicant-shared-responsibility-name'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-mainapplicant-shared-responsibility-name',
+                    resources: {
+                        'mainapplicant-shared-responsibility-name': {
+                            details: {
+                                nonDeceased:
+                                    '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="_blank">on the UK Government website(opens in new tab)</a>.</p>\'})}}',
+                                deceased:
+                                    '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "If parental rights are shared with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="_blank">who has parental responsibility(opens in new tab)</a>.</p>\'})}}'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -27,8 +49,13 @@ module.exports = {
                     }
                 },
                 'mainapplicant-shared-responsibility-name': {
-                    description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "I share parental rights with more than one person",html: \'<p class="govuk-body">You can add any additional names of shared parental rights holders at the end of this application.</p><p class="govuk-body">Find out if you share parental responsibility with another person <a target="_blank" href="https://www.gov.uk/parental-rights-responsibilities/who-has-parental-responsibility" target="_blank">on the UK Government website(opens in new tab)</a>.</p>\'})}}'
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'nonDeceased'],
+                        'mainapplicant-shared-responsibility-name.details.nonDeceased',
+                        ['|role.all', 'deceased'],
+                        'mainapplicant-shared-responsibility-name.details.deceased'
+                    ]
                 }
             },
             errorMessage: {
