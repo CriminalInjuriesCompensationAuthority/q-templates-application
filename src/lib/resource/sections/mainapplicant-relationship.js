@@ -125,13 +125,9 @@ module.exports = {
                     errorMessage: {
                         maxLength: [
                             '|l10nt',
-                            ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                            ['|role.all', 'deceased'],
                             'errorMessage.characterCount.claimant',
-                            ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
-                            'errorMessage.characterCount.claimant',
-                            ['|role.all', 'mainapplicant'],
-                            'errorMessage.characterCount.victim',
-                            ['|role.all', 'rep'],
+                            ['|role.all', 'nonDeceased'],
                             'errorMessage.characterCount.victim'
                         ]
                     }
@@ -141,14 +137,14 @@ module.exports = {
                 required: {
                     'q-mainapplicant-relationship': [
                         '|l10nt',
-                        ['|role.all', 'mainapplicant', 'child', 'proxy', 'deceased'],
+                        ['|role.all', 'mainapplicant', 'deceased'],
                         'errorMessage.required.q-mainapplicant-relationship.mainapplicant.claimant',
-                        ['|role.all', 'mainapplicant', 'incapable', 'proxy', 'deceased'],
-                        'errorMessage.required.q-mainapplicant-relationship.mainapplicant.claimant',
-                        ['|role.all', 'mainapplicant'],
+                        ['|role.all', 'mainapplicant', 'nonDeceased'],
                         'errorMessage.required.q-mainapplicant-relationship.mainapplicant.victim',
-                        ['|role.all', 'rep'],
-                        'errorMessage.required.q-mainapplicant-relationship.rep'
+                        ['|role.all', 'rep', 'deceased'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep.claimant',
+                        ['|role.all', 'rep', 'nonDeceased'],
+                        'errorMessage.required.q-mainapplicant-relationship.rep.victim'
                     ]
                 }
             },
