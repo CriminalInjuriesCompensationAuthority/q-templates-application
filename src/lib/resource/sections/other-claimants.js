@@ -19,7 +19,7 @@ module.exports = {
                             },
                             error: {
                                 myself: 'Select yes if you know if anyone else might apply',
-                                proxy: 'Select yes if you they know if anyone else might apply'
+                                proxy: 'Select yes if they know if anyone else might apply'
                             }
                         }
                     }

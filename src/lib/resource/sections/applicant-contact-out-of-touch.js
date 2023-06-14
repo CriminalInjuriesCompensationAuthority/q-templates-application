@@ -22,8 +22,8 @@ module.exports = {
                                 proxy: 'This helps us to understand their eligibility.'
                             },
                             error: {
-                                myself: 'Tell us why you not in contact',
-                                proxy: 'Tell us why they were not in contact.'
+                                myself: 'Tell us why you were not in contact',
+                                proxy: 'Tell us why they were not in contact'
                             }
                         }
                     }
@@ -53,7 +53,7 @@ module.exports = {
                     ],
                     maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Description must be 2000 characters or less'
+                        maxLength: 'Explanation must be 2000 characters or less'
                     },
                     meta: {
                         classifications: {

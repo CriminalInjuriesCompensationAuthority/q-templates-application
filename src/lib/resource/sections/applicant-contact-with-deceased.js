@@ -18,6 +18,20 @@ module.exports = {
                                 proxy:
                                     'When the person died, how often were they in contact with the claimant?'
                             },
+                            contact: {
+                                regular: {
+                                    myself: 'We were in regular contact',
+                                    proxy: 'They were in regular contact'
+                                },
+                                occasionally: {
+                                    myself: 'We were in contact occasionally',
+                                    proxy: 'They were in contact occasionally'
+                                },
+                                never: {
+                                    myself: 'We were not in contact',
+                                    proxy: 'They were not in contact'
+                                }
+                            },
                             error: {
                                 myself: 'Select how often you were in contact',
                                 proxy: 'Select how often they were in contact'
@@ -44,15 +58,33 @@ module.exports = {
                     type: 'string',
                     oneOf: [
                         {
-                            title: 'We were in regular contact',
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.contact.regular.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.contact.regular.proxy'
+                            ],
                             const: 'regular'
                         },
                         {
-                            title: 'We were in contact occasionally',
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.contact.occasionally.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.contact.occasionally.proxy'
+                            ],
                             const: 'occasionally'
                         },
                         {
-                            title: 'We were not in contact',
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-living-together.contact.never.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-living-together.contact.never.proxy'
+                            ],
                             const: 'never'
                         }
                     ],

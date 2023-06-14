@@ -17,7 +17,7 @@ module.exports = {
                                 myself:
                                     'There is a time limit to make this application. The time limit can be extended where you could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.',
                                 proxy:
-                                    'There is a time limit to make this application. The time limit can be extended where the claimant could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquirie.'
+                                    'There is a time limit to make this application. The time limit can be extended where the claimant could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.'
                             },
                             details: {
                                 myself:
