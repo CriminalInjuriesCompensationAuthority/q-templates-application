@@ -26,7 +26,7 @@ module.exports = {
                                     nonDeceased:
                                         'This tells us who you are in relation to the victim.',
                                     deceased:
-                                        'In what capacity are you applying on behalf of the claimant?'
+                                        'This tells us who you are in relation to the claimant.'
                                 }
                             },
                             error: {

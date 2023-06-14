@@ -16,7 +16,7 @@ module.exports = {
                             myself: 'Enter your name',
                             proxy: {
                                 nonDeceased: "Enter the victim's name",
-                                deceased: "Enter the claimant's details"
+                                deceased: "Enter the claimant's name"
                             }
                         },
                         'q-applicant-title': {

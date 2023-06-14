@@ -34,15 +34,15 @@ module.exports = {
                                         'Select the claimant’s relationship to the person who died'
                                 },
                                 conditionalOption: {
-                                    myself: 'Tell us how you are related.',
+                                    myself: 'Tell us how you are related',
                                     proxy:
-                                        'Tell us how the claimant is related to the person who died.'
+                                        'Tell us how the claimant is related to the person who died'
                                 },
                                 characterCount: {
                                     myself:
-                                        'Tell us how you are related must be 50 characters or less.',
+                                        'Tell us how you are related must be 50 characters or less',
                                     proxy:
-                                        'Tell us how the claimant is related to the person who died must be 50 characters or less.'
+                                        'Tell us how the claimant is related to the person who died must be 50 characters or less'
                                 }
                             }
                         }
