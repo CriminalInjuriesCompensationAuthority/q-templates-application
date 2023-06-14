@@ -15,7 +15,7 @@ module.exports = {
                         {
                             title: 'I am applying because of an injury',
                             description:
-                                'This could include abuse over a period of time, or a disabling mental injury as a result of witnessing a crime',
+                                'This could include abuse over a period of time, or a disabling mental injury as a result of witnessing a crime.',
                             const: false
                         },
                         {
