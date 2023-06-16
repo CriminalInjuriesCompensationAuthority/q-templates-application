@@ -29,9 +29,9 @@ module.exports = {
                             },
                             description: {
                                 mainapplicant:
-                                    'This means you share this with another person named as their birth, step-parent or adoptive parent, or someone named on a special guardianship order.',
+                                    'This means you share this with another person named as their birth, step-parent, adoptive parent or someone named on a special guardianship order.',
                                 rep:
-                                    'This means they share this with another person named as their birth, step-parent or adoptive parent, or someone named on a special guardianship order.'
+                                    'This means they share this with another person named as their birth, step-parent, adoptive parent or someone named on a special guardianship order.'
                             },
                             details: {
                                 victim:
