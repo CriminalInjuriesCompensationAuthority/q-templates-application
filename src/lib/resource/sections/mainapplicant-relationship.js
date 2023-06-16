@@ -52,12 +52,12 @@ module.exports = {
                             required: {
                                 'q-mainapplicant-relationship': {
                                     mainapplicant: {
-                                        victim: 'Enter your relationship with the victim',
-                                        claimant: 'Enter your rleationship with the claimant'
+                                        victim: 'Enter your relationship to the victim',
+                                        claimant: 'Enter your relationship to the claimant'
                                     },
                                     rep: {
-                                        victim: 'Enter their relationship with the victim',
-                                        claimant: 'Enter their relationship with the claimant'
+                                        victim: 'Enter their relationship to the victim',
+                                        claimant: 'Enter their relationship to the claimant'
                                     }
                                 }
                             },
