@@ -84,7 +84,7 @@ module.exports = {
                                             <li>the victim's full birth certificate</li>
                                             <li>adoption documents</li>
                                             <li>a parental responsibility agreement</li>
-                                            <li>a court order showing they have parental responsibility, which means they have legal authority, for the victim</li>
+                                            <li>a court order showing they have parental responsibility, which means they have legal authority for the victim</li>
                                         </ul>
                                         <p class="govuk-body">You can:</p>
                                         <ul class="govuk-list govuk-list--bullet">
@@ -101,7 +101,7 @@ module.exports = {
                                             <li>the claimant's full birth certificate</li>
                                             <li>adoption documents</li>
                                             <li>a parental responsibility agreement</li>
-                                            <li>a court order showing they have parental responsibility, which means they have legal authority, for the claimant</li>
+                                            <li>a court order showing they have parental responsibility, which means they have legal authority for the claimant</li>
                                         </ul>
                                         <p class="govuk-body">You can:</p>
                                         <ul class="govuk-list govuk-list--bullet">
@@ -143,7 +143,7 @@ module.exports = {
                                     adultNoLegalAuthority: {
                                         nonDeceased: `
                                     <p class="govuk-body">We need the details of the person with legal authority to act on behalf of the victim to begin processing this application. However, we understand this might not be confirmed as yet. Unfortunately, we're unable to progress the application any further until we have these details.</p>
-                                    <p class="govuk-body">You can still submit this application today without providing these details. And then send this on to us at a later date.</p>
+                                    <p class="govuk-body">You can still submit this application without providing these details, and then send them on to us at a later date.</p>
                                     <p class="govuk-body">This proof should be a certified copy of a:</p>
                                     <ul class="govuk-list govuk-list--bullet">
                                         <li>power of attorney document they're named on</li>
@@ -157,7 +157,7 @@ module.exports = {
                                 `,
                                         deceased: `
                                 <p class="govuk-body">We need the details of the person with legal authority to act on behalf of the claimant to begin processing this application. However, we understand this might not be confirmed as yet. Unfortunately, we're unable to progress the application any further until we have these details.</p>
-                                <p class="govuk-body">You can still submit this application today without providing these details. And then send this on to us at a later date.</p>
+                                <p class="govuk-body">You can still submit this application without providing these details, and then send them on to us at a later date.</p>
                                 <p class="govuk-body">This proof should be a certified copy of a:</p>
                                 <ul class="govuk-list govuk-list--bullet">
                                     <li>power of attorney document they're named on</li>
