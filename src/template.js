@@ -807,9 +807,30 @@ module.exports = {
                     description: 'Confirmation email - applicant:adult',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                    cond:['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'adult', 'nonDeceased']
+                    ],
                     data: {
                         templateId: '5d207246-99d7-4bb9-83e1-75a7847bb8fd',
+                        emailAddress:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - applicant:adult.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond:['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'adult', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'aad20568-2726-4d9f-b60c-41257e419c88',
                         emailAddress:
                             '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
                         personalisation: {
@@ -926,9 +947,30 @@ module.exports = {
                     description: 'Confirmation sms - applicant:adult',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                    cond:['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'adult', 'nonDeceased']
+                    ],
                     data: {
                         templateId: '3f1a741b-20de-4b0d-b8e8-224098291beb',
+                        phoneNumber:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - applicant:adult.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond:['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'adult', 'deceased']
+                    ],
+                    data: {
+                        templateId: '46e66520-6e0a-412b-a509-18a09c8bfa35',
                         phoneNumber:
                             '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
                         personalisation: {
