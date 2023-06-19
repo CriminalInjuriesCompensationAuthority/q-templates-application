@@ -18,6 +18,11 @@ module.exports = {
                                     'When will you find out if you’ve been awarded compensation?',
                                 proxy:
                                     'When will the claimant find out if they’ve been awarded compensation or damages?'
+                            },
+                            chars: {
+                                myself: 'When will you find out must be 50 characters or less',
+                                proxy:
+                                    'When will the claimant find out must be 50 characters or less'
                             }
                         }
                     }
@@ -32,9 +37,9 @@ module.exports = {
                 'q-when-will-you-find-out': {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'myself'],
+                        ['or', ['|role.all', 'myself'], ['|role.all', 'proxy', 'nonDeceased']],
                         'when-will-you-find-out.title.myself',
-                        ['|role.all', 'proxy'],
+                        ['|role.all', 'proxy', 'deceased'],
                         'when-will-you-find-out.title.proxy'
                     ],
                     type: 'string',
@@ -42,7 +47,13 @@ module.exports = {
                         'Enter an approximate date, for example, December 2023. If you do not know you can say so.',
                     maxLength: 50,
                     errorMessage: {
-                        maxLength: 'When will you find out must be 50 characters or less'
+                        maxLength: [
+                            '|l10nt',
+                            ['or', ['|role.all', 'myself'], ['|role.all', 'proxy', 'nonDeceased']],
+                            'when-will-you-find-out.chars.myself',
+                            ['|role.all', 'proxy', 'deceased'],
+                            'when-will-you-find-out.chars.proxy'
+                        ]
                     },
                     meta: {
                         classifications: {
@@ -51,9 +62,13 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
-                                ['|role.all', 'myself'],
+                                [
+                                    'or',
+                                    ['|role.all', 'myself'],
+                                    ['|role.all', 'proxy', 'nonDeceased']
+                                ],
                                 'when-will-you-find-out.title.myself',
-                                ['|role.all', 'proxy'],
+                                ['|role.all', 'proxy', 'deceased'],
                                 'when-will-you-find-out.title.proxy'
                             ]
                         }
