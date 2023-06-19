@@ -16,13 +16,19 @@ module.exports = {
                             title: {
                                 myself: 'Who have you applied to or received compensation from?',
                                 proxy:
-                                    'Who have they applied to or received compensation or damages from?'
+                                    'Enter who they have applied to or received compensation or damages from'
                             },
                             error: {
                                 myself:
                                     'Who you applied to or received compensation from must be 50 characters or less',
                                 proxy:
                                     'Who have they applied to or received compensation or damages from must be 50 characters or less'
+                            },
+                            chars: {
+                                myself:
+                                    'Who you applied to or received compensation from must be 50 characters or less',
+                                proxy:
+                                    'Who have they applied to or received compensation from must be 50 characters or less'
                             }
                         }
                     }
@@ -45,8 +51,13 @@ module.exports = {
                     type: 'string',
                     maxLength: 50,
                     errorMessage: {
-                        maxLength:
-                            'Who you applied to or received compensation from must be 50 characters or less'
+                        maxLength: [
+                            '|l10nt',
+                            ['|role.all', 'myself'],
+                            'applicant-who-did-you-apply-to.chars.myself',
+                            ['|role.all', 'proxy'],
+                            'applicant-who-did-you-apply-to.chars.proxy'
+                        ]
                     },
                     meta: {
                         classifications: {
