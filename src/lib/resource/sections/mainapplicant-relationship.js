@@ -25,12 +25,12 @@ module.exports = {
                             },
                             description: {
                                 mainapplicant:
-                                    "For example, you're their mother, father, grandparent",
+                                    "For example, you're their mother, father, grandparent.",
                                 rep: {
                                     victim:
-                                        "For example, they are the victim's mother, father, grandparent",
+                                        "For example, they are the victim's mother, father, grandparent.",
                                     claimant:
-                                        "For example, they are the claimant's mother, father, grandparent"
+                                        "For example, they are the claimant's mother, father, grandparent."
                                 }
                             },
                             meta: {
