@@ -79,7 +79,8 @@ module.exports = {
                     title: 'Other reason for not having a job',
                     maxLength: 100,
                     errorMessage: {
-                        maxLength: 'Other details must be 100 characters or less'
+                        maxLength:
+                            'Other reason for not having a job must be 100 characters or less'
                     },
                     meta: {
                         classifications: {
@@ -98,7 +99,9 @@ module.exports = {
                     if: {
                         properties: {
                             'q-applicant-work-details-option': {
-                                const: 'other'
+                                contains: {
+                                    const: 'other'
+                                }
                             }
                         },
                         required: ['q-applicant-work-details-option']
@@ -113,7 +116,8 @@ module.exports = {
                         },
                         errorMessage: {
                             required: {
-                                'q-applicant-work-details-other': 'Enter other details'
+                                'q-applicant-work-details-other':
+                                    'Enter other reason for not having a job'
                             }
                         }
                     }
