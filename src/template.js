@@ -1,6 +1,7 @@
 'use strict';
 
 const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
+const applicantDeclarationDeceased = require('./lib/resource/sections/applicant-declaration-deceased.js');
 const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
 const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
 const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
@@ -204,6 +205,7 @@ module.exports = {
     version: '8.0.4',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
+        'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
         'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
@@ -421,6 +423,7 @@ module.exports = {
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
+            'p-applicant-declaration-deceased',
             'p-mainapplicant-declaration-under-12',
             'p-mainapplicant-declaration-12-and-over',
             'p-rep-declaration-under-12',
@@ -429,6 +432,7 @@ module.exports = {
         confirmation: 'p--confirmation',
         states: {
             'p-applicant-declaration': applicantDeclaration.route,
+            'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
             'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
             'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
             'p-rep-declaration-under-12': repDeclarationUnder12.route,
