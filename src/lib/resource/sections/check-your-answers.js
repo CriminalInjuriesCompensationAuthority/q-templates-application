@@ -34,11 +34,11 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-declaration',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for',
-                        'myself'
-                    ]
+                    cond: ['|role.all', 'myself', 'adult', 'nonDeceased']
+                },
+                {
+                    target: 'p-applicant-declaration-deceased',
+                    cond: ['|role.all', 'myself', 'adult', 'deceased']
                 },
                 {
                     target: 'p--download-your-answers',
