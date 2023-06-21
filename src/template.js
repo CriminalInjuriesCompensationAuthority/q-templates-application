@@ -808,7 +808,7 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                         ['|role.all', 'adult', 'nonDeceased']
                     ],
                     data: {
@@ -826,7 +826,7 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
@@ -948,7 +948,7 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                         ['|role.all', 'adult', 'nonDeceased']
                     ],
                     data: {
@@ -966,7 +966,7 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
