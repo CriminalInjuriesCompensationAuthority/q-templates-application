@@ -72,11 +72,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-rep-details',
-                    cond: ['|role.all', 'proxy']
-                },
-                {
-                    target: 'p--before-you-continue'
+                    target: 'p--context-residency-and-nationality'
                 }
             ]
         }

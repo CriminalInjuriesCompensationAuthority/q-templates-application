@@ -172,6 +172,19 @@ const downloadAnswers = require('./lib/resource/sections/download-your-answers')
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const owner = require('./lib/resource/sections/owner');
+const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
+const applicantArmedForcesRelative = require('./lib/resource/sections/applicant-armed-forces-relative.js');
+const applicantArmedForces = require('./lib/resource/sections/applicant-armed-forces.js');
+const applicantAppliedForAsylum = require('./lib/resource/sections/applicant-applied-for-asylum');
+const applicantBritishCitizenRelative = require('./lib/resource/sections/applicant-british-citizen-relative.js');
+const applicantBritishCitizen = require('./lib/resource/sections/applicant-british-citizen.js');
+const applicantEeaCitizenRelative = require('./lib/resource/sections/applicant-eea-citizen-relative.js');
+const applicantEeaCitizen = require('./lib/resource/sections/applicant-eea-citizen.js');
+const applicantEuCitizenRelative = require('./lib/resource/sections/applicant-eu-citizen-relative.js');
+const applicantEuCitizen = require('./lib/resource/sections/applicant-eu-citizen.js');
+const applicantOrdinarilyResident = require('./lib/resource/sections/applicant-ordinarily-resident.js');
+const applicantOtherCitizen = require('./lib/resource/sections/applicant-other-citizen.js');
+const applicantVictimHumanTrafficking = require('./lib/resource/sections/applicant-victim-human-trafficking.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -361,7 +374,20 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        owner: owner.section
+        owner: owner.section,
+        'p--context-residency-and-nationality': contextResidency.section,
+        'p-applicant-armed-forces-relative': applicantArmedForcesRelative.section,
+        'p-applicant-armed-forces': applicantArmedForces.section,
+        'p-applicant-applied-for-asylum': applicantAppliedForAsylum.section,
+        'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.section,
+        'p-applicant-british-citizen': applicantBritishCitizen.section,
+        'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.section,
+        'p-applicant-eea-citizen': applicantEeaCitizen.section,
+        'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.section,
+        'p-applicant-eu-citizen': applicantEuCitizen.section,
+        'p-applicant-ordinarily-resident': applicantOrdinarilyResident.section,
+        'p-applicant-other-citizen': applicantOtherCitizen.section,
+        'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -565,7 +591,20 @@ module.exports = {
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            owner: owner.route
+            owner: owner.route,
+            'p--context-residency-and-nationality': contextResidency.route,
+            'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
+            'p-applicant-armed-forces': applicantArmedForces.route,
+            'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
+            'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
+            'p-applicant-british-citizen': applicantBritishCitizen.route,
+            'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,
+            'p-applicant-eea-citizen': applicantEeaCitizen.route,
+            'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.route,
+            'p-applicant-eu-citizen': applicantEuCitizen.route,
+            'p-applicant-ordinarily-resident': applicantOrdinarilyResident.route,
+            'p-applicant-other-citizen': applicantOtherCitizen.route,
+            'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route
         }
     },
     answers: {},
@@ -623,6 +662,12 @@ module.exports = {
                                         }
                                     },
                                     proxy: 'Your details'
+                                }
+                            },
+                            'residency-and-nationality': {
+                                title: {
+                                    applicant: 'About your residency and nationality',
+                                    proxy: "About the victim's residency and nationality"
                                 }
                             }
                         }
@@ -703,6 +748,15 @@ module.exports = {
                 },
                 'rep-details': {
                     title: 'Your details'
+                },
+                'residency-and-nationality': {
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'residency-and-nationality.title.proxy',
+                        ['|role.all'],
+                        'residency-and-nationality.title.applicant'
+                    ]
                 },
                 default: {
                     title: 'Other Information'
