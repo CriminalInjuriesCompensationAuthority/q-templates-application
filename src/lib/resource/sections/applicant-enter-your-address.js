@@ -285,7 +285,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-mainapplicant-details',
+                    target: 'p--context-residency-and-nationality',
                     cond: [
                         'or',
                         [
