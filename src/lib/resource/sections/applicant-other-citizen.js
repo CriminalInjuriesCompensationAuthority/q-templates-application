@@ -15,7 +15,7 @@ module.exports = {
                         'q-applicant-other-citizen': {
                             title: {
                                 applicant:
-                                    'Were you a citizen of a country that was party to the European convention when the crime happened'
+                                    'Were you a citizen of a country that was party to the European convention when the crime happened?'
                             },
                             error: {
                                 applicant:
@@ -23,7 +23,8 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'About your residency and nationality'
+                                    title:
+                                        'Were you a citizen of a country that was party to the European convention when the crime happened?'
                                 }
                             }
                         }
@@ -52,10 +53,14 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'residency_and_nationality'
+                            theme: 'residency-and-nationality'
                         },
                         summary: {
-                            title: 'q-applicant-other-citizen.meta.summary.title'
+                            title: [
+                                '|l10nt',
+                                ['|role.all'],
+                                'q-applicant-other-citizen.meta.summary.title'
+                            ]
                         }
                     }
                 }

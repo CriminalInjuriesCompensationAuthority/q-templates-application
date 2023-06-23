@@ -23,7 +23,8 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'About your residency and nationality'
+                                    title:
+                                        'Have you been referred as a potential victim of human trafficking in the UK?'
                                 }
                             }
                         }
@@ -56,10 +57,14 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'residency_and_nationality'
+                            theme: 'residency-and-nationality'
                         },
                         summary: {
-                            title: 'q-applicant-victim-human-trafficking.meta.summary.title'
+                            title: [
+                                '|l10nt',
+                                ['|role.all'],
+                                'q-applicant-victim-human-trafficking.meta.summary.title'
+                            ]
                         }
                     }
                 }

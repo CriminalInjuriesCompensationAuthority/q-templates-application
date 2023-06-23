@@ -23,7 +23,8 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'About your residency and nationality'
+                                    title:
+                                        'Were you a close relative of a member of the British armed forces living with them when the crime happened?'
                                 }
                             }
                         }
@@ -56,10 +57,14 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'residency_and_nationality'
+                            theme: 'residency-and-nationality'
                         },
                         summary: {
-                            title: 'q-applicant-armed-forces-relative.meta.summary.title'
+                            title: [
+                                '|l10nt',
+                                ['|role.all'],
+                                'q-applicant-armed-forces-relative.meta.summary.title'
+                            ]
                         }
                     }
                 }

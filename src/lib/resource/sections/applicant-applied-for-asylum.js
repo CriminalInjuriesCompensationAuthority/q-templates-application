@@ -21,7 +21,7 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'About your residency and nationality'
+                                    title: 'Have you applied for asylum in the UK?'
                                 }
                             }
                         }
@@ -54,10 +54,14 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'residency_and_nationality'
+                            theme: 'residency-and-nationality'
                         },
                         summary: {
-                            title: 'q-applicant-applied-for-asylum.meta.summary.title'
+                            title: [
+                                '|l10nt',
+                                ['|role.all'],
+                                'q-applicant-applied-for-asylum.meta.summary.title'
+                            ]
                         }
                     }
                 }
