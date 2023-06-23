@@ -84,10 +84,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-other-claimants': 'true'
+                    'q-other-claimants': true
                 },
                 {
-                    'q-other-claimants': 'false'
+                    'q-other-claimants': false
                 }
             ],
             invalidExamples: [

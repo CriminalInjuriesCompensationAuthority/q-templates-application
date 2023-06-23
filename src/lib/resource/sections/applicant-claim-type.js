@@ -46,10 +46,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-claim-type': 'true'
+                    'q-applicant-claim-type': true
                 },
                 {
-                    'q-applicant-claim-type': 'false'
+                    'q-applicant-claim-type': false
                 }
             ],
             invalidExamples: [
