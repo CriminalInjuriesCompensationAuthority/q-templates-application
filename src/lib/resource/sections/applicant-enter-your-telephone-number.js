@@ -76,7 +76,7 @@ module.exports = {
                     cond: ['|role.all', 'proxy']
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: 'p--context-residency-and-nationality'
                 }
             ]
         }
