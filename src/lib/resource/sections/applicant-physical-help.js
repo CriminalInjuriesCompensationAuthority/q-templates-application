@@ -88,10 +88,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-physical-help': 'true'
+                    'q-applicant-physical-help': true
                 },
                 {
-                    'q-applicant-physical-help': 'false'
+                    'q-applicant-physical-help': false
                 }
             ],
             invalidExamples: [

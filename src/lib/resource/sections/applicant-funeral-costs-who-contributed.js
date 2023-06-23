@@ -37,7 +37,7 @@ module.exports = {
                         'Tell us who else is contributing to the funeral costs'
                 }
             },
-            examples: [{}],
+            examples: [{'q-applicant-funeral-costs-who-contributed': 'Someone'}],
             invalidExamples: [
                 {
                     foo: 'bar'
