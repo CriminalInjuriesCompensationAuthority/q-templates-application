@@ -12,9 +12,20 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-eea-citizen-relative',
                     resources: {
-                        'eea-citizen-relative': {
-                            title: {},
-                            description: {}
+                        'q-applicant-eea-citizen-relative': {
+                            title: {
+                                applicant:
+                                    'Were you in the UK legally because you were a close relative of an EEA citizen when the crime happened?'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you were in the UK legally because you were a family member of an EEA citizen when the crime happened'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,19 +34,57 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-eea-citizen-relative'],
             additionalProperties: false,
             properties: {
-                'eea-citizen-relative': {
-                    //prettier-ignore
+                'q-applicant-eea-citizen-relative': {
+                    type: 'boolean',
                     title: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-eea-citizen-relative.title.applicant'
                     ],
-                    description: []
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-eea-citizen-relative.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-eea-citizen': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-eea-citizen-relative.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-eea-citizen-relative': true
+                },
+                {
+                    'q-applicant-eea-citizen-relative': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-eea-citizen-relative': 'foo'
                 }
             ]
         }
@@ -44,7 +93,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: ''
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-eea-citizen-relative.q-applicant-eea-citizen-relative',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-other-citizen',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-eea-citizen-relative.q-applicant-eea-citizen-relative',
+                        false
+                    ]
                 }
             ]
         }

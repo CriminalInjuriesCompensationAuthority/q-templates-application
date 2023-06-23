@@ -12,9 +12,20 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-other-citizen',
                     resources: {
-                        'applicant-other-citizen': {
-                            title: {},
-                            description: {}
+                        'q-applicant-other-citizen': {
+                            title: {
+                                applicant:
+                                    'Were you a citizen of a country that was party to the European convention when the crime happened'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you were a citizen of a country that was party to this convention when the crime happened'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,19 +34,53 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-other-citizen'],
             additionalProperties: false,
             properties: {
-                'applicant-other-citizen': {
-                    //prettier-ignore
-                    title: [
+                'q-applicant-other-citizen': {
+                    type: 'boolean',
+                    title: ['|l10nt', ['|role.all'], 'q-applicant-other-citizen.title.applicant'],
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
-                    description: []
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-other-citizen.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-other-citizen': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-other-citizen.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-other-citizen': true
+                },
+                {
+                    'q-applicant-other-citizen': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-other-citizen': 'foo'
                 }
             ]
         }
@@ -44,7 +89,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: ''
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-other-citizen.q-applicant-other-citizen',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-armed-forces',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-other-citizen.q-applicant-other-citizen',
+                        false
+                    ]
                 }
             ]
         }

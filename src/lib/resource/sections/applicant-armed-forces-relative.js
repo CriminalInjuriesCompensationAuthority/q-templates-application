@@ -12,9 +12,20 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-armed-forces-relative',
                     resources: {
-                        'armed-forces-relative': {
-                            title: {},
-                            description: {}
+                        'q-applicant-armed-forces-relative': {
+                            title: {
+                                applicant:
+                                    'Were you a close relative of a member of the British armed forces living with them when the crime happened?'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you were a close relative of a member of the British armed forces living with them when the crime happened'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,19 +34,57 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-armed-forces-relative'],
             additionalProperties: false,
             properties: {
-                'armed-forces-relative': {
-                    //prettier-ignore
+                'q-applicant-armed-forces-relative': {
+                    type: 'boolean',
                     title: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-armed-forces-relative.title.applicant'
                     ],
-                    description: []
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-armed-forces-relative.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-armed-forces-relative': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-armed-forces-relative.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-armed-forces-relative': true
+                },
+                {
+                    'q-applicant-armed-forces-relative': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-armed-forces-relative': 'foo'
                 }
             ]
         }
@@ -44,7 +93,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: ''
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-victim-human-trafficking',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
+                        false
+                    ]
                 }
             ]
         }

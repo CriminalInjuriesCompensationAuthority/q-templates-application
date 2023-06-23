@@ -12,9 +12,19 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-british-citizen',
                     resources: {
-                        'applicant-british-citizen': {
-                            title: {},
-                            description: {}
+                        'q-applicant-british-citizen': {
+                            title: {
+                                applicant: 'Were you a British citizen when the crime happened?'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you were a British citizen when the crime happened'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,19 +33,53 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-british-citizen'],
             additionalProperties: false,
             properties: {
-                'british-citizen': {
-                    //prettier-ignore
-                    title: [
+                'q-applicant-british-citizen': {
+                    type: 'boolean',
+                    title: ['|l10nt', ['|role.all'], 'q-applicant-british-citizen.title.applicant'],
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
-                    description: []
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-british-citizen.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-british-citizen': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-british-citizen.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-british-citizen': true
+                },
+                {
+                    'q-applicant-british-citizen': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-british-citizen': 'foo'
                 }
             ]
         }
@@ -44,7 +88,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: ''
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-british-citizen-relative',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',
+                        false
+                    ]
                 }
             ]
         }

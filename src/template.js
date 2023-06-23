@@ -175,7 +175,7 @@ const owner = require('./lib/resource/sections/owner');
 const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
 const applicantArmedForcesRelative = require('./lib/resource/sections/applicant-armed-forces-relative.js');
 const applicantArmedForces = require('./lib/resource/sections/applicant-armed-forces.js');
-const applicantAsylum = require('./lib/resource/sections/applicant-asylum');
+const applicantAppliedForAsylum = require('./lib/resource/sections/applicant-applied-for-asylum');
 const applicantBritishCitizenRelative = require('./lib/resource/sections/applicant-british-citizen-relative.js');
 const applicantBritishCitizen = require('./lib/resource/sections/applicant-british-citizen.js');
 const applicantEeaCitizenRelative = require('./lib/resource/sections/applicant-eea-citizen-relative.js');
@@ -378,7 +378,7 @@ module.exports = {
         'p--context-residency-and-nationality': contextResidency.section,
         'p-applicant-armed-forces-relative': applicantArmedForcesRelative.section,
         'p-applicant-armed-forces': applicantArmedForces.section,
-        'p-applicant-asylum': applicantAsylum.section,
+        'p-applicant-applied-for-asylum': applicantAppliedForAsylum.section,
         'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.section,
         'p-applicant-british-citizen': applicantBritishCitizen.section,
         'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.section,
@@ -595,7 +595,7 @@ module.exports = {
             'p--context-residency-and-nationality': contextResidency.route,
             'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
             'p-applicant-armed-forces': applicantArmedForces.route,
-            'p-applicant-asylum': applicantAsylum.route,
+            'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
             'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
             'p-applicant-british-citizen': applicantBritishCitizen.route,
             'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,

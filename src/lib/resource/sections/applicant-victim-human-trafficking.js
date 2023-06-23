@@ -12,9 +12,20 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-victim-human-trafficking',
                     resources: {
-                        'victim-human-trafficking': {
-                            title: {},
-                            description: {}
+                        'q-applicant-victim-human-trafficking': {
+                            title: {
+                                applicant:
+                                    'Have you been referred as a potential victim of human trafficking in the UK?'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you have been referred as a potential victim of human trafficking in the UK'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,30 +34,64 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-victim-human-trafficking'],
             additionalProperties: false,
             properties: {
-                'victim-human-trafficking': {
-                    //prettier-ignore
+                'q-applicant-victim-human-trafficking': {
+                    type: 'boolean',
                     title: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-victim-human-trafficking.title.applicant'
                     ],
-                    description: []
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
+                    ],
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-victim-human-trafficking.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-victim-human-trafficking': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-victim-human-trafficking.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-victim-human-trafficking': true
+                },
+                {
+                    'q-applicant-victim-human-trafficking': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-victim-human-trafficking': 'foo'
                 }
             ]
         }
     },
     route: {
         on: {
-            ANSWER: [
-                {
-                    target: ''
-                }
-            ]
+            ANSWER: [{target: 'p-applicant-applied-for-asylum'}]
         }
     }
 };
