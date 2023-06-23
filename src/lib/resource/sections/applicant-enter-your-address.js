@@ -248,61 +248,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
-                {
-                    target: 'p-applicant-enter-your-telephone-number',
-                    cond: [
-                        'or',
-                        [
-                            '==',
-                            '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                            'email'
-                        ],
-                        [
-                            'and',
-                            [
-                                'dateCompare',
-                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                '>=', // is more than or equal to ...
-                                '-18', // 18 ...
-                                'years' // years (before, due to the negative (-18) ...
-                                // today's date (no second date given. defaults to today's date).
-                            ],
-                            [
-                                '==',
-                                '$.answers.p-applicant-can-handle-affairs.q-applicant-capable',
-                                true
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    target: 'p-applicant-enter-your-email-address',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                        'text'
-                    ]
-                },
-                {
-                    target: 'p--context-mainapplicant-details',
-                    cond: [
-                        'or',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        ['|role.all', 'incapable']
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue'
-                }
-            ]
+            ANSWER: [{target: 'p--context-residency-and-nationality'}]
         }
     }
 };

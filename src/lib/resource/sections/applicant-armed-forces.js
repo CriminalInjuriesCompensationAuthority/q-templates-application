@@ -12,9 +12,20 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-armed-forces',
                     resources: {
-                        'armed-forces': {
-                            title: {},
-                            description: {}
+                        'q-applicant-armed-forces': {
+                            title: {
+                                applicant:
+                                    'Were you a member of the British armed forces when the crime happened?'
+                            },
+                            error: {
+                                applicant:
+                                    'Select yes if you were a member of the British armed forces when the crime happened'
+                            },
+                            meta: {
+                                summary: {
+                                    title: 'About your residency and nationality'
+                                }
+                            }
                         }
                     }
                 }
@@ -23,19 +34,53 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ['q-applicant-armed-forces'],
             additionalProperties: false,
             properties: {
-                'armed-forces': {
-                    //prettier-ignore
-                    title: [
+                'q-applicant-armed-forces': {
+                    type: 'boolean',
+                    title: ['|l10nt', ['|role.all'], 'q-applicant-armed-forces.title.applicant'],
+                    oneOf: [
+                        {
+                            title: 'Yes',
+                            const: true
+                        },
+                        {
+                            title: 'No',
+                            const: false
+                        }
                     ],
-                    description: []
+                    meta: {
+                        classifications: {
+                            theme: 'residency_and_nationality'
+                        },
+                        summary: {
+                            title: 'q-applicant-armed-forces.meta.summary.title'
+                        }
+                    }
                 }
             },
-            examples: [{}],
+            errorMessage: {
+                required: {
+                    'q-applicant-armed-forces': [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-armed-forces.error.applicant'
+                    ]
+                }
+            },
+
+            examples: [
+                {
+                    'q-applicant-armed-forces': true
+                },
+                {
+                    'q-applicant-armed-forces': false
+                }
+            ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    'q-applicant-armed-forces': 'foo'
                 }
             ]
         }
@@ -44,7 +89,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: ''
+                    target: 'p--before-you-continue',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-armed-forces.q-applicant-armed-forces',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-armed-forces-relative',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-armed-forces.q-applicant-armed-forces',
+                        false
+                    ]
                 }
             ]
         }

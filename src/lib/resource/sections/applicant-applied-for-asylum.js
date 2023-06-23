@@ -5,21 +5,19 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                ns: 'p-applicant-ordinarily-resident'
+                ns: 'p-applicant-applied-for-asylum'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-ordinarily-resident',
+                    namespace: 'p-applicant-applied-for-asylum',
                     resources: {
-                        'q-applicant-ordinarily-resident': {
+                        'q-applicant-applied-for-asylum': {
                             title: {
-                                applicant:
-                                    'Were you ordinarily resident in the UK when the crime happened?'
+                                applicant: 'Have you applied for asylum in the UK?'
                             },
                             error: {
-                                applicant:
-                                    'Select yes if you were ordinarily resident in the UK when the crime happened'
+                                applicant: 'Select yes if you have applied for asylum in the UK'
                             },
                             meta: {
                                 summary: {
@@ -34,15 +32,15 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-ordinarily-resident'],
+            required: ['q-applicant-applied-for-asylum'],
             additionalProperties: false,
             properties: {
-                'q-applicant-ordinarily-resident': {
+                'q-applicant-applied-for-asylum': {
                     type: 'boolean',
                     title: [
                         '|l10nt',
                         ['|role.all'],
-                        'q-applicant-ordinarily-resident.title.applicant'
+                        'q-applicant-applied-for-asylum.title.applicant'
                     ],
                     oneOf: [
                         {
@@ -59,56 +57,39 @@ module.exports = {
                             theme: 'residency_and_nationality'
                         },
                         summary: {
-                            title: 'q-applicant-ordinarily-resident.meta.summary.title'
+                            title: 'q-applicant-applied-for-asylum.meta.summary.title'
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-ordinarily-resident': [
+                    'q-applicant-applied-for-asylum': [
                         '|l10nt',
                         ['|role.all'],
-                        'q-applicant-ordinarily-resident.error.applicant'
+                        'q-applicant-applied-for-asylum.error.applicant'
                     ]
                 }
             },
 
             examples: [
                 {
-                    'q-applicant-ordinarily-resident': true
+                    'q-applicant-applied-for-asylum': true
                 },
                 {
-                    'q-applicant-ordinarily-resident': false
+                    'q-applicant-applied-for-asylum': false
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-ordinarily-resident': 'foo'
+                    'q-applicant-applied-for-asylum': 'foo'
                 }
             ]
         }
     },
     route: {
         on: {
-            ANSWER: [
-                {
-                    target: 'p--before-you-continue',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',
-                        true
-                    ]
-                },
-                {
-                    target: 'p-applicant-eu-citizen',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',
-                        false
-                    ]
-                }
-            ]
+            ANSWER: [{target: 'p--before-you-continue'}]
         }
     }
 };
