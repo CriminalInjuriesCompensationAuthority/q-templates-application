@@ -89,7 +89,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-british-citizen-or-eu-national',
+                    target: 'p--context-applicant-details',
                     cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
                 },
                 {
