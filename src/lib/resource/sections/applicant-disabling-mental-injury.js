@@ -99,10 +99,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-disabling-mental-injury': 'true'
+                    'q-applicant-disabling-mental-injury': true
                 },
                 {
-                    'q-applicant-disabling-mental-injury': 'false'
+                    'q-applicant-disabling-mental-injury': false
                 }
             ],
             invalidExamples: [

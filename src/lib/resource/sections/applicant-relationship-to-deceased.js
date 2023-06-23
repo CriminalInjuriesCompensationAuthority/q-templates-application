@@ -132,6 +132,11 @@ module.exports = {
                             ['|role.all', 'proxy'],
                             'applicant-relationship-to-deceased.error.characterCount.proxy'
                         ]
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'relationship-to-deceased'
+                        }
                     }
                 }
             },
