@@ -743,6 +743,9 @@ module.exports = {
                 'rep-details': {
                     title: 'Your details'
                 },
+                'residency-and-nationality': {
+                    title: 'About your residency and nationality'
+                },
                 default: {
                     title: 'Other Information'
                 }

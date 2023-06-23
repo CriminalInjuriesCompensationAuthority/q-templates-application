@@ -22,7 +22,7 @@ module.exports = {
                             },
                             meta: {
                                 summary: {
-                                    title: 'About your residency and nationality'
+                                    title: 'Were you a British citizen when the crime happened?'
                                 }
                             }
                         }
@@ -51,10 +51,14 @@ module.exports = {
                     ],
                     meta: {
                         classifications: {
-                            theme: 'residency_and_nationality'
+                            theme: 'residency-and-nationality'
                         },
                         summary: {
-                            title: 'q-applicant-british-citizen.meta.summary.title'
+                            title: [
+                                '|l10nt',
+                                ['|role.all'],
+                                'q-applicant-british-citizen.meta.summary.title'
+                            ]
                         }
                     }
                 }
