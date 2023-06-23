@@ -17,6 +17,10 @@ module.exports = {
                                 applicant:
                                     'Were you a European Economic Area (EEA) citizen when the crime happened?'
                             },
+                            details: {
+                                applicant:
+                                    '<p class="govuk-body">Check the <a href="https://www.gov.uk/eu-eea" target="_blank">countries in the EEA (opens in new tab)</a>.</p>'
+                            },
                             error: {
                                 applicant:
                                     'Select yes if you were a European Economic Area (EEA) citizen when the crime happened'
@@ -63,6 +67,13 @@ module.exports = {
                             ]
                         }
                     }
+                },
+                'eea-citizen-info': {
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-eea-citizen.details.applicant'
+                    ]
                 }
             },
             errorMessage: {

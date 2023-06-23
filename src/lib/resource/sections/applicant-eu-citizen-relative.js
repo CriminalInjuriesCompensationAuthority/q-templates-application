@@ -17,6 +17,10 @@ module.exports = {
                                 applicant:
                                     'Were you in the UK legally because you were a family member of an EU citizen when the crime happened?'
                             },
+                            details: {
+                                applicant:
+                                    '<p class="govuk-body">Check the <a href="https://www.gov.uk/eu-eea" target="_blank">countries in the EU (opens in new tab)</a>.</p>'
+                            },
                             error: {
                                 applicant:
                                     'Select yes if you were in the UK legally because you were a family member of an EU citizen when the crime happened'
@@ -67,6 +71,13 @@ module.exports = {
                             ]
                         }
                     }
+                },
+                'eu-citizen-relative-info': {
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-eu-citizen-relative.details.applicant'
+                    ]
                 }
             },
             errorMessage: {
