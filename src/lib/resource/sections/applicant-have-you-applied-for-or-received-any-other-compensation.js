@@ -17,7 +17,8 @@ module.exports = {
                             title: {
                                 myself:
                                     'Have you applied for or received any other form of compensation?',
-                                proxy: 'Has anyone applied to us before on behalf of the victim?',
+                                proxy:
+                                    'Has the victim applied for or received any other form of compensation or damages in connection with this crime?',
                                 deceased:
                                     'Has the claimant applied for or received any other form of compensation or damages in connection with this crime?'
                             },
