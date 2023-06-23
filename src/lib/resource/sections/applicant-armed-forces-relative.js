@@ -75,6 +75,13 @@ module.exports = {
                             ]
                         }
                     }
+                },
+                'armed-forces-relative-info': {
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-armed-forces-relative.details.applicant'
+                    ]
                 }
             },
             errorMessage: {
