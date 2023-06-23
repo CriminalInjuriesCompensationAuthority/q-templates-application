@@ -14,21 +14,22 @@ module.exports = {
                     resources: {
                         'applicant-who-did-you-apply-to': {
                             title: {
-                                myself: 'Who have you applied to or received compensation from?',
+                                myself:
+                                    'Who have you applied to or received compensation or damages from?',
                                 proxy:
-                                    'Enter who they have applied to or received compensation or damages from'
+                                    'Who have they applied to or received compensation or damages from?'
                             },
                             error: {
                                 myself:
-                                    'Who you applied to or received compensation from must be 50 characters or less',
+                                    'Enter who you applied to or received compensation or damages from',
                                 proxy:
-                                    'Who have they applied to or received compensation or damages from must be 50 characters or less'
+                                    'Enter who they have applied to or received compensation or damages from'
                             },
                             chars: {
                                 myself:
-                                    'Who you applied to or received compensation from must be 50 characters or less',
+                                    'Who you applied to or received compensation or damages from must be 50 characters or less',
                                 proxy:
-                                    'Who have they applied to or received compensation from must be 50 characters or less'
+                                    'Who have they applied to or received compensation or damages from must be 50 characters or less'
                             }
                         }
                     }
