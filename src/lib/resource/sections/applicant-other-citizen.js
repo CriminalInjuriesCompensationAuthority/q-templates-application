@@ -12,11 +12,22 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-other-citizen',
                     resources: {
+                        'other-citizen-info': {
+                            title:
+                                'European Convention on the Compensation of Victims of Violent Crimes',
+                            description: {
+                                applicant: `
+                            <p class="govuk-body">Victims of violent crime in the UK who were citizens of a country that had signed and ratified this convention when the crime happened, can apply for compensation.</p>
+                            <p class="govuk-body">Check the <a href="https://www.gov.uk/certifying-a-document" target="_blank">countries that are party to this convention on the Council of Europe website (opens in new tab)</a>.</p>
+                            `
+                            }
+                        },
                         'q-applicant-other-citizen': {
                             title: {
                                 applicant:
-                                    'Were you a citizen of a country that was party to the European convention when the crime happened?'
+                                    '<h1 class="govuk-heading-xl">Were you a citizen of a country that was party to the European convention when the crime happened?</h1>'
                             },
+
                             error: {
                                 applicant:
                                     'Select yes if you were a citizen of a country that was party to this convention when the crime happened'
@@ -38,6 +49,14 @@ module.exports = {
             required: ['q-applicant-other-citizen'],
             additionalProperties: false,
             properties: {
+                'other-citizen-info': {
+                    title: ['|l10nt', ['|role.all'], 'other-citizen-info.title'],
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'other-citizen-info.description.applicant'
+                    ]
+                },
                 'q-applicant-other-citizen': {
                     type: 'boolean',
                     title: ['|l10nt', ['|role.all'], 'q-applicant-other-citizen.title.applicant'],

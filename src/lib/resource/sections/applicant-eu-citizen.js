@@ -16,6 +16,10 @@ module.exports = {
                             title: {
                                 applicant: 'Were you an EU citizen when the crime happened?'
                             },
+                            details: {
+                                applicant:
+                                    '<p class="govuk-body">Check the <a href="https://www.gov.uk/eu-eea" target="_blank">countries in the EU (opens in new tab)</a>.</p>'
+                            },
                             error: {
                                 applicant:
                                     'Select yes if you were an EU citizen when the crime happened'
@@ -61,6 +65,13 @@ module.exports = {
                             ]
                         }
                     }
+                },
+                'eu-citizen-info': {
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-eu-citizen.details.applicant'
+                    ]
                 }
             },
             errorMessage: {

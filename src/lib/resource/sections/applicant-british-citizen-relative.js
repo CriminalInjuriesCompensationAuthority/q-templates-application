@@ -17,6 +17,11 @@ module.exports = {
                                 applicant:
                                     'Were you a close relative of a British citizen when the crime happened?'
                             },
+                            details: {
+                                applicant: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with who qualifies as a close relative of a British citizen",html: "<p class='govuk-body'>A person is a close relative of a British citizen if they are living together as part of the same household and is either:</p><ul class='govuk-list govuk-list--bullet'><li>their spouse or civil partner
+                                </li><li>their partner (other than a spouse or civil partner) for a continuous period of at least two years immediately before the date of the crime
+                                </li><li>a child aged under 18 of that citizen or of their spouse, civil partner or partner</li><li>a child of that citizen who is financially or physically dependent on that person as a result of a physical or mental disability</li></ul>"})}}`
+                            },
                             error: {
                                 applicant:
                                     'Select yes if you were a close relative of a British citizen when the crime happened'
@@ -67,6 +72,13 @@ module.exports = {
                             ]
                         }
                     }
+                },
+                'british-close-relative-info': {
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-british-citizen-relative.details.applicant'
+                    ]
                 }
             },
             errorMessage: {

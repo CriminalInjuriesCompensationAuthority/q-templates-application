@@ -17,6 +17,10 @@ module.exports = {
                                 applicant:
                                     'Were you ordinarily resident in the UK when the crime happened?'
                             },
+                            description: {
+                                applicant:
+                                    'This means that you were living in the UK legally as part of your normal life. For example, you were working, studying or caring for someone in the UK.'
+                            },
                             error: {
                                 applicant:
                                     'Select yes if you were ordinarily resident in the UK when the crime happened'
@@ -44,6 +48,11 @@ module.exports = {
                         '|l10nt',
                         ['|role.all'],
                         'q-applicant-ordinarily-resident.title.applicant'
+                    ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all'],
+                        'q-applicant-ordinarily-resident.description.applicant'
                     ],
                     oneOf: [
                         {
