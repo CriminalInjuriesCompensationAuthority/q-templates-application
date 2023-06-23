@@ -88,10 +88,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-financial-help': 'true'
+                    'q-applicant-financial-help': true
                 },
                 {
-                    'q-applicant-financial-help': 'false'
+                    'q-applicant-financial-help': false
                 }
             ],
             invalidExamples: [

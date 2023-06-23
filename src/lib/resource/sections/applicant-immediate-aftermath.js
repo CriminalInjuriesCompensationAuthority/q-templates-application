@@ -88,10 +88,10 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-applicant-immediate-aftermath': 'true'
+                    'q-applicant-immediate-aftermath': true
                 },
                 {
-                    'q-applicant-immediate-aftermath': 'false'
+                    'q-applicant-immediate-aftermath': false
                 }
             ],
             invalidExamples: [
