@@ -104,7 +104,21 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [{target: 'p--before-you-continue'}]
+            ANSWER: [
+                {
+                    target: 'p--context-rep-details',
+                    cond: ['|role.all', 'proxy', 'adult', 'capable']
+                },
+                {
+                    target: 'p--context-mainapplicant-details',
+                    cond: [
+                        'or',
+                        ['|role.all', 'proxy', 'adult', 'incapable'],
+                        ['|role.all', 'proxy', 'child']
+                    ]
+                },
+                {target: 'p--before-you-continue'}
+            ]
         }
     }
 };

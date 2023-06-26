@@ -127,6 +127,30 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-rep-details',
+                    cond: [
+                        'and',
+                        ['|role.all', 'proxy', 'adult', 'capable'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--context-mainapplicant-details',
+                    cond: [
+                        'and',
+                        ['|role.all', 'proxy', 'adult', 'capable'],
+                        [
+                            'or',
+                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                            ['|role.all', 'proxy', 'child']
+                        ]
+                    ]
+                },
+                {
                     target: 'p--before-you-continue',
                     cond: [
                         '==',
