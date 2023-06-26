@@ -14,15 +14,23 @@ module.exports = {
                     resources: {
                         'q-applicant-british-citizen': {
                             title: {
-                                applicant: 'Were you a British citizen when the crime happened?'
+                                applicant: 'Were you a British citizen when the crime happened?',
+                                proxy: 'Were they a British citizen when the crime happened?'
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were a British citizen when the crime happened'
+                                    'Select yes if you were a British citizen when the crime happened',
+                                proxy:
+                                    'Select yes if they were a British citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title: 'Were you a British citizen when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you a British citizen when the crime happened?',
+                                        proxy:
+                                            'Were they a British citizen when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -38,7 +46,13 @@ module.exports = {
             properties: {
                 'q-applicant-british-citizen': {
                     type: 'boolean',
-                    title: ['|l10nt', ['|role.all'], 'q-applicant-british-citizen.title.applicant'],
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-british-citizen.title.proxy',
+                        ['|role.all'],
+                        'q-applicant-british-citizen.title.applicant'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -56,8 +70,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-british-citizen.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-british-citizen.meta.summary.title'
+                                'q-applicant-british-citizen.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -67,6 +83,8 @@ module.exports = {
                 required: {
                     'q-applicant-british-citizen': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-british-citizen.error.proxy',
                         ['|role.all'],
                         'q-applicant-british-citizen.error.applicant'
                     ]

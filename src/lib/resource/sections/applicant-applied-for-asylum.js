@@ -14,14 +14,19 @@ module.exports = {
                     resources: {
                         'q-applicant-applied-for-asylum': {
                             title: {
-                                applicant: 'Have you applied for asylum in the UK?'
+                                applicant: 'Have you applied for asylum in the UK?',
+                                proxy: 'Have they applied for asylum in the UK?'
                             },
                             error: {
-                                applicant: 'Select yes if you have applied for asylum in the UK'
+                                applicant: 'Select yes if you have applied for asylum in the UK',
+                                proxy: 'Select yes if they have applied for asylum in the UK'
                             },
                             meta: {
                                 summary: {
-                                    title: 'Have you applied for asylum in the UK?'
+                                    title: {
+                                        applicant: 'Have you applied for asylum in the UK?',
+                                        proxy: 'Have they applied for asylum in the UK?'
+                                    }
                                 }
                             }
                         }
@@ -39,6 +44,8 @@ module.exports = {
                     type: 'boolean',
                     title: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-applied-for-asylum.title.proxy',
                         ['|role.all'],
                         'q-applicant-applied-for-asylum.title.applicant'
                     ],
@@ -59,8 +66,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-applied-for-asylum.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-applied-for-asylum.meta.summary.title'
+                                'q-applicant-applied-for-asylum.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -70,6 +79,8 @@ module.exports = {
                 required: {
                     'q-applicant-applied-for-asylum': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-applied-for-asylum.error.proxy',
                         ['|role.all'],
                         'q-applicant-applied-for-asylum.error.applicant'
                     ]

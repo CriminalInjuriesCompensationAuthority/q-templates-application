@@ -15,16 +15,24 @@ module.exports = {
                         'q-applicant-victim-human-trafficking': {
                             title: {
                                 applicant:
-                                    'Have you been referred as a potential victim of human trafficking in the UK?'
+                                    'Have you been referred as a potential victim of human trafficking in the UK?',
+                                proxy:
+                                    'Have they been referred as a potential victim of human trafficking in the UK?'
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you have been referred as a potential victim of human trafficking in the UK'
+                                    'Select yes if you have been referred as a potential victim of human trafficking in the UK',
+                                proxy:
+                                    'Select yes if they have been referred as a potential victim of human trafficking in the UK'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Have you been referred as a potential victim of human trafficking in the UK?'
+                                    title: {
+                                        applicant:
+                                            'Have you been referred as a potential victim of human trafficking in the UK?',
+                                        proxy:
+                                            'Have they been referred as a potential victim of human trafficking in the UK?'
+                                    }
                                 }
                             }
                         }
@@ -42,6 +50,8 @@ module.exports = {
                     type: 'boolean',
                     title: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-victim-human-trafficking.title.proxy',
                         ['|role.all'],
                         'q-applicant-victim-human-trafficking.title.applicant'
                     ],
@@ -62,8 +72,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-victim-human-trafficking.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-victim-human-trafficking.meta.summary.title'
+                                'q-applicant-victim-human-trafficking.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -73,6 +85,8 @@ module.exports = {
                 required: {
                     'q-applicant-victim-human-trafficking': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-victim-human-trafficking.error.proxy',
                         ['|role.all'],
                         'q-applicant-victim-human-trafficking.error.applicant'
                     ]

@@ -15,7 +15,9 @@ module.exports = {
                         'q-applicant-eea-citizen': {
                             title: {
                                 applicant:
-                                    'Were you a European Economic Area (EEA) citizen when the crime happened?'
+                                    'Were you a European Economic Area (EEA) citizen when the crime happened?',
+                                proxy:
+                                    'Were they a European Economic Area (EEA) citizen when the crime happened?'
                             },
                             details: {
                                 applicant:
@@ -23,12 +25,18 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were a European Economic Area (EEA) citizen when the crime happened'
+                                    'Select yes if you were a European Economic Area (EEA) citizen when the crime happened',
+                                proxy:
+                                    'Select yes if they were a European Economic Area (EEA) citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Were you a European Economic Area (EEA) citizen when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you a European Economic Area (EEA) citizen when the crime happened?',
+                                        proxy:
+                                            'Were they a European Economic Area (EEA) citizen when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -44,7 +52,13 @@ module.exports = {
             properties: {
                 'q-applicant-eea-citizen': {
                     type: 'boolean',
-                    title: ['|l10nt', ['|role.all'], 'q-applicant-eea-citizen.title.applicant'],
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eea-citizen.title.proxy',
+                        ['|role.all'],
+                        'q-applicant-eea-citizen.title.applicant'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -62,8 +76,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-eea-citizen.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-eea-citizen.meta.summary.title'
+                                'q-applicant-eea-citizen.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -80,6 +96,8 @@ module.exports = {
                 required: {
                     'q-applicant-eea-citizen': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eea-citizen.error.proxy',
                         ['|role.all'],
                         'q-applicant-eea-citizen.error.applicant'
                     ]

@@ -15,20 +15,30 @@ module.exports = {
                         'q-applicant-ordinarily-resident': {
                             title: {
                                 applicant:
-                                    'Were you ordinarily resident in the UK when the crime happened?'
+                                    'Were you ordinarily resident in the UK when the crime happened?',
+                                proxy:
+                                    'Were they ordinarily resident in the UK when the crime happened?'
                             },
                             description: {
                                 applicant:
-                                    'This means that you were living in the UK legally as part of your normal life. For example, you were working, studying or caring for someone in the UK.'
+                                    'This means that you were living in the UK legally as part of your normal life. For example, you were working, studying or caring for someone in the UK.',
+                                proxy:
+                                    'This means that they were living in the UK legally as part of their normal life. For example, they were working, studying or caring for someone in the UK.'
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were ordinarily resident in the UK when the crime happened'
+                                    'Select yes if you were ordinarily resident in the UK when the crime happened',
+                                proxy:
+                                    'Select yes if they were ordinarily resident in the UK when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Were you ordinarily resident in the UK when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you ordinarily resident in the UK when the crime happened?',
+                                        proxy:
+                                            'Were they ordinarily resident in the UK when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -46,11 +56,15 @@ module.exports = {
                     type: 'boolean',
                     title: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-ordinarily-resident.title.proxy',
                         ['|role.all'],
                         'q-applicant-ordinarily-resident.title.applicant'
                     ],
                     description: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-ordinarily-resident.description.applicant',
                         ['|role.all'],
                         'q-applicant-ordinarily-resident.description.applicant'
                     ],
@@ -71,8 +85,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-ordinarily-resident.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-ordinarily-resident.meta.summary.title'
+                                'q-applicant-ordinarily-resident.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -82,6 +98,8 @@ module.exports = {
                 required: {
                     'q-applicant-ordinarily-resident': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-ordinarily-resident.error.proxy',
                         ['|role.all'],
                         'q-applicant-ordinarily-resident.error.applicant'
                     ]

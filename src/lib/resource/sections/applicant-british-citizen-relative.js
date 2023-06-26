@@ -15,7 +15,9 @@ module.exports = {
                         'q-applicant-british-citizen-relative': {
                             title: {
                                 applicant:
-                                    'Were you a close relative of a British citizen when the crime happened?'
+                                    'Were you a close relative of a British citizen when the crime happened?',
+                                proxy:
+                                    'Were they a close relative of a British citizen when the crime happened?'
                             },
                             details: {
                                 applicant: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with who qualifies as a close relative of a British citizen",html: "<p class='govuk-body'>A person is a close relative of a British citizen if they are living together as part of the same household and is either:</p><ul class='govuk-list govuk-list--bullet'><li>their spouse or civil partner
@@ -24,12 +26,18 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were a close relative of a British citizen when the crime happened'
+                                    'Select yes if you were a close relative of a British citizen when the crime happened',
+                                proxy:
+                                    'Select yes if they were a close relative of a British citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Were you a close relative of a British citizen when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you a close relative of a British citizen when the crime happened?',
+                                        proxy:
+                                            'Were they a close relative of a British citizen when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -47,6 +55,8 @@ module.exports = {
                     type: 'boolean',
                     title: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-british-citizen-relative.title.proxy',
                         ['|role.all'],
                         'q-applicant-british-citizen-relative.title.applicant'
                     ],
@@ -67,8 +77,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-british-citizen-relative.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-british-citizen-relative.meta.summary.title'
+                                'q-applicant-british-citizen-relative.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -85,6 +97,8 @@ module.exports = {
                 required: {
                     'q-applicant-british-citizen-relative': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-british-citizen-relative.error.proxy',
                         ['|role.all'],
                         'q-applicant-british-citizen-relative.error.applicant'
                     ]

@@ -25,17 +25,25 @@ module.exports = {
                         'q-applicant-other-citizen': {
                             title: {
                                 applicant:
-                                    'Were you a citizen of a country that was party to the European convention when the crime happened?'
+                                    'Were you a citizen of a country that was party to the European convention when the crime happened?',
+                                proxy:
+                                    'Were they a citizen of a country that was party to the European convention when the crime happened?'
                             },
 
                             error: {
                                 applicant:
-                                    'Select yes if you were a citizen of a country that was party to this convention when the crime happened'
+                                    'Select yes if you were a citizen of a country that was party to this convention when the crime happened',
+                                proxy:
+                                    'Select yes if they were a citizen of a country that was party to this convention when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Were you a citizen of a country that was party to the European convention when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you a citizen of a country that was party to the European convention when the crime happened?',
+                                        proxy:
+                                            'Were they a citizen of a country that was party to the European convention when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -59,7 +67,13 @@ module.exports = {
                 },
                 'q-applicant-other-citizen': {
                     type: 'boolean',
-                    title: ['|l10nt', ['|role.all'], 'q-applicant-other-citizen.title.applicant'],
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-other-citizen.title.proxy',
+                        ['|role.all'],
+                        'q-applicant-other-citizen.title.applicant'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -77,8 +91,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-other-citizen.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-other-citizen.meta.summary.title'
+                                'q-applicant-other-citizen.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -88,6 +104,8 @@ module.exports = {
                 required: {
                     'q-applicant-other-citizen': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-other-citizen.error.proxy',
                         ['|role.all'],
                         'q-applicant-other-citizen.error.applicant'
                     ]

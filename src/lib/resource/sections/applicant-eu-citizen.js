@@ -14,7 +14,8 @@ module.exports = {
                     resources: {
                         'q-applicant-eu-citizen': {
                             title: {
-                                applicant: 'Were you an EU citizen when the crime happened?'
+                                applicant: 'Were you an EU citizen when the crime happened?',
+                                proxy: 'Were they an EU citizen when the crime happened?'
                             },
                             details: {
                                 applicant:
@@ -22,11 +23,17 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were an EU citizen when the crime happened'
+                                    'Select yes if you were an EU citizen when the crime happened',
+                                proxy:
+                                    'Select yes if they were an EU citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title: 'Were you an EU citizen when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you an EU citizen when the crime happened?',
+                                        proxy: 'Were they an EU citizen when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -42,7 +49,13 @@ module.exports = {
             properties: {
                 'q-applicant-eu-citizen': {
                     type: 'boolean',
-                    title: ['|l10nt', ['|role.all'], 'q-applicant-eu-citizen.title.applicant'],
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eu-citizen.title.proxy',
+                        ['|role.all'],
+                        'q-applicant-eu-citizen.title.applicant'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -60,8 +73,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-eu-citizen.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-eu-citizen.meta.summary.title'
+                                'q-applicant-eu-citizen.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -78,6 +93,8 @@ module.exports = {
                 required: {
                     'q-applicant-eu-citizen': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eu-citizen.error.proxy',
                         ['|role.all'],
                         'q-applicant-eu-citizen.error.applicant'
                     ]
