@@ -82,7 +82,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-eea-citizen': [
+                    'q-applicant-eea-citizen-relative': [
                         '|l10nt',
                         ['|role.all'],
                         'q-applicant-eea-citizen-relative.error.applicant'
