@@ -15,7 +15,9 @@ module.exports = {
                         'q-applicant-eu-citizen-relative': {
                             title: {
                                 applicant:
-                                    'Were you in the UK legally because you were the family member of an EU citizen when the crime happened?'
+                                    'Were you in the UK legally because you were a family member of an EU citizen when the crime happened?',
+                                proxy:
+                                    'Were they in the UK legally because they were a family member of an EU citizen when the crime happened?'
                             },
                             details: {
                                 applicant:
@@ -23,12 +25,18 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were in the UK legally because you were the family member of an EU citizen when the crime happened'
+                                    'Select yes if you were in the UK legally because you were a family member of an EU citizen when the crime happened',
+                                proxy:
+                                    'Select yes if they were in the UK legally because they were a family member of an EU citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
-                                    title:
-                                        'Were you in the UK legally because you were the family member of an EU citizen when the crime happened?'
+                                    title: {
+                                        applicant:
+                                            'Were you in the UK legally because you were a family member of an EU citizen when the crime happened?',
+                                        proxy:
+                                            'Were they in the UK legally because they were a family member of an EU citizen when the crime happened?'
+                                    }
                                 }
                             }
                         }
@@ -46,6 +54,8 @@ module.exports = {
                     type: 'boolean',
                     title: [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eu-citizen-relative.title.applicant',
                         ['|role.all'],
                         'q-applicant-eu-citizen-relative.title.applicant'
                     ],
@@ -66,8 +76,10 @@ module.exports = {
                         summary: {
                             title: [
                                 '|l10nt',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-eu-citizen-relative.meta.summary.title.proxy',
                                 ['|role.all'],
-                                'q-applicant-eu-citizen-relative.meta.summary.title'
+                                'q-applicant-eu-citizen-relative.meta.summary.title.applicant'
                             ]
                         }
                     }
@@ -84,6 +96,8 @@ module.exports = {
                 required: {
                     'q-applicant-eu-citizen-relative': [
                         '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-eu-citizen-relative.error.applicant',
                         ['|role.all'],
                         'q-applicant-eu-citizen-relative.error.applicant'
                     ]
