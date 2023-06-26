@@ -123,6 +123,34 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-rep-details',
+                    cond: [
+                        'and',
+                        ['|role.all', 'proxy', 'adult', 'capable'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-eu-citizen-relative.q-applicant-eu-citizen-relative',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--context-mainapplicant-details',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                            ['|role.all', 'proxy', 'child']
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-eu-citizen-relative.q-applicant-eu-citizen-relative',
+                            true
+                        ]
+                    ]
+                },
+                {
                     target: 'p--before-you-continue',
                     cond: [
                         '==',
