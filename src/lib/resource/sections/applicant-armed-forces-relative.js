@@ -142,11 +142,15 @@ module.exports = {
                     target: 'p--context-mainapplicant-details',
                     cond: [
                         'and',
-                        ['|role.all', 'proxy', 'adult', 'capable'],
                         [
                             'or',
                             ['|role.all', 'proxy', 'adult', 'incapable'],
                             ['|role.all', 'proxy', 'child']
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
+                            true
                         ]
                     ]
                 },
