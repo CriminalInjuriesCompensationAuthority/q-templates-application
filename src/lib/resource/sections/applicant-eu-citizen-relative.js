@@ -55,7 +55,7 @@ module.exports = {
                     title: [
                         '|l10nt',
                         ['|role.all', 'proxy'],
-                        'q-applicant-eu-citizen-relative.title.applicant',
+                        'q-applicant-eu-citizen-relative.title.proxy',
                         ['|role.all'],
                         'q-applicant-eu-citizen-relative.title.applicant'
                     ],
@@ -97,7 +97,7 @@ module.exports = {
                     'q-applicant-eu-citizen-relative': [
                         '|l10nt',
                         ['|role.all', 'proxy'],
-                        'q-applicant-eu-citizen-relative.error.applicant',
+                        'q-applicant-eu-citizen-relative.error.proxy',
                         ['|role.all'],
                         'q-applicant-eu-citizen-relative.error.applicant'
                     ]

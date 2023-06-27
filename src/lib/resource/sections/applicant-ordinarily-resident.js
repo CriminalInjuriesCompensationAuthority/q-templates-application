@@ -64,7 +64,7 @@ module.exports = {
                     description: [
                         '|l10nt',
                         ['|role.all', 'proxy'],
-                        'q-applicant-ordinarily-resident.description.applicant',
+                        'q-applicant-ordinarily-resident.description.proxy',
                         ['|role.all'],
                         'q-applicant-ordinarily-resident.description.applicant'
                     ],
