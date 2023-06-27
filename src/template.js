@@ -663,6 +663,12 @@ module.exports = {
                                     },
                                     proxy: 'Your details'
                                 }
+                            },
+                            'residency-and-nationality': {
+                                title: {
+                                    applicant: 'About your residency and nationality',
+                                    proxy: "About the victim's residency and nationality"
+                                }
                             }
                         }
                     }
@@ -744,7 +750,13 @@ module.exports = {
                     title: 'Your details'
                 },
                 'residency-and-nationality': {
-                    title: 'About your residency and nationality'
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'residency-and-nationality.title.proxy',
+                        ['|role.all'],
+                        'residency-and-nationality.title.applicant'
+                    ]
                 },
                 default: {
                     title: 'Other Information'
