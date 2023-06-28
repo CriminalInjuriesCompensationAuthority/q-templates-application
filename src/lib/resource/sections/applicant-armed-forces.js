@@ -15,16 +15,16 @@ module.exports = {
                         'q-applicant-armed-forces': {
                             title: {
                                 applicant:
-                                    'Were you a member of the British armed forces when the crime happened?'
+                                    'Were you a member of the British Armed Forces when the crime happened?'
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were a member of the British armed forces when the crime happened'
+                                    'Select yes if you were a member of the British Armed Forces when the crime happened'
                             },
                             meta: {
                                 summary: {
                                     title:
-                                        'Were you a member of the British armed forces when the crime happened?'
+                                        'Were you a member of the British Armed Forces when the crime happened?'
                                 }
                             }
                         }
