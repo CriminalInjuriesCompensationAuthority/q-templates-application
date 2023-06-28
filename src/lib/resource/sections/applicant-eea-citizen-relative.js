@@ -15,9 +15,9 @@ module.exports = {
                         'q-applicant-eea-citizen-relative': {
                             title: {
                                 applicant:
-                                    'Were you in the UK legally because you were a close relative of an EEA citizen when the crime happened?',
+                                    'Were you in the UK legally because you were the family member of an EEA citizen when the crime happened?',
                                 proxy:
-                                    'Were they in the UK legally because they were a close relative of an EEA citizen when the crime happened?'
+                                    'Were they in the UK legally because they were the family member of an EEA citizen when the crime happened?'
                             },
                             details: {
                                 applicant:
@@ -25,17 +25,17 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were in the UK legally because you were a family member of an EEA citizen when the crime happened',
+                                    'Select yes if you were in the UK legally because you were the family member of an EEA citizen when the crime happened',
                                 proxy:
-                                    'Select yes if they were in the UK legally because they were a family member of an EEA citizen when the crime happened'
+                                    'Select yes if they were in the UK legally because they were the family member of an EEA citizen when the crime happened'
                             },
                             meta: {
                                 summary: {
                                     title: {
                                         applicant:
-                                            'Were you in the UK legally because you were a close relative of an EEA citizen when the crime happened?',
+                                            'Were you in the UK legally because you were the family member of an EEA citizen when the crime happened?',
                                         proxy:
-                                            'Were they in the UK legally because they were a close relative of an EEA citizen when the crime happened?'
+                                            'Were they in the UK legally because they were the family member of an EEA citizen when the crime happened?'
                                     }
                                 }
                             }

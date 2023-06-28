@@ -19,9 +19,9 @@ module.exports = {
                             },
                             description: {
                                 applicant:
-                                    '<p class="govuk-body">We\'re going to ask you some questions about your residency and nationality when the crime happened. This is so we can work out if you\'re eligible to get compensation from us for this crime.</p>',
+                                    '<p class="govuk-body">We\'re going to ask you some questions about your residency and nationality when the crime happened. This is so we can work out if you\'re eligible to get compensation from us for this crime.</p><p class="govuk-body"><a href="https://www.gov.uk/guidance/criminal-injuries-compensation-residency-and-nationality" target="_blank">Find out how the Criminal Injuries Compensation Scheme\'s residency and nationality requirements work</a>.</p>',
                                 proxy:
-                                    "<p class=\"govuk-body\">We're going to ask you some questions about the victim's residency and nationality when the crime happened. This is so we can work out if they're eligible to get compensation from us for this crime.</p>"
+                                    '<p class="govuk-body">We\'re going to ask you some questions about the victim\'s residency and nationality when the crime happened. This is so we can work out if they\'re eligible to get compensation from us for this crime.</p><p class="govuk-body"><a href="https://www.gov.uk/guidance/criminal-injuries-compensation-residency-and-nationality" target="_blank">Find out how the Criminal Injuries Compensation Scheme\'s residency and nationality requirements work</a>.</p>'
                             }
                         }
                     }
