@@ -55,7 +55,23 @@ module.exports = {
                     cond: [
                         'and',
                         ['|role.all', 'mainapplicant'],
-                        ['or', ['|role.all', 'childUnder12'], ['|role.all', 'adult', 'incapable']]
+                        [
+                            'or',
+                            ['|role.all', 'childUnder12', 'nonDeceased'],
+                            ['|role.all', 'adult', 'incapable', 'nonDeceased']
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-mainapplicant-declaration-under-12-deceased',
+                    cond: [
+                        'and',
+                        ['|role.all', 'mainapplicant'],
+                        [
+                            'or',
+                            ['|role.all', 'childUnder12', 'deceased'],
+                            ['|role.all', 'adult', 'incapable', 'deceased']
+                        ]
                     ]
                 },
                 {
@@ -76,9 +92,12 @@ module.exports = {
                 },
                 {
                     target: 'p-mainapplicant-declaration-12-and-over',
-                    cond: ['|role.all', 'mainapplicant', 'childOver12']
+                    cond: ['|role.all', 'mainapplicant', 'childOver12', 'nonDeceased']
                 },
-
+                {
+                    target: 'p-mainapplicant-declaration-12-and-over-deceased',
+                    cond: ['|role.all', 'mainapplicant', 'childOver12', 'deceased']
+                },
                 {
                     target: 'p-rep-declaration-12-and-over',
                     cond: [
