@@ -4,6 +4,8 @@ const applicantDeclaration = require('./lib/resource/sections/applicant-declarat
 const applicantDeclarationDeceased = require('./lib/resource/sections/applicant-declaration-deceased.js');
 const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
 const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
+const mainapplicantDeclarationUnder12Deceased = require('./lib/resource/sections/mainapplicant-declaration-under-12-deceased.js');
+const mainapplicantDeclarationOver12Deceased = require('./lib/resource/sections/mainapplicant-declaration-12-and-over-deceased.js');
 const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
@@ -208,6 +210,10 @@ module.exports = {
         'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
         'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
+        'p-mainapplicant-declaration-12-and-over-deceased':
+            mainapplicantDeclarationOver12Deceased.section,
+        'p-mainapplicant-declaration-under-12-deceased':
+            mainapplicantDeclarationUnder12Deceased.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
@@ -425,6 +431,7 @@ module.exports = {
             'p-applicant-declaration',
             'p-applicant-declaration-deceased',
             'p-mainapplicant-declaration-under-12',
+            'p-mainapplicant-declaration-under-12-deceased',
             'p-mainapplicant-declaration-12-and-over',
             'p-rep-declaration-under-12',
             'p-rep-declaration-12-and-over'
@@ -435,6 +442,10 @@ module.exports = {
             'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
             'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
             'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
+            'p-mainapplicant-declaration-12-and-over-deceased':
+                mainapplicantDeclarationOver12Deceased.route,
+            'p-mainapplicant-declaration-under-12-deceased':
+                mainapplicantDeclarationUnder12Deceased.route,
             'p-rep-declaration-under-12': repDeclarationUnder12.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
@@ -849,10 +860,29 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
-                        ['|role.all', 'mainapplicant', 'adult', 'incapable']
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'nonDeceased']
                     ],
                     data: {
                         templateId: '80843f77-a68c-4d7a-b3c9-42fd0de271c2',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation email - mainapplicant.applicant:adult:incapable.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    ],
+                    data: {
+                        templateId: '21f4d5de-a219-47c8-aa3e-e5489b0fc3ed',
                         emailAddress:
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
@@ -867,10 +897,28 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
-                        ['|role.all', 'mainapplicant', 'child']
+                        ['|role.all', 'mainapplicant', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: '668fac4a-3e1c-40e7-b7ac-090a410fbb03',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - mainapplicant.applicant:child.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: '58708020-d8a5-4d96-b56f-91f5c4c4c590',
                         emailAddress:
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
@@ -989,10 +1037,29 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
-                        ['|role.all', 'mainapplicant', 'adult', 'incapable']
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'nonDeceased']
                     ],
                     data: {
                         templateId: '3e625f9f-75c4-4903-818e-220829bfc2af',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation sms - mainapplicant.applicant:adult:incapable.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'fe1997b8-ba0e-4c97-94f2-d4d350868596',
                         phoneNumber:
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
@@ -1007,10 +1074,28 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
-                        ['|role.all', 'mainapplicant', 'child']
+                        ['|role.all', 'mainapplicant', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'd2185426-2177-4049-a5b1-b9c6b12e1a79',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - mainapplicant.applicant:child.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: '228454a8-c178-4f50-a7ca-5cb934dcb8b8',
                         phoneNumber:
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
