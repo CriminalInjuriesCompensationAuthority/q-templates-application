@@ -396,7 +396,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Send proof you can apply on the claimant’s behalf</h2>
                                             <p class="govuk-body">This proof can be one of the following documents:</p>
                                             <ul class="govuk-list govuk-list--bullet">
-                                                <li>the claimants’s full birth certificate</li>
+                                                <li>the claimant’s full birth certificate</li>
                                                 <li>adoption documents</li>
                                                 <li>a parental responsibility agreement</li>
                                                 <li>a court order</li>
@@ -437,7 +437,7 @@ module.exports = {
                                             <ul class="govuk-list govuk-list--bullet">
                                                 <li>your contact or personal details change</li>
                                                 <li>any change of representative</li>
-                                                <li>the calimant gets compensation or money from any other sources after you apply in relation to the incident</li>
+                                                <li>the claimant gets compensation or money from any other sources after you apply in relation to the incident</li>
                                                 <li>you have new information to add to this application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
