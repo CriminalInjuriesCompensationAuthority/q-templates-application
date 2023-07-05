@@ -27,7 +27,10 @@ module.exports = {
                         },
                         summary: {
                             title: 'Are you applying because someone died?'
-                        }
+                        },
+                        integration: {
+                            hideOnSummary: true
+                        }            
                     }
                 }
             },

@@ -24,7 +24,10 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'about-application'
-                        }
+                        },
+                        integration: {
+                            hideOnSummary: true
+                        }            
                     }
                 }
             },

@@ -27,7 +27,10 @@ module.exports = {
                                 summary: {
                                     title: 'Are you 18 or over?',
                                     'title_someone-else': 'Is the victim 18 or over?'
-                                }
+                                },
+                                integration: {
+                                    hideOnSummary: true
+                                }                    
                             }
                         }
                     }

@@ -55,7 +55,10 @@ module.exports = {
                         },
                         summary: {
                             title: 'Leg injuries'
-                        }
+                        },
+                        integration: {
+                            hideOnSummary: true
+                        }            
                     }
                 }
             },
