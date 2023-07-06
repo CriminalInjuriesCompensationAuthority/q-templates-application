@@ -59,7 +59,10 @@ module.exports = {
                         },
                         summary: {
                             title: 'Head, face or neck injuries'
-                        }
+                        },
+                        integration: {
+                            hideOnSummary: true
+                        }            
                     }
                 }
             },
