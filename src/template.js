@@ -8,6 +8,7 @@ const mainapplicantDeclarationUnder12Deceased = require('./lib/resource/sections
 const mainapplicantDeclarationOver12Deceased = require('./lib/resource/sections/mainapplicant-declaration-12-and-over-deceased.js');
 const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
+const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
@@ -216,6 +217,7 @@ module.exports = {
             mainapplicantDeclarationUnder12Deceased.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
+        'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
@@ -448,6 +450,7 @@ module.exports = {
                 mainapplicantDeclarationUnder12Deceased.route,
             'p-rep-declaration-under-12': repDeclarationUnder12.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
+            'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
@@ -933,10 +936,27 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['|role.all', 'rep', 'adult', 'capable']
+                        ['|role.all', 'rep', 'adult', 'capable', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'b21f1aa7-cc16-41e7-8b8e-5c69e52f21f9',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.applicant:adult:capable.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'ed98bf04-f338-47cf-b949-4367d8f8b707',
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
@@ -1110,10 +1130,28 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['|role.all', 'rep', 'adult', 'capable']
+                        ['|role.all', 'rep', 'adult', 'capable', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'b51e5e19-f469-4f8a-a5a2-00499da6f027',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.applicant:adult:capable.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    ],
+                    data: {
+                        templateId: '1e764481-69c1-4d5a-8a05-fbadc09aa47c',
                         phoneNumber:
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
