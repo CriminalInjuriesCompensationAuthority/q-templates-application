@@ -111,7 +111,23 @@ module.exports = {
                             ],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
-                        ['|role.all', 'childOver12']
+                        ['|role.all', 'childOver12', 'nonDeceased']
+                    ]
+                },
+                {
+                    target: 'p-rep-declaration-12-and-over-deceased',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            [
+                                '==',
+                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                false
+                            ],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ],
+                        ['|role.all', 'childOver12', 'deceased']
                     ]
                 }
             ]
