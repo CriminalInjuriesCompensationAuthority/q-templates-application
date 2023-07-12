@@ -543,7 +543,7 @@ module.exports = {
                                         <p class="govuk-body">We will:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>ask the police for evidence</li>
-                                            <li>as for proof of funeral costs if required</li>
+                                            <li>ask for proof of funeral costs if required</li>
                                             <li>ask you for more information if we need it</li>
                                             <li>make a decision</li>
                                             <li>send our decision letter by post</li>
