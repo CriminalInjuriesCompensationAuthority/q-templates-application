@@ -1,6 +1,6 @@
 {
     "name": "q-templates-application",
-    "version": "10.1.1",
+    "version": "10.1.2",
     "description": "Apply for compensation questionnaire template",
     "main": "dist/template.json",
     "engines": {
