@@ -41,7 +41,15 @@ module.exports = {
                     cond: [
                         'and',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['|role.all', 'childOver12', 'rep']
+                        ['|role.all', 'childOver12', 'rep', 'nonDeceased']
+                    ]
+                },
+                {
+                    target: 'p-rep-declaration-12-and-over-deceased',
+                    cond: [
+                        'and',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['|role.all', 'childOver12', 'rep', 'deceased']
                     ]
                 }
             ]
