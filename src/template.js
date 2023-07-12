@@ -7,6 +7,7 @@ const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapp
 const mainapplicantDeclarationUnder12Deceased = require('./lib/resource/sections/mainapplicant-declaration-under-12-deceased.js');
 const mainapplicantDeclarationOver12Deceased = require('./lib/resource/sections/mainapplicant-declaration-12-and-over-deceased.js');
 const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
+const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-declaration-under-12-deceased.js');
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
@@ -216,6 +217,7 @@ module.exports = {
         'p-mainapplicant-declaration-under-12-deceased':
             mainapplicantDeclarationUnder12Deceased.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
+        'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
@@ -449,6 +451,7 @@ module.exports = {
             'p-mainapplicant-declaration-under-12-deceased':
                 mainapplicantDeclarationUnder12Deceased.route,
             'p-rep-declaration-under-12': repDeclarationUnder12.route,
+            'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
             'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
@@ -965,15 +968,34 @@ module.exports = {
                     }
                 },
                 {
-                    description: 'Confirmation email - rep.mainapplicant.applicant:adult:incapable',
+                    description:
+                        'Confirmation email - rep.mainapplicant.applicant:adult:incapable.nonDeceased',
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['|role.all', 'rep', 'adult', 'incapable', 'authority']
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'a6583a82-51ca-4f8e-b8b8-cbca763dc59a',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation email - rep.mainapplicant.applicant:adult:incapable.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'a70aaff8-8299-448b-ac22-6579c840c8e6',
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
@@ -1161,15 +1183,35 @@ module.exports = {
                     }
                 },
                 {
-                    description: 'Confirmation sms - rep.mainapplicant.applicant:adult:incapable',
+                    description:
+                        'Confirmation sms - rep.mainapplicant.applicant:adult:incapable.nonDeceased',
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['|role.all', 'rep', 'adult', 'incapable', 'authority']
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'nonDeceased']
                     ],
                     data: {
                         templateId: '94a82598-6f6b-4ad0-abc3-ad3a157eb4a3',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation sms - rep.mainapplicant.applicant:adult:incapable.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '6151b209-33de-40ec-88b0-7f1a4580bf18',
                         phoneNumber:
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
