@@ -31,7 +31,7 @@ module.exports = {
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
                         [
                             'or',
-                            ['|role.all', 'childUnder12', 'rep'],
+                            ['|role.all', 'childUnder12', 'rep', 'nonDeceased'],
                             ['|role.all', 'adult', 'incapable', 'rep', 'nonDeceased']
                         ]
                     ]
@@ -43,7 +43,7 @@ module.exports = {
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
                         [
                             'or',
-                            ['|role.all', 'childUnder12', 'rep'],
+                            ['|role.all', 'childUnder12', 'rep', 'deceased'],
                             ['|role.all', 'adult', 'incapable', 'rep', 'deceased']
                         ]
                     ]
