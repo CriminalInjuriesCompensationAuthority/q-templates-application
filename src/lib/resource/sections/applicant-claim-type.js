@@ -15,7 +15,7 @@ module.exports = {
                         {
                             title: 'I want to claim funeral costs only',
                             description:
-                                'Anyone who contributed to the cost of the funeral can claim funeral costs.',
+                                'The person who paid for the funeral could be eligible for funeral costs.',
                             const: true
                         },
                         {
