@@ -1043,10 +1043,27 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['|role.all', 'rep', 'noauthority']
+                        ['|role.all', 'rep', 'noauthority', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'fb865d9c-37b1-4077-b519-aacfe42c9951',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep:no-legal-authority.applicant.deceased',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '54392a68-d12c-4f0d-8388-e8439fdbfc2f',
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
@@ -1279,10 +1296,28 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['|role.all', 'rep', 'noauthority']
+                        ['|role.all', 'rep', 'noauthority', 'nonDeceased']
                     ],
                     data: {
                         templateId: '29674076-46ba-4150-adf0-5215c8fe8aa9',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep:no-legal-authority.applicant.deceased',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '1ef1b7ae-293c-456d-93b4-8646791450f9',
                         phoneNumber:
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
