@@ -56,7 +56,11 @@ module.exports = {
                             title: 'l10nt:meta.summary.title{?lng,context,ns}'
                         }
                     },
-                    required: ['q-applicant-building-and-street', 'q-applicant-town-or-city'],
+                    required: [
+                        'q-applicant-building-and-street',
+                        'q-applicant-town-or-city',
+                        'q-applicant-postcode'
+                    ],
                     propertyNames: {
                         enum: [
                             'q-applicant-building-and-street',
@@ -179,7 +183,9 @@ module.exports = {
                             'q-applicant-building-and-street':
                                 'l10nt:q-applicant-building-and-street.error.required{?lng,context,ns}',
                             'q-applicant-town-or-city':
-                                'l10nt:q-applicant-town-or-city.error.required{?lng,context,ns}'
+                                'l10nt:q-applicant-town-or-city.error.required{?lng,context,ns}',
+                            'q-applicant-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }

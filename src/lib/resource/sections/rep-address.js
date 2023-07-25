@@ -17,7 +17,7 @@ module.exports = {
                             title: 'Your address'
                         }
                     },
-                    required: ['q-rep-building-and-street', 'q-rep-town-or-city'],
+                    required: ['q-rep-building-and-street', 'q-rep-town-or-city', 'q-rep-postcode'],
                     propertyNames: {
                         enum: [
                             'q-rep-building-and-street',
@@ -138,7 +138,9 @@ module.exports = {
                     errorMessage: {
                         required: {
                             'q-rep-building-and-street': 'Enter the building and street',
-                            'q-rep-town-or-city': 'Enter the town or city'
+                            'q-rep-town-or-city': 'Enter the town or city',
+                            'q-rep-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }

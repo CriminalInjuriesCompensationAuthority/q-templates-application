@@ -37,7 +37,8 @@ module.exports = {
                     required: [
                         'q-applicant-treatment-organisation-name',
                         'q-applicant-treatment-building-and-street',
-                        'q-applicant-treatment-town-or-city'
+                        'q-applicant-treatment-town-or-city',
+                        'q-applicant-treatment-postcode'
                     ],
                     propertyNames: {
                         enum: [
@@ -180,7 +181,9 @@ module.exports = {
                                 'Enter the name of the place',
                             'q-applicant-treatment-building-and-street':
                                 'Enter the building and street',
-                            'q-applicant-treatment-town-or-city': 'Enter the town or city'
+                            'q-applicant-treatment-town-or-city': 'Enter the town or city',
+                            'q-applicant-treatment-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }

@@ -30,7 +30,7 @@ module.exports = {
                                 },
                                 integration: {
                                     hideOnSummary: true
-                                }                    
+                                }
                             }
                         }
                     }

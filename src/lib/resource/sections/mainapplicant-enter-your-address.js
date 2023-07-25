@@ -69,7 +69,8 @@ module.exports = {
                     },
                     required: [
                         'q-mainapplicant-building-and-street',
-                        'q-mainapplicant-town-or-city'
+                        'q-mainapplicant-town-or-city',
+                        'q-mainapplicant-postcode'
                     ],
                     propertyNames: {
                         enum: [
@@ -203,7 +204,9 @@ module.exports = {
                                 'errorMessage.required.q-mainapplicant-town-or-city.mainapplicant',
                                 ['|role.all', 'rep'],
                                 'errorMessage.required.q-mainapplicant-town-or-city.rep'
-                            ]
+                            ],
+                            'q-mainapplicant-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }
