@@ -2,6 +2,27 @@
 
 module.exports = {
     section: {
+        l10n: {
+            vars: {
+                lng: 'en',
+                ns: 'p-applicant-fatal-claim'
+            },
+            translations: [
+                {
+                    language: 'en',
+                    namespace: 'p-applicant-fatal-claim',
+                    resources: {
+                        'q-applicant-fatal-claim': {
+                            title: {
+                                myself: 'I am applying because I was the victim of a violent crime',
+                                proxy:
+                                    'I am applying on behalf of someone who was the victim of a violent crime'
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
@@ -13,7 +34,13 @@ module.exports = {
                     title: 'Select why you are applying',
                     oneOf: [
                         {
-                            title: 'I am applying because I was the victim of a violent crime',
+                            title: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-fatal-claim.title.myself',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-fatal-claim.title.proxy'
+                            ],
                             description:
                                 'This could include a physical injury, disabling mental injury or abuse over a period of time. The disabling mental injury could be due to witnessing a loved one being injured in a violent crime.',
                             const: false
