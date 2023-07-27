@@ -15,9 +15,9 @@ module.exports = {
                         'q-applicant-armed-forces-relative': {
                             title: {
                                 applicant:
-                                    'Were you a close relative of a member of the British Armed Forces living with them when the crime happened?',
+                                    'Were you a close relative of a member of the British Armed Forces living together when the crime happened?',
                                 proxy:
-                                    'Were they a close relative of a member of the British Armed Forces living with them when the crime happened?'
+                                    'Were they a close relative of a member of the British Armed Forces living together when the crime happened?'
                             },
                             details: {
                                 applicant: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with who qualifies as a close relative of a member of the British Armed Forces",html: "<p class='govuk-body'>A person is a close relative of a member of the British Armed Forces if they are living together as part of the same household and is either:</p>
@@ -29,17 +29,17 @@ module.exports = {
                             },
                             error: {
                                 applicant:
-                                    'Select yes if you were a close relative of a member of the British Armed Forces living with them when the crime happened',
+                                    'Select yes if you were a close relative of a member of the British Armed Forces living together when the crime happened',
                                 proxy:
-                                    'Select yes if they were a close relative of a member of the British Armed Forces living with them when the crime happened'
+                                    'Select yes if they were a close relative of a member of the British Armed Forces living together when the crime happened'
                             },
                             meta: {
                                 summary: {
                                     title: {
                                         applicant:
-                                            'Were you a close relative of a member of the British Armed Forces living with them when the crime happened?',
+                                            'Were you a close relative of a member of the British Armed Forces living together when the crime happened?',
                                         proxy:
-                                            'Were they a close relative of a member of the British Armed Forces living with them when the crime happened?'
+                                            'Were they a close relative of a member of the British Armed Forces living together when the crime happened?'
                                     }
                                 }
                             }
