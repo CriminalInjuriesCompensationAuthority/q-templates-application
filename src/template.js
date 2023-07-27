@@ -688,7 +688,8 @@ module.exports = {
                                     adult: {
                                         capable: 'Your details'
                                     },
-                                    proxy: 'Victim details'
+                                    proxy: 'Victim details',
+                                    deceased: 'Claimant details'
                                 }
                             },
                             injuries: {
@@ -737,10 +738,16 @@ module.exports = {
                 'applicant-details': {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'proxy'],
+                        ['|role.all', 'proxy', 'nonDeceased'],
                         'applicant-details.title.proxy',
-                        ['|role.all', 'adult', 'capable'],
-                        'applicant-details.title.adult.capable'
+                        [
+                            'or',
+                            ['|role.all', 'myself', 'deceased'],
+                            ['|role.all', 'myself', 'nonDeceased']
+                        ],
+                        'applicant-details.title.adult.capable',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'applicant-details.title.deceased'
                     ]
                 },
                 crime: {
