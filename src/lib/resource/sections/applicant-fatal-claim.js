@@ -57,7 +57,7 @@ module.exports = {
                             theme: 'about-application'
                         },
                         summary: {
-                            title: 'Are you applying because someone died?'
+                            title: 'Select why you are applying'
                         },
                         integration: {
                             hideOnSummary: true
