@@ -17,7 +17,8 @@ module.exports = {
                     required: [
                         'q-applicant-dentist-organisation-name',
                         'q-applicant-dentist-address-building-and-street',
-                        'q-applicant-dentist-address-town-or-city'
+                        'q-applicant-dentist-address-town-or-city',
+                        'q-applicant-dentist-address-postcode'
                     ],
                     propertyNames: {
                         enum: [
@@ -140,7 +141,8 @@ module.exports = {
                             properties: {
                                 'q-applicant-dentist-address-postcode': {
                                     type: 'string',
-                                    title: 'Postcode (optional)',
+                                    title: 'Postcode',
+                                    description: 'This can be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
@@ -161,7 +163,9 @@ module.exports = {
                             'q-applicant-dentist-address-building-and-street':
                                 'Enter the building and street of the dentist',
                             'q-applicant-dentist-address-town-or-city':
-                                "Enter the town or city where the dentist's practice is"
+                                "Enter the town or city where the dentist's practice is",
+                            'q-applicant-dentist-address-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }

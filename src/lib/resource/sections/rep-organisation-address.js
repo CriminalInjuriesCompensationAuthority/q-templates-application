@@ -20,7 +20,8 @@ module.exports = {
                     required: [
                         'q-rep-organisation-name',
                         'q-rep-building-and-street',
-                        'q-rep-town-or-city'
+                        'q-rep-town-or-city',
+                        'q-rep-postcode'
                     ],
                     propertyNames: {
                         enum: [
@@ -143,7 +144,8 @@ module.exports = {
                             properties: {
                                 'q-rep-postcode': {
                                     type: 'string',
-                                    title: 'Postcode (optional)',
+                                    title: 'Postcode',
+                                    description: 'This can be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
@@ -162,7 +164,9 @@ module.exports = {
                             'q-rep-organisation-name':
                                 'Enter the name of the organisation you work for',
                             'q-rep-building-and-street': 'Enter the building and street',
-                            'q-rep-town-or-city': 'Enter the town or city'
+                            'q-rep-town-or-city': 'Enter the town or city',
+                            'q-rep-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }
