@@ -17,7 +17,11 @@ module.exports = {
                             title: 'Their address'
                         }
                     },
-                    required: ['q-deceased-building-and-street', 'q-deceased-town-or-city'],
+                    required: [
+                        'q-deceased-building-and-street',
+                        'q-deceased-town-or-city',
+                        'q-deceased-postcode'
+                    ],
                     propertyNames: {
                         enum: [
                             'q-deceased-building-and-street',
@@ -121,7 +125,8 @@ module.exports = {
                             properties: {
                                 'q-deceased-postcode': {
                                     type: 'string',
-                                    title: 'Postcode (optional)',
+                                    title: 'Postcode',
+                                    description: 'This can be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
@@ -139,7 +144,9 @@ module.exports = {
                         required: {
                             'q-deceased-building-and-street':
                                 'Enter the building and street where they lived',
-                            'q-deceased-town-or-city': 'Enter the town or city where they lived'
+                            'q-deceased-town-or-city': 'Enter the town or city where they lived',
+                            'q-deceased-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }
