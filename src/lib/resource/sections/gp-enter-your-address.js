@@ -17,7 +17,8 @@ module.exports = {
                     required: [
                         'q-gp-organisation-name',
                         'q-gp-building-and-street',
-                        'q-gp-town-or-city'
+                        'q-gp-town-or-city',
+                        'q-gp-postcode'
                     ],
                     propertyNames: {
                         enum: [
@@ -140,7 +141,8 @@ module.exports = {
                             properties: {
                                 'q-gp-postcode': {
                                     type: 'string',
-                                    title: 'Postcode (optional)',
+                                    title: 'Postcode',
+                                    description: 'This can be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
@@ -158,7 +160,10 @@ module.exports = {
                         required: {
                             'q-gp-organisation-name': "Enter the name of the GP's practice",
                             'q-gp-building-and-street': 'Enter the building and street of the GP',
-                            'q-gp-town-or-city': "Enter the town or city where the GP's practice is"
+                            'q-gp-town-or-city':
+                                "Enter the town or city where the GP's practice is",
+                            'q-gp-postcode':
+                                'Enter a UK postcode, international postal code or zip code'
                         }
                     }
                 }
