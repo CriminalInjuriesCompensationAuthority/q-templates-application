@@ -23,7 +23,6 @@ const applicantWhereDidTheCrimeHappen = require('./lib/resource/sections/applica
 const applicantWhereInEnglandDidItHappen = require('./lib/resource/sections/applicant-where-in-england-did-it-happen.js');
 const applicantWhereInScotlandDidItHappen = require('./lib/resource/sections/applicant-where-in-scotland-did-it-happen.js');
 const applicantWhereInWalesDidItHappen = require('./lib/resource/sections/applicant-where-in-wales-did-it-happen.js');
-const youNeedToContactUs = require('./lib/resource/sections/you-need-to-contact-us.js');
 const whichPoliceForceIsInvestigatingTheCrime = require('./lib/resource/sections/which-police-force-is-investigating-the-crime.js');
 const applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice = require('./lib/resource/sections/applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.js');
 const offenderDoYouKnowTheNameOfTheOffender = require('./lib/resource/sections/offender-do-you-know-the-name-of-the-offender.js');
@@ -172,6 +171,7 @@ const downloadAnswers = require('./lib/resource/sections/download-your-answers')
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const owner = require('./lib/resource/sections/owner');
+const applicantCrimeLocation = require('./lib/resource/sections/applicant-crime-location');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -202,7 +202,6 @@ module.exports = {
         'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.section,
         'p-applicant-where-in-scotland-did-it-happen': applicantWhereInScotlandDidItHappen.section,
         'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.section,
-        'p--you-need-to-contact-us': youNeedToContactUs.section,
         'p--which-police-force-is-investigating-the-crime':
             whichPoliceForceIsInvestigatingTheCrime.section,
         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
@@ -361,7 +360,8 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        owner: owner.section
+        owner: owner.section,
+        'p-applicant-crime-location': applicantCrimeLocation.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -400,7 +400,6 @@ module.exports = {
             'p-applicant-where-in-scotland-did-it-happen':
                 applicantWhereInScotlandDidItHappen.route,
             'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.route,
-            'p--you-need-to-contact-us': youNeedToContactUs.route,
             'p--which-police-force-is-investigating-the-crime':
                 whichPoliceForceIsInvestigatingTheCrime.route,
             'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
@@ -565,7 +564,8 @@ module.exports = {
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            owner: owner.route
+            owner: owner.route,
+            'p-applicant-crime-location': applicantCrimeLocation.route
         }
     },
     answers: {},
