@@ -17,6 +17,12 @@ module.exports = {
                                 myself: 'I am applying because I was the victim of a violent crime',
                                 proxy:
                                     'I am applying on behalf of someone who was the victim of a violent crime'
+                            },
+                            description: {
+                                myself:
+                                    'If you are paying for the funeral of the person who died, you may be able to get help with the cost. If you are their relative, you may also be eligible for bereavement payments.',
+                                proxy:
+                                    'If the person you’re applying on behalf of is paying for the funeral of the person who died, they may be able to get help with the cost. If they are their relative, they may also be eligible for bereavement payments.'
                             }
                         }
                     }
@@ -31,7 +37,7 @@ module.exports = {
             properties: {
                 'q-applicant-fatal-claim': {
                     type: 'boolean',
-                    title: 'Select why you are applying',
+                    title: 'Select the reason you’re applying',
                     oneOf: [
                         {
                             title: [
@@ -47,8 +53,13 @@ module.exports = {
                         },
                         {
                             title: 'I am applying because someone died due to a violent crime',
-                            description:
-                                'If you are paying for the funeral of the person who died, you may be able to get help with the cost. If you are their relative, you may also be eligible for bereavement payments.',
+                            description: [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'q-applicant-fatal-claim.description.myself',
+                                ['|role.all', 'proxy'],
+                                'q-applicant-fatal-claim.description.proxy'
+                            ],
                             const: true
                         }
                     ],
