@@ -437,8 +437,11 @@ module.exports = {
             'p-mainapplicant-declaration-under-12',
             'p-mainapplicant-declaration-under-12-deceased',
             'p-mainapplicant-declaration-12-and-over',
+            'p-mainapplicant-declaration-12-and-over-deceased',
             'p-rep-declaration-under-12',
-            'p-rep-declaration-12-and-over'
+            'p-rep-declaration-12-and-over',
+            'p-rep-declaration-under-12-deceased',
+            'p-rep-declaration-12-and-over-deceased'
         ],
         confirmation: 'p--confirmation',
         states: {
