@@ -14,6 +14,13 @@ module.exports = {
                     errorMessage: {
                         pattern: 'Invalid case reference'
                     }
+                },
+                'secondary-reference': {
+                    type: 'string',
+                    pattern: '^[0-9]{2}\\\\[0-9]{6}$',
+                    errorMessage: {
+                        pattern: 'Invalid case reference'
+                    }
                 }
             },
             errorMessage: {
