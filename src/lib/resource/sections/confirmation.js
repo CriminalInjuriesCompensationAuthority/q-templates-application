@@ -26,7 +26,7 @@ module.exports = {
                                     {% endif %}
                                     {% if secondaryReference and caseReference %}}
                                     {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
-                                    {% elif caseReferenceNumber %}
+                                    {% else if caseReferenceNumber %}
                                       {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                     {% else %}
                                       {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
