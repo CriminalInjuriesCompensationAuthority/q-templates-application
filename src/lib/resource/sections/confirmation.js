@@ -18,12 +18,15 @@ module.exports = {
                                 adult: `{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}
                                     {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}
                                     {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                    {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                     {% if mobilePhoneNumber %}
                                       {% set contactMethod =  mobilePhoneNumber %}
                                     {% else %}
                                       {% set contactMethod =  emailAddress %}
                                     {% endif %}
-                                    {% if caseReferenceNumber %}
+                                    {% if secondaryReference and caseReference %}}
+                                    {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                    {% elif caseReferenceNumber %}
                                       {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                     {% else %}
                                       {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
