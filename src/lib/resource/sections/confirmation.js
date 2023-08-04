@@ -25,9 +25,7 @@ module.exports = {
                                     {% else %}
                                       {% set contactMethod =  emailAddress %}
                                     {% endif %}
-                                    {% if secondaryReference and caseReferenceNumber %}}
-                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
-                                    {% else if caseReferenceNumber %}
+                                    {% if caseReferenceNumber %}
                                       {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                     {% else %}
                                       {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -80,12 +78,15 @@ module.exports = {
                                     deceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                        {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
                                         {% else %}
                                             {% set contactMethod =  emailAddress %}
                                         {% endif %}
-                                        {% if caseReferenceNumber %}
+                                        {% if secondaryReference and caseReferenceNumber %}}
+                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                        {% else if caseReferenceNumber %}
                                             {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
                                             {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -217,12 +218,15 @@ module.exports = {
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                        {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
                                         {% else %}
                                         {% set contactMethod =  emailAddress %}
                                         {% endif %}
-                                        {% if caseReferenceNumber %}
+                                        {% if secondaryReference and caseReferenceNumber %}}
+                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                        {% else if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
                                         {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -377,12 +381,15 @@ module.exports = {
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                            {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
                                             {% else %}
                                             {% set contactMethod =  emailAddress %}
                                             {% endif %}
-                                            {% if caseReferenceNumber %}
+                                            {% if secondaryReference and caseReferenceNumber %}}
+                                            {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                            {% else  if caseReferenceNumber %}
                                             {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                             {% else %}
                                             {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -523,12 +530,15 @@ module.exports = {
                                             deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                        {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
                                         {% else %}
                                         {% set contactMethod =  emailAddress %}
                                         {% endif %}
-                                        {% if caseReferenceNumber %}
+                                        {% if secondaryReference and caseReferenceNumber %}}
+                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                        {% else if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
                                         {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -660,12 +670,15 @@ module.exports = {
                                             deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                            {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
                                             {% else %}
                                             {% set contactMethod =  emailAddress %}
                                             {% endif %}
-                                            {% if caseReferenceNumber %}
+                                            {% if secondaryReference and caseReferenceNumber %}}
+                                            {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                            {% else if caseReferenceNumber %}
                                             {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                             {% else %}
                                             {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -822,12 +835,15 @@ module.exports = {
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                        {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
                                         {% else %}
                                         {% set contactMethod =  emailAddress %}
                                         {% endif %}
-                                        {% if caseReferenceNumber %}
+                                        {% if secondaryReference and caseReferenceNumber %}}
+                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                        {% else if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
                                         {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
@@ -984,12 +1000,15 @@ module.exports = {
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-confirmation-method/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-confirmation-method/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                        {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
                                         {% else %}
                                         {% set contactMethod =  emailAddress %}
                                         {% endif %}
-                                        {% if caseReferenceNumber %}
+                                        {% if secondaryReference and caseReferenceNumber %}}
+                                        {% set html =  "<p>The reference number for your bereavement claim is: <br /><strong>" + caseReferenceNumber + "</strong></p><p><strong>The reference number for your funeral costs claim is:" + secondaryReference + </strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
+                                        {% else if caseReferenceNumber %}
                                         {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong></p><p>We have sent a confirmation to <strong>" + contactMethod + "</strong></p>" %}
                                         {% else %}
                                         {% set html =  "<p>We\'ll send your confirmation to <strong>" + contactMethod + "</strong> soon</p>" %}
