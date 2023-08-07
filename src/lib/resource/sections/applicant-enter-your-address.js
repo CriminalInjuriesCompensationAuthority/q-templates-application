@@ -333,7 +333,8 @@ module.exports = {
                             'years' // years (before, due to the negative (-18) ...
                             // today's date (no second date given. defaults to today's date).
                         ],
-                        ['|role.all', 'incapable']
+                        ['|role.all', 'incapable'],
+                        ['|role.all', 'noContactMethod']
                     ]
                 },
                 {
