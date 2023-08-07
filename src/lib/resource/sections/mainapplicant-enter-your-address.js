@@ -286,6 +286,14 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p-mainapplicant-relationship',
+                    cond: [
+                        '==',
+                        '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
+                        'none'
+                    ]
+                },
+                {
                     target: 'p-mainapplicant-enter-your-telephone-number'
                 }
             ]
