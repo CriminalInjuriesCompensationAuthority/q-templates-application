@@ -10,7 +10,6 @@ const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-u
 const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-declaration-under-12-deceased.js');
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
-const transitionNoPhoneOrEmail = require('./lib/resource/sections/transition-no-phone-or-email.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
@@ -231,7 +230,6 @@ module.exports = {
         'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
-        'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
@@ -535,7 +533,6 @@ module.exports = {
             'p-applicant-confirmation-method': applicantConfirmationMethod.route,
             'p--context-compensation': contextCompensation.route,
             'p--transition': transition.route,
-            'p--transition-no-phone-or-email': transitionNoPhoneOrEmail.route,
             'p-applicant-are-you-claiming-for-physical-injuries':
                 applicantAreYouClaimingForPhysicalInjuries.route,
             'p--context-dmi-details': contextDmiDetails.route,
@@ -2107,6 +2104,21 @@ module.exports = {
                         '-12', // 12 ...
                         'years' // years (before, due to the negative (-12) ...
                         // today's date (no second date given. defaults to today's date).
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
+            },
+            noContactMethod: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'has no email or text contact method',
+                    type: 'boolean',
+                    // prettier-ignore
+                    const: ['or',
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'none'],
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'none'],
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'none']
                     ],
                     examples: [{}],
                     invalidExamples: [{}]

@@ -15,6 +15,59 @@ module.exports = {
                     resources: {
                         confirmation: {
                             description: {
+                                noContactMethod: `{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}
+                                {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}
+                                {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
+                                {% if caseReferenceNumber %}
+                                  {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong><br />Make a note of your reference number. You\'ll need this if you contect us about this application. You will not get another conirmation of this refernce once you exit thiis screen</p>" %}
+                                {% else %}
+                                  {% set html =  "<p>We\'re experiencing a delay getting your reference number at the moment. Call us in 5 working days and we should be able to give you your reference number. </p><p>You should make a note of your reference number when you get it. You\'ll need this if you contact us about your application. You will not get another confirmation of this reference number unless you call us.</p>" %}
+                                {% endif %}
+                                {% set contact %}
+                                    {% include 'contact.njk' %}
+                                {% endset %}
+                                <p class="govuk-body">All links on this page open in a new tab.</p>
+                                {{ govukPanel({
+                                  titleText: "Application submitted",
+                                  html: html
+                                })}}
+                                <p class="govuk-body">Thank you for submitting this application.</p>
+                                <h2 class="govuk-heading-m">What happens next</h2>
+                                <p class="govuk-body">We will:</p>
+                                  <ul class="govuk-list govuk-list--bullet">
+                                      <li>ask the police for evidence</li>
+                                      <li>ask for medical information if required</li>
+                                      <li>ask you for more information if we need it</li>
+                                      <li>make a decision</li>
+                                      <li>send our decision letter by post</li>
+                                  </ul>
+                                <p class="govuk-body">We aim to make a decision within 12 months but it can take longer. We may have to wait until there’s enough information about your injuries and recovery.</p>
+                                <p class="govuk-body">Read our <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/organisations/criminal-injuries-compensation-authority/about-our-services">Customer Charter</a></p>
+                                {{ govukWarningText({
+                                  text: "You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.",
+                                  iconFallbackText: "Warning"
+                                }) }}
+                                <h2 class="govuk-heading-m">Sending updated information about your application</h2>
+                                <p class="govuk-body">You should send us any updates using our contact form.</p>
+                                <p class="govuk-body">If any information in your application changes, you need to <strong>contact us immediately</strong> to let us know. This may include:</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>your contact or personal details change</li>
+                                    <li>you stop using or change representative</li>
+                                    <li>you get compensation or money from any other sources after you apply in relation to the incident</li>
+                                    <li>you have new information to add to your application</li>
+                                    <li>information you provided previously has changed</li>
+                                </ul>
+                                <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                <h2 class="govuk-heading-m">Contact us</h2>
+                                <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
+                                {{ govukDetails({
+                                    summaryText: "View the different ways to contact CICA",
+                                    html: contact
+                                })}}
+                                <h2 class="govuk-heading-m">Help us improve this service</h2>
+                                <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
+                                    <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                 adult: {
                                     nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}
                                     {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}
@@ -1094,6 +1147,8 @@ module.exports = {
                     title: 'Confirmation',
                     description: [
                         '|l10nt',
+                        ['|role.all', 'noContactMethod'],
+                        'confirmation.description.noContactMethod',
                         ['|role.all', 'mainapplicant', 'adult', 'nonDeceased'],
                         'confirmation.description.mainapplicant.adult.nonDeceased',
                         ['|role.all', 'mainapplicant', 'adult', 'deceased'],
