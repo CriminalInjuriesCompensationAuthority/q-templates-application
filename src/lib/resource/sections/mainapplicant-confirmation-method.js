@@ -27,6 +27,8 @@ module.exports = {
                         },
                         {
                             title: "I don't have an email address or UK mobile phone number",
+                            description:
+                                'We will not be able to send you a text or an email confirmation. You will only get an on-screen confirmation with a reference number at the end of this application form. You’ll need to make a note of this reference number in case you need to contact us about your application.',
                             const: 'none'
                         }
                     ],
@@ -246,14 +248,6 @@ module.exports = {
     route: {
         on: {
             ANSWER: [
-                {
-                    target: 'p--transition-no-phone-or-email',
-                    cond: [
-                        '==',
-                        '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
-                        'none'
-                    ]
-                },
                 {
                     target: 'p-mainapplicant-enter-your-name'
                 }
