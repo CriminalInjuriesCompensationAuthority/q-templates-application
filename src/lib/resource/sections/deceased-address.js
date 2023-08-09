@@ -125,7 +125,8 @@ module.exports = {
                             properties: {
                                 'q-deceased-postcode': {
                                     type: 'string',
-                                    title: 'Postcode (optional)',
+                                    title: 'Postcode',
+                                    description: 'This can be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
