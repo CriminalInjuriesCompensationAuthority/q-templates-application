@@ -105,7 +105,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-applicant-details',
+                    target: 'p--was-the-crime-reported-to-police',
                     cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
                 },
                 {

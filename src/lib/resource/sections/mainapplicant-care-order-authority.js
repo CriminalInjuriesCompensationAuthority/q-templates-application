@@ -59,10 +59,9 @@ module.exports = {
                 {
                     target: 'p--context-rep-details',
                     cond: [
-                        'and',
+                        'or',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                     ]
                 },
                 {
