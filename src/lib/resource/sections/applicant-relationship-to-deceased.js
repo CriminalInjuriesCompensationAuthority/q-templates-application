@@ -15,7 +15,7 @@ module.exports = {
                         'applicant-relationship-to-deceased': {
                             title: {
                                 myself: 'What is your relationship to the person who died?',
-                                proxy: 'What is the claimant’s relationship to the person who died?'
+                                proxy: "What is the claimant's relationship to the person who died?"
                             },
                             description: {
                                 myself:
@@ -107,9 +107,9 @@ module.exports = {
                             title: [
                                 '|l10nt',
                                 ['|role.all', 'myself'],
-                                'applicant-relationship-to-deceased.optionTitle.myself',
+                                'applicant-relationship-to-deceased.title.myself',
                                 ['|role.all', 'proxy'],
-                                'applicant-relationship-to-deceased.optionTitle.proxy'
+                                'applicant-relationship-to-deceased.title.proxy'
                             ]
                         }
                     }

@@ -110,7 +110,11 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [{target: 'p-applicant-applied-for-asylum'}]
+            ANSWER: [
+                {
+                    target: 'p-applicant-applied-for-asylum'
+                }
+            ]
         }
     }
 };
