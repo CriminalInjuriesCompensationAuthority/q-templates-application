@@ -15,13 +15,13 @@ module.exports = {
                         'residency-context': {
                             title: {
                                 applicant: 'About your residency and nationality',
-                                proxy: "About the victim's residency and nationality"
+                                proxy: 'About the claimant’s residency and nationality'
                             },
                             description: {
                                 applicant:
                                     '<p class="govuk-body">We\'re going to ask you some questions about your residency and nationality when the crime happened. This is so we can work out if you\'re eligible to get compensation from us for this crime.</p><p class="govuk-body"><a href="https://www.gov.uk/guidance/criminal-injuries-compensation-residency-and-nationality" target="_blank">Find out how the Criminal Injuries Compensation Scheme\'s residency and nationality requirements work</a>.</p>',
                                 proxy:
-                                    '<p class="govuk-body">We\'re going to ask you some questions about the victim\'s residency and nationality when the crime happened. This is so we can work out if they\'re eligible to get compensation from us for this crime.</p><p class="govuk-body"><a href="https://www.gov.uk/guidance/criminal-injuries-compensation-residency-and-nationality" target="_blank">Find out how the Criminal Injuries Compensation Scheme\'s residency and nationality requirements work</a>.</p>'
+                                    '<p class="govuk-body">We\'re going to ask you some questions about the  claimant\'s residency and nationality when the crime happened. This is so we can work out if they\'re eligible to get compensation from us for this crime.</p><p class="govuk-body"><a href="https://www.gov.uk/guidance/criminal-injuries-compensation-residency-and-nationality" target="_blank">Find out how the Criminal Injuries Compensation Scheme\'s residency and nationality requirements work</a>.</p>'
                             }
                         }
                     }

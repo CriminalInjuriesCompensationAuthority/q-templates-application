@@ -123,6 +123,18 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        ['|role.all', 'deceased', 'myself'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-eea-citizen-relative.q-applicant-eea-citizen-relative',
+                            true
+                        ]
+                    ]
+                },
+                {
                     target: 'p--context-rep-details',
                     cond: [
                         'and',
