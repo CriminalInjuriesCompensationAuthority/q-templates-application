@@ -87,7 +87,31 @@ module.exports = {
                             ],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
-                        ['or', ['|role.all', 'childUnder12'], ['|role.all', 'adult', 'incapable']]
+                        [
+                            'or',
+                            ['|role.all', 'childUnder12', 'nonDeceased'],
+                            ['|role.all', 'adult', 'incapable', 'nonDeceased']
+                        ]
+                    ]
+                },
+                {
+                    target: 'p-rep-declaration-under-12-deceased',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            [
+                                '==',
+                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                false
+                            ],
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                        ],
+                        [
+                            'or',
+                            ['|role.all', 'childUnder12', 'deceased'],
+                            ['|role.all', 'adult', 'incapable', 'deceased']
+                        ]
                     ]
                 },
                 {
