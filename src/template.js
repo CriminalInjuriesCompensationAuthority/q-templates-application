@@ -909,6 +909,7 @@ module.exports = {
                     // prettier-ignore
                     cond:['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
@@ -917,6 +918,25 @@ module.exports = {
                             '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - applicant:adult.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false]
+                        ['|role.all', 'adult', 'deceased'],
+                    ],
+                    data: {
+                        templateId: '869046d8-18ca-4f75-8f78-03fe0daa50f7',
+                        emailAddress: '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                        personalisation: {
+                            caseReference: '||/answers/system/case-reference||',
+                            content: 'Do not reply to this email. Your bereavement application reference number is ||/answers/system/case-reference|| Your funeral application reference number is ||/answers/system/secondary-reference||'
                         },
                         reference: null
                     }
