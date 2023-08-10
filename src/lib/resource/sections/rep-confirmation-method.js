@@ -5,83 +5,6 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            propertyNames: {
-                enum: ['q-rep-confirmation-method', 'q-rep-email-address', 'q-rep-telephone-number']
-            },
-            properties: {
-                'q-rep-confirmation-method': {
-                    title: "How should we tell you we've got the application?",
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Email',
-                            const: 'email'
-                        },
-                        {
-                            title: 'Text message',
-                            const: 'text'
-                        },
-                        {
-                            title: "I don't have an email address or UK mobile phone number",
-                            description:
-                                'We will not be able to send you a text or an email confirmation. You will only get an on-screen confirmation with a reference number at the end of this application form. You’ll need to make a note of this reference number in case you need to contact us about your application.',
-                            const: 'none'
-                        }
-                    ],
-                    meta: {
-                        classifications: {
-                            theme: 'rep-details'
-                        },
-                        summary: {
-                            title: 'Confirmation method'
-                        }
-                    }
-                },
-                'q-rep-email-address': {
-                    type: 'string',
-                    title: 'Email address',
-                    maxLength: 50,
-                    format: 'email',
-                    errorMessage: {
-                        maxLength: 'Email address must be 50 characters or less',
-                        format:
-                            'Enter an email address in the correct format, like name@example.com'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'rep-details'
-                        }
-                    }
-                },
-                'q-rep-telephone-number': {
-                    type: 'string',
-                    title: 'UK mobile phone number',
-                    maxLength: 20,
-                    format: 'mobile-uk',
-                    errorMessage: {
-                        format:
-                            'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
-                        maxLength: 'Telephone number must be 20 characters or less'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'rep-details'
-                        }
-                    }
-                }
-            },
-            required: ['q-rep-confirmation-method'],
-            allOf: [
-                {
-                    $ref: '#/definitions/if-email-then-q-rep-email-address-is-required'
-                },
-                {
-                    $ref: '#/definitions/if-text-then-q-rep-telephone-number-is-required'
-                },
-                {
-                    $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
-                }
-            ],
             definitions: {
                 'if-email-then-q-rep-email-address-is-required': {
                     if: {
@@ -145,12 +68,117 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {
-                required: {
-                    'q-rep-confirmation-method':
-                        "Select how we should tell you we've got your application"
+            allOf: [
+                {
+                    title: "How should we tell you we've got the application?",
+                    required: ['q-rep-confirmation-method'],
+                    propertyNames: {
+                        enum: [
+                            'q-rep-confirmation-method',
+                            'q-rep-email-address',
+                            'q-rep-telephone-number'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-rep-confirmation-method': {
+                                    type: 'string',
+                                    oneOf: [
+                                        {
+                                            title: 'Email',
+                                            const: 'email'
+                                        },
+                                        {
+                                            title: 'Text message',
+                                            const: 'text'
+                                        },
+                                        {
+                                            title:
+                                                "I don't have an email address or UK mobile phone number",
+                                            description:
+                                                'We will not be able to send you a text or an email confirmation. You will only get an on-screen confirmation with a reference number at the end of this application form. You’ll need to make a note of this reference number in case you need to contact us about your application.',
+                                            const: 'none'
+                                        }
+                                    ],
+                                    meta: {
+                                        classifications: {
+                                            theme: 'rep-details'
+                                        },
+                                        summary: {
+                                            title: 'Confirmation method'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-rep-email-address': {
+                                    type: 'string',
+                                    title: 'Email address',
+                                    maxLength: 50,
+                                    format: 'email',
+                                    errorMessage: {
+                                        maxLength: 'Email address must be 50 characters or less',
+                                        format:
+                                            'Enter an email address in the correct format, like name@example.com'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'rep-details'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-rep-telephone-number': {
+                                    type: 'string',
+                                    title: 'UK mobile phone number',
+                                    maxLength: 20,
+                                    format: 'mobile-uk',
+                                    errorMessage: {
+                                        format:
+                                            'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
+                                        maxLength: 'Telephone number must be 20 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'rep-details'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref:
+                                        '#/definitions/if-email-then-q-rep-email-address-is-required'
+                                },
+                                {
+                                    $ref:
+                                        '#/definitions/if-text-then-q-rep-telephone-number-is-required'
+                                },
+                                {
+                                    $ref:
+                                        '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
+                                }
+                            ]
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-rep-confirmation-method':
+                                "Select how we should tell you we've got your application"
+                        }
+                    }
                 }
-            },
+            ],
             examples: [
                 {
                     'q-rep-confirmation-method': 'none'

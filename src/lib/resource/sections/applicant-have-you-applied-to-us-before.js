@@ -36,64 +36,8 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            additionalProperties: false,
-            propertyNames: {
-                enum: [
-                    'q-applicant-have-you-applied-to-us-before',
-                    'q-enter-your-previous-reference-number'
-                ]
-            },
-            properties: {
-                'q-applicant-have-you-applied-to-us-before': {
-                    title: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-have-you-applied-to-us-before.title.myself',
-                        ['|role.all', 'proxy', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.title.proxy',
-                        ['|role.all', 'proxy', 'deceased'],
-                        'applicant-have-you-applied-to-us-before.title.deceased'
-                    ],
-                    type: 'boolean',
-                    oneOf: [
-                        {
-                            title: 'Yes',
-                            const: true
-                        },
-                        {
-                            title: 'No',
-                            const: false
-                        }
-                    ],
-                    meta: {
-                        classifications: {
-                            theme: 'other-compensation'
-                        }
-                    }
-                },
-                'q-enter-your-previous-reference-number': {
-                    type: 'string',
-                    title: 'Enter your previous reference number if you know it (optional)',
-                    maxLength: 50,
-                    errorMessage: {
-                        maxLength: 'Previous reference number must be 50 characters or less'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'other-compensation'
-                        }
-                    }
-                }
-            },
-            required: ['q-applicant-have-you-applied-to-us-before'],
-            allOf: [
-                {
-                    $ref:
-                        '#/definitions/if-true-then-q-enter-your-previous-reference-number-is-required'
-                }
-            ],
             definitions: {
-                'if-true-then-q-enter-your-previous-reference-number-is-required': {
+                'if-yes-then-previous-reference-number-required': {
                     if: {
                         properties: {
                             'q-applicant-have-you-applied-to-us-before': {
@@ -108,27 +52,124 @@ module.exports = {
                                 'q-enter-your-previous-reference-number'
                             ]
                         }
+                    }
+                },
+                'if-no-then-no-previous-reference-number-required': {
+                    if: {
+                        properties: {
+                            'q-applicant-have-you-applied-to-us-before': {
+                                const: false
+                            }
+                        }
                     },
-                    else: {
+                    then: {
                         propertyNames: {
                             enum: ['q-applicant-have-you-applied-to-us-before']
                         }
                     }
                 }
             },
-            errorMessage: {
-                required: {
-                    'q-applicant-have-you-applied-to-us-before': [
+            allOf: [
+                {
+                    title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'applicant-have-you-applied-to-us-before.error.myself',
+                        'applicant-have-you-applied-to-us-before.title.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.error.proxy',
+                        'applicant-have-you-applied-to-us-before.title.proxy',
                         ['|role.all', 'proxy', 'deceased'],
-                        'applicant-have-you-applied-to-us-before.error.deceased'
-                    ]
+                        'applicant-have-you-applied-to-us-before.title.deceased'
+                    ],
+                    required: ['q-applicant-have-you-applied-to-us-before'],
+                    propertyNames: {
+                        enum: [
+                            'q-applicant-have-you-applied-to-us-before',
+                            'q-enter-your-previous-reference-number'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-applicant-have-you-applied-to-us-before': {
+                                    type: 'boolean',
+                                    oneOf: [
+                                        {
+                                            title: 'Yes',
+                                            const: true
+                                        },
+                                        {
+                                            title: 'No',
+                                            const: false
+                                        }
+                                    ],
+                                    meta: {
+                                        classifications: {
+                                            theme: 'other-compensation'
+                                        },
+                                        summary: {
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself'],
+                                                'applicant-have-you-applied-to-us-before.title.myself',
+                                                ['|role.all', 'proxy', 'nonDeceased'],
+                                                'applicant-have-you-applied-to-us-before.title.proxy',
+                                                ['|role.all', 'proxy', 'deceased'],
+                                                'applicant-have-you-applied-to-us-before.title.deceased'
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-enter-your-previous-reference-number': {
+                                    type: 'string',
+                                    title:
+                                        'Enter your previous reference number if you know it (optional)',
+                                    maxLength: 50,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Previous reference number must be 50 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'other-compensation'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref:
+                                        '#/definitions/if-yes-then-previous-reference-number-required'
+                                },
+                                {
+                                    $ref:
+                                        '#/definitions/if-no-then-no-previous-reference-number-required'
+                                }
+                            ]
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-have-you-applied-to-us-before': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-have-you-applied-to-us-before.error.myself',
+                                ['|role.all', 'proxy', 'nonDeceased'],
+                                'applicant-have-you-applied-to-us-before.error.proxy',
+                                ['|role.all', 'proxy', 'deceased'],
+                                'applicant-have-you-applied-to-us-before.error.deceased'
+                            ]
+                        }
+                    }
                 }
-            },
+            ],
             examples: [
                 {
                     'q-applicant-have-you-applied-to-us-before': true,

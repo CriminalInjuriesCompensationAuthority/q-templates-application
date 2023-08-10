@@ -5,67 +5,6 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-physical-injuries'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-physical-injuries': {
-                    title: 'What infection?',
-                    description: 'Select all that apply.',
-                    type: 'array',
-                    items: {
-                        anyOf: [
-                            {
-                                title: 'HIV',
-                                const: 'phyinj-141'
-                            },
-                            {
-                                title: 'Hepatitis B',
-                                const: 'phyinj-142'
-                            },
-                            {
-                                title: 'Hepatitis C',
-                                const: 'phyinj-143'
-                            },
-                            {
-                                title: 'Other sexually transmitted infection (STI)',
-                                const: 'phyinj-145'
-                            },
-                            {
-                                title: 'Other infection',
-                                const: 'phyinj-149'
-                            }
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'injuries'
-                        }
-                    }
-                },
-                'q-applicant-infections-other': {
-                    type: 'string',
-                    title: 'Other infection',
-                    maxLength: 499,
-                    errorMessage: {
-                        maxLength: 'Other infections must be 499 characters or fewer'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'injuries'
-                        }
-                    }
-                }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-physical-injuries': 'Select an infection from the list'
-                }
-            },
-            allOf: [
-                {
-                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
-                }
-            ],
             definitions: {
                 'if-other-then-other-textbox-is-required': {
                     if: {
@@ -91,6 +30,86 @@ module.exports = {
                     }
                 }
             },
+            allOf: [
+                {
+                    title: 'What infection?',
+                    required: ['q-applicant-physical-injuries'],
+                    allOf: [
+                        {
+                            properties: {
+                                'q-applicant-physical-injuries': {
+                                    type: 'array',
+                                    description: 'Select all that apply.',
+                                    items: {
+                                        anyOf: [
+                                            {
+                                                title: 'HIV',
+                                                const: 'phyinj-141'
+                                            },
+                                            {
+                                                title: 'Hepatitis B',
+                                                const: 'phyinj-142'
+                                            },
+                                            {
+                                                title: 'Hepatitis C',
+                                                const: 'phyinj-143'
+                                            },
+                                            {
+                                                title: 'Other sexually transmitted infection (STI)',
+                                                const: 'phyinj-145'
+                                            },
+                                            {
+                                                title: 'Other infection',
+                                                const: 'phyinj-149'
+                                            }
+                                        ]
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'injuries'
+                                        },
+                                        summary: {
+                                            title: 'What infection?'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-infections-other': {
+                                    type: 'string',
+                                    title: 'Other infection',
+                                    maxLength: 499,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Other infections must be 499 characters or fewer'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'injuries'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-physical-injuries': 'Select an infection from the list'
+                        }
+                    },
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref: '#/definitions/if-other-then-other-textbox-is-required'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
             examples: [
                 {
                     'q-applicant-physical-injuries': ['phyinj-141']

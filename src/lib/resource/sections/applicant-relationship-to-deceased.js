@@ -53,101 +53,8 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            propertyNames: {
-                enum: ['q-applicant-relationship-to-deceased', 'q-applicant-relationship-other']
-            },
-            properties: {
-                'q-applicant-relationship-to-deceased': {
-                    title: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-relationship-to-deceased.title.myself',
-                        ['|role.all', 'proxy'],
-                        'applicant-relationship-to-deceased.title.proxy'
-                    ],
-                    description: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-relationship-to-deceased.description.myself',
-                        ['|role.all', 'proxy'],
-                        'applicant-relationship-to-deceased.description.proxy'
-                    ],
-                    type: 'string',
-                    oneOf: [
-                        {
-                            title: 'Parent',
-                            const: 'parent'
-                        },
-                        {
-                            title: 'Child',
-                            const: 'child'
-                        },
-                        {
-                            title: 'Spouse or civil partner',
-                            const: 'spouseOrCivilPartner'
-                        },
-                        {
-                            title: 'Partner',
-                            const: 'partner'
-                        },
-                        {
-                            title: 'Former spouse or former civil partner',
-                            const: 'formerSpouseOrCivilPartner'
-                        },
-                        {
-                            title: 'Other',
-                            const: 'other'
-                        }
-                    ],
-                    meta: {
-                        classifications: {
-                            theme: 'relationship-to-deceased'
-                        },
-                        summary: {
-                            title: [
-                                '|l10nt',
-                                ['|role.all', 'myself'],
-                                'applicant-relationship-to-deceased.title.myself',
-                                ['|role.all', 'proxy'],
-                                'applicant-relationship-to-deceased.title.proxy'
-                            ]
-                        }
-                    }
-                },
-                'q-applicant-relationship-other': {
-                    title: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-relationship-to-deceased.optionTitle.myself',
-                        ['|role.all', 'proxy'],
-                        'applicant-relationship-to-deceased.optionTitle.proxy'
-                    ],
-                    type: 'string',
-                    maxLength: 50,
-                    errorMessage: {
-                        maxLength: [
-                            '|l10nt',
-                            ['|role.all', 'myself'],
-                            'applicant-relationship-to-deceased.error.characterCount.myself',
-                            ['|role.all', 'proxy'],
-                            'applicant-relationship-to-deceased.error.characterCount.proxy'
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'relationship-to-deceased'
-                        }
-                    }
-                }
-            },
-            required: ['q-applicant-relationship-to-deceased'],
-            allOf: [
-                {
-                    $ref: '#/definitions/if-other-then-q-applicant-relationship-other-is-required'
-                }
-            ],
             definitions: {
-                'if-other-then-q-applicant-relationship-other-is-required': {
+                'if-other-relationship-then-relationship-required': {
                     if: {
                         properties: {
                             'q-applicant-relationship-to-deceased': {
@@ -178,17 +85,130 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {
-                required: {
-                    'q-applicant-relationship-to-deceased': [
+            allOf: [
+                {
+                    title: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'applicant-relationship-to-deceased.error.noSelection.myself',
+                        'applicant-relationship-to-deceased.title.myself',
                         ['|role.all', 'proxy'],
-                        'applicant-relationship-to-deceased.error.noSelection.proxy'
-                    ]
+                        'applicant-relationship-to-deceased.title.proxy'
+                    ],
+                    required: ['q-applicant-relationship-to-deceased'],
+                    propertyNames: {
+                        enum: [
+                            'q-applicant-relationship-to-deceased',
+                            'q-applicant-relationship-other'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-applicant-relationship-to-deceased': {
+                                    description: [
+                                        '|l10nt',
+                                        ['|role.all', 'myself'],
+                                        'applicant-relationship-to-deceased.description.myself',
+                                        ['|role.all', 'proxy'],
+                                        'applicant-relationship-to-deceased.description.proxy'
+                                    ],
+                                    type: 'string',
+                                    oneOf: [
+                                        {
+                                            title: 'Parent',
+                                            const: 'parent'
+                                        },
+                                        {
+                                            title: 'Child',
+                                            const: 'child'
+                                        },
+                                        {
+                                            title: 'Spouse or civil partner',
+                                            const: 'spouseOrCivilPartner'
+                                        },
+                                        {
+                                            title: 'Partner',
+                                            const: 'partner'
+                                        },
+                                        {
+                                            title: 'Former spouse or former civil partner',
+                                            const: 'formerSpouseOrCivilPartner'
+                                        },
+                                        {
+                                            title: 'Other',
+                                            const: 'other'
+                                        }
+                                    ],
+                                    meta: {
+                                        classifications: {
+                                            theme: 'relationship-to-deceased'
+                                        },
+                                        summary: {
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself'],
+                                                'applicant-relationship-to-deceased.optionTitle.myself',
+                                                ['|role.all', 'proxy'],
+                                                'applicant-relationship-to-deceased.optionTitle.proxy'
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-relationship-other': {
+                                    title: [
+                                        '|l10nt',
+                                        ['|role.all', 'myself'],
+                                        'applicant-relationship-to-deceased.optionTitle.myself',
+                                        ['|role.all', 'proxy'],
+                                        'applicant-relationship-to-deceased.optionTitle.proxy'
+                                    ],
+                                    type: 'string',
+                                    maxLength: 50,
+                                    errorMessage: {
+                                        maxLength: [
+                                            '|l10nt',
+                                            ['|role.all', 'myself'],
+                                            'applicant-relationship-to-deceased.error.characterCount.myself',
+                                            ['|role.all', 'proxy'],
+                                            'applicant-relationship-to-deceased.error.characterCount.proxy'
+                                        ]
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'relationship-to-deceased'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref:
+                                        '#/definitions/if-other-relationship-then-relationship-required'
+                                }
+                            ]
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-relationship-to-deceased': [
+                                '|l10nt',
+                                ['|role.all', 'myself'],
+                                'applicant-relationship-to-deceased.error.noSelection.myself',
+                                ['|role.all', 'proxy'],
+                                'applicant-relationship-to-deceased.error.noSelection.proxy'
+                            ]
+                        }
+                    }
                 }
-            },
+            ],
             examples: [
                 {
                     'q-applicant-relationship-to-deceased': 'parent'
