@@ -772,7 +772,8 @@ module.exports = {
                             'residency-and-nationality': {
                                 title: {
                                     applicant: 'About your residency and nationality',
-                                    proxy: "About the victim's residency and nationality"
+                                    proxy: "About the victim's residency and nationality",
+                                    deceased: "About the claimant's residency and nationality"
                                 }
                             }
                         }
@@ -863,7 +864,9 @@ module.exports = {
                 'residency-and-nationality': {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'proxy'],
+                        ['|role.all', 'proxy', 'deceased'],
+                        'residency-and-nationality.title.deceased',
+                        ['|role.all', 'proxy', 'nonDeceased'],
                         'residency-and-nationality.title.proxy',
                         ['|role.all'],
                         'residency-and-nationality.title.applicant'
