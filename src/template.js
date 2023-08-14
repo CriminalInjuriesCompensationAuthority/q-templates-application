@@ -214,8 +214,6 @@ const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-d
 const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
 const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
-const applicantImmediateAftermath = require('./lib/resource/sections/applicant-immediate-aftermath.js');
-const applicantDisablingMentalInjury = require('./lib/resource/sections/applicant-disabling-mental-injury.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -450,9 +448,7 @@ module.exports = {
         'p-other-claimants-details': otherClaimantsDetails.section,
         'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
-        'p-applicant-claim-type': applicantClaimType.section,
-        'p-applicant-immediate-aftermath': applicantImmediateAftermath.section,
-        'p-applicant-disabling-mental-injury': applicantDisablingMentalInjury.section
+        'p-applicant-claim-type': applicantClaimType.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -706,9 +702,7 @@ module.exports = {
             'p-other-claimants-details': otherClaimantsDetails.route,
             'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
             'p-applicant-physical-help': applicantPhysicalHelp.route,
-            'p-applicant-claim-type': applicantClaimType.route,
-            'p-applicant-immediate-aftermath': applicantImmediateAftermath.route,
-            'p-applicant-disabling-mental-injury': applicantDisablingMentalInjury.route
+            'p-applicant-claim-type': applicantClaimType.route
         }
     },
     answers: {},
