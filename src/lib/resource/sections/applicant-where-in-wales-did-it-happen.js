@@ -108,7 +108,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-immediate-aftermath',
+                    target: 'p--context-offender',
                     cond: [
                         'and',
                         ['|role.all', 'deceased'],
