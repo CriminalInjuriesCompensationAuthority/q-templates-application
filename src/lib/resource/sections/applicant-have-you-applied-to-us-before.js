@@ -14,13 +14,15 @@ module.exports = {
                     resources: {
                         'applicant-have-you-applied-to-us-before': {
                             title: {
-                                myself: 'Have you applied to us before?',
+                                myself:
+                                    'Have you applied to us before in connection with this or any other crime?',
                                 proxy: 'Has anyone applied to us before on behalf of the victim?',
                                 deceased:
                                     'Has the claimant applied to us before in connection with this or any other crime?'
                             },
                             error: {
-                                myself: 'Select yes if you have applied to us before',
+                                myself:
+                                    'Select yes if you have applied to us before in connection with this or any other crime',
                                 proxy:
                                     'Select yes if anyone has applied to us before on behalf of the victim',
                                 deceased:

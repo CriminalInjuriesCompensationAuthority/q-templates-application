@@ -7,7 +7,7 @@ module.exports = {
             type: 'object',
             allOf: [
                 {
-                    title: "What is the dentist's address?",
+                    title: "Enter the dentist's address",
                     meta: {
                         compositeId: 'applicant-dentist-address',
                         classifications: {

@@ -15,9 +15,9 @@ module.exports = {
                         'when-will-you-find-out': {
                             title: {
                                 myself:
-                                    'When will you find out if you’ve been awarded compensation?',
+                                    "When will you find out if you've been awarded compensation or damages?",
                                 proxy:
-                                    'When will the claimant find out if they’ve been awarded compensation or damages?'
+                                    "When will the claimant find out if they've been awarded compensation or damages?"
                             },
                             chars: {
                                 myself: 'When will you find out must be 50 characters or less',

@@ -17,10 +17,10 @@ module.exports = {
                     namespace: 'p-applicant-enter-your-telephone-number',
                     resources: {
                         'q-applicant-enter-your-telephone-number': {
-                            title: 'Enter your telephone number',
+                            title: 'Enter your telephone number (optional)',
                             'title_someone-else': 'Enter their telephone number',
                             description:
-                                'We may use this to contact you if we need to clarify something on your application form (optional).',
+                                'We may use this to contact you if we need to clarify something in your application.',
                             'description_someone-else':
                                 'We will only use this to contact this person in the event we cannot contact you via one of your contact preferences you provide (optional).'
                         }

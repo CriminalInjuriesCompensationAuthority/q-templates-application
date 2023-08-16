@@ -7,7 +7,7 @@ module.exports = {
             type: 'object',
             allOf: [
                 {
-                    title: 'Where in Wales did it happen?',
+                    title: 'Where in Wales did the crime happen?',
                     meta: {
                         compositeId: 'crime-location-wales',
                         classifications: {
@@ -59,7 +59,7 @@ module.exports = {
                             properties: {
                                 'additional-info-help-text': {
                                     description:
-                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one place, you can provide additional details later in this claim.</p>\'})}}'
+                                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "If the crime happened in more than one place",html: \'<p class="govuk-body">If the crime happened in more than one place, you can provide additional details later in this application.</p>\'})}}'
                                 }
                             }
                         }

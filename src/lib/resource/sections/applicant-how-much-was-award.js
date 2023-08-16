@@ -14,7 +14,7 @@ module.exports = {
                     resources: {
                         'how-much-was-award': {
                             title: {
-                                myself: 'How much compensation were you awarded?',
+                                myself: 'How much were you awarded?',
                                 proxy: 'How much were they awarded?'
                             }
                         }

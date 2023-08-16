@@ -16,7 +16,7 @@ module.exports = {
                         'applicant-have-you-applied-for-or-received-any-other-compensation': {
                             title: {
                                 myself:
-                                    'Have you applied for or received any other form of compensation?',
+                                    'Have you applied for or received any other form of compensation or damages?',
                                 proxy:
                                     'Has the victim applied for or received any other form of compensation or damages in connection with this crime?',
                                 deceased:
@@ -24,7 +24,7 @@ module.exports = {
                             },
                             error: {
                                 myself:
-                                    'Select yes if you have applied for any other form of compensation',
+                                    'Select yes if you have applied for any other form of compensation or damages',
                                 proxy:
                                     'Select yes if anyone has applied for or received any other form of compensation on behalf of the victim',
                                 deceased:
