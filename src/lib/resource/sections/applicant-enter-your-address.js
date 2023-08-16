@@ -13,7 +13,7 @@ module.exports = {
                     namespace: 'p-applicant-enter-your-address',
                     resources: {
                         title: {
-                            myself: 'What is your address?',
+                            myself: 'Enter your address',
                             proxy: 'What is their address?'
                         },
                         'q-applicant-building-and-street': {
