@@ -858,7 +858,7 @@ module.exports = {
                     // prettier-ignore
                     cond:['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
@@ -877,8 +877,8 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false]
-                        ['|role.all', 'adult', 'deceased'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
                         templateId: '869046d8-18ca-4f75-8f78-03fe0daa50f7',
