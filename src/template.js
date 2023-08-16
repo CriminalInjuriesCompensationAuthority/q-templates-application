@@ -936,7 +936,7 @@ module.exports = {
                         emailAddress: '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||',
-                            content: 'Do not reply to this email. Your bereavement application reference number is ||/answers/system/case-reference|| Your funeral application reference number is ||/answers/system/secondary-reference||'
+                            content: 'Please Do not reply to this email. Your bereavement application reference number is ||/answers/system/case-reference|| Your funeral application reference number is ||/answers/system/secondary-reference||'
                         },
                         reference: null
                     }
