@@ -19,7 +19,7 @@ module.exports = {
                             },
                             details: {
                                 applicant:
-                                    '<p class="govuk-body">Check the <a href="https://www.gov.uk/eu-eea" target="_blank">countries in the EU (opens in new tab)</a>.</p>'
+                                    '<p class="govuk-body">Check the <a class="govuk-link" href="https://www.gov.uk/eu-eea" target="_blank">countries in the EU (opens in new tab)</a>.</p>'
                             },
                             error: {
                                 applicant:

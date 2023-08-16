@@ -37,7 +37,7 @@ module.exports = {
                 },
                 'additional-info-help-text': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with where it happened",html: \'<p class="govuk-body">If the crime took place in more than one of these countries, you can provide additional details later in this claim.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "If the crime happened in more than one country",html: \'<p class="govuk-body">If the crime took place in more than one of these countries, you can provide additional details later in this application.</p>\'})}}'
                 }
             },
             errorMessage: {

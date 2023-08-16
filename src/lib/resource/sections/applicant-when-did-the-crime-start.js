@@ -29,10 +29,6 @@ module.exports = {
                     errorMessage: {
                         format: 'Enter the date the crime started and include a month and year'
                     }
-                },
-                'i-dont-know-when-the-crime-started': {
-                    description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{% set templateHtml %}{% include \'contact.njk\' %}{% endset %}{{ govukDetails({summaryText: "I do not know when the crime started",html: \'<p class="govuk-body">You can contact us for help with your application.</p>\' + templateHtml})}}'
                 }
             },
             errorMessage: {

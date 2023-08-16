@@ -38,7 +38,7 @@ module.exports = {
                                 const: 'phyinj-138'
                             },
                             {
-                                title: 'Hemiplegia (paralysis of one side of the the body)',
+                                title: 'Hemiplegia (paralysis of one side of the body)',
                                 const: 'phyinj-137'
                             },
                             {

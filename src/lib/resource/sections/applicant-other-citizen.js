@@ -18,7 +18,7 @@ module.exports = {
                             description: {
                                 applicant: `
                             <p class="govuk-body">Victims of violent crime in the UK who were citizens of a country that had signed and ratified this convention when the crime happened, can apply for compensation.</p>
-                            <p class="govuk-body">Check the <a href="https://www.coe.int/en/web/conventions/full-list?module=signatures-by-treaty&treatynum=116" target="_blank">countries that are party to this convention on the Council of Europe website (opens in new tab)</a>.</p>
+                            <p class="govuk-body">Check the <a class="govuk-link" href="https://www.coe.int/en/web/conventions/full-list?module=signatures-by-treaty&treatynum=116" target="_blank">countries that are party to this convention on the Council of Europe website (opens in new tab)</a>.</p>
                             `
                             }
                         },

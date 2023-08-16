@@ -35,7 +35,7 @@ module.exports = {
                 },
                 'help-se-treatment': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the costs of NHS and state health service treatments",html: \'<p class="govuk-body">Not all treatments provided by the NHS or other state health services are free.</p><p class="govuk-body">You can find out more about the <a href="https://www.nhs.uk/nhs-services/help-with-health-costs/when-you-need-to-pay-towards-nhs-care/" target="_blank">cost of NHS treatments (opens in new tab)</a> and <a href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs" target="_blank">cost of NHS Scotland treatments (opens in new tab)</a>.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the costs of NHS and state health service treatments",html: \'<p class="govuk-body">Not all treatments provided by the NHS or other state health services are free.</p><p class="govuk-body">You can find out more about the <a class="govuk-link" href="https://www.nhs.uk/nhs-services/help-with-health-costs/when-you-need-to-pay-towards-nhs-care/" target="_blank">cost of NHS treatments (opens in new tab)</a> and <a class="govuk-link" href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/help-with-health-costs" target="_blank">cost of NHS Scotland treatments (opens in new tab)</a>.</p>\'})}}'
                 }
             },
             errorMessage: {

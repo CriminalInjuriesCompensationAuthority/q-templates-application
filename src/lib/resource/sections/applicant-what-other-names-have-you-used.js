@@ -17,12 +17,16 @@ module.exports = {
                     namespace: 'p-applicant-what-other-names-have-you-used',
                     resources: {
                         'q-applicant-what-other-names-have-you-used': {
-                            title: 'What other names have you used?',
+                            title: 'What other names have you been known by?',
                             'title_someone-else': 'What other names have they used?',
+                            description: {
+                                applicant:
+                                    'We need to know any other names you have used, for example, your maiden name.'
+                            },
                             error: {
-                                required: 'Enter the other names you have used',
+                                required: "Enter the other names you've been known by",
                                 maxLength:
-                                    'Other names you have used must be 50 characters or less',
+                                    "Other names you've been known by must be 50 characters or less",
                                 'required_someone-else': 'Enter the other names they have used',
                                 'maxLength_someone-else':
                                     'Other names they have used must be 50 characters or less'
@@ -42,6 +46,11 @@ module.exports = {
                     type: 'string',
                     title:
                         'l10nt:q-applicant-what-other-names-have-you-used.title{?lng,context,ns}',
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'q-applicant-what-other-names-have-you-used.description.applicant'
+                    ],
                     maxLength: 50,
                     errorMessage: {
                         maxLength:
