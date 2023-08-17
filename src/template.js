@@ -1,5 +1,7 @@
 'use strict';
 
+const {version} = require('../package.json');
+
 const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
 const applicantDeclarationDeceased = require('./lib/resource/sections/applicant-declaration-deceased.js');
 const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
@@ -216,7 +218,7 @@ const applicantClaimType = require('./lib/resource/sections/applicant-claim-type
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '11.0.0',
+    version,
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
