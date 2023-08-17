@@ -1,5 +1,7 @@
 'use strict';
 
+const {version} = require('../package.json');
+
 const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
 const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
 const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
@@ -174,7 +176,7 @@ const owner = require('./lib/resource/sections/owner');
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '8.0.4',
+    version,
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
