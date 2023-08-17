@@ -881,11 +881,10 @@ module.exports = {
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
-                        templateId: '869046d8-18ca-4f75-8f78-03fe0daa50f7',
+                        templateId: '27a03b8a-d236-4a0d-a1e4-c2713327da96',
                         emailAddress: '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
                         personalisation: {
-                            caseReference: '||/answers/system/case-reference||',
-                            content: 'Please Do not reply to this email. Your bereavement application reference number is ||/answers/system/case-reference|| Your funeral application reference number is ||/answers/system/secondary-reference||'
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -915,6 +914,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                     ],
                     data: {
@@ -923,6 +923,26 @@ module.exports = {
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation email - mainapplicant.applicant:adult:incapable.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'b4f6f5ec-c268-4c58-95f8-d0606317b8a2',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -951,6 +971,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
                     ],
                     data: {
@@ -959,6 +980,25 @@ module.exports = {
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - mainapplicant.applicant:child.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'ec24f2a6-1062-486d-bd13-c6f8812e43c9',
+                        emailAddress:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -986,6 +1026,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
@@ -993,6 +1034,24 @@ module.exports = {
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.applicant:adult:capable.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    ],
+                    data: {
+                        templateId: '12bc4419-5e84-4714-b1c8-0527290bb567',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1022,6 +1081,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
@@ -1029,6 +1089,25 @@ module.exports = {
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation email - rep.mainapplicant.applicant:adult:incapable.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '74c5f4d2-9c66-4800-8a15-313a64938a43',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1056,6 +1135,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
@@ -1063,6 +1143,24 @@ module.exports = {
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep.mainapplicant.applicant:child.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: '5d51b70e-0335-44f6-aa33-736997ba90d8',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1090,6 +1188,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
@@ -1097,6 +1196,24 @@ module.exports = {
                         emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation email - rep:no-legal-authority.applicant.deceased.split',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '621093ee-b732-4bdf-9026-0f03977502b7',
+                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1125,6 +1242,7 @@ module.exports = {
                     // prettier-ignore
                     cond:['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
@@ -1133,6 +1251,25 @@ module.exports = {
                             '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - applicant:adult.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'adult', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'b9d81762-9125-4a19-a016-f54fab3de0d3',
+                        phoneNumber:
+                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1162,6 +1299,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                     ],
                     data: {
@@ -1170,6 +1308,26 @@ module.exports = {
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation sms - mainapplicant.applicant:adult:incapable.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    ],
+                    data: {
+                        templateId: '9c4097d0-c617-431b-88ff-4f9893bd203e',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1198,6 +1356,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
                     ],
                     data: {
@@ -1206,6 +1365,25 @@ module.exports = {
                             '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - mainapplicant.applicant:child.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'f9be1af0-7d13-4710-a008-fddec42a9c5c',
+                        phoneNumber:
+                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1234,6 +1412,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
@@ -1242,6 +1421,24 @@ module.exports = {
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.applicant:adult:capable.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    ],
+                    data: {
+                        templateId: '05709516-af2a-4897-905f-0c72fb012d60',
+                        phoneNumber: '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1272,6 +1469,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
@@ -1280,6 +1478,26 @@ module.exports = {
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description:
+                        'Confirmation sms - rep.mainapplicant.applicant:adult:incapable.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    ],
+                    data: {
+                        templateId: 'ee1119cd-3ec1-481c-bd97-ce62a4757eeb',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1308,6 +1526,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
@@ -1316,6 +1535,25 @@ module.exports = {
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep.mainapplicant.applicant:child.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'child', 'deceased']
+                    ],
+                    data: {
+                        templateId: '3006bbb8-cd37-483e-8c37-e25519716d3e',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
@@ -1344,6 +1582,7 @@ module.exports = {
                     // prettier-ignore
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
@@ -1352,6 +1591,25 @@ module.exports = {
                             '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
+                        },
+                        reference: null
+                    }
+                },
+                {
+                    description: 'Confirmation sms - rep:no-legal-authority.applicant.deceased.split',
+                    type: 'sendSms',
+                    // prettier-ignore
+                    cond: ['and',
+                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    ],
+                    data: {
+                        templateId: '0ce7f91a-ae1d-4bf4-bfec-64ed0019e93d',
+                        phoneNumber:
+                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        personalisation: {
+                            content: 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
                         },
                         reference: null
                     }
