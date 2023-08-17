@@ -23,14 +23,14 @@ module.exports = {
                             error: {
                                 myself: 'Enter your title',
                                 nonDeceased: "Enter the victim's title",
-                                deceased: 'Enter the claimant’s title'
+                                deceased: "Enter the claimant's title"
                             }
                         },
                         'q-applicant-first-name': {
                             error: {
                                 myself: 'Enter your first name',
                                 nonDeceased: "Enter the victim's first name",
-                                deceased: 'Enter the claimant’s first name'
+                                deceased: "Enter the claimant's first name"
                             }
                         },
                         'q-applicant-last-name': {

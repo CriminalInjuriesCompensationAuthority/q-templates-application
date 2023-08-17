@@ -17,13 +17,13 @@ module.exports = {
                                 myself:
                                     'When your partner died, had you been living together continuously for 2 years or more?',
                                 proxy:
-                                    'When the claimant’s partner died had they been living together continuously for 2 years or more?'
+                                    "When the claimant's partner died had they been living together continuously for 2 years or more?"
                             },
                             error: {
                                 myself:
                                     'Select yes if when your partner died you had been living together continuously for 2 years or more',
                                 proxy:
-                                    'Select yes if when the claimant’s partner died they were living together continuously for 2 years or more'
+                                    "Select yes if when the claimant's partner died they were living together continuously for 2 years or more"
                             }
                         }
                     }

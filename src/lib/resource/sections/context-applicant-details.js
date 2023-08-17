@@ -22,12 +22,12 @@ module.exports = {
                             },
                             description: {
                                 myself:
-                                    '<p class="govuk-body">We’re going to ask for some details about you.</p><p class="govuk-body">We’ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>',
+                                    '<p class="govuk-body">We\'re going to ask for some details about you.</p><p class="govuk-body">We\'ll use these to:</p><ul class="govuk-list govuk-list--bullet"><li>contact you</li><li>get a report about the crime from the police</li></ul>',
                                 proxy: {
                                     nonDeceased:
-                                        '<p class="govuk-body">We’re going to ask for some details about the victim.</p><p class="govuk-body">We’ll use these to get a report about the crime from the police.</p>',
+                                        '<p class="govuk-body">We\'re going to ask for some details about the victim.</p><p class="govuk-body">We\'ll use these to get a report about the crime from the police.</p>',
                                     deceased:
-                                        '<p class="govuk-body">We’re going to ask for some details about the claimant.</p><p class="govuk-body">We’ll use these to get a report about the crime from the police.</p>'
+                                        '<p class="govuk-body">We\'re going to ask for some details about the claimant.</p><p class="govuk-body">We\'ll use these to get a report about the crime from the police.</p>'
                                 }
                             }
                         }

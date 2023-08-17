@@ -31,7 +31,7 @@ module.exports = {
                                 noSelection: {
                                     myself: 'Select your relationship to the person who died',
                                     proxy:
-                                        'Select the claimant’s relationship to the person who died'
+                                        "Select the claimant's relationship to the person who died"
                                 },
                                 conditionalOption: {
                                     myself: 'Tell us how you are related',

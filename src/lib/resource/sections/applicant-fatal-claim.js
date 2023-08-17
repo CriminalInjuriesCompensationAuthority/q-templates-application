@@ -22,7 +22,7 @@ module.exports = {
                                 myself:
                                     'If you are paying for the funeral of the person who died, you may be able to get help with the cost. If you are their relative, you may also be eligible for bereavement payments.',
                                 proxy:
-                                    'If the person you’re applying on behalf of is paying for the funeral of the person who died, they may be able to get help with the cost. If they are their relative, they may also be eligible for bereavement payments.'
+                                    "If the person you're applying on behalf of is paying for the funeral of the person who died, they may be able to get help with the cost. If they are their relative, they may also be eligible for bereavement payments."
                             }
                         }
                     }

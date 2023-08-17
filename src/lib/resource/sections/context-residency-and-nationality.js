@@ -16,8 +16,8 @@ module.exports = {
                             title: {
                                 applicant: 'About your residency and nationality',
                                 proxy: {
-                                    nonDeceased: 'About the victim’s residency and nationality',
-                                    deceased: 'About the claimant’s residency and nationality'
+                                    nonDeceased: "About the victim's residency and nationality",
+                                    deceased: "About the claimant's residency and nationality"
                                 }
                             },
                             description: {
