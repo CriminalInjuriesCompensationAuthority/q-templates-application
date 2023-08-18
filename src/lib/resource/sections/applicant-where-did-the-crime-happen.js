@@ -98,7 +98,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--you-need-to-contact-us',
+                    target: 'p-applicant-crime-location',
                     cond: [
                         '==',
                         '$.answers.p-applicant-where-did-the-crime-happen.q-applicant-where-did-the-crime-happen',

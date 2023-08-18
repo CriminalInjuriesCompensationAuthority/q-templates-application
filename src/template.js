@@ -28,7 +28,6 @@ const applicantWhereDidTheCrimeHappen = require('./lib/resource/sections/applica
 const applicantWhereInEnglandDidItHappen = require('./lib/resource/sections/applicant-where-in-england-did-it-happen.js');
 const applicantWhereInScotlandDidItHappen = require('./lib/resource/sections/applicant-where-in-scotland-did-it-happen.js');
 const applicantWhereInWalesDidItHappen = require('./lib/resource/sections/applicant-where-in-wales-did-it-happen.js');
-const youNeedToContactUs = require('./lib/resource/sections/you-need-to-contact-us.js');
 const whichPoliceForceIsInvestigatingTheCrime = require('./lib/resource/sections/which-police-force-is-investigating-the-crime.js');
 const applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice = require('./lib/resource/sections/applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.js');
 const offenderDoYouKnowTheNameOfTheOffender = require('./lib/resource/sections/offender-do-you-know-the-name-of-the-offender.js');
@@ -214,6 +213,7 @@ const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-d
 const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
 const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
+const applicantCrimeLocation = require('./lib/resource/sections/applicant-crime-location');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -251,7 +251,6 @@ module.exports = {
         'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.section,
         'p-applicant-where-in-scotland-did-it-happen': applicantWhereInScotlandDidItHappen.section,
         'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.section,
-        'p--you-need-to-contact-us': youNeedToContactUs.section,
         'p--which-police-force-is-investigating-the-crime':
             whichPoliceForceIsInvestigatingTheCrime.section,
         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
@@ -448,7 +447,8 @@ module.exports = {
         'p-other-claimants-details': otherClaimantsDetails.section,
         'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
-        'p-applicant-claim-type': applicantClaimType.section
+        'p-applicant-claim-type': applicantClaimType.section,
+        'p-applicant-crime-location': applicantCrimeLocation.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -499,7 +499,6 @@ module.exports = {
             'p-applicant-where-in-scotland-did-it-happen':
                 applicantWhereInScotlandDidItHappen.route,
             'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.route,
-            'p--you-need-to-contact-us': youNeedToContactUs.route,
             'p--which-police-force-is-investigating-the-crime':
                 whichPoliceForceIsInvestigatingTheCrime.route,
             'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
@@ -702,7 +701,8 @@ module.exports = {
             'p-other-claimants-details': otherClaimantsDetails.route,
             'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
             'p-applicant-physical-help': applicantPhysicalHelp.route,
-            'p-applicant-claim-type': applicantClaimType.route
+            'p-applicant-claim-type': applicantClaimType.route,
+            'p-applicant-crime-location': applicantCrimeLocation.route
         }
     },
     answers: {},
