@@ -27,6 +27,9 @@ module.exports = {
                                         myself: 'Are you 18 or over?',
                                         proxy: 'Are they 18 or over?'
                                     }
+                                },
+                                integration: {
+                                    hideOnSummary: true
                                 }
                             }
                         }
