@@ -28,9 +28,6 @@ module.exports = {
                                         proxy: 'Are they 18 or over?'
                                     }
                                 },
-                                integration: {
-                                    hideOnSummary: true
-                                }
                             }
                         }
                     }
@@ -65,6 +62,9 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'about-application'
+                        },
+                        integration: {
+                            hideOnSummary: true
                         },
                         summary: {
                             title: [
@@ -108,7 +108,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-british-citizen-or-eu-national',
+                    target: 'p--was-the-crime-reported-to-police',
                     cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
                 },
                 {
