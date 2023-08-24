@@ -92,21 +92,6 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--transition',
-                    cond: [
-                        'and',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        ['|role.all', 'capable']
-                    ]
-                },
-                {
                     target: 'p-applicant-can-handle-affairs',
                     cond: [
                         'and',

@@ -29,7 +29,7 @@ module.exports = {
                         },
                         integration: {
                             hideOnSummary: true
-                        }            
+                        }
                     }
                 },
                 'crn-info': {
