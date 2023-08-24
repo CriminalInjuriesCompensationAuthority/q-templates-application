@@ -213,6 +213,12 @@ const contextFuneralCostsProof = require('./lib/resource/sections/context-funera
 const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
 const applicantCrimeLocation = require('./lib/resource/sections/applicant-crime-location');
+const applicantUnder18 = require('./lib/resource/sections/applicant-under-18.js');
+const transitionSomeone18OrOverToApply = require('./lib/resource/sections/transition-someone-18-or-over-to-apply.js');
+const applicantWhatDoYouWantToDo = require('./lib/resource/sections/applicant-what-do-you-want-to-do.js');
+const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-when-18.js');
+const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
+const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -446,7 +452,13 @@ module.exports = {
         'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
         'p-applicant-claim-type': applicantClaimType.section,
-        'p-applicant-crime-location': applicantCrimeLocation.section
+        'p-applicant-crime-location': applicantCrimeLocation.section,
+        'p-applicant-under-18': applicantUnder18.section,
+        'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.section,
+        'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.section,
+        'p--transition-apply-when-18': transitionApplyWhen18.section,
+        'p--transition-request-a-call-back': transitionRequestACallBack.section,
+        'p--transition-contact-us': transitionContactUs.section
     },
     routes: {
         initial: 'p--new-or-existing-application',
@@ -699,7 +711,13 @@ module.exports = {
             'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
             'p-applicant-physical-help': applicantPhysicalHelp.route,
             'p-applicant-claim-type': applicantClaimType.route,
-            'p-applicant-crime-location': applicantCrimeLocation.route
+            'p-applicant-crime-location': applicantCrimeLocation.route,
+            'p-applicant-under-18': applicantUnder18.route,
+            'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.route,
+            'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
+            'p--transition-apply-when-18': transitionApplyWhen18.route,
+            'p--transition-request-a-call-back': transitionRequestACallBack.route,
+            'p--transition-contact-us': transitionContactUs.route
         }
     },
     answers: {},
