@@ -112,7 +112,7 @@ module.exports = {
                     cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
                 },
                 {
-                    target: 'p--transition'
+                    target: 'p-applicant-under-18'
                 }
             ]
         }
