@@ -9,6 +9,7 @@ module.exports = {
             properties: {
                 'p-check-your-answers': {
                     title: 'Check your answers',
+                    description: 'Check your answers before sending your application',
                     type: 'object',
                     properties: {
                         summaryInfo: {
