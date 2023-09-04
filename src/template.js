@@ -706,6 +706,44 @@ module.exports = {
         }
     },
     answers: {},
+    onSubmit: {
+        id: 'task0',
+        type: 'sequential',
+        data: [
+            {
+                id: 'task1',
+                type: 'generateReferenceNumber',
+                data: {
+                    questionnaire: '$.questionnaireDef',
+                    logger: '$.logger'
+                }
+            },
+            {
+                id: 'task2',
+                type: 'transformAndUpload',
+                data: {
+                    questionnaireDef: '$.questionnaireDef',
+                    logger: '$.logger'
+                }
+            },
+            {
+                id: 'task3',
+                type: 'sendSubmissionMessageToSQS',
+                data: {
+                    questionnaire: '$.questionnaireDef',
+                    logger: '$.logger'
+                }
+            },
+            {
+                id: 'task4',
+                type: 'sendNotifyMessageToSQS',
+                data: {
+                    questionnaire: '$.questionnaireDef',
+                    logger: '$.logger'
+                }
+            }
+        ]
+    },
     progress: ['p--new-or-existing-application'],
     taxonomies: {
         theme: {
