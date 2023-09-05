@@ -957,7 +957,7 @@ module.exports = {
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
-                            ['|role.all', 'adult', 'deceased'],
+                            ['|role.all', 'adult', 'deceased']
                         ]
                     ],
                     data: {
@@ -1684,7 +1684,8 @@ module.exports = {
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                         ],
-                        [  'and'
+                        [  
+                            'and',
                             ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
