@@ -946,12 +946,14 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond:['or',
-                        ['and',
+                        [
+                            'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'adult', 'deceased'],
                         ],
-                        ['and',
+                        [
+                            'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
