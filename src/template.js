@@ -217,7 +217,7 @@ const applicantClaimType = require('./lib/resource/sections/applicant-claim-type
 
 module.exports = {
     type: 'apply-for-compensation',
-    version: '8.0.4',
+    version: '11.0.0',
     sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
