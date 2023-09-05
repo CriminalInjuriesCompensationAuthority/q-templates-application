@@ -945,7 +945,7 @@ module.exports = {
                     description: 'Confirmation email - applicant:adult.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond:['or',
+                    cond: ['or',
                         [
                             'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
@@ -1012,10 +1012,20 @@ module.exports = {
                         'Confirmation email - mainapplicant.applicant:adult:incapable.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '21f4d5de-a219-47c8-aa3e-e5489b0fc3ed',
@@ -1035,6 +1045,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                     ],
                     data: {
@@ -1069,10 +1080,20 @@ module.exports = {
                     description: 'Confirmation email - mainapplicant.applicant:child.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'mainapplicant', 'child', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'mainapplicant', 'child', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '58708020-d8a5-4d96-b56f-91f5c4c4c590',
@@ -1091,6 +1112,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
                     ],
                     data: {
@@ -1124,10 +1146,20 @@ module.exports = {
                     description: 'Confirmation email - rep.applicant:adult:capable.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: 'ed98bf04-f338-47cf-b949-4367d8f8b707',
@@ -1145,6 +1177,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
@@ -1179,10 +1212,20 @@ module.exports = {
                         'Confirmation email - rep.mainapplicant.applicant:adult:incapable.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: 'a70aaff8-8299-448b-ac22-6579c840c8e6',
@@ -1201,6 +1244,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
@@ -1233,10 +1277,20 @@ module.exports = {
                     description: 'Confirmation email - rep.mainapplicant.applicant:child.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'child', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'child', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'child', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: 'c72a9445-7d08-4db7-b7b9-a8d1900818ed',
@@ -1254,6 +1308,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
@@ -1286,10 +1341,20 @@ module.exports = {
                     description: 'Confirmation email - rep:no-legal-authority.applicant.deceased',
                     type: 'sendEmail',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'noauthority', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'noauthority', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '54392a68-d12c-4f0d-8388-e8439fdbfc2f',
@@ -1307,6 +1372,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
@@ -1340,10 +1406,20 @@ module.exports = {
                     description: 'Confirmation sms - applicant:adult.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond:['and',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'adult', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'adult', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'adult', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '46e66520-6e0a-412b-a509-18a09c8bfa35',
@@ -1362,6 +1438,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'adult', 'deceased']
                     ],
                     data: {
@@ -1397,10 +1474,20 @@ module.exports = {
                         'Confirmation sms - mainapplicant.applicant:adult:incapable.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: 'fe1997b8-ba0e-4c97-94f2-d4d350868596',
@@ -1420,6 +1507,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                     ],
                     data: {
@@ -1454,10 +1542,20 @@ module.exports = {
                     description: 'Confirmation sms - mainapplicant.applicant:child.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'mainapplicant', 'child', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'mainapplicant', 'child', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'mainapplicant', 'child', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '228454a8-c178-4f50-a7ca-5cb934dcb8b8',
@@ -1476,6 +1574,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
                     ],
                     data: {
@@ -1510,10 +1609,20 @@ module.exports = {
                     description: 'Confirmation sms - rep.applicant:adult:capable.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'adult', 'capable', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '1e764481-69c1-4d5a-8a05-fbadc09aa47c',
@@ -1532,6 +1641,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
@@ -1567,10 +1677,19 @@ module.exports = {
                         'Confirmation sms - rep.mainapplicant.applicant:adult:incapable.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                        ],
+                        [  'and'
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '6151b209-33de-40ec-88b0-7f1a4580bf18',
@@ -1590,6 +1709,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
@@ -1624,10 +1744,20 @@ module.exports = {
                     description: 'Confirmation sms - rep.mainapplicant.applicant:child.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'child', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'child', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'child', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '768165a8-b5cf-4ce5-acfa-a1bb533aca91',
@@ -1646,6 +1776,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
@@ -1680,10 +1811,20 @@ module.exports = {
                     description: 'Confirmation sms - rep:no-legal-authority.applicant.deceased',
                     type: 'sendSms',
                     // prettier-ignore
-                    cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
-                        ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                        ['|role.all', 'rep', 'noauthority', 'deceased']
+                    cond: ['or',
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
+                            ['|role.all', 'rep', 'noauthority', 'deceased']
+                        ],
+                        [
+                            'and',
+                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                            ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
+                            ['|role.all', 'rep', 'noauthority', 'deceased']
+                        ]
                     ],
                     data: {
                         templateId: '1ef1b7ae-293c-456d-93b4-8646791450f9',
@@ -1702,6 +1843,7 @@ module.exports = {
                     cond: ['and',
                         ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
+                        ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
