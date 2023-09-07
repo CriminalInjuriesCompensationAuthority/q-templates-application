@@ -709,10 +709,12 @@ module.exports = {
     onSubmit: {
         id: 'task0',
         type: 'sequential',
+        retries: 0,
         data: [
             {
                 id: 'task1',
                 type: 'generateReferenceNumber',
+                retries: 0,
                 data: {
                     questionnaire: '$.questionnaireDef',
                     logger: '$.logger'
@@ -721,6 +723,7 @@ module.exports = {
             {
                 id: 'task2',
                 type: 'transformAndUpload',
+                retries: 0,
                 data: {
                     questionnaireDef: '$.questionnaireDef',
                     logger: '$.logger'
@@ -729,6 +732,7 @@ module.exports = {
             {
                 id: 'task3',
                 type: 'sendSubmissionMessageToSQS',
+                retries: 0,
                 data: {
                     questionnaire: '$.questionnaireDef',
                     logger: '$.logger'
@@ -737,6 +741,7 @@ module.exports = {
             {
                 id: 'task4',
                 type: 'sendNotifyMessageToSQS',
+                retries: 0,
                 data: {
                     questionnaire: '$.questionnaireDef',
                     logger: '$.logger'
@@ -1700,7 +1705,7 @@ module.exports = {
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                         ],
-                        [  
+                        [
                             'and',
                             ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
