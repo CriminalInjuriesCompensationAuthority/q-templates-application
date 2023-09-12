@@ -19,7 +19,7 @@ module.exports = {
                                 {% set emailAddress = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||" %}
                                 {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                 {% if caseReferenceNumber %}
-                                  {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong><br />Make a note of your reference number. You\'ll need this if you contect us about this application. You will not get another conirmation of this refernce once you exit thiis screen</p>" %}
+                                  {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong><br />Make a note of your reference number. You\'ll need this if you contact us about this application. You will not get another confirmation of this reference number once you exit this screen</p>" %}
                                 {% else %}
                                   {% set html =  "<p>We\'re experiencing a delay getting your reference number at the moment. Call us in 5 working days and we should be able to give you your reference number. </p><p>You should make a note of your reference number when you get it. You\'ll need this if you contact us about your application. You will not get another confirmation of this reference number unless you call us.</p>" %}
                                 {% endif %}
