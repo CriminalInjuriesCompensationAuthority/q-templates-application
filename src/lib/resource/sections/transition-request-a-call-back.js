@@ -10,7 +10,7 @@ module.exports = {
                 transition: {
                     title: 'Continue to our call back request form',
                     description:
-                        '<p class="govuk-body">Continue to our call back request form.</p>{{ govukButton({text: "Continue",href: " https://request-a-call-back.form.service.justice.gov.uk/",isStartButton: true}) }}'
+                        '<p class="govuk-body">You\'ll be taken to another website to request a call back.</p>{{ govukButton({text: "Continue",href: " https://request-a-call-back.form.service.justice.gov.uk/",isStartButton: true}) }}'
                 }
             },
             examples: [{}],
