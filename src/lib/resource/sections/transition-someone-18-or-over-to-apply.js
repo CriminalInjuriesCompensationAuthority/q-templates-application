@@ -11,7 +11,7 @@ module.exports = {
                     title:
                         "You've told us you want to get someone aged 18 or over to apply for you",
                     description:
-                        '<p class="govuk-body">They\'ll have to <a class="govuk-link" href="/apply/start-or-resume/">start a new application</a>.</p>'
+                        '<p class="govuk-body">They\'ll have to <a class="govuk-link" href="https://claim-criminal-injuries-compensation.service.justice.gov.uk/apply/start-or-resume">start a new application</a>.</p>'
                 }
             },
             examples: [{}],
