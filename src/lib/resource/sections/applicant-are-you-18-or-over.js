@@ -63,9 +63,6 @@ module.exports = {
                         classifications: {
                             theme: 'about-application'
                         },
-                        integration: {
-                            hideOnSummary: true
-                        },
                         summary: {
                             title: [
                                 '|l10nt',
