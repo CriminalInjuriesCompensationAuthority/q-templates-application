@@ -22,7 +22,7 @@ module.exports = {
                             },
                             error: {
                                 myself:
-                                    'Select yes if you have applied to us before in connection with this or any other crime',
+                                    'Select yes if you have applied for or received any other form of compensation or damages',
                                 proxy:
                                     'Select yes if anyone has applied to us before on behalf of the victim',
                                 deceased:

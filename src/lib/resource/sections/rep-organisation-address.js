@@ -145,7 +145,8 @@ module.exports = {
                                 'q-rep-postcode': {
                                     type: 'string',
                                     title: 'Postcode',
-                                    description: 'This can be an international postal or zip code',
+                                    description:
+                                        'This could be an international postal or zip code',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
