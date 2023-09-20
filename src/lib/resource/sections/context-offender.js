@@ -15,7 +15,7 @@ module.exports = {
                         'offender-context': {
                             description: {
                                 myself:
-                                    '<p class="govuk-body">We\'re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation you get.</p><p class="govuk-body">We will never contact the offender.</p>',
+                                    '<p class="govuk-body">We\'re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if you have contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender would not benefit from any compensation you may be entitled to.</p><p class="govuk-body">We will never contact the offender.</p>',
                                 proxy:
                                     '<p class="govuk-body">We\'re going to ask:</p><ul class="govuk-list govuk-list--bullet"><li>the offender\'s name (if you know it)</li><li>if the victim has contact with the offender</li></ul><p class="govuk-body">This is so we can make sure the offender does not benefit from any compensation.</p><p class="govuk-body">We will never contact the offender.</p>',
                                 deceased:
