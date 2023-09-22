@@ -19,10 +19,10 @@ module.exports = {
                         'q-applicant-what-other-names-have-you-used': {
                             title: 'What other names have you been known by?',
                             'title_someone-else': 'What other names have they used?',
-                            description: {
-                                applicant:
-                                    'We need to know any other names you have used, for example, your maiden name.'
-                            },
+                            description:
+                                'We need to know any other names you have used, for example, your maiden name.',
+                            'description_someone-else':
+                                'We need to know any other names they have used, for example, their maiden name.',
                             error: {
                                 required: "Enter the other names you've been known by",
                                 maxLength:
@@ -46,11 +46,8 @@ module.exports = {
                     type: 'string',
                     title:
                         'l10nt:q-applicant-what-other-names-have-you-used.title{?lng,context,ns}',
-                    description: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'q-applicant-what-other-names-have-you-used.description.applicant'
-                    ],
+                    description:
+                        'l10nt:q-applicant-what-other-names-have-you-used.description{?lng,context,ns}',
                     maxLength: 50,
                     errorMessage: {
                         maxLength:
