@@ -59,7 +59,7 @@ module.exports = {
                 {
                     target: 'p--context-rep-details',
                     cond: [
-                        'or',
+                        'and',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                     ]
