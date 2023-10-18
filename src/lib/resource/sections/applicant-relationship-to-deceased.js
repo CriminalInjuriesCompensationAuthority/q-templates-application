@@ -147,9 +147,9 @@ module.exports = {
                                             title: [
                                                 '|l10nt',
                                                 ['|role.all', 'myself'],
-                                                'applicant-relationship-to-deceased.optionTitle.myself',
+                                                'applicant-relationship-to-deceased.title.myself',
                                                 ['|role.all', 'proxy'],
-                                                'applicant-relationship-to-deceased.optionTitle.proxy'
+                                                'applicant-relationship-to-deceased.title.proxy'
                                             ]
                                         }
                                     }
@@ -180,6 +180,15 @@ module.exports = {
                                     meta: {
                                         classifications: {
                                             theme: 'relationship-to-deceased'
+                                        },
+                                        summary: {
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself'],
+                                                'applicant-relationship-to-deceased.optionTitle.myself',
+                                                ['|role.all', 'proxy'],
+                                                'applicant-relationship-to-deceased.optionTitle.proxy'
+                                            ]
                                         }
                                     }
                                 }
