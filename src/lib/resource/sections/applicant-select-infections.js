@@ -10,6 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-physical-injuries': {
                     title: 'What infection?',
+                    description: 'Select all that apply.',
                     type: 'array',
                     items: {
                         anyOf: [

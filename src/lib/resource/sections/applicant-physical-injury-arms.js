@@ -10,6 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-physical-injury-arms': {
                     title: 'What part of the arms or hands were injured?',
+                    description: 'Select all that apply.',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -58,7 +59,7 @@ module.exports = {
                         },
                         integration: {
                             hideOnSummary: true
-                        }            
+                        }
                     }
                 }
             },

@@ -10,6 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-physical-injury-upper': {
                     title: 'What parts of the head, face or neck were injured?',
+                    description: 'Select all that apply.',
                     type: 'array',
                     items: {
                         anyOf: [
@@ -62,7 +63,7 @@ module.exports = {
                         },
                         integration: {
                             hideOnSummary: true
-                        }            
+                        }
                     }
                 }
             },

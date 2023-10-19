@@ -18,8 +18,6 @@ module.exports = {
                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
                     resources: {
                         'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
-                            description: 'Select all options that apply to you.',
-                            'description_someone-else': 'Select all options that apply.',
                             error: {
                                 required:
                                     'Select if you were under 18, unable to report the crime or other reasons',
@@ -52,8 +50,7 @@ module.exports = {
                     type: 'array',
                     maxItems: 3,
                     uniqueItems: true,
-                    description:
-                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.description{?lng,context,ns}',
+                    description: 'Select all that apply.',
                     items: {
                         anyOf: [
                             {

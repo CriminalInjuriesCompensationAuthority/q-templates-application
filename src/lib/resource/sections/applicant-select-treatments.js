@@ -26,9 +26,10 @@ module.exports = {
                             title: 'Other mental health treatment'
                         },
                         'q-applicant-select-treatments-dmi': {
-                            description: "Include any treatment you're waiting to get.",
+                            description:
+                                "Select all that apply and include any treatment you're waiting to get.",
                             'description_someone-else':
-                                "Include any treatment they're waiting to get.",
+                                "Select all that apply and include any treatment they're waiting to get.",
                             error: {
                                 required:
                                     'Select any treatments you have received for your mental injury',

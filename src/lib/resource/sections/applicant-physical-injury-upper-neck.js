@@ -10,6 +10,7 @@ module.exports = {
             properties: {
                 'q-applicant-physical-injuries': {
                     title: 'Select any injuries to the neck',
+                    description: 'Select all that apply.',
                     type: 'array',
                     items: {
                         anyOf: [
