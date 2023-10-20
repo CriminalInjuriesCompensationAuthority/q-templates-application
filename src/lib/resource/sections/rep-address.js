@@ -123,7 +123,7 @@ module.exports = {
                                     type: 'string',
                                     title: 'Postcode',
                                     description:
-                                        'This could be an international postal or zip code',
+                                        'This could be a UK postcode or an international postal or zip code.',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
