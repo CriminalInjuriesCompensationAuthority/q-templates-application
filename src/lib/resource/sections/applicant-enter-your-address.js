@@ -16,12 +16,6 @@ module.exports = {
                             myself: 'Enter your address',
                             proxy: 'What is their address?'
                         },
-                        'q-applicant-building-and-street': {
-                            error: {
-                                myself: 'Enter the building and street where you live',
-                                proxy: 'Enter the building and street where they live'
-                            }
-                        },
                         'q-applicant-town-or-city': {
                             error: {
                                 myself: 'Enter the town or city where you live',
@@ -92,7 +86,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -110,7 +104,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -128,7 +122,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -198,15 +192,8 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-applicant-building-and-street': [
-                                '|l10nt',
-                                ['|role.all', 'myself'],
-                                'q-applicant-building-and-street.error.myself',
-                                ['|role.all', 'proxy', 'nonDeceased'],
-                                'q-applicant-building-and-street.error.proxy',
-                                ['|role.all', 'proxy', 'deceased'],
-                                'q-applicant-building-and-street.error.proxy'
-                            ],
+                            'q-applicant-building-and-street':
+                                'Enter the first line of the address',
                             'q-applicant-town-or-city': [
                                 '|l10nt',
                                 ['|role.all', 'myself'],

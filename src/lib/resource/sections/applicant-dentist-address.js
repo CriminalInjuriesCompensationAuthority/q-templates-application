@@ -53,7 +53,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-dentist-address-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -71,7 +71,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-dentist-address-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -89,7 +89,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-dentist-address-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -162,7 +162,7 @@ module.exports = {
                             'q-applicant-dentist-organisation-name':
                                 "Enter the name of the dentist's practice",
                             'q-applicant-dentist-address-building-and-street':
-                                'Enter the building and street of the dentist',
+                                'Enter the first line of the address',
                             'q-applicant-dentist-address-town-or-city':
                                 "Enter the town or city where the dentist's practice is",
                             'q-applicant-dentist-address-postcode':

@@ -53,7 +53,7 @@ module.exports = {
                             properties: {
                                 'q-gp-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -71,7 +71,7 @@ module.exports = {
                             properties: {
                                 'q-gp-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -89,7 +89,7 @@ module.exports = {
                             properties: {
                                 'q-gp-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -160,7 +160,7 @@ module.exports = {
                     errorMessage: {
                         required: {
                             'q-gp-organisation-name': "Enter the name of the GP's practice",
-                            'q-gp-building-and-street': 'Enter the building and street of the GP',
+                            'q-gp-building-and-street': 'Enter the first line of the address',
                             'q-gp-town-or-city':
                                 "Enter the town or city where the GP's practice is",
                             'q-gp-postcode':

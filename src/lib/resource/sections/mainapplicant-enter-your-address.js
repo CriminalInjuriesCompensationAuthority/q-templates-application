@@ -26,10 +26,6 @@ module.exports = {
                         },
                         errorMessage: {
                             required: {
-                                'q-mainapplicant-building-and-street': {
-                                    mainapplicant: 'Enter the building and street where you live',
-                                    rep: 'Enter the building and street where they live'
-                                },
                                 'q-mainapplicant-town-or-city': {
                                     mainapplicant: 'Enter the town or city where you live',
                                     rep: 'Enter the town or city where they live'
@@ -87,7 +83,7 @@ module.exports = {
                             properties: {
                                 'q-mainapplicant-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -105,7 +101,7 @@ module.exports = {
                             properties: {
                                 'q-mainapplicant-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -123,7 +119,7 @@ module.exports = {
                             properties: {
                                 'q-mainapplicant-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -193,13 +189,8 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-mainapplicant-building-and-street': [
-                                '|l10nt',
-                                ['|role.all', 'mainapplicant'],
-                                'errorMessage.required.q-mainapplicant-building-and-street.mainapplicant',
-                                ['|role.all', 'rep'],
-                                'errorMessage.required.q-mainapplicant-building-and-street.rep'
-                            ],
+                            'q-mainapplicant-building-and-street':
+                                'Enter the first line of the address',
                             'q-mainapplicant-town-or-city': [
                                 '|l10nt',
                                 ['|role.all', 'mainapplicant'],

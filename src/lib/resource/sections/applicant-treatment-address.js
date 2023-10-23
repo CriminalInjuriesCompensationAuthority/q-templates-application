@@ -73,7 +73,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -91,7 +91,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -109,7 +109,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-treatment-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -182,7 +182,7 @@ module.exports = {
                             'q-applicant-treatment-organisation-name':
                                 'Enter the name of the place',
                             'q-applicant-treatment-building-and-street':
-                                'Enter the building and street',
+                                'Enter the first line of the address',
                             'q-applicant-treatment-town-or-city': 'Enter the town or city',
                             'q-applicant-treatment-postcode':
                                 'Enter a UK postcode, international postal code or zip code'

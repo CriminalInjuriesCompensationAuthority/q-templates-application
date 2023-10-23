@@ -56,11 +56,11 @@ module.exports = {
                             properties: {
                                 'q-rep-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
-                                            'Building and street must be 32 characters or less'
+                                            'First line of address must be 32 characters or less'
                                     },
                                     meta: {
                                         classifications: {
@@ -74,7 +74,7 @@ module.exports = {
                             properties: {
                                 'q-rep-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -92,7 +92,7 @@ module.exports = {
                             properties: {
                                 'q-rep-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -164,7 +164,7 @@ module.exports = {
                         required: {
                             'q-rep-organisation-name':
                                 'Enter the name of the organisation you work for',
-                            'q-rep-building-and-street': 'Enter the building and street',
+                            'q-rep-building-and-street': 'Enter the first line of the address',
                             'q-rep-town-or-city': 'Enter the town or city',
                             'q-rep-postcode':
                                 'Enter a UK postcode, international postal code or zip code'
