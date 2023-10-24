@@ -89,7 +89,7 @@ module.exports = {
                             properties: {
                                 'q-applicant-dentist-address-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Address line 2 (optional)',
+                                    title: 'Address line 3 (optional)',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
