@@ -65,7 +65,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-has-crime-reference-number',
+                    target: 'p--context-crime-ref-no',
                     cond: [
                         '==',
                         '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',

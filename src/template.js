@@ -127,7 +127,7 @@ const applicantProvideAdditionalInformation = require('./lib/resource/sections/a
 const applicantAdditionalInformation = require('./lib/resource/sections/applicant-additional-information.js');
 const applicantDescribeIncident = require('./lib/resource/sections/applicant-describe-incident.js');
 const applicantIncidentDescription = require('./lib/resource/sections/applicant-incident-description.js');
-const applicantHasCrimeReferenceNumber = require('./lib/resource/sections/applicant-has-crime-reference-number.js');
+const contextCrimeReferenceNumber = require('./lib/resource/sections/context-crime-ref-no.js');
 const contextAdditionalInfo = require('./lib/resource/sections/context-additional-info.js');
 const system = require('./lib/resource/sections/system.js');
 const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
@@ -364,7 +364,7 @@ module.exports = {
         'p-applicant-additional-information': applicantAdditionalInformation.section,
         'p-applicant-describe-incident': applicantDescribeIncident.section,
         'p-applicant-incident-description': applicantIncidentDescription.section,
-        'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.section,
+        'p--context-crime-ref-no': contextCrimeReferenceNumber.section,
         'p--context-additional-info': contextAdditionalInfo.section,
         system: system.section,
         'p--context-crime-impact': contextCrimeImpact.section,
@@ -621,7 +621,7 @@ module.exports = {
             'p-applicant-additional-information': applicantAdditionalInformation.route,
             'p-applicant-describe-incident': applicantDescribeIncident.route,
             'p-applicant-incident-description': applicantIncidentDescription.route,
-            'p-applicant-has-crime-reference-number': applicantHasCrimeReferenceNumber.route,
+            'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
             'p--context-additional-info': contextAdditionalInfo.route,
             system: system.route,
             'p--context-crime-impact': contextCrimeImpact.route,
