@@ -37,7 +37,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-building-and-street': {
                                     type: 'string',
-                                    title: 'Building and street',
+                                    title: 'Address line 1',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -55,7 +55,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-building-and-street-2': {
                                     type: 'string',
-                                    title: 'Building and street line 2',
+                                    title: 'Address line 2',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -73,7 +73,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-building-and-street-3': {
                                     type: 'string',
-                                    title: 'Building and street line 3',
+                                    title: 'Address line 3',
                                     maxLength: 32,
                                     errorMessage: {
                                         maxLength:
@@ -127,7 +127,7 @@ module.exports = {
                                     type: 'string',
                                     title: 'Postcode',
                                     description:
-                                        'This could be an international postal or zip code',
+                                        'This could be a UK postcode or an international postal or zip code.',
                                     maxLength: 10,
                                     errorMessage: {
                                         maxLength: 'Postcode must be 10 characters or less'
