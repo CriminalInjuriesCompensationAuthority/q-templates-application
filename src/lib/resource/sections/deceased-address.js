@@ -143,8 +143,7 @@ module.exports = {
                     ],
                     errorMessage: {
                         required: {
-                            'q-deceased-building-and-street':
-                                'Enter the building and street where they lived',
+                            'q-deceased-building-and-street': 'Enter the first line of the address',
                             'q-deceased-town-or-city': 'Enter the town or city where they lived',
                             'q-deceased-postcode':
                                 'Enter a UK postcode, international postal code or zip code'
