@@ -11,6 +11,10 @@ module.exports = {
                 'q-mainapplicant-care-order-authority': {
                     type: 'string',
                     title: 'What local authority is this with?',
+                    maxLength: 50,
+                    errorMessage: {
+                        maxLength: 'Local authority must be 50 characters or less'
+                    },
                     meta: {
                         classifications: {
                             theme: 'main-applicant-details'
