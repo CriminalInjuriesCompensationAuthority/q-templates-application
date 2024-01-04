@@ -18,7 +18,7 @@ module.exports = {
                     resources: {
                         'q-applicant-what-other-names-have-you-used': {
                             title: 'What other names have you been known by?',
-                            'title_someone-else': 'What other names have they used?',
+                            'title_someone-else': 'What other names have they been known by?',
                             description: {
                                 applicant:
                                     'We need to know any other names you have used, for example, your maiden name.',

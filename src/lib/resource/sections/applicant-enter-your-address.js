@@ -14,7 +14,7 @@ module.exports = {
                     resources: {
                         title: {
                             myself: 'Enter your address',
-                            proxy: 'What is their address?'
+                            proxy: 'Enter their address'
                         },
                         'q-applicant-town-or-city': {
                             error: {

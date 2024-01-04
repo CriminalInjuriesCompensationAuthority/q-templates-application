@@ -9,9 +9,9 @@ module.exports = {
             properties: {
                 'q-rep-telephone-number': {
                     type: 'string',
-                    title: 'Enter your telephone number',
+                    title: 'Enter your telephone number (optional)',
                     description:
-                        'We may use this to contact you if we need to clarify something on your application (optional).',
+                        'We may use this to contact you if we need to clarify something in this application.',
                     maxLength: 20,
                     pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
                     errorMessage: {

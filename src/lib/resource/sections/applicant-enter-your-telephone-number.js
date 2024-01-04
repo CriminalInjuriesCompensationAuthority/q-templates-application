@@ -18,11 +18,11 @@ module.exports = {
                     resources: {
                         'q-applicant-enter-your-telephone-number': {
                             title: 'Enter your telephone number (optional)',
-                            'title_someone-else': 'Enter their telephone number',
+                            'title_someone-else': 'Enter their telephone number (optional)',
                             description:
                                 'We may use this to contact you if we need to clarify something in your application.',
                             'description_someone-else':
-                                'We will only use this to contact this person in the event we cannot contact you via one of your contact preferences you provide (optional).'
+                                'We may use this to contact them if we cannot contact you for any reason.'
                         }
                     }
                 }

@@ -9,9 +9,9 @@ module.exports = {
             properties: {
                 'q-mainapplicant-enter-your-email-address': {
                     type: 'string',
-                    title: 'Enter your email address',
+                    title: 'Enter your email address (optional)',
                     description:
-                        'We may use this to contact you if we need to clarify something in your application (optional).',
+                        'We may use this to contact you if we need to clarify something in this application.',
                     maxLength: 50,
                     format: 'email',
                     errorMessage: {
