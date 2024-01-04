@@ -17,11 +17,15 @@ module.exports = {
                                 myself:
                                     "When will you find out if you've been awarded compensation or damages?",
                                 proxy:
+                                    "When will the victim find out if they've been awarded compensation or damages?",
+                                deceased:
                                     "When will the claimant find out if they've been awarded compensation or damages?"
                             },
                             chars: {
                                 myself: 'When will you find out must be 50 characters or less',
                                 proxy:
+                                    'When will the victim find out must be 50 characters or less',
+                                deceased:
                                     'When will the claimant find out must be 50 characters or less'
                             }
                         }
@@ -37,10 +41,12 @@ module.exports = {
                 'q-when-will-you-find-out': {
                     title: [
                         '|l10nt',
-                        ['or', ['|role.all', 'myself'], ['|role.all', 'proxy', 'nonDeceased']],
+                        ['|role.all', 'myself'],
                         'when-will-you-find-out.title.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'when-will-you-find-out.title.proxy',
                         ['|role.all', 'proxy', 'deceased'],
-                        'when-will-you-find-out.title.proxy'
+                        'when-will-you-find-out.title.deceased'
                     ],
                     type: 'string',
                     description:
@@ -49,10 +55,12 @@ module.exports = {
                     errorMessage: {
                         maxLength: [
                             '|l10nt',
-                            ['or', ['|role.all', 'myself'], ['|role.all', 'proxy', 'nonDeceased']],
+                            ['|role.all', 'myself'],
                             'when-will-you-find-out.chars.myself',
+                            ['|role.all', 'proxy', 'nonDeceased'],
+                            'when-will-you-find-out.chars.proxy',
                             ['|role.all', 'proxy', 'deceased'],
-                            'when-will-you-find-out.chars.proxy'
+                            'when-will-you-find-out.chars.deceased'
                         ]
                     },
                     meta: {

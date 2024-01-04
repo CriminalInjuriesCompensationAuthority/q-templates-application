@@ -29,7 +29,7 @@ module.exports = {
                 },
                 'additional-info-help-text': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with offender\'s name",html: \'<p class="govuk-body">If there was more than one offender, you can provide additional details later in this claim.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with the offender\'s name",html: \'<p class="govuk-body">If there was more than one offender, you can provide additional details later in this claim.</p>\'})}}'
                 }
             },
             errorMessage: {

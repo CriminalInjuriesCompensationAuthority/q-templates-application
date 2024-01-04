@@ -12,7 +12,7 @@ module.exports = {
                     type: 'boolean',
                     title: 'Are they able to handle their affairs?',
                     description:
-                        "This means they have the capacity to make decisions for themselves when they're required to do so",
+                        'This means they have the legal capacity to make decisions for themselves when needed.',
                     oneOf: [
                         {
                             title: 'Yes',

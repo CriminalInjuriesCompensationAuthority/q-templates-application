@@ -7,7 +7,7 @@ module.exports = {
             type: 'object',
             allOf: [
                 {
-                    title: 'Enter your address',
+                    title: 'Enter the address of the organisation you work for',
                     meta: {
                         compositeId: 'rep-organisation-address',
                         classifications: {

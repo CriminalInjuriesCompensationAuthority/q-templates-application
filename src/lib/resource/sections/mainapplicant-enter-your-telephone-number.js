@@ -14,8 +14,8 @@ module.exports = {
                     resources: {
                         'q-mainapplicant-enter-your-telephone-number': {
                             title: {
-                                mainapplicant: 'Enter your telephone number',
-                                rep: 'Enter their telephone number'
+                                mainapplicant: 'Enter your telephone number (optional)',
+                                rep: 'Enter their telephone number (optional)'
                             },
                             meta: {
                                 summary: {
@@ -27,9 +27,9 @@ module.exports = {
                             },
                             description: {
                                 mainapplicant:
-                                    'We may use this to contact you if we need to clarify something in this application (optional).',
+                                    'We may use this to contact you if we need to clarify something in this application.',
                                 rep:
-                                    'We will only use this to contact this person in the event we cannot contact you via one of your contact preferences you provide (optional).'
+                                    'We will only use this to contact this person in the event we cannot contact you via one of your contact preferences you provide.'
                             }
                         }
                     }
