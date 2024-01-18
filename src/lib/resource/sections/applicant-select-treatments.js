@@ -22,8 +22,7 @@ module.exports = {
                                     'Enter any other treatment you have received for your mental injury',
                                 'required_someone-else':
                                     'Enter any other treatment they have received for their mental injury'
-                            },
-                            title: 'Other mental health treatment'
+                            }
                         },
                         'q-applicant-select-treatments-dmi': {
                             description:
@@ -46,69 +45,6 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            propertyNames: {
-                enum: ['q-applicant-select-treatments-dmi', 'q-applicant-other-treatment-dmi']
-            },
-            properties: {
-                'q-applicant-select-treatments-dmi': {
-                    title: 'l10nt:q-applicant-select-treatments-dmi.title{?lng,context,ns}',
-                    description:
-                        'l10nt:q-applicant-select-treatments-dmi.description{?lng,context,ns}',
-                    type: 'array',
-                    items: {
-                        anyOf: [
-                            {
-                                title: 'CBT (cognitive behavioural therapy)',
-                                const: 'cbt'
-                            },
-                            {
-                                title: 'EMDR (eye movement desensitisation and reprocessing)',
-                                const: 'emdr'
-                            },
-                            {
-                                title: 'Antidepressants',
-                                const: 'antidepressants'
-                            },
-                            {
-                                title: 'Counselling',
-                                const: 'counselling'
-                            },
-                            {
-                                title: 'Psychotherapy',
-                                const: 'psychotherapy'
-                            },
-                            {
-                                title: 'Other',
-                                const: 'other'
-                            }
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'treatment'
-                        }
-                    }
-                },
-                'q-applicant-other-treatment-dmi': {
-                    type: 'string',
-                    title: 'l10nt:q-applicant-other-treatment-dmi.title{?lng,context,ns}',
-                    maxLength: 499,
-                    errorMessage: {
-                        maxLength: 'Other treatments must be 499 characters or less'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'treatment'
-                        }
-                    }
-                }
-            },
-            required: ['q-applicant-select-treatments-dmi'],
-            allOf: [
-                {
-                    $ref: '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
-                }
-            ],
             definitions: {
                 'if-other-then-q-applicant-other-treatment-dmi-is-required': {
                     if: {
@@ -138,12 +74,100 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {
-                required: {
-                    'q-applicant-select-treatments-dmi':
-                        'l10nt:q-applicant-select-treatments-dmi.error.required{?lng,context,ns}'
+            allOf: [
+                {
+                    title: 'l10nt:q-applicant-select-treatments-dmi.title{?lng,context,ns}',
+                    required: ['q-applicant-select-treatments-dmi'],
+                    propertyNames: {
+                        enum: [
+                            'q-applicant-select-treatments-dmi',
+                            'q-applicant-other-treatment-dmi'
+                        ]
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'q-applicant-select-treatments-dmi': {
+                                    description:
+                                        'l10nt:q-applicant-select-treatments-dmi.description{?lng,context,ns}',
+                                    type: 'array',
+                                    items: {
+                                        anyOf: [
+                                            {
+                                                title: 'CBT (cognitive behavioural therapy)',
+                                                const: 'cbt'
+                                            },
+                                            {
+                                                title:
+                                                    'EMDR (eye movement desensitisation and reprocessing)',
+                                                const: 'emdr'
+                                            },
+                                            {
+                                                title: 'Antidepressants',
+                                                const: 'antidepressants'
+                                            },
+                                            {
+                                                title: 'Counselling',
+                                                const: 'counselling'
+                                            },
+                                            {
+                                                title: 'Psychotherapy',
+                                                const: 'psychotherapy'
+                                            },
+                                            {
+                                                title: 'Other',
+                                                const: 'other'
+                                            }
+                                        ]
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        },
+                                        summary: {
+                                            title:
+                                                'l10nt:q-applicant-select-treatments-dmi.title{?lng,context,ns}'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-other-treatment-dmi': {
+                                    type: 'string',
+                                    title: 'Other mental health treatment',
+                                    maxLength: 499,
+                                    errorMessage: {
+                                        maxLength: 'Other treatments must be 499 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'treatment'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref:
+                                        '#/definitions/if-other-then-q-applicant-other-treatment-dmi-is-required'
+                                }
+                            ]
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-select-treatments-dmi':
+                                'l10nt:q-applicant-select-treatments-dmi.error.required{?lng,context,ns}'
+                        }
+                    }
                 }
-            },
+            ],
             examples: [
                 {
                     'q-applicant-select-treatments-dmi': ['cbt']

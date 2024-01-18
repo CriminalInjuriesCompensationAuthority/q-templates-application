@@ -37,63 +37,6 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-work-details-option'],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-work-details-option': {
-                    title: 'l10nt:q-applicant-work-details-option.title{?lng,context,ns}',
-                    description: 'Select all that apply.',
-                    type: 'array',
-                    items: {
-                        anyOf: [
-                            {
-                                title: 'At school, college or university',
-                                const: 'education'
-                            },
-                            {
-                                title:
-                                    'l10nt:q-applicant-work-details-option.value.searching{?lng,context,ns}',
-                                const: 'searching'
-                            },
-                            {
-                                title: 'Caring for someone',
-                                const: 'care'
-                            },
-                            {
-                                title: 'Other',
-                                const: 'other'
-                            }
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'impact'
-                        },
-                        summary: {
-                            title: 'Reason for not having a job'
-                        }
-                    }
-                },
-                'q-applicant-work-details-other': {
-                    type: 'string',
-                    title: 'Other reason for not having a job',
-                    maxLength: 100,
-                    errorMessage: {
-                        maxLength:
-                            'Other reason for not having a job must be 100 characters or less'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'impact'
-                        }
-                    }
-                }
-            },
-            allOf: [
-                {
-                    $ref: '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
-                }
-            ],
             definitions: {
                 'if-other-then-q-applicant-work-details-other-is-required': {
                     if: {
@@ -123,12 +66,85 @@ module.exports = {
                     }
                 }
             },
-            errorMessage: {
-                required: {
-                    'q-applicant-work-details-option':
-                        'l10nt:q-applicant-work-details-option.error.required{?lng,context,ns}'
+            allOf: [
+                {
+                    title: 'l10nt:q-applicant-work-details-option.title{?lng,context,ns}',
+                    required: ['q-applicant-work-details-option'],
+                    allOf: [
+                        {
+                            properties: {
+                                'q-applicant-work-details-option': {
+                                    description: 'Select all that apply.',
+                                    type: 'array',
+                                    items: {
+                                        anyOf: [
+                                            {
+                                                title: 'At school, college or university',
+                                                const: 'education'
+                                            },
+                                            {
+                                                title:
+                                                    'l10nt:q-applicant-work-details-option.value.searching{?lng,context,ns}',
+                                                const: 'searching'
+                                            },
+                                            {
+                                                title: 'Caring for someone',
+                                                const: 'care'
+                                            },
+                                            {
+                                                title: 'Other',
+                                                const: 'other'
+                                            }
+                                        ]
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'impact'
+                                        },
+                                        summary: {
+                                            title: 'Reason for not having a job'
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-work-details-other': {
+                                    type: 'string',
+                                    title: 'Other reason for not having a job',
+                                    maxLength: 100,
+                                    errorMessage: {
+                                        maxLength:
+                                            'Other reason for not having a job must be 100 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'impact'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    oneOf: [
+                        {
+                            allOf: [
+                                {
+                                    $ref:
+                                        '#/definitions/if-other-then-q-applicant-work-details-other-is-required'
+                                }
+                            ]
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-work-details-option':
+                                'l10nt:q-applicant-work-details-option.error.required{?lng,context,ns}'
+                        }
+                    }
                 }
-            },
+            ],
             examples: [
                 {
                     'q-applicant-work-details-option': ['care']
