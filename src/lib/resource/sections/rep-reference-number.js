@@ -6,11 +6,7 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             propertyNames: {
-                enum: [
-                    'q-rep-has-reference-number',
-                    'q-rep-reference-number',
-                    'help-reference-number'
-                ]
+                enum: ['q-rep-has-reference-number', 'q-rep-reference-number']
             },
             properties: {
                 'q-rep-has-reference-number': {
@@ -49,10 +45,6 @@ module.exports = {
                             theme: 'rep-details'
                         }
                     }
-                },
-                'help-reference-number': {
-                    description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "What do we use your reference number for?",html: \'<p class="govuk-body">As this is your reference number, we’ll use this in our correspondence with you to identify what application it relates to.</p>\'})}}'
                 }
             },
             required: ['q-rep-has-reference-number'],
