@@ -27,7 +27,6 @@ module.exports = {
                             'q-applicant-dentist-address-building-and-street-2',
                             'q-applicant-dentist-address-building-and-street-3',
                             'q-applicant-dentist-address-town-or-city',
-                            'q-applicant-dentist-address-county',
                             'q-applicant-dentist-address-postcode'
                         ]
                     },
@@ -122,23 +121,6 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-applicant-dentist-address-county': {
-                                    type: 'string',
-                                    title: 'County (optional)',
-                                    maxLength: 32,
-                                    errorMessage: {
-                                        maxLength: 'County must be 32 characters or less'
-                                    },
-                                    meta: {
-                                        classifications: {
-                                            theme: 'treatment'
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            properties: {
                                 'q-applicant-dentist-address-postcode': {
                                     type: 'string',
                                     title: 'Postcode',
@@ -178,7 +160,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 }
             ],
@@ -189,7 +170,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
@@ -198,7 +178,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
@@ -207,7 +186,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 12345,
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
@@ -216,7 +194,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 12345,
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
@@ -225,7 +202,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 12345,
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 'G1 1XX'
                 },
                 {
@@ -234,16 +210,6 @@ module.exports = {
                     'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
                     'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 12345,
-                    'q-applicant-dentist-address-postcode': 'G1 1XX'
-                },
-                {
-                    'q-applicant-dentist-organisation-name': 'Foo Dental Practice',
-                    'q-applicant-dentist-address-building-and-street': '1 Foo Lane',
-                    'q-applicant-dentist-address-building-and-street-2': 'Flat 2/3',
-                    'q-applicant-dentist-address-building-and-street-3': 'Foolocality',
-                    'q-applicant-dentist-address-town-or-city': 'FooCity',
-                    'q-applicant-dentist-address-county': 'FooCounty',
                     'q-applicant-dentist-address-postcode': 12345
                 }
             ]

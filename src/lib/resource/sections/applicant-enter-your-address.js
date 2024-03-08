@@ -77,7 +77,6 @@ module.exports = {
                             'q-applicant-building-and-street-2',
                             'q-applicant-building-and-street-3',
                             'q-applicant-town-or-city',
-                            'q-applicant-county',
                             'q-applicant-postcode'
                         ]
                     },
@@ -155,23 +154,6 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-applicant-county': {
-                                    type: 'string',
-                                    title: 'County (optional)',
-                                    maxLength: 32,
-                                    errorMessage: {
-                                        maxLength: 'County must be 32 characters or less'
-                                    },
-                                    meta: {
-                                        classifications: {
-                                            theme: 'applicant-details'
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            properties: {
                                 'q-applicant-postcode': {
                                     type: 'string',
                                     title: 'Postcode',
@@ -215,7 +197,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 'Flat 2/3',
                     'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
                 }
             ],
@@ -225,7 +206,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 'Flat 2/3',
                     'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
                 },
                 {
@@ -233,7 +213,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 12345,
                     'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
                 },
                 {
@@ -241,7 +220,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 'Flat 2/3',
                     'q-applicant-building-and-street-3': 12345,
                     'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
                 },
                 {
@@ -249,7 +227,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 'Flat 2/3',
                     'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 12345,
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 'G1 1XX'
                 },
                 {
@@ -257,15 +234,6 @@ module.exports = {
                     'q-applicant-building-and-street-2': 'Flat 2/3',
                     'q-applicant-building-and-street-3': 'FooLocality',
                     'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 12345,
-                    'q-applicant-postcode': 'G1 1XX'
-                },
-                {
-                    'q-applicant-building-and-street': '1 Foo Lane',
-                    'q-applicant-building-and-street-2': 'Flat 2/3',
-                    'q-applicant-building-and-street-3': 'FooLocality',
-                    'q-applicant-town-or-city': 'FooCity',
-                    'q-applicant-county': 'FooCounty',
                     'q-applicant-postcode': 12345
                 }
             ]

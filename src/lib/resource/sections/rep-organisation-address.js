@@ -30,7 +30,6 @@ module.exports = {
                             'q-rep-building-and-street-2',
                             'q-rep-building-and-street-3',
                             'q-rep-town-or-city',
-                            'q-rep-county',
                             'q-rep-postcode'
                         ]
                     },
@@ -125,23 +124,6 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-rep-county': {
-                                    type: 'string',
-                                    title: 'County (optional)',
-                                    maxLength: 32,
-                                    errorMessage: {
-                                        maxLength: 'County must be 32 characters or less'
-                                    },
-                                    meta: {
-                                        classifications: {
-                                            theme: 'rep-details'
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            properties: {
                                 'q-rep-postcode': {
                                     type: 'string',
                                     title: 'Postcode',
@@ -179,7 +161,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 }
             ],
@@ -190,7 +171,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
@@ -199,7 +179,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
@@ -208,7 +187,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 12345,
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
@@ -217,7 +195,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 12345,
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
@@ -226,7 +203,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 12345,
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 'G1 1XX'
                 },
                 {
@@ -235,16 +211,6 @@ module.exports = {
                     'q-rep-building-and-street-2': 'Flat 2/3',
                     'q-rep-building-and-street-3': 'FooLocality',
                     'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 12345,
-                    'q-rep-postcode': 'G1 1XX'
-                },
-                {
-                    'q-rep-organisation-name': 'Foo Solictitors',
-                    'q-rep-building-and-street': '1 Foo Lane',
-                    'q-rep-building-and-street-2': 'Flat 2/3',
-                    'q-rep-building-and-street-3': 'FooLocality',
-                    'q-rep-town-or-city': 'FooCity',
-                    'q-rep-county': 'FooCounty',
                     'q-rep-postcode': 12345
                 }
             ]

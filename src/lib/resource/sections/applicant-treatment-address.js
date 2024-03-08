@@ -47,7 +47,6 @@ module.exports = {
                             'q-applicant-treatment-building-and-street-2',
                             'q-applicant-treatment-building-and-street-3',
                             'q-applicant-treatment-town-or-city',
-                            'q-applicant-treatment-county',
                             'q-applicant-treatment-postcode'
                         ]
                     },
@@ -142,23 +141,6 @@ module.exports = {
                         },
                         {
                             properties: {
-                                'q-applicant-treatment-county': {
-                                    type: 'string',
-                                    title: 'County (optional)',
-                                    maxLength: 32,
-                                    errorMessage: {
-                                        maxLength: 'County must be 32 characters or less'
-                                    },
-                                    meta: {
-                                        classifications: {
-                                            theme: 'treatment'
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            properties: {
                                 'q-applicant-treatment-postcode': {
                                     type: 'string',
                                     title: 'Postcode',
@@ -197,7 +179,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 }
             ],
@@ -208,7 +189,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
@@ -217,7 +197,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
@@ -226,7 +205,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 12345,
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
@@ -235,7 +213,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 12345,
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
@@ -244,7 +221,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 12345,
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 'G1 1XX'
                 },
                 {
@@ -253,16 +229,6 @@ module.exports = {
                     'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
                     'q-applicant-treatment-building-and-street-3': 'FooLocality',
                     'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 12345,
-                    'q-applicant-treatment-postcode': 'G1 1XX'
-                },
-                {
-                    'q-applicant-treatment-organisation-name': 'FooBar Dental Practice',
-                    'q-applicant-treatment-building-and-street': '1 Foo Lane',
-                    'q-applicant-treatment-building-and-street-2': 'Flat 2/3',
-                    'q-applicant-treatment-building-and-street-3': 'FooLocality',
-                    'q-applicant-treatment-town-or-city': 'FooCity',
-                    'q-applicant-treatment-county': 'FooCounty',
                     'q-applicant-treatment-postcode': 12345
                 }
             ]
