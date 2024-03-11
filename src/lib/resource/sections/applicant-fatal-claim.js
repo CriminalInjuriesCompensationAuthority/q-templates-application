@@ -22,7 +22,11 @@ module.exports = {
                                 myself:
                                     'If you are paying for the funeral of the person who died, you may be able to get help with the cost. If you are their relative, you may also be eligible for bereavement payments.',
                                 proxy:
-                                    'If the person you’re applying on behalf of is paying for the funeral of the person who died, they may be able to get help with the cost. If they are their relative, they may also be eligible for bereavement payments.'
+                                    "If the person you're applying on behalf of is paying for the funeral of the person who died, they may be able to get help with the cost. If they are their relative, they may also be eligible for bereavement payments."
+                            },
+                            details: {
+                                myself: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Both of these options apply to me",html: "<p class='govuk-body'>If both of the options above apply you'll need to make 2 separate applications.</p>"})}}`,
+                                proxy: `{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Both of these options apply",html: "<p class='govuk-body'>If both of the options above apply you'll need to make 2 separate applications.</p>"})}}`
                             }
                         }
                     }
@@ -37,7 +41,7 @@ module.exports = {
             properties: {
                 'q-applicant-fatal-claim': {
                     type: 'boolean',
-                    title: 'Select the reason you’re applying',
+                    title: "Select the reason you're applying",
                     oneOf: [
                         {
                             title: [
@@ -76,13 +80,18 @@ module.exports = {
                     }
                 },
                 'applicant-fatal-claim-info': {
-                    description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "If both options apply", html:\'<p class="govuk-body">If both of the options above apply you’ll need to make 2 separate applications.</p><p class="govuk-body">You can make the applications in any order but you’ll need to select a different option on this page each time.</p>\'}) }}'
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'q-applicant-fatal-claim.details.myself',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-fatal-claim.details.proxy'
+                    ]
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-fatal-claim': 'Select the reason you’re applying'
+                    'q-applicant-fatal-claim': "Select the reason you're applying"
                 }
             },
             examples: [
