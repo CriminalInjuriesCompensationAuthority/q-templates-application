@@ -363,6 +363,10 @@ module.exports = {
                         {
                             title: 'South Wales',
                             const: 10000215
+                        },
+                        {
+                            title: 'Royal Military Police',
+                            const: 12699279
                         }
                     ],
                     meta: {
