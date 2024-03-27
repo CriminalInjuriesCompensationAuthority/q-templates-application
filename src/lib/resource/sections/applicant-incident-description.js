@@ -9,9 +9,9 @@ module.exports = {
             properties: {
                 'q-applicant-incident-description': {
                     type: 'string',
-                    title: 'Briefly describe the crime',
+                    title: 'Tell us about the crime',
                     description:
-                        'You can add details that may not be included in the crime report.',
+                        'You might want to tell us information such as what happened and whether the crime happened more than once.',
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'
