@@ -21,6 +21,8 @@ module.exports = {
                 'q-applicant-describe-incident': {
                     type: 'boolean',
                     title: 'Do you want to tell us about the crime?',
+                    description:
+                        'The police will send us a report of the crime. Providing an additional description is optional.',
                     oneOf: [
                         {
                             title: 'Yes',
