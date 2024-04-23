@@ -47,13 +47,11 @@ module.exports = {
                                     title: {
                                         text: 'Your residency and nationality'
                                     },
-                                    href: '/apply/info-context-residency-and-nationality',
+                                    // href: '/apply/info-context-residency-and-nationality',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
@@ -65,37 +63,31 @@ module.exports = {
                                     title: {
                                         text: 'Your relationship to the person who died'
                                     },
-                                    href: '/apply/info-context-relationship-to-deceased',
+                                    // href: '/apply/info-context-relationship-to-deceased',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
                                         text: 'About the person who died'
                                     },
-                                    href: '/apply/info-context-deceased-details',
+                                    // href: '/apply/info-context-deceased-details',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
                                         text: 'Funeral costs'
                                     },
-                                    href: '/apply/info-context-funeral-costs',
+                                    // href: '/apply/info-context-funeral-costs',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
@@ -107,25 +99,21 @@ module.exports = {
                                     title: {
                                         text: 'About the crime'
                                     },
-                                    href: '/apply/info-before-you-continue',
+                                    // href: '/apply/info-before-you-continue',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
                                         text: 'About the offender'
                                     },
-                                    href: '/apply/info-context-offender',
+                                    // href: '/apply/info-context-offender',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
@@ -137,13 +125,11 @@ module.exports = {
                                     title: {
                                         text: 'Other compensation'
                                     },
-                                    href: '/apply/info-context-compensation',
+                                    // href: '/apply/info-context-compensation',
                                     status: {
-                                        tag: {
-                                            text: 'Incomplete',
-                                            classes: 'govuk-tag--blue'
-                                        }
-                                    }
+                                        text: 'Cannot start yet'
+                                    },
+                                    classes: 'govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },

@@ -465,7 +465,7 @@ module.exports = {
         'p-task-list': taskList.section
     },
     routes: {
-        initial: 'p-task-list',
+        initial: 'p-applicant-who-are-you-applying-for',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -769,7 +769,7 @@ module.exports = {
             }
         ]
     },
-    progress: ['p-task-list'],
+    progress: ['p-applicant-who-are-you-applying-for'],
     taxonomies: {
         theme: {
             l10n: {
