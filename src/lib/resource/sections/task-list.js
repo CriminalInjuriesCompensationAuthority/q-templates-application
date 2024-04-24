@@ -15,6 +15,9 @@ module.exports = {
                         {
                             title: 'Tell us about your application',
                             idPrefix: 'task-list--about-application',
+                            attributes: {
+                                id: 'govuk-task-list--about-application'
+                            },
                             tasks: [
                                 {
                                     title: {
@@ -23,13 +26,18 @@ module.exports = {
                                     href: '/apply/applicant-who-are-you-applying-for',
                                     status: {
                                         text: 'Completed'
-                                    }
+                                    },
+                                    classes:
+                                        'govuk-task-list__item--about-application govuk-task-list__item--about-application-1'
                                 }
                             ]
                         },
                         {
                             title: 'Provide your details',
                             idPrefix: 'task-list--applicant-details',
+                            attibutes: {
+                                id: 'govuk-task-list--applicant-details'
+                            },
                             tasks: [
                                 {
                                     title: {
@@ -41,7 +49,9 @@ module.exports = {
                                             text: 'Incomplete',
                                             classes: 'govuk-tag--blue'
                                         }
-                                    }
+                                    },
+                                    classes:
+                                        'govuk-task-list__item--applicant-details govuk-task-list__item--applicant-details-1'
                                 },
                                 {
                                     title: {
@@ -51,13 +61,17 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--applicant-details govuk-task-list__item--applicant-details-2 govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
                         {
                             title: 'Tell us about the person who died',
                             idPrefix: 'task-list--deceased-details',
+                            attibutes: {
+                                id: 'govuk-task-list--deceased-details'
+                            },
                             tasks: [
                                 {
                                     title: {
@@ -67,7 +81,8 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--deceased-details govuk-task-list__item--deceased-details-1 govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
@@ -77,7 +92,8 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--deceased-details govuk-task-list__item--deceased-details-2 govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
@@ -87,13 +103,17 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--deceased-details govuk-task-list__item--deceased-details-3 govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
                         {
                             title: 'Provide details of the crime and offender',
                             idPrefix: 'task-list--crime-offender-details',
+                            attibutes: {
+                                id: 'govuk-task-list--offender-details'
+                            },
                             tasks: [
                                 {
                                     title: {
@@ -103,7 +123,8 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--offender-details govuk-task-list__item--offender-details-1 govuk-task-list__item--cannot-start'
                                 },
                                 {
                                     title: {
@@ -113,13 +134,17 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--offender-details govuk-task-list__item--offender-details-2 govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
                         {
                             title: 'Provide details of other compensation applications',
                             idPrefix: 'task-list--other-compensation-details',
+                            attibutes: {
+                                id: 'govuk-task-list--other-compensation-details'
+                            },
                             tasks: [
                                 {
                                     title: {
@@ -129,7 +154,8 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--other-compensation-details govuk-task-list__item--other-compensation-details-1 govuk-task-list__item--cannot-start'
                                 }
                             ]
                         },
