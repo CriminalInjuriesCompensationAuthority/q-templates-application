@@ -57,9 +57,9 @@ module.exports = {
                                     // href: '/apply/info-context-residency-and-nationality',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_applicant_residency-and-nationality'
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_applicant_residency-and-nationality govuk-task-list__status--cannot-start-yet'
+                                    }
                                 }
                             ]
                         },
@@ -77,9 +77,9 @@ module.exports = {
                                     // href: '/apply/info-context-relationship-to-deceased',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_deceased_relationship-to-applicant'
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_deceased_relationship-to-applicant govuk-task-list__status--cannot-start-yet'
+                                    }
                                 },
                                 {
                                     title: {
@@ -88,9 +88,9 @@ module.exports = {
                                     // href: '/apply/info-context-deceased-details',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_deceased_personal-details'
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_deceased_personal-details govuk-task-list__status--cannot-start-yet'
+                                    }
                                 },
                                 {
                                     title: {
@@ -99,9 +99,9 @@ module.exports = {
                                     // href: '/apply/info-context-funeral-costs',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_deceased_funeral-costs'
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_deceased_funeral-costs govuk-task-list__status--cannot-start-yet'
+                                    }
                                 }
                             ]
                         },
@@ -119,9 +119,9 @@ module.exports = {
                                     // href: '/apply/info-before-you-continue',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_offender_about-the-crime' // t-about-the-crime ?
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_offender_about-the-crime govuk-task-list__status--cannot-start-yet' // t-about-the-crime ?
+                                    }
                                 },
                                 {
                                     title: {
@@ -130,9 +130,9 @@ module.exports = {
                                     // href: '/apply/info-context-offender',
                                     status: {
                                         text: 'Cannot start yet',
-                                        classes: 't_offender_about-the-offender' // t-about-the-offender ?
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        classes:
+                                            't_offender_about-the-offender govuk-task-list__status--cannot-start-yet' // t-about-the-offender ?
+                                    }
                                 }
                             ]
                         },
@@ -149,9 +149,10 @@ module.exports = {
                                     },
                                     // href: '/apply/info-context-compensation',
                                     status: {
-                                        text: 'Cannot start yet'
-                                    },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                        text: 'Cannot start yet',
+                                        classes:
+                                            't-other-compensation-details govuk-task-list__status--cannot-start-yet'
+                                    }
                                 }
                             ]
                         },
