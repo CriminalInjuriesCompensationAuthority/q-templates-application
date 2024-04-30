@@ -167,7 +167,8 @@ module.exports = {
                                     status: {
                                         text: 'Cannot start yet'
                                     },
-                                    classes: 'govuk-task-list__item--cannot-start'
+                                    classes:
+                                        'govuk-task-list__item--cannot-start govuk-task-list__status--cannot-start-yet'
                                 }
                             ]
                         }
