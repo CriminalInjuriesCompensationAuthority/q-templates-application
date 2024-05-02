@@ -19,6 +19,72 @@ module.exports = {
                             summaryStructure: [],
                             lookup: {}
                         }
+                    },
+                    options: {
+                        ordering: {
+                            'q-applicant-confirmation-method': [
+                                'q-applicant-enter-your-email-address',
+                                'q-applicant-enter-your-telephone-number'
+                            ],
+                            'q-applicant-have-you-applied-to-us-before': [
+                                'q-enter-your-previous-reference-number'
+                            ],
+                            'q-applicant-select-treatments-dmi': [
+                                'q-applicant-other-treatment-dmi'
+                            ],
+                            'q-applicant-work-details-option': ['q-applicant-work-details-other'],
+                            'q-applicant-physical-injuries': [
+                                'q-applicant-physical-injuries-upper-head-other',
+                                'q-applicant-physical-injuries-upper-face-other',
+                                'q-applicant-physical-injuries-upper-neck-other',
+                                'q-applicant-physical-injuries-upper-eye-other',
+                                'q-applicant-physical-injuries-upper-ear-other',
+                                'q-applicant-physical-injuries-upper-nose-other',
+                                'q-applicant-physical-injuries-upper-mouth-other',
+                                'q-applicant-physical-injuries-upper-skin-other',
+                                'q-applicant-physical-injuries-torso-shoulder-other',
+                                'q-applicant-physical-injuries-torso-chest-other',
+                                'q-applicant-physical-injuries-torso-abdomen-other',
+                                'q-applicant-physical-injuries-torso-back-other',
+                                'q-applicant-physical-injuries-torso-pelvis-other',
+                                'q-applicant-physical-injuries-torso-genitals-other',
+                                'q-applicant-physical-injuries-torso-skin-other',
+                                'q-applicant-physical-injuries-arms-shoulder-other',
+                                'q-applicant-physical-injuries-arms-arm-other',
+                                'q-applicant-physical-injuries-arms-elbow-other',
+                                'q-applicant-physical-injuries-arms-wrist-other',
+                                'q-applicant-physical-injuries-arms-hand-other',
+                                'q-applicant-physical-injuries-arms-digit-other',
+                                'q-applicant-physical-injuries-arms-skin-other',
+                                'q-applicant-physical-injuries-legs-hip-other',
+                                'q-applicant-physical-injuries-legs-leg-other',
+                                'q-applicant-physical-injuries-legs-knee-other',
+                                'q-applicant-physical-injuries-legs-ankle-other',
+                                'q-applicant-physical-injuries-legs-foot-other',
+                                'q-applicant-physical-injuries-legs-toes-other',
+                                'q-applicant-physical-injuries-upper-muscle-other',
+                                'q-applicant-physical-injuries-torso-muscle-other',
+                                'q-applicant-physical-injuries-arms-muscle-other',
+                                'q-applicant-physical-injuries-legs-muscle-other',
+                                'q-applicant-physical-injuries-legs-skin-other',
+                                'q-applicant-infections-other'
+                            ],
+                            'q-mainapplicant-confirmation-method': [
+                                'q-mainapplicant-enter-your-email-address',
+                                'q-mainapplicant-enter-your-telephone-number'
+                            ],
+                            'q-rep-confirmation-method': [
+                                'q-rep-email-address',
+                                'q-rep-telephone-number'
+                            ],
+                            'q-rep-has-reference-number': ['q-rep-reference-number'],
+                            'q-applicant-relationship-to-deceased': [
+                                'q-applicant-relationship-other'
+                            ],
+                            'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
+                                'q-applicant-explain-reason-for-delay-reporting'
+                            ]
+                        }
                     }
                 }
             },
