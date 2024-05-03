@@ -76,6 +76,13 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            propertyNames: {
+                enum: [
+                    'q-mainapplicant-shared-responsibility',
+                    'q-mainapplicant-shared-responsibility-name',
+                    'mainapplicant-shared-responsibility'
+                ]
+            },
             required: ['q-mainapplicant-shared-responsibility'],
             additionalProperties: false,
             properties: {
@@ -126,6 +133,24 @@ module.exports = {
                         }
                     }
                 },
+                'q-mainapplicant-shared-responsibility-name': {
+                    type: 'string',
+                    title: 'What is their full name?',
+                    maxLength: 50,
+                    errorMessage: {
+                        maxLength: 'Name must be 50 characters or less'
+                    },
+                    description:
+                        'We will never contact this person without your consent unless there is an exceptional situation where we have to.',
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        },
+                        summary: {
+                            title: 'With who?'
+                        }
+                    }
+                },
                 'mainapplicant-shared-responsibility': {
                     description: [
                         '|l10nt',
@@ -138,6 +163,43 @@ module.exports = {
                         ['|role.all', 'rep'],
                         'q-mainapplicant-shared-responsibility.details.victim'
                     ]
+                }
+            },
+            allOf: [
+                {
+                    $ref:
+                        '#/definitions/if-other-then-q-mainapplicant-shared-responsibility-name-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-mainapplicant-shared-responsibility-name-is-required': {
+                    if: {
+                        properties: {
+                            'q-mainapplicant-shared-responsibility': {
+                                const: true
+                            }
+                        },
+                        required: ['q-mainapplicant-shared-responsibility']
+                    },
+                    then: {
+                        required: ['q-mainapplicant-shared-responsibility-name'],
+                        propertyNames: {
+                            enum: [
+                                'q-mainapplicant-shared-responsibility',
+                                'q-mainapplicant-shared-responsibility-name',
+                                'mainapplicant-shared-responsibility'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-shared-responsibility-name':
+                                    'Enter their full name'
+                            }
+                        }
+                    },
+                    else: {
+                        required: ['q-mainapplicant-shared-responsibility']
+                    }
                 }
             },
             errorMessage: {
@@ -157,7 +219,8 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-mainapplicant-shared-responsibility': true
+                    'q-mainapplicant-shared-responsibility': true,
+                    'q-mainapplicant-shared-responsibility-name': 'Foo Bar'
                 },
                 {
                     'q-mainapplicant-shared-responsibility': false
@@ -166,21 +229,57 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-mainapplicant-shared-responsibility': 'foo'
+                },
+                {
+                    'q-mainapplicant-shared-responsibility': true,
+                    'q-mainapplicant-shared-responsibility-name': 12345
+                },
+                {
+                    'q-mainapplicant-shared-responsibility-name': 'Foo Bar'
+                },
+                {
+                    'q-mainapplicant-shared-responsibility': true,
+                    'q-mainapplicant-shared-responsibility-name': null
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-mainapplicant-shared-responsibility-name',
+                    'q-mainapplicant-shared-responsibility',
+                    'mainapplicant-shared-responsibility'
+                ],
+                outputOrder: [
+                    'q-mainapplicant-shared-responsibility',
+                    'mainapplicant-shared-responsibility'
+                ],
+                properties: {
+                    'q-mainapplicant-shared-responsibility': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-radios'
+                            },
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: true,
+                                    componentIds: ['q-mainapplicant-shared-responsibility-name']
+                                }
+                            ]
+                        }
+                    },
+                    'q-mainapplicant-shared-responsibility-name': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
         on: {
             ANSWER: [
-                {
-                    target: 'p-mainapplicant-shared-responsibility-name',
-                    cond: [
-                        '==',
-                        '$.answers.p-mainapplicant-shared-responsibility.q-mainapplicant-shared-responsibility',
-                        true
-                    ]
-                },
                 {
                     target: 'p-mainapplicant-care-order'
                 }
