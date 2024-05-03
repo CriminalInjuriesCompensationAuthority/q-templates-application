@@ -32,14 +32,12 @@ const applicantWhereInWalesDidItHappen = require('./lib/resource/sections/applic
 const whichPoliceForceIsInvestigatingTheCrime = require('./lib/resource/sections/which-police-force-is-investigating-the-crime.js');
 const applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice = require('./lib/resource/sections/applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.js');
 const offenderDoYouKnowTheNameOfTheOffender = require('./lib/resource/sections/offender-do-you-know-the-name-of-the-offender.js');
-const offenderEnterOffendersName = require('./lib/resource/sections/offender-enter-offenders-name.js');
 const offenderDoYouHaveContactWithOffender = require('./lib/resource/sections/offender-do-you-have-contact-with-offender.js');
 const offenderDescribeContactWithOffender = require('./lib/resource/sections/offender-describe-contact-with-offender.js');
 const applicantHaveYouAppliedToUsBefore = require('./lib/resource/sections/applicant-have-you-applied-to-us-before.js');
 const applicantHaveYouAppliedForOrReceivedAnyOtherCompensation = require('./lib/resource/sections/applicant-have-you-applied-for-or-received-any-other-compensation.js');
 const applicantEnterYourName = require('./lib/resource/sections/applicant-enter-your-name.js');
 const applicantHaveYouBeenKnownByAnyOtherNames = require('./lib/resource/sections/applicant-have-you-been-known-by-any-other-names.js');
-const applicantWhatOtherNamesHaveYouUsed = require('./lib/resource/sections/applicant-what-other-names-have-you-used.js');
 const applicantEnterYourDateOfBirth = require('./lib/resource/sections/applicant-enter-your-date-of-birth.js');
 const applicantEnterYourEmailAddress = require('./lib/resource/sections/applicant-enter-your-email-address.js');
 const applicantEnterYourAddress = require('./lib/resource/sections/applicant-enter-your-address.js');
@@ -141,9 +139,7 @@ const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/main
 const mainapplicantEnterYourTelephoneNumber = require('./lib/resource/sections/mainapplicant-enter-your-telephone-number.js');
 const mainapplicantRelationship = require('./lib/resource/sections/mainapplicant-relationship.js');
 const mainapplicantSharedResponsibility = require('./lib/resource/sections/mainapplicant-shared-responsibility.js');
-const mainapplicantSharedResponsibilityName = require('./lib/resource/sections/mainapplicant-shared-responsibility-name.js');
 const mainapplicantCareOrder = require('./lib/resource/sections/mainapplicant-care-order.js');
-const mainapplicantCareOrderAuthority = require('./lib/resource/sections/mainapplicant-care-order-authority.js');
 const contextPregnancy = require('./lib/resource/sections/context-pregnancy.js');
 const applicantUnableToWork = require('./lib/resource/sections/applicant-unable-to-work.js');
 const applicantSeTreatment = require('./lib/resource/sections/applicant-se-treatment.js');
@@ -213,7 +209,6 @@ const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-d
 const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
 const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
-const applicantCrimeLocation = require('./lib/resource/sections/applicant-crime-location');
 const applicantUnder18 = require('./lib/resource/sections/applicant-under-18.js');
 const transitionSomeone18OrOverToApply = require('./lib/resource/sections/transition-someone-18-or-over-to-apply.js');
 const applicantWhatDoYouWantToDo = require('./lib/resource/sections/applicant-what-do-you-want-to-do.js');
@@ -263,7 +258,6 @@ module.exports = {
             applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.section,
         'p-offender-do-you-know-the-name-of-the-offender':
             offenderDoYouKnowTheNameOfTheOffender.section,
-        'p-offender-enter-offenders-name': offenderEnterOffendersName.section,
         'p-offender-do-you-have-contact-with-offender':
             offenderDoYouHaveContactWithOffender.section,
         'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.section,
@@ -273,7 +267,6 @@ module.exports = {
         'p-applicant-enter-your-name': applicantEnterYourName.section,
         'p-applicant-have-you-been-known-by-any-other-names':
             applicantHaveYouBeenKnownByAnyOtherNames.section,
-        'p-applicant-what-other-names-have-you-used': applicantWhatOtherNamesHaveYouUsed.section,
         'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.section,
         'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.section,
         'p-applicant-enter-your-address': applicantEnterYourAddress.section,
@@ -380,9 +373,7 @@ module.exports = {
             mainapplicantEnterYourTelephoneNumber.section,
         'p-mainapplicant-relationship': mainapplicantRelationship.section,
         'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.section,
-        'p-mainapplicant-shared-responsibility-name': mainapplicantSharedResponsibilityName.section,
         'p-mainapplicant-care-order': mainapplicantCareOrder.section,
-        'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.section,
         'p--context-pregnancy': contextPregnancy.section,
         'p-applicant-unable-to-work': applicantUnableToWork.section,
         'p-applicant-se-treatment': applicantSeTreatment.section,
@@ -453,14 +444,13 @@ module.exports = {
         'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
         'p-applicant-claim-type': applicantClaimType.section,
-        'p-applicant-crime-location': applicantCrimeLocation.section,
         'p-applicant-under-18': applicantUnder18.section,
         'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.section,
         'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.section,
         'p--transition-apply-when-18': transitionApplyWhen18.section,
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
-        'origin': origin.section,
+        origin: origin.section
     },
     routes: {
         initial: 'p-applicant-who-are-you-applying-for',
@@ -517,7 +507,6 @@ module.exports = {
                 applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
             'p-offender-do-you-know-the-name-of-the-offender':
                 offenderDoYouKnowTheNameOfTheOffender.route,
-            'p-offender-enter-offenders-name': offenderEnterOffendersName.route,
             'p-offender-do-you-have-contact-with-offender':
                 offenderDoYouHaveContactWithOffender.route,
             'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.route,
@@ -534,7 +523,6 @@ module.exports = {
             'p-applicant-enter-your-name': applicantEnterYourName.route,
             'p-applicant-have-you-been-known-by-any-other-names':
                 applicantHaveYouBeenKnownByAnyOtherNames.route,
-            'p-applicant-what-other-names-have-you-used': applicantWhatOtherNamesHaveYouUsed.route,
             'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
             'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route,
             'p-applicant-enter-your-address': applicantEnterYourAddress.route,
@@ -638,10 +626,7 @@ module.exports = {
                 mainapplicantEnterYourTelephoneNumber.route,
             'p-mainapplicant-relationship': mainapplicantRelationship.route,
             'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.route,
-            'p-mainapplicant-shared-responsibility-name':
-                mainapplicantSharedResponsibilityName.route,
             'p-mainapplicant-care-order': mainapplicantCareOrder.route,
-            'p-mainapplicant-care-order-authority': mainapplicantCareOrderAuthority.route,
             'p--context-pregnancy': contextPregnancy.route,
             'p-applicant-unable-to-work': applicantUnableToWork.route,
             'p-applicant-se-treatment': applicantSeTreatment.route,
@@ -712,14 +697,13 @@ module.exports = {
             'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
             'p-applicant-physical-help': applicantPhysicalHelp.route,
             'p-applicant-claim-type': applicantClaimType.route,
-            'p-applicant-crime-location': applicantCrimeLocation.route,
             'p-applicant-under-18': applicantUnder18.route,
             'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.route,
             'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
             'p--transition-apply-when-18': transitionApplyWhen18.route,
             'p--transition-request-a-call-back': transitionRequestACallBack.route,
             'p--transition-contact-us': transitionContactUs.route,
-            'origin': origin.route
+            origin: origin.route
         }
     },
     answers: {},
