@@ -33,6 +33,9 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            propertyNames: {
+                enum: ['q-mainapplicant-care-order', 'q-mainapplicant-care-order-authority']
+            },
             required: ['q-mainapplicant-care-order'],
             additionalProperties: false,
             properties: {
@@ -61,6 +64,55 @@ module.exports = {
                             theme: 'main-applicant-details'
                         }
                     }
+                },
+                'q-mainapplicant-care-order-authority': {
+                    type: 'string',
+                    title: 'Which local authority is this with?',
+                    maxLength: 50,
+                    errorMessage: {
+                        maxLength: 'Local authority must be 50 characters or less'
+                    },
+                    meta: {
+                        classifications: {
+                            theme: 'main-applicant-details'
+                        }
+                    }
+                }
+            },
+            allOf: [
+                {
+                    $ref:
+                        '#/definitions/if-other-then-q-mainapplicant-care-order-authority-is-required'
+                }
+            ],
+            definitions: {
+                'if-other-then-q-mainapplicant-care-order-authority-is-required': {
+                    if: {
+                        properties: {
+                            'q-mainapplicant-care-order': {
+                                const: true
+                            }
+                        },
+                        required: ['q-mainapplicant-care-order']
+                    },
+                    then: {
+                        required: ['q-mainapplicant-care-order-authority'],
+                        propertyNames: {
+                            enum: [
+                                'q-mainapplicant-care-order',
+                                'q-mainapplicant-care-order-authority'
+                            ]
+                        },
+                        errorMessage: {
+                            required: {
+                                'q-mainapplicant-care-order-authority':
+                                    'Enter the local authority this is with'
+                            }
+                        }
+                    },
+                    else: {
+                        required: ['q-mainapplicant-care-order']
+                    }
                 }
             },
             errorMessage: {
@@ -76,7 +128,8 @@ module.exports = {
             },
             examples: [
                 {
-                    'q-mainapplicant-care-order': true
+                    'q-mainapplicant-care-order': true,
+                    'q-mainapplicant-care-order-authority': 'local authority'
                 },
                 {
                     'q-mainapplicant-care-order': false
@@ -85,8 +138,48 @@ module.exports = {
             invalidExamples: [
                 {
                     'q-mainapplicant-care-order': 'foo'
+                },
+                {
+                    'q-mainapplicant-care-order': true,
+                    'q-mainapplicant-care-order-authority': 12345
+                },
+                {
+                    'q-mainapplicant-care-order-authority': 'local authority'
+                },
+                {
+                    'q-mainapplicant-care-order': true,
+                    'q-mainapplicant-care-order-authority': null
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-mainapplicant-care-order-authority',
+                    'q-mainapplicant-care-order'
+                ],
+                outputOrder: ['q-mainapplicant-care-order'],
+                properties: {
+                    'q-mainapplicant-care-order': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-radios'
+                            },
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: true,
+                                    componentIds: ['q-mainapplicant-care-order-authority']
+                                }
+                            ]
+                        }
+                    },
+                    'q-mainapplicant-care-order-authority': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
@@ -96,26 +189,15 @@ module.exports = {
                     target: 'p--context-relationship-to-deceased',
                     cond: [
                         'and',
-                        [
-                            '==',
-                            '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
-                            false
-                        ],
                         // Main Applicant role
                         ['|role.all', 'mainapplicant'],
                         ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
                     ]
                 },
-
                 {
                     target: 'p--before-you-continue',
                     cond: [
                         'and',
-                        [
-                            '==',
-                            '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
-                            false
-                        ],
                         ['|role.all', 'mainapplicant'],
                         ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
                     ]
@@ -123,26 +205,13 @@ module.exports = {
                 {
                     target: 'p--context-rep-details',
                     cond: [
-                        'and',
-                        [
-                            '==',
-                            '$.answers.p-mainapplicant-care-order.q-mainapplicant-care-order',
-                            false
-                        ],
-                        // Rep role
-                        [
-                            'or',
-                            [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
-                            ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                        ]
+                        'or',
+                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                     ]
                 },
                 {
-                    target: 'p-mainapplicant-care-order-authority'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

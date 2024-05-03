@@ -83,6 +83,19 @@ module.exports = {
                             ],
                             'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
                                 'q-applicant-explain-reason-for-delay-reporting'
+                            ],
+                            'q-mainapplicant-shared-responsibility': [
+                                'q-mainapplicant-shared-responsibility-name'
+                            ],
+                            'q-mainapplicant-care-order': ['q-mainapplicant-care-order-authority'],
+                            'q-offender-do-you-know-the-name-of-the-offender': [
+                                'q-offender-enter-offenders-name'
+                            ],
+                            'q-applicant-where-did-the-crime-happen': [
+                                'q-applicant-crime-location'
+                            ],
+                            'q-applicant-have-you-been-known-by-any-other-names': [
+                                'q-applicant-what-other-names-have-you-used'
                             ]
                         }
                     }
