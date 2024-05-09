@@ -73,6 +73,9 @@ module.exports = {
                         'l10nt:q-applicant-what-other-names-have-you-used.error.required{?lng,context,ns}'
                 }
             },
+            'task-list': {
+                task: 't_applicant_personal-details'
+            },
             examples: [
                 {
                     'q-applicant-what-other-names-have-you-used': 'Mr Biz Baz'

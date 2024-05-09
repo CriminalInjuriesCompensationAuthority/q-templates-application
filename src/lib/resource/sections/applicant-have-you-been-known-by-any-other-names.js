@@ -72,6 +72,9 @@ module.exports = {
                         'l10nt:q-applicant-have-you-been-known-by-any-other-names.error.required{?lng,context,ns}'
                 }
             },
+            'task-list': {
+                task: 't_applicant_personal-details'
+            },
             examples: [
                 {
                     'q-applicant-have-you-been-known-by-any-other-names': true

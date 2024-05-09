@@ -182,6 +182,9 @@ module.exports = {
                     }
                 }
             ],
+            'task-list': {
+                task: 't_applicant_personal-details'
+            },
             examples: [
                 {
                     'q-applicant-title': 'Mr',

@@ -34,6 +34,9 @@ module.exports = {
                     }
                 }
             },
+            'task-list': {
+                task: 't-about-application'
+            },
             errorMessage: {
                 required: {
                     'q-applicant-under-18': 'Select one option'

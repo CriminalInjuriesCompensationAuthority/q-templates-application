@@ -37,6 +37,9 @@ module.exports = {
                     }
                 }
             },
+            'task-list': {
+                task: 't-about-application'
+            },
             errorMessage: {
                 required: {
                     'q-applicant-what-do-you-want-to-do': 'Select one option'

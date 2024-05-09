@@ -55,6 +55,9 @@ module.exports = {
                     }
                 }
             },
+            'task-list': {
+                task: 't_applicant_personal-details'
+            },
             examples: [
                 {
                     'q-applicant-enter-your-telephone-number': '01632 960 001'

@@ -34,6 +34,9 @@ module.exports = {
                     }
                 }
             },
+            'task-list': {
+                task: 't-about-application'
+            },
             errorMessage: {
                 required: {
                     'q-applicant-who-are-you-applying-for': 'Select who you are applying for'

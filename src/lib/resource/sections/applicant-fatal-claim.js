@@ -89,6 +89,9 @@ module.exports = {
                     ]
                 }
             },
+            'task-list': {
+                task: 't-about-application'
+            },
             errorMessage: {
                 required: {
                     'q-applicant-fatal-claim': "Select the reason you're applying"

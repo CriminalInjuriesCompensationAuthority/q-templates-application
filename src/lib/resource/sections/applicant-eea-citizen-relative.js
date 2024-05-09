@@ -103,7 +103,9 @@ module.exports = {
                     ]
                 }
             },
-
+            'task-list': {
+                task: 't_applicant_residency-and-nationality'
+            },
             examples: [
                 {
                     'q-applicant-eea-citizen-relative': true
