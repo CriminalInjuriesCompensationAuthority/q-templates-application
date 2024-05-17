@@ -70,8 +70,10 @@ module.exports = {
                         'l10nt:q-applicant-enter-your-date-of-birth.error.required{?lng,context,ns}'
                 }
             },
-            'task-list': {
-                task: 't_applicant_personal-details'
+            meta: {
+                'task-list': {
+                    task: 't_applicant_personal-details'
+                }
             },
             examples: [
                 {

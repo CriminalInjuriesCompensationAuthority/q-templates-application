@@ -1008,6 +1008,12 @@ module.exports = {
                 }
             ]
         },
+        title: 'Claim criminal injuries compensation',
+        description:
+            'You can <a href="/account/sign-in" class="govuk-link">create a GOV.UK One Login</a> to save your appliciation and return to it later.',
+        labelCompleted: 'Completed',
+        labelIncomplete: 'Incomplete',
+        labelCannotStart: 'Cannot start yet',
         sections: [
             {
                 id: 's-about-application',
@@ -1024,7 +1030,7 @@ module.exports = {
                     ['|role.all', 'proxy', 'deceased'],
                     's-about-application.title.deceased'
                 ],
-                cond: ['|role.any', 'proxy', 'myself'],
+                // cond: ['|role.any', 'proxy', 'myself'],
                 tasks: [
                     {
                         id: 't-about-application',
@@ -1042,7 +1048,10 @@ module.exports = {
                             's-about-application.tasks.t-about-application.title.deceased'
                         ],
                         hint: 'This is a hint',
-                        href: '/apply/applicant-who-are-you-applying-for'
+                        href: '/apply/task-list/task/t-about-application',
+                        // /apply/task-list/task/t-about-application/ // will redirect to the appropriate task url (should it always go to the first page in a task? or go to the last edited?)
+                        // or have the server compute the url and just send that back as a string literal to be inserted in?
+                        status: 'incomplete'
                     }
                 ]
             },
@@ -1061,7 +1070,7 @@ module.exports = {
                     ['|role.all', 'proxy', 'deceased'],
                     's_applicant_details.title.deceased'
                 ],
-                cond: ['|role.all', 'myself'],
+                // cond: ['|role.all', 'myself'],
                 tasks: [
                     {
                         id: 't_applicant_personal-details',
@@ -1078,7 +1087,8 @@ module.exports = {
                             ['|role.all', 'proxy', 'deceased'],
                             's_applicant_details.tasks.t_applicant_personal-details.title.deceased'
                         ],
-                        href: '/apply/info-context-applicant-details'
+                        href: '/apply/task-list/task/t_applicant_personal-details',
+                        status: 'cannotStartYet'
                     },
                     {
                         id: 't_applicant_residency-and-nationality',
@@ -1095,121 +1105,201 @@ module.exports = {
                             ['|role.all', 'proxy', 'deceased'],
                             's_applicant_details.tasks.t_applicant_residency-and-nationality.title.deceased'
                         ],
-                        href: '/apply/info-context-residency-and-nationality'
+                        href: '/apply/task-list/task/t_applicant_residency-and-nationality',
+                        status: 'cannotStartYet'
                     }
                 ]
             },
             {
                 id: 's_main-applicant_authority',
                 title: 's_main-applicant_authority',
-                cond: ['|role.all', 'mainapplicant', 'authority'],
-                tasks: []
+                cond: ['|role.all', 'mainapplicant'],
+                tasks: [
+                    {
+                        id: 't_main-applicant_authority',
+                        title: 't_main-applicant_authority',
+                        href: '/apply/task-list/task/t_mainapplicant_authority',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
                 id: 's_rep_details',
                 title: 's_rep_details',
                 cond: ['|role.all', 'rep'],
-                tasks: []
+                tasks: [
+                    {
+                        id: 't_rep_details',
+                        title: 't_rep_details',
+                        href: '/apply/task-list/task/t_rep_details',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
-                id: 's_applicant_relationship-to-deceased',
-                title: 's_applicant_relationship-to-deceased',
+                id: 's_applicant_about-deceased',
+                title: 's_applicant_about-deceased',
                 cond: ['|role.all', 'deceased'],
-                tasks: []
+                tasks: [
+                    {
+                        id: 't_applicant_relationship-to-deceased',
+                        title: 't_applicant_relationship-to-deceased',
+                        href: '/apply/task-list/task/t_applicant_relationship-to-deceased',
+                        status: 'cannotStartYet'
+                    },
+                    {
+                        id: 't_applicant_about-who-died', // should the context of this task be "deceased" givn that that is what it pertains to?
+                        title: 't_applicant_about-who-died',
+                        href: '/apply/task-list/task/t_applicant_about-who-died',
+                        status: 'cannotStartYet'
+                    },
+                    {
+                        id: 't_applicant_funeral-costs',
+                        title: 't_applicant_funeral-costs',
+                        href: '/apply/task-list/task/t_applicant_funeral-costs',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
                 id: 's_applicant_about-the-crime',
                 title: 's_applicant_about-the-crime',
-                cond: ['|role.all', 'proxy', 'myself'],
-                tasks: []
+                // cond: ['|role.all', 'proxy', 'myself'],
+                tasks: [
+                    {
+                        id: 't_applicant_about-the-crime',
+                        title: 't_applicant_about-the-crime',
+                        href: '/apply/task-list/task/t_applicant_about-the-crime',
+                        status: 'cannotStartYet'
+                    },
+                    {
+                        id: 't_offender_about-the-offender', // we have an offender context under the applicant context in the section id. Is this ok?
+                        title: 't_offender_about-the-offender',
+                        href: '/apply/task-list/task/t_offender_about-the-offender',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
                 id: 's_applicant_about-injuries',
                 title: 's_applicant_about-injuries',
-                cond: ['|role.all', 'proxy', 'myself'],
-                tasks: []
+                cond: ['|role.none', 'deceased'],
+                tasks: [
+                    {
+                        id: 't_applicant_about-injuries',
+                        title: 't_applicant_about-injuries',
+                        href: '/apply/task-list/task/t_applicant_about-injuries',
+                        status: 'cannotStartYet'
+                    },
+                    {
+                        id: 't_applicant_impact-of-injuries',
+                        title: 't_applicant_impact-of-injuries',
+                        href: '/apply/task-list/task/t_applicant_impact-of-injuries',
+                        status: 'cannotStartYet'
+                    },
+                    {
+                        id: 't_applicant_about-treatment',
+                        title: 't_applicant_about-treatment',
+                        href: '/apply/task-list/task/t_applicant_about-treatment',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
                 id: 's_applicant_other-compensation',
                 title: 's_applicant_other-compensation',
-                cond: ['|role.all', 'proxy', 'myself'],
-                tasks: []
+                // cond: ['|role.all', 'proxy', 'myself'],
+                tasks: [
+                    {
+                        id: 't_applicant_other-compensation',
+                        title: 't_applicant_other-compensation',
+                        href: '/apply/task-list/task/t_applicant_other-compensation',
+                        status: 'cannotStartYet'
+                    }
+                ]
             },
             {
                 id: 's_applicant_additional-information',
                 title: 's_applicant_additional-information',
-                cond: ['|role.all', 'proxy', 'myself'],
-                tasks: []
-            },
-            {
-                id: 's_deceased_details',
-                title: 'Tell us about the person who died',
-                cond: ['|role.all', 'proxy', 'deceased'],
+                // cond: ['|role.all', 'proxy', 'myself'],
                 tasks: [
                     {
-                        id: 't_deceased_relationship-to-applicant',
-                        title: 'Your relationship to the person who died',
-                        // href: '/apply/info-context-relationship-to-deceased',
-                        status: {
-                            text: 'custom status',
-                            classes: 'govuk-task-list__status--cannot-start-yet'
-                        }
-                    },
-                    {
-                        id: 't_deceased_personal-details',
-                        title: 'About the person who died',
-                        // href: '/apply/info-context-deceased-details',
-                        status: 'cannotStartYet'
-                    },
-                    {
-                        id: 't_deceased_funeral-costs',
-                        title: 'Funeral costs',
-                        // href: '/apply/info-context-funeral-costs',
+                        id: 't_applicant_additional-information',
+                        title: 't_applicant_additional-information',
+                        href: '/apply/task-list/task/t_applicant_additional-information',
                         status: 'cannotStartYet'
                     }
                 ]
             },
-            {
-                title: 'Provide details of the crime and offender',
-                id: 's_offender_details',
-                cond: ['|role.any', 'proxy', 'myself'],
-                tasks: [
-                    {
-                        id: 't_offender_about-the-crime', // t-about-the-crime ?
-                        title: 'About the crime',
-                        // href: '/apply/info-before-you-continue',
-                        status: 'cannotStartYet'
-                    },
-                    {
-                        id: 't_offender_about-the-offender', // t-about-the-offender ?
-                        title: 'About the offender',
-                        // href: '/apply/info-context-offender',
-                        status: 'cannotStartYet'
-                    }
-                ]
-            },
-            {
-                title: 'Provide details of other compensation applications',
-                id: 's-other-compensation-details',
-                cond: ['|role.any', 'proxy', 'myself'],
-                tasks: [
-                    {
-                        id: 't-other-compensation-details',
-                        title: 'Other compensation',
-                        // href: '/apply/info-context-compensation',
-                        status: 'cannotStartYet'
-                    }
-                ]
-            },
+            // {
+            //     id: 's_deceased_details',
+            //     title: 'Tell us about the person who died',
+            //     cond: ['|role.all', 'proxy', 'deceased'],
+            //     tasks: [
+            //         {
+            //             id: 't_deceased_relationship-to-applicant',
+            //             title: 'Your relationship to the person who died',
+            //             // href: '/apply/info-context-relationship-to-deceased',
+            //             status: {
+            //                 text: 'custom status',
+            //                 classes: 'govuk-task-list__status--cannot-start-yet'
+            //             }
+            //         },
+            //         {
+            //             id: 't_deceased_personal-details',
+            //             title: 'About the person who died',
+            //             // href: '/apply/info-context-deceased-details',
+            //             status: 'cannotStartYet'
+            //         },
+            //         {
+            //             id: 't_deceased_funeral-costs',
+            //             title: 'Funeral costs',
+            //             // href: '/apply/info-context-funeral-costs',
+            //             status: 'cannotStartYet'
+            //         }
+            //     ]
+            // },
+            // {
+            //     title: 'Provide details of the crime and offender',
+            //     id: 's_offender_details',
+            //     // cond: ['|role.any', 'proxy', 'myself'],
+            //     tasks: [
+            //         {
+            //             id: 't_offender_about-the-crime', // t-about-the-crime ?
+            //             title: 'About the crime',
+            //             // href: '/apply/info-before-you-continue',
+            //             status: 'cannotStartYet'
+            //         },
+            //         {
+            //             id: 't_offender_about-the-offender', // t-about-the-offender ?
+            //             title: 'About the offender',
+            //             // href: '/apply/info-context-offender',
+            //             status: 'cannotStartYet'
+            //         }
+            //     ]
+            // },
+            // {
+            //     title: 'Provide details of other compensation applications',
+            //     id: 's-other-compensation-details',
+            //     // cond: ['|role.any', 'proxy', 'myself'],
+            //     tasks: [
+            //         {
+            //             id: 't-other-compensation-details',
+            //             title: 'Other compensation',
+            //             // href: '/apply/info-context-compensation',
+            //             status: 'cannotStartYet'
+            //         }
+            //     ]
+            // },
             {
                 title: 'Check your answers and submit',
                 id: 's-check-your-answers',
-                cond: ['|role.any', 'proxy', 'myself'],
+                // cond: ['|role.any', 'proxy', 'myself'],
                 tasks: [
                     {
                         id: 't-check-your-answers',
                         title: 'Check your answers and submit application',
-                        // href: '/apply/check-your-answers',
+                        href: '/apply/task-list/task/t-check-your-answers',
                         status: 'cannotStartYet'
                     }
                 ]

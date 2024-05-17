@@ -105,8 +105,10 @@ module.exports = {
                     ]
                 }
             },
-            'task-list': {
-                task: 't_applicant_residency-and-nationality'
+            meta: {
+                'task-list': {
+                    task: 't_applicant_residency-and-nationality'
+                }
             },
             examples: [
                 {

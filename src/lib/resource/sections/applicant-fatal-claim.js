@@ -89,8 +89,11 @@ module.exports = {
                     ]
                 }
             },
-            'task-list': {
-                task: 't-about-application'
+            meta: {
+                'task-list': {
+                    task: 't-about-application',
+                    taskFinalPage: true
+                }
             },
             errorMessage: {
                 required: {

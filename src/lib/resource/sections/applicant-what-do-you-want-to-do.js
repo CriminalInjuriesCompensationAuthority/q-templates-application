@@ -37,8 +37,10 @@ module.exports = {
                     }
                 }
             },
-            'task-list': {
-                task: 't-about-application'
+            meta: {
+                'task-list': {
+                    task: 't-about-application'
+                }
             },
             errorMessage: {
                 required: {

@@ -18,7 +18,7 @@ module.exports = {
                             labelCompleted: 'Completed',
                             labelIncomplete: 'Incomplete',
                             labelCannotStart: 'Cannot start yet',
-                            taskListData: 'q.var:task-list'
+                            sections: []
                         }
                     },
                     meta: {

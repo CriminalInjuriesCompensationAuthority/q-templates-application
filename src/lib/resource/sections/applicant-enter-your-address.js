@@ -200,8 +200,10 @@ module.exports = {
                     'q-applicant-postcode': 'G1 1XX'
                 }
             ],
-            'task-list': {
-                task: 't_applicant_personal-details'
+            meta: {
+                'task-list': {
+                    task: 't_applicant_personal-details'
+                }
             },
             invalidExamples: [
                 {
