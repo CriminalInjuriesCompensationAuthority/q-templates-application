@@ -142,12 +142,6 @@ const mainapplicantSharedResponsibility = require('./lib/resource/sections/maina
 const mainapplicantCareOrder = require('./lib/resource/sections/mainapplicant-care-order.js');
 const contextPregnancy = require('./lib/resource/sections/context-pregnancy.js');
 const applicantUnableToWork = require('./lib/resource/sections/applicant-unable-to-work.js');
-const applicantSeTreatment = require('./lib/resource/sections/applicant-se-treatment.js');
-const applicantSeHomeCare = require('./lib/resource/sections/applicant-se-home-care.js');
-const applicantSeHomeChanges = require('./lib/resource/sections/applicant-se-home-changes.js');
-const applicantSeAids = require('./lib/resource/sections/applicant-se-aids.js');
-const applicantSeEquipment = require('./lib/resource/sections/applicant-se-equipment.js');
-const applicantSeOther = require('./lib/resource/sections/applicant-se-other.js');
 const contextSpecialExpenses = require('./lib/resource/sections/context-special-expenses.js');
 const applicantSpecialExpenses = require('./lib/resource/sections/applicant-special-expenses.js');
 const applicantOver16 = require('./lib/resource/sections/applicant-over-16.js');
@@ -377,12 +371,6 @@ module.exports = {
         'p-mainapplicant-care-order': mainapplicantCareOrder.section,
         'p--context-pregnancy': contextPregnancy.section,
         'p-applicant-unable-to-work': applicantUnableToWork.section,
-        'p-applicant-se-treatment': applicantSeTreatment.section,
-        'p-applicant-se-home-care': applicantSeHomeCare.section,
-        'p-applicant-se-home-changes': applicantSeHomeChanges.section,
-        'p-applicant-se-aids': applicantSeAids.section,
-        'p-applicant-se-equipment': applicantSeEquipment.section,
-        'p-applicant-se-other': applicantSeOther.section,
         'p--context-special-expenses': contextSpecialExpenses.section,
         'p-applicant-special-expenses': applicantSpecialExpenses.section,
         'p-applicant-over-16': applicantOver16.section,
@@ -631,12 +619,6 @@ module.exports = {
             'p-mainapplicant-care-order': mainapplicantCareOrder.route,
             'p--context-pregnancy': contextPregnancy.route,
             'p-applicant-unable-to-work': applicantUnableToWork.route,
-            'p-applicant-se-treatment': applicantSeTreatment.route,
-            'p-applicant-se-home-care': applicantSeHomeCare.route,
-            'p-applicant-se-home-changes': applicantSeHomeChanges.route,
-            'p-applicant-se-aids': applicantSeAids.route,
-            'p-applicant-se-equipment': applicantSeEquipment.route,
-            'p-applicant-se-other': applicantSeOther.route,
             'p--context-special-expenses': contextSpecialExpenses.route,
             'p-applicant-special-expenses': applicantSpecialExpenses.route,
             'p-applicant-over-16': applicantOver16.route,
