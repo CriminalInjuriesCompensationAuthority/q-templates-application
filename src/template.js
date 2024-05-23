@@ -149,6 +149,7 @@ const applicantSeAids = require('./lib/resource/sections/applicant-se-aids.js');
 const applicantSeEquipment = require('./lib/resource/sections/applicant-se-equipment.js');
 const applicantSeOther = require('./lib/resource/sections/applicant-se-other.js');
 const contextSpecialExpenses = require('./lib/resource/sections/context-special-expenses.js');
+const applicantSpecialExpenses = require('./lib/resource/sections/applicant-special-expenses.js');
 const applicantOver16 = require('./lib/resource/sections/applicant-over-16.js');
 const applicantAffectedDailyCapacity = require('./lib/resource/sections/applicant-affected-daily-capacity.js');
 const applicantAffectDuration = require('./lib/resource/sections/applicant-affect-duration.js');
@@ -383,6 +384,7 @@ module.exports = {
         'p-applicant-se-equipment': applicantSeEquipment.section,
         'p-applicant-se-other': applicantSeOther.section,
         'p--context-special-expenses': contextSpecialExpenses.section,
+        'p-applicant-special-expenses': applicantSpecialExpenses.section,
         'p-applicant-over-16': applicantOver16.section,
         'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.section,
         'p-applicant-affect-duration': applicantAffectDuration.section,
@@ -636,6 +638,7 @@ module.exports = {
             'p-applicant-se-equipment': applicantSeEquipment.route,
             'p-applicant-se-other': applicantSeOther.route,
             'p--context-special-expenses': contextSpecialExpenses.route,
+            'p-applicant-special-expenses': applicantSpecialExpenses.route,
             'p-applicant-over-16': applicantOver16.route,
             'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
             'p-applicant-affect-duration': applicantAffectDuration.route,
