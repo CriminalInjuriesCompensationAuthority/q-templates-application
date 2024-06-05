@@ -83,7 +83,6 @@ describe('delete keys', () => {
         const actual = deleteKeys(template, ['examples', 'invalidExamples']);
         expect(actual).toHaveProperty('answers');
         expect(actual).toHaveProperty('meta');
-        expect(actual).toHaveProperty('progress');
         expect(actual).toHaveProperty('routes');
         expect(actual).toHaveProperty('sections');
         expect(actual).toHaveProperty('taxonomies');

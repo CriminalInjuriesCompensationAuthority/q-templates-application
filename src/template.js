@@ -2,6 +2,7 @@
 
 const {version} = require('../package.json');
 
+const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
@@ -14,6 +15,7 @@ const applicantEnterYourAddress = require('./lib/resource/sections/applicant-ent
 const applicantEnterYourTelephoneNumber = require('./lib/resource/sections/applicant-enter-your-telephone-number.js');
 const applicantYouCannotGetCompensation = require('./lib/resource/sections/applicant-you-cannot-get-compensation.js');
 const contextApplicantDetails = require('./lib/resource/sections/context-applicant-details.js');
+const confirmation = require('./lib/resource/sections/confirmation.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
 const contextCrimeReferenceNumber = require('./lib/resource/sections/context-crime-ref-no.js');
 const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
@@ -36,6 +38,8 @@ const applicantWhatDoYouWantToDo = require('./lib/resource/sections/applicant-wh
 const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-when-18.js');
 const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
 const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
+const tasklist = require('./lib/resource/sections/task-list');
+const canHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -72,6 +76,14 @@ module.exports = {
         'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.section,
         'p--transition-apply-when-18': transitionApplyWhen18.section,
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
+        "p-applicant-declaration": applicantDeclaration.section,
+        "p--confirmation": confirmation.section,
+        "p-task-list": tasklist.section,
+        "p-applicant-claim-type": applicantClaimType.section,
+        "p-applicant-you-cannot-get-compensation": applicantYouCannotGetCompensation.section,
+        "p--context-crime-ref-no": contextCrimeReferenceNumber.section,
+        "p--transition-contact-us": transitionContactUs.section,
+        "p-applicant-can-handle-affairs": canHandleAffairs.section
     },
     routes:{
         initial: 't-about-application',
@@ -113,6 +125,7 @@ module.exports = {
                     'p-applicant-enter-your-address': applicantEnterYourAddress.route,
                     'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route,
                     'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
+                    "p-applicant-can-handle-affairs": canHandleAffairs.route
                 },
                 status: 'incomplete'
             },
@@ -135,55 +148,22 @@ module.exports = {
                     'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
                 },
                 status: 'incomplete'
+            },
+            't-check-your-answers' : {
+                "id": 't-check-your-answers',
+                "initial": "p-applicant-declaration",
+                "states": {
+                    "p-applicant-declaration": applicantDeclaration.route,
+                    "p--confirmation": confirmation.route,
+                    "p-task-list": tasklist.route
+                },
+                "status": "incomplete"
             }
         },
         guards: {}
     },
     answers: {},
     taskStatuses: {},
-    onSubmit: {
-        id: 'task0',
-        type: 'sequential',
-        retries: 0,
-        data: [
-            {
-                id: 'task1',
-                type: 'generateReferenceNumber',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task2',
-                type: 'transformAndUpload',
-                retries: 0,
-                data: {
-                    questionnaireDef: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task3',
-                type: 'sendSubmissionMessageToSQS',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task4',
-                type: 'sendNotifyMessageToSQS',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            }
-        ]
-    },
     taxonomies: {
         theme: {
             l10n: {

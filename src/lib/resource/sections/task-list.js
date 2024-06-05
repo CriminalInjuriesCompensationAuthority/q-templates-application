@@ -68,6 +68,7 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
+            required: ["task-list"],
             properties: {
                 'task-list': {
                     type: 'object',
@@ -175,7 +176,17 @@ module.exports = {
                     }
                 }
             },
-            examples: [],
+            examples: [{
+                "task-list": {
+                    taskListInfo: {
+                        type: 'object',
+                        labelCompleted: 'Completed',
+                        labelIncomplete: 'Incomplete',
+                        labelCannotStart: 'Cannot start yet',
+                        sections: {}
+                    }
+                }
+            }],
             invalidExamples: [
                 {
                     'foo': 'bar'
@@ -184,10 +195,6 @@ module.exports = {
         }
     },
     route: {
-        on: {
-            ANSWER: [
-
-            ]
-        }
+        type: 'final'
     }
 };
