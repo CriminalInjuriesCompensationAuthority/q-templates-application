@@ -2,171 +2,20 @@
 
 const {version} = require('../package.json');
 
-const applicantDeclaration = require('./lib/resource/sections/applicant-declaration.js');
-const applicantDeclarationDeceased = require('./lib/resource/sections/applicant-declaration-deceased.js');
-const mainapplicantDeclaration12AndOver = require('./lib/resource/sections/mainapplicant-declaration-12-and-over.js');
-const mainapplicantDeclarationUnder12 = require('./lib/resource/sections/mainapplicant-declaration-under-12.js');
-const mainapplicantDeclarationUnder12Deceased = require('./lib/resource/sections/mainapplicant-declaration-under-12-deceased.js');
-const mainapplicantDeclarationOver12Deceased = require('./lib/resource/sections/mainapplicant-declaration-12-and-over-deceased.js');
-const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-under-12.js');
-const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-declaration-under-12-deceased.js');
-const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
-const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
-const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
-const beforeYouContinue = require('./lib/resource/sections/before-you-continue.js');
 const wasTheCrimeReportedToPolice = require('./lib/resource/sections/was-the-crime-reported-to-police.js');
-const whenWasTheCrimeReportedToPolice = require('./lib/resource/sections/when-was-the-crime-reported-to-police.js');
-const whatsTheCrimeReferenceNumber = require('./lib/resource/sections/whats-the-crime-reference-number.js');
-const applicantDidTheCrimeHappenOnceOrOverTime = require('./lib/resource/sections/applicant-did-the-crime-happen-once-or-over-time.js');
-const applicantWhenDidTheCrimeHappen = require('./lib/resource/sections/applicant-when-did-the-crime-happen.js');
-const applicantWhenDidTheCrimeStart = require('./lib/resource/sections/applicant-when-did-the-crime-start.js');
-const applicantWhenDidTheCrimeStop = require('./lib/resource/sections/applicant-when-did-the-crime-stop.js');
-const applicantSelectReasonsForTheDelayInMakingYourApplication = require('./lib/resource/sections/applicant-select-reasons-for-the-delay-in-making-your-application.js');
-const applicantWhereDidTheCrimeHappen = require('./lib/resource/sections/applicant-where-did-the-crime-happen.js');
-const applicantWhereInEnglandDidItHappen = require('./lib/resource/sections/applicant-where-in-england-did-it-happen.js');
-const applicantWhereInScotlandDidItHappen = require('./lib/resource/sections/applicant-where-in-scotland-did-it-happen.js');
-const applicantWhereInWalesDidItHappen = require('./lib/resource/sections/applicant-where-in-wales-did-it-happen.js');
-const whichPoliceForceIsInvestigatingTheCrime = require('./lib/resource/sections/which-police-force-is-investigating-the-crime.js');
-const applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice = require('./lib/resource/sections/applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.js');
-const offenderDoYouKnowTheNameOfTheOffender = require('./lib/resource/sections/offender-do-you-know-the-name-of-the-offender.js');
-const offenderDoYouHaveContactWithOffender = require('./lib/resource/sections/offender-do-you-have-contact-with-offender.js');
-const offenderDescribeContactWithOffender = require('./lib/resource/sections/offender-describe-contact-with-offender.js');
-const applicantHaveYouAppliedToUsBefore = require('./lib/resource/sections/applicant-have-you-applied-to-us-before.js');
-const applicantHaveYouAppliedForOrReceivedAnyOtherCompensation = require('./lib/resource/sections/applicant-have-you-applied-for-or-received-any-other-compensation.js');
 const applicantEnterYourName = require('./lib/resource/sections/applicant-enter-your-name.js');
 const applicantHaveYouBeenKnownByAnyOtherNames = require('./lib/resource/sections/applicant-have-you-been-known-by-any-other-names.js');
 const applicantEnterYourDateOfBirth = require('./lib/resource/sections/applicant-enter-your-date-of-birth.js');
 const applicantEnterYourEmailAddress = require('./lib/resource/sections/applicant-enter-your-email-address.js');
 const applicantEnterYourAddress = require('./lib/resource/sections/applicant-enter-your-address.js');
 const applicantEnterYourTelephoneNumber = require('./lib/resource/sections/applicant-enter-your-telephone-number.js');
-const checkYourAnswers = require('./lib/resource/sections/check-your-answers.js');
-const confirmation = require('./lib/resource/sections/confirmation.js');
 const applicantYouCannotGetCompensation = require('./lib/resource/sections/applicant-you-cannot-get-compensation.js');
-const contextOffender = require('./lib/resource/sections/context-offender.js');
-const contextCompensation = require('./lib/resource/sections/context-compensation.js');
-const applicantAppliedForOtherCompensationBrieflyExplainWhyNot = require('./lib/resource/sections/applicant-applied-for-other-compensation-briefly-explain-why-not.js');
-const applicantWhoDidYouApplyTo = require('./lib/resource/sections/applicant-who-did-you-apply-to.js');
-const applicantHasADecisionBeenMade = require('./lib/resource/sections/applicant-has-a-decision-been-made.js');
-const applicantHowMuchWasAward = require('./lib/resource/sections/applicant-how-much-was-award.js');
-const applicantWhenWillYouFindOut = require('./lib/resource/sections/applicant-when-will-you-find-out.js');
 const contextApplicantDetails = require('./lib/resource/sections/context-applicant-details.js');
-const contextDmiDetails = require('./lib/resource/sections/context-dmi-details.js');
-const applicantDoYouHaveDisablingMentalInjury = require('./lib/resource/sections/applicant-do-you-have-disabling-mental-injury.js');
-const applicantMentalInjuryDuration = require('./lib/resource/sections/applicant-mental-injury-duration.js');
-const applicantSelectTreatments = require('./lib/resource/sections/applicant-select-treatments.js');
-const applicantHasYourTreatmentFinishedDmi = require('./lib/resource/sections/applicant-has-your-treatment-finished-dmi.js');
-const applicantAffectOnDailyLifeDmi = require('./lib/resource/sections/applicant-affect-on-daily-life-dmi.js');
-const applicantAreYouRegisteredWithGp = require('./lib/resource/sections/applicant-are-you-registered-with-gp.js');
-const applicantHaveYouSeenAGp = require('./lib/resource/sections/applicant-have-you-seen-a-gp.js');
-const gpEnterYourAddress = require('./lib/resource/sections/gp-enter-your-address.js');
-const applicantDentistVisited = require('./lib/resource/sections/applicant-dentist-visited.js');
-const applicantDentistAddress = require('./lib/resource/sections/applicant-dentist-address.js');
-const applicantAreYouClaimingForPhysicalInjuries = require('./lib/resource/sections/applicant-are-you-claiming-for-physical-injuries.js');
-const transition = require('./lib/resource/sections/transition.js');
-const contextPhysicalInjuries = require('./lib/resource/sections/context-physical-injuries.js');
-const applicantPhysicalInjury = require('./lib/resource/sections/applicant-physical-injury.js');
-const applicantPhysicalInjuryUpper = require('./lib/resource/sections/applicant-physical-injury-upper.js');
-const applicantPhysicalInjuryUpperHead = require('./lib/resource/sections/applicant-physical-injury-upper-head.js');
-const applicantPhysicalInjuryUpperFace = require('./lib/resource/sections/applicant-physical-injury-upper-face.js');
-const applicantPhysicalInjuryUpperNeck = require('./lib/resource/sections/applicant-physical-injury-upper-neck.js');
-const applicantPhysicalInjuryUpperEye = require('./lib/resource/sections/applicant-physical-injury-upper-eye.js');
-const applicantPhysicalInjuryUpperEar = require('./lib/resource/sections/applicant-physical-injury-upper-ear.js');
-const applicantPhysicalInjuryUpperNose = require('./lib/resource/sections/applicant-physical-injury-upper-nose.js');
-const applicantPhysicalInjuryUpperMouth = require('./lib/resource/sections/applicant-physical-injury-upper-mouth.js');
-const applicantPhysicalInjuryUpperSkin = require('./lib/resource/sections/applicant-physical-injury-upper-skin.js');
-const applicantPhysicalInjuryUpperMuscle = require('./lib/resource/sections/applicant-physical-injury-upper-muscle.js');
-const applicantPhysicalInjuryTorso = require('./lib/resource/sections/applicant-physical-injury-torso.js');
-const applicantPhysicalInjuryTorsoShoulder = require('./lib/resource/sections/applicant-physical-injury-torso-shoulder.js');
-const applicantPhysicalInjuryTorsoChest = require('./lib/resource/sections/applicant-physical-injury-torso-chest.js');
-const applicantPhysicalInjuryTorsoAbdomen = require('./lib/resource/sections/applicant-physical-injury-torso-abdomen.js');
-const applicantPhysicalInjuryTorsoBack = require('./lib/resource/sections/applicant-physical-injury-torso-back.js');
-const applicantPhysicalInjuryTorsoPelvis = require('./lib/resource/sections/applicant-physical-injury-torso-pelvis.js');
-const applicantPhysicalInjuryTorsoGenitals = require('./lib/resource/sections/applicant-physical-injury-torso-genitals.js');
-const applicantPhysicalInjuryTorsoSkin = require('./lib/resource/sections/applicant-physical-injury-torso-skin.js');
-const applicantPhysicalInjuryTorsoMuscle = require('./lib/resource/sections/applicant-physical-injury-torso-muscle.js');
-const applicantPhysicalInjuryArms = require('./lib/resource/sections/applicant-physical-injury-arms.js');
-const applicantPhysicalInjuryArmsShoulder = require('./lib/resource/sections/applicant-physical-injury-arms-shoulder.js');
-const applicantPhysicalInjuryArmsArm = require('./lib/resource/sections/applicant-physical-injury-arms-arm.js');
-const applicantPhysicalInjuryArmsElbow = require('./lib/resource/sections/applicant-physical-injury-arms-elbow.js');
-const applicantPhysicalInjuryArmsWrist = require('./lib/resource/sections/applicant-physical-injury-arms-wrist.js');
-const applicantPhysicalInjuryArmsHand = require('./lib/resource/sections/applicant-physical-injury-arms-hand.js');
-const applicantPhysicalInjuryArmsDigit = require('./lib/resource/sections/applicant-physical-injury-arms-digit.js');
-const applicantPhysicalInjuryArmsSkin = require('./lib/resource/sections/applicant-physical-injury-arms-skin.js');
-const applicantPhysicalInjuryArmsMuscle = require('./lib/resource/sections/applicant-physical-injury-arms-muscle.js');
-const applicantPhysicalInjuryLegs = require('./lib/resource/sections/applicant-physical-injury-legs.js');
-const applicantPhysicalInjuryLegsHip = require('./lib/resource/sections/applicant-physical-injury-legs-hip.js');
-const applicantPhysicalInjuryLegsLeg = require('./lib/resource/sections/applicant-physical-injury-legs-leg.js');
-const applicantPhysicalInjuryLegsKnee = require('./lib/resource/sections/applicant-physical-injury-legs-knee.js');
-const applicantPhysicalInjuryLegsAnkle = require('./lib/resource/sections/applicant-physical-injury-legs-ankle.js');
-const applicantPhysicalInjuryLegsFoot = require('./lib/resource/sections/applicant-physical-injury-legs-foot.js');
-const applicantPhysicalInjuryLegsToes = require('./lib/resource/sections/applicant-physical-injury-legs-toes.js');
-const applicantPhysicalInjuryLegsSkin = require('./lib/resource/sections/applicant-physical-injury-legs-skin.js');
-const applicantPhysicalInjuryLegsMuscle = require('./lib/resource/sections/applicant-physical-injury-legs-muscle.js');
-const applicantInfections = require('./lib/resource/sections/applicant-infections.js');
-const applicantSelectInfections = require('./lib/resource/sections/applicant-select-infections.js');
-const applicantPregnancy = require('./lib/resource/sections/applicant-pregnancy.js');
-const contextTreatment = require('./lib/resource/sections/context-treatment.js');
-const applicantTreatmentForPhysicalInjuries = require('./lib/resource/sections/applicant-treatment-for-physical-injuries.js');
-const applicantMedicalHelp = require('./lib/resource/sections/applicant-medical-help.js');
-const applicantTreatmentAddress = require('./lib/resource/sections/applicant-treatment-address.js');
-const applicantUnableToWorkDuration = require('./lib/resource/sections/applicant-unable-to-work-duration.js');
-const applicantJobWhenCrimeHappened = require('./lib/resource/sections/applicant-job-when-crime-happened.js');
-const applicantWorkDetailsOption = require('./lib/resource/sections/applicant-work-details-option.js');
-const applicantExpenses = require('./lib/resource/sections/applicant-expenses.js');
-const contextMoney = require('./lib/resource/sections/context-money.js');
-const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
-const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
-const applicantIncidentType = require('./lib/resource/sections/applicant-incident-type.js');
-const applicantProvideAdditionalInformation = require('./lib/resource/sections/applicant-provide-additional-information.js');
-const applicantAdditionalInformation = require('./lib/resource/sections/applicant-additional-information.js');
-const applicantDescribeIncident = require('./lib/resource/sections/applicant-describe-incident.js');
-const applicantIncidentDescription = require('./lib/resource/sections/applicant-incident-description.js');
 const contextCrimeReferenceNumber = require('./lib/resource/sections/context-crime-ref-no.js');
-const contextAdditionalInfo = require('./lib/resource/sections/context-additional-info.js');
-const system = require('./lib/resource/sections/system.js');
-const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
-const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
-const contextAuthority = require('./lib/resource/sections/context-authority');
-const mainapplicantContextDetails = require('./lib/resource/sections/mainapplicant-context-details.js');
-const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
-const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
-const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
-const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/mainapplicant-enter-your-email-address.js');
-const mainapplicantEnterYourTelephoneNumber = require('./lib/resource/sections/mainapplicant-enter-your-telephone-number.js');
-const mainapplicantRelationship = require('./lib/resource/sections/mainapplicant-relationship.js');
-const mainapplicantSharedResponsibility = require('./lib/resource/sections/mainapplicant-shared-responsibility.js');
-const mainapplicantCareOrder = require('./lib/resource/sections/mainapplicant-care-order.js');
-const contextPregnancy = require('./lib/resource/sections/context-pregnancy.js');
-const applicantUnableToWork = require('./lib/resource/sections/applicant-unable-to-work.js');
-const contextSpecialExpenses = require('./lib/resource/sections/context-special-expenses.js');
-const applicantSpecialExpenses = require('./lib/resource/sections/applicant-special-expenses.js');
-const applicantOver16 = require('./lib/resource/sections/applicant-over-16.js');
-const applicantAffectedDailyCapacity = require('./lib/resource/sections/applicant-affected-daily-capacity.js');
-const applicantAffectDuration = require('./lib/resource/sections/applicant-affect-duration.js');
-const applicantAffectFutureDuration = require('./lib/resource/sections/applicant-affect-future-duration.js');
-const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
-const contextRepDetails = require('./lib/resource/sections/context-rep-details.js');
-const repType = require('./lib/resource/sections/rep-type.js');
-const repConfirmationMethod = require('./lib/resource/sections/rep-confirmation-method.js');
-const repName = require('./lib/resource/sections/rep-name.js');
-const repAddress = require('./lib/resource/sections/rep-address.js');
-const repOrganisationAddress = require('./lib/resource/sections/rep-organisation-address.js');
-const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
-const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
-const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
-const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
-const contactCica = require('./lib/resource/sections/contact-cica');
-const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
-const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
-const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
-const downloadAnswers = require('./lib/resource/sections/download-your-answers');
-const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
-const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
-const owner = require('./lib/resource/sections/owner');
 const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
 const applicantArmedForcesRelative = require('./lib/resource/sections/applicant-armed-forces-relative.js');
 const applicantArmedForces = require('./lib/resource/sections/applicant-armed-forces.js');
@@ -180,29 +29,6 @@ const applicantEuCitizen = require('./lib/resource/sections/applicant-eu-citizen
 const applicantOrdinarilyResident = require('./lib/resource/sections/applicant-ordinarily-resident.js');
 const applicantOtherCitizen = require('./lib/resource/sections/applicant-other-citizen.js');
 const applicantVictimHumanTrafficking = require('./lib/resource/sections/applicant-victim-human-trafficking.js');
-const contextDeceasedDetails = require('./lib/resource/sections/context-deceased-details.js');
-const deceasedName = require('./lib/resource/sections/deceased-name.js');
-const deceasedDateOfBirth = require('./lib/resource/sections/deceased-date-of-birth.js');
-const deceasedDateOfDeath = require('./lib/resource/sections/deceased-date-of-death.js');
-const deceasedAddress = require('./lib/resource/sections/deceased-address.js');
-const contextFuneralCost = require('./lib/resource/sections/context-funeral-costs.js');
-const applicantFuneralCostsPaid = require('./lib/resource/sections/applicant-funeral-costs-paid.js');
-const applicantFuneralCostsOtherContributor = require('./lib/resource/sections/applicant-funeral-costs-other-contributor');
-const applicantFuneralCostsWhoContributed = require('./lib/resource/sections/applicant-funeral-costs-who-contributed.js');
-const applicantFuneralCostsTotal = require('./lib/resource/sections/applicant-funeral-costs-total.js');
-const contextRelationshipToDeceased = require('./lib/resource/sections/context-relationship-to-deceased.js');
-const applicantRelationshipToDeceased = require('./lib/resource/sections/applicant-relationship-to-deceased.js');
-const applicantLivingTogether = require('./lib/resource/sections/applicant-living-together.js');
-const applicantLivingTogetherDuration = require('./lib/resource/sections/applicant-living-together-duration.js');
-const applicantLivingApart = require('./lib/resource/sections/applicant-living-apart.js');
-const applicantContactWithDeceased = require('./lib/resource/sections/applicant-contact-with-deceased.js');
-const applicantContactMoreDetails = require('./lib/resource/sections/applicant-contact-more-details.js');
-const applicantContactOutOfTouch = require('./lib/resource/sections/applicant-contact-out-of-touch.js');
-const applicantFinancialHelp = require('./lib/resource/sections/applicant-financial-help.js');
-const otherClaimants = require('./lib/resource/sections/other-claimants.js');
-const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-details.js');
-const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
-const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
 const applicantUnder18 = require('./lib/resource/sections/applicant-under-18.js');
 const transitionSomeone18OrOverToApply = require('./lib/resource/sections/transition-someone-18-or-over-to-apply.js');
@@ -210,55 +36,15 @@ const applicantWhatDoYouWantToDo = require('./lib/resource/sections/applicant-wh
 const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-when-18.js');
 const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
 const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
-const origin = require('./lib/resource/sections/origin');
 
 module.exports = {
     type: 'apply-for-compensation',
     version,
     sections: {
-        'p-applicant-declaration': applicantDeclaration.section,
-        'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
-        'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
-        'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
-        'p-mainapplicant-declaration-12-and-over-deceased':
-            mainapplicantDeclarationOver12Deceased.section,
-        'p-mainapplicant-declaration-under-12-deceased':
-            mainapplicantDeclarationUnder12Deceased.section,
-        'p-rep-declaration-under-12': repDeclarationUnder12.section,
-        'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.section,
-        'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
-        'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
-        'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
-        'p--before-you-continue': beforeYouContinue.section,
         'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.section,
-        'p--when-was-the-crime-reported-to-police': whenWasTheCrimeReportedToPolice.section,
-        'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.section,
-        'p-applicant-did-the-crime-happen-once-or-over-time':
-            applicantDidTheCrimeHappenOnceOrOverTime.section,
-        'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.section,
-        'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.section,
-        'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.section,
-        'p-applicant-select-reasons-for-the-delay-in-making-your-application':
-            applicantSelectReasonsForTheDelayInMakingYourApplication.section,
-        'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.section,
-        'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.section,
-        'p-applicant-where-in-scotland-did-it-happen': applicantWhereInScotlandDidItHappen.section,
-        'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.section,
-        'p--which-police-force-is-investigating-the-crime':
-            whichPoliceForceIsInvestigatingTheCrime.section,
-        'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-            applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.section,
-        'p-offender-do-you-know-the-name-of-the-offender':
-            offenderDoYouKnowTheNameOfTheOffender.section,
-        'p-offender-do-you-have-contact-with-offender':
-            offenderDoYouHaveContactWithOffender.section,
-        'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.section,
-        'p-applicant-have-you-applied-to-us-before': applicantHaveYouAppliedToUsBefore.section,
-        'p-applicant-have-you-applied-for-or-received-any-other-compensation':
-            applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.section,
         'p-applicant-enter-your-name': applicantEnterYourName.section,
         'p-applicant-have-you-been-known-by-any-other-names':
             applicantHaveYouBeenKnownByAnyOtherNames.section,
@@ -266,136 +52,8 @@ module.exports = {
         'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.section,
         'p-applicant-enter-your-address': applicantEnterYourAddress.section,
         'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.section,
-        'p--check-your-answers': checkYourAnswers.section,
-        'p--confirmation': confirmation.section,
-        'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.section,
-        'p--context-offender': contextOffender.section,
-        'p--context-compensation': contextCompensation.section,
-        'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
-            applicantAppliedForOtherCompensationBrieflyExplainWhyNot.section,
-        'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.section,
-        'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.section,
-        'p-applicant-how-much-was-award': applicantHowMuchWasAward.section,
-        'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.section,
         'p--context-applicant-details': contextApplicantDetails.section,
-        'p--context-dmi-details': contextDmiDetails.section,
-        'p-applicant-do-you-have-disabling-mental-injury':
-            applicantDoYouHaveDisablingMentalInjury.section,
-        'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.section,
-        'p-applicant-select-treatments': applicantSelectTreatments.section,
-        'p-applicant-has-your-treatment-finished-dmi': applicantHasYourTreatmentFinishedDmi.section,
-        'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.section,
-        'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.section,
-        'p-applicant-have-you-seen-a-gp': applicantHaveYouSeenAGp.section,
-        'p-gp-enter-your-address': gpEnterYourAddress.section,
-        'p-applicant-dentist-visited': applicantDentistVisited.section,
-        'p-applicant-dentist-address': applicantDentistAddress.section,
-        'p-applicant-are-you-claiming-for-physical-injuries':
-            applicantAreYouClaimingForPhysicalInjuries.section,
-        'p--transition': transition.section,
-        'p--context-physical-injuries': contextPhysicalInjuries.section,
-        'p-applicant-physical-injury': applicantPhysicalInjury.section,
-        'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.section,
-        'p-applicant-physical-injury-upper-head': applicantPhysicalInjuryUpperHead.section,
-        'p-applicant-physical-injury-upper-face': applicantPhysicalInjuryUpperFace.section,
-        'p-applicant-physical-injury-upper-neck': applicantPhysicalInjuryUpperNeck.section,
-        'p-applicant-physical-injury-upper-eye': applicantPhysicalInjuryUpperEye.section,
-        'p-applicant-physical-injury-upper-ear': applicantPhysicalInjuryUpperEar.section,
-        'p-applicant-physical-injury-upper-nose': applicantPhysicalInjuryUpperNose.section,
-        'p-applicant-physical-injury-upper-mouth': applicantPhysicalInjuryUpperMouth.section,
-        'p-applicant-physical-injury-upper-skin': applicantPhysicalInjuryUpperSkin.section,
-        'p-applicant-physical-injury-upper-muscle': applicantPhysicalInjuryUpperMuscle.section,
-        'p-applicant-physical-injury-torso': applicantPhysicalInjuryTorso.section,
-        'p-applicant-physical-injury-torso-shoulder': applicantPhysicalInjuryTorsoShoulder.section,
-        'p-applicant-physical-injury-torso-chest': applicantPhysicalInjuryTorsoChest.section,
-        'p-applicant-physical-injury-torso-abdomen': applicantPhysicalInjuryTorsoAbdomen.section,
-        'p-applicant-physical-injury-torso-back': applicantPhysicalInjuryTorsoBack.section,
-        'p-applicant-physical-injury-torso-pelvis': applicantPhysicalInjuryTorsoPelvis.section,
-        'p-applicant-physical-injury-torso-genitals': applicantPhysicalInjuryTorsoGenitals.section,
-        'p-applicant-physical-injury-torso-skin': applicantPhysicalInjuryTorsoSkin.section,
-        'p-applicant-physical-injury-torso-muscle': applicantPhysicalInjuryTorsoMuscle.section,
-        'p-applicant-physical-injury-arms': applicantPhysicalInjuryArms.section,
-        'p-applicant-physical-injury-arms-shoulder': applicantPhysicalInjuryArmsShoulder.section,
-        'p-applicant-physical-injury-arms-arm': applicantPhysicalInjuryArmsArm.section,
-        'p-applicant-physical-injury-arms-elbow': applicantPhysicalInjuryArmsElbow.section,
-        'p-applicant-physical-injury-arms-wrist': applicantPhysicalInjuryArmsWrist.section,
-        'p-applicant-physical-injury-arms-hand': applicantPhysicalInjuryArmsHand.section,
-        'p-applicant-physical-injury-arms-digit': applicantPhysicalInjuryArmsDigit.section,
-        'p-applicant-physical-injury-arms-skin': applicantPhysicalInjuryArmsSkin.section,
-        'p-applicant-physical-injury-arms-muscle': applicantPhysicalInjuryArmsMuscle.section,
-        'p-applicant-physical-injury-legs': applicantPhysicalInjuryLegs.section,
-        'p-applicant-physical-injury-legs-hip': applicantPhysicalInjuryLegsHip.section,
-        'p-applicant-physical-injury-legs-leg': applicantPhysicalInjuryLegsLeg.section,
-        'p-applicant-physical-injury-legs-knee': applicantPhysicalInjuryLegsKnee.section,
-        'p-applicant-physical-injury-legs-ankle': applicantPhysicalInjuryLegsAnkle.section,
-        'p-applicant-physical-injury-legs-foot': applicantPhysicalInjuryLegsFoot.section,
-        'p-applicant-physical-injury-legs-toes': applicantPhysicalInjuryLegsToes.section,
-        'p-applicant-physical-injury-legs-skin': applicantPhysicalInjuryLegsSkin.section,
-        'p-applicant-physical-injury-legs-muscle': applicantPhysicalInjuryLegsMuscle.section,
-        'p-applicant-infections': applicantInfections.section,
-        'p-applicant-select-infections': applicantSelectInfections.section,
-        'p-applicant-pregnancy': applicantPregnancy.section,
-        'p--context-treatment': contextTreatment.section,
-        'p-applicant-treatment-for-physical-injuries':
-            applicantTreatmentForPhysicalInjuries.section,
-        'p-applicant-medical-help': applicantMedicalHelp.section,
-        'p-applicant-treatment-address': applicantTreatmentAddress.section,
-        'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.section,
-        'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.section,
-        'p-applicant-work-details-option': applicantWorkDetailsOption.section,
-        'p-applicant-expenses': applicantExpenses.section,
-        'p--context-money': contextMoney.section,
-        'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
-        'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
-        'p-applicant-incident-type': applicantIncidentType.section,
-        'p-applicant-provide-additional-information': applicantProvideAdditionalInformation.section,
-        'p-applicant-additional-information': applicantAdditionalInformation.section,
-        'p-applicant-describe-incident': applicantDescribeIncident.section,
-        'p-applicant-incident-description': applicantIncidentDescription.section,
-        'p--context-crime-ref-no': contextCrimeReferenceNumber.section,
-        'p--context-additional-info': contextAdditionalInfo.section,
-        system: system.section,
-        'p--context-crime-impact': contextCrimeImpact.section,
-        'p-mainapplicant-parent': mainapplicantParent.section,
-        'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
-        'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
-        'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
-        'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
-        'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
-        'p-mainapplicant-enter-your-telephone-number':
-            mainapplicantEnterYourTelephoneNumber.section,
-        'p-mainapplicant-relationship': mainapplicantRelationship.section,
-        'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.section,
-        'p-mainapplicant-care-order': mainapplicantCareOrder.section,
-        'p--context-pregnancy': contextPregnancy.section,
-        'p-applicant-unable-to-work': applicantUnableToWork.section,
-        'p--context-special-expenses': contextSpecialExpenses.section,
-        'p-applicant-special-expenses': applicantSpecialExpenses.section,
-        'p-applicant-over-16': applicantOver16.section,
-        'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.section,
-        'p-applicant-affect-duration': applicantAffectDuration.section,
-        'p-applicant-affect-future-duration': applicantAffectFutureDuration.section,
-        'p-applicant-future-work': applicantFutureWork.section,
-        'p--context-rep-details': contextRepDetails.section,
-        'p-rep-type': repType.section,
-        'p-rep-confirmation-method': repConfirmationMethod.section,
-        'p-rep-name': repName.section,
-        'p-rep-address': repAddress.section,
-        'p-rep-organisation-address': repOrganisationAddress.section,
-        'p-rep-email-address': repEmailAddress.section,
-        'p-rep-telephone-number': repTelephoneNumber.section,
-        'p-rep-reference-number': repReferenceNumber.section,
-        'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
-        'p--contact-cica': contactCica.section,
-        'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
-        'p--context-mainapplicant-details': contextMainAppDetails.section,
-        'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
-        'p--download-your-answers': downloadAnswers.section,
-        'p--has-legal-authority': flowHasLegalAuthority.section,
-        'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
-        owner: owner.section,
         'p--context-residency-and-nationality': contextResidency.section,
         'p-applicant-armed-forces-relative': applicantArmedForcesRelative.section,
         'p-applicant-armed-forces': applicantArmedForces.section,
@@ -409,53 +67,17 @@ module.exports = {
         'p-applicant-ordinarily-resident': applicantOrdinarilyResident.section,
         'p-applicant-other-citizen': applicantOtherCitizen.section,
         'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.section,
-        'p--context-deceased-details': contextDeceasedDetails.section,
-        'p-deceased-name': deceasedName.section,
-        'p-deceased-date-of-birth': deceasedDateOfBirth.section,
-        'p-deceased-date-of-death': deceasedDateOfDeath.section,
-        'p-deceased-address': deceasedAddress.section,
-        'p--context-funeral-costs': contextFuneralCost.section,
-        'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.section,
-        'p-applicant-funeral-costs-other-contributor':
-            applicantFuneralCostsOtherContributor.section,
-        'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
-        'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
-        'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
-        'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.section,
-        'p-applicant-living-together': applicantLivingTogether.section,
-        'p-applicant-living-together-duration': applicantLivingTogetherDuration.section,
-        'p-applicant-living-apart': applicantLivingApart.section,
-        'p-applicant-contact-with-deceased': applicantContactWithDeceased.section,
-        'p-applicant-contact-more-details': applicantContactMoreDetails.section,
-        'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.section,
-        'p-applicant-financial-help': applicantFinancialHelp.section,
-        'p-other-claimants': otherClaimants.section,
-        'p-other-claimants-details': otherClaimantsDetails.section,
-        'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
-        'p-applicant-physical-help': applicantPhysicalHelp.section,
-        'p-applicant-claim-type': applicantClaimType.section,
         'p-applicant-under-18': applicantUnder18.section,
         'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.section,
         'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.section,
         'p--transition-apply-when-18': transitionApplyWhen18.section,
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
-        'p--transition-contact-us': transitionContactUs.section,
-        origin: origin.section
     },
     routes:{
         initial: 't-about-application',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
-            'p-applicant-declaration',
-            'p-applicant-declaration-deceased',
-            'p-mainapplicant-declaration-under-12',
-            'p-mainapplicant-declaration-under-12-deceased',
-            'p-mainapplicant-declaration-12-and-over',
-            'p-mainapplicant-declaration-12-and-over-deceased',
-            'p-rep-declaration-under-12',
-            'p-rep-declaration-12-and-over',
-            'p-rep-declaration-under-12-deceased',
-            'p-rep-declaration-12-and-over-deceased'
+            'p-applicant-declaration'
         ],
         confirmation: 'p--confirmation',
         states: {
@@ -517,225 +139,6 @@ module.exports = {
         },
         guards: {}
     },
-    /* {
-        initial: 'p-applicant-who-are-you-applying-for',
-        referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
-        summary: [
-            'p-applicant-declaration',
-            'p-applicant-declaration-deceased',
-            'p-mainapplicant-declaration-under-12',
-            'p-mainapplicant-declaration-under-12-deceased',
-            'p-mainapplicant-declaration-12-and-over',
-            'p-mainapplicant-declaration-12-and-over-deceased',
-            'p-rep-declaration-under-12',
-            'p-rep-declaration-12-and-over',
-            'p-rep-declaration-under-12-deceased',
-            'p-rep-declaration-12-and-over-deceased'
-        ],
-        confirmation: 'p--confirmation',
-        states: {
-            'p-applicant-declaration': applicantDeclaration.route,
-            'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
-            'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
-            'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
-            'p-mainapplicant-declaration-12-and-over-deceased':
-                mainapplicantDeclarationOver12Deceased.route,
-            'p-mainapplicant-declaration-under-12-deceased':
-                mainapplicantDeclarationUnder12Deceased.route,
-            'p-rep-declaration-under-12': repDeclarationUnder12.route,
-            'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
-            'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
-            'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
-            '
-            'p--before-you-continue': beforeYouContinue.route,
-            'p-applicant-incident-type': applicantIncidentType.route,
-            'p--when-was-the-crime-reported-to-police': whenWasTheCrimeReportedToPolice.route,
-            'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.route,
-            'p-applicant-did-the-crime-happen-once-or-over-time':
-                applicantDidTheCrimeHappenOnceOrOverTime.route,
-            'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.route,
-            'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.route,
-            'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.route,
-            'p-applicant-select-reasons-for-the-delay-in-making-your-application':
-                applicantSelectReasonsForTheDelayInMakingYourApplication.route,
-            'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.route,
-            'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.route,
-            'p-applicant-where-in-scotland-did-it-happen':
-                applicantWhereInScotlandDidItHappen.route,
-            'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.route,
-            'p--which-police-force-is-investigating-the-crime':
-                whichPoliceForceIsInvestigatingTheCrime.route,
-            'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
-            'p-offender-do-you-know-the-name-of-the-offender':
-                offenderDoYouKnowTheNameOfTheOffender.route,
-            'p-offender-do-you-have-contact-with-offender':
-                offenderDoYouHaveContactWithOffender.route,
-            'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.route,
-            'p-applicant-have-you-applied-to-us-before': applicantHaveYouAppliedToUsBefore.route,
-            'p-applicant-have-you-applied-for-or-received-any-other-compensation':
-                applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.route,
-            'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
-                applicantAppliedForOtherCompensationBrieflyExplainWhyNot.route,
-            'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.route,
-            'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.route,
-            'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.route,
-            'p-applicant-how-much-was-award': applicantHowMuchWasAward.route,
-            'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
-            'p--check-your-answers': checkYourAnswers.route,
-            'p--confirmation': confirmation.route,
-            'p--context-offender': contextOffender.route,
-
-            'p--context-compensation': contextCompensation.route,
-            'p--transition': transition.route,
-            'p-applicant-are-you-claiming-for-physical-injuries':
-                applicantAreYouClaimingForPhysicalInjuries.route,
-            'p--context-dmi-details': contextDmiDetails.route,
-            'p-applicant-do-you-have-disabling-mental-injury':
-                applicantDoYouHaveDisablingMentalInjury.route,
-            'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.route,
-            'p-applicant-select-treatments': applicantSelectTreatments.route,
-            'p-applicant-has-your-treatment-finished-dmi':
-                applicantHasYourTreatmentFinishedDmi.route,
-            'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.route,
-            'p--context-treatment': contextTreatment.route,
-            'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.route,
-            'p-applicant-have-you-seen-a-gp': applicantHaveYouSeenAGp.route,
-            'p-applicant-dentist-visited': applicantDentistVisited.route,
-            'p-applicant-dentist-address': applicantDentistAddress.route,
-            'p-gp-enter-your-address': gpEnterYourAddress.route,
-            'p-applicant-physical-injury': applicantPhysicalInjury.route,
-            'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.route,
-            'p-applicant-physical-injury-upper-head': applicantPhysicalInjuryUpperHead.route,
-            'p-applicant-physical-injury-upper-face': applicantPhysicalInjuryUpperFace.route,
-            'p-applicant-physical-injury-upper-neck': applicantPhysicalInjuryUpperNeck.route,
-            'p-applicant-physical-injury-upper-eye': applicantPhysicalInjuryUpperEye.route,
-            'p-applicant-physical-injury-upper-ear': applicantPhysicalInjuryUpperEar.route,
-            'p-applicant-physical-injury-upper-nose': applicantPhysicalInjuryUpperNose.route,
-            'p-applicant-physical-injury-upper-mouth': applicantPhysicalInjuryUpperMouth.route,
-            'p-applicant-physical-injury-upper-skin': applicantPhysicalInjuryUpperSkin.route,
-            'p-applicant-physical-injury-upper-muscle': applicantPhysicalInjuryUpperMuscle.route,
-            'p-applicant-physical-injury-torso': applicantPhysicalInjuryTorso.route,
-            'p-applicant-physical-injury-torso-shoulder':
-                applicantPhysicalInjuryTorsoShoulder.route,
-            'p-applicant-physical-injury-torso-chest': applicantPhysicalInjuryTorsoChest.route,
-            'p-applicant-physical-injury-torso-abdomen': applicantPhysicalInjuryTorsoAbdomen.route,
-            'p-applicant-physical-injury-torso-back': applicantPhysicalInjuryTorsoBack.route,
-            'p-applicant-physical-injury-torso-pelvis': applicantPhysicalInjuryTorsoPelvis.route,
-            'p-applicant-physical-injury-torso-genitals':
-                applicantPhysicalInjuryTorsoGenitals.route,
-            'p-applicant-physical-injury-torso-skin': applicantPhysicalInjuryTorsoSkin.route,
-            'p-applicant-physical-injury-torso-muscle': applicantPhysicalInjuryTorsoMuscle.route,
-            'p-applicant-physical-injury-arms': applicantPhysicalInjuryArms.route,
-            'p-applicant-physical-injury-arms-shoulder': applicantPhysicalInjuryArmsShoulder.route,
-            'p-applicant-physical-injury-arms-arm': applicantPhysicalInjuryArmsArm.route,
-            'p-applicant-physical-injury-arms-elbow': applicantPhysicalInjuryArmsElbow.route,
-            'p-applicant-physical-injury-arms-wrist': applicantPhysicalInjuryArmsWrist.route,
-            'p-applicant-physical-injury-arms-hand': applicantPhysicalInjuryArmsHand.route,
-            'p-applicant-physical-injury-arms-digit': applicantPhysicalInjuryArmsDigit.route,
-            'p-applicant-physical-injury-arms-skin': applicantPhysicalInjuryArmsSkin.route,
-            'p-applicant-physical-injury-arms-muscle': applicantPhysicalInjuryArmsMuscle.route,
-            'p-applicant-physical-injury-legs': applicantPhysicalInjuryLegs.route,
-            'p-applicant-physical-injury-legs-hip': applicantPhysicalInjuryLegsHip.route,
-            'p-applicant-physical-injury-legs-leg': applicantPhysicalInjuryLegsLeg.route,
-            'p-applicant-physical-injury-legs-knee': applicantPhysicalInjuryLegsKnee.route,
-            'p-applicant-physical-injury-legs-ankle': applicantPhysicalInjuryLegsAnkle.route,
-            'p-applicant-physical-injury-legs-foot': applicantPhysicalInjuryLegsFoot.route,
-            'p-applicant-physical-injury-legs-toes': applicantPhysicalInjuryLegsToes.route,
-            'p-applicant-physical-injury-legs-skin': applicantPhysicalInjuryLegsSkin.route,
-            'p-applicant-physical-injury-legs-muscle': applicantPhysicalInjuryLegsMuscle.route,
-            'p--context-physical-injuries': contextPhysicalInjuries.route,
-            'p-applicant-infections': applicantInfections.route,
-            'p-applicant-select-infections': applicantSelectInfections.route,
-            'p-applicant-pregnancy': applicantPregnancy.route,
-            'p-applicant-treatment-for-physical-injuries':
-                applicantTreatmentForPhysicalInjuries.route,
-            'p-applicant-medical-help': applicantMedicalHelp.route,
-            'p-applicant-treatment-address': applicantTreatmentAddress.route,
-            'p--context-money': contextMoney.route,
-            'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.route,
-            'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.route,
-            'p-applicant-work-details-option': applicantWorkDetailsOption.route,
-            'p-applicant-expenses': applicantExpenses.route,
-            'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
-            'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
-            'p-applicant-provide-additional-information':
-                applicantProvideAdditionalInformation.route,
-            'p-applicant-additional-information': applicantAdditionalInformation.route,
-            'p-applicant-describe-incident': applicantDescribeIncident.route,
-            'p-applicant-incident-description': applicantIncidentDescription.route,
-            'p--context-additional-info': contextAdditionalInfo.route,
-            system: system.route,
-            'p--context-crime-impact': contextCrimeImpact.route,
-            'p-mainapplicant-parent': mainapplicantParent.route,
-            'p--context-authority': contextAuthority.route,
-            'p-mainapplicant-context-details': mainapplicantContextDetails.route,
-            'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
-            'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
-            'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
-            'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.route,
-            'p-mainapplicant-enter-your-telephone-number':
-                mainapplicantEnterYourTelephoneNumber.route,
-            'p-mainapplicant-relationship': mainapplicantRelationship.route,
-            'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.route,
-            'p-mainapplicant-care-order': mainapplicantCareOrder.route,
-            'p--context-pregnancy': contextPregnancy.route,
-            'p-applicant-unable-to-work': applicantUnableToWork.route,
-            'p--context-special-expenses': contextSpecialExpenses.route,
-            'p-applicant-special-expenses': applicantSpecialExpenses.route,
-            'p-applicant-over-16': applicantOver16.route,
-            'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
-            'p-applicant-affect-duration': applicantAffectDuration.route,
-            'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
-            'p-applicant-future-work': applicantFutureWork.route,
-            'p--context-rep-details': contextRepDetails.route,
-            'p-rep-type': repType.route,
-            'p-rep-confirmation-method': repConfirmationMethod.route,
-            'p-rep-name': repName.route,
-            'p-rep-address': repAddress.route,
-            'p-rep-organisation-address': repOrganisationAddress.route,
-            'p-rep-email-address': repEmailAddress.route,
-            'p-rep-telephone-number': repTelephoneNumber.route,
-            'p-rep-reference-number': repReferenceNumber.route,
-            'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
-            'p--contact-cica': contactCica.route,
-            'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
-            'p--context-mainapplicant-details': contextMainAppDetails.route,
-            'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
-            'p--download-your-answers': downloadAnswers.route,
-            'p--has-legal-authority': flowHasLegalAuthority.route,
-            'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            owner: owner.route,
-            'p--context-deceased-details': contextDeceasedDetails.route,
-            'p-deceased-name': deceasedName.route,
-            'p-deceased-date-of-birth': deceasedDateOfBirth.route,
-            'p-deceased-date-of-death': deceasedDateOfDeath.route,
-            'p-deceased-address': deceasedAddress.route,
-            'p--context-funeral-costs': contextFuneralCost.route,
-            'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
-            'p-applicant-funeral-costs-other-contributor':
-                applicantFuneralCostsOtherContributor.route,
-            'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.route,
-            'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
-            'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
-            'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
-            'p-applicant-living-together': applicantLivingTogether.route,
-            'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
-            'p-applicant-living-apart': applicantLivingApart.route,
-            'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
-            'p-applicant-contact-more-details': applicantContactMoreDetails.route,
-            'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
-            'p-applicant-financial-help': applicantFinancialHelp.route,
-            'p-other-claimants': otherClaimants.route,
-            'p-other-claimants-details': otherClaimantsDetails.route,
-            'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
-            'p-applicant-physical-help': applicantPhysicalHelp.route,
-
-
-
-            origin: origin.route
-        }
-    },*/
     answers: {},
     taskStatuses: {},
     onSubmit: {
