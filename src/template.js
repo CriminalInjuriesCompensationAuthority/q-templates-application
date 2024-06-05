@@ -442,7 +442,82 @@ module.exports = {
         'p--transition-contact-us': transitionContactUs.section,
         origin: origin.section
     },
-    routes: {
+    routes:{
+        initial: 't-about-application',
+        referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
+        summary: [
+            'p-applicant-declaration',
+            'p-applicant-declaration-deceased',
+            'p-mainapplicant-declaration-under-12',
+            'p-mainapplicant-declaration-under-12-deceased',
+            'p-mainapplicant-declaration-12-and-over',
+            'p-mainapplicant-declaration-12-and-over-deceased',
+            'p-rep-declaration-under-12',
+            'p-rep-declaration-12-and-over',
+            'p-rep-declaration-under-12-deceased',
+            'p-rep-declaration-12-and-over-deceased'
+        ],
+        confirmation: 'p--confirmation',
+        states: {
+            't-about-application': {
+                id: 't-about-application',
+                initial: 'p-applicant-who-are-you-applying-for',
+                states: {
+                    'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
+                    'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
+                    'p-applicant-under-18': applicantUnder18.route,
+                    'p--transition-apply-when-18': transitionApplyWhen18.route,
+                    'p--transition-request-a-call-back': transitionRequestACallBack.route,
+                    'p--transition-contact-us': transitionContactUs.route,
+                    'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.route,
+                    'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
+                    'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
+                    'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
+                    'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.route,
+                    'p-applicant-fatal-claim': applicantFatalClaim.route,
+                    'p-applicant-claim-type': applicantClaimType.route,
+                },
+                status: 'incomplete'
+            },
+            't_applicant_personal-details': {
+                id: 't_applicant_personal-details',
+                initial: 'p--context-applicant-details',
+                states: {
+                    'p--context-applicant-details': contextApplicantDetails.route,
+                    'p-applicant-confirmation-method': applicantConfirmationMethod.route,
+                    'p-applicant-enter-your-name': applicantEnterYourName.route,
+                    'p-applicant-have-you-been-known-by-any-other-names': applicantHaveYouBeenKnownByAnyOtherNames.route,
+                    'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
+                    'p-applicant-enter-your-address': applicantEnterYourAddress.route,
+                    'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route,
+                    'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
+                },
+                status: 'incomplete'
+            },
+            't_applicant_residency-and-nationality': {
+                id: 't_applicant_residency-and-nationality',
+                initial: 'p--context-residency-and-nationality',
+                states: {
+                    'p--context-residency-and-nationality': contextResidency.route,
+                    'p-applicant-british-citizen': applicantBritishCitizen.route,
+                    'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
+                    'p-applicant-ordinarily-resident': applicantOrdinarilyResident.route,
+                    'p-applicant-eu-citizen': applicantEuCitizen.route,
+                    'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.route,
+                    'p-applicant-eea-citizen': applicantEeaCitizen.route,
+                    'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,
+                    'p-applicant-other-citizen': applicantOtherCitizen.route,
+                    'p-applicant-armed-forces': applicantArmedForces.route,
+                    'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
+                    'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
+                    'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
+                },
+                status: 'incomplete'
+            }
+        },
+        guards: {}
+    },
+    /* {
         initial: 'p-applicant-who-are-you-applying-for',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
@@ -471,12 +546,9 @@ module.exports = {
             'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
-            'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
-            'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
-            'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
+            '
             'p--before-you-continue': beforeYouContinue.route,
             'p-applicant-incident-type': applicantIncidentType.route,
-            'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
             'p--when-was-the-crime-reported-to-police': whenWasTheCrimeReportedToPolice.route,
             'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.route,
             'p-applicant-did-the-crime-happen-once-or-over-time':
@@ -509,19 +581,11 @@ module.exports = {
             'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.route,
             'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.route,
             'p-applicant-how-much-was-award': applicantHowMuchWasAward.route,
-            'p--context-applicant-details': contextApplicantDetails.route,
-            'p-applicant-enter-your-name': applicantEnterYourName.route,
-            'p-applicant-have-you-been-known-by-any-other-names':
-                applicantHaveYouBeenKnownByAnyOtherNames.route,
-            'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
-            'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route,
-            'p-applicant-enter-your-address': applicantEnterYourAddress.route,
             'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
             'p--check-your-answers': checkYourAnswers.route,
             'p--confirmation': confirmation.route,
             'p--context-offender': contextOffender.route,
-            'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.route,
-            'p-applicant-confirmation-method': applicantConfirmationMethod.route,
+
             'p--context-compensation': contextCompensation.route,
             'p--transition': transition.route,
             'p-applicant-are-you-claiming-for-physical-injuries':
@@ -595,13 +659,11 @@ module.exports = {
             'p-applicant-expenses': applicantExpenses.route,
             'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
             'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
-            'p-applicant-fatal-claim': applicantFatalClaim.route,
             'p-applicant-provide-additional-information':
                 applicantProvideAdditionalInformation.route,
             'p-applicant-additional-information': applicantAdditionalInformation.route,
             'p-applicant-describe-incident': applicantDescribeIncident.route,
             'p-applicant-incident-description': applicantIncidentDescription.route,
-            'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
             'p--context-additional-info': contextAdditionalInfo.route,
             system: system.route,
             'p--context-crime-impact': contextCrimeImpact.route,
@@ -644,19 +706,6 @@ module.exports = {
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
             owner: owner.route,
-            'p--context-residency-and-nationality': contextResidency.route,
-            'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
-            'p-applicant-armed-forces': applicantArmedForces.route,
-            'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
-            'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
-            'p-applicant-british-citizen': applicantBritishCitizen.route,
-            'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,
-            'p-applicant-eea-citizen': applicantEeaCitizen.route,
-            'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.route,
-            'p-applicant-eu-citizen': applicantEuCitizen.route,
-            'p-applicant-ordinarily-resident': applicantOrdinarilyResident.route,
-            'p-applicant-other-citizen': applicantOtherCitizen.route,
-            'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
             'p--context-deceased-details': contextDeceasedDetails.route,
             'p-deceased-name': deceasedName.route,
             'p-deceased-date-of-birth': deceasedDateOfBirth.route,
@@ -681,17 +730,14 @@ module.exports = {
             'p-other-claimants-details': otherClaimantsDetails.route,
             'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
             'p-applicant-physical-help': applicantPhysicalHelp.route,
-            'p-applicant-claim-type': applicantClaimType.route,
-            'p-applicant-under-18': applicantUnder18.route,
-            'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.route,
-            'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
-            'p--transition-apply-when-18': transitionApplyWhen18.route,
-            'p--transition-request-a-call-back': transitionRequestACallBack.route,
-            'p--transition-contact-us': transitionContactUs.route,
+
+
+
             origin: origin.route
         }
-    },
+    },*/
     answers: {},
+    taskStatuses: {},
     onSubmit: {
         id: 'task0',
         type: 'sequential',
@@ -735,7 +781,6 @@ module.exports = {
             }
         ]
     },
-    progress: ['p-applicant-who-are-you-applying-for'],
     taxonomies: {
         theme: {
             l10n: {

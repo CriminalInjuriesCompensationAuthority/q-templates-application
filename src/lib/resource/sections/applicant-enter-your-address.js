@@ -278,7 +278,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-residency-and-nationality',
+                    target: 'p-task-list',
                     cond: [
                         'or',
                         [

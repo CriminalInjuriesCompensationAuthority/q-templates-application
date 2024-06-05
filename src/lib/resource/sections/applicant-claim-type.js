@@ -63,7 +63,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-applicant-details'
+                    target: 'p-task-list'
                 }
             ]
         }

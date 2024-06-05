@@ -106,26 +106,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: ['and', ['|role.all', 'deceased', 'myself']]
-                },
-                {
-                    target: 'p--context-rep-details',
-                    cond: ['and', ['|role.all', 'proxy', 'adult', 'capable']]
-                },
-                {
-                    target: 'p--context-mainapplicant-details',
-                    cond: [
-                        'and',
-                        [
-                            'or',
-                            ['|role.all', 'proxy', 'adult', 'incapable'],
-                            ['|role.all', 'proxy', 'child']
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue'
+                    target: 'p-task-list'
                 }
             ]
         }
