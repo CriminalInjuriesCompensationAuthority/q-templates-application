@@ -92,8 +92,8 @@ module.exports = {
             'p-applicant-declaration'
         ],
         confirmation: 'p--confirmation',
-        states: {
-            't-about-application': {
+        states: [
+            {
                 id: 't-about-application',
                 initial: 'p-applicant-who-are-you-applying-for',
                 states: {
@@ -111,9 +111,12 @@ module.exports = {
                     'p-applicant-fatal-claim': applicantFatalClaim.route,
                     'p-applicant-claim-type': applicantClaimType.route,
                 },
-                status: 'incomplete'
+                status: 'incomplete',
+                answers:{
+                },
+                events:[]
             },
-            't_applicant_personal-details': {
+            {
                 id: 't_applicant_personal-details',
                 initial: 'p--context-applicant-details',
                 states: {
@@ -127,9 +130,12 @@ module.exports = {
                     'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
                     "p-applicant-can-handle-affairs": canHandleAffairs.route
                 },
-                status: 'incomplete'
+                status: 'incomplete',
+                answers:{
+                },
+                events:[]
             },
-            't_applicant_residency-and-nationality': {
+            {
                 id: 't_applicant_residency-and-nationality',
                 initial: 'p--context-residency-and-nationality',
                 states: {
@@ -147,9 +153,12 @@ module.exports = {
                     'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
                     'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
                 },
-                status: 'incomplete'
+                status: 'incomplete',
+                answers:{
+                },
+                events:[]
             },
-            't-check-your-answers' : {
+            {
                 "id": 't-check-your-answers',
                 "initial": "p-applicant-declaration",
                 "states": {
@@ -157,9 +166,12 @@ module.exports = {
                     "p--confirmation": confirmation.route,
                     "p-task-list": tasklist.route
                 },
-                "status": "incomplete"
+                "status": "incomplete",
+                answers:{
+                },
+                events:[]
             }
-        },
+        ],
         guards: {}
     },
     answers: {},
