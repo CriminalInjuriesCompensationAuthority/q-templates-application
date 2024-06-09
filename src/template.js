@@ -174,7 +174,6 @@ module.exports = {
         ],
         guards: {}
     },
-    answers: {},
     taskStatuses: {},
     taxonomies: {
         theme: {
