@@ -1,6 +1,6 @@
 {
     "name": "q-templates-application",
-    "version": "12.1.1",
+    "version": "12.2.0",
     "description": "Apply for compensation questionnaire template",
     "main": "dist/template.json",
     "engines": {
@@ -32,6 +32,6 @@
         "lint-staged": "^9.5.0",
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
-        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v7.1.1"
+        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#bp-feature/task-list"
     }
 }
