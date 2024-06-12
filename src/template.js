@@ -464,8 +464,8 @@ module.exports = {
         origin: origin.section,
         'p-task-list': taskList.section
     },
-    routes: {
-        initial: 'p-applicant-who-are-you-applying-for',
+    routes_OLD: {
+        // initial: 'p-applicant-who-are-you-applying-for',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -480,7 +480,7 @@ module.exports = {
             'p-rep-declaration-12-and-over-deceased'
         ],
         confirmation: 'p--confirmation',
-        states: {
+        states_OLD: {
             'p-applicant-declaration': applicantDeclaration.route,
             'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
             'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
@@ -723,6 +723,281 @@ module.exports = {
             'p--transition-contact-us': transitionContactUs.route,
             origin: origin.route,
             'p-task-list': taskList.route
+        },
+        sharedContext: {
+            answers: {}
+        },
+        statesAR: {
+            tasks: [
+                {
+                    id: 'task1',
+                    states: {
+                        id: 't-about-application',
+                        routes: {
+                            initial: 'p-applicant-who-are-you-applying-for',
+                            progress: ['p-applicant-who-are-you-applying-for'],
+                            retractedAnswers: {},
+                            states: {
+                                'p-applicant-who-are-you-applying-for':
+                                    applicantWhoAreYouApplyingFor.route,
+                                'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
+                                'p--was-the-crime-reported-to-police':
+                                    wasTheCrimeReportedToPolice.route,
+                                'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
+                                'p-applicant-fatal-claim': applicantFatalClaim.route,
+                                'p-applicant-claim-type': applicantClaimType.route,
+                                'p-task-list': {
+                                    entry: [
+                                        {
+                                            type: 'COMPLETE'
+                                        } // ,
+                                        // {
+                                        //     type: '|updateStatus',
+                                        //     value: 't2'
+                                        // }
+                                    ],
+                                    type: 'final'
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        statesBP: {
+            task1: {
+                id: 't-about-application',
+                initial: 'p-applicant-who-are-you-applying-for',
+                states: {
+                    'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
+                    'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
+                    'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
+                    'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
+                    'p-applicant-fatal-claim': applicantFatalClaim.route,
+                    'p-applicant-claim-type': applicantClaimType.route,
+                    'p-task-list': {
+                        entry: [
+                            {
+                                type: 'COMPLETE'
+                            } // ,
+                            // {
+                            //     type: '|updateStatus',
+                            //     value: 't2'
+                            // }
+                        ],
+                        type: 'final'
+                    }
+                }
+            }
+        },
+        id: 'p-task-list',
+        initial: 't-about-application',
+        states: {
+            't-about-application': {
+                id: 't_about_application',
+                initial: 'p-applicant-who-are-you-applying-for',
+                states: {
+                    'p-applicant-who-are-you-applying-for': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-are-you-18-or-over'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-are-you-18-or-over': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p--was-the-crime-reported-to-police',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        true
+                                    ]
+                                },
+                                {
+                                    target: 'p--was-the-crime-reported-to-police',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        false
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    'p--was-the-crime-reported-to-police': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p--context-crime-ref-no'
+                                }
+                            ]
+                        }
+                    },
+                    'p--context-crime-ref-no': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-fatal-claim'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-fatal-claim': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-claim-type'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-claim-type': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_personal-details': {
+                id: 't_applicant_personal-details',
+                initial: 'p--context-applicant-details',
+                states: {
+                    'p--context-applicant-details': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-confirmation-method'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-confirmation-method': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-name'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-name': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-have-you-been-known-by-any-other-names'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-have-you-been-known-by-any-other-names': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-date-of-birth'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-date-of-birth': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-address'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-address': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-email-address',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                        'email'
+                                    ]
+                                },
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-email-address': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            t_applicant_residency: {
+                id: 't_applicant_residency',
+                initial: 'p--context-residency-and-nationality',
+                states: {
+                    'p--context-residency-and-nationality': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-british-citizen',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        true
+                                    ]
+                                },
+                                {
+                                    target: 'p-applicant-other-question'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-british-citizen': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-other-question': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        guards: {
+            t_applicant_residency: {
+                cond: [
+                    '==',
+                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                    true
+                ]
+            }
         }
     },
     answers: {},
@@ -769,7 +1044,6 @@ module.exports = {
             }
         ]
     },
-    progress: ['p-applicant-who-are-you-applying-for'],
     taxonomies: {
         theme: {
             l10n: {
@@ -944,6 +1218,217 @@ module.exports = {
             }
         }
     },
+    routes: {
+        id: 'p-task-list',
+        initial: 't-about-application',
+        states: [
+            {
+                id: 't-about-application',
+                initial: 'p-applicant-who-are-you-applying-for',
+                states: {
+                    'p-applicant-who-are-you-applying-for': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-are-you-18-or-over'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-are-you-18-or-over': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p--was-the-crime-reported-to-police',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        true
+                                    ]
+                                },
+                                {
+                                    target: 'p--was-the-crime-reported-to-police',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        false
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    'p--was-the-crime-reported-to-police': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p--context-crime-ref-no'
+                                }
+                            ]
+                        }
+                    },
+                    'p--context-crime-ref-no': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-fatal-claim'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-fatal-claim': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-claim-type'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-claim-type': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                id: 't_applicant_personal-details',
+                initial: 'p--context-applicant-details',
+                states: {
+                    'p--context-applicant-details': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-confirmation-method'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-confirmation-method': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-name'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-name': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-have-you-been-known-by-any-other-names'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-have-you-been-known-by-any-other-names': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-date-of-birth'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-date-of-birth': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-address'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-address': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-enter-your-email-address',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
+                                        'email'
+                                    ]
+                                },
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-enter-your-email-address': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                id: 't_applicant_residency-and-nationality',
+                initial: 'p--context-residency-and-nationality',
+                states: {
+                    'p--context-residency-and-nationality': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-applicant-british-citizen',
+                                    cond: [
+                                        '==',
+                                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                                        true
+                                    ]
+                                },
+                                {
+                                    target: 'p-applicant-other-question'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-british-citizen': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    },
+                    'p-applicant-other-question': {
+                        on: {
+                            ANSWER: [
+                                {
+                                    target: 'p-task-list',
+                                    type: 'final'
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        guards: {
+            't_applicant_residency-and-nationality': {
+                cond: [
+                    '==',
+                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                    true
+                ]
+            }
+        }
+    },
     'task-list': {
         l10n: {
             vars: {
@@ -1047,11 +1532,7 @@ module.exports = {
                             ['|role.all', 'proxy', 'deceased'],
                             's-about-application.tasks.t-about-application.title.deceased'
                         ],
-                        hint: 'This is a hint',
-                        href: '/apply/task-list/task/t-about-application',
-                        // /apply/task-list/task/t-about-application/ // will redirect to the appropriate task url (should it always go to the first page in a task? or go to the last edited?)
-                        // or have the server compute the url and just send that back as a string literal to be inserted in?
-                        status: 'incomplete'
+                        hint: 'This is a hint'
                     }
                 ]
             },
@@ -1086,9 +1567,7 @@ module.exports = {
                             's_applicant_details.tasks.t_applicant_personal-details.title.adult.capable',
                             ['|role.all', 'proxy', 'deceased'],
                             's_applicant_details.tasks.t_applicant_personal-details.title.deceased'
-                        ],
-                        href: '/apply/task-list/task/t_applicant_personal-details',
-                        status: 'cannotStartYet'
+                        ]
                     },
                     {
                         id: 't_applicant_residency-and-nationality',
@@ -1104,9 +1583,7 @@ module.exports = {
                             's_applicant_details.tasks.t_applicant_residency-and-nationality.title.adult.capable',
                             ['|role.all', 'proxy', 'deceased'],
                             's_applicant_details.tasks.t_applicant_residency-and-nationality.title.deceased'
-                        ],
-                        href: '/apply/task-list/task/t_applicant_residency-and-nationality',
-                        status: 'cannotStartYet'
+                        ]
                     }
                 ]
             },
@@ -1119,7 +1596,17 @@ module.exports = {
                         id: 't_main-applicant_authority',
                         title: 't_main-applicant_authority',
                         href: '/apply/task-list/task/t_mainapplicant_authority',
-                        status: 'cannotStartYet'
+                        status: 'cannotStartYet',
+                        tasks: [
+                            {
+                                id: 't_main-applicant_authority__task-1',
+                                title: 't_main-applicant_authority__task-1'
+                            },
+                            {
+                                id: 't_main-applicant_authority__task-2',
+                                title: 't_main-applicant_authority__task-2'
+                            }
+                        ]
                     }
                 ]
             },
@@ -1130,9 +1617,7 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_rep_details',
-                        title: 't_rep_details',
-                        href: '/apply/task-list/task/t_rep_details',
-                        status: 'cannotStartYet'
+                        title: 't_rep_details'
                     }
                 ]
             },
@@ -1143,21 +1628,15 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_applicant_relationship-to-deceased',
-                        title: 't_applicant_relationship-to-deceased',
-                        href: '/apply/task-list/task/t_applicant_relationship-to-deceased',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_relationship-to-deceased'
                     },
                     {
                         id: 't_applicant_about-who-died', // should the context of this task be "deceased" givn that that is what it pertains to?
-                        title: 't_applicant_about-who-died',
-                        href: '/apply/task-list/task/t_applicant_about-who-died',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_about-who-died'
                     },
                     {
                         id: 't_applicant_funeral-costs',
-                        title: 't_applicant_funeral-costs',
-                        href: '/apply/task-list/task/t_applicant_funeral-costs',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_funeral-costs'
                     }
                 ]
             },
@@ -1168,15 +1647,11 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_applicant_about-the-crime',
-                        title: 't_applicant_about-the-crime',
-                        href: '/apply/task-list/task/t_applicant_about-the-crime',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_about-the-crime'
                     },
                     {
                         id: 't_offender_about-the-offender', // we have an offender context under the applicant context in the section id. Is this ok?
-                        title: 't_offender_about-the-offender',
-                        href: '/apply/task-list/task/t_offender_about-the-offender',
-                        status: 'cannotStartYet'
+                        title: 't_offender_about-the-offender'
                     }
                 ]
             },
@@ -1187,21 +1662,15 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_applicant_about-injuries',
-                        title: 't_applicant_about-injuries',
-                        href: '/apply/task-list/task/t_applicant_about-injuries',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_about-injuries'
                     },
                     {
                         id: 't_applicant_impact-of-injuries',
-                        title: 't_applicant_impact-of-injuries',
-                        href: '/apply/task-list/task/t_applicant_impact-of-injuries',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_impact-of-injuries'
                     },
                     {
                         id: 't_applicant_about-treatment',
-                        title: 't_applicant_about-treatment',
-                        href: '/apply/task-list/task/t_applicant_about-treatment',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_about-treatment'
                     }
                 ]
             },
@@ -1212,9 +1681,7 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_applicant_other-compensation',
-                        title: 't_applicant_other-compensation',
-                        href: '/apply/task-list/task/t_applicant_other-compensation',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_other-compensation'
                     }
                 ]
             },
@@ -1225,9 +1692,7 @@ module.exports = {
                 tasks: [
                     {
                         id: 't_applicant_additional-information',
-                        title: 't_applicant_additional-information',
-                        href: '/apply/task-list/task/t_applicant_additional-information',
-                        status: 'cannotStartYet'
+                        title: 't_applicant_additional-information'
                     }
                 ]
             },
@@ -1298,9 +1763,7 @@ module.exports = {
                 tasks: [
                     {
                         id: 't-check-your-answers',
-                        title: 'Check your answers and submit application',
-                        href: '/apply/task-list/task/t-check-your-answers',
-                        status: 'cannotStartYet'
+                        title: 'Check your answers and submit application'
                     }
                 ]
             }
