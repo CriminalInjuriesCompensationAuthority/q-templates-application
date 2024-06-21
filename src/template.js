@@ -211,6 +211,10 @@ const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-
 const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
 const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
 const origin = require('./lib/resource/sections/origin');
+const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-applied-before-for-this-crime');
+const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-someone-else-applied-before-for-this-crime');
+const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
+const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -440,7 +444,11 @@ module.exports = {
         'p--transition-apply-when-18': transitionApplyWhen18.section,
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
-        origin: origin.section
+        origin: origin.section,
+        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
+        'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.section,
+        'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,        
+        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section
     },
     routes: {
         initial: 'p-applicant-who-are-you-applying-for',
@@ -688,7 +696,11 @@ module.exports = {
             'p--transition-apply-when-18': transitionApplyWhen18.route,
             'p--transition-request-a-call-back': transitionRequestACallBack.route,
             'p--transition-contact-us': transitionContactUs.route,
-            origin: origin.route
+            origin: origin.route,
+            'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
+            'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.route,     
+            'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
+            'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
         }
     },
     answers: {},

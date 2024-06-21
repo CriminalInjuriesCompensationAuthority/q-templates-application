@@ -117,8 +117,7 @@ module.exports = {
                     cond: ['|role.all', 'deceased']
                 },
                 {
-                    target: 'p--context-applicant-details',
-                    cond: ['|role.all', 'nonDeceased']
+                    target: 'p-applicant-applied-before-for-this-crime'
                 }
             ]
         }
