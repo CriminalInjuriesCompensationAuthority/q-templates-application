@@ -26,7 +26,7 @@ module.exports = {
                                 myself:
                                     'Select yes if you have applied for or received any other form of compensation or damages',
                                 proxy:
-                                    'Select yes if anyone has applied for or received any other form of compensation on behalf of the victim',
+                                    'Select yes if the victim has applied for or received any other form of compensation or damages in connection with this crime',
                                 deceased:
                                     'Select yes if the claimant has applied for or received any other form of compensation or damages in connection with this crime'
                             }
