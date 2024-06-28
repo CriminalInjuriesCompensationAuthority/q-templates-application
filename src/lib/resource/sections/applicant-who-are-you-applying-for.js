@@ -56,7 +56,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHO-ARE-YOU-APPLYING-FOR': [
                 {
                     target: 'p-applicant-are-you-18-or-over'
                 }

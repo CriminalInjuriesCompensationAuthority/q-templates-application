@@ -125,49 +125,9 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARMED-FORCES-RELATIVE': [
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: [
-                        'and',
-                        ['|role.all', 'deceased', 'myself'],
-                        [
-                            '==',
-                            '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--context-rep-details',
-                    cond: [
-                        'and',
-                        ['|role.all', 'proxy', 'adult', 'capable'],
-                        [
-                            '==',
-                            '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--context-mainapplicant-details',
-                    cond: [
-                        'and',
-                        [
-                            'or',
-                            ['|role.all', 'proxy', 'adult', 'incapable'],
-                            ['|role.all', 'proxy', 'child']
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue',
+                    target: '#t-task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',

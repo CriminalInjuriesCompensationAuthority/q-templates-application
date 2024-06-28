@@ -43,9 +43,9 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ENTER-YOUR-EMAIL-ADDRESS': [
                 {
-                    target: 'p--context-residency-and-nationality'
+                    target: '#t_applicant_residency-and-nationality'
                 }
             ]
         }

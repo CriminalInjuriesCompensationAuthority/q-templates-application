@@ -41,7 +41,7 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'residency-context': {
-                    //prettier-ignore
+                    // prettier-ignore
                     title: [
                         '|l10nt',
                         ['|role.all', 'proxy', 'nonDeceased'],
@@ -72,7 +72,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--CONTEXT-RESIDENCY-AND-NATIONALITY': [
                 {
                     target: 'p-applicant-british-citizen'
                 }

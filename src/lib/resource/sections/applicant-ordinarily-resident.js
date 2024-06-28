@@ -123,49 +123,9 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ORDINARILY-RESIDENT': [
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: [
-                        'and',
-                        ['|role.all', 'deceased', 'myself'],
-                        [
-                            '==',
-                            '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--context-rep-details',
-                    cond: [
-                        'and',
-                        ['|role.all', 'proxy', 'adult', 'capable'],
-                        [
-                            '==',
-                            '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--context-mainapplicant-details',
-                    cond: [
-                        'and',
-                        [
-                            'or',
-                            ['|role.all', 'proxy', 'adult', 'incapable'],
-                            ['|role.all', 'proxy', 'child']
-                        ],
-                        [
-                            '==',
-                            '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',
-                            true
-                        ]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue',
+                    target: '#t-task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',

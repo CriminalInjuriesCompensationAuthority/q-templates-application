@@ -241,7 +241,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ENTER-YOUR-ADDRESS': [
                 {
                     target: 'p-applicant-enter-your-telephone-number',
                     cond: [
@@ -278,23 +278,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-residency-and-nationality',
-                    cond: [
-                        'or',
-                        [
-                            'dateCompare',
-                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                            '<', // is less than ...
-                            '-18', // 18 ...
-                            'years' // years (before, due to the negative (-18) ...
-                            // today's date (no second date given. defaults to today's date).
-                        ],
-                        ['|role.all', 'incapable'],
-                        ['|role.all', 'noContactMethod']
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue'
+                    target: '#t_applicant_residency-and-nationality'
                 }
             ]
         }

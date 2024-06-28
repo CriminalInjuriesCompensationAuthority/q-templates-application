@@ -203,7 +203,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAVE-YOU-BEEN-KNOWN-BY-ANY-OTHER-NAMES': [
                 {
                     target: 'p-applicant-enter-your-date-of-birth'
                 }

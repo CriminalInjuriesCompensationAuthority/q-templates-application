@@ -121,37 +121,9 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-EEA-CITIZEN': [
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: [
-                        'and',
-                        ['|role.all', 'deceased', 'myself'],
-                        ['==', '$.answers.p-applicant-eea-citizen.q-applicant-eea-citizen', true]
-                    ]
-                },
-                {
-                    target: 'p--context-rep-details',
-                    cond: [
-                        'and',
-                        ['|role.all', 'proxy', 'adult', 'capable'],
-                        ['==', '$.answers.p-applicant-eea-citizen.q-applicant-eea-citizen', true]
-                    ]
-                },
-                {
-                    target: 'p--context-mainapplicant-details',
-                    cond: [
-                        'and',
-                        [
-                            'or',
-                            ['|role.all', 'proxy', 'adult', 'incapable'],
-                            ['|role.all', 'proxy', 'child']
-                        ],
-                        ['==', '$.answers.p-applicant-eea-citizen.q-applicant-eea-citizen', true]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue',
+                    target: '#t-task-list',
                     cond: ['==', '$.answers.p-applicant-eea-citizen.q-applicant-eea-citizen', true]
                 },
                 {
