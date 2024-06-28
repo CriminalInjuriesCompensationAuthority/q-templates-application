@@ -112,7 +112,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-ARMED-FORCES': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-armed-forces.q-applicant-armed-forces',

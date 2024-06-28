@@ -125,7 +125,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-ORDINARILY-RESIDENT': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-ordinarily-resident.q-applicant-ordinarily-resident',

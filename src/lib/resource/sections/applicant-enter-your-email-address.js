@@ -45,7 +45,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-ENTER-YOUR-EMAIL-ADDRESS': [
                 {
-                    target: '#t_applicant_residency-and-nationality'
+                    target: '#task-list'
                 }
             ]
         }

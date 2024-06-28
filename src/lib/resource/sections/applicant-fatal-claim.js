@@ -117,7 +117,7 @@ module.exports = {
                     cond: ['|role.all', 'deceased']
                 },
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: ['|role.all', 'nonDeceased']
                 }
             ]

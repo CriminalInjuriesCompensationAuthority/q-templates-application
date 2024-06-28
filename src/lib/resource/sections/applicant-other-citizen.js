@@ -131,7 +131,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-OTHER-CITIZEN': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-other-citizen.q-applicant-other-citizen',

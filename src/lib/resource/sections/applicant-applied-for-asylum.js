@@ -106,7 +106,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-APPLIED-FOR-ASYLUM': [
                 {
-                    target: '#t-task-list'
+                    target: '#task-list'
                 }
             ]
         }

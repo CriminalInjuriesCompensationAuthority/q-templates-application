@@ -278,7 +278,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#t_applicant_residency-and-nationality'
+                    target: '#task-list'
                 }
             ]
         }

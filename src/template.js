@@ -121,7 +121,7 @@ module.exports = {
             },
             't_applicant_personal-details': {
                 id: 't_applicant_personal-details',
-                referrer: '#t-task-list',
+                referrer: '#task-list',
                 initial: 'p--context-applicant-details',
                 currentSectionId: 'p--context-applicant-details',
                 progress: ['p--context-applicant-details'],
@@ -161,8 +161,7 @@ module.exports = {
                     'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route
                 }
             },
-            't-task-list': {
-                id: 't-task-list',
+            'task-list': {
                 initial: 'p-task-list',
                 currentSectionId: 'p-task-list',
                 progress: ['p-task-list'],
@@ -260,57 +259,11 @@ module.exports = {
                 states: {}
             },
             't_applicant_residency-and-nationality__applicability-status': {
-                id: 't_applicant_residency-and-nationality__applicability-status',
-                initial: 'cannotStartYet',
-                currentSectionId: 'cannotStartYet',
-                states: {
-                    cannotStartYet: {}
-                }
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             }
         }
-    },
-    onSubmit: {
-        id: 'task0',
-        type: 'sequential',
-        retries: 0,
-        data: [
-            {
-                id: 'task1',
-                type: 'generateReferenceNumber',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task2',
-                type: 'transformAndUpload',
-                retries: 0,
-                data: {
-                    questionnaireDef: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task3',
-                type: 'sendSubmissionMessageToSQS',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            },
-            {
-                id: 'task4',
-                type: 'sendNotifyMessageToSQS',
-                retries: 0,
-                data: {
-                    questionnaire: '$.questionnaireDef',
-                    logger: '$.logger'
-                }
-            }
-        ]
     },
     taxonomies: {
         theme: {

@@ -120,7 +120,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-EU-CITIZEN': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: ['==', '$.answers.p-applicant-eu-citizen.q-applicant-eu-citizen', true]
                 },
                 {

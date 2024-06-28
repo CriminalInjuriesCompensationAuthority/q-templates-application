@@ -124,7 +124,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-BRITISH-CITIZEN-RELATIVE': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-british-citizen-relative.q-applicant-british-citizen-relative',

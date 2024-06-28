@@ -72,7 +72,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-ENTER-YOUR-TELEPHONE-NUMBER': [
                 {
-                    target: '#t_applicant_residency-and-nationality'
+                    target: '#task-list'
                 }
             ]
         }

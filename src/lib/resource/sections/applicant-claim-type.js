@@ -63,7 +63,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-CLAIM-TYPE': [
                 {
-                    target: '#t-task-list'
+                    target: '#task-list'
                 }
             ]
         }

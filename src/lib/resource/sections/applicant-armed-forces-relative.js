@@ -127,7 +127,7 @@ module.exports = {
         on: {
             'ANSWER__P-APPLICANT-ARMED-FORCES-RELATIVE': [
                 {
-                    target: '#t-task-list',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-armed-forces-relative.q-applicant-armed-forces-relative',
