@@ -15,16 +15,16 @@ module.exports = {
                         'applicant-have-you-applied-to-us-before': {
                             title: {
                                 myself:
-                                    'Have you applied to us before in connection with this or any other crime?',
-                                proxy: 'Has anyone applied to us before on behalf of the victim?',
+                                    'Have you applied to us before in connection with any other crime?',
+                                proxy: 'Has the victim applied to us before in connection with any other crime?',
                                 deceased:
                                     'Has the claimant applied to us before in connection with this or any other crime?'
                             },
                             error: {
                                 myself:
-                                    'Select yes if you have applied for or received any other form of compensation or damages',
+                                    'Select yes if you have applied to us before in connection with any other crime',
                                 proxy:
-                                    'Select yes if anyone has applied to us before on behalf of the victim',
+                                    'Select yes if the victim has applied to us before in connection with any other crime',
                                 deceased:
                                     'Select yes if anyone has applied to us before on behalf of the claimant in connection with this or any other crime'
                             }
