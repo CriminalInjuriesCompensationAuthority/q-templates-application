@@ -117,7 +117,7 @@ module.exports = {
                     cond: ['|role.all', 'deceased']
                 },
                 {
-                    target: 'p--context-applicant-details',
+                    target: '#task-list',
                     cond: ['|role.all', 'nonDeceased']
                 }
             ]
