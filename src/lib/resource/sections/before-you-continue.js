@@ -29,7 +29,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
                 },
                 {
-                    target: 'p-applicant-incident-type'
+                    target: 'p-applicant-did-the-crime-happen-once-or-over-time'
                 }
             ]
         }
