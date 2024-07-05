@@ -123,7 +123,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-describe-incident',
+                    target: 'p-applicant-incident-type',
                     cond: [
                         '==',
                         '$.answers.p--was-the-crime-reported-to-police.q--was-the-crime-reported-to-police',

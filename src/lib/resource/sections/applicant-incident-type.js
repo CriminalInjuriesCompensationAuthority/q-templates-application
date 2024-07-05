@@ -19,7 +19,7 @@ module.exports = {
                         'q-applicant-incident-type': {
                             error: {
                                 required: 'Select what led to your injuries',
-                                'required_someone-else': 'Select what led to their injuries'
+                                'required_someone-else': "Select what led to the victim's injuries"
                             },
                             title: 'What led to your injuries?',
                             'title_someone-else': "What led to the victim's injuries?",
@@ -84,13 +84,13 @@ module.exports = {
                                 const: 'FMLY'
                             },
                             {
-                                title: 'Arson',
+                                title: 'Arson or fire-raising',
                                 const: 'ARSN'
                             },
                             {
                                 title: 'Terrorist attack in Great Britain',
                                 description:
-                                    'There is a different compensation scheme for victims of terrorist attacks that happened abroad',
+                                    'There is a different compensation scheme for victims of terrorist attacks that happen abroad',
                                 const: 'TERR'
                             },
                             {
@@ -246,7 +246,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-did-the-crime-happen-once-or-over-time'
+                    target: 'p-applicant-describe-incident'
                 }
             ]
         }
