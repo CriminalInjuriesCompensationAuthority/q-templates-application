@@ -114,7 +114,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }

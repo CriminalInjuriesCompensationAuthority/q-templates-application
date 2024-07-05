@@ -253,7 +253,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }

@@ -77,7 +77,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-additional-info'
+                    target: '#task-list'
                 }
             ]
         }
