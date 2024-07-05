@@ -42,6 +42,7 @@ const tasklist = require('./lib/resource/sections/task-list');
 const canHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextResidencyAndNationality = require('./lib/resource/sections/context-residency-and-nationality.js');
+const checkYourAnswers = require('./lib/resource/sections/check-your-answers.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -85,7 +86,8 @@ module.exports = {
         'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.section,
         'p--context-crime-ref-no': contextCrimeReferenceNumber.section,
         'p--transition-contact-us': transitionContactUs.section,
-        'p-applicant-can-handle-affairs': canHandleAffairs.section
+        'p-applicant-can-handle-affairs': canHandleAffairs.section,
+        'p--check-your-answers': checkYourAnswers.section
     },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
     routes: {
@@ -156,6 +158,16 @@ module.exports = {
                     'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
                     'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
                     'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route
+                }
+            },
+            't-check-your-answers': {
+                initial: 'p--check-your-answers',
+                currentSectionId: 'p--check-your-answers',
+                progress: ['p--check-your-answers'],
+                states: {
+                    'p--check-your-answers': checkYourAnswers.route,
+                    'p-applicant-declaration': applicantDeclaration.route,
+                    'p--confirmation': confirmation.route
                 }
             },
             'task-list': {
@@ -250,6 +262,30 @@ module.exports = {
                     }
                 }
             },
+            't-check-your-answers__completion-status': {
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'ANSWER__p-applicant-declaration': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'RETRACTANSWER__p-applicant-declaration': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
             't-about-application__applicability-status': {
                 initial: 'applicable',
                 currentSectionId: 'applicable',
@@ -261,6 +297,11 @@ module.exports = {
                 states: {}
             },
             't_applicant_residency-and-nationality__applicability-status': {
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
+            },
+            't-check-your-answers__applicability-status': {
                 initial: 'applicable',
                 currentSectionId: 'applicable',
                 states: {}
