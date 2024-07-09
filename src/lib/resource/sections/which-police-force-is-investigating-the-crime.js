@@ -10,6 +10,9 @@ module.exports = {
             properties: {
                 'q-police-force-id': {
                     title: 'Which police force is investigating the crime?',
+                    description:
+                        "Type one or more characters for results. If you can't find the police force in the list, make the closest selection and provide additional details later in this application.",
+
                     type: 'integer',
                     oneOf: [
                         {
@@ -377,7 +380,7 @@ module.exports = {
                 },
                 'additional-info-help-text': {
                     description:
-                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with which police force is investigating",html: \'<p class="govuk-body">If more than one police force is investigating the crime, you can provide additional details later in this application.</p><p class="govuk-body">See a list of all <a class="govuk-link" href="/police-forces" target="_blank">police forces in England, Scotland and Wales (opens in a new tab)</a>.</p><p class="govuk-body">If you can’t find the police force in the list, make the closest selection you can then provide additional details later in this application.</p>\'})}}'
+                        '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "More than one police force is investigating the crime",html: \'<p class="govuk-body">If more than one police force is investigating the crime, you can provide additional details later in this application.</p>\'})}}'
                 }
             },
             errorMessage: {
