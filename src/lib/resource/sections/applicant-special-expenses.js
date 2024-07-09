@@ -17,17 +17,17 @@ module.exports = {
                                 myself:
                                     'Have you paid for, or will you need to pay for any of these things in the future?',
                                 capable:
-                                    'Has the victim paid for, or will they need to pay for any of these things in the future',
+                                    'Has the victim paid for, or will they need to pay for any of these things in the future?',
                                 incapable:
-                                    'Have you or the victim paid for, or will you need to pay for any of these things in the future'
+                                    'Has the victim or anyone else paid for, or will they need to pay for, any of these things in the future?'
                             },
                             summary: {
                                 myself:
                                     'Have you paid for, or will you need to pay for any special expenses in the future?',
                                 capable:
-                                    'Has the victim paid for, or will they need to pay for any special expenses in the future',
+                                    'Has the victim paid for, or will they need to pay for any special expenses in the future?',
                                 incapable:
-                                    'Have you or the victim paid for, or will you need to pay for any special expenses in the future'
+                                    'Has the victim or anyone else paid for, or will they need to pay for, any special expenses in the future?'
                             },
                             error: {
                                 myself:
@@ -35,17 +35,17 @@ module.exports = {
                                 capable:
                                     'Select yes if the victim has paid for, or will need to pay for any of these things in the future',
                                 incapable:
-                                    'Select yes if you or the victim has paid for, or will need to pay for any of these things in the future'
+                                    'Select yes if the victim or anyone else has paid for, or will need to pay for any of these things in the future'
                             }
                         },
                         'special-expenses-info': {
                             description: {
                                 myself:
-                                    '<p class="govuk-body">We need to know if you have paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing meals</li><li><b>changes to your home</b> - such as installing a stair lift</li><li><b>special equipment</b> - such as a wheel chair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul>',
+                                    '<p class="govuk-body">We need to know if you have paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing meals</li><li><b>changes to your home</b> - such as installing a stairlift</li><li><b>special equipment</b> - such as a wheelchair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul>',
                                 capable:
-                                    '<p class="govuk-body">We need to know if the victim has paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing their meals</li><li><b>changes to their home</b> - such as installing a stair lift</li><li><b>special equipment</b> - such as a wheel chair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul>',
+                                    '<p class="govuk-body">We need to know if the victim has paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing their meals</li><li><b>changes to their home</b> - such as installing a stairlift</li><li><b>special equipment</b> - such as a wheelchair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul>',
                                 incapable:
-                                    '<p class="govuk-body">We need to know if you or the victim has paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing their meals</li><li><b>changes to their home</b> - such as installing a stair lift</li><li><b>special equipment</b> - such as a wheel chair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul><p class="govuk-body">We also need to know if you will need to pay for either of the following in the future:</p><ul class="govuk-list govuk-list--bullet"><li>costs of administering their affairs if they lack mental capacity to do so</li><li>fees to the Court of Protection, Public Guardian or Sheriff Court</li></ul>'
+                                    '<p class="govuk-body">We need to know if you or the victim has paid, or will need to pay, for any of the following things in the future, as a result of the crime:</p><ul class="govuk-list govuk-list--bullet"><li><b>NHS or other state health services treatments</b> - such as dental or eye care</li><li><b>care or supervision</b> - such as someone preparing their meals</li><li><b>changes to their home</b> - such as installing a stairlift</li><li><b>special equipment</b> - such as a wheelchair or adaptations to a car</li><li><b>replacing or repairing physical aids</b> - such as a walking stick or glasses</li></ul><p class="govuk-body">We also need to know if you will need to pay for either of the following in the future:</p><ul class="govuk-list govuk-list--bullet"><li>costs of administering their affairs if they lack mental capacity to do so</li><li>fees to the Court of Protection, Public Guardian or Sheriff Court</li></ul>'
                             }
                         }
                     }
