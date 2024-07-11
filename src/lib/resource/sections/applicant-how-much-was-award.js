@@ -14,8 +14,26 @@ module.exports = {
                     resources: {
                         'how-much-was-award': {
                             title: {
-                                myself: 'How much were you awarded?',
-                                proxy: 'How much were they awarded?'
+                                myself: 'Tell us how much you were awarded and what it was for',
+                                proxy: 'Tell us how much they were awarded and what it was for'
+                            },
+                            description: {
+                                myself:
+                                    'We need to know the amount of each payment and its purpose. For example, it may have been for your injuries, loss of income, medical treatment or something else.',
+                                proxy:
+                                    'We need to know the amount of each payment and its purpose. For example, it may have been for their injuries, loss of income, medical treatment or something else.'
+                            },
+                            error: {
+                                required: {
+                                    myself: 'Enter how much you were awarded and what it was for',
+                                    proxy: 'Enter how much they were awarded and what it was for'
+                                },
+                                maxLength: {
+                                    myself:
+                                        'How much you were awarded and what it was for must be 2000 characters or less',
+                                    proxy:
+                                        'How much they were awarded and what it was for must be 2000 characters or less'
+                                }
                             }
                         }
                     }
@@ -35,10 +53,23 @@ module.exports = {
                         ['|role.all', 'proxy'],
                         'how-much-was-award.title.proxy'
                     ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'how-much-was-award.description.myself',
+                        ['|role.all', 'proxy'],
+                        'how-much-was-award.description.proxy'
+                    ],
                     type: 'string',
-                    maxLength: 50,
+                    maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Award amount must be 50 characters or less'
+                        maxLength: [
+                            '|l10nt',
+                            ['|role.all', 'myself'],
+                            'how-much-was-award.error.maxLength.myself',
+                            ['|role.all', 'proxy'],
+                            'how-much-was-award.error.maxLength.proxy'
+                        ]
                     },
                     meta: {
                         classifications: {
@@ -58,7 +89,13 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-how-much-was-award': 'Enter an amount'
+                    'q-how-much-was-award': [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'how-much-was-award.error.required.myself',
+                        ['|role.all', 'proxy'],
+                        'how-much-was-award.error.required.proxy'
+                    ]
                 }
             },
             examples: [

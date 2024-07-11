@@ -13,23 +13,11 @@ module.exports = {
                     namespace: 'p-applicant-who-did-you-apply-to',
                     resources: {
                         'applicant-who-did-you-apply-to': {
-                            title: {
+                            description: {
                                 myself:
-                                    'Who have you applied to or received compensation or damages from?',
+                                    'We need to know more about the compensation or damages you may receive, or have already received, and what it was for.',
                                 proxy:
-                                    'Who have they applied to or received compensation or damages from?'
-                            },
-                            error: {
-                                myself:
-                                    'Enter who you applied to or received compensation or damages from',
-                                proxy:
-                                    'Enter who they have applied to or received compensation or damages from'
-                            },
-                            chars: {
-                                myself:
-                                    'Who you applied to or received compensation or damages from must be 50 characters or less',
-                                proxy:
-                                    'Who have they applied to or received compensation or damages from must be 50 characters or less'
+                                    'We need to know more about the compensation or damages they may receive, or have already received, and what it was for.'
                             }
                         }
                     }
@@ -42,49 +30,34 @@ module.exports = {
             required: ['q-applicant-who-did-you-apply-to'],
             properties: {
                 'q-applicant-who-did-you-apply-to': {
-                    title: [
+                    title: 'Tell us more about the compensation or damages',
+                    description: [
                         '|l10nt',
                         ['|role.all', 'myself'],
-                        'applicant-who-did-you-apply-to.title.myself',
+                        'applicant-who-did-you-apply-to.description.myself',
                         ['|role.all', 'proxy'],
-                        'applicant-who-did-you-apply-to.title.proxy'
+                        'applicant-who-did-you-apply-to.description.proxy'
                     ],
                     type: 'string',
-                    maxLength: 50,
+                    maxLength: 500,
                     errorMessage: {
-                        maxLength: [
-                            '|l10nt',
-                            ['|role.all', 'myself'],
-                            'applicant-who-did-you-apply-to.chars.myself',
-                            ['|role.all', 'proxy'],
-                            'applicant-who-did-you-apply-to.chars.proxy'
-                        ]
+                        maxLength:
+                            'More about compensation or damages must be 500 characters or less'
                     },
                     meta: {
                         classifications: {
                             theme: 'other-compensation'
                         },
                         summary: {
-                            title: [
-                                '|l10nt',
-                                ['|role.all', 'myself'],
-                                'applicant-who-did-you-apply-to.title.myself',
-                                ['|role.all', 'proxy'],
-                                'applicant-who-did-you-apply-to.title.proxy'
-                            ]
+                            title: 'Tell us more about the compensation or damages'
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-who-did-you-apply-to': [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-who-did-you-apply-to.error.myself',
-                        ['|role.all', 'proxy'],
-                        'applicant-who-did-you-apply-to.error.proxy'
-                    ]
+                    'q-applicant-who-did-you-apply-to':
+                        'Enter more about the compensation or damages'
                 }
             },
             examples: [

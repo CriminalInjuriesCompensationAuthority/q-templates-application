@@ -14,13 +14,15 @@ module.exports = {
                     resources: {
                         'applicant-has-a-decision-been-made': {
                             title: {
-                                myself: 'Have they made a decision about your claim?',
-                                proxy: 'Has a decision been made about their claim?'
+                                myself:
+                                    'Have they made a decision about how much you will receive?',
+                                proxy: 'Have they made a decision about how much they will receive?'
                             },
                             error: {
                                 myself:
-                                    'Select yes if you have received a decision about the other compensation claim',
-                                proxy: 'Select yes if a decision has been made about their claim'
+                                    'Select yes if they have made a decision about how much you will receive',
+                                proxy:
+                                    'Select yes if a decision has been made about how much they will receive'
                             }
                         }
                     }
