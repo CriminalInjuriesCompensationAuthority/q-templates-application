@@ -154,7 +154,6 @@ const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
 const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
 const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
-const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
@@ -213,7 +212,7 @@ const tasklist = require('./lib/resource/sections/task-list');
 module.exports = {
     type: 'apply-for-compensation',
     version,
-/*    sections: {
+    sections: {
         'p-applicant-declaration': applicantDeclaration.section,
         'p-applicant-declaration-deceased': applicantDeclarationDeceased.section,
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
@@ -227,7 +226,6 @@ module.exports = {
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
-        'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
         'p--before-you-continue': beforeYouContinue.section,
@@ -280,7 +278,6 @@ module.exports = {
         'p-applicant-do-you-have-disabling-mental-injury':
         applicantDoYouHaveDisablingMentalInjury.section,
         'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.section,
-        'p-applicant-select-treatments': applicantSelectTreatments.section,
         'p-applicant-has-your-treatment-finished-dmi': applicantHasYourTreatmentFinishedDmi.section,
         'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.section,
         'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.section,
@@ -341,8 +338,6 @@ module.exports = {
         'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.section,
         'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.section,
         'p-applicant-work-details-option': applicantWorkDetailsOption.section,
-        'p-applicant-expenses': applicantExpenses.section,
-        'p--context-money': contextMoney.section,
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
@@ -357,7 +352,6 @@ module.exports = {
         'p--context-crime-impact': contextCrimeImpact.section,
         'p-mainapplicant-parent': mainapplicantParent.section,
         'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
         'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
         'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
@@ -386,7 +380,6 @@ module.exports = {
         'p-rep-telephone-number': repTelephoneNumber.section,
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
-        'p--contact-cica': contactCica.section,
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
         'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
@@ -419,7 +412,6 @@ module.exports = {
         'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
         'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
         'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
-        'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.section,
         'p-applicant-living-together': applicantLivingTogether.section,
         'p-applicant-living-together-duration': applicantLivingTogetherDuration.section,
         'p-applicant-living-apart': applicantLivingApart.section,
@@ -429,7 +421,6 @@ module.exports = {
         'p-applicant-financial-help': applicantFinancialHelp.section,
         'p-other-claimants': otherClaimants.section,
         'p-other-claimants-details': otherClaimantsDetails.section,
-        'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
         'p-applicant-claim-type': applicantClaimType.section,
         'p-applicant-under-18': applicantUnder18.section,
@@ -444,7 +435,7 @@ module.exports = {
         'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,
         'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
         'p-task-list': tasklist.section
-    },*/
+    },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
     routes: {
         id: 'parallel-routes',
@@ -803,136 +794,515 @@ module.exports = {
                 currentSectionId: 'p-task-list',
                 progress: ['p-task-list'],
                 states: {
-                    'p-task-list': {
-                        type: 'final'
-                    }
+                    'p-task-list': tasklist.route
                 }
             },
-            't-about-application__completion-status': {
-                initial: 'incomplete',
-                currentSectionId: 'incomplete',
+            'system': {
+                initial: 'system',
+                currentSectionId: 'system',
+                progress: ['system'],
                 states: {
-                    incomplete: {
-                        on: {
-                            'ANSWER__p-applicant-who-are-you-applying-for': [
+                    'system': system.route,
+                    'owner': owner.route,
+                    'origin': origin.route,
+                    'transition': transition.route
+                }
+            },
+            "t-about-application__completion-status": {
+                "id": "t-about-application__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T-ABOUT-APPLICATION": [
                                 {
-                                    target: 'completed'
-                                }
-                            ],
-                            'ANSWER__p-applicant-claim-type': [
-                                {
-                                    target: 'completed'
+                                    "target": "completed"
                                 }
                             ]
                         }
                     },
-                    completed: {
-                        on: {
-                            'RETRACTANSWER__p-applicant-who-are-you-applying-for': [
+                    "completed": {
+                        "on": {
+                            "CASCADE__T-ABOUT-APPLICATION": [
                                 {
-                                    target: 'incomplete'
-                                }
-                            ],
-                            'RETRACTANSWER__p-applicant-claim-type': [
-                                {
-                                    target: 'incompleted'
+                                    "target": "incomplete"
                                 }
                             ]
                         }
                     }
                 }
             },
-            't_applicant_personal-details__completion-status': {
-                initial: 'incomplete',
-                currentSectionId: 'incomplete',
-                states: {
-                    incomplete: {
-                        on: {
-                            'ANSWER__p-applicant-enter-your-email-address': [
+            "t-about-application__applicability-status": {
+                "id": "t-about-application__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_personal-details__completion-status": {
+                "id": "t_applicant_personal-details__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_PERSONAL-DETAILS": [
                                 {
-                                    target: 'completed'
+                                    "target": "completed"
                                 }
                             ]
                         }
                     },
-                    completed: {
-                        on: {
-                            'RETRACTANSWER__p-applicant-enter-your-email-address': [
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_PERSONAL-DETAILS": [
                                 {
-                                    target: 'incompleted'
+                                    "target": "incomplete"
                                 }
                             ]
                         }
                     }
                 }
             },
-            't_applicant_residency-and-nationality__completion-status': {
-                initial: 'incomplete',
-                currentSectionId: 'incomplete',
-                states: {
-                    incomplete: {
-                        on: {
-                            'ANSWER__p-applicant-british-citizen': [
+            "t_applicant_personal-details__applicability-status": {
+                "id": "t_applicant_personal-details__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_residency-and-nationality__completion-status": {
+                "id": "t_applicant_residency-and-nationality__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_RESIDENCY-AND-NATIONALITY": [
                                 {
-                                    target: 'completed'
+                                    "target": "completed"
                                 }
                             ]
                         }
                     },
-                    completed: {
-                        on: {
-                            'RETRACTANSWER__p-applicant-british-citizen': [
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_RESIDENCY-AND-NATIONALITY": [
                                 {
-                                    target: 'incomplete'
+                                    "target": "incomplete"
                                 }
                             ]
                         }
                     }
                 }
             },
-            't-check-your-answers__completion-status': {
-                initial: 'incomplete',
-                currentSectionId: 'incomplete',
-                states: {
-                    incomplete: {
-                        on: {
-                            'ANSWER__p-applicant-declaration': [
+            "t_applicant_residency-and-nationality__applicability-status": {
+                "id": "t_applicant_residency-and-nationality__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_mainapplicant_authority__completion-status": {
+                "id": "t_mainapplicant_authority__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_MAINAPPLICANT_AUTHORITY": [
                                 {
-                                    target: 'completed'
+                                    "target": "completed"
                                 }
                             ]
                         }
                     },
-                    completed: {
-                        on: {
-                            'RETRACTANSWER__p-applicant-declaration': [
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_MAINAPPLICANT_AUTHORITY": [
                                 {
-                                    target: 'incomplete'
+                                    "target": "incomplete"
                                 }
                             ]
                         }
                     }
                 }
             },
-            't-about-application__applicability-status': {
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+            "t_mainapplicant_authority__applicability-status": {
+                "id": "t_mainapplicant_authority__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
             },
-            't_applicant_personal-details__applicability-status': {
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+            "t_rep_details__completion-status": {
+                "id": "t_rep_details__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_REP_DETAILS": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_REP_DETAILS": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
-            't_applicant_residency-and-nationality__applicability-status': {
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+            "t_rep_details__applicability-status": {
+                "id": "t_rep_details__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
             },
-            't-check-your-answers__applicability-status': {
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+            "t_applicant_relationship-to-deceased__completion-status": {
+                "id": "t_applicant_relationship-to-deceased__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_RELATIONSHIP-TO-DECEASED": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_RELATIONSHIP-TO-DECEASED": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_relationship-to-deceased__applicability-status": {
+                "id": "t_applicant_relationship-to-deceased__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_about-who-died__completion-status": {
+                "id": "t_applicant_about-who-died__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_ABOUT-WHO-DIED": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_ABOUT-WHO-DIED": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_about-who-died__applicability-status": {
+                "id": "t_applicant_about-who-died__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_funeral-costs__completion-status": {
+                "id": "t_applicant_funeral-costs__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_FUNERAL-COSTS": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_FUNERAL-COSTS": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_funeral-costs__applicability-status": {
+                "id": "t_applicant_funeral-costs__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_about-the-crime__completion-status": {
+                "id": "t_applicant_about-the-crime__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_ABOUT-THE-CRIME": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_ABOUT-THE-CRIME": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_about-the-crime__applicability-status": {
+                "id": "t_applicant_about-the-crime__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_offender_about-the-offender__completion-status": {
+                "id": "t_offender_about-the-offender__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_OFFENDER_ABOUT-THE-OFFENDER": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_OFFENDER_ABOUT-THE-OFFENDER": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_offender_about-the-offender__applicability-status": {
+                "id": "t_offender_about-the-offender__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_about-injuries__completion-status": {
+                "id": "t_applicant_about-injuries__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_ABOUT-INJURIES": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_ABOUT-INJURIES": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_about-injuries__applicability-status": {
+                "id": "t_applicant_about-injuries__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_impact-of-injuries__completion-status": {
+                "id": "t_applicant_impact-of-injuries__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_IMPACT-OF-INJURIES": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_IMPACT-OF-INJURIES": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_impact-of-injuries__applicability-status": {
+                "id": "t_applicant_impact-of-injuries__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_about-treatment__completion-status": {
+                "id": "t_applicant_about-treatment__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_ABOUT-TREATMENT": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_ABOUT-TREATMENT": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_about-treatment__applicability-status": {
+                "id": "t_applicant_about-treatment__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_other-compensation__completion-status": {
+                "id": "t_applicant_other-compensation__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_OTHER-COMPENSATION": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_OTHER-COMPENSATION": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_other-compensation__applicability-status": {
+                "id": "t_applicant_other-compensation__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t_applicant_additional-information__completion-status": {
+                "id": "t_applicant_additional-information__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T_APPLICANT_ADDITIONAL-INFORMATION": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T_APPLICANT_ADDITIONAL-INFORMATION": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t_applicant_additional-information__applicability-status": {
+                "id": "t_applicant_additional-information__applicability-status",
+                "initial": "applicable",
+                "currentSectionId": "applicable",
+                "states": {}
+            },
+            "t-check-your-answers__completion-status": {
+                "id": "t-check-your-answers__completion-status",
+                "initial": "incomplete",
+                "currentSectionId": "incomplete",
+                "states": {
+                    "incomplete": {
+                        "on": {
+                            "COMPLETE__T-CHECK-YOUR-ANSWERS": [
+                                {
+                                    "target": "completed"
+                                }
+                            ]
+                        }
+                    },
+                    "completed": {
+                        "on": {
+                            "CASCADE__T-CHECK-YOUR-ANSWERS": [
+                                {
+                                    "target": "incomplete"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "t-check-your-answers__applicability-status": {
+                "id": "t-check-your-answers__applicability-status",
+                "initial": "cannotStartYet",
+                "currentSectionId": "cannotStartYet",
+                "states": {}
             }
         }
     },
