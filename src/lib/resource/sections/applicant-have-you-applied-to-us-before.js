@@ -14,19 +14,40 @@ module.exports = {
                     resources: {
                         'applicant-have-you-applied-to-us-before': {
                             title: {
-                                myself:
-                                    'Have you applied to us before in connection with this or any other crime?',
-                                proxy: 'Has anyone applied to us before on behalf of the victim?',
-                                deceased:
-                                    'Has the claimant applied to us before in connection with this or any other crime?'
+                                personalInjury: {
+                                    myself:
+                                        'Have you applied to us before in connection with any other crime?',
+                                    proxy:
+                                        'Has the victim applied to us before in connection with any other crime?'
+                                },
+                                deceased: {
+                                    myself:
+                                        'Have you applied to us before in connection with this or any other crime?',
+                                    proxy:
+                                        'Has the claimant applied to us before in connection with this or any other crime?'
+                                }
                             },
                             error: {
+                                personalInjury: {
+                                    myself:
+                                        'Select yes if you have applied to us before in connection with any other crime',
+                                    proxy:
+                                        'Select yes if the victim has applied to us before in connection with any other crime'
+                                },
+                                deceased: {
+                                    myself:
+                                        'Select yes if you have applied to us before in connection with this or any other crime',
+                                    proxy:
+                                        'Select yes if the claimant has applied to us before in connection with this or any other crime'
+                                }
+                            }
+                        },
+                        'enter-your-previous-reference-number': {
+                            title: {
                                 myself:
-                                    'Select yes if you have applied for or received any other form of compensation or damages',
+                                    'Enter your previous reference number if you know it (optional)',
                                 proxy:
-                                    'Select yes if anyone has applied to us before on behalf of the victim',
-                                deceased:
-                                    'Select yes if anyone has applied to us before on behalf of the claimant in connection with this or any other crime'
+                                    'Enter their previous reference number if you know it (optional)'
                             }
                         }
                     }
@@ -47,12 +68,14 @@ module.exports = {
                 'q-applicant-have-you-applied-to-us-before': {
                     title: [
                         '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-have-you-applied-to-us-before.title.myself',
-                        ['|role.all', 'proxy', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.title.proxy',
                         ['|role.all', 'proxy', 'deceased'],
-                        'applicant-have-you-applied-to-us-before.title.deceased'
+                        'applicant-have-you-applied-to-us-before.title.deceased.proxy',
+                        ['|role.all', 'myself', 'deceased'],
+                        'applicant-have-you-applied-to-us-before.title.deceased.myself',
+                        ['|role.all', 'myself', 'nonDeceased'],
+                        'applicant-have-you-applied-to-us-before.title.personalInjury.myself',
+                        ['|role.all', 'proxy', 'nonDeceased'],
+                        'applicant-have-you-applied-to-us-before.title.personalInjury.proxy'
                     ],
                     type: 'boolean',
                     oneOf: [
@@ -73,7 +96,13 @@ module.exports = {
                 },
                 'q-enter-your-previous-reference-number': {
                     type: 'string',
-                    title: 'Enter your previous reference number if you know it (optional)',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'myself'],
+                        'enter-your-previous-reference-number.title.myself',
+                        ['|role.all', 'proxy'],
+                        'enter-your-previous-reference-number.title.proxy'
+                    ],
                     maxLength: 50,
                     errorMessage: {
                         maxLength: 'Previous reference number must be 50 characters or less'
@@ -120,12 +149,14 @@ module.exports = {
                 required: {
                     'q-applicant-have-you-applied-to-us-before': [
                         '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-have-you-applied-to-us-before.error.myself',
+                        ['|role.all', 'myself', 'nonDeceased'],
+                        'applicant-have-you-applied-to-us-before.error.personalInjury.myself',
                         ['|role.all', 'proxy', 'nonDeceased'],
-                        'applicant-have-you-applied-to-us-before.error.proxy',
+                        'applicant-have-you-applied-to-us-before.error.personalInjury.proxy',
                         ['|role.all', 'proxy', 'deceased'],
-                        'applicant-have-you-applied-to-us-before.error.deceased'
+                        'applicant-have-you-applied-to-us-before.error.deceased.proxy',
+                        ['|role.all', 'myself', 'deceased'],
+                        'applicant-have-you-applied-to-us-before.error.deceased.myself'
                     ]
                 }
             },

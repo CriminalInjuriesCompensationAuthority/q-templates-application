@@ -55,6 +55,7 @@ const contextApplicantDetails = require('./lib/resource/sections/context-applica
 const contextDmiDetails = require('./lib/resource/sections/context-dmi-details.js');
 const applicantDoYouHaveDisablingMentalInjury = require('./lib/resource/sections/applicant-do-you-have-disabling-mental-injury.js');
 const applicantMentalInjuryDuration = require('./lib/resource/sections/applicant-mental-injury-duration.js');
+const applicantSelectTreatments = require('./lib/resource/sections/applicant-select-treatments.js');
 const applicantHasYourTreatmentFinishedDmi = require('./lib/resource/sections/applicant-has-your-treatment-finished-dmi.js');
 const applicantAffectOnDailyLifeDmi = require('./lib/resource/sections/applicant-affect-on-daily-life-dmi.js');
 const applicantAreYouRegisteredWithGp = require('./lib/resource/sections/applicant-are-you-registered-with-gp.js');
@@ -185,6 +186,7 @@ const applicantFuneralCostsOtherContributor = require('./lib/resource/sections/a
 const applicantFuneralCostsWhoContributed = require('./lib/resource/sections/applicant-funeral-costs-who-contributed.js');
 const applicantFuneralCostsTotal = require('./lib/resource/sections/applicant-funeral-costs-total.js');
 const contextRelationshipToDeceased = require('./lib/resource/sections/context-relationship-to-deceased.js');
+const applicantRelationshipToDeceased = require('./lib/resource/sections/applicant-relationship-to-deceased.js');
 const applicantLivingTogether = require('./lib/resource/sections/applicant-living-together.js');
 const applicantLivingTogetherDuration = require('./lib/resource/sections/applicant-living-together-duration.js');
 const applicantLivingApart = require('./lib/resource/sections/applicant-living-apart.js');
@@ -194,6 +196,7 @@ const applicantContactOutOfTouch = require('./lib/resource/sections/applicant-co
 const applicantFinancialHelp = require('./lib/resource/sections/applicant-financial-help.js');
 const otherClaimants = require('./lib/resource/sections/other-claimants.js');
 const otherClaimantsDetails = require('./lib/resource/sections/other-claimants-details.js');
+const contextFuneralCostsProof = require('./lib/resource/sections/context-funeral-costs-proof.js');
 const applicantPhysicalHelp = require('./lib/resource/sections/applicant-physical-help.js');
 const applicantClaimType = require('./lib/resource/sections/applicant-claim-type.js');
 const applicantUnder18 = require('./lib/resource/sections/applicant-under-18.js');
@@ -203,10 +206,10 @@ const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-
 const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
 const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
 const origin = require('./lib/resource/sections/origin');
-/* const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-applied-before-for-this-crime');
+const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-applied-before-for-this-crime');
 const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-someone-else-applied-before-for-this-crime');
 const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
-const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime'); */
+const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
 const tasklist = require('./lib/resource/sections/task-list');
 
 module.exports = {
@@ -278,6 +281,7 @@ module.exports = {
         'p-applicant-do-you-have-disabling-mental-injury':
             applicantDoYouHaveDisablingMentalInjury.section,
         'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.section,
+        'p-applicant-select-treatments': applicantSelectTreatments.section,
         'p-applicant-has-your-treatment-finished-dmi': applicantHasYourTreatmentFinishedDmi.section,
         'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.section,
         'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.section,
@@ -412,6 +416,7 @@ module.exports = {
         'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
         'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
         'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
+        'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.section,
         'p-applicant-living-together': applicantLivingTogether.section,
         'p-applicant-living-together-duration': applicantLivingTogetherDuration.section,
         'p-applicant-living-apart': applicantLivingApart.section,
@@ -421,6 +426,7 @@ module.exports = {
         'p-applicant-financial-help': applicantFinancialHelp.section,
         'p-other-claimants': otherClaimants.section,
         'p-other-claimants-details': otherClaimantsDetails.section,
+        'p-context-funeral-costs-proof': contextFuneralCostsProof.section,
         'p-applicant-physical-help': applicantPhysicalHelp.section,
         'p-applicant-claim-type': applicantClaimType.section,
         'p-applicant-under-18': applicantUnder18.section,
@@ -430,10 +436,12 @@ module.exports = {
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
         origin: origin.section,
-        /*        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
+        'p-applicant-someone-else-applied-before-for-this-crime':
+            applicantSomeoneElseAppliedBeforeForThisCrime.section,
         'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.section,
-        'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,
-        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section, */
+        'p-proxy-someone-else-applied-before-for-this-crime':
+            proxySomeoneElseAppliedBeforeForThisCrime.section,
+        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
         'p-task-list': tasklist.section
     },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
@@ -475,11 +483,14 @@ module.exports = {
                     'p--transition-request-a-call-back': transitionRequestACallBack.route,
                     'p--transition-contact-us': transitionContactUs.route,
                     'p-applicant-fatal-claim': applicantFatalClaim.route,
-                    'p-applicant-claim-type': applicantClaimType.route
-                    /*                    'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
-                    'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
-                    'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.route,
-                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route */
+                    'p-applicant-claim-type': applicantClaimType.route,
+                    'p-applicant-someone-else-applied-before-for-this-crime':
+                        applicantSomeoneElseAppliedBeforeForThisCrime.route,
+                    'p-applicant-applied-before-for-this-crime':
+                        applicantAppliedBeforeForThisCrime.route,
+                    'p-proxy-someone-else-applied-before-for-this-crime':
+                        proxySomeoneElseAppliedBeforeForThisCrime.route,
+                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
                 }
             },
             't_applicant_personal-details': {
@@ -577,6 +588,7 @@ module.exports = {
                 progress: ['p--context-relationship-to-deceased'],
                 states: {
                     'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
+                    'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
                     'p-applicant-living-together': applicantLivingTogether.route,
                     'p-applicant-living-apart': applicantLivingApart.route,
                     'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
@@ -614,7 +626,8 @@ module.exports = {
                         applicantFuneralCostsOtherContributor.route,
                     'p-applicant-funeral-costs-who-contributed':
                         applicantFuneralCostsWhoContributed.route,
-                    'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route
+                    'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
+                    'p-context-funeral-costs-proof': contextFuneralCostsProof.route
                 }
             },
             't_applicant_about-the-crime': {
@@ -784,7 +797,8 @@ module.exports = {
                     'p-applicant-dentist-visited': applicantDentistVisited.route,
                     'p-applicant-dentist-address': applicantDentistAddress.route,
                     'p-applicant-medical-help': applicantMedicalHelp.route,
-                    'p-applicant-treatment-address': applicantTreatmentAddress.route
+                    'p-applicant-treatment-address': applicantTreatmentAddress.route,
+                    'p-applicant-select-treatments': applicantSelectTreatments.route
                 }
             },
             't_applicant_other-compensation': {
@@ -858,7 +872,7 @@ module.exports = {
                     system: system.route,
                     owner: owner.route,
                     origin: origin.route,
-                    transition: transition.route
+                    'p--transition': transition.route
                 }
             },
             't-about-application__completion-status': {
@@ -890,7 +904,9 @@ module.exports = {
                 id: 't-about-application__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_applicant_personal-details__completion-status': {
                 id: 't_applicant_personal-details__completion-status',
@@ -921,7 +937,9 @@ module.exports = {
                 id: 't_applicant_personal-details__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_applicant_residency-and-nationality__completion-status': {
                 id: 't_applicant_residency-and-nationality__completion-status',
@@ -952,7 +970,9 @@ module.exports = {
                 id: 't_applicant_residency-and-nationality__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_mainapplicant_authority__completion-status': {
                 id: 't_mainapplicant_authority__completion-status',
@@ -981,9 +1001,36 @@ module.exports = {
             },
             't_mainapplicant_authority__applicability-status': {
                 id: 't_mainapplicant_authority__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'proxy', 'mainapplicant']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'proxy', 'mainapplicant']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'proxy', 'mainapplicant']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_rep_details__completion-status': {
                 id: 't_rep_details__completion-status',
@@ -1014,7 +1061,34 @@ module.exports = {
                 id: 't_rep_details__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'proxy', 'rep']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'proxy', 'rep']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'proxy', 'rep']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_relationship-to-deceased__completion-status': {
                 id: 't_applicant_relationship-to-deceased__completion-status',
@@ -1043,9 +1117,36 @@ module.exports = {
             },
             't_applicant_relationship-to-deceased__applicability-status': {
                 id: 't_applicant_relationship-to-deceased__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_about-who-died__completion-status': {
                 id: 't_applicant_about-who-died__completion-status',
@@ -1074,9 +1175,36 @@ module.exports = {
             },
             't_applicant_about-who-died__applicability-status': {
                 id: 't_applicant_about-who-died__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_funeral-costs__completion-status': {
                 id: 't_applicant_funeral-costs__completion-status',
@@ -1105,9 +1233,36 @@ module.exports = {
             },
             't_applicant_funeral-costs__applicability-status': {
                 id: 't_applicant_funeral-costs__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_about-the-crime__completion-status': {
                 id: 't_applicant_about-the-crime__completion-status',
@@ -1138,7 +1293,9 @@ module.exports = {
                 id: 't_applicant_about-the-crime__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_offender_about-the-offender__completion-status': {
                 id: 't_offender_about-the-offender__completion-status',
@@ -1169,7 +1326,9 @@ module.exports = {
                 id: 't_offender_about-the-offender__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_applicant_about-injuries__completion-status': {
                 id: 't_applicant_about-injuries__completion-status',
@@ -1198,9 +1357,36 @@ module.exports = {
             },
             't_applicant_about-injuries__applicability-status': {
                 id: 't_applicant_about-injuries__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_impact-of-injuries__completion-status': {
                 id: 't_applicant_impact-of-injuries__completion-status',
@@ -1229,9 +1415,36 @@ module.exports = {
             },
             't_applicant_impact-of-injuries__applicability-status': {
                 id: 't_applicant_impact-of-injuries__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_about-treatment__completion-status': {
                 id: 't_applicant_about-treatment__completion-status',
@@ -1260,9 +1473,36 @@ module.exports = {
             },
             't_applicant_about-treatment__applicability-status': {
                 id: 't_applicant_about-treatment__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                states: {}
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                states: {
+                    notApplicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.none', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            'ANSWER*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ],
+                            'CASCADE*': [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_applicant_other-compensation__completion-status': {
                 id: 't_applicant_other-compensation__completion-status',
@@ -1293,7 +1533,9 @@ module.exports = {
                 id: 't_applicant_other-compensation__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't_applicant_additional-information__completion-status': {
                 id: 't_applicant_additional-information__completion-status',
@@ -1324,7 +1566,9 @@ module.exports = {
                 id: 't_applicant_additional-information__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {}
+                }
             },
             't-check-your-answers__completion-status': {
                 id: 't-check-your-answers__completion-status',
@@ -1355,7 +1599,26 @@ module.exports = {
                 id: 't-check-your-answers__applicability-status',
                 initial: 'cannotStartYet',
                 currentSectionId: 'cannotStartYet',
-                states: {}
+                states: {
+                    cannotStartYet: {
+                        on: {
+                            someEvent: [
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            someEvent: [
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         }
     },

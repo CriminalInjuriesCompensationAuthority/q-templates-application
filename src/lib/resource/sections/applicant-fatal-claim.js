@@ -117,8 +117,7 @@ module.exports = {
                     cond: ['|role.all', 'deceased']
                 },
                 {
-                    target: '#task-list',
-                    cond: ['|role.all', 'nonDeceased']
+                    target: 'p-applicant-applied-before-for-this-crime'
                 }
             ]
         }
