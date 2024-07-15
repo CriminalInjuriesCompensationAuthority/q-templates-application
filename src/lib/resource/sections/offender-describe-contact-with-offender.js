@@ -73,7 +73,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-physical-injuries'
+                    target: '#task-list'
                 }
             ]
         }

@@ -203,10 +203,10 @@ const transitionApplyWhen18 = require('./lib/resource/sections/transition-apply-
 const transitionRequestACallBack = require('./lib/resource/sections/transition-request-a-call-back.js');
 const transitionContactUs = require('./lib/resource/sections/transition-contact-us.js');
 const origin = require('./lib/resource/sections/origin');
-const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-applied-before-for-this-crime');
+/* const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-applied-before-for-this-crime');
 const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-someone-else-applied-before-for-this-crime');
 const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
-const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
+const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime'); */
 const tasklist = require('./lib/resource/sections/task-list');
 
 module.exports = {
@@ -218,9 +218,9 @@ module.exports = {
         'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.section,
         'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.section,
         'p-mainapplicant-declaration-12-and-over-deceased':
-        mainapplicantDeclarationOver12Deceased.section,
+            mainapplicantDeclarationOver12Deceased.section,
         'p-mainapplicant-declaration-under-12-deceased':
-        mainapplicantDeclarationUnder12Deceased.section,
+            mainapplicantDeclarationUnder12Deceased.section,
         'p-rep-declaration-under-12': repDeclarationUnder12.section,
         'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
@@ -233,31 +233,31 @@ module.exports = {
         'p--when-was-the-crime-reported-to-police': whenWasTheCrimeReportedToPolice.section,
         'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.section,
         'p-applicant-did-the-crime-happen-once-or-over-time':
-        applicantDidTheCrimeHappenOnceOrOverTime.section,
+            applicantDidTheCrimeHappenOnceOrOverTime.section,
         'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.section,
         'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.section,
         'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.section,
         'p-applicant-select-reasons-for-the-delay-in-making-your-application':
-        applicantSelectReasonsForTheDelayInMakingYourApplication.section,
+            applicantSelectReasonsForTheDelayInMakingYourApplication.section,
         'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.section,
         'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.section,
         'p-applicant-where-in-scotland-did-it-happen': applicantWhereInScotlandDidItHappen.section,
         'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.section,
         'p--which-police-force-is-investigating-the-crime':
-        whichPoliceForceIsInvestigatingTheCrime.section,
+            whichPoliceForceIsInvestigatingTheCrime.section,
         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-        applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.section,
+            applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.section,
         'p-offender-do-you-know-the-name-of-the-offender':
-        offenderDoYouKnowTheNameOfTheOffender.section,
+            offenderDoYouKnowTheNameOfTheOffender.section,
         'p-offender-do-you-have-contact-with-offender':
-        offenderDoYouHaveContactWithOffender.section,
+            offenderDoYouHaveContactWithOffender.section,
         'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.section,
         'p-applicant-have-you-applied-to-us-before': applicantHaveYouAppliedToUsBefore.section,
         'p-applicant-have-you-applied-for-or-received-any-other-compensation':
-        applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.section,
+            applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.section,
         'p-applicant-enter-your-name': applicantEnterYourName.section,
         'p-applicant-have-you-been-known-by-any-other-names':
-        applicantHaveYouBeenKnownByAnyOtherNames.section,
+            applicantHaveYouBeenKnownByAnyOtherNames.section,
         'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.section,
         'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.section,
         'p-applicant-enter-your-address': applicantEnterYourAddress.section,
@@ -268,7 +268,7 @@ module.exports = {
         'p--context-offender': contextOffender.section,
         'p--context-compensation': contextCompensation.section,
         'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
-        applicantAppliedForOtherCompensationBrieflyExplainWhyNot.section,
+            applicantAppliedForOtherCompensationBrieflyExplainWhyNot.section,
         'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.section,
         'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.section,
         'p-applicant-how-much-was-award': applicantHowMuchWasAward.section,
@@ -276,7 +276,7 @@ module.exports = {
         'p--context-applicant-details': contextApplicantDetails.section,
         'p--context-dmi-details': contextDmiDetails.section,
         'p-applicant-do-you-have-disabling-mental-injury':
-        applicantDoYouHaveDisablingMentalInjury.section,
+            applicantDoYouHaveDisablingMentalInjury.section,
         'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.section,
         'p-applicant-has-your-treatment-finished-dmi': applicantHasYourTreatmentFinishedDmi.section,
         'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.section,
@@ -286,7 +286,7 @@ module.exports = {
         'p-applicant-dentist-visited': applicantDentistVisited.section,
         'p-applicant-dentist-address': applicantDentistAddress.section,
         'p-applicant-are-you-claiming-for-physical-injuries':
-        applicantAreYouClaimingForPhysicalInjuries.section,
+            applicantAreYouClaimingForPhysicalInjuries.section,
         'p--transition': transition.section,
         'p--context-physical-injuries': contextPhysicalInjuries.section,
         'p-applicant-physical-injury': applicantPhysicalInjury.section,
@@ -332,7 +332,7 @@ module.exports = {
         'p-applicant-pregnancy': applicantPregnancy.section,
         'p--context-treatment': contextTreatment.section,
         'p-applicant-treatment-for-physical-injuries':
-        applicantTreatmentForPhysicalInjuries.section,
+            applicantTreatmentForPhysicalInjuries.section,
         'p-applicant-medical-help': applicantMedicalHelp.section,
         'p-applicant-treatment-address': applicantTreatmentAddress.section,
         'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.section,
@@ -357,7 +357,7 @@ module.exports = {
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
         'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
         'p-mainapplicant-enter-your-telephone-number':
-        mainapplicantEnterYourTelephoneNumber.section,
+            mainapplicantEnterYourTelephoneNumber.section,
         'p-mainapplicant-relationship': mainapplicantRelationship.section,
         'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.section,
         'p-mainapplicant-care-order': mainapplicantCareOrder.section,
@@ -408,7 +408,7 @@ module.exports = {
         'p--context-funeral-costs': contextFuneralCost.section,
         'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.section,
         'p-applicant-funeral-costs-other-contributor':
-        applicantFuneralCostsOtherContributor.section,
+            applicantFuneralCostsOtherContributor.section,
         'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.section,
         'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.section,
         'p--context-relationship-to-deceased': contextRelationshipToDeceased.section,
@@ -430,10 +430,10 @@ module.exports = {
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
         origin: origin.section,
-        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
+        /*        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
         'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.section,
         'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,
-        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
+        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section, */
         'p-task-list': tasklist.section
     },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
@@ -465,20 +465,20 @@ module.exports = {
                     'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
                     'p-applicant-under-18': applicantUnder18.route,
                     'p-applicant-you-cannot-get-compensation':
-                    applicantYouCannotGetCompensation.route,
+                        applicantYouCannotGetCompensation.route,
                     'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
                     'p--transition-someone-18-or-over-to-apply':
-                    transitionSomeone18OrOverToApply.route,
+                        transitionSomeone18OrOverToApply.route,
                     'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
                     'p--transition-apply-when-18': transitionApplyWhen18.route,
                     'p--transition-request-a-call-back': transitionRequestACallBack.route,
                     'p--transition-contact-us': transitionContactUs.route,
                     'p-applicant-fatal-claim': applicantFatalClaim.route,
-                    'p-applicant-claim-type': applicantClaimType.route,
-                    'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
+                    'p-applicant-claim-type': applicantClaimType.route
+                    /*                    'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
                     'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
                     'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.route,
-                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
+                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route */
                 }
             },
             't_applicant_personal-details': {
@@ -491,12 +491,12 @@ module.exports = {
                     'p-applicant-enter-your-name': applicantEnterYourName.route,
                     'p-applicant-confirmation-method': applicantConfirmationMethod.route,
                     'p-applicant-have-you-been-known-by-any-other-names':
-                    applicantHaveYouBeenKnownByAnyOtherNames.route,
+                        applicantHaveYouBeenKnownByAnyOtherNames.route,
                     'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
                     'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
                     'p-applicant-enter-your-address': applicantEnterYourAddress.route,
                     'p-applicant-enter-your-telephone-number':
-                    applicantEnterYourTelephoneNumber.route,
+                        applicantEnterYourTelephoneNumber.route,
                     'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route
                 }
             },
@@ -521,272 +521,322 @@ module.exports = {
                     'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route
                 }
             },
-            "t_mainapplicant_authority": {
-                "referrer": "#t_mainapplicant_authority",
-                "initial": "p--context-mainapplicant-details",
-                "currentSectionId": "p--context-mainapplicant-details",
-                "progress": ["p--context-mainapplicant-details"],
-                "states": {
-                    "p--context-mainapplicant-details": contextMainAppDetails.route,
-                    "p-mainapplicant-parent": mainapplicantParent.route,
-                    "p-mainapplicant-authority": mainApplicantAuthorityToApply.route,
-                    "p--has-legal-authority": flowHasLegalAuthority.route,
-                    "p--represents-legal-authority": flowRepresentsLegalAuthority.route,
-                    "p--context-authority": contextAuthority.route,
-                    "p-applicant-enter-your-name": applicantEnterYourName.route,
-                    "p-applicant-have-you-been-known-by-any-other-names": applicantHaveYouBeenKnownByAnyOtherNames.route,
-                    "p-mainapplicant-enter-your-name": mainapplicantEnterYourName.route,
-                    "p-mainapplicant-enter-your-address": mainapplicantEnterYourAddress.route,
-                    "p-mainapplicant-confirmation-method": mainapplicantConfirmationMethod.route,
-                    "p-mainapplicant-enter-your-telephone-number": mainapplicantEnterYourTelephoneNumber.route,
-                    "p-mainapplicant-enter-your-email-address": mainapplicantEnterYourEmailAddress.route,
-                    "p-mainapplicant-relationship": mainapplicantRelationship.route,
-                    "p-mainapplicant-shared-responsibility": mainapplicantSharedResponsibility.route,
-                    "p-mainapplicant-care-order": mainapplicantCareOrder.route
+            t_mainapplicant_authority: {
+                referrer: '#task-list',
+                initial: 'p--context-mainapplicant-details',
+                currentSectionId: 'p--context-mainapplicant-details',
+                progress: ['p--context-mainapplicant-details'],
+                states: {
+                    'p--context-mainapplicant-details': contextMainAppDetails.route,
+                    'p-mainapplicant-parent': mainapplicantParent.route,
+                    'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
+                    'p--has-legal-authority': flowHasLegalAuthority.route,
+                    'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
+                    'p--context-authority': contextAuthority.route,
+                    'p-applicant-enter-your-name': applicantEnterYourName.route,
+                    'p-applicant-have-you-been-known-by-any-other-names':
+                        applicantHaveYouBeenKnownByAnyOtherNames.route,
+                    'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
+                    'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
+                    'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
+                    'p-mainapplicant-enter-your-telephone-number':
+                        mainapplicantEnterYourTelephoneNumber.route,
+                    'p-mainapplicant-enter-your-email-address':
+                        mainapplicantEnterYourEmailAddress.route,
+                    'p-mainapplicant-relationship': mainapplicantRelationship.route,
+                    'p-mainapplicant-shared-responsibility':
+                        mainapplicantSharedResponsibility.route,
+                    'p-mainapplicant-care-order': mainapplicantCareOrder.route
                 }
             },
-            "t_rep_details": {
-                "referrer": "#t_rep_details",
-                "initial": "p--context-rep-details",
-                "currentSectionId": "p--context-rep-details",
-                "progress": ["p--context-rep-details"],
-                "states": {
-                    "p--context-rep-details": contextRepDetails.route,
-                    "p-rep-type": repType.route,
-                    "p-rep-confirmation-method": repConfirmationMethod.route,
-                    "p-rep-name": repName.route,
-                    "p-rep-organisation-address": repOrganisationAddress.route,
-                    "p-rep-address": repAddress.route,
-                    "p-rep-email-address": repEmailAddress.route,
-                    "p-rep-telephone-number": repTelephoneNumber.route,
-                    "p-rep-claims-management-reg": repClaimsManagementRegNumber.route,
-                    "p-rep-reference-number": repReferenceNumber.route
+            t_rep_details: {
+                referrer: '#task-list',
+                initial: 'p--context-rep-details',
+                currentSectionId: 'p--context-rep-details',
+                progress: ['p--context-rep-details'],
+                states: {
+                    'p--context-rep-details': contextRepDetails.route,
+                    'p-rep-type': repType.route,
+                    'p-rep-confirmation-method': repConfirmationMethod.route,
+                    'p-rep-name': repName.route,
+                    'p-rep-organisation-address': repOrganisationAddress.route,
+                    'p-rep-address': repAddress.route,
+                    'p-rep-email-address': repEmailAddress.route,
+                    'p-rep-telephone-number': repTelephoneNumber.route,
+                    'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
+                    'p-rep-reference-number': repReferenceNumber.route
                 }
             },
-            "t_applicant_relationship-to-deceased": {
-                "referrer": "#t_applicant_relationship-to-deceased",
-                "initial": "p--context-relationship-to-deceased",
-                "currentSectionId": "p--context-relationship-to-deceased",
-                "progress": ["p--context-relationship-to-deceased"],
-                "states": {
-                    "p--context-relationship-to-deceased": contextRelationshipToDeceased.route,
-                    "p-applicant-living-together": applicantLivingTogether.route,
-                    "p-applicant-living-apart": applicantLivingApart.route,
-                    "p-applicant-living-together-duration": applicantLivingTogetherDuration.route,
-                    "p-applicant-contact-with-deceased": applicantContactWithDeceased.route,
-                    "p-applicant-contact-more-details": applicantContactMoreDetails.route,
-                    "p-applicant-contact-out-of-touch": applicantContactOutOfTouch.route,
-                    "p-applicant-financial-help": applicantFinancialHelp.route,
-                    "p-applicant-physical-help": applicantPhysicalHelp.route,
-                    "p-other-claimants": otherClaimants.route,
-                    "p-other-claimants-details": otherClaimantsDetails.route
+            't_applicant_relationship-to-deceased': {
+                referrer: '#task-list',
+                initial: 'p--context-relationship-to-deceased',
+                currentSectionId: 'p--context-relationship-to-deceased',
+                progress: ['p--context-relationship-to-deceased'],
+                states: {
+                    'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
+                    'p-applicant-living-together': applicantLivingTogether.route,
+                    'p-applicant-living-apart': applicantLivingApart.route,
+                    'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
+                    'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
+                    'p-applicant-contact-more-details': applicantContactMoreDetails.route,
+                    'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
+                    'p-applicant-financial-help': applicantFinancialHelp.route,
+                    'p-applicant-physical-help': applicantPhysicalHelp.route,
+                    'p-other-claimants': otherClaimants.route,
+                    'p-other-claimants-details': otherClaimantsDetails.route
                 }
             },
-            "t_applicant_about-who-died": {
-                "referrer": "#t_applicant_about-who-died",
-                "initial": "p--context-deceased-details",
-                "currentSectionId": "p--context-deceased-details",
-                "progress": ["p--context-deceased-details"],
-                "states": {
-                    "p--context-deceased-details": contextDeceasedDetails.route,
-                    "p-deceased-name": deceasedName.route,
-                    "p-deceased-date-of-birth": deceasedDateOfBirth.route,
-                    "p-deceased-date-of-death": deceasedDateOfDeath.route,
-                    "p-deceased-address": deceasedAddress.route
+            't_applicant_about-who-died': {
+                referrer: '#t_applicant_relationship-to-deceased',
+                initial: 'p--context-deceased-details',
+                currentSectionId: 'p--context-deceased-details',
+                progress: ['p--context-deceased-details'],
+                states: {
+                    'p--context-deceased-details': contextDeceasedDetails.route,
+                    'p-deceased-name': deceasedName.route,
+                    'p-deceased-date-of-birth': deceasedDateOfBirth.route,
+                    'p-deceased-date-of-death': deceasedDateOfDeath.route,
+                    'p-deceased-address': deceasedAddress.route
                 }
             },
-            "t_applicant_funeral-costs": {
-                "referrer": "#t_applicant_funeral-costs",
-                "initial": "p--context-funeral-costs",
-                "currentSectionId": "p--context-funeral-costs",
-                "progress": ["p--context-funeral-costs"],
-                "states": {
-                    "p--context-funeral-costs": contextFuneralCost.route,
-                    "p-applicant-funeral-costs-paid": applicantFuneralCostsPaid.route,
-                    "p-applicant-funeral-costs-other-contributor": applicantFuneralCostsOtherContributor.route,
-                    "p-applicant-funeral-costs-who-contributed": applicantFuneralCostsWhoContributed.route,
-                    "p-applicant-funeral-costs-total": applicantFuneralCostsTotal.route
+            't_applicant_funeral-costs': {
+                referrer: '#t_applicant_about-who-died',
+                initial: 'p--context-funeral-costs',
+                currentSectionId: 'p--context-funeral-costs',
+                progress: ['p--context-funeral-costs'],
+                states: {
+                    'p--context-funeral-costs': contextFuneralCost.route,
+                    'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
+                    'p-applicant-funeral-costs-other-contributor':
+                        applicantFuneralCostsOtherContributor.route,
+                    'p-applicant-funeral-costs-who-contributed':
+                        applicantFuneralCostsWhoContributed.route,
+                    'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route
                 }
             },
-            "t_applicant_about-the-crime": {
-                "referrer": "#t_applicant_about-the-crime",
-                "initial": "p--before-you-continue",
-                "currentSectionId": "p--before-you-continue",
-                "progress": ["p--before-you-continue"],
-                "states": {
-                    "p--before-you-continue": beforeYouContinue.route,
-                    "p-applicant-did-the-crime-happen-once-or-over-time": applicantDidTheCrimeHappenOnceOrOverTime.route,
-                    "p-applicant-when-did-the-crime-happen": applicantWhenDidTheCrimeHappen.route,
-                    "p-applicant-when-did-the-crime-start": applicantWhenDidTheCrimeStart.route,
-                    "p-applicant-when-did-the-crime-stop": applicantWhenDidTheCrimeStop.route,
-                    "p-applicant-select-reasons-for-the-delay-in-making-your-application": applicantSelectReasonsForTheDelayInMakingYourApplication.route,
-                    "p-applicant-where-did-the-crime-happen": applicantWhereDidTheCrimeHappen.route,
-                    "p-applicant-where-in-england-did-it-happen": applicantWhereInEnglandDidItHappen.route,
-                    "p-applicant-where-in-scotland-did-it-happen": applicantWhereInScotlandDidItHappen.route,
-                    "p-applicant-where-in-wales-did-it-happen": applicantWhereInWalesDidItHappen.route,
-                    "p--when-was-the-crime-reported-to-police": whenWasTheCrimeReportedToPolice.route,
-                    "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police": applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
-                    "p--which-police-force-is-investigating-the-crime": whichPoliceForceIsInvestigatingTheCrime.route,
-                    "p--whats-the-crime-reference-number": whatsTheCrimeReferenceNumber.route,
-                    "p-applicant-incident-type": applicantIncidentType.route,
-                    "p-applicant-describe-incident": applicantDescribeIncident.route,
-                    "p-applicant-incident-description": applicantIncidentDescription.route
+            't_applicant_about-the-crime': {
+                referrer: '#task-list',
+                initial: 'p--before-you-continue',
+                currentSectionId: 'p--before-you-continue',
+                progress: ['p--before-you-continue'],
+                states: {
+                    'p--before-you-continue': beforeYouContinue.route,
+                    'p-applicant-did-the-crime-happen-once-or-over-time':
+                        applicantDidTheCrimeHappenOnceOrOverTime.route,
+                    'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.route,
+                    'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.route,
+                    'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.route,
+                    'p-applicant-select-reasons-for-the-delay-in-making-your-application':
+                        applicantSelectReasonsForTheDelayInMakingYourApplication.route,
+                    'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.route,
+                    'p-applicant-where-in-england-did-it-happen':
+                        applicantWhereInEnglandDidItHappen.route,
+                    'p-applicant-where-in-scotland-did-it-happen':
+                        applicantWhereInScotlandDidItHappen.route,
+                    'p-applicant-where-in-wales-did-it-happen':
+                        applicantWhereInWalesDidItHappen.route,
+                    'p--when-was-the-crime-reported-to-police':
+                        whenWasTheCrimeReportedToPolice.route,
+                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
+                        applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
+                    'p--which-police-force-is-investigating-the-crime':
+                        whichPoliceForceIsInvestigatingTheCrime.route,
+                    'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.route,
+                    'p-applicant-incident-type': applicantIncidentType.route,
+                    'p-applicant-describe-incident': applicantDescribeIncident.route,
+                    'p-applicant-incident-description': applicantIncidentDescription.route
                 }
             },
-            "t_offender_about-the-offender": {
-                "referrer": "#t_offender_about-the-offender",
-                "initial": "p--context-offender",
-                "currentSectionId": "p--context-offender",
-                "progress": ["p--context-offender"],
-                "states": {
-                    "p--context-offender":  contextOffender.route,
-                    "p-offender-do-you-know-the-name-of-the-offender": offenderDoYouKnowTheNameOfTheOffender.route,
-                    "p-offender-do-you-have-contact-with-offender": offenderDoYouHaveContactWithOffender.route,
-                    "p-offender-describe-contact-with-offender": offenderDescribeContactWithOffender.route
+            't_offender_about-the-offender': {
+                referrer: '#t_applicant_about-the-crime',
+                initial: 'p--context-offender',
+                currentSectionId: 'p--context-offender',
+                progress: ['p--context-offender'],
+                states: {
+                    'p--context-offender': contextOffender.route,
+                    'p-offender-do-you-know-the-name-of-the-offender':
+                        offenderDoYouKnowTheNameOfTheOffender.route,
+                    'p-offender-do-you-have-contact-with-offender':
+                        offenderDoYouHaveContactWithOffender.route,
+                    'p-offender-describe-contact-with-offender':
+                        offenderDescribeContactWithOffender.route
                 }
             },
-            "t_applicant_about-injuries": {
-                "referrer": "#t_applicant_about-injuries",
-                "initial": "p--context-physical-injuries",
-                "currentSectionId": "p--context-physical-injuries",
-                "progress": ["p--context-physical-injuries"],
-                "states": {
-                    "p--context-physical-injuries": contextPhysicalInjuries.route,
-                    "p-applicant-are-you-claiming-for-physical-injuries": applicantAreYouClaimingForPhysicalInjuries.route,
-                    "p-applicant-physical-injury": applicantPhysicalInjury.route,
-                    "p-applicant-physical-injury-upper": applicantPhysicalInjuryUpper.route,
-                    "p-applicant-physical-injury-torso": applicantPhysicalInjuryTorso.route,
-                    "p-applicant-physical-injury-arms": applicantPhysicalInjuryArms.route,
-                    "p-applicant-physical-injury-legs": applicantPhysicalInjuryLegs.route,
-                    'p-applicant-physical-injury-upper-head': applicantPhysicalInjuryUpperHead.route,
-                    'p-applicant-physical-injury-upper-face': applicantPhysicalInjuryUpperFace.route,
-                    'p-applicant-physical-injury-upper-neck': applicantPhysicalInjuryUpperNeck.route,
+            't_applicant_about-injuries': {
+                referrer: '#task-list',
+                initial: 'p--context-physical-injuries',
+                currentSectionId: 'p--context-physical-injuries',
+                progress: ['p--context-physical-injuries'],
+                states: {
+                    'p--context-physical-injuries': contextPhysicalInjuries.route,
+                    'p-applicant-are-you-claiming-for-physical-injuries':
+                        applicantAreYouClaimingForPhysicalInjuries.route,
+                    'p-applicant-physical-injury': applicantPhysicalInjury.route,
+                    'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.route,
+                    'p-applicant-physical-injury-torso': applicantPhysicalInjuryTorso.route,
+                    'p-applicant-physical-injury-arms': applicantPhysicalInjuryArms.route,
+                    'p-applicant-physical-injury-legs': applicantPhysicalInjuryLegs.route,
+                    'p-applicant-physical-injury-upper-head':
+                        applicantPhysicalInjuryUpperHead.route,
+                    'p-applicant-physical-injury-upper-face':
+                        applicantPhysicalInjuryUpperFace.route,
+                    'p-applicant-physical-injury-upper-neck':
+                        applicantPhysicalInjuryUpperNeck.route,
                     'p-applicant-physical-injury-upper-eye': applicantPhysicalInjuryUpperEye.route,
                     'p-applicant-physical-injury-upper-ear': applicantPhysicalInjuryUpperEar.route,
-                    'p-applicant-physical-injury-upper-nose': applicantPhysicalInjuryUpperNose.route,
-                    'p-applicant-physical-injury-upper-mouth': applicantPhysicalInjuryUpperMouth.route,
-                    'p-applicant-physical-injury-upper-skin': applicantPhysicalInjuryUpperSkin.route,
-                    "p-applicant-physical-injury-upper-muscle": applicantPhysicalInjuryUpperMuscle.route,
-                    'p-applicant-physical-injury-torso-shoulder': applicantPhysicalInjuryTorsoShoulder.route,
-                    'p-applicant-physical-injury-torso-chest': applicantPhysicalInjuryTorsoChest.route,
-                    'p-applicant-physical-injury-torso-abdomen': applicantPhysicalInjuryTorsoAbdomen.route,
-                    'p-applicant-physical-injury-torso-back': applicantPhysicalInjuryTorsoBack.route,
-                    'p-applicant-physical-injury-torso-pelvis': applicantPhysicalInjuryTorsoPelvis.route,
-                    'p-applicant-physical-injury-torso-genitals': applicantPhysicalInjuryTorsoGenitals.route,
-                    'p-applicant-physical-injury-torso-skin': applicantPhysicalInjuryTorsoSkin.route,
-                    "p-applicant-physical-injury-torso-muscle": applicantPhysicalInjuryTorsoMuscle.route,
-                    'p-applicant-physical-injury-arms-shoulder': applicantPhysicalInjuryArmsShoulder.route,
+                    'p-applicant-physical-injury-upper-nose':
+                        applicantPhysicalInjuryUpperNose.route,
+                    'p-applicant-physical-injury-upper-mouth':
+                        applicantPhysicalInjuryUpperMouth.route,
+                    'p-applicant-physical-injury-upper-skin':
+                        applicantPhysicalInjuryUpperSkin.route,
+                    'p-applicant-physical-injury-upper-muscle':
+                        applicantPhysicalInjuryUpperMuscle.route,
+                    'p-applicant-physical-injury-torso-shoulder':
+                        applicantPhysicalInjuryTorsoShoulder.route,
+                    'p-applicant-physical-injury-torso-chest':
+                        applicantPhysicalInjuryTorsoChest.route,
+                    'p-applicant-physical-injury-torso-abdomen':
+                        applicantPhysicalInjuryTorsoAbdomen.route,
+                    'p-applicant-physical-injury-torso-back':
+                        applicantPhysicalInjuryTorsoBack.route,
+                    'p-applicant-physical-injury-torso-pelvis':
+                        applicantPhysicalInjuryTorsoPelvis.route,
+                    'p-applicant-physical-injury-torso-genitals':
+                        applicantPhysicalInjuryTorsoGenitals.route,
+                    'p-applicant-physical-injury-torso-skin':
+                        applicantPhysicalInjuryTorsoSkin.route,
+                    'p-applicant-physical-injury-torso-muscle':
+                        applicantPhysicalInjuryTorsoMuscle.route,
+                    'p-applicant-physical-injury-arms-shoulder':
+                        applicantPhysicalInjuryArmsShoulder.route,
                     'p-applicant-physical-injury-arms-arm': applicantPhysicalInjuryArmsArm.route,
-                    'p-applicant-physical-injury-arms-elbow': applicantPhysicalInjuryArmsElbow.route,
-                    'p-applicant-physical-injury-arms-wrist': applicantPhysicalInjuryArmsWrist.route,
+                    'p-applicant-physical-injury-arms-elbow':
+                        applicantPhysicalInjuryArmsElbow.route,
+                    'p-applicant-physical-injury-arms-wrist':
+                        applicantPhysicalInjuryArmsWrist.route,
                     'p-applicant-physical-injury-arms-hand': applicantPhysicalInjuryArmsHand.route,
-                    'p-applicant-physical-injury-arms-digit': applicantPhysicalInjuryArmsDigit.route,
+                    'p-applicant-physical-injury-arms-digit':
+                        applicantPhysicalInjuryArmsDigit.route,
                     'p-applicant-physical-injury-arms-skin': applicantPhysicalInjuryArmsSkin.route,
-                    "p-applicant-physical-injury-arms-muscle": applicantPhysicalInjuryArmsMuscle.route,
+                    'p-applicant-physical-injury-arms-muscle':
+                        applicantPhysicalInjuryArmsMuscle.route,
                     'p-applicant-physical-injury-legs-hip': applicantPhysicalInjuryLegsHip.route,
                     'p-applicant-physical-injury-legs-leg': applicantPhysicalInjuryLegsLeg.route,
                     'p-applicant-physical-injury-legs-knee': applicantPhysicalInjuryLegsKnee.route,
-                    'p-applicant-physical-injury-legs-ankle': applicantPhysicalInjuryLegsAnkle.route,
+                    'p-applicant-physical-injury-legs-ankle':
+                        applicantPhysicalInjuryLegsAnkle.route,
                     'p-applicant-physical-injury-legs-foot': applicantPhysicalInjuryLegsFoot.route,
                     'p-applicant-physical-injury-legs-toes': applicantPhysicalInjuryLegsToes.route,
                     'p-applicant-physical-injury-legs-skin': applicantPhysicalInjuryLegsSkin.route,
-                    "p-applicant-physical-injury-legs-muscle": applicantPhysicalInjuryLegsMuscle.route,
-                    "p-applicant-infections": applicantInfections.route,
-                    "p-applicant-select-infections": applicantSelectInfections.route,
-                    "p-applicant-select-non-sa-infections": applicantSelectNonSaInfections.route,
-                    "p--context-pregnancy": contextPregnancy.route,
-                    "p-applicant-pregnancy-loss": applicantPregnancyLoss.route,
-                    "p-applicant-pregnancy": applicantPregnancy.route,
-                    "p--context-dmi-details": contextDmiDetails.route,
-                    "p-applicant-do-you-have-disabling-mental-injury": applicantDoYouHaveDisablingMentalInjury.route,
-                    "p-applicant-mental-injury-duration": applicantMentalInjuryDuration.route
+                    'p-applicant-physical-injury-legs-muscle':
+                        applicantPhysicalInjuryLegsMuscle.route,
+                    'p-applicant-infections': applicantInfections.route,
+                    'p-applicant-select-infections': applicantSelectInfections.route,
+                    'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
+                    'p--context-pregnancy': contextPregnancy.route,
+                    'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
+                    'p-applicant-pregnancy': applicantPregnancy.route,
+                    'p--context-dmi-details': contextDmiDetails.route,
+                    'p-applicant-do-you-have-disabling-mental-injury':
+                        applicantDoYouHaveDisablingMentalInjury.route,
+                    'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.route
                 }
             },
-            "t_applicant_impact-of-injuries": {
-                "referrer": "#t_applicant_impact-of-injuries",
-                "initial": "p--context-crime-impact",
-                "currentSectionId": "p--context-crime-impact",
-                "progress": ["p--context-crime-impact"],
-                "states": {
-                    "p--context-crime-impact": contextCrimeImpact.route,
-                    "p-applicant-over-16": applicantOver16.route,
-                    "p-applicant-job-when-crime-happened": applicantJobWhenCrimeHappened.route,
-                    "p-applicant-work-details-option": applicantWorkDetailsOption.route,
-                    "p-applicant-affected-daily-capacity": applicantAffectedDailyCapacity.route,
-                    "p-applicant-unable-to-work": applicantUnableToWork.route,
-                    "p-applicant-affect-duration": applicantAffectDuration.route,
-                    "p-applicant-unable-to-work-duration": applicantUnableToWorkDuration.route,
-                    "p-applicant-affect-future-duration": applicantAffectFutureDuration.route,
-                    "p-applicant-future-work": applicantFutureWork.route,
-                    "p-applicant-affect-on-daily-life-dmi": applicantAffectOnDailyLifeDmi.route,
-                    "p--context-special-expenses": contextSpecialExpenses.route,
-                    "p-applicant-special-expenses": applicantSpecialExpenses.route
+            't_applicant_impact-of-injuries': {
+                referrer: '#t_applicant_about-injuries',
+                initial: 'p--context-crime-impact',
+                currentSectionId: 'p--context-crime-impact',
+                progress: ['p--context-crime-impact'],
+                states: {
+                    'p--context-crime-impact': contextCrimeImpact.route,
+                    'p-applicant-over-16': applicantOver16.route,
+                    'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.route,
+                    'p-applicant-work-details-option': applicantWorkDetailsOption.route,
+                    'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
+                    'p-applicant-unable-to-work': applicantUnableToWork.route,
+                    'p-applicant-affect-duration': applicantAffectDuration.route,
+                    'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.route,
+                    'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
+                    'p-applicant-future-work': applicantFutureWork.route,
+                    'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.route,
+                    'p--context-special-expenses': contextSpecialExpenses.route,
+                    'p-applicant-special-expenses': applicantSpecialExpenses.route
                 }
             },
-            "t_applicant_about-treatment": {
-                "referrer": "#t_applicant_about-treatment",
-                "initial": "p--context-treatment",
-                "currentSectionId": "p--context-treatment",
-                "progress": ["p--context-treatment"],
-                "states": {
-                    "p--context-treatment": contextTreatment.route,
-                    "p-applicant-treatment-for-physical-injuries": applicantTreatmentForPhysicalInjuries.route,
-                    "p-applicant-has-your-treatment-finished-dmi": applicantHasYourTreatmentFinishedDmi.route,
-                    "p-applicant-are-you-registered-with-gp": applicantAreYouRegisteredWithGp.route,
-                    "p-applicant-have-you-seen-a-gp": applicantHaveYouSeenAGp.route,
-                    "p-gp-enter-your-address": gpEnterYourAddress.route,
-                    "p-applicant-dentist-visited": applicantDentistVisited.route,
-                    "p-applicant-dentist-address": applicantDentistAddress.route,
-                    "p-applicant-medical-help": applicantMedicalHelp.route,
-                    "p-applicant-treatment-address": applicantTreatmentAddress.route
+            't_applicant_about-treatment': {
+                referrer: '#t_applicant_impact-of-injuries',
+                initial: 'p--context-treatment',
+                currentSectionId: 'p--context-treatment',
+                progress: ['p--context-treatment'],
+                states: {
+                    'p--context-treatment': contextTreatment.route,
+                    'p-applicant-treatment-for-physical-injuries':
+                        applicantTreatmentForPhysicalInjuries.route,
+                    'p-applicant-has-your-treatment-finished-dmi':
+                        applicantHasYourTreatmentFinishedDmi.route,
+                    'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.route,
+                    'p-applicant-have-you-seen-a-gp': applicantHaveYouSeenAGp.route,
+                    'p-gp-enter-your-address': gpEnterYourAddress.route,
+                    'p-applicant-dentist-visited': applicantDentistVisited.route,
+                    'p-applicant-dentist-address': applicantDentistAddress.route,
+                    'p-applicant-medical-help': applicantMedicalHelp.route,
+                    'p-applicant-treatment-address': applicantTreatmentAddress.route
                 }
             },
-            "t_applicant_other-compensation": {
-                "referrer": "#t_applicant_other-compensation",
-                "initial": "p--context-compensation",
-                "currentSectionId": "p--context-compensation",
-                "progress": ["p--context-compensation"],
-                "states": {
-                    "p--context-compensation": contextCompensation.route,
-                    "p-applicant-have-you-applied-to-us-before": applicantHaveYouAppliedToUsBefore.route,
-                    "p-applicant-have-you-applied-for-or-received-any-other-compensation": applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.route,
-                    "p-applicant-who-did-you-apply-to": applicantWhoDidYouApplyTo.route,
-                    "p-applicant-applied-for-other-compensation-briefly-explain-why-not": applicantAppliedForOtherCompensationBrieflyExplainWhyNot.route,
-                    "p-applicant-has-a-decision-been-made": applicantHasADecisionBeenMade.route,
-                    "p-applicant-when-will-you-find-out": applicantWhenWillYouFindOut.route,
-                    "p-applicant-how-much-was-award": applicantHowMuchWasAward.route
+            't_applicant_other-compensation': {
+                referrer: '#task-list',
+                initial: 'p--context-compensation',
+                currentSectionId: 'p--context-compensation',
+                progress: ['p--context-compensation'],
+                states: {
+                    'p--context-compensation': contextCompensation.route,
+                    'p-applicant-have-you-applied-to-us-before':
+                        applicantHaveYouAppliedToUsBefore.route,
+                    'p-applicant-have-you-applied-for-or-received-any-other-compensation':
+                        applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.route,
+                    'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.route,
+                    'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
+                        applicantAppliedForOtherCompensationBrieflyExplainWhyNot.route,
+                    'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.route,
+                    'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.route,
+                    'p-applicant-how-much-was-award': applicantHowMuchWasAward.route
                 }
             },
-            "t_applicant_additional-information": {
-                "referrer": "#t_applicant_additional-information",
-                "initial": "p--context-additional-info",
-                "currentSectionId": "p--context-additional-info",
-                "progress": ["p--context-additional-info"],
-                "states": {
-                    "p--context-additional-info": contextAdditionalInfo.route,
-                    "p-applicant-provide-additional-information": applicantProvideAdditionalInformation.route,
-                    "p-applicant-additional-information": applicantAdditionalInformation.route
+            't_applicant_additional-information': {
+                referrer: '#task-list',
+                initial: 'p--context-additional-info',
+                currentSectionId: 'p--context-additional-info',
+                progress: ['p--context-additional-info'],
+                states: {
+                    'p--context-additional-info': contextAdditionalInfo.route,
+                    'p-applicant-provide-additional-information':
+                        applicantProvideAdditionalInformation.route,
+                    'p-applicant-additional-information': applicantAdditionalInformation.route
                 }
             },
-            "t-check-your-answers": {
-                "referrer": "#t-check-your-answers",
-                "initial": "p--check-your-answers",
-                "currentSectionId": "p--check-your-answers",
-                "progress": ["p--check-your-answers"],
-                "states": {
-                    "p--check-your-answers": checkYourAnswers.route,
-                    "p-applicant-declaration": applicantDeclaration.route,
-                    "p-mainapplicant-declaration-12-and-over": mainapplicantDeclaration12AndOver.route,
-                    "p-mainapplicant-declaration-under-12": mainapplicantDeclarationUnder12.route,
-                    "p-rep-declaration-12-and-over": repDeclaration12AndOver.route,
-                    "p-rep-declaration-under-12": repDeclarationUnder12.route,
-                    "p-applicant-declaration-deceased": applicantDeclarationDeceased.route,
-                    "p-mainapplicant-declaration-12-and-over-deceased": mainapplicantDeclarationOver12Deceased.route,
-                    "p-mainapplicant-declaration-under-12-deceased": mainapplicantDeclarationUnder12Deceased.route,
-                    "p-rep-declaration-12-and-over-deceased": repDeclaration12AndOverDeceased.route,
-                    "p-rep-declaration-under-12-deceased": repDeclarationUnder12Deceased.route,
-                    "p--confirmation": confirmation.route,
-                    "p--download-your-answers": downloadAnswers.route
+            't-check-your-answers': {
+                referrer: '#task-list',
+                initial: 'p--check-your-answers',
+                currentSectionId: 'p--check-your-answers',
+                progress: ['p--check-your-answers'],
+                states: {
+                    'p--check-your-answers': checkYourAnswers.route,
+                    'p-applicant-declaration': applicantDeclaration.route,
+                    'p-mainapplicant-declaration-12-and-over':
+                        mainapplicantDeclaration12AndOver.route,
+                    'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
+                    'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
+                    'p-rep-declaration-under-12': repDeclarationUnder12.route,
+                    'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
+                    'p-mainapplicant-declaration-12-and-over-deceased':
+                        mainapplicantDeclarationOver12Deceased.route,
+                    'p-mainapplicant-declaration-under-12-deceased':
+                        mainapplicantDeclarationUnder12Deceased.route,
+                    'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
+                    'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
+                    'p--confirmation': confirmation.route,
+                    'p--download-your-answers': downloadAnswers.route
                 }
             },
             'task-list': {
@@ -797,512 +847,512 @@ module.exports = {
                     'p-task-list': tasklist.route
                 }
             },
-            'system': {
+            system: {
                 initial: 'system',
                 currentSectionId: 'system',
                 progress: ['system'],
                 states: {
-                    'system': system.route,
-                    'owner': owner.route,
-                    'origin': origin.route,
-                    'transition': transition.route
+                    system: system.route,
+                    owner: owner.route,
+                    origin: origin.route,
+                    transition: transition.route
                 }
             },
-            "t-about-application__completion-status": {
-                "id": "t-about-application__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T-ABOUT-APPLICATION": [
+            't-about-application__completion-status': {
+                id: 't-about-application__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T-ABOUT-APPLICATION': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T-ABOUT-APPLICATION": [
+                    completed: {
+                        on: {
+                            'CASCADE__T-ABOUT-APPLICATION': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t-about-application__applicability-status": {
-                "id": "t-about-application__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't-about-application__applicability-status': {
+                id: 't-about-application__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_personal-details__completion-status": {
-                "id": "t_applicant_personal-details__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_PERSONAL-DETAILS": [
+            't_applicant_personal-details__completion-status': {
+                id: 't_applicant_personal-details__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_PERSONAL-DETAILS': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_PERSONAL-DETAILS": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_PERSONAL-DETAILS': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_personal-details__applicability-status": {
-                "id": "t_applicant_personal-details__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_personal-details__applicability-status': {
+                id: 't_applicant_personal-details__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_residency-and-nationality__completion-status": {
-                "id": "t_applicant_residency-and-nationality__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_RESIDENCY-AND-NATIONALITY": [
+            't_applicant_residency-and-nationality__completion-status': {
+                id: 't_applicant_residency-and-nationality__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_RESIDENCY-AND-NATIONALITY': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_RESIDENCY-AND-NATIONALITY": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_RESIDENCY-AND-NATIONALITY': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_residency-and-nationality__applicability-status": {
-                "id": "t_applicant_residency-and-nationality__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_residency-and-nationality__applicability-status': {
+                id: 't_applicant_residency-and-nationality__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_mainapplicant_authority__completion-status": {
-                "id": "t_mainapplicant_authority__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_MAINAPPLICANT_AUTHORITY": [
+            't_mainapplicant_authority__completion-status': {
+                id: 't_mainapplicant_authority__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            COMPLETE__T_MAINAPPLICANT_AUTHORITY: [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_MAINAPPLICANT_AUTHORITY": [
+                    completed: {
+                        on: {
+                            CASCADE__T_MAINAPPLICANT_AUTHORITY: [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_mainapplicant_authority__applicability-status": {
-                "id": "t_mainapplicant_authority__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_mainapplicant_authority__applicability-status': {
+                id: 't_mainapplicant_authority__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_rep_details__completion-status": {
-                "id": "t_rep_details__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_REP_DETAILS": [
+            't_rep_details__completion-status': {
+                id: 't_rep_details__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            COMPLETE__T_REP_DETAILS: [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_REP_DETAILS": [
+                    completed: {
+                        on: {
+                            CASCADE__T_REP_DETAILS: [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_rep_details__applicability-status": {
-                "id": "t_rep_details__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_rep_details__applicability-status': {
+                id: 't_rep_details__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_relationship-to-deceased__completion-status": {
-                "id": "t_applicant_relationship-to-deceased__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_RELATIONSHIP-TO-DECEASED": [
+            't_applicant_relationship-to-deceased__completion-status': {
+                id: 't_applicant_relationship-to-deceased__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_RELATIONSHIP-TO-DECEASED': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_RELATIONSHIP-TO-DECEASED": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_RELATIONSHIP-TO-DECEASED': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_relationship-to-deceased__applicability-status": {
-                "id": "t_applicant_relationship-to-deceased__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_relationship-to-deceased__applicability-status': {
+                id: 't_applicant_relationship-to-deceased__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_about-who-died__completion-status": {
-                "id": "t_applicant_about-who-died__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_ABOUT-WHO-DIED": [
+            't_applicant_about-who-died__completion-status': {
+                id: 't_applicant_about-who-died__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-WHO-DIED': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_ABOUT-WHO-DIED": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-WHO-DIED': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_about-who-died__applicability-status": {
-                "id": "t_applicant_about-who-died__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_about-who-died__applicability-status': {
+                id: 't_applicant_about-who-died__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_funeral-costs__completion-status": {
-                "id": "t_applicant_funeral-costs__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_FUNERAL-COSTS": [
+            't_applicant_funeral-costs__completion-status': {
+                id: 't_applicant_funeral-costs__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_FUNERAL-COSTS': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_FUNERAL-COSTS": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_FUNERAL-COSTS': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_funeral-costs__applicability-status": {
-                "id": "t_applicant_funeral-costs__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_funeral-costs__applicability-status': {
+                id: 't_applicant_funeral-costs__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_about-the-crime__completion-status": {
-                "id": "t_applicant_about-the-crime__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_ABOUT-THE-CRIME": [
+            't_applicant_about-the-crime__completion-status': {
+                id: 't_applicant_about-the-crime__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-THE-CRIME': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_ABOUT-THE-CRIME": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-THE-CRIME': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_about-the-crime__applicability-status": {
-                "id": "t_applicant_about-the-crime__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_about-the-crime__applicability-status': {
+                id: 't_applicant_about-the-crime__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_offender_about-the-offender__completion-status": {
-                "id": "t_offender_about-the-offender__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_OFFENDER_ABOUT-THE-OFFENDER": [
+            't_offender_about-the-offender__completion-status': {
+                id: 't_offender_about-the-offender__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_OFFENDER_ABOUT-THE-OFFENDER': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_OFFENDER_ABOUT-THE-OFFENDER": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_OFFENDER_ABOUT-THE-OFFENDER': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_offender_about-the-offender__applicability-status": {
-                "id": "t_offender_about-the-offender__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_offender_about-the-offender__applicability-status': {
+                id: 't_offender_about-the-offender__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_about-injuries__completion-status": {
-                "id": "t_applicant_about-injuries__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_ABOUT-INJURIES": [
+            't_applicant_about-injuries__completion-status': {
+                id: 't_applicant_about-injuries__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-INJURIES': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_ABOUT-INJURIES": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-INJURIES': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_about-injuries__applicability-status": {
-                "id": "t_applicant_about-injuries__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_about-injuries__applicability-status': {
+                id: 't_applicant_about-injuries__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_impact-of-injuries__completion-status": {
-                "id": "t_applicant_impact-of-injuries__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_IMPACT-OF-INJURIES": [
+            't_applicant_impact-of-injuries__completion-status': {
+                id: 't_applicant_impact-of-injuries__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_IMPACT-OF-INJURIES': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_IMPACT-OF-INJURIES": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_IMPACT-OF-INJURIES': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_impact-of-injuries__applicability-status": {
-                "id": "t_applicant_impact-of-injuries__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_impact-of-injuries__applicability-status': {
+                id: 't_applicant_impact-of-injuries__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_about-treatment__completion-status": {
-                "id": "t_applicant_about-treatment__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_ABOUT-TREATMENT": [
+            't_applicant_about-treatment__completion-status': {
+                id: 't_applicant_about-treatment__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-TREATMENT': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_ABOUT-TREATMENT": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-TREATMENT': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_about-treatment__applicability-status": {
-                "id": "t_applicant_about-treatment__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_about-treatment__applicability-status': {
+                id: 't_applicant_about-treatment__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_other-compensation__completion-status": {
-                "id": "t_applicant_other-compensation__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_OTHER-COMPENSATION": [
+            't_applicant_other-compensation__completion-status': {
+                id: 't_applicant_other-compensation__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_OTHER-COMPENSATION': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_OTHER-COMPENSATION": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_OTHER-COMPENSATION': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_other-compensation__applicability-status": {
-                "id": "t_applicant_other-compensation__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_other-compensation__applicability-status': {
+                id: 't_applicant_other-compensation__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t_applicant_additional-information__completion-status": {
-                "id": "t_applicant_additional-information__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T_APPLICANT_ADDITIONAL-INFORMATION": [
+            't_applicant_additional-information__completion-status': {
+                id: 't_applicant_additional-information__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ADDITIONAL-INFORMATION': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T_APPLICANT_ADDITIONAL-INFORMATION": [
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ADDITIONAL-INFORMATION': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t_applicant_additional-information__applicability-status": {
-                "id": "t_applicant_additional-information__applicability-status",
-                "initial": "applicable",
-                "currentSectionId": "applicable",
-                "states": {}
+            't_applicant_additional-information__applicability-status': {
+                id: 't_applicant_additional-information__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                states: {}
             },
-            "t-check-your-answers__completion-status": {
-                "id": "t-check-your-answers__completion-status",
-                "initial": "incomplete",
-                "currentSectionId": "incomplete",
-                "states": {
-                    "incomplete": {
-                        "on": {
-                            "COMPLETE__T-CHECK-YOUR-ANSWERS": [
+            't-check-your-answers__completion-status': {
+                id: 't-check-your-answers__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T-CHECK-YOUR-ANSWERS': [
                                 {
-                                    "target": "completed"
+                                    target: 'completed'
                                 }
                             ]
                         }
                     },
-                    "completed": {
-                        "on": {
-                            "CASCADE__T-CHECK-YOUR-ANSWERS": [
+                    completed: {
+                        on: {
+                            'CASCADE__T-CHECK-YOUR-ANSWERS': [
                                 {
-                                    "target": "incomplete"
+                                    target: 'incomplete'
                                 }
                             ]
                         }
                     }
                 }
             },
-            "t-check-your-answers__applicability-status": {
-                "id": "t-check-your-answers__applicability-status",
-                "initial": "cannotStartYet",
-                "currentSectionId": "cannotStartYet",
-                "states": {}
+            't-check-your-answers__applicability-status': {
+                id: 't-check-your-answers__applicability-status',
+                initial: 'cannotStartYet',
+                currentSectionId: 'cannotStartYet',
+                states: {}
             }
         }
     },
