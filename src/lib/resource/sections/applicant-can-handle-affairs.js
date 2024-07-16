@@ -55,7 +55,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-CAN-HANDLE-AFFAIRS': [
+            ANSWER: [
                 {
                     target: 'p-applicant-enter-your-address'
                 }

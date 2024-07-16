@@ -90,7 +90,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-ENTER-YOUR-DATE-OF-BIRTH': [
+            ANSWER: [
                 {
                     target: 'p-applicant-can-handle-affairs',
                     cond: [

@@ -247,7 +247,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-CONFIRMATION-METHOD': [
+            ANSWER: [
                 {
                     target: 'p-applicant-enter-your-name'
                 }

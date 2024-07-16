@@ -56,7 +56,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__APPLICANT-UNDER-18': [
+            ANSWER: [
                 {
                     target: 'p--transition-someone-18-or-over-to-apply',
                     cond: ['==', '$.answers.p-applicant-under-18.q-applicant-under-18', false]

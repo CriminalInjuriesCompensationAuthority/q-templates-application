@@ -110,7 +110,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-VICTIM-HUMAN-TRAFFICKING': [
+            ANSWER: [
                 {
                     target: 'p-applicant-applied-for-asylum'
                 }

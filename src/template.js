@@ -1006,20 +1006,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'proxy', 'mainapplicant']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'proxy', 'mainapplicant']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1058,20 +1064,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'proxy', 'rep']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'proxy', 'rep']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1110,20 +1122,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1162,20 +1180,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1214,20 +1238,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'pplicable'
                                 }
                             ]
                         }
@@ -1332,20 +1362,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1384,20 +1420,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
@@ -1436,20 +1478,26 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
                                 }
                             ]
                         }
                     },
                     applicable: {
                         on: {
-                            STATUS_EVALUATE: [
+                            UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }

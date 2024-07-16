@@ -104,7 +104,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-APPLIED-FOR-ASYLUM': [
+            ANSWER: [
                 {
                     target: '#task-list'
                 }

@@ -121,7 +121,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-EU-CITIZEN-RELATIVE': [
+            ANSWER: [
                 {
                     target: '#task-list',
                     cond: [

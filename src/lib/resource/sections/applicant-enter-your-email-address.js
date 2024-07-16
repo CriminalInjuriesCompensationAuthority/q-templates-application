@@ -43,7 +43,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-ENTER-YOUR-EMAIL-ADDRESS': [
+            ANSWER: [
                 {
                     target: '#task-list'
                 }
