@@ -168,7 +168,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-RELATIONSHIP': [
                 {
                     target: '#task-list',
                     cond: [

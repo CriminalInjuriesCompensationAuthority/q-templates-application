@@ -40,7 +40,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-ENTER-YOUR-EMAIL-ADDRESS': [
                 {
                     target: 'p-mainapplicant-relationship'
                 }

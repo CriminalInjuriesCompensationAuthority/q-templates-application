@@ -79,7 +79,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-BRITISH-CITIZEN-OR-EU-NATIONAL': [
                 {
                     target: 'p--transition',
                     cond: [

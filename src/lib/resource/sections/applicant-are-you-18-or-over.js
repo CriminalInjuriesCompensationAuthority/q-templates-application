@@ -103,7 +103,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARE-YOU-18-OR-OVER': [
                 {
                     target: 'p--was-the-crime-reported-to-police',
                     cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]

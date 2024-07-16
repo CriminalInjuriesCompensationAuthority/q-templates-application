@@ -88,7 +88,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__p-applicant-physical-injury': [
                 {
                     target: 'p-applicant-physical-injury-upper',
                     cond: [

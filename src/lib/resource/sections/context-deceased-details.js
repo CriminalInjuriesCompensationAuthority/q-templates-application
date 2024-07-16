@@ -19,7 +19,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-DECEASED-DETAILS': [
                 {
                     target: 'p-deceased-name'
                 }

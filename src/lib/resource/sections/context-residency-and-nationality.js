@@ -72,7 +72,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--CONTEXT-RESIDENCY-AND-NATIONALITY': [
                 {
                     target: 'p-applicant-british-citizen'
                 }

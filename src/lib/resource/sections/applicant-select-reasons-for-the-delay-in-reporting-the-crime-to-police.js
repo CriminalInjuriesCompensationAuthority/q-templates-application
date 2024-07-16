@@ -140,7 +140,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-SELECT-REASONS-FOR-THE-DELAY-IN-REPORTING-THE-CRIME-TO-POLICE': [
                 {
                     target: 'p--which-police-force-is-investigating-the-crime'
                 }

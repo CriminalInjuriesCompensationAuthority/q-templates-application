@@ -215,7 +215,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-GP-ENTER-YOUR-ADDRESS': [
                 {
                     target: 'p-applicant-dentist-visited',
                     cond: [

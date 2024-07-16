@@ -54,7 +54,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHEN-DID-THE-CRIME-START': [
                 {
                     target: 'p-applicant-when-did-the-crime-stop'
                 }

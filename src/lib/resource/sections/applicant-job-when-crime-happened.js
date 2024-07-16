@@ -81,7 +81,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-JOB-WHEN-CRIME-HAPPENED': [
                 {
                     target: 'p-applicant-unable-to-work',
                     cond: [

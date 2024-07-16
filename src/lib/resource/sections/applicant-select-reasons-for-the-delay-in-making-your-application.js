@@ -98,7 +98,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-SELECT-REASONS-FOR-THE-DELAY-IN-MAKING-YOUR-APPLICATION': [
                 {
                     target: 'p-applicant-where-did-the-crime-happen'
                 }

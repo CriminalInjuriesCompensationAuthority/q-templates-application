@@ -123,7 +123,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-UPPER-NOSE': [
                 {
                     target: 'p-applicant-physical-injury-upper-mouth',
                     cond: [

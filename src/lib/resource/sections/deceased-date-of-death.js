@@ -60,7 +60,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-DECEASED-DATE-OF-BIRTH': [
                 {
                     target: 'p-deceased-address'
                 }

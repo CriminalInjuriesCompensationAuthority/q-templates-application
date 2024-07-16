@@ -78,7 +78,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARE-YOU-REGISTERED-WITH-GP': [
                 {
                     target: 'p-applicant-have-you-seen-a-gp'
                 }

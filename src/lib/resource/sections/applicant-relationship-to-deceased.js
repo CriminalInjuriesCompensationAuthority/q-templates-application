@@ -228,7 +228,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-RELATIONSHIP-TO-DECEASED': [
                 {
                     target: 'p--context-deceased-details',
                     cond: ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]

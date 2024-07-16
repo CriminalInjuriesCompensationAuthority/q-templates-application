@@ -85,7 +85,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-DO-YOU-HAVE-DISABLING-MENTAL-INJURY': [
                 {
                     target: 'p--context-crime-impact',
                     cond: [

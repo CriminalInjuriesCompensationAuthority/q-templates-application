@@ -126,7 +126,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-TYPE': [
                 {
                     target: 'p-rep-confirmation-method'
                 }

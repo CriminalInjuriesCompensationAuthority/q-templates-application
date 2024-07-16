@@ -119,7 +119,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-INCIDENT-TYPE': [
                 {
                     target: 'p-applicant-did-the-crime-happen-once-or-over-time'
                 }

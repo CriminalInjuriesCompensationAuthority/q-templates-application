@@ -101,7 +101,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHO-DID-YOU-APPLY-TO': [
                 {
                     target: 'p-applicant-has-a-decision-been-made'
                 }

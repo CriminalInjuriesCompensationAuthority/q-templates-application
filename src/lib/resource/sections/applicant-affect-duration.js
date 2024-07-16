@@ -56,7 +56,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-AFFECT-DURATION': [
                 {
                     target: 'p-applicant-affect-future-duration',
                     cond: [

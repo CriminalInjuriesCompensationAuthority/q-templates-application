@@ -125,7 +125,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARMED-FORCES-RELATIVE': [
                 {
                     target: '#task-list',
                     cond: [

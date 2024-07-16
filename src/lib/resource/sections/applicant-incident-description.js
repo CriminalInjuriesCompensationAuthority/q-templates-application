@@ -45,7 +45,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-INCIDENT-DESCRIPTION': [
                 {
                     target: 'p--context-offender'
                 }

@@ -159,7 +159,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-SPECIAL-EXPENSES': [
                 {
                     target: 'p--context-treatment'
                 }

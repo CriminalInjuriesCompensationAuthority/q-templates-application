@@ -154,7 +154,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WORK-DETAILS-OPTION': [
                 {
                     target: 'p-applicant-affected-daily-capacity',
                     cond: ['|role.all', 'proxy', 'child']

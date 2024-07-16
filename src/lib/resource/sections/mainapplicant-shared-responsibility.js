@@ -279,7 +279,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-SHARED-RESPONSIBILITY': [
                 {
                     target: 'p-mainapplicant-care-order'
                 }

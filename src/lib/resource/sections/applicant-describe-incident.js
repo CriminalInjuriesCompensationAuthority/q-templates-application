@@ -64,7 +64,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-DESCRIBE-INCIDENT': [
                 {
                     target: 'p-applicant-incident-description',
                     cond: [

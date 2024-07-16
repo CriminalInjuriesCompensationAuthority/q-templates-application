@@ -46,7 +46,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-PREGNANCY': [
                 {
                     target: 'p-applicant-pregnancy',
                     cond: [

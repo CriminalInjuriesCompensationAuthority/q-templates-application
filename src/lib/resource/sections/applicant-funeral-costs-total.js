@@ -69,7 +69,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FUNERAL-COSTS-TOTAL': [
                 {
                     target: 'p-context-funeral-costs-proof'
                 }

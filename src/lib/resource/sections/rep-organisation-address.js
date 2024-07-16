@@ -218,7 +218,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-ORGANISATION-ADDRESS': [
                 {
                     target: 'p-rep-email-address',
                     cond: [

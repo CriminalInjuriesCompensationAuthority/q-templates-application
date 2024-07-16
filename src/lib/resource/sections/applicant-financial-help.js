@@ -103,7 +103,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FINANCIAL-HELP': [
                 {
                     target: 'p-applicant-physical-help'
                 }

@@ -48,7 +48,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-PHYSICAL-INJURIES': [
                 {
                     target: 'p-applicant-are-you-claiming-for-physical-injuries'
                 }

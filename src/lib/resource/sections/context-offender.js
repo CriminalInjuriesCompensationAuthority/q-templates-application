@@ -58,7 +58,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-OFFENDER': [
                 {
                     target: 'p-offender-do-you-know-the-name-of-the-offender'
                 }

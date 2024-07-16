@@ -93,7 +93,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PREGNANCY: [
                 {
                     target: 'p-applicant-pregnancy-loss'
                 }

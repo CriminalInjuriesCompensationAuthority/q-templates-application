@@ -99,7 +99,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-LIVING-TOGETHER-DURATION': [
                 {
                     target: 'p-applicant-financial-help',
                     cond: [

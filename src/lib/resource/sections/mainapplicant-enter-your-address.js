@@ -236,7 +236,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-ENTER-YOUR-ADDRESS': [
                 {
                     target: 'p-mainapplicant-enter-your-email-address',
                     cond: [

@@ -112,7 +112,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAVE-YOU-APPLIED-FOR-OR-RECEIVED-ANY-OTHER-COMPENSATION': [
                 {
                     target: 'p-applicant-who-did-you-apply-to',
                     cond: [

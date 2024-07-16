@@ -47,7 +47,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-WHATS-THE-CRIME-REFERENCE-NUMBER': [
                 {
                     target: 'p--context-offender',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]

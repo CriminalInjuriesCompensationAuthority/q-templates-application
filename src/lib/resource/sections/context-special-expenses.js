@@ -50,7 +50,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-SPECIAL-EXPENSES': [
                 {
                     target: 'p-applicant-special-expenses'
                 }

@@ -59,7 +59,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-WHEN-WAS-THE-CRIME-REPORTED-TO-THE-POLICE': [
                 {
                     target:
                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',

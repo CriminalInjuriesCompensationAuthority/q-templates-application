@@ -23,7 +23,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__MAINAPPLICANT-CONTEXT-DETAILS': [
                 {
                     target: 'p-mainapplicant-confirmation-method'
                 }

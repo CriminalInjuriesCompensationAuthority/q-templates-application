@@ -97,7 +97,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHERE-IN-SCOTLAND-DID-IT-HAPPEN': [
                 {
                     target: 'p--which-police-force-is-investigating-the-crime',
                     cond: [

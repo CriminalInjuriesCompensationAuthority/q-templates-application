@@ -152,7 +152,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAVE-YOU-APPLIED-TO-US-BEFORE': [
                 {
                     target: 'p-applicant-have-you-applied-for-or-received-any-other-compensation'
                 }

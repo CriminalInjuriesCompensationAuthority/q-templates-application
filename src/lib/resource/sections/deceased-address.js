@@ -190,7 +190,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-DECEASED-ADDRESS': [
                 {
                     target: 'p--context-funeral-costs'
                 }

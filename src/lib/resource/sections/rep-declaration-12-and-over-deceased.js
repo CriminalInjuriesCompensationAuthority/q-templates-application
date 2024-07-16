@@ -61,7 +61,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-DECLARATION-12-AND-OVER-DECEASED': [
                 {
                     target: 'p--confirmation'
                 }

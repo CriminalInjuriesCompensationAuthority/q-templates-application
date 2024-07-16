@@ -55,7 +55,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-AFFECTED-DAILY-CAPACITY': [
                 {
                     target: 'p-applicant-affect-duration',
                     cond: [

@@ -40,7 +40,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-OTHER-CLAIMANTS-DETAILS': [
                 {
                     target: 'p--context-deceased-details'
                 }

@@ -102,7 +102,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHEN-WILL-YOU-FIND-OUT': [
                 {
                     target: '#task-list'
                 }

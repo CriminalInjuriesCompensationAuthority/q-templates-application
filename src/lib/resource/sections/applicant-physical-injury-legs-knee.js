@@ -111,7 +111,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-LEGS-KNEE': [
                 {
                     target: 'p-applicant-physical-injury-legs-ankle',
                     cond: [

@@ -210,7 +210,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-ENTER-YOUR-NAME': [
                 {
                     target: 'p-mainapplicant-enter-your-address'
                 }

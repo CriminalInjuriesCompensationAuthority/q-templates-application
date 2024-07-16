@@ -89,7 +89,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--CONTEXT-MAINAPPLICANT-DETAILS': [
                 {
                     target: 'p-mainapplicant-parent',
                     cond: [

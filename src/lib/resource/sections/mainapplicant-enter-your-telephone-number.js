@@ -93,7 +93,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-ENTER-YOUR-TELEPHONE-NUMBER': [
                 {
                     target: 'p-mainapplicant-relationship'
                 }

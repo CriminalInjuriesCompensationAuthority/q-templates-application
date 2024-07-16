@@ -123,7 +123,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ORDINARILY-RESIDENT': [
                 {
                     target: '#task-list',
                     cond: [

@@ -217,7 +217,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-DENTIST-ADDRESS': [
                 {
                     target: 'p-applicant-medical-help',
                     cond: [

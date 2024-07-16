@@ -92,7 +92,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-CONTACT-OUT-OF-TOUCH': [
                 {
                     target: 'p-applicant-financial-help'
                 }

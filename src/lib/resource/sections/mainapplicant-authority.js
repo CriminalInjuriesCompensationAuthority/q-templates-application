@@ -78,7 +78,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-AUTHORITY': [
                 {
                     target: 'p--context-authority'
                 }

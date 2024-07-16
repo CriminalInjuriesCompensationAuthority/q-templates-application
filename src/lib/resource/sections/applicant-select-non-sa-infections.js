@@ -104,7 +104,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-SELECT-NON-SA-INFECTIONS': [
                 {
                     target: 'p--context-pregnancy',
                     cond: [

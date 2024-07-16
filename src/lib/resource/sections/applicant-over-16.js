@@ -51,7 +51,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-OVER-16': [
                 {
                     target: 'p-applicant-affected-daily-capacity',
                     cond: ['==', '$.answers.p-applicant-over-16.q-applicant-over-16', false]

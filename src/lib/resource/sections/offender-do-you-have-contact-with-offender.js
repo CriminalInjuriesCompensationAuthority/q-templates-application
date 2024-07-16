@@ -79,7 +79,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-OFFENDER-DO-YOU-HAVE-CONTACT-WITH-OFFENDER': [
                 {
                     target: '#task-list',
                     cond: [

@@ -97,7 +97,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-EXPENSES': [
                 {
                     target: '#task-list'
                 }

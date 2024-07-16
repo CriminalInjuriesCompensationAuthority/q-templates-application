@@ -54,7 +54,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--REPRESENTS-LEGAL-AUTHORITY': [
                 {
                     target: 'p--context-authority'
                 }

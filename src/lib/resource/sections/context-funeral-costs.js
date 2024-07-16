@@ -50,7 +50,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-FUNERAL-COSTS': [
                 {
                     target: 'p-applicant-funeral-costs-paid'
                 }

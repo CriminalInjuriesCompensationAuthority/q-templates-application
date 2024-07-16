@@ -92,7 +92,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-CONTACT-MORE-DETAILS': [
                 {
                     target: 'p-applicant-financial-help'
                 }

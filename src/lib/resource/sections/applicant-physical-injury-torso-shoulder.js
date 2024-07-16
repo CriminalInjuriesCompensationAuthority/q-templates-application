@@ -115,7 +115,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-TORSO-SHOULDER': [
                 {
                     target: 'p-applicant-physical-injury-torso-chest',
                     cond: [

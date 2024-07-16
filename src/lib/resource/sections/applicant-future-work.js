@@ -62,7 +62,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FUTURE-WORK': [
                 {
                     target: 'p-applicant-affect-on-daily-life-dmi'
                 }

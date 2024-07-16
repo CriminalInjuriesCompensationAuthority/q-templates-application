@@ -96,7 +96,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-UNABLE-TO-WORK': [
                 {
                     target: 'p-applicant-unable-to-work-duration',
                     cond: [

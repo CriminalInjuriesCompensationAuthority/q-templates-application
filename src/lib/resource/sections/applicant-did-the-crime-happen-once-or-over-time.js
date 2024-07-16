@@ -54,7 +54,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-DID-THE-CRIME-HAPPEN-ONCE-OR-OVER-TIME': [
                 {
                     target: 'p-applicant-when-did-the-crime-happen',
                     cond: [

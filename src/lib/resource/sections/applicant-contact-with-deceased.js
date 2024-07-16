@@ -135,7 +135,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-CONTACT-WITH-DECEASED': [
                 {
                     target: 'p-applicant-financial-help',
                     cond: [

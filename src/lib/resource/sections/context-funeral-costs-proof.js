@@ -60,7 +60,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-FUNERAL-COSTS-PROOF': [
                 {
                     target: 'p--before-you-continue'
                 }

@@ -118,7 +118,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-EU-CITIZEN': [
                 {
                     target: '#task-list',
                     cond: ['==', '$.answers.p-applicant-eu-citizen.q-applicant-eu-citizen', true]

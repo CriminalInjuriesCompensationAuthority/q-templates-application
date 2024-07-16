@@ -79,7 +79,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-APPLIED-FOR-OTHER-COMPENSATION-BRIEFLY-EXPLAIN-WHY-NOT': [
                 {
                     target: '#task-list'
                 }

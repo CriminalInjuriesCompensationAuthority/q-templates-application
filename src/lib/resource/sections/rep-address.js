@@ -179,7 +179,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-ADDRESS': [
                 {
                     target: 'p-rep-email-address',
                     cond: [

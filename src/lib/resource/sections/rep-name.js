@@ -111,7 +111,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-NAME': [
                 {
                     target: 'p-rep-organisation-address',
                     cond: [

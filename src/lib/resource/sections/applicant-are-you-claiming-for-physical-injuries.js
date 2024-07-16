@@ -91,7 +91,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARE-YOU-CLAIMING-FOR-PHYSICAL-INJURIES': [
                 {
                     target: 'p-applicant-infections',
                     cond: [

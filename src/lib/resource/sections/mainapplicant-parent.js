@@ -133,7 +133,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-PARENT': [
                 {
                     target: 'p--has-legal-authority',
                     cond: ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false]

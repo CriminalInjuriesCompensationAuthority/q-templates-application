@@ -75,7 +75,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER_P-HOW-MUCH-WAS-AWARD': [
                 {
                     target: '#task-list'
                 }

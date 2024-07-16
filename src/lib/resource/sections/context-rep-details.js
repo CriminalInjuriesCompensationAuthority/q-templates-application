@@ -52,7 +52,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--CONTEXT-REP-DETAILS': [
                 {
                     target: 'p-rep-type'
                 }

@@ -56,7 +56,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PROVIDE-ADDITIONAL-INFORMATION': [
                 {
                     target: 'p-applicant-additional-information',
                     cond: [

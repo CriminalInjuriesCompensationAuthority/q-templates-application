@@ -60,7 +60,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-RELATIONSHIP-TO-DECEASED': [
                 {
                     target: 'p-applicant-relationship-to-deceased'
                 }

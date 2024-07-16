@@ -94,7 +94,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PREGNANCY-LOSS': [
                 {
                     target: 'p--context-dmi-details'
                 }

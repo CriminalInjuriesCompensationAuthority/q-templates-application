@@ -159,7 +159,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-OFFENDER-DO-YOU-KNOW-THE-NAME-OF-THE-OFFENDER': [
                 {
                     target: 'p-offender-do-you-have-contact-with-offender',
                     cond: [

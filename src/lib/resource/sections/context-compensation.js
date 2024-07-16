@@ -54,7 +54,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-COMPENSATION': [
                 {
                     target: 'p-applicant-have-you-applied-to-us-before'
                 }

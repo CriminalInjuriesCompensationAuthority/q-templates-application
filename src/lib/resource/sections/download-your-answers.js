@@ -23,7 +23,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-DOWNLOAD-YOUR-ANSWERS': [
                 {
                     target: 'p-rep-declaration-under-12',
                     cond: [

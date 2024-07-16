@@ -241,7 +241,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ENTER-YOUR-ADDRESS': [
                 {
                     target: 'p-applicant-enter-your-telephone-number',
                     cond: [

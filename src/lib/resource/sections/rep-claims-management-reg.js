@@ -45,7 +45,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-CLAIMS-MANAGEMENT-REG': [
                 {
                     target: 'p-rep-reference-number'
                 }

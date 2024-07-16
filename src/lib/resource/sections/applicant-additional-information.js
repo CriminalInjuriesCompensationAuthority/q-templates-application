@@ -46,7 +46,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ADDITIONAL-INFORMATION': [
                 {
                     target: '#task-list'
                 }

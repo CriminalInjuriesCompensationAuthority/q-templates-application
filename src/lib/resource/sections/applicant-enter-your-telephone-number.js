@@ -70,7 +70,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ENTER-YOUR-TELEPHONE-NUMBER': [
                 {
                     target: '#task-list'
                 }

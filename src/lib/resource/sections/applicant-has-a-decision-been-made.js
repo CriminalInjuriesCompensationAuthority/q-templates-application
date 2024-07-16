@@ -96,7 +96,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAS-A-DECISION-BEEN-MADE': [
                 {
                     target: 'p-applicant-how-much-was-award',
                     cond: [

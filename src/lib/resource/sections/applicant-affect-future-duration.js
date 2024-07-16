@@ -61,7 +61,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-AFFECT-FUTURE-DURATION': [
                 {
                     target: 'p-applicant-future-work'
                 }

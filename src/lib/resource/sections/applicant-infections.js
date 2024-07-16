@@ -94,7 +94,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-INFECTIONS': [
                 {
                     target: 'p-applicant-select-infections',
                     cond: [

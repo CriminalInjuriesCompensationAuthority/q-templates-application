@@ -108,7 +108,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-REFERENCE-NUMBER': [
                 {
                     target: 'p--context-relationship-to-deceased',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]

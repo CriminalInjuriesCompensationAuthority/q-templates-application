@@ -99,7 +99,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-OTHER-CLAIMANTS': [
                 {
                     target: 'p--context-deceased-details',
                     cond: ['==', '$.answers.p-other-claimants.q-other-claimants', false]

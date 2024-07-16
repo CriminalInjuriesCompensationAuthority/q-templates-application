@@ -221,7 +221,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--CONTEXT-AUTHORITY': [
                 {
                     target: 'p-mainapplicant-confirmation-method',
                     // prettier-ignore

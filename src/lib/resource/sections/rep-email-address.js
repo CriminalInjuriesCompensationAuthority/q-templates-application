@@ -44,7 +44,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-EMAIL-ADDRESS': [
                 {
                     target: 'p--context-relationship-to-deceased',
                     cond: [

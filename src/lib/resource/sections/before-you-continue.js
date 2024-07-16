@@ -23,7 +23,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-BEFORE-YOU-CONTINUE': [
                 {
                     target: 'p-applicant-when-did-the-crime-happen',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]

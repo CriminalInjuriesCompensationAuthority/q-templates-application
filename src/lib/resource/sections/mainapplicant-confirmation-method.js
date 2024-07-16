@@ -247,7 +247,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-CONFIRMATION-METHOD': [
                 {
                     target: 'p-mainapplicant-enter-your-name'
                 }

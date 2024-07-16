@@ -114,5 +114,13 @@ module.exports = {
             ]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-infections'}]}}
+    route: {
+        on: {
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-LEGS-MUSCLE': [
+                {
+                    target: 'p-applicant-infections'
+                }
+            ]
+        }
+    }
 };

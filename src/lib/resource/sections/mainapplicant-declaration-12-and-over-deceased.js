@@ -61,7 +61,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-DECLARATION-12-AND-OVER-DECEASED': [
                 {
                     target: 'p--confirmation'
                 }

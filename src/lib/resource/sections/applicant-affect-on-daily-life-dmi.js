@@ -74,7 +74,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-AFFECT-ON-DAILY-LIFE-DMI': [
                 {
                     target: 'p--context-treatment',
                     cond: [

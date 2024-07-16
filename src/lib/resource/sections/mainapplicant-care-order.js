@@ -184,7 +184,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-MAINAPPLICANT-CARE-ORDER': [
                 {
                     target: '#task-list'
                 }

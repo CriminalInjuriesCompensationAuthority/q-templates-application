@@ -949,7 +949,28 @@ module.exports = {
                 id: 't_applicant_residency-and-nationality__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
-                states: {}
+                states: {
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.any', 'rep', 'deceased']
+                                }
+                            ]
+                        }
+                    },
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.none', 'rep', 'deceased']
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             't_mainapplicant_authority__completion-status': {
                 id: 't_mainapplicant_authority__completion-status',

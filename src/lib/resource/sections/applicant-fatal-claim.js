@@ -111,7 +111,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FATAL-CLAIM': [
                 {
                     target: 'p-applicant-claim-type',
                     cond: ['|role.all', 'deceased']

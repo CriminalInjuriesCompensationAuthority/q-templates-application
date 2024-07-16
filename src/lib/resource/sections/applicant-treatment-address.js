@@ -236,7 +236,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-TREATMENT-ADDRESS': [
                 {
                     target: '#task-list'
                 }

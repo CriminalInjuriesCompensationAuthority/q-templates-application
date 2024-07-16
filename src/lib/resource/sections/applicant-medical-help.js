@@ -90,7 +90,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-MEDICAL-HELP': [
                 {
                     target: 'p-applicant-treatment-address',
                     cond: [

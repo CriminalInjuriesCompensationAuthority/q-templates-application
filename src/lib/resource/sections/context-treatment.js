@@ -48,7 +48,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-TREATMENT': [
                 {
                     target: 'p-applicant-treatment-for-physical-injuries',
                     cond: [

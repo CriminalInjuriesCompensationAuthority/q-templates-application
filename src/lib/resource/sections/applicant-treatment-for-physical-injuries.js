@@ -74,7 +74,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-TREATMENT-FOR-PHYSICAL-INJURIES': [
                 {
                     target: 'p-applicant-select-treatments',
                     cond: [

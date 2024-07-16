@@ -103,7 +103,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-HELP': [
                 {
                     target: 'p-other-claimants'
                 }

@@ -110,7 +110,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-ARMED-FORCES': [
                 {
                     target: '#task-list',
                     cond: [

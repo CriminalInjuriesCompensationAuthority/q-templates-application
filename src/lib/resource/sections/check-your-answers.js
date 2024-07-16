@@ -102,7 +102,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CHECK-YOUR-ANSWERS': [
                 {
                     target: 'p-applicant-declaration'
                 }

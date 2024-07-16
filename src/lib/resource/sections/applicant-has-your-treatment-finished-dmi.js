@@ -79,7 +79,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAS-YOUR-TREATMENT-FINISHED-DMI': [
                 {
                     target: 'p-applicant-are-you-registered-with-gp'
                 }

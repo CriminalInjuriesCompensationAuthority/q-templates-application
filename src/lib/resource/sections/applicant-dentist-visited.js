@@ -89,7 +89,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-DENTIST-VISITED': [
                 {
                     target: 'p-applicant-dentist-address',
                     cond: [

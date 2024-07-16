@@ -96,7 +96,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FUNERAL-COSTS-PAID': [
                 {
                     target: 'p-applicant-funeral-costs-other-contributor'
                 }

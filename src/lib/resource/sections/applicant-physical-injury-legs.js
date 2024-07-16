@@ -190,7 +190,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-LEGS': [
                 {
                     target: 'p-applicant-physical-injury-legs-hip',
                     cond: [

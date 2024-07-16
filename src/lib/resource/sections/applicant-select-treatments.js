@@ -181,7 +181,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-SELECT-TREATMENTS': [
                 {
                     target: 'p-applicant-has-your-treatment-finished-dmi'
                 }

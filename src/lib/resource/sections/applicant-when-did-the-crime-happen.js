@@ -55,7 +55,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHEN-DID-THE-CRIME-HAPPEN': [
                 {
                     target: 'p-applicant-select-reasons-for-the-delay-in-making-your-application',
                     cond: [

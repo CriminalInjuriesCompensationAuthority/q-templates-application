@@ -82,7 +82,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-MENTAL-INJURY-DURATION': [
                 {
                     target: 'p--context-crime-impact'
                 }

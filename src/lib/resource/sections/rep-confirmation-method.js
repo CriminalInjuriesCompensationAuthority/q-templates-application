@@ -234,7 +234,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-REP-CONFIRMATION-METHOD': [
                 {
                     target: 'p-rep-name'
                 }

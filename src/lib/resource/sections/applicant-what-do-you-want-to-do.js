@@ -62,7 +62,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-WHAT-DO-YOU-WANT-TO-DO': [
                 {
                     target: 'p--transition-apply-when-18',
                     cond: [

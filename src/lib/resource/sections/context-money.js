@@ -17,5 +17,13 @@ module.exports = {
             invalidExamples: [{foo: 'bar'}]
         }
     },
-    route: {on: {ANSWER: [{target: 'p-applicant-unable-to-work-duration'}]}}
+    route: {
+        on: {
+            'ANSWER__P-CONTEXT-MONEY': [
+                {
+                    target: 'p-applicant-unable-to-work-duration'
+                }
+            ]
+        }
+    }
 };

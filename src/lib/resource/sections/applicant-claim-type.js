@@ -61,7 +61,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-CLAIM-TYPE': [
                 {
                     target: '#task-list'
                 }

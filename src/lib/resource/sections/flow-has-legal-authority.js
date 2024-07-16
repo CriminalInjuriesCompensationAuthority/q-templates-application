@@ -118,7 +118,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--HAS-LEGAL-AUTHORITY': [
                 {
                     target: 'p--context-authority',
                     // prettier-ignore

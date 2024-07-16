@@ -92,7 +92,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-HAVE-YOU-SEEN-A-GP': [
                 {
                     target: 'p-gp-enter-your-address',
                     cond: [

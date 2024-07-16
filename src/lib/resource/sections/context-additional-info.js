@@ -23,7 +23,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-CONTEXT-ADDITIONAL-INFO': [
                 {
                     target: 'p-applicant-provide-additional-information'
                 }

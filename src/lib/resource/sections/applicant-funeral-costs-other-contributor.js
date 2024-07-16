@@ -54,7 +54,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-FUNERAL-COSTS-OTHER-CONTRIBUTOR': [
                 {
                     target: 'p-applicant-funeral-costs-who-contributed',
                     cond: [

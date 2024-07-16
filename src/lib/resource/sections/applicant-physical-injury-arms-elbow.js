@@ -107,7 +107,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-ARMS-ELBOW': [
                 {
                     target: 'p-applicant-physical-injury-arms-wrist',
                     cond: [

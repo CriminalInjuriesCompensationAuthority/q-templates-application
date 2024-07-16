@@ -86,7 +86,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-UNABLE-TO-WORK-DURATION': [
                 {
                     target: 'p-applicant-future-work',
                     cond: ['|role.all', 'proxy', 'child']

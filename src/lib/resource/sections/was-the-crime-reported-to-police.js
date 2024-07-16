@@ -55,7 +55,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P--WAS-THE-CRIME-REPORTED-TO-POLICE': [
                 {
                     target: 'p-applicant-you-cannot-get-compensation',
                     cond: [

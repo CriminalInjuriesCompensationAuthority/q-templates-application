@@ -116,7 +116,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-APPLICANT-PHYSICAL-INJURY-UPPER-MUSCLE': [
                 {
                     target: 'p-applicant-physical-injury-torso',
                     cond: [

@@ -48,7 +48,7 @@ module.exports = {
     },
     route: {
         on: {
-            ANSWER: [
+            'ANSWER__P-DMI_DETAILS': [
                 {
                     target: 'p-applicant-do-you-have-disabling-mental-injury'
                 }
