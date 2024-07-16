@@ -1006,7 +1006,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'proxy', 'mainapplicant']
@@ -1016,13 +1016,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.none', 'proxy', 'mainapplicant']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'proxy', 'mainapplicant']
@@ -1064,7 +1058,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'proxy', 'rep']
@@ -1074,13 +1068,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.none', 'proxy', 'rep']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'proxy', 'rep']
@@ -1122,7 +1110,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
@@ -1132,13 +1120,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
@@ -1180,7 +1162,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
@@ -1190,13 +1172,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
@@ -1238,7 +1214,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.all', 'deceased']
@@ -1248,13 +1224,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.none', 'deceased']
@@ -1362,7 +1332,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
@@ -1372,13 +1342,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.all', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
@@ -1420,7 +1384,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
@@ -1430,13 +1394,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.all', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
@@ -1478,7 +1436,7 @@ module.exports = {
                 states: {
                     notApplicable: {
                         on: {
-                            'ANSWER*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'applicable',
                                     cond: ['|role.none', 'deceased']
@@ -1488,13 +1446,7 @@ module.exports = {
                     },
                     applicable: {
                         on: {
-                            'ANSWER*': [
-                                {
-                                    target: 'notApplicable',
-                                    cond: ['|role.all', 'deceased']
-                                }
-                            ],
-                            'CASCADE*': [
+                            STATUS_EVALUATE: [
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']

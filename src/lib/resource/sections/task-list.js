@@ -162,6 +162,100 @@ module.exports = {
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    id: 's_applicant_authority',
+                                    title: "Provide the applicant's details",
+                                    tasks: [
+                                        {
+                                            id: 't_mainapplicant_authority',
+                                            title: "Applicant's details"
+                                        },
+                                        {
+                                            id: 't_rep_details',
+                                            title: "Representative's details"
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's_applicant_about-deceased',
+                                    title: 'About the person who died',
+                                    tasks: [
+                                        {
+                                            id: 't_applicant_relationship-to-deceased',
+                                            title: 'Relationship with the person who died'
+                                        },
+                                        {
+                                            id: 't_applicant_about-who-died',
+                                            title: 'Relationship with the person who died'
+                                        },
+                                        {
+                                            id: 't_applicant_funeral-costs',
+                                            title: 'About the funeral expenses'
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's_applicant_about-the-crime',
+                                    title: 'About the crime',
+                                    tasks: [
+                                        {
+                                            id: 't_applicant_about-the-crime',
+                                            title: 'Tell us about the crime'
+                                        },
+                                        {
+                                            id: 't_offender_about-the-offender',
+                                            title: 'Tell us about the offender'
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's_applicant_about-injuries',
+                                    title: 'About your injuries and treatment',
+                                    tasks: [
+                                        {
+                                            id: 't_applicant_about-injuries',
+                                            title: 'Tell us about your injuries'
+                                        },
+                                        {
+                                            id: 't_applicant_impact-of-injuries',
+                                            title: 'Impact of your injuries'
+                                        },
+                                        {
+                                            id: 't_applicant_about-treatment',
+                                            title: 'About your treatment'
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's_applicant_other-compensation',
+                                    title: 'Other compensation',
+                                    tasks: [
+                                        {
+                                            id: 't_applicant_other-compensation',
+                                            title: 'Tell us about other compensation'
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's_applicant_additional-information',
+                                    title: 'Additional information',
+                                    tasks: [
+                                        {
+                                            id: 't_applicant_additional-information',
+                                            title: "Is there anything else you'd like to tell us?"
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 's-check-your-answers',
+                                    title: 'Check your answers and submit your application',
+                                    tasks: [
+                                        {
+                                            id: 't-check-your-answers',
+                                            title: "Review what you've told us"
+                                        }
+                                    ]
                                 }
                             ]
                         }
