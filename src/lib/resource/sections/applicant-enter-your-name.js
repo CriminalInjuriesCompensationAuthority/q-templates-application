@@ -210,7 +210,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-ENTER-YOUR-NAME': [
+            ANSWER: [
                 {
                     target: 'p-applicant-have-you-been-known-by-any-other-names'
                 }

@@ -65,7 +65,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P--CONTEXT-APPLICANT-DETAILS': [
+            ANSWER: [
                 {
                     target: 'p-applicant-enter-your-name',
                     cond: ['|role.all', 'proxy']

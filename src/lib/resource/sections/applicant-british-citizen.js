@@ -108,7 +108,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-BRITISH-CITIZEN': [
+            ANSWER: [
                 {
                     target: '#task-list',
                     cond: [

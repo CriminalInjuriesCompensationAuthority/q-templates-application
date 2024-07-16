@@ -129,7 +129,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-OTHER-CITIZEN': [
+            ANSWER: [
                 {
                     target: '#task-list',
                     cond: [

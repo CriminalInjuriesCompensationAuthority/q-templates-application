@@ -122,7 +122,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-BRITISH-CITIZEN-RELATIVE': [
+            ANSWER: [
                 {
                     target: '#task-list',
                     cond: [

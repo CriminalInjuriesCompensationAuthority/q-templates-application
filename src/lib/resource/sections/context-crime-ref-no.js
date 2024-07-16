@@ -24,7 +24,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P--CONTEXT-CRIME-REF-NO': [
+            ANSWER: [
                 {
                     target: 'p-applicant-fatal-claim'
                 }

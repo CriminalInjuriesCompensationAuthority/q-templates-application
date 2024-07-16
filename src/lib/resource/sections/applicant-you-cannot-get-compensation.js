@@ -24,7 +24,7 @@ module.exports = {
     },
     route: {
         on: {
-            'ANSWER__P-APPLICANT-YOU-CANNOT-GET-COMPENSATION': [
+            ANSWER: [
                 {
                     target: 'p-applicant-fatal-claim'
                 }
