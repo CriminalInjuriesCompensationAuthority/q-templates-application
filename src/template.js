@@ -1747,6 +1747,9 @@ module.exports = {
                                             'complete'
                                         ]
                                     ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1898,6 +1901,9 @@ module.exports = {
                                             'incomplete'
                                         ]
                                     ]
+                                },
+                                {
+                                    target: 'applicable'
                                 }
                             ]
                         }
