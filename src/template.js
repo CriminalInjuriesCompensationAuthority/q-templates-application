@@ -548,9 +548,6 @@ module.exports = {
                     'p--has-legal-authority': flowHasLegalAuthority.route,
                     'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
                     'p--context-authority': contextAuthority.route,
-                    'p-applicant-enter-your-name': applicantEnterYourName.route,
-                    'p-applicant-have-you-been-known-by-any-other-names':
-                        applicantHaveYouBeenKnownByAnyOtherNames.route,
                     'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
                     'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
                     'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
