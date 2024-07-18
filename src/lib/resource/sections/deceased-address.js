@@ -192,7 +192,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-funeral-costs'
+                    target: '#t_applicant_funeral-costs'
                 }
             ]
         }

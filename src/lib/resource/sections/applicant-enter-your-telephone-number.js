@@ -72,7 +72,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list'
+                    target: '#t_applicant_residency-and-nationality'
                 }
             ]
         }

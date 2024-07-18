@@ -46,7 +46,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased',
+                    target: '#t_applicant_relationship-to-deceased',
                     cond: [
                         'and',
                         ['!=', '$.answers.p-rep-type.q-rep-type', 'CMCO'],

@@ -536,6 +536,7 @@ module.exports = {
                 }
             },
             t_mainapplicant_authority: {
+                id: 't_mainapplicant_authority',
                 referrer: '#task-list',
                 initial: 'p--context-mainapplicant-details',
                 currentSectionId: 'p--context-mainapplicant-details',
@@ -564,6 +565,7 @@ module.exports = {
                 }
             },
             t_rep_details: {
+                id: 't_rep_detail',
                 referrer: '#task-list',
                 initial: 'p--context-rep-details',
                 currentSectionId: 'p--context-rep-details',
@@ -582,6 +584,7 @@ module.exports = {
                 }
             },
             't_applicant_relationship-to-deceased': {
+                id: 't_applicant_relationship-to-deceased',
                 referrer: '#task-list',
                 initial: 'p--context-relationship-to-deceased',
                 currentSectionId: 'p--context-relationship-to-deceased',
@@ -602,6 +605,7 @@ module.exports = {
                 }
             },
             't_applicant_about-who-died': {
+                id: 't_applicant_about-who-died',
                 referrer: '#t_applicant_relationship-to-deceased',
                 initial: 'p--context-deceased-details',
                 currentSectionId: 'p--context-deceased-details',
@@ -615,6 +619,7 @@ module.exports = {
                 }
             },
             't_applicant_funeral-costs': {
+                id: 't_applicant_funeral-costs',
                 referrer: '#t_applicant_about-who-died',
                 initial: 'p--context-funeral-costs',
                 currentSectionId: 'p--context-funeral-costs',
@@ -631,6 +636,7 @@ module.exports = {
                 }
             },
             't_applicant_about-the-crime': {
+                id: 't_applicant_about-the-crime',
                 referrer: '#task-list',
                 initial: 'p--before-you-continue',
                 currentSectionId: 'p--before-you-continue',
@@ -664,6 +670,7 @@ module.exports = {
                 }
             },
             't_offender_about-the-offender': {
+                id: 't_offender_about-the-offender',
                 referrer: '#t_applicant_about-the-crime',
                 initial: 'p--context-offender',
                 currentSectionId: 'p--context-offender',
@@ -679,6 +686,7 @@ module.exports = {
                 }
             },
             't_applicant_about-injuries': {
+                id: 't_applicant_about-injuries',
                 referrer: '#task-list',
                 initial: 'p--context-physical-injuries',
                 currentSectionId: 'p--context-physical-injuries',
@@ -760,6 +768,7 @@ module.exports = {
                 }
             },
             't_applicant_impact-of-injuries': {
+                id: 't_applicant_impact-of-injuries',
                 referrer: '#t_applicant_about-injuries',
                 initial: 'p--context-crime-impact',
                 currentSectionId: 'p--context-crime-impact',
@@ -781,6 +790,7 @@ module.exports = {
                 }
             },
             't_applicant_about-treatment': {
+                id: 't_applicant_about-treatment',
                 referrer: '#t_applicant_impact-of-injuries',
                 initial: 'p--context-treatment',
                 currentSectionId: 'p--context-treatment',
@@ -802,6 +812,7 @@ module.exports = {
                 }
             },
             't_applicant_other-compensation': {
+                id: 't_applicant_other-compensation',
                 referrer: '#task-list',
                 initial: 'p--context-compensation',
                 currentSectionId: 'p--context-compensation',
@@ -821,6 +832,7 @@ module.exports = {
                 }
             },
             't_applicant_additional-information': {
+                id: 't_applicant_additional-information',
                 referrer: '#task-list',
                 initial: 'p--context-additional-info',
                 currentSectionId: 'p--context-additional-info',
@@ -833,6 +845,7 @@ module.exports = {
                 }
             },
             't-check-your-answers': {
+                id: 't-check-your-answers',
                 referrer: '#task-list',
                 initial: 'p--check-your-answers',
                 currentSectionId: 'p--check-your-answers',
@@ -857,6 +870,7 @@ module.exports = {
                 }
             },
             'task-list': {
+                id: 'task-list',
                 initial: 'p-task-list',
                 currentSectionId: 'p-task-list',
                 progress: ['p-task-list'],
@@ -865,6 +879,7 @@ module.exports = {
                 }
             },
             system: {
+                id: 'system',
                 initial: 'system',
                 currentSectionId: 'system',
                 progress: ['system'],
