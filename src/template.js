@@ -1269,7 +1269,7 @@ module.exports = {
                                     cond: ['|role.none', 'deceased']
                                 },
                                 {
-                                    target: 'pplicable'
+                                    target: 'applicable'
                                 }
                             ]
                         }
