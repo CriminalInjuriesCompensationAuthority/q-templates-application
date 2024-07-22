@@ -1622,24 +1622,24 @@ module.exports = {
                                         [
                                             '==',
                                             '$.routes.states.t-about-application__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             '==',
                                             '$.routes.states.t_applicant_personal-details__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             '==',
                                             '$.routes.states.t_applicant_residency-and-nationality__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             'or',
                                             [
                                                 '==',
                                                 '$.routes.states.t_mainapplicant_authority__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1652,7 +1652,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_rep_details__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1665,7 +1665,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_relationship-to-deceased__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1678,7 +1678,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_about-who-died__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1691,7 +1691,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_funeral-costs__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1702,19 +1702,19 @@ module.exports = {
                                         [
                                             '==',
                                             '$.routes.states.t_applicant_about-the-crime__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             '==',
                                             '$.routes.states.t_offender_about-the-offender__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             'or',
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_about-injuries__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1727,7 +1727,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_impact-of-injuries__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1740,7 +1740,7 @@ module.exports = {
                                             [
                                                 '==',
                                                 '$.routes.states.t_applicant_about-treatment__completion-status.currentSectionId',
-                                                'complete'
+                                                'completed'
                                             ],
                                             [
                                                 '==',
@@ -1751,12 +1751,12 @@ module.exports = {
                                         [
                                             '==',
                                             '$.routes.states.t_applicant_other-compensation__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ],
                                         [
                                             '==',
                                             '$.routes.states.t_applicant_additional-information__completion-status.currentSectionId',
-                                            'complete'
+                                            'completed'
                                         ]
                                     ]
                                 },
