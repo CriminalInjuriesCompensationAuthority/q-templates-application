@@ -187,7 +187,7 @@ module.exports = {
                                         },
                                         {
                                             id: 't_applicant_about-who-died',
-                                            title: 'Relationship with the person who died'
+                                            title: 'About the person who died'
                                         },
                                         {
                                             id: 't_applicant_funeral-costs',

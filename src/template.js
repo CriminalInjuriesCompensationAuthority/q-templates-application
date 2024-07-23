@@ -1621,104 +1621,29 @@ module.exports = {
                                         'and',
                                         [
                                             '==',
-                                            '$.routes.states.t-about-application__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t-about-application__completion-status',
                                             'completed'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_personal-details__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
                                             'completed'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_residency-and-nationality__completion-status.currentSectionId',
-                                            'completed'
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_mainapplicant_authority__completion-status.currentSectionId',
-                                                'completed'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_mainapplicant_authority__applicability-status.currentSectionId',
-                                                'notApplicable'
-                                            ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_rep_details__completion-status.currentSectionId',
-                                                'completed'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_rep_details__applicability-status.currentSectionId',
-                                                'notApplicable'
-                                            ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_relationship-to-deceased__completion-status.currentSectionId',
-                                                'completed'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_relationship-to-deceased__applicability-status.currentSectionId',
-                                                'notApplicable'
-                                            ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_about-who-died__completion-status.currentSectionId',
-                                                'completed'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_about-who-died__applicability-status.currentSectionId',
-                                                'notApplicable'
-                                            ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_funeral-costs__completion-status.currentSectionId',
-                                                'completed'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_funeral-costs__applicability-status.currentSectionId',
-                                                'notApplicable'
-                                            ]
-                                        ],
-                                        [
-                                            '==',
-                                            '$.routes.states.t_applicant_about-the-crime__completion-status.currentSectionId',
-                                            'completed'
-                                        ],
-                                        [
-                                            '==',
-                                            '$.routes.states.t_offender_about-the-offender__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_residency-and-nationality__completion-status',
                                             'completed'
                                         ],
                                         [
                                             'or',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-injuries__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
                                                 'completed'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-injuries__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
                                                 'notApplicable'
                                             ]
                                         ],
@@ -1726,12 +1651,12 @@ module.exports = {
                                             'or',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_impact-of-injuries__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_rep_details__completion-status',
                                                 'completed'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_impact-of-injuries__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_rep_details__applicability-status',
                                                 'notApplicable'
                                             ]
                                         ],
@@ -1739,23 +1664,98 @@ module.exports = {
                                             'or',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-treatment__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__completion-status',
                                                 'completed'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-treatment__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__applicability-status',
                                                 'notApplicable'
                                             ]
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_other-compensation__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
                                             'completed'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_additional-information__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_offender_about-the-offender__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_other-compensation__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_additional-information__completion-status',
                                             'completed'
                                         ]
                                     ]
@@ -1775,104 +1775,29 @@ module.exports = {
                                         'or',
                                         [
                                             '==',
-                                            '$.routes.states.t-about-application__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t-about-application__completion-status',
                                             'incomplete'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_personal-details__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
                                             'incomplete'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_residency-and-nationality__completion-status.currentSectionId',
-                                            'incomplete'
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_mainapplicant_authority__completion-status.currentSectionId',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_mainapplicant_authority__applicability-status.currentSectionId',
-                                                'applicable'
-                                            ]
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_rep_details__completion-status.currentSectionId',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_rep_details__applicability-status.currentSectionId',
-                                                'applicable'
-                                            ]
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_relationship-to-deceased__completion-status.currentSectionId',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_relationship-to-deceased__applicability-status.currentSectionId',
-                                                'applicable'
-                                            ]
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_about-who-died__completion-status.currentSectionId',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_about-who-died__applicability-status.currentSectionId',
-                                                'applicable'
-                                            ]
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_funeral-costs__completion-status.currentSectionId',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.routes.states.t_applicant_funeral-costs__applicability-status.currentSectionId',
-                                                'applicable'
-                                            ]
-                                        ],
-                                        [
-                                            '==',
-                                            '$.routes.states.t_applicant_about-the-crime__completion-status.currentSectionId',
-                                            'incomplete'
-                                        ],
-                                        [
-                                            '==',
-                                            '$.routes.states.t_offender_about-the-offender__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_residency-and-nationality__completion-status',
                                             'incomplete'
                                         ],
                                         [
                                             'and',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-injuries__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
                                                 'incomplete'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-injuries__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
                                                 'applicable'
                                             ]
                                         ],
@@ -1880,12 +1805,12 @@ module.exports = {
                                             'and',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_impact-of-injuries__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_rep_details__completion-status',
                                                 'incomplete'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_impact-of-injuries__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_rep_details__applicability-status',
                                                 'applicable'
                                             ]
                                         ],
@@ -1893,23 +1818,98 @@ module.exports = {
                                             'and',
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-treatment__completion-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__completion-status',
                                                 'incomplete'
                                             ],
                                             [
                                                 '==',
-                                                '$.routes.states.t_applicant_about-treatment__applicability-status.currentSectionId',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__applicability-status',
                                                 'applicable'
                                             ]
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_other-compensation__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
                                             'incomplete'
                                         ],
                                         [
                                             '==',
-                                            '$.routes.states.t_applicant_additional-information__completion-status.currentSectionId',
+                                            '$.attributes.q__statuses.t_offender_about-the-offender__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_other-compensation__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_additional-information__completion-status',
                                             'incomplete'
                                         ]
                                     ]
