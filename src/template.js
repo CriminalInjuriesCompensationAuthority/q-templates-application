@@ -891,6 +891,7 @@ module.exports = {
                 id: 't-about-application__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -916,6 +917,7 @@ module.exports = {
                 id: 't-about-application__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -924,6 +926,7 @@ module.exports = {
                 id: 't_applicant_personal-details__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -949,6 +952,7 @@ module.exports = {
                 id: 't_applicant_personal-details__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -957,6 +961,7 @@ module.exports = {
                 id: 't_applicant_residency-and-nationality__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -982,6 +987,7 @@ module.exports = {
                 id: 't_applicant_residency-and-nationality__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -990,6 +996,7 @@ module.exports = {
                 id: 't_mainapplicant_authority__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1015,6 +1022,7 @@ module.exports = {
                 id: 't_mainapplicant_authority__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1048,6 +1056,7 @@ module.exports = {
                 id: 't_rep_details__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1073,6 +1082,7 @@ module.exports = {
                 id: 't_rep_details__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1106,6 +1116,7 @@ module.exports = {
                 id: 't_applicant_relationship-to-deceased__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1131,6 +1142,7 @@ module.exports = {
                 id: 't_applicant_relationship-to-deceased__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1164,6 +1176,7 @@ module.exports = {
                 id: 't_applicant_about-who-died__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1189,6 +1202,7 @@ module.exports = {
                 id: 't_applicant_about-who-died__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1222,6 +1236,7 @@ module.exports = {
                 id: 't_applicant_funeral-costs__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1247,6 +1262,7 @@ module.exports = {
                 id: 't_applicant_funeral-costs__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1280,6 +1296,7 @@ module.exports = {
                 id: 't_applicant_about-the-crime__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1305,6 +1322,7 @@ module.exports = {
                 id: 't_applicant_about-the-crime__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -1313,6 +1331,7 @@ module.exports = {
                 id: 't_offender_about-the-offender__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1338,6 +1357,7 @@ module.exports = {
                 id: 't_offender_about-the-offender__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -1346,6 +1366,7 @@ module.exports = {
                 id: 't_applicant_about-injuries__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1371,6 +1392,7 @@ module.exports = {
                 id: 't_applicant_about-injuries__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1404,6 +1426,7 @@ module.exports = {
                 id: 't_applicant_impact-of-injuries__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1429,6 +1452,7 @@ module.exports = {
                 id: 't_applicant_impact-of-injuries__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1462,6 +1486,7 @@ module.exports = {
                 id: 't_applicant_about-treatment__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1487,6 +1512,7 @@ module.exports = {
                 id: 't_applicant_about-treatment__applicability-status',
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1520,6 +1546,7 @@ module.exports = {
                 id: 't_applicant_other-compensation__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1545,6 +1572,7 @@ module.exports = {
                 id: 't_applicant_other-compensation__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -1553,6 +1581,7 @@ module.exports = {
                 id: 't_applicant_additional-information__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1578,6 +1607,7 @@ module.exports = {
                 id: 't_applicant_additional-information__applicability-status',
                 initial: 'applicable',
                 currentSectionId: 'applicable',
+                progress: ['applicable'],
                 states: {
                     applicable: {}
                 }
@@ -1586,6 +1616,7 @@ module.exports = {
                 id: 't-check-your-answers__completion-status',
                 initial: 'incomplete',
                 currentSectionId: 'incomplete',
+                progress: ['incomplete'],
                 states: {
                     incomplete: {
                         on: {
@@ -1611,6 +1642,7 @@ module.exports = {
                 id: 't-check-your-answers__applicability-status',
                 initial: 'cannotStartYet',
                 currentSectionId: 'cannotStartYet',
+                progress: ['cannotStartYet'],
                 states: {
                     cannotStartYet: {
                         on: {
