@@ -12,9 +12,10 @@ module.exports = {
                     type: 'string',
                     title: 'What is the total cost of the funeral?',
                     description:
-                        'If you are not sure what the total cost is, enter an estimate in pounds.',
+                        'If you are not sure what the total cost is, enter an estimate using numbers only, like 125.50.',
                     maxLength: 50,
                     pattern: '^[0-9]{1,}(\\.[0-9]{2})?$',
+                    prefix: '£',
                     errorMessage: {
                         pattern: 'Total cost of the funeral must be a number, like 1250 or 1250.00',
                         maxLength: 'Total cost of funeral must be 50 characters or less'
