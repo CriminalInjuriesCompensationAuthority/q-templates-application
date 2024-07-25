@@ -23,6 +23,7 @@ module.exports = {
                             properties: {
                                 'q-deceased-title': {
                                     title: 'Title',
+                                    description: 'For example, Mr or Miss',
                                     type: 'string',
                                     maxLength: 6,
                                     errorMessage: {

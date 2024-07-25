@@ -102,6 +102,7 @@ module.exports = {
                                 'q-applicant-title': {
                                     title: 'Title',
                                     type: 'string',
+                                    description: 'For example, Mr or Miss',
                                     maxLength: 6,
                                     errorMessage: {
                                         maxLength: 'Title must be 6 characters or less'
