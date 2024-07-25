@@ -56,12 +56,16 @@ module.exports = {
                 'q-rep-telephone-number': {
                     type: 'string',
                     title: 'UK mobile phone number',
+                    description: 'For example, 07700 900 982',
                     maxLength: 20,
+                    minLength: 11,
+                    pattern: '^[^a-zA-Z]+$',
                     format: 'mobile-uk',
                     errorMessage: {
-                        format:
-                            'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982',
-                        maxLength: 'Telephone number must be 20 characters or less'
+                        maxLength: 'Enter a mobile phone number between 11 and 20 digits long',
+                        minLength: 'Enter a mobile phone number between 11 and 20 digits long',
+                        pattern: 'Telephone number must not include alphabetic characters',
+                        format: 'Enter a UK mobile phone number, like 07700 900 982'
                     },
                     meta: {
                         classifications: {
