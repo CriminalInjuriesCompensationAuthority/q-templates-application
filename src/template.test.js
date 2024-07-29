@@ -9,7 +9,8 @@ describe('application template', () => {
         const qTemplateValidator = createTemplateValidator({
             questionnaireTemplate: template,
             customSchemaFormats: {
-                'mobile-uk': ajvFormatsMobileUk
+                'mobile-uk': ajvFormatsMobileUk,
+                'global-mobile': '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$'
             }
         });
         const valid = qTemplateValidator.validateTemplate();
