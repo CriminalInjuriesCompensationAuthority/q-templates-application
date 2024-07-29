@@ -13,11 +13,14 @@ module.exports = {
                     description:
                         'We may use this to contact you if we need to clarify something in this application.',
                     maxLength: 20,
-                    pattern: '^[\\+\\d][\\d \\(\\)\\+\\-\\#]{7,19}$',
+                    minLength: 8,
+                    pattern: '^[^a-zA-Z]+$',
+                    format: 'global-mobile',
                     errorMessage: {
-                        maxLength: 'Telephone number must be 20 characters or less',
-                        pattern:
-                            'Enter a Telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192'
+                        maxLength: 'Enter a mobile phone number between 8 and 20 digits long',
+                        minLength: 'Enter a mobile phone number between 8 and 20 digits long',
+                        pattern: 'Telephone number must not include alphabetic characters',
+                        format: 'Enter a telephone number, like 07700 900 982'
                     },
                     meta: {
                         classifications: {
