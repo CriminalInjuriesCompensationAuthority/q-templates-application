@@ -1042,7 +1042,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['|role.none', 'proxy', 'mainapplicant']
+                                    cond: ['==', ['|role.all', 'proxy', 'mainapplicant'], false]
                                 },
                                 {
                                     target: 'applicable'
@@ -1102,7 +1102,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['|role.none', 'proxy', 'rep']
+                                    cond: ['==', ['|role.all', 'proxy', 'rep'], false]
                                 },
                                 {
                                     target: 'applicable'
@@ -1162,7 +1162,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'applicable'
@@ -1222,7 +1222,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'applicable'
@@ -1282,7 +1282,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'applicable'
@@ -1399,7 +1399,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'notApplicable'
@@ -1459,7 +1459,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'notApplicable'
@@ -1519,7 +1519,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.none', 'deceased']
+                                    cond: ['|role.all', 'nonDeceased']
                                 },
                                 {
                                     target: 'notApplicable'
