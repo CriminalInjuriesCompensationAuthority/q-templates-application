@@ -102,29 +102,24 @@ module.exports = {
                         ]
                     },
                     sections: [
-                        {'s-about-application': ['about-application']},
-                        {s_applicant_details: ['applicant-details', 'residency-and-nationality']},
-                        {s_applicant_authority: ['main-applicant-details', 'rep-details']},
-                        {
-                            's_applicant_about-deceased': [
-                                'relationship-to-deceased',
-                                'deceased',
-                                'funeral-costs'
-                            ]
-                        },
-                        {'s_applicant_about-the-crime': ['crime', 'offender']},
-                        {
-                            's_applicant_about-injuries': [
-                                'injuries',
-                                'pregnancy',
-                                'mental-health',
-                                'impact',
-                                'special-expenses',
-                                'treatment'
-                            ]
-                        },
-                        {'s_applicant_other-compensation': ['other-compensation']},
-                        {'s_applicant_additional-information': ['additional-info']}
+                        'about-application',
+                        'applicant-details',
+                        'residency-and-nationality',
+                        'main-applicant-details',
+                        'rep-details',
+                        'relationship-to-deceased',
+                        'deceased',
+                        'funeral-costs',
+                        'crime',
+                        'offender',
+                        'injuries',
+                        'pregnancy',
+                        'mental-health',
+                        'impact',
+                        'special-expenses',
+                        'treatment',
+                        'other-compensation',
+                        'additional-info'
                     ]
                 }
             }
