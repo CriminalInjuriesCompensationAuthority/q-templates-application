@@ -14,12 +14,16 @@ module.exports = {
                     resources: {
                         'q-applicant-applied-before-for-this-crime': {
                             title: {
-                                applicant: 'Have you applied before, for injuries related to this crime?',
-                                proxy: 'Have you applied before, on behalf of the victim, for injuries related to this crime?'
+                                applicant:
+                                    'Have you applied before, for injuries related to this crime?',
+                                proxy:
+                                    'Have you applied before, on behalf of the victim, for injuries related to this crime?'
                             },
                             error: {
-                                applicant: 'Select yes if you have applied before, for injuries related to this crime',
-                                proxy: 'Select yes if you have applied before, on behalf of the victim, for injuries related to this crime'
+                                applicant:
+                                    'Select yes if you have applied before, for injuries related to this crime',
+                                proxy:
+                                    'Select yes if you have applied before, on behalf of the victim, for injuries related to this crime'
                             }
                         }
                     }
@@ -60,7 +64,7 @@ module.exports = {
             },
             errorMessage: {
                 required: {
-                    'q-applicant-applied-before-for-this-crime':[
+                    'q-applicant-applied-before-for-this-crime': [
                         '|l10nt',
                         ['|role.all', 'proxy'],
                         'q-applicant-applied-before-for-this-crime.error.proxy',

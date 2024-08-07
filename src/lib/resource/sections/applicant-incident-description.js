@@ -47,7 +47,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-offender'
+                    target: '#t_offender_about-the-offender'
                 }
             ]
         }
