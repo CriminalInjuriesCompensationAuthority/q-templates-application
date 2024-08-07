@@ -186,32 +186,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: [
-                        'and',
-                        // Main Applicant role
-                        ['|role.all', 'mainapplicant'],
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue',
-                    cond: [
-                        'and',
-                        ['|role.all', 'mainapplicant'],
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', false]
-                    ]
-                },
-                {
-                    target: 'p--context-rep-details',
-                    cond: [
-                        'or',
-                        ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                    ]
-                },
-                {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }

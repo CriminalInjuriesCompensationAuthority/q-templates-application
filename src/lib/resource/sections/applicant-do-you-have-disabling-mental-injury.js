@@ -87,7 +87,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-crime-impact',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',

@@ -84,7 +84,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-crime-impact'
+                    target: '#task-list'
                 }
             ]
         }

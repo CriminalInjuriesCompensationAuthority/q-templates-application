@@ -197,20 +197,6 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-relationship-to-deceased',
-                    cond: [
-                        'and',
-                        ['!=', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
-                        ['!=', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
-                        ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true],
-                        [
-                            '==',
-                            '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
-                            'none'
-                        ]
-                    ]
-                },
-                {
                     target: 'p-rep-claims-management-reg',
                     cond: [
                         'and',
@@ -235,7 +221,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }
