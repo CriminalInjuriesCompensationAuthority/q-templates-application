@@ -100,7 +100,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-compensation'
+                    target: '#task-list'
                 }
             ]
         }
