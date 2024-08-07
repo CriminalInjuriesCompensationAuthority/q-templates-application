@@ -13,7 +13,6 @@ const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-decla
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
-const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
 const beforeYouContinue = require('./lib/resource/sections/before-you-continue.js');
@@ -115,8 +114,6 @@ const applicantTreatmentAddress = require('./lib/resource/sections/applicant-tre
 const applicantUnableToWorkDuration = require('./lib/resource/sections/applicant-unable-to-work-duration.js');
 const applicantJobWhenCrimeHappened = require('./lib/resource/sections/applicant-job-when-crime-happened.js');
 const applicantWorkDetailsOption = require('./lib/resource/sections/applicant-work-details-option.js');
-const applicantExpenses = require('./lib/resource/sections/applicant-expenses.js');
-const contextMoney = require('./lib/resource/sections/context-money.js');
 const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
 const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
@@ -131,7 +128,6 @@ const system = require('./lib/resource/sections/system.js');
 const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
 const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
 const contextAuthority = require('./lib/resource/sections/context-authority');
-const mainapplicantContextDetails = require('./lib/resource/sections/mainapplicant-context-details.js');
 const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
 const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
 const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
@@ -159,7 +155,6 @@ const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
 const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
 const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
-const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
@@ -215,6 +210,7 @@ const applicantAppliedBeforeForThisCrime = require('./lib/resource/sections/appl
 const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/applicant-someone-else-applied-before-for-this-crime');
 const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
 const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
+const tasklist = require('./lib/resource/sections/task-list');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -233,7 +229,6 @@ module.exports = {
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
-        'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
         'p--before-you-continue': beforeYouContinue.section,
@@ -347,8 +342,6 @@ module.exports = {
         'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.section,
         'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.section,
         'p-applicant-work-details-option': applicantWorkDetailsOption.section,
-        'p-applicant-expenses': applicantExpenses.section,
-        'p--context-money': contextMoney.section,
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
@@ -363,7 +356,6 @@ module.exports = {
         'p--context-crime-impact': contextCrimeImpact.section,
         'p-mainapplicant-parent': mainapplicantParent.section,
         'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
         'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
         'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
@@ -392,7 +384,6 @@ module.exports = {
         'p-rep-telephone-number': repTelephoneNumber.section,
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
-        'p--contact-cica': contactCica.section,
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
         'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
@@ -445,13 +436,18 @@ module.exports = {
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
         origin: origin.section,
-        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
+        'p-applicant-someone-else-applied-before-for-this-crime':
+            applicantSomeoneElseAppliedBeforeForThisCrime.section,
         'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.section,
-        'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,        
-        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section
+        'p-proxy-someone-else-applied-before-for-this-crime':
+            proxySomeoneElseAppliedBeforeForThisCrime.section,
+        'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
+        'p-task-list': tasklist.section
     },
+    currentSectionId: 'p-applicant-who-are-you-applying-for',
     routes: {
-        initial: 'p-applicant-who-are-you-applying-for',
+        id: 'parallel-routes',
+        type: 'parallel',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -467,243 +463,1910 @@ module.exports = {
         ],
         confirmation: 'p--confirmation',
         states: {
-            'p-applicant-declaration': applicantDeclaration.route,
-            'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
-            'p-mainapplicant-declaration-12-and-over': mainapplicantDeclaration12AndOver.route,
-            'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
-            'p-mainapplicant-declaration-12-and-over-deceased':
-                mainapplicantDeclarationOver12Deceased.route,
-            'p-mainapplicant-declaration-under-12-deceased':
-                mainapplicantDeclarationUnder12Deceased.route,
-            'p-rep-declaration-under-12': repDeclarationUnder12.route,
-            'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
-            'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
-            'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
-            'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
-            'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
-            'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
-            'p--before-you-continue': beforeYouContinue.route,
-            'p-applicant-incident-type': applicantIncidentType.route,
-            'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
-            'p--when-was-the-crime-reported-to-police': whenWasTheCrimeReportedToPolice.route,
-            'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.route,
-            'p-applicant-did-the-crime-happen-once-or-over-time':
-                applicantDidTheCrimeHappenOnceOrOverTime.route,
-            'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.route,
-            'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.route,
-            'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.route,
-            'p-applicant-select-reasons-for-the-delay-in-making-your-application':
-                applicantSelectReasonsForTheDelayInMakingYourApplication.route,
-            'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.route,
-            'p-applicant-where-in-england-did-it-happen': applicantWhereInEnglandDidItHappen.route,
-            'p-applicant-where-in-scotland-did-it-happen':
-                applicantWhereInScotlandDidItHappen.route,
-            'p-applicant-where-in-wales-did-it-happen': applicantWhereInWalesDidItHappen.route,
-            'p--which-police-force-is-investigating-the-crime':
-                whichPoliceForceIsInvestigatingTheCrime.route,
-            'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
-            'p-offender-do-you-know-the-name-of-the-offender':
-                offenderDoYouKnowTheNameOfTheOffender.route,
-            'p-offender-do-you-have-contact-with-offender':
-                offenderDoYouHaveContactWithOffender.route,
-            'p-offender-describe-contact-with-offender': offenderDescribeContactWithOffender.route,
-            'p-applicant-have-you-applied-to-us-before': applicantHaveYouAppliedToUsBefore.route,
-            'p-applicant-have-you-applied-for-or-received-any-other-compensation':
-                applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.route,
-            'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
-                applicantAppliedForOtherCompensationBrieflyExplainWhyNot.route,
-            'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.route,
-            'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.route,
-            'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.route,
-            'p-applicant-how-much-was-award': applicantHowMuchWasAward.route,
-            'p--context-applicant-details': contextApplicantDetails.route,
-            'p-applicant-enter-your-name': applicantEnterYourName.route,
-            'p-applicant-have-you-been-known-by-any-other-names':
-                applicantHaveYouBeenKnownByAnyOtherNames.route,
-            'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
-            'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route,
-            'p-applicant-enter-your-address': applicantEnterYourAddress.route,
-            'p-applicant-enter-your-telephone-number': applicantEnterYourTelephoneNumber.route,
-            'p--check-your-answers': checkYourAnswers.route,
-            'p--confirmation': confirmation.route,
-            'p--context-offender': contextOffender.route,
-            'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.route,
-            'p-applicant-confirmation-method': applicantConfirmationMethod.route,
-            'p--context-compensation': contextCompensation.route,
-            'p--transition': transition.route,
-            'p-applicant-are-you-claiming-for-physical-injuries':
-                applicantAreYouClaimingForPhysicalInjuries.route,
-            'p--context-dmi-details': contextDmiDetails.route,
-            'p-applicant-do-you-have-disabling-mental-injury':
-                applicantDoYouHaveDisablingMentalInjury.route,
-            'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.route,
-            'p-applicant-select-treatments': applicantSelectTreatments.route,
-            'p-applicant-has-your-treatment-finished-dmi':
-                applicantHasYourTreatmentFinishedDmi.route,
-            'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.route,
-            'p--context-treatment': contextTreatment.route,
-            'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.route,
-            'p-applicant-have-you-seen-a-gp': applicantHaveYouSeenAGp.route,
-            'p-applicant-dentist-visited': applicantDentistVisited.route,
-            'p-applicant-dentist-address': applicantDentistAddress.route,
-            'p-gp-enter-your-address': gpEnterYourAddress.route,
-            'p-applicant-physical-injury': applicantPhysicalInjury.route,
-            'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.route,
-            'p-applicant-physical-injury-upper-head': applicantPhysicalInjuryUpperHead.route,
-            'p-applicant-physical-injury-upper-face': applicantPhysicalInjuryUpperFace.route,
-            'p-applicant-physical-injury-upper-neck': applicantPhysicalInjuryUpperNeck.route,
-            'p-applicant-physical-injury-upper-eye': applicantPhysicalInjuryUpperEye.route,
-            'p-applicant-physical-injury-upper-ear': applicantPhysicalInjuryUpperEar.route,
-            'p-applicant-physical-injury-upper-nose': applicantPhysicalInjuryUpperNose.route,
-            'p-applicant-physical-injury-upper-mouth': applicantPhysicalInjuryUpperMouth.route,
-            'p-applicant-physical-injury-upper-skin': applicantPhysicalInjuryUpperSkin.route,
-            'p-applicant-physical-injury-upper-muscle': applicantPhysicalInjuryUpperMuscle.route,
-            'p-applicant-physical-injury-torso': applicantPhysicalInjuryTorso.route,
-            'p-applicant-physical-injury-torso-shoulder':
-                applicantPhysicalInjuryTorsoShoulder.route,
-            'p-applicant-physical-injury-torso-chest': applicantPhysicalInjuryTorsoChest.route,
-            'p-applicant-physical-injury-torso-abdomen': applicantPhysicalInjuryTorsoAbdomen.route,
-            'p-applicant-physical-injury-torso-back': applicantPhysicalInjuryTorsoBack.route,
-            'p-applicant-physical-injury-torso-pelvis': applicantPhysicalInjuryTorsoPelvis.route,
-            'p-applicant-physical-injury-torso-genitals':
-                applicantPhysicalInjuryTorsoGenitals.route,
-            'p-applicant-physical-injury-torso-skin': applicantPhysicalInjuryTorsoSkin.route,
-            'p-applicant-physical-injury-torso-muscle': applicantPhysicalInjuryTorsoMuscle.route,
-            'p-applicant-physical-injury-arms': applicantPhysicalInjuryArms.route,
-            'p-applicant-physical-injury-arms-shoulder': applicantPhysicalInjuryArmsShoulder.route,
-            'p-applicant-physical-injury-arms-arm': applicantPhysicalInjuryArmsArm.route,
-            'p-applicant-physical-injury-arms-elbow': applicantPhysicalInjuryArmsElbow.route,
-            'p-applicant-physical-injury-arms-wrist': applicantPhysicalInjuryArmsWrist.route,
-            'p-applicant-physical-injury-arms-hand': applicantPhysicalInjuryArmsHand.route,
-            'p-applicant-physical-injury-arms-digit': applicantPhysicalInjuryArmsDigit.route,
-            'p-applicant-physical-injury-arms-skin': applicantPhysicalInjuryArmsSkin.route,
-            'p-applicant-physical-injury-arms-muscle': applicantPhysicalInjuryArmsMuscle.route,
-            'p-applicant-physical-injury-legs': applicantPhysicalInjuryLegs.route,
-            'p-applicant-physical-injury-legs-hip': applicantPhysicalInjuryLegsHip.route,
-            'p-applicant-physical-injury-legs-leg': applicantPhysicalInjuryLegsLeg.route,
-            'p-applicant-physical-injury-legs-knee': applicantPhysicalInjuryLegsKnee.route,
-            'p-applicant-physical-injury-legs-ankle': applicantPhysicalInjuryLegsAnkle.route,
-            'p-applicant-physical-injury-legs-foot': applicantPhysicalInjuryLegsFoot.route,
-            'p-applicant-physical-injury-legs-toes': applicantPhysicalInjuryLegsToes.route,
-            'p-applicant-physical-injury-legs-skin': applicantPhysicalInjuryLegsSkin.route,
-            'p-applicant-physical-injury-legs-muscle': applicantPhysicalInjuryLegsMuscle.route,
-            'p--context-physical-injuries': contextPhysicalInjuries.route,
-            'p-applicant-infections': applicantInfections.route,
-            'p-applicant-select-infections': applicantSelectInfections.route,
-            'p-applicant-pregnancy': applicantPregnancy.route,
-            'p-applicant-treatment-for-physical-injuries':
-                applicantTreatmentForPhysicalInjuries.route,
-            'p-applicant-medical-help': applicantMedicalHelp.route,
-            'p-applicant-treatment-address': applicantTreatmentAddress.route,
-            'p--context-money': contextMoney.route,
-            'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.route,
-            'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.route,
-            'p-applicant-work-details-option': applicantWorkDetailsOption.route,
-            'p-applicant-expenses': applicantExpenses.route,
-            'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
-            'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
-            'p-applicant-fatal-claim': applicantFatalClaim.route,
-            'p-applicant-provide-additional-information':
-                applicantProvideAdditionalInformation.route,
-            'p-applicant-additional-information': applicantAdditionalInformation.route,
-            'p-applicant-describe-incident': applicantDescribeIncident.route,
-            'p-applicant-incident-description': applicantIncidentDescription.route,
-            'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
-            'p--context-additional-info': contextAdditionalInfo.route,
-            system: system.route,
-            'p--context-crime-impact': contextCrimeImpact.route,
-            'p-mainapplicant-parent': mainapplicantParent.route,
-            'p--context-authority': contextAuthority.route,
-            'p-mainapplicant-context-details': mainapplicantContextDetails.route,
-            'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
-            'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
-            'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
-            'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.route,
-            'p-mainapplicant-enter-your-telephone-number':
-                mainapplicantEnterYourTelephoneNumber.route,
-            'p-mainapplicant-relationship': mainapplicantRelationship.route,
-            'p-mainapplicant-shared-responsibility': mainapplicantSharedResponsibility.route,
-            'p-mainapplicant-care-order': mainapplicantCareOrder.route,
-            'p--context-pregnancy': contextPregnancy.route,
-            'p-applicant-unable-to-work': applicantUnableToWork.route,
-            'p--context-special-expenses': contextSpecialExpenses.route,
-            'p-applicant-special-expenses': applicantSpecialExpenses.route,
-            'p-applicant-over-16': applicantOver16.route,
-            'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
-            'p-applicant-affect-duration': applicantAffectDuration.route,
-            'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
-            'p-applicant-future-work': applicantFutureWork.route,
-            'p--context-rep-details': contextRepDetails.route,
-            'p-rep-type': repType.route,
-            'p-rep-confirmation-method': repConfirmationMethod.route,
-            'p-rep-name': repName.route,
-            'p-rep-address': repAddress.route,
-            'p-rep-organisation-address': repOrganisationAddress.route,
-            'p-rep-email-address': repEmailAddress.route,
-            'p-rep-telephone-number': repTelephoneNumber.route,
-            'p-rep-reference-number': repReferenceNumber.route,
-            'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
-            'p--contact-cica': contactCica.route,
-            'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
-            'p--context-mainapplicant-details': contextMainAppDetails.route,
-            'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
-            'p--download-your-answers': downloadAnswers.route,
-            'p--has-legal-authority': flowHasLegalAuthority.route,
-            'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
-            owner: owner.route,
-            'p--context-residency-and-nationality': contextResidency.route,
-            'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
-            'p-applicant-armed-forces': applicantArmedForces.route,
-            'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route,
-            'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
-            'p-applicant-british-citizen': applicantBritishCitizen.route,
-            'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,
-            'p-applicant-eea-citizen': applicantEeaCitizen.route,
-            'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.route,
-            'p-applicant-eu-citizen': applicantEuCitizen.route,
-            'p-applicant-ordinarily-resident': applicantOrdinarilyResident.route,
-            'p-applicant-other-citizen': applicantOtherCitizen.route,
-            'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
-            'p--context-deceased-details': contextDeceasedDetails.route,
-            'p-deceased-name': deceasedName.route,
-            'p-deceased-date-of-birth': deceasedDateOfBirth.route,
-            'p-deceased-date-of-death': deceasedDateOfDeath.route,
-            'p-deceased-address': deceasedAddress.route,
-            'p--context-funeral-costs': contextFuneralCost.route,
-            'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
-            'p-applicant-funeral-costs-other-contributor':
-                applicantFuneralCostsOtherContributor.route,
-            'p-applicant-funeral-costs-who-contributed': applicantFuneralCostsWhoContributed.route,
-            'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
-            'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
-            'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
-            'p-applicant-living-together': applicantLivingTogether.route,
-            'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
-            'p-applicant-living-apart': applicantLivingApart.route,
-            'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
-            'p-applicant-contact-more-details': applicantContactMoreDetails.route,
-            'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
-            'p-applicant-financial-help': applicantFinancialHelp.route,
-            'p-other-claimants': otherClaimants.route,
-            'p-other-claimants-details': otherClaimantsDetails.route,
-            'p-context-funeral-costs-proof': contextFuneralCostsProof.route,
-            'p-applicant-physical-help': applicantPhysicalHelp.route,
-            'p-applicant-claim-type': applicantClaimType.route,
-            'p-applicant-under-18': applicantUnder18.route,
-            'p--transition-someone-18-or-over-to-apply': transitionSomeone18OrOverToApply.route,
-            'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
-            'p--transition-apply-when-18': transitionApplyWhen18.route,
-            'p--transition-request-a-call-back': transitionRequestACallBack.route,
-            'p--transition-contact-us': transitionContactUs.route,
-            origin: origin.route,
-            'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
-            'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.route,     
-            'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
-            'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
+            't-about-application': {
+                id: 't-about-application',
+                initial: 'p-applicant-who-are-you-applying-for',
+                currentSectionId: 'p-applicant-who-are-you-applying-for',
+                progress: ['p-applicant-who-are-you-applying-for'],
+                states: {
+                    'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
+                    'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
+                    'p--was-the-crime-reported-to-police': wasTheCrimeReportedToPolice.route,
+                    'p-applicant-under-18': applicantUnder18.route,
+                    'p-applicant-you-cannot-get-compensation':
+                        applicantYouCannotGetCompensation.route,
+                    'p--context-crime-ref-no': contextCrimeReferenceNumber.route,
+                    'p--transition-someone-18-or-over-to-apply':
+                        transitionSomeone18OrOverToApply.route,
+                    'p-applicant-what-do-you-want-to-do': applicantWhatDoYouWantToDo.route,
+                    'p--transition-apply-when-18': transitionApplyWhen18.route,
+                    'p--transition-request-a-call-back': transitionRequestACallBack.route,
+                    'p--transition-contact-us': transitionContactUs.route,
+                    'p-applicant-fatal-claim': applicantFatalClaim.route,
+                    'p-applicant-claim-type': applicantClaimType.route,
+                    'p-applicant-someone-else-applied-before-for-this-crime':
+                        applicantSomeoneElseAppliedBeforeForThisCrime.route,
+                    'p-applicant-applied-before-for-this-crime':
+                        applicantAppliedBeforeForThisCrime.route,
+                    'p-proxy-someone-else-applied-before-for-this-crime':
+                        proxySomeoneElseAppliedBeforeForThisCrime.route,
+                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
+                }
+            },
+            't_applicant_personal-details': {
+                id: 't_applicant_personal-details',
+                referrer: '#task-list',
+                initial: 'p--context-applicant-details',
+                currentSectionId: 'p--context-applicant-details',
+                progress: ['p--context-applicant-details'],
+                states: {
+                    'p--context-applicant-details': contextApplicantDetails.route,
+                    'p-applicant-enter-your-name': applicantEnterYourName.route,
+                    'p-applicant-confirmation-method': applicantConfirmationMethod.route,
+                    'p-applicant-have-you-been-known-by-any-other-names':
+                        applicantHaveYouBeenKnownByAnyOtherNames.route,
+                    'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
+                    'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
+                    'p-applicant-enter-your-address': applicantEnterYourAddress.route,
+                    'p-applicant-enter-your-telephone-number':
+                        applicantEnterYourTelephoneNumber.route,
+                    'p-applicant-enter-your-email-address': applicantEnterYourEmailAddress.route
+                }
+            },
+            't_applicant_residency-and-nationality': {
+                id: 't_applicant_residency-and-nationality',
+                referrer: '#t_applicant_personal-details',
+                initial: 'p--context-residency-and-nationality',
+                currentSectionId: 'p--context-residency-and-nationality',
+                progress: ['p--context-residency-and-nationality'],
+                states: {
+                    'p--context-residency-and-nationality': contextResidency.route,
+                    'p-applicant-british-citizen': applicantBritishCitizen.route,
+                    'p-applicant-british-citizen-relative': applicantBritishCitizenRelative.route,
+                    'p-applicant-ordinarily-resident': applicantOrdinarilyResident.route,
+                    'p-applicant-eu-citizen': applicantEuCitizen.route,
+                    'p-applicant-eu-citizen-relative': applicantEuCitizenRelative.route,
+                    'p-applicant-eea-citizen': applicantEeaCitizen.route,
+                    'p-applicant-eea-citizen-relative': applicantEeaCitizenRelative.route,
+                    'p-applicant-other-citizen': applicantOtherCitizen.route,
+                    'p-applicant-armed-forces': applicantArmedForces.route,
+                    'p-applicant-armed-forces-relative': applicantArmedForcesRelative.route,
+                    'p-applicant-victim-human-trafficking': applicantVictimHumanTrafficking.route,
+                    'p-applicant-applied-for-asylum': applicantAppliedForAsylum.route
+                }
+            },
+            t_mainapplicant_authority: {
+                id: 't_mainapplicant_authority',
+                referrer: '#task-list',
+                initial: 'p--context-mainapplicant-details',
+                currentSectionId: 'p--context-mainapplicant-details',
+                progress: ['p--context-mainapplicant-details'],
+                states: {
+                    'p--context-mainapplicant-details': contextMainAppDetails.route,
+                    'p-mainapplicant-parent': mainapplicantParent.route,
+                    'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
+                    'p--has-legal-authority': flowHasLegalAuthority.route,
+                    'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
+                    'p--context-authority': contextAuthority.route,
+                    'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
+                    'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
+                    'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
+                    'p-mainapplicant-enter-your-telephone-number':
+                        mainapplicantEnterYourTelephoneNumber.route,
+                    'p-mainapplicant-enter-your-email-address':
+                        mainapplicantEnterYourEmailAddress.route,
+                    'p-mainapplicant-relationship': mainapplicantRelationship.route,
+                    'p-mainapplicant-shared-responsibility':
+                        mainapplicantSharedResponsibility.route,
+                    'p-mainapplicant-care-order': mainapplicantCareOrder.route
+                }
+            },
+            t_rep_details: {
+                id: 't_rep_detail',
+                referrer: '#task-list',
+                initial: 'p--context-rep-details',
+                currentSectionId: 'p--context-rep-details',
+                progress: ['p--context-rep-details'],
+                states: {
+                    'p--context-rep-details': contextRepDetails.route,
+                    'p-rep-type': repType.route,
+                    'p-rep-confirmation-method': repConfirmationMethod.route,
+                    'p-rep-name': repName.route,
+                    'p-rep-organisation-address': repOrganisationAddress.route,
+                    'p-rep-address': repAddress.route,
+                    'p-rep-email-address': repEmailAddress.route,
+                    'p-rep-telephone-number': repTelephoneNumber.route,
+                    'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
+                    'p-rep-reference-number': repReferenceNumber.route
+                }
+            },
+            't_applicant_relationship-to-deceased': {
+                id: 't_applicant_relationship-to-deceased',
+                referrer: '#task-list',
+                initial: 'p--context-relationship-to-deceased',
+                currentSectionId: 'p--context-relationship-to-deceased',
+                progress: ['p--context-relationship-to-deceased'],
+                states: {
+                    'p--context-relationship-to-deceased': contextRelationshipToDeceased.route,
+                    'p-applicant-relationship-to-deceased': applicantRelationshipToDeceased.route,
+                    'p-applicant-living-together': applicantLivingTogether.route,
+                    'p-applicant-living-apart': applicantLivingApart.route,
+                    'p-applicant-living-together-duration': applicantLivingTogetherDuration.route,
+                    'p-applicant-contact-with-deceased': applicantContactWithDeceased.route,
+                    'p-applicant-contact-more-details': applicantContactMoreDetails.route,
+                    'p-applicant-contact-out-of-touch': applicantContactOutOfTouch.route,
+                    'p-applicant-financial-help': applicantFinancialHelp.route,
+                    'p-applicant-physical-help': applicantPhysicalHelp.route,
+                    'p-other-claimants': otherClaimants.route,
+                    'p-other-claimants-details': otherClaimantsDetails.route
+                }
+            },
+            't_applicant_about-who-died': {
+                id: 't_applicant_about-who-died',
+                referrer: '#t_applicant_relationship-to-deceased',
+                initial: 'p--context-deceased-details',
+                currentSectionId: 'p--context-deceased-details',
+                progress: ['p--context-deceased-details'],
+                states: {
+                    'p--context-deceased-details': contextDeceasedDetails.route,
+                    'p-deceased-name': deceasedName.route,
+                    'p-deceased-date-of-birth': deceasedDateOfBirth.route,
+                    'p-deceased-date-of-death': deceasedDateOfDeath.route,
+                    'p-deceased-address': deceasedAddress.route
+                }
+            },
+            't_applicant_funeral-costs': {
+                id: 't_applicant_funeral-costs',
+                referrer: '#t_applicant_about-who-died',
+                initial: 'p--context-funeral-costs',
+                currentSectionId: 'p--context-funeral-costs',
+                progress: ['p--context-funeral-costs'],
+                states: {
+                    'p--context-funeral-costs': contextFuneralCost.route,
+                    'p-applicant-funeral-costs-paid': applicantFuneralCostsPaid.route,
+                    'p-applicant-funeral-costs-other-contributor':
+                        applicantFuneralCostsOtherContributor.route,
+                    'p-applicant-funeral-costs-who-contributed':
+                        applicantFuneralCostsWhoContributed.route,
+                    'p-applicant-funeral-costs-total': applicantFuneralCostsTotal.route,
+                    'p-context-funeral-costs-proof': contextFuneralCostsProof.route
+                }
+            },
+            't_applicant_about-the-crime': {
+                id: 't_applicant_about-the-crime',
+                referrer: '#task-list',
+                initial: 'p--before-you-continue',
+                currentSectionId: 'p--before-you-continue',
+                progress: ['p--before-you-continue'],
+                states: {
+                    'p--before-you-continue': beforeYouContinue.route,
+                    'p-applicant-did-the-crime-happen-once-or-over-time':
+                        applicantDidTheCrimeHappenOnceOrOverTime.route,
+                    'p-applicant-when-did-the-crime-happen': applicantWhenDidTheCrimeHappen.route,
+                    'p-applicant-when-did-the-crime-start': applicantWhenDidTheCrimeStart.route,
+                    'p-applicant-when-did-the-crime-stop': applicantWhenDidTheCrimeStop.route,
+                    'p-applicant-select-reasons-for-the-delay-in-making-your-application':
+                        applicantSelectReasonsForTheDelayInMakingYourApplication.route,
+                    'p-applicant-where-did-the-crime-happen': applicantWhereDidTheCrimeHappen.route,
+                    'p-applicant-where-in-england-did-it-happen':
+                        applicantWhereInEnglandDidItHappen.route,
+                    'p-applicant-where-in-scotland-did-it-happen':
+                        applicantWhereInScotlandDidItHappen.route,
+                    'p-applicant-where-in-wales-did-it-happen':
+                        applicantWhereInWalesDidItHappen.route,
+                    'p--when-was-the-crime-reported-to-police':
+                        whenWasTheCrimeReportedToPolice.route,
+                    'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
+                        applicantSelectReasonsForTheDelayInReportingTheCrimeToPolice.route,
+                    'p--which-police-force-is-investigating-the-crime':
+                        whichPoliceForceIsInvestigatingTheCrime.route,
+                    'p--whats-the-crime-reference-number': whatsTheCrimeReferenceNumber.route,
+                    'p-applicant-incident-type': applicantIncidentType.route,
+                    'p-applicant-describe-incident': applicantDescribeIncident.route,
+                    'p-applicant-incident-description': applicantIncidentDescription.route
+                }
+            },
+            't_offender_about-the-offender': {
+                id: 't_offender_about-the-offender',
+                referrer: '#t_applicant_about-the-crime',
+                initial: 'p--context-offender',
+                currentSectionId: 'p--context-offender',
+                progress: ['p--context-offender'],
+                states: {
+                    'p--context-offender': contextOffender.route,
+                    'p-offender-do-you-know-the-name-of-the-offender':
+                        offenderDoYouKnowTheNameOfTheOffender.route,
+                    'p-offender-do-you-have-contact-with-offender':
+                        offenderDoYouHaveContactWithOffender.route,
+                    'p-offender-describe-contact-with-offender':
+                        offenderDescribeContactWithOffender.route
+                }
+            },
+            't_applicant_about-injuries': {
+                id: 't_applicant_about-injuries',
+                referrer: '#task-list',
+                initial: 'p--context-physical-injuries',
+                currentSectionId: 'p--context-physical-injuries',
+                progress: ['p--context-physical-injuries'],
+                states: {
+                    'p--context-physical-injuries': contextPhysicalInjuries.route,
+                    'p-applicant-are-you-claiming-for-physical-injuries':
+                        applicantAreYouClaimingForPhysicalInjuries.route,
+                    'p-applicant-physical-injury': applicantPhysicalInjury.route,
+                    'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.route,
+                    'p-applicant-physical-injury-torso': applicantPhysicalInjuryTorso.route,
+                    'p-applicant-physical-injury-arms': applicantPhysicalInjuryArms.route,
+                    'p-applicant-physical-injury-legs': applicantPhysicalInjuryLegs.route,
+                    'p-applicant-physical-injury-upper-head':
+                        applicantPhysicalInjuryUpperHead.route,
+                    'p-applicant-physical-injury-upper-face':
+                        applicantPhysicalInjuryUpperFace.route,
+                    'p-applicant-physical-injury-upper-neck':
+                        applicantPhysicalInjuryUpperNeck.route,
+                    'p-applicant-physical-injury-upper-eye': applicantPhysicalInjuryUpperEye.route,
+                    'p-applicant-physical-injury-upper-ear': applicantPhysicalInjuryUpperEar.route,
+                    'p-applicant-physical-injury-upper-nose':
+                        applicantPhysicalInjuryUpperNose.route,
+                    'p-applicant-physical-injury-upper-mouth':
+                        applicantPhysicalInjuryUpperMouth.route,
+                    'p-applicant-physical-injury-upper-skin':
+                        applicantPhysicalInjuryUpperSkin.route,
+                    'p-applicant-physical-injury-upper-muscle':
+                        applicantPhysicalInjuryUpperMuscle.route,
+                    'p-applicant-physical-injury-torso-shoulder':
+                        applicantPhysicalInjuryTorsoShoulder.route,
+                    'p-applicant-physical-injury-torso-chest':
+                        applicantPhysicalInjuryTorsoChest.route,
+                    'p-applicant-physical-injury-torso-abdomen':
+                        applicantPhysicalInjuryTorsoAbdomen.route,
+                    'p-applicant-physical-injury-torso-back':
+                        applicantPhysicalInjuryTorsoBack.route,
+                    'p-applicant-physical-injury-torso-pelvis':
+                        applicantPhysicalInjuryTorsoPelvis.route,
+                    'p-applicant-physical-injury-torso-genitals':
+                        applicantPhysicalInjuryTorsoGenitals.route,
+                    'p-applicant-physical-injury-torso-skin':
+                        applicantPhysicalInjuryTorsoSkin.route,
+                    'p-applicant-physical-injury-torso-muscle':
+                        applicantPhysicalInjuryTorsoMuscle.route,
+                    'p-applicant-physical-injury-arms-shoulder':
+                        applicantPhysicalInjuryArmsShoulder.route,
+                    'p-applicant-physical-injury-arms-arm': applicantPhysicalInjuryArmsArm.route,
+                    'p-applicant-physical-injury-arms-elbow':
+                        applicantPhysicalInjuryArmsElbow.route,
+                    'p-applicant-physical-injury-arms-wrist':
+                        applicantPhysicalInjuryArmsWrist.route,
+                    'p-applicant-physical-injury-arms-hand': applicantPhysicalInjuryArmsHand.route,
+                    'p-applicant-physical-injury-arms-digit':
+                        applicantPhysicalInjuryArmsDigit.route,
+                    'p-applicant-physical-injury-arms-skin': applicantPhysicalInjuryArmsSkin.route,
+                    'p-applicant-physical-injury-arms-muscle':
+                        applicantPhysicalInjuryArmsMuscle.route,
+                    'p-applicant-physical-injury-legs-hip': applicantPhysicalInjuryLegsHip.route,
+                    'p-applicant-physical-injury-legs-leg': applicantPhysicalInjuryLegsLeg.route,
+                    'p-applicant-physical-injury-legs-knee': applicantPhysicalInjuryLegsKnee.route,
+                    'p-applicant-physical-injury-legs-ankle':
+                        applicantPhysicalInjuryLegsAnkle.route,
+                    'p-applicant-physical-injury-legs-foot': applicantPhysicalInjuryLegsFoot.route,
+                    'p-applicant-physical-injury-legs-toes': applicantPhysicalInjuryLegsToes.route,
+                    'p-applicant-physical-injury-legs-skin': applicantPhysicalInjuryLegsSkin.route,
+                    'p-applicant-physical-injury-legs-muscle':
+                        applicantPhysicalInjuryLegsMuscle.route,
+                    'p-applicant-infections': applicantInfections.route,
+                    'p-applicant-select-infections': applicantSelectInfections.route,
+                    'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
+                    'p--context-pregnancy': contextPregnancy.route,
+                    'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
+                    'p-applicant-pregnancy': applicantPregnancy.route,
+                    'p--context-dmi-details': contextDmiDetails.route,
+                    'p-applicant-do-you-have-disabling-mental-injury':
+                        applicantDoYouHaveDisablingMentalInjury.route,
+                    'p-applicant-mental-injury-duration': applicantMentalInjuryDuration.route
+                }
+            },
+            't_applicant_impact-of-injuries': {
+                id: 't_applicant_impact-of-injuries',
+                referrer: '#t_applicant_about-injuries',
+                initial: 'p--context-crime-impact',
+                currentSectionId: 'p--context-crime-impact',
+                progress: ['p--context-crime-impact'],
+                states: {
+                    'p--context-crime-impact': contextCrimeImpact.route,
+                    'p-applicant-over-16': applicantOver16.route,
+                    'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.route,
+                    'p-applicant-work-details-option': applicantWorkDetailsOption.route,
+                    'p-applicant-affected-daily-capacity': applicantAffectedDailyCapacity.route,
+                    'p-applicant-unable-to-work': applicantUnableToWork.route,
+                    'p-applicant-affect-duration': applicantAffectDuration.route,
+                    'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.route,
+                    'p-applicant-affect-future-duration': applicantAffectFutureDuration.route,
+                    'p-applicant-future-work': applicantFutureWork.route,
+                    'p-applicant-affect-on-daily-life-dmi': applicantAffectOnDailyLifeDmi.route,
+                    'p--context-special-expenses': contextSpecialExpenses.route,
+                    'p-applicant-special-expenses': applicantSpecialExpenses.route
+                }
+            },
+            't_applicant_about-treatment': {
+                id: 't_applicant_about-treatment',
+                referrer: '#t_applicant_impact-of-injuries',
+                initial: 'p--context-treatment',
+                currentSectionId: 'p--context-treatment',
+                progress: ['p--context-treatment'],
+                states: {
+                    'p--context-treatment': contextTreatment.route,
+                    'p-applicant-treatment-for-physical-injuries':
+                        applicantTreatmentForPhysicalInjuries.route,
+                    'p-applicant-has-your-treatment-finished-dmi':
+                        applicantHasYourTreatmentFinishedDmi.route,
+                    'p-applicant-are-you-registered-with-gp': applicantAreYouRegisteredWithGp.route,
+                    'p-applicant-have-you-seen-a-gp': applicantHaveYouSeenAGp.route,
+                    'p-gp-enter-your-address': gpEnterYourAddress.route,
+                    'p-applicant-dentist-visited': applicantDentistVisited.route,
+                    'p-applicant-dentist-address': applicantDentistAddress.route,
+                    'p-applicant-medical-help': applicantMedicalHelp.route,
+                    'p-applicant-treatment-address': applicantTreatmentAddress.route,
+                    'p-applicant-select-treatments': applicantSelectTreatments.route
+                }
+            },
+            't_applicant_other-compensation': {
+                id: 't_applicant_other-compensation',
+                referrer: '#task-list',
+                initial: 'p--context-compensation',
+                currentSectionId: 'p--context-compensation',
+                progress: ['p--context-compensation'],
+                states: {
+                    'p--context-compensation': contextCompensation.route,
+                    'p-applicant-have-you-applied-to-us-before':
+                        applicantHaveYouAppliedToUsBefore.route,
+                    'p-applicant-have-you-applied-for-or-received-any-other-compensation':
+                        applicantHaveYouAppliedForOrReceivedAnyOtherCompensation.route,
+                    'p-applicant-who-did-you-apply-to': applicantWhoDidYouApplyTo.route,
+                    'p-applicant-applied-for-other-compensation-briefly-explain-why-not':
+                        applicantAppliedForOtherCompensationBrieflyExplainWhyNot.route,
+                    'p-applicant-has-a-decision-been-made': applicantHasADecisionBeenMade.route,
+                    'p-applicant-when-will-you-find-out': applicantWhenWillYouFindOut.route,
+                    'p-applicant-how-much-was-award': applicantHowMuchWasAward.route
+                }
+            },
+            't_applicant_additional-information': {
+                id: 't_applicant_additional-information',
+                referrer: '#task-list',
+                initial: 'p--context-additional-info',
+                currentSectionId: 'p--context-additional-info',
+                progress: ['p--context-additional-info'],
+                states: {
+                    'p--context-additional-info': contextAdditionalInfo.route,
+                    'p-applicant-provide-additional-information':
+                        applicantProvideAdditionalInformation.route,
+                    'p-applicant-additional-information': applicantAdditionalInformation.route
+                }
+            },
+            't-check-your-answers': {
+                id: 't-check-your-answers',
+                referrer: '#task-list',
+                initial: 'p--check-your-answers',
+                currentSectionId: 'p--check-your-answers',
+                progress: ['p--check-your-answers'],
+                states: {
+                    'p--check-your-answers': checkYourAnswers.route,
+                    'p-applicant-declaration': applicantDeclaration.route,
+                    'p-mainapplicant-declaration-12-and-over':
+                        mainapplicantDeclaration12AndOver.route,
+                    'p-mainapplicant-declaration-under-12': mainapplicantDeclarationUnder12.route,
+                    'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
+                    'p-rep-declaration-under-12': repDeclarationUnder12.route,
+                    'p-applicant-declaration-deceased': applicantDeclarationDeceased.route,
+                    'p-mainapplicant-declaration-12-and-over-deceased':
+                        mainapplicantDeclarationOver12Deceased.route,
+                    'p-mainapplicant-declaration-under-12-deceased':
+                        mainapplicantDeclarationUnder12Deceased.route,
+                    'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
+                    'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
+                    'p--confirmation': confirmation.route,
+                    'p--download-your-answers': downloadAnswers.route
+                }
+            },
+            'task-list': {
+                id: 'task-list',
+                initial: 'p-task-list',
+                currentSectionId: 'p-task-list',
+                progress: ['p-task-list'],
+                states: {
+                    'p-task-list': tasklist.route
+                }
+            },
+            'task-list__applicability-status': {
+                id: 'task-list__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t-about-application__completion-status',
+                                        'completed'
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t-about-application__completion-status',
+                                        'incomplete'
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            system: {
+                id: 'system',
+                initial: 'system',
+                currentSectionId: 'system',
+                progress: ['system'],
+                states: {
+                    system: system.route,
+                    owner: owner.route,
+                    origin: origin.route,
+                    'p--transition': transition.route
+                }
+            },
+            't-about-application__completion-status': {
+                id: 't-about-application__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T-ABOUT-APPLICATION': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T-ABOUT-APPLICATION': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't-about-application__applicability-status': {
+                id: 't-about-application__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_applicant_personal-details__completion-status': {
+                id: 't_applicant_personal-details__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_PERSONAL-DETAILS': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_PERSONAL-DETAILS': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_personal-details__applicability-status': {
+                id: 't_applicant_personal-details__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_applicant_residency-and-nationality__completion-status': {
+                id: 't_applicant_residency-and-nationality__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_RESIDENCY-AND-NATIONALITY': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_RESIDENCY-AND-NATIONALITY': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_residency-and-nationality__applicability-status': {
+                id: 't_applicant_residency-and-nationality__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_mainapplicant_authority__completion-status': {
+                id: 't_mainapplicant_authority__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            COMPLETE__T_MAINAPPLICANT_AUTHORITY: [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            CASCADE__T_MAINAPPLICANT_AUTHORITY: [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_mainapplicant_authority__applicability-status': {
+                id: 't_mainapplicant_authority__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        false,
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        false,
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_rep_details__completion-status': {
+                id: 't_rep_details__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            COMPLETE__T_REP_DETAILS: [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            CASCADE__T_REP_DETAILS: [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_rep_details__applicability-status': {
+                id: 't_rep_details__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_relationship-to-deceased__completion-status': {
+                id: 't_applicant_relationship-to-deceased__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_RELATIONSHIP-TO-DECEASED': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_RELATIONSHIP-TO-DECEASED': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_relationship-to-deceased__applicability-status': {
+                id: 't_applicant_relationship-to-deceased__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'nonDeceased']
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-who-died__completion-status': {
+                id: 't_applicant_about-who-died__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-WHO-DIED': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-WHO-DIED': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-who-died__applicability-status': {
+                id: 't_applicant_about-who-died__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'nonDeceased']
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_funeral-costs__completion-status': {
+                id: 't_applicant_funeral-costs__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_FUNERAL-COSTS': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_FUNERAL-COSTS': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_funeral-costs__applicability-status': {
+                id: 't_applicant_funeral-costs__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'nonDeceased']
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-the-crime__completion-status': {
+                id: 't_applicant_about-the-crime__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-THE-CRIME': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-THE-CRIME': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-the-crime__applicability-status': {
+                id: 't_applicant_about-the-crime__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_offender_about-the-offender__completion-status': {
+                id: 't_offender_about-the-offender__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_OFFENDER_ABOUT-THE-OFFENDER': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_OFFENDER_ABOUT-THE-OFFENDER': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_offender_about-the-offender__applicability-status': {
+                id: 't_offender_about-the-offender__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_applicant_about-injuries__completion-status': {
+                id: 't_applicant_about-injuries__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-INJURIES': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-INJURIES': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-injuries__applicability-status': {
+                id: 't_applicant_about-injuries__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_impact-of-injuries__completion-status': {
+                id: 't_applicant_impact-of-injuries__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_IMPACT-OF-INJURIES': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_IMPACT-OF-INJURIES': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_impact-of-injuries__applicability-status': {
+                id: 't_applicant_impact-of-injuries__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-treatment__completion-status': {
+                id: 't_applicant_about-treatment__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ABOUT-TREATMENT': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ABOUT-TREATMENT': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_about-treatment__applicability-status': {
+                id: 't_applicant_about-treatment__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_other-compensation__completion-status': {
+                id: 't_applicant_other-compensation__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_OTHER-COMPENSATION': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_OTHER-COMPENSATION': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_other-compensation__applicability-status': {
+                id: 't_applicant_other-compensation__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't_applicant_additional-information__completion-status': {
+                id: 't_applicant_additional-information__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T_APPLICANT_ADDITIONAL-INFORMATION': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T_APPLICANT_ADDITIONAL-INFORMATION': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't_applicant_additional-information__applicability-status': {
+                id: 't_applicant_additional-information__applicability-status',
+                initial: 'applicable',
+                currentSectionId: 'applicable',
+                progress: ['applicable'],
+                states: {
+                    applicable: {}
+                }
+            },
+            't-check-your-answers__completion-status': {
+                id: 't-check-your-answers__completion-status',
+                initial: 'incomplete',
+                currentSectionId: 'incomplete',
+                progress: ['incomplete'],
+                states: {
+                    incomplete: {
+                        on: {
+                            'COMPLETE__T-CHECK-YOUR-ANSWERS': [
+                                {
+                                    target: 'completed'
+                                }
+                            ]
+                        }
+                    },
+                    completed: {
+                        on: {
+                            'CASCADE__T-CHECK-YOUR-ANSWERS': [
+                                {
+                                    target: 'incomplete'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            't-check-your-answers__applicability-status': {
+                id: 't-check-your-answers__applicability-status',
+                initial: 'cannotStartYet',
+                currentSectionId: 'cannotStartYet',
+                progress: ['cannotStartYet'],
+                states: {
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t-about-application__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_residency-and-nationality__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_rep_details__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_rep_details__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_offender_about-the-offender__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__applicability-status',
+                                                'notApplicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_other-compensation__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_additional-information__completion-status',
+                                            'completed'
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'or',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t-about-application__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_residency-and-nationality__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_rep_details__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_rep_details__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_relationship-to-deceased__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-who-died__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_funeral-costs__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_offender_about-the-offender__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_impact-of-injuries__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-treatment__applicability-status',
+                                                'applicable'
+                                            ]
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_other-compensation__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_additional-information__completion-status',
+                                            'incomplete'
+                                        ]
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         }
     },
-    answers: {},
     onSubmit: {
         id: 'task0',
         type: 'sequential',
@@ -747,7 +2410,6 @@ module.exports = {
             }
         ]
     },
-    progress: ['p-applicant-who-are-you-applying-for'],
     taxonomies: {
         theme: {
             l10n: {

@@ -197,7 +197,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-relationship-to-deceased',
+                    target: '#t_applicant_relationship-to-deceased',
                     cond: [
                         'and',
                         ['!=', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
@@ -235,7 +235,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }
