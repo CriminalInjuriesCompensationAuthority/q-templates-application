@@ -42,7 +42,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-deceased-details'
+                    target: '#t_applicant_about-who-died'
                 }
             ]
         }

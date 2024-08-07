@@ -49,7 +49,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-relationship-to-deceased',
+                    target: '#t_applicant_relationship-to-deceased',
                     cond: [
                         'and',
                         ['!=', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
@@ -66,7 +66,7 @@ module.exports = {
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
                 },
                 {
-                    target: 'p--before-you-continue'
+                    target: '#task-list'
                 }
             ]
         }
