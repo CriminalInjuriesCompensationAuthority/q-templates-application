@@ -111,7 +111,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-offender',
+                    target: '#t_offender_about-the-offender',
                     cond: [
                         'and',
                         ['|role.all', 'deceased'],

@@ -81,7 +81,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-physical-injuries',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-offender-do-you-have-contact-with-offender.q-offender-do-you-have-contact-with-offender',

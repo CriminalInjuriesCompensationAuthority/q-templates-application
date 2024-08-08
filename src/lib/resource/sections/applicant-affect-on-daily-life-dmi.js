@@ -76,7 +76,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-treatment',
+                    target: '#t_applicant_about-treatment',
                     cond: [
                         'and',
                         [

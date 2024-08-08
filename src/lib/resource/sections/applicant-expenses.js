@@ -99,7 +99,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-compensation'
+                    target: '#task-list'
                 }
             ]
         }

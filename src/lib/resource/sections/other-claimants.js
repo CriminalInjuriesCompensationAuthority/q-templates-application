@@ -101,7 +101,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-deceased-details',
+                    target: '#t_applicant_about-who-died',
                     cond: ['==', '$.answers.p-other-claimants.q-other-claimants', false]
                 },
                 {
