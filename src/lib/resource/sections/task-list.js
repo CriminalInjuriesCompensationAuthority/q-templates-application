@@ -12,33 +12,13 @@ module.exports = {
                     language: 'en',
                     namespace: 'task-list',
                     resources: {
-                        's-about-application': {
-                            title: {
-                                adult: {
-                                    capable: 'Tell us about your application'
-                                },
-                                proxy: "Tell us about the victim's application",
-                                deceased: "Tell us about the claimant's application"
-                            },
-                            tasks: {
-                                't-about-application': {
-                                    title: {
-                                        adult: {
-                                            capable: 'About your application'
-                                        },
-                                        proxy: "About the victim's application",
-                                        deceased: "About the claimant's application"
-                                    }
-                                }
-                            }
-                        },
                         s_applicant_details: {
                             title: {
                                 adult: {
                                     capable: 'Provide your details'
                                 },
-                                proxy: "Provide the victim's details",
-                                deceased: "Provide the claimant's details"
+                                proxy: "Provide details of the victim",
+                                deceased: "Provide details of the person who is claiming"
                             },
                             tasks: {
                                 't_applicant_personal-details': {
@@ -47,7 +27,7 @@ module.exports = {
                                             capable: 'Your details'
                                         },
                                         proxy: "Victim's details",
-                                        deceased: "Claimant's details"
+                                        deceased: "Claimant details"
                                     }
                                 },
                                 't_applicant_residency-and-nationality': {
@@ -55,8 +35,62 @@ module.exports = {
                                         adult: {
                                             capable: 'Your residency and nationality'
                                         },
-                                        proxy: "Victim's residency and nationality",
-                                        deceased: "Claimant's residency and nationality"
+                                        proxy: "About the victim's residency and nationality",
+                                        deceased: "About the claimant's residency and nationality"
+                                    }
+                                }
+                            }
+                        },
+                        s_applicant_authority: {
+                            title: {
+                                adult: {
+                                    capable: 'Provide your details'
+                                },
+                                deceased: "Provide details of the person acting on behalf of the claimant"
+                            }
+                        },
+                        's_applicant_about-deceased': {
+                            tasks: {
+                                't_applicant_relationship-to-deceased': {
+                                    title: {
+                                        myself: {
+                                            deceased: 'Your relationship to the person who died'
+                                        },
+                                        proxy: {
+                                            deceased: "The claimant's relationship to the person who died"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        's_applicant_about-injuries': {
+                            title: {
+                                myself: {
+                                    nonDeceased: 'Tell us about your injuries and treatment'
+                                },
+                                proxy: {
+                                    nonDeceased: "Tell us about the victim's injuries and treatment"
+                                }
+                            },
+                            tasks: {
+                                't_applicant_about-injuries': {
+                                    title: {
+                                        myself: {
+                                            nonDeceased: 'About your injuries'
+                                        },
+                                        proxy: {
+                                            nonDeceased: "About the victim's injuries"
+                                        }
+                                    }
+                                },
+                                't_applicant_about-treatment': {
+                                    title: {
+                                        myself: {
+                                            nonDeceased: 'Your treatment'
+                                        },
+                                        proxy: {
+                                            nonDeceased: "The victim's treatment"
+                                        }
                                     }
                                 }
                             }
@@ -81,35 +115,11 @@ module.exports = {
                             sections: [
                                 {
                                     id: 's-about-application',
-                                    title: [
-                                        '|l10nt',
-                                        ['|role.all', 'proxy', 'nonDeceased'],
-                                        's-about-application.title.proxy',
-                                        [
-                                            'or',
-                                            ['|role.all', 'myself', 'deceased'],
-                                            ['|role.all', 'myself', 'nonDeceased']
-                                        ],
-                                        's-about-application.title.adult.capable',
-                                        ['|role.all', 'proxy', 'deceased'],
-                                        's-about-application.title.deceased'
-                                    ],
+                                    title: 'Tell us about your application',
                                     tasks: [
                                         {
                                             id: 't-about-application',
-                                            title: [
-                                                '|l10nt',
-                                                ['|role.all', 'proxy', 'nonDeceased'],
-                                                's-about-application.tasks.t-about-application.title.proxy',
-                                                [
-                                                    'or',
-                                                    ['|role.all', 'myself', 'deceased'],
-                                                    ['|role.all', 'myself', 'nonDeceased']
-                                                ],
-                                                's-about-application.tasks.t-about-application.title.adult.capable',
-                                                ['|role.all', 'proxy', 'deceased'],
-                                                's-about-application.tasks.t-about-application.title.deceased'
-                                            ]
+                                            title: 'About your application'
                                         }
                                     ]
                                 },
@@ -165,25 +175,37 @@ module.exports = {
                                 },
                                 {
                                     id: 's_applicant_authority',
-                                    title: "Provide the applicant's details",
+                                    title:  [
+                                        '|l10nt',
+                                        ['|role.all', 'proxy', 'nonDeceased'],
+                                        's_applicant_authority.title.proxy',
+                                        ['|role.all', 'proxy', 'deceased'],
+                                        's_applicant_authority.title.deceased'
+                                    ],
                                     tasks: [
                                         {
                                             id: 't_mainapplicant_authority',
-                                            title: "Applicant's details"
+                                            title: "Details of the person acting on behalf of the victim"
                                         },
                                         {
                                             id: 't_rep_details',
-                                            title: "Representative's details"
+                                            title: "Details of the person acting on behalf of the claimant"
                                         }
                                     ]
                                 },
                                 {
                                     id: 's_applicant_about-deceased',
-                                    title: 'About the person who died',
+                                    title: 'Tell us about the person who died',
                                     tasks: [
                                         {
                                             id: 't_applicant_relationship-to-deceased',
-                                            title: 'Relationship with the person who died'
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself', 'deceased'],
+                                                's_applicant_about-deceased.tasks.t_applicant_relationship-to-deceased.title.myself.deceased',
+                                                ['|role.all', 'proxy', 'deceased'],
+                                                's_applicant_about-deceased.tasks.t_applicant_relationship-to-deceased.title.proxy.deceased'
+                                            ]
                                         },
                                         {
                                             id: 't_applicant_about-who-died',
@@ -191,39 +213,57 @@ module.exports = {
                                         },
                                         {
                                             id: 't_applicant_funeral-costs',
-                                            title: 'About the funeral expenses'
+                                            title: 'Funeral costs'
                                         }
                                     ]
                                 },
                                 {
                                     id: 's_applicant_about-the-crime',
-                                    title: 'About the crime',
+                                    title: 'Provide details of the crime and offender',
                                     tasks: [
                                         {
                                             id: 't_applicant_about-the-crime',
-                                            title: 'Tell us about the crime'
+                                            title: 'About the crime'
                                         },
                                         {
                                             id: 't_offender_about-the-offender',
-                                            title: 'Tell us about the offender'
+                                            title: 'About the offender'
                                         }
                                     ]
                                 },
                                 {
                                     id: 's_applicant_about-injuries',
-                                    title: 'About your injuries and treatment',
+                                    title: [
+                                        '|l10nt',
+                                        ['|role.all', 'myself', 'nonDeceased'],
+                                        's_applicant_about-injuries.title.myself.nonDeceased',
+                                        ['|role.all', 'proxy', 'nonDeceased'],
+                                        's_applicant_about-injuries.title.proxy.nonDeceased'
+                                    ],
                                     tasks: [
                                         {
                                             id: 't_applicant_about-injuries',
-                                            title: 'Tell us about your injuries'
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself', 'nonDeceased'],
+                                                's_applicant_about-injuries.tasks.t_applicant_about-injuries.title.myself.nonDeceased',
+                                                ['|role.all', 'proxy', 'nonDeceased'],
+                                                's_applicant_about-injuries.tasks.t_applicant_about-injuries.title.proxy.nonDeceased'
+                                            ]
                                         },
                                         {
                                             id: 't_applicant_impact-of-injuries',
-                                            title: 'Impact of your injuries'
+                                            title: 'The impact the injuries have had'
                                         },
                                         {
                                             id: 't_applicant_about-treatment',
-                                            title: 'About your treatment'
+                                            title: [
+                                                '|l10nt',
+                                                ['|role.all', 'myself', 'nonDeceased'],
+                                                's_applicant_about-injuries.tasks.t_applicant_about-treatment.title.myself.nonDeceased',
+                                                ['|role.all', 'proxy', 'nonDeceased'],
+                                                's_applicant_about-injuries.tasks.t_applicant_about-treatment.title.proxy.nonDeceased'
+                                            ]
                                         }
                                     ]
                                 },
