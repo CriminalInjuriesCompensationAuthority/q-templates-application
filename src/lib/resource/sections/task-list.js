@@ -43,10 +43,10 @@ module.exports = {
                         },
                         s_applicant_authority: {
                             title: {
-                                adult: {
-                                    capable: 'Provide your details'
-                                },
-                                deceased: "Provide details of the person acting on behalf of the claimant"
+                                proxy: {
+                                    deceased: 'Provide details of the person acting on behalf of the claimant',
+                                    nonDeceased: 'Provide details of the person acting on behalf of the victim'
+                                }
                             }
                         },
                         's_applicant_about-deceased': {
@@ -178,9 +178,9 @@ module.exports = {
                                     title:  [
                                         '|l10nt',
                                         ['|role.all', 'proxy', 'nonDeceased'],
-                                        's_applicant_authority.title.proxy',
+                                        's_applicant_authority.title.proxy.nonDeceased',
                                         ['|role.all', 'proxy', 'deceased'],
-                                        's_applicant_authority.title.deceased'
+                                        's_applicant_authority.title.proxy.deceased'
                                     ],
                                     tasks: [
                                         {
@@ -269,21 +269,21 @@ module.exports = {
                                 },
                                 {
                                     id: 's_applicant_other-compensation',
-                                    title: 'Other compensation',
+                                    title: 'Provide details of other compensation applications',
                                     tasks: [
                                         {
                                             id: 't_applicant_other-compensation',
-                                            title: 'Tell us about other compensation'
+                                            title: 'Other compensation'
                                         }
                                     ]
                                 },
                                 {
                                     id: 's_applicant_additional-information',
-                                    title: 'Additional information',
+                                    title: 'Tell us about anything else relevant to the application',
                                     tasks: [
                                         {
                                             id: 't_applicant_additional-information',
-                                            title: "Is there anything else you'd like to tell us?"
+                                            title: "Additional information"
                                         }
                                     ]
                                 },
@@ -293,7 +293,7 @@ module.exports = {
                                     tasks: [
                                         {
                                             id: 't-check-your-answers',
-                                            title: "Review what you've told us"
+                                            title: "Check your answers and submit application"
                                         }
                                     ]
                                 }
