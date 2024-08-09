@@ -1029,10 +1029,75 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.all', 'proxy', 'mainapplicant']
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ],
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ]
                                 },
                                 {
                                     target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        false,
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1042,7 +1107,31 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['==', ['|role.all', 'proxy', 'mainapplicant'], false]
+                                    cond: [
+                                        '==',
+                                        false,
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        [
+                                            'or',
+                                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                                            ['|role.all', 'proxy', 'child']
+                                        ],
+                                    ]
                                 },
                                 {
                                     target: 'applicable'
@@ -1089,10 +1178,59 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.all', 'proxy', 'rep']
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ],
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
                                 },
                                 {
                                     target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        false,
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1102,7 +1240,23 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: ['==', ['|role.all', 'proxy', 'rep'], false]
+                                    cond: [
+                                        '==',
+                                        false,
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                    ]
                                 },
                                 {
                                     target: 'applicable'
@@ -1393,16 +1547,61 @@ module.exports = {
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
                 progress: ['notApplicable'],
-                states: {
+                states:  {
                     notApplicable: {
                         on: {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.all', 'nonDeceased']
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ],
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1413,6 +1612,18 @@ module.exports = {
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'incomplete'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'applicable'
@@ -1453,16 +1664,79 @@ module.exports = {
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
                 progress: ['notApplicable'],
-                states: {
+                states:  {
                     notApplicable: {
                         on: {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.all', 'nonDeceased']
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ],
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1473,6 +1747,26 @@ module.exports = {
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'applicable'
@@ -1519,10 +1813,73 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'applicable',
-                                    cond: ['|role.all', 'nonDeceased']
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ],
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'completed'
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable',
+                                    cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet'
                                 }
                             ]
                         }
@@ -1533,6 +1890,26 @@ module.exports = {
                                 {
                                     target: 'notApplicable',
                                     cond: ['|role.all', 'deceased']
+                                },
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'and',
+                                        [
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                                'incomplete'
+                                            ]
+                                        ],
+                                        ['|role.all', 'nonDeceased']
+                                    ]
                                 },
                                 {
                                     target: 'applicable'
