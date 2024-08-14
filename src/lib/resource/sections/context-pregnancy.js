@@ -50,7 +50,7 @@ module.exports = {
                 {
                     target: 'p-applicant-pregnancy',
                     cond: [
-                        '==',
+                        'includes',
                         '$.answers.p-applicant-incident-type.q-applicant-incident-type',
                         'SEX'
                     ]
