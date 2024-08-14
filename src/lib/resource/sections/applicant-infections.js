@@ -101,7 +101,7 @@ module.exports = {
                         'and',
                         ['==', '$.answers.p-applicant-infections.q-applicant-infections', 'yes'],
                         [
-                            '==',
+                            'includes',
                             '$.answers.p-applicant-incident-type.q-applicant-incident-type',
                             'SEX'
                         ]
