@@ -875,6 +875,48 @@ module.exports = {
                     'p-task-list': tasklist.route
                 }
             },
+            'task-list__applicability-status': {
+                id: 'task-list__applicability-status',
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
+                states: {
+                    notApplicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t-about-application__completion-status',
+                                        'completed'
+                                    ]
+                                },
+                                {
+                                    target: 'notApplicable'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'notApplicable',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t-about-application__completion-status',
+                                        'incomplete'
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
             system: {
                 id: 'system',
                 initial: 'system',
@@ -1040,8 +1082,8 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
-                                    ],
+                                        ]
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1056,7 +1098,7 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
+                                        ]
                                     ]
                                 },
                                 {
@@ -1081,7 +1123,7 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
+                                        ]
                                     ]
                                 },
                                 {
@@ -1093,7 +1135,7 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
+                                        ]
                                     ]
                                 },
                                 {
@@ -1114,7 +1156,7 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
+                                        ]
                                     ]
                                 },
                                 {
@@ -1130,7 +1172,7 @@ module.exports = {
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ],
+                                        ]
                                     ]
                                 },
                                 {
@@ -1186,7 +1228,7 @@ module.exports = {
                                             'completed'
                                         ],
                                         ['|role.all', 'proxy', 'adult', 'capable']
-                                    ],
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1223,11 +1265,7 @@ module.exports = {
                                 },
                                 {
                                     target: 'notApplicable',
-                                    cond: [
-                                        '==',
-                                        false,
-                                        ['|role.all', 'proxy', 'adult', 'capable']
-                                    ]
+                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
                                 },
                                 {
                                     target: 'cannotStartYet'
@@ -1240,11 +1278,7 @@ module.exports = {
                             UPDATE__STATUS: [
                                 {
                                     target: 'notApplicable',
-                                    cond: [
-                                        '==',
-                                        false,
-                                        ['|role.all', 'proxy', 'adult', 'capable']
-                                    ]
+                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1547,7 +1581,7 @@ module.exports = {
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
                 progress: ['notApplicable'],
-                states:  {
+                states: {
                     notApplicable: {
                         on: {
                             UPDATE__STATUS: [
@@ -1561,7 +1595,7 @@ module.exports = {
                                             'completed'
                                         ],
                                         ['|role.all', 'nonDeceased']
-                                    ],
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1664,7 +1698,7 @@ module.exports = {
                 initial: 'notApplicable',
                 currentSectionId: 'notApplicable',
                 progress: ['notApplicable'],
-                states:  {
+                states: {
                     notApplicable: {
                         on: {
                             UPDATE__STATUS: [
@@ -1683,7 +1717,7 @@ module.exports = {
                                             'completed'
                                         ],
                                         ['|role.all', 'nonDeceased']
-                                    ],
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1826,7 +1860,7 @@ module.exports = {
                                             'completed'
                                         ],
                                         ['|role.all', 'nonDeceased']
-                                    ],
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
