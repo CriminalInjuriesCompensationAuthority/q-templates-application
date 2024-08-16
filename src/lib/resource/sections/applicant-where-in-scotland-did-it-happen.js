@@ -111,7 +111,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#t_offender_about-the-offender',
+                    target: '#task-list',
                     cond: [
                         'and',
                         ['|role.all', 'deceased'],

@@ -515,7 +515,7 @@ module.exports = {
             },
             't_applicant_residency-and-nationality': {
                 id: 't_applicant_residency-and-nationality',
-                referrer: '#t_applicant_personal-details',
+                referrer: '#task-list',
                 initial: 'p--context-residency-and-nationality',
                 currentSectionId: 'p--context-residency-and-nationality',
                 progress: ['p--context-residency-and-nationality'],
@@ -603,7 +603,7 @@ module.exports = {
             },
             't_applicant_about-who-died': {
                 id: 't_applicant_about-who-died',
-                referrer: '#t_applicant_relationship-to-deceased',
+                referrer: '#task-list',
                 initial: 'p--context-deceased-details',
                 currentSectionId: 'p--context-deceased-details',
                 progress: ['p--context-deceased-details'],
@@ -617,7 +617,7 @@ module.exports = {
             },
             't_applicant_funeral-costs': {
                 id: 't_applicant_funeral-costs',
-                referrer: '#t_applicant_about-who-died',
+                referrer: '#task-list',
                 initial: 'p--context-funeral-costs',
                 currentSectionId: 'p--context-funeral-costs',
                 progress: ['p--context-funeral-costs'],
@@ -668,7 +668,7 @@ module.exports = {
             },
             't_offender_about-the-offender': {
                 id: 't_offender_about-the-offender',
-                referrer: '#t_applicant_about-the-crime',
+                referrer: '#task-list',
                 initial: 'p--context-offender',
                 currentSectionId: 'p--context-offender',
                 progress: ['p--context-offender'],
@@ -766,7 +766,7 @@ module.exports = {
             },
             't_applicant_impact-of-injuries': {
                 id: 't_applicant_impact-of-injuries',
-                referrer: '#t_applicant_about-injuries',
+                referrer: '#task-list',
                 initial: 'p--context-crime-impact',
                 currentSectionId: 'p--context-crime-impact',
                 progress: ['p--context-crime-impact'],
@@ -788,7 +788,7 @@ module.exports = {
             },
             't_applicant_about-treatment': {
                 id: 't_applicant_about-treatment',
-                referrer: '#t_applicant_impact-of-injuries',
+                referrer: '#task-list',
                 initial: 'p--context-treatment',
                 currentSectionId: 'p--context-treatment',
                 progress: ['p--context-treatment'],
@@ -1211,9 +1211,9 @@ module.exports = {
             },
             't_rep_details__applicability-status': {
                 id: 't_rep_details__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                progress: ['applicable'],
+                initial: 'notApplicable',
+                currentSectionId: 'notApplicable',
+                progress: ['notApplicable'],
                 states: {
                     notApplicable: {
                         on: {
@@ -1221,25 +1221,99 @@ module.exports = {
                                 {
                                     target: 'applicable',
                                     cond: [
-                                        'and',
+                                        'or',
                                         [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
-                                            'completed'
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'completed'
+                                            ],
+                                            ['|role.all', 'proxy', 'adult', 'capable']
                                         ],
-                                        ['|role.all', 'proxy', 'adult', 'capable']
-                                    ]
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'applicable'
+                                            ],
+                                            [
+                                                'or',
+                                                ['|role.all', 'noauthority'],
+                                                [
+                                                    'and',
+                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                ],
+                                                [
+                                                    'and',
+                                                    [
+                                                        'dateCompare',
+                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                        '>=', // is greater than or equal to ...
+                                                        '-18', // 18 ...
+                                                        'years' // years (before, due to the negative (-18) ...
+                                                    ],
+                                                    ['|role.all', 'rep']
+                                                ]
+
+                                            ]
+                                        ]
+                                    ],
                                 },
                                 {
                                     target: 'cannotStartYet',
                                     cond: [
-                                        'and',
+                                        'or',
                                         [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
-                                            'incomplete'
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'incomplete'
+                                            ],
+                                            ['|role.all', 'proxy', 'adult', 'capable']
                                         ],
-                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '!=',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'notApplicable'
+                                            ],
+                                            [
+                                                'or',
+                                                ['|role.all', 'noauthority'],
+                                                [
+                                                    'and',
+                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                ],
+                                                [
+                                                    'and',
+                                                    [
+                                                        'dateCompare',
+                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                        '>=', // is greater than or equal to ...
+                                                        '-18', // 18 ...
+                                                        'years' // years (before, due to the negative (-18) ...
+                                                    ],
+                                                    ['|role.all', 'rep']
+                                                ]
+
+                                            ]
+                                        ]
                                     ]
                                 },
                                 {
@@ -1254,18 +1328,87 @@ module.exports = {
                                 {
                                     target: 'applicable',
                                     cond: [
-                                        'and',
+                                        'or',
                                         [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
-                                            'completed'
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'completed'
+                                            ],
+                                            ['|role.all', 'proxy', 'adult', 'capable']
                                         ],
-                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'completed'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'applicable'
+                                            ],
+                                            [
+                                                'or',
+                                                ['|role.all', 'noauthority'],
+                                                [
+                                                    'and',
+                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                ],
+                                                [
+                                                    'and',
+                                                    [
+                                                        'dateCompare',
+                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                        '>=', // is greater than or equal to ...
+                                                        '-18', // 18 ...
+                                                        'years' // years (before, due to the negative (-18) ...
+                                                    ],
+                                                    ['|role.all', 'rep']
+                                                ]
+
+                                            ]
+                                        ]
                                     ]
                                 },
                                 {
                                     target: 'notApplicable',
-                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
+                                    cond: [
+                                        'and',
+                                        [
+                                            '==',
+                                            false,
+                                            ['|role.all', 'proxy', 'adult', 'capable']
+                                        ],
+                                        [
+                                            '==',
+                                            false,
+                                            ['|role.all', 'noauthority']
+                                        ],
+                                        [
+                                            'or',
+                                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                'dateCompare',
+                                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                '<', // is less than ...
+                                                '-18', // 18 ...
+                                                'years' // years (before, due to the negative (-18) ...
+                                            ],
+                                            [
+                                                '==',
+                                                false,
+                                                ['|role.all', 'rep']
+                                            ]
+                                        ]
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet'
@@ -1277,19 +1420,88 @@ module.exports = {
                         on: {
                             UPDATE__STATUS: [
                                 {
-                                    target: 'notApplicable',
-                                    cond: ['==', false, ['|role.all', 'proxy', 'adult', 'capable']]
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        'or',
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'incomplete'
+                                            ],
+                                            ['|role.all', 'proxy', 'adult', 'capable']
+                                        ],
+                                        [
+                                            'and',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '!=',
+                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
+                                                'notApplicable'
+                                            ],
+                                            [
+                                                'or',
+                                                ['|role.all', 'noauthority'],
+                                                [
+                                                    'and',
+                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                ],
+                                                [
+                                                    'and',
+                                                    [
+                                                        'dateCompare',
+                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                        '>=', // is greater than or equal to ...
+                                                        '-18', // 18 ...
+                                                        'years' // years (before, due to the negative (-18) ...
+                                                    ],
+                                                    ['|role.all', 'rep']
+                                                ]
+
+                                            ]
+                                        ]
+                                    ]
                                 },
                                 {
-                                    target: 'cannotStartYet',
+                                    target: 'notApplicable',
                                     cond: [
                                         'and',
                                         [
                                             '==',
-                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
-                                            'incomplete'
+                                            false,
+                                            ['|role.all', 'proxy', 'adult', 'capable']
                                         ],
-                                        ['|role.all', 'proxy', 'adult', 'capable']
+                                        [
+                                            '==',
+                                            false,
+                                            ['|role.all', 'noauthority']
+                                        ],
+                                        [
+                                            'or',
+                                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
+                                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                                        ],
+                                        [
+                                            'or',
+                                            [
+                                                'dateCompare',
+                                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                '<', // is less than ...
+                                                '-18', // 18 ...
+                                                'years' // years (before, due to the negative (-18) ...
+                                            ],
+                                            [
+                                                '==',
+                                                false,
+                                                ['|role.all', 'rep']
+                                            ]
+                                        ]
                                     ]
                                 },
                                 {
@@ -1591,6 +1803,11 @@ module.exports = {
                                         'and',
                                         [
                                             '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
                                             '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
                                             'completed'
                                         ],
@@ -1602,9 +1819,17 @@ module.exports = {
                                     cond: [
                                         'and',
                                         [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'incomplete'
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ]
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]
@@ -1622,6 +1847,11 @@ module.exports = {
                                     target: 'applicable',
                                     cond: [
                                         'and',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                            'completed'
+                                        ],
                                         [
                                             '==',
                                             '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
@@ -1649,12 +1879,20 @@ module.exports = {
                                 },
                                 {
                                     target: 'cannotStartYet',
-                                    cond: [
+                                    cond:  [
                                         'and',
                                         [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'incomplete'
+                                            'or',
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                                'incomplete'
+                                            ],
+                                            [
+                                                '==',
+                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
+                                                'incomplete'
+                                            ]
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]
@@ -1708,11 +1946,6 @@ module.exports = {
                                         'and',
                                         [
                                             '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'completed'
-                                        ],
-                                        [
-                                            '==',
                                             '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
                                             'completed'
                                         ],
@@ -1724,17 +1957,9 @@ module.exports = {
                                     cond: [
                                         'and',
                                         [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
-                                                'incomplete'
-                                            ]
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'incomplete'
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]
@@ -1752,11 +1977,6 @@ module.exports = {
                                     target: 'applicable',
                                     cond: [
                                         'and',
-                                        [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'completed'
-                                        ],
                                         [
                                             '==',
                                             '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
@@ -1787,17 +2007,9 @@ module.exports = {
                                     cond: [
                                         'and',
                                         [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
-                                                'incomplete'
-                                            ]
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'incomplete'
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]
@@ -1851,11 +2063,6 @@ module.exports = {
                                         'and',
                                         [
                                             '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'completed'
-                                        ],
-                                        [
-                                            '==',
                                             '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
                                             'completed'
                                         ],
@@ -1867,17 +2074,9 @@ module.exports = {
                                     cond: [
                                         'and',
                                         [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
-                                                'incomplete'
-                                            ]
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'incomplete'
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]
@@ -1895,11 +2094,6 @@ module.exports = {
                                     target: 'applicable',
                                     cond: [
                                         'and',
-                                        [
-                                            '==',
-                                            '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                            'completed'
-                                        ],
                                         [
                                             '==',
                                             '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
@@ -1930,17 +2124,9 @@ module.exports = {
                                     cond: [
                                         'and',
                                         [
-                                            'or',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-the-crime__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
-                                                'incomplete'
-                                            ]
+                                            '==',
+                                            '$.attributes.q__statuses.t_applicant_about-injuries__completion-status',
+                                            'incomplete'
                                         ],
                                         ['|role.all', 'nonDeceased']
                                     ]

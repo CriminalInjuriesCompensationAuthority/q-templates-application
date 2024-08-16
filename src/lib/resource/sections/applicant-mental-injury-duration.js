@@ -84,7 +84,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#t_applicant_impact-of-injuries'
+                    target: '#task-list'
                 }
             ]
         }

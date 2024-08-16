@@ -42,7 +42,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#t_applicant_about-who-died'
+                    target: '#task-list'
                 }
             ]
         }

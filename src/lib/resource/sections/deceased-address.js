@@ -192,7 +192,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#t_applicant_funeral-costs'
+                    target: '#task-list'
                 }
             ]
         }
