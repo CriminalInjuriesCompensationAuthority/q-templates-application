@@ -47,7 +47,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#t_offender_about-the-offender'
+                    target: '#task-list'
                 }
             ]
         }

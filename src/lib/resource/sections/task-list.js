@@ -56,14 +56,6 @@ module.exports = {
                                             nonDeceased: 'Details of the person acting on behalf of the victim'
                                         }
                                     }
-                                },
-                                't_rep_details': {
-                                    title: {
-                                        proxy: {
-                                            deceased: 'Details of the person acting on behalf of the claimant',
-                                            nonDeceased: 'Details of the person acting on behalf of the victim'
-                                        }
-                                    }
                                 }
                             }
                         },
@@ -213,13 +205,7 @@ module.exports = {
                                         },
                                         {
                                             id: 't_rep_details',
-                                            title: [
-                                                '|l10nt',
-                                                ['|role.all', 'proxy', 'nonDeceased'],
-                                                's_applicant_authority.tasks.t_rep_details.title.proxy.nonDeceased',
-                                                ['|role.all', 'proxy', 'deceased'],
-                                                's_applicant_authority.tasks.t_rep_details.title.proxy.deceased'
-                                            ]
+                                            title: 'Your details'
                                         }
                                     ]
                                 },

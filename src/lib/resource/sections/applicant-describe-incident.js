@@ -74,7 +74,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#t_offender_about-the-offender',
+                    target: '#task-list',
                     cond: [
                         '==',
                         '$.answers.p-applicant-describe-incident.q-applicant-describe-incident',
