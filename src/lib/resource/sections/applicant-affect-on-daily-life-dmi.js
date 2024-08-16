@@ -76,7 +76,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#t_applicant_about-treatment',
+                    target: '#task-list',
                     cond: [
                         'and',
                         [
