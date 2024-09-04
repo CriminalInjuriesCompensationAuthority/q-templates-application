@@ -48,6 +48,9 @@ module.exports = {
                     ]
                 }
             },
+            meta: {
+                pageType: 'context'
+            },
             examples: [{}],
             invalidExamples: [
                 {

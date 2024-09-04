@@ -13,6 +13,9 @@ module.exports = {
                         '<p class="govuk-body">We\'re going to ask if you\'ve lost money as a result of the crime.</p><p class="govuk-body">This will help us decide if you\'ll get a payment for expenses or loss of earnings.</p>'
                 }
             },
+            meta: {
+                pageType: 'context'
+            },
             examples: [{}],
             invalidExamples: [{foo: 'bar'}]
         }

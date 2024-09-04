@@ -36,6 +36,9 @@ module.exports = {
                     description: 'l10nt:pregnancy-context.description{?lng,context,ns}'
                 }
             },
+            meta: {
+                pageType: 'context'
+            },
             examples: [{}],
             invalidExamples: [
                 {

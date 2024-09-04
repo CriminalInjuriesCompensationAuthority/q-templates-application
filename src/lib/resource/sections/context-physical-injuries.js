@@ -38,6 +38,9 @@ module.exports = {
                     description: 'l10nt:details-context.description{?lng,context,ns}'
                 }
             },
+            meta : {
+                pageType: 'context'
+            },
             examples: [{}],
             invalidExamples: [
                 {

@@ -36,6 +36,9 @@ module.exports = {
                     description: 'l10nt:context-crime-impact.description{?lng,context,ns}'
                 }
             },
+            meta: {
+                pageType: 'context'
+            },
             examples: [{}],
             invalidExamples: [
                 {
