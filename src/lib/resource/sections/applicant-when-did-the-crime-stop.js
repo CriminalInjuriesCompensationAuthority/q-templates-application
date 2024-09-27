@@ -61,8 +61,11 @@ module.exports = {
                 {
                     target: 'p-applicant-select-reasons-for-the-delay-in-making-your-application',
                     cond: [
-                        'dateExceedsTwoYearsFromNow',
-                        '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop'
+                        'dateCompare',
+                        '$.answers.p-applicant-when-did-the-crime-start.q-applicant-when-did-the-crime-start',
+                        '>=',
+                        '-2',
+                        'years'
                     ]
                 },
                 {
