@@ -70,6 +70,10 @@ module.exports = {
                     ]
                 },
                 {
+                    target: 'p--create-account-or-sign-in',
+                    cond: ['==', '$.answers.owner.is-authenticated', false]
+                },
+                {
                     target: '#task-list'
                 }
             ]

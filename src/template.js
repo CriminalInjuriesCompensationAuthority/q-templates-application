@@ -211,6 +211,8 @@ const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/se
 const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
 const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
 const tasklist = require('./lib/resource/sections/task-list');
+const createAccountOrSignIn = require('./lib/resource/sections/createAccountOrSignIn');
+const saveYourProgress = require('./lib/resource/sections/saveYourProgress');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -442,7 +444,9 @@ module.exports = {
         'p-proxy-someone-else-applied-before-for-this-crime':
             proxySomeoneElseAppliedBeforeForThisCrime.section,
         'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
-        'p-task-list': tasklist.section
+        'p-task-list': tasklist.section,
+        'p--create-account-or-sign-in': createAccountOrSignIn.section,
+        'p--save-your-progress': saveYourProgress.section
     },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
     routes: {
@@ -490,7 +494,9 @@ module.exports = {
                         applicantAppliedBeforeForThisCrime.route,
                     'p-proxy-someone-else-applied-before-for-this-crime':
                         proxySomeoneElseAppliedBeforeForThisCrime.route,
-                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
+                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route,
+                    'p--create-account-or-sign-in': createAccountOrSignIn.route,
+                    'p--save-your-progress': saveYourProgress.route
                 }
             },
             't_applicant_personal-details': {
@@ -887,9 +893,22 @@ module.exports = {
                                 {
                                     target: 'applicable',
                                     cond: [
-                                        '==',
-                                        '$.attributes.q__statuses.t-about-application__completion-status',
-                                        'completed'
+                                        'or',
+                                        [
+                                            '==',
+                                            '$.attributes.q__statuses.t-about-application__completion-status',
+                                            'completed'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.answers.p--create-account-or-sign-in.q-create-account-or-sign-in',
+                                            'create-account'
+                                        ],
+                                        [
+                                            '==',
+                                            '$.answers.p--create-account-or-sign-in.q-create-account-or-sign-in',
+                                            'sign-in'
+                                        ]
                                     ]
                                 },
                                 {
