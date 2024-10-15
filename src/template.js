@@ -2596,6 +2596,23 @@ module.exports = {
             }
         ]
     },
+    onCreate: {
+        id: 'task0',
+        type: 'sequential',
+        retries: 0,
+        data: [
+            {
+                id: 'task1',
+                type: 'sendNotifyMessageToSQS',
+                retries: 0,
+                data: {
+                    questionnaire: '$.questionnaireDef',
+                    logger: '$.logger',
+                    type: '$.type'
+                }
+            }
+        ]
+    },
     taxonomies: {
         theme: {
             l10n: {
@@ -3725,6 +3742,24 @@ module.exports = {
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
+                        },
+                        reference: null
+                    }
+                }
+            ]
+        },
+        onCreate: {
+            actions: [
+                {
+                    description: 'Notification email - applicant:adult',
+                    type: 'sendEmail',
+                    // prettier-ignore
+                    data: {
+                        templateId: '71671c4f-5cbd-4c7d-b793-254d56d13e51',
+                        emailAddress:
+                            '||/answers/origin/channel||',
+                        personalisation: {
+                            caseReference: '||/answers/system/external-id||'
                         },
                         reference: null
                     }
