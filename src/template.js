@@ -1229,7 +1229,7 @@ module.exports = {
                                                 '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
                                                 'completed'
                                             ],
-                                            ['|role.all', 'proxy', 'adult', 'capable']
+                                            ['|role.all', 'proxy', 'adult']
                                         ],
                                         [
                                             'and',
@@ -1248,8 +1248,16 @@ module.exports = {
                                                 ['|role.all', 'noauthority'],
                                                 [
                                                     'and',
-                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                    [
+                                                        '==',
+                                                        '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                                        false
+                                                    ],
+                                                    [
+                                                        '==',
+                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        false
+                                                    ]
                                                 ],
                                                 [
                                                     'and',
@@ -1262,10 +1270,9 @@ module.exports = {
                                                     ],
                                                     ['|role.all', 'rep']
                                                 ]
-
                                             ]
                                         ]
-                                    ],
+                                    ]
                                 },
                                 {
                                     target: 'cannotStartYet',
@@ -1278,41 +1285,7 @@ module.exports = {
                                                 '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
                                                 'incomplete'
                                             ],
-                                            ['|role.all', 'proxy', 'adult', 'capable']
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '!=',
-                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
-                                                'notApplicable'
-                                            ],
-                                            [
-                                                'or',
-                                                ['|role.all', 'noauthority'],
-                                                [
-                                                    'and',
-                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                                                ],
-                                                [
-                                                    'and',
-                                                    [
-                                                        'dateCompare',
-                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                                        '>=', // is greater than or equal to ...
-                                                        '-18', // 18 ...
-                                                        'years' // years (before, due to the negative (-18) ...
-                                                    ],
-                                                    ['|role.all', 'rep']
-                                                ]
-
-                                            ]
+                                            ['|role.all', 'proxy', 'adult']
                                         ]
                                     ]
                                 },
@@ -1355,8 +1328,16 @@ module.exports = {
                                                 ['|role.all', 'noauthority'],
                                                 [
                                                     'and',
-                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                                                    [
+                                                        '==',
+                                                        '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                                        false
+                                                    ],
+                                                    [
+                                                        '==',
+                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        false
+                                                    ]
                                                 ],
                                                 [
                                                     'and',
@@ -1369,7 +1350,6 @@ module.exports = {
                                                     ],
                                                     ['|role.all', 'rep']
                                                 ]
-
                                             ]
                                         ]
                                     ]
@@ -1378,21 +1358,7 @@ module.exports = {
                                     target: 'notApplicable',
                                     cond: [
                                         'and',
-                                        [
-                                            '==',
-                                            false,
-                                            ['|role.all', 'proxy', 'adult', 'capable']
-                                        ],
-                                        [
-                                            '==',
-                                            false,
-                                            ['|role.all', 'noauthority']
-                                        ],
-                                        [
-                                            'or',
-                                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                                        ],
+                                        ['strictEquals', false, ['|role.all', 'proxy']],
                                         [
                                             'or',
                                             [
@@ -1402,11 +1368,7 @@ module.exports = {
                                                 '-18', // 18 ...
                                                 'years' // years (before, due to the negative (-18) ...
                                             ],
-                                            [
-                                                '==',
-                                                false,
-                                                ['|role.all', 'rep']
-                                            ]
+                                            ['==', false, ['|role.all', 'rep']]
                                         ]
                                     ]
                                 },
@@ -1430,79 +1392,13 @@ module.exports = {
                                                 '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
                                                 'incomplete'
                                             ],
-                                            ['|role.all', 'proxy', 'adult', 'capable']
-                                        ],
-                                        [
-                                            'and',
-                                            [
-                                                '==',
-                                                '$.attributes.q__statuses.t_mainapplicant_authority__completion-status',
-                                                'incomplete'
-                                            ],
-                                            [
-                                                '!=',
-                                                '$.attributes.q__statuses.t_mainapplicant_authority__applicability-status',
-                                                'notApplicable'
-                                            ],
-                                            [
-                                                'or',
-                                                ['|role.all', 'noauthority'],
-                                                [
-                                                    'and',
-                                                    ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
-                                                ],
-                                                [
-                                                    'and',
-                                                    [
-                                                        'dateCompare',
-                                                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                                        '>=', // is greater than or equal to ...
-                                                        '-18', // 18 ...
-                                                        'years' // years (before, due to the negative (-18) ...
-                                                    ],
-                                                    ['|role.all', 'rep']
-                                                ]
-
-                                            ]
+                                            ['|role.all', 'proxy', 'adult']
                                         ]
                                     ]
                                 },
                                 {
                                     target: 'notApplicable',
-                                    cond: [
-                                        'and',
-                                        [
-                                            '==',
-                                            false,
-                                            ['|role.all', 'proxy', 'adult', 'capable']
-                                        ],
-                                        [
-                                            '==',
-                                            false,
-                                            ['|role.all', 'noauthority']
-                                        ],
-                                        [
-                                            'or',
-                                            ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                'dateCompare',
-                                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                                '<', // is less than ...
-                                                '-18', // 18 ...
-                                                'years' // years (before, due to the negative (-18) ...
-                                            ],
-                                            [
-                                                '==',
-                                                false,
-                                                ['|role.all', 'rep']
-                                            ]
-                                        ]
-                                    ]
+                                    cond: ['strictEquals', false, ['|role.all', 'proxy']]
                                 },
                                 {
                                     target: 'applicable'
@@ -1879,7 +1775,7 @@ module.exports = {
                                 },
                                 {
                                     target: 'cannotStartYet',
-                                    cond:  [
+                                    cond: [
                                         'and',
                                         [
                                             'or',
@@ -3853,9 +3749,9 @@ module.exports = {
                     const:
                         ['and',
                             ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
+                            ['strictEquals', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
+                            ['strictEquals', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['strictEquals', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -3867,7 +3763,7 @@ module.exports = {
                     title: 'incapable role',
                     type: 'boolean',
                     // prettier-ignore
-                    const:  ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
+                    const:  ['strictEquals', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                     examples: [{}],
                     invalidExamples: [{}]
                 }
