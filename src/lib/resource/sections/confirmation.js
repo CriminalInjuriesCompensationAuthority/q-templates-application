@@ -64,8 +64,8 @@ module.exports = {
                                     summaryText: "View the different ways to contact CICA",
                                     html: contact
                                 })}}
-                                <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                 <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                     <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                 adult: {
@@ -124,8 +124,8 @@ module.exports = {
                                         summaryText: "View the different ways to contact CICA",
                                         html: contact
                                     })}}
-                                    <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                    <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                    <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                    <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                     <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                     deceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||" %}
@@ -185,8 +185,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                                 <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`
                                 },
@@ -262,8 +262,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
@@ -340,8 +340,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `
@@ -423,8 +423,8 @@ module.exports = {
                                                 summaryText: "View the different ways to contact CICA",
                                                 html: contact
                                             })}}
-                                            <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                            <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                            <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                            <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
@@ -507,8 +507,8 @@ module.exports = {
                                                 summaryText: "View the different ways to contact CICA",
                                                 html: contact
                                             })}}
-                                            <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                            <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                            <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                            <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
@@ -571,8 +571,8 @@ module.exports = {
                                                 summaryText: "View the different ways to contact CICA",
                                                 html: contact
                                             })}}
-                                            <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                            <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                            <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                            <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
@@ -633,8 +633,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `
@@ -710,8 +710,8 @@ module.exports = {
                                                 summaryText: "View the different ways to contact CICA",
                                                 html: contact
                                             })}}
-                                            <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                            <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                            <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                            <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
@@ -788,8 +788,8 @@ module.exports = {
                                                 summaryText: "View the different ways to contact CICA",
                                                 html: contact
                                             })}}
-                                            <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                            <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                            <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                            <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
@@ -873,8 +873,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
@@ -958,8 +958,8 @@ module.exports = {
                                         summaryText: "View the different ways to contact CICA",
                                         html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
@@ -1036,8 +1036,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
@@ -1115,8 +1115,8 @@ module.exports = {
                                             summaryText: "View the different ways to contact CICA",
                                             html: contact
                                         })}}
-                                        <h2 class="govuk-heading-m">Help us improve this service</h2>
-                                        <p class="govuk-body">You can complete a short survey to help us improve this service.</p>
+                                        <h2 class="govuk-heading-m">Help us improve our online application</h2>
+                                        <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
