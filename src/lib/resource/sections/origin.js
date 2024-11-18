@@ -27,7 +27,7 @@ module.exports = {
             ],
             invalidExamples: [
                 {
-                    foo: 'bar'
+                    foo: "bar"
                 }
             ]
         }

@@ -173,7 +173,16 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#task-list'
+                    target: 'p--context-compensation',
+                    cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
+                },
+                {
+                    target: 'p--context-physical-injuries',
+                    cond: [
+                        '==',
+                        '$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender',
+                        false
+                    ]
                 }
             ]
         }

@@ -75,7 +75,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list'
+                    target: 'p--context-residency-and-nationality'
                 }
             ]
         }

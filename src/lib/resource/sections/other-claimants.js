@@ -101,7 +101,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list',
+                    target: 'p--context-deceased-details',
                     cond: ['==', '$.answers.p-other-claimants.q-other-claimants', false]
                 },
                 {

@@ -110,7 +110,47 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list',
+                    target: 'p--context-relationship-to-deceased',
+                    cond: [
+                        'and',
+                        ['|role.all', 'deceased', 'myself'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--context-rep-details',
+                    cond: [
+                        'and',
+                        ['|role.all', 'proxy', 'adult', 'capable'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--context-mainapplicant-details',
+                    cond: [
+                        'and',
+                        [
+                            'or',
+                            ['|role.all', 'proxy', 'adult', 'incapable'],
+                            ['|role.all', 'proxy', 'child']
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',
+                            true
+                        ]
+                    ]
+                },
+                {
+                    target: 'p--before-you-continue',
                     cond: [
                         '==',
                         '$.answers.p-applicant-british-citizen.q-applicant-british-citizen',

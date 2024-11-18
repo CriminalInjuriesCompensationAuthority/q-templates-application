@@ -65,7 +65,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list'
+                    target: 'p--before-you-continue'
                 }
             ]
         }

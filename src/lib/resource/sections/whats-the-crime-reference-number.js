@@ -49,7 +49,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list',
+                    target: 'p--context-offender',
                     cond: ['==', '$.answers.p-applicant-fatal-claim.q-applicant-fatal-claim', true]
                 },
                 {

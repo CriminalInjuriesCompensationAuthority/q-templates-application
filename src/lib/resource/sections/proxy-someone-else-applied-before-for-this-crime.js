@@ -10,8 +10,7 @@ module.exports = {
             properties: {
                 'q-proxy-someone-else-applied-before-for-this-crime': {
                     type: 'boolean',
-                    title:
-                        'Has the victim ever applied before, for injuries related to this crime?',
+                    title: 'Has the victim ever applied before, for injuries related to this crime?',
                     oneOf: [
                         {
                             title: 'Yes',
@@ -52,10 +51,7 @@ module.exports = {
                 }
             ],
             options: {
-                outputOrder: [
-                    'q-proxy-someone-else-applied-before-for-this-crime',
-                    'proxy-someone-else-applied-before-info'
-                ],
+                outputOrder: ['q-proxy-someone-else-applied-before-for-this-crime', 'proxy-someone-else-applied-before-info'],
                 signInLink: {
                     visible: false
                 }
@@ -74,7 +70,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#task-list'
+                    target: 'p--context-applicant-details'
                 }
             ]
         }
