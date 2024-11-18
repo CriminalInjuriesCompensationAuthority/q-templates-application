@@ -231,7 +231,7 @@ module.exports = {
                     cond: ['|role.all', 'mainapplicant']
                 },
                 {
-                    target: '#task-list',
+                    target: 'p--context-rep-details',
                     // prettier-ignore
                     cond: ['|role.all', 'noauthority' ]
                 },

@@ -80,7 +80,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#task-list',
+                    target: 'p--before-you-continue',
                     cond: [
                         'and',
                         [

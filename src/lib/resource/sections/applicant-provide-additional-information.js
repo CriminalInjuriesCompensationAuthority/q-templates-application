@@ -66,7 +66,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#task-list',
+                    target: 'p--check-your-answers',
                     cond: [
                         '==',
                         '$.answers.p-applicant-provide-additional-information.q-applicant-provide-additional-information',

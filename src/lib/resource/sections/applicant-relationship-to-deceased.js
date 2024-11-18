@@ -230,7 +230,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: '#task-list',
+                    target: 'p--context-deceased-details',
                     cond: ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true]
                 },
                 {
