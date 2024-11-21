@@ -57,10 +57,13 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     description: 'For example, 31 12 1989.',
                     errorMessage: {
                         format:
-                            'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}'
+                            'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}',
+                        formatMaximum:
+                            'The date the crime was reported to the police must be today or in the past'
                     }
                 }
             },

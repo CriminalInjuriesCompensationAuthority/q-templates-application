@@ -451,7 +451,7 @@ module.exports = {
         'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section
     },
     routes: {
-        initial: 'p-applicant-who-are-you-applying-for',
+        initial: 'p-applicant-enter-your-date-of-birth',
         referrer: 'https://www.gov.uk/claim-compensation-criminal-injury/make-claim',
         summary: [
             'p-applicant-declaration',
@@ -747,7 +747,7 @@ module.exports = {
             }
         ]
     },
-    progress: ['p-applicant-who-are-you-applying-for'],
+    progress: ['p-applicant-enter-your-date-of-birth'],
     taxonomies: {
         theme: {
             l10n: {
