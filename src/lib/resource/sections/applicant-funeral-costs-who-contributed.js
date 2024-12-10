@@ -12,7 +12,7 @@ module.exports = {
                     title: 'Who else is contributing to the funeral costs?',
                     type: 'string',
                     description:
-                        'Enter the full names of any people, charities or organisations who are helping to pay for the funeral.',
+                        '<p class="govuk-body">Enter the full names of any people, charities or organisations who are helping to pay for the funeral.</p><p class="govuk-body">This might include money raised for the funeral through crowdfunding platform like GoFundMe and JustGiving.</p>',
                     maxLength: 2000,
                     errorMessage: {
                         maxLength: 'Description must be 2000 characters or less'
