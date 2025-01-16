@@ -254,8 +254,7 @@ module.exports = {
                         '$.answers.p-applicant-physical-injury-torso.q-applicant-physical-injury-torso',
                         'muscle'
                     ]
-                },
-                {target: 'p-applicant-infections'}
+                }
             ]
         }
     }

@@ -254,8 +254,7 @@ module.exports = {
                         '$.answers.p-applicant-physical-injury-legs.q-applicant-physical-injury-legs',
                         'muscle'
                     ]
-                },
-                {target: 'p-applicant-infections'}
+                }
             ]
         }
     }

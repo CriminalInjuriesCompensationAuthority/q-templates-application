@@ -211,30 +211,6 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-rep-claims-management-reg',
-                    cond: [
-                        'and',
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
-                        [
-                            '==',
-                            '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
-                            'none'
-                        ]
-                    ]
-                },
-                {
-                    target: 'p-rep-reference-number',
-                    cond: [
-                        'and',
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
-                        [
-                            '==',
-                            '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
-                            'none'
-                        ]
-                    ]
-                },
-                {
                     target: 'p--before-you-continue'
                 }
             ]
