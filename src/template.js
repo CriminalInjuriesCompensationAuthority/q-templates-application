@@ -13,7 +13,6 @@ const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-decla
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
-const applicantBritishCitizenOrEuNational = require('./lib/resource/sections/applicant-british-citizen-or-eu-national.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
 const beforeYouContinue = require('./lib/resource/sections/before-you-continue.js');
@@ -65,7 +64,6 @@ const gpEnterYourAddress = require('./lib/resource/sections/gp-enter-your-addres
 const applicantDentistVisited = require('./lib/resource/sections/applicant-dentist-visited.js');
 const applicantDentistAddress = require('./lib/resource/sections/applicant-dentist-address.js');
 const applicantAreYouClaimingForPhysicalInjuries = require('./lib/resource/sections/applicant-are-you-claiming-for-physical-injuries.js');
-const transition = require('./lib/resource/sections/transition.js');
 const contextPhysicalInjuries = require('./lib/resource/sections/context-physical-injuries.js');
 const applicantPhysicalInjury = require('./lib/resource/sections/applicant-physical-injury.js');
 const applicantPhysicalInjuryUpper = require('./lib/resource/sections/applicant-physical-injury-upper.js');
@@ -115,8 +113,6 @@ const applicantTreatmentAddress = require('./lib/resource/sections/applicant-tre
 const applicantUnableToWorkDuration = require('./lib/resource/sections/applicant-unable-to-work-duration.js');
 const applicantJobWhenCrimeHappened = require('./lib/resource/sections/applicant-job-when-crime-happened.js');
 const applicantWorkDetailsOption = require('./lib/resource/sections/applicant-work-details-option.js');
-const applicantExpenses = require('./lib/resource/sections/applicant-expenses.js');
-const contextMoney = require('./lib/resource/sections/context-money.js');
 const applicantPregnancyLoss = require('./lib/resource/sections/applicant-pregnancy-loss.js');
 const applicantSelectNonSaInfections = require('./lib/resource/sections/applicant-select-non-sa-infections.js');
 const applicantFatalClaim = require('./lib/resource/sections/applicant-fatal-claim.js');
@@ -131,7 +127,6 @@ const system = require('./lib/resource/sections/system.js');
 const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
 const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
 const contextAuthority = require('./lib/resource/sections/context-authority');
-const mainapplicantContextDetails = require('./lib/resource/sections/mainapplicant-context-details.js');
 const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
 const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
 const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
@@ -159,10 +154,8 @@ const repEmailAddress = require('./lib/resource/sections/rep-email-address.js');
 const repTelephoneNumber = require('./lib/resource/sections/rep-telephone-number.js');
 const repReferenceNumber = require('./lib/resource/sections/rep-reference-number.js');
 const repClaimsManagementRegNumber = require('./lib/resource/sections/rep-claims-management-reg');
-const contactCica = require('./lib/resource/sections/contact-cica');
 const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can-handle-affairs');
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
-const mainApplicantAuthorityToApply = require('./lib/resource/sections/mainapplicant-authority');
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
@@ -233,7 +226,6 @@ module.exports = {
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
-        'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
         'p--before-you-continue': beforeYouContinue.section,
@@ -296,7 +288,6 @@ module.exports = {
         'p-applicant-dentist-address': applicantDentistAddress.section,
         'p-applicant-are-you-claiming-for-physical-injuries':
             applicantAreYouClaimingForPhysicalInjuries.section,
-        'p--transition': transition.section,
         'p--context-physical-injuries': contextPhysicalInjuries.section,
         'p-applicant-physical-injury': applicantPhysicalInjury.section,
         'p-applicant-physical-injury-upper': applicantPhysicalInjuryUpper.section,
@@ -347,8 +338,6 @@ module.exports = {
         'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.section,
         'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.section,
         'p-applicant-work-details-option': applicantWorkDetailsOption.section,
-        'p-applicant-expenses': applicantExpenses.section,
-        'p--context-money': contextMoney.section,
         'p-applicant-pregnancy-loss': applicantPregnancyLoss.section,
         'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.section,
         'p-applicant-fatal-claim': applicantFatalClaim.section,
@@ -363,7 +352,6 @@ module.exports = {
         'p--context-crime-impact': contextCrimeImpact.section,
         'p-mainapplicant-parent': mainapplicantParent.section,
         'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-context-details': mainapplicantContextDetails.section,
         'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
         'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
@@ -392,10 +380,8 @@ module.exports = {
         'p-rep-telephone-number': repTelephoneNumber.section,
         'p-rep-reference-number': repReferenceNumber.section,
         'p-rep-claims-management-reg': repClaimsManagementRegNumber.section,
-        'p--contact-cica': contactCica.section,
         'p-applicant-can-handle-affairs': applicantCanHandleAffairs.section,
         'p--context-mainapplicant-details': contextMainAppDetails.section,
-        'p-mainapplicant-authority': mainApplicantAuthorityToApply.section,
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
@@ -445,9 +431,11 @@ module.exports = {
         'p--transition-request-a-call-back': transitionRequestACallBack.section,
         'p--transition-contact-us': transitionContactUs.section,
         origin: origin.section,
-        'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.section,
+        'p-applicant-someone-else-applied-before-for-this-crime':
+            applicantSomeoneElseAppliedBeforeForThisCrime.section,
         'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.section,
-        'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.section,        
+        'p-proxy-someone-else-applied-before-for-this-crime':
+            proxySomeoneElseAppliedBeforeForThisCrime.section,
         'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section
     },
     routes: {
@@ -479,7 +467,6 @@ module.exports = {
             'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
-            'p-applicant-british-citizen-or-eu-national': applicantBritishCitizenOrEuNational.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
             'p--before-you-continue': beforeYouContinue.route,
@@ -531,7 +518,6 @@ module.exports = {
             'p-applicant-you-cannot-get-compensation': applicantYouCannotGetCompensation.route,
             'p-applicant-confirmation-method': applicantConfirmationMethod.route,
             'p--context-compensation': contextCompensation.route,
-            'p--transition': transition.route,
             'p-applicant-are-you-claiming-for-physical-injuries':
                 applicantAreYouClaimingForPhysicalInjuries.route,
             'p--context-dmi-details': contextDmiDetails.route,
@@ -596,11 +582,9 @@ module.exports = {
                 applicantTreatmentForPhysicalInjuries.route,
             'p-applicant-medical-help': applicantMedicalHelp.route,
             'p-applicant-treatment-address': applicantTreatmentAddress.route,
-            'p--context-money': contextMoney.route,
             'p-applicant-unable-to-work-duration': applicantUnableToWorkDuration.route,
             'p-applicant-job-when-crime-happened': applicantJobWhenCrimeHappened.route,
             'p-applicant-work-details-option': applicantWorkDetailsOption.route,
-            'p-applicant-expenses': applicantExpenses.route,
             'p-applicant-pregnancy-loss': applicantPregnancyLoss.route,
             'p-applicant-select-non-sa-infections': applicantSelectNonSaInfections.route,
             'p-applicant-fatal-claim': applicantFatalClaim.route,
@@ -615,7 +599,6 @@ module.exports = {
             'p--context-crime-impact': contextCrimeImpact.route,
             'p-mainapplicant-parent': mainapplicantParent.route,
             'p--context-authority': contextAuthority.route,
-            'p-mainapplicant-context-details': mainapplicantContextDetails.route,
             'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
             'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
             'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
@@ -644,10 +627,8 @@ module.exports = {
             'p-rep-telephone-number': repTelephoneNumber.route,
             'p-rep-reference-number': repReferenceNumber.route,
             'p-rep-claims-management-reg': repClaimsManagementRegNumber.route,
-            'p--contact-cica': contactCica.route,
             'p-applicant-can-handle-affairs': applicantCanHandleAffairs.route,
             'p--context-mainapplicant-details': contextMainAppDetails.route,
-            'p-mainapplicant-authority': mainApplicantAuthorityToApply.route,
             'p--download-your-answers': downloadAnswers.route,
             'p--has-legal-authority': flowHasLegalAuthority.route,
             'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
@@ -697,8 +678,10 @@ module.exports = {
             'p--transition-request-a-call-back': transitionRequestACallBack.route,
             'p--transition-contact-us': transitionContactUs.route,
             origin: origin.route,
-            'p-applicant-someone-else-applied-before-for-this-crime': applicantSomeoneElseAppliedBeforeForThisCrime.route,
-            'p-proxy-someone-else-applied-before-for-this-crime': proxySomeoneElseAppliedBeforeForThisCrime.route,     
+            'p-applicant-someone-else-applied-before-for-this-crime':
+                applicantSomeoneElseAppliedBeforeForThisCrime.route,
+            'p-proxy-someone-else-applied-before-for-this-crime':
+                proxySomeoneElseAppliedBeforeForThisCrime.route,
             'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
             'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
         }

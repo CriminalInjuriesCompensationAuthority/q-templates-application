@@ -120,9 +120,6 @@ module.exports = {
                         '$.answers.p-applicant-physical-injury.q-applicant-physical-injury',
                         'legs'
                     ]
-                },
-                {
-                    target: 'p-applicant-infections'
                 }
             ]
         }

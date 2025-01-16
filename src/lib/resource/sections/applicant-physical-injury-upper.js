@@ -293,9 +293,6 @@ module.exports = {
                         '$.answers.p-applicant-physical-injury-upper.q-applicant-physical-injury-upper',
                         'muscle'
                     ]
-                },
-                {
-                    target: 'p-applicant-infections'
                 }
             ]
         }

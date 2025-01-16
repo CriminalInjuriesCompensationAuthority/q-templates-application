@@ -292,9 +292,6 @@ module.exports = {
                         ['|role.all', 'incapable'],
                         ['|role.all', 'noContactMethod']
                     ]
-                },
-                {
-                    target: 'p--before-you-continue'
                 }
             ]
         }
