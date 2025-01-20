@@ -1922,8 +1922,8 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['==',
-                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                    false
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        false
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -1936,8 +1936,8 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['==',
-                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                    true
+                        '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                        true
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -1992,6 +1992,28 @@ module.exports = {
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true]
                         ]
                     ],
+                    /*[
+                        'and',
+                        ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
+                        [
+                            'or',
+                            [
+                                'and',
+                                ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
+                                ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                            ],
+                            [
+                                'and',
+                                ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                                [
+                                    'or',
+                                    ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                                    ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true]
+                                ]
+
+                            ]
+                        ]
+                    ],*/
                     examples: [{}],
                     invalidExamples: [{}]
                 }
@@ -2004,8 +2026,6 @@ module.exports = {
                     // prettier-ignore
                     const:
                         ['and',
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
-                            ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
@@ -2019,7 +2039,10 @@ module.exports = {
                     title: 'incapable role',
                     type: 'boolean',
                     // prettier-ignore
-                    const:  ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
+                    const:  ['and',
+                        ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
+                        ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else']
+                    ],
                     examples: [{}],
                     invalidExamples: [{}]
                 }
@@ -2079,14 +2102,21 @@ module.exports = {
                     $schema: 'http://json-schema.org/draft-07/schema#',
                     title: 'child under the age of 12',
                     type: 'boolean',
-                    // prettier-ignore
                     const: [
-                        'dateCompare',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                        '<', // is less than ...
-                        '-12', // 12 ...
-                        'years' // years (before, due to the negative (-12) ...
-                        // today's date (no second date given. defaults to today's date).
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                            false
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '<', // is less than ...
+                            '-12', // 12 ...
+                            'years' // years (before, due to the negative (-12) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ]
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -2098,13 +2128,21 @@ module.exports = {
                     title: 'child over the age of 12',
                     type: 'boolean',
                     // prettier-ignore
-                    const:   [
-                        'dateCompare',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                        '>=', // is greater than or equeal too ...
-                        '-12', // 12 ...
-                        'years' // years (before, due to the negative (-12) ...
-                        // today's date (no second date given. defaults to today's date).
+                    const: [
+                        'and',
+                        [
+                            '==',
+                            '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                            false
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                            '>=', // is greater than or equeal too ...
+                            '-12', // 12 ...
+                            'years' // years (before, due to the negative (-12) ...
+                            // today's date (no second date given. defaults to today's date).
+                        ]
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
