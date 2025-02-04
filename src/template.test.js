@@ -3,7 +3,7 @@
 const createTemplateValidator = require('q-template-validator');
 const ajvFormatsMobileUk = require('ajv-formats-mobile-uk');
 const template = require('./template');
-const createCucumberTester = require('gauge-taiko-template');
+const createCucumberTester = require('./runCucumber');
 
 describe('application template', () => {
     it('should be valid', () => {
@@ -20,9 +20,7 @@ describe('application template', () => {
     });
 
     it('should route as per the described behaviours', async () => {
-        const cucumberRunner = createCucumberTester({
-            featureFilePath: '../features/**/*.feature'
-        });
+        const cucumberRunner = createCucumberTester({});
         const result = await cucumberRunner.run('@roles and @proxy');
 
         expect(result.success).toEqual(true);

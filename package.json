@@ -20,6 +20,7 @@
     "author": "CICA",
     "license": "MIT",
     "devDependencies": {
+        "@cucumber/cucumber": "^11.2.0",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
@@ -33,6 +34,8 @@
         "lint-staged": "^9.5.0",
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
+        "q-expressions": "github:CriminalInjuriesCompensationAuthority/q-expressions#bp-fix/undefined-bug",
+        "q-router": "github:CriminalInjuriesCompensationAuthority/q-router#bp-fix/undefined-bug",
         "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v8.0.0"
     }
 }

@@ -1,0 +1,10 @@
+{
+    "default": {
+        "require": ["./tests/features/step_definitions/steps-router.js"],
+        "format": [
+            "progress-bar",
+            ["usage", "reports/cucumber/usage.txt"],
+            ["html", "reports/cucumber/html-formatter.html"]
+        ]
+    }
+}
