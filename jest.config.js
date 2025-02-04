@@ -3,12 +3,7 @@
 'use strict';
 
 const config = {
-    testEnvironment: 'node',
-    moduleNameMapper: {
-        "^@cucumber/cucumber/api$": "<rootDir>/node_modules/@cucumber/cucumber",
-        moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', '.d.ts']
-    },
-    resolver: "jest-node-resolver"
+    testEnvironment: 'node'
 };
 /*! m0-end */
 
