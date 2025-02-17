@@ -28,9 +28,11 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     description: 'For example, 20 12 1980.',
                     errorMessage: {
-                        format: 'Enter their date of birth and include a day, month and year'
+                        format: 'Enter their date of birth and include a day, month and year',
+                        formatMaximum: 'Their date of birth must be today or in the past'
                     }
                 }
             },

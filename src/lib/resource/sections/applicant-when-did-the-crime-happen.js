@@ -22,10 +22,12 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     description: 'For example, 31 12 2022. You can enter an approximate date.',
                     errorMessage: {
                         format:
-                            'Enter the date the crime happened and include a day, month and year'
+                            'Enter the date the crime happened and include a day, month and year',
+                        formatMaximum: 'The date the crime happened must be today or in the past'
                     }
                 }
             },

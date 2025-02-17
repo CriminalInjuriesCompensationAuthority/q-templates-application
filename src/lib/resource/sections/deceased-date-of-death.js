@@ -28,9 +28,11 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__TODAY__',
                     description: 'For example, 16 12 2022.',
                     errorMessage: {
-                        format: 'Enter their date of death and include a day, month and year'
+                        format: 'Enter their date of death and include a day, month and year',
+                        formatMaximum: 'Their date of death must be today or in the past'
                     }
                 }
             },

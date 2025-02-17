@@ -24,10 +24,13 @@ module.exports = {
                                     'Enter your date of birth and include a day, month and year',
                                 format:
                                     'Enter your date of birth and include a day, month and year',
+                                'format-maximum': 'Your date of birth must be today or in the past',
                                 'required_someone-else':
                                     'Enter their date of birth and include a day, month and year',
                                 'format_someone-else':
-                                    'Enter their date of birth and include a day, month and year'
+                                    'Enter their date of birth and include a day, month and year',
+                                'format-maximum_someone-else':
+                                    'Their date of birth must be today or in the past'
                             }
                         }
                     }
@@ -63,7 +66,7 @@ module.exports = {
                         format:
                             'l10nt:q-applicant-enter-your-date-of-birth.error.format{?lng,context,ns}',
                         formatMaximum:
-                            'The date the crime was reported to the police must be today or in the past'
+                            'l10nt:q-applicant-enter-your-date-of-birth.error.format-maximum{?lng,context,ns}'
                     }
                 }
             },

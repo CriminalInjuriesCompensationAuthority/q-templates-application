@@ -25,9 +25,14 @@ module.exports = {
                     },
                     type: 'string',
                     format: 'date-time',
+                    formatMaximum: '__TODAY__',
+                    formatMinimum: [
+                        '$.answers.p-applicant-when-did-the-crime-start.q-applicant-when-did-the-crime-start'
+                    ],
                     description: 'For example, 12 2022. You can enter an approximate date.',
                     errorMessage: {
-                        format: 'Enter the date the crime stopped and include a month and year'
+                        format: 'Enter the date the crime stopped and include a month and year',
+                        formatMaximum: 'The date the crime stopped must be this month or earlier'
                     }
                 }
             },
