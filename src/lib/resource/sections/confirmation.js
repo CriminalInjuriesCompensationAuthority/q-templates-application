@@ -57,13 +57,10 @@ module.exports = {
                                     <li>you have new information to add to your application</li>
                                     <li>information you provided previously has changed</li>
                                 </ul>
-                                <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                 <h2 class="govuk-heading-m">Contact us</h2>
                                 <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                {{ govukDetails({
-                                    summaryText: "View the different ways to contact CICA",
-                                    html: contact
-                                })}}
+                                <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                 <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                 <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                 <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -117,13 +114,10 @@ module.exports = {
                                         <li>you have new information to add to your application</li>
                                         <li>information you provided previously has changed</li>
                                     </ul>
-                                    <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                    <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                     <h2 class="govuk-heading-m">Contact us</h2>
                                     <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                    {{ govukDetails({
-                                        summaryText: "View the different ways to contact CICA",
-                                        html: contact
-                                    })}}
+                                    <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                     <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                     <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                     <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -178,13 +172,10 @@ module.exports = {
                                             <li>you have new information to add to your application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">If you need to contact us</h2>
                                         <p class="govuk-body">Unless you've anything to update in your applicaton you should wait for us to contect you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -255,13 +246,10 @@ module.exports = {
                                             <li>you have new information to add to your application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -333,13 +321,10 @@ module.exports = {
                                             <li>you have new information to add to this application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                         <h2 class="govuk-heading-m">If you need to contact us</h2>
                                         <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
@@ -416,13 +401,10 @@ module.exports = {
                                                 <li>you have new information to add to your application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                             <h2 class="govuk-heading-m">Contact us</h2>
                                             <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                            {{ govukDetails({
-                                                summaryText: "View the different ways to contact CICA",
-                                                html: contact
-                                            })}}
+                                            <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -500,13 +482,10 @@ module.exports = {
                                                 <li>you have new information to add to this application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                             <h2 class="govuk-heading-m">If you need to contact us</h2>
                                             <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                            {{ govukDetails({
-                                                summaryText: "View the different ways to contact CICA",
-                                                html: contact
-                                            })}}
+                                            <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
@@ -564,13 +543,10 @@ module.exports = {
                                                 <li>you have new information to add to your application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                             <h2 class="govuk-heading-m">Contact us</h2>
                                             <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                            {{ govukDetails({
-                                                summaryText: "View the different ways to contact CICA",
-                                                html: contact
-                                            })}}
+                                            <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -626,13 +602,10 @@ module.exports = {
                                             <li>you have new information to add to this application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                         <h2 class="govuk-heading-m">If you need to contact us</h2>
                                         <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
@@ -703,13 +676,10 @@ module.exports = {
                                                 <li>you have new information to add to your application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                             <h2 class="govuk-heading-m">Contact us</h2>
                                             <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                            {{ govukDetails({
-                                                summaryText: "View the different ways to contact CICA",
-                                                html: contact
-                                            })}}
+                                            <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -781,13 +751,10 @@ module.exports = {
                                                 <li>you have new information to add to this application</li>
                                                 <li>information you provided previously has changed</li>
                                             </ul>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                             <h2 class="govuk-heading-m">If you need to contact us</h2>
                                             <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                            {{ govukDetails({
-                                                summaryText: "View the different ways to contact CICA",
-                                                html: contact
-                                            })}}
+                                            <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
@@ -866,13 +833,10 @@ module.exports = {
                                             <li>you have new information to add to your application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -951,13 +915,10 @@ module.exports = {
                                             <li>you have new information to add to this application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                         <h2 class="govuk-heading-m">If you need to contact us</h2>
                                         <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                        summaryText: "View the different ways to contact CICA",
-                                        html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
@@ -1029,13 +990,10 @@ module.exports = {
                                             <li>you have new information to add to your application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about your application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about your application</a></p>
                                         <h2 class="govuk-heading-m">Contact us</h2>
                                         <p class="govuk-body">As we've only received this application, we will now carry out necessary initial enquiries relating to this. Unless you've anything new to add or update in the application, we kindly ask that you wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
@@ -1108,13 +1066,10 @@ module.exports = {
                                             <li>you have new information to add to your application</li>
                                             <li>information you provided previously has changed</li>
                                         </ul>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://contact-the-cica.form.service.justice.gov.uk/">Send an update about this application</a></p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="/contact-us">Send an update about this application</a></p>
                                         <h2 class="govuk-heading-m">If you need to contact us</h2>
                                         <p class="govuk-body">Unless you've anything to update in this application you should wait for us to contact you.</p>
-                                        {{ govukDetails({
-                                            summaryText: "View the different ways to contact CICA",
-                                            html: contact
-                                        })}}
+                                        <p class="govuk-body">If you need to make a change or update your application, use our <a href="/contact-us" class="govuk-link">contact form</a> to let us know.</p>
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
