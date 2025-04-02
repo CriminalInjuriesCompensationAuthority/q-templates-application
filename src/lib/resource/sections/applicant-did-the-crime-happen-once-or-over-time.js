@@ -10,6 +10,8 @@ module.exports = {
             properties: {
                 'q-applicant-did-the-crime-happen-once-or-over-time': {
                     title: 'Did the crime happen once or over a period of time?',
+                    description:
+                        'We need to know if the crime happened on one occasion or more than one occasion.',
                     type: 'string',
                     oneOf: [
                         {
