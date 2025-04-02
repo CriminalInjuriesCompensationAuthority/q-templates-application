@@ -15,7 +15,7 @@ module.exports = {
                     items: {
                         anyOf: [
                             {
-                                title: 'Cuts',
+                                title: 'Cuts (no scarring)',
                                 const: 'phyinj-134'
                             },
                             {
