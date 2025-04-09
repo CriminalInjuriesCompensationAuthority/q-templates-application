@@ -4,24 +4,19 @@
 
 Read the docs [Cucumber-js](https://github.com/cucumber/cucumber-js/blob/main/docs/installation.md)
 
-### Install
-
--   clone this directory
--   `npm install`
-
 Configuration for the cucumber test runner is found in
 
--   `./cucumber.json`
+-   `../cucumber.json`
 
-Secrets for one login authentication tests in the browser must be provided in env/default/tests.secrets.js
+Secrets for one login authentication tests in the browser must be provided in `./env/default/tests.secrets.js`
 
 ## Run the scripts
 
-The scripts will run against the target specified in `./cucumber.json`: `router`, `dcs` or `cw`. When running against the browser screenshots can be saved to `./reports/cucumber` by modifying the `screenshotRegistry` array in `./tests/features/step_definitions/cwStepFunctions`.
+The scripts will run against the target specified in `../cucumber.json`: `router`, `dcs` or `cw`. When running against the browser screenshots can be saved to `./reports/cucumber` by modifying the `screenshotRegistry` array in `./tests/features/step_definitions/cwStepFunctions`.
 
 ### Legacy tests
 
-Feature files based on the old gauge/taiko tests can be found in gauge-features. To run all tests that represent a full journey use `npx cucumber-js --tags="@legacy"`. Further tests for authentication and postcode lookup can be run using `npx cucumber-js --tags="@postcode-lookup or @authentication"`. Coverage of all template sections can be reached by running `npx cucumber-js --tags="@legacy or @coverage or @injury"`.
+To run all tests that represent a full journey use `npx cucumber-js --tags="@legacy"`. Further tests for authentication and postcode lookup can be run using `npx cucumber-js --tags="@postcode-lookup or @authentication"`. Coverage of all template sections can be reached by running `npx cucumber-js --tags="@legacy or @coverage or @injury"`.
 
 ### WIP: New test format
 

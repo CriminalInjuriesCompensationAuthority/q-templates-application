@@ -6,14 +6,14 @@
             "./behaviours/tests/features/main-applicant-victim-details.feature",
             "./behaviours/tests/features/residency.feature",
             "./behaviours/tests/features/crime-details.feature",
-            "./behaviours/tests/features/gauge-features/applicant",
-            "./behaviours/tests/features/gauge-features/back-navigation",
-            "./behaviours/tests/features/gauge-features/injury",
-            "./behaviours/tests/features/gauge-features/mainapplicant",
-            "./behaviours/tests/features/gauge-features/rep",
-            "./behaviours/tests/features/gauge-features/extended-tests-for-coverage",
-            "./behaviours/tests/features/gauge-features/postcode-lookup",
-            "./behaviours/tests/features/gauge-features/authentication"
+            "./behaviours/tests/features/feature_files/applicant",
+            "./behaviours/tests/features/feature_files/back-navigation",
+            "./behaviours/tests/features/feature_files/injury",
+            "./behaviours/tests/features/feature_files/mainapplicant",
+            "./behaviours/tests/features/feature_files/rep",
+            "./behaviours/tests/features/feature_files/extended-tests-for-coverage",
+            "./behaviours/tests/features/feature_files/postcode-lookup",
+            "./behaviours/tests/features/feature_files/authentication"
         ],
         "require": ["./behaviours/tests/features/step_definitions/steps.js"],
         "format": [

@@ -7,7 +7,5 @@ coverage
 dist
 
 #Cucumber tests
-/behaviours/reports/cucumber
-/behaviours/reports/templateCoverage
-/behaviours/reports/fixtures/temp
-/behaviours/env/default/tests.secrets.js
+behaviours/reports/*
+!/behaviours/reports/fixtures/fullFixture.json
