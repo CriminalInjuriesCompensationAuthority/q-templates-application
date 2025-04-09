@@ -20,18 +20,25 @@
     "author": "CICA",
     "license": "MIT",
     "devDependencies": {
+        "@cucumber/cucumber": "^11.2.0",
+        "@playwright/test": "^1.51.1",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.0",
+        "authenticator": "^1.1.5",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^6.9.0",
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-jest": "^23.3.0",
         "eslint-plugin-prettier": "^3.1.2",
+        "got": "^11.8.6",
         "husky": "^4.0.3",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
+        "lodash.merge": "^4.6.2",
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
-        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v8.0.0"
+        "q-router": "github:CriminalInjuriesCompensationAuthority/q-router#v3.1.1",
+        "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v8.0.0",
+        "rimraf": "^6.0.1"
     }
 }

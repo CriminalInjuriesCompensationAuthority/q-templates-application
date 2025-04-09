@@ -1,0 +1,39 @@
+{
+    "default": {
+        "paths": [
+            "./behaviours/tests/features/triage.feature",
+            "./behaviours/tests/features/applicant-details.feature",
+            "./behaviours/tests/features/main-applicant-victim-details.feature",
+            "./behaviours/tests/features/residency.feature",
+            "./behaviours/tests/features/crime-details.feature",
+            "./behaviours/tests/features/gauge-features/applicant",
+            "./behaviours/tests/features/gauge-features/back-navigation",
+            "./behaviours/tests/features/gauge-features/injury",
+            "./behaviours/tests/features/gauge-features/mainapplicant",
+            "./behaviours/tests/features/gauge-features/rep",
+            "./behaviours/tests/features/gauge-features/extended-tests-for-coverage",
+            "./behaviours/tests/features/gauge-features/postcode-lookup",
+            "./behaviours/tests/features/gauge-features/authentication"
+        ],
+        "require": ["./behaviours/tests/features/step_definitions/steps.js"],
+        "format": [
+            "progress-bar",
+            ["usage", "behaviours/reports/cucumber/usage.txt"],
+            ["html", "behaviours/reports/cucumber/html-formatter.html"]
+        ],
+        "worldParameters": {
+            "entryPoint": "https://dev.claim-criminal-injuries-compensation.service.justice.gov.uk",
+            "headless": false,
+            "target": "router",
+            "DCS_URL": "http:localhost:3100",
+            "DCS_JWT": "",
+            "environment": "local",
+            "one_login_environment": "prod",
+            "window_size_width": 1440,
+            "window_size_height": 1920,
+            "saveFixtures": false,
+            "compareFixtures": true,
+            "fullFixtureComparison": true
+        }
+    }
+}
