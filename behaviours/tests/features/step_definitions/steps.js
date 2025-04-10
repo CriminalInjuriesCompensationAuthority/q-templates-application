@@ -8,6 +8,7 @@ const {
     BeforeAll,
     AfterAll,
     setDefaultTimeout,
+    defineParameterType,
 } = require('@cucumber/cucumber');
 const templates = require('../utils/templates');
 const answerFormatter = require('../utils/answerFormatter');
@@ -28,6 +29,21 @@ let target;
 
 //Set default timeout
 setDefaultTimeout(60 * 1000);
+
+//Set custom parameters
+//Custom parameters are defined using regexps, but cucumber always takes the match for the first group
+//Unless we enforce either "" or '' we therefore have to match both and remove both
+
+const stringRegex = /("([^"]*)"|'([^']*)')/;
+function stringTransformer(s) {
+    return s.replaceAll('"', '').replaceAll("'", '');
+}
+
+defineParameterType({name: 'answer', regexp: stringRegex, transformer: stringTransformer});
+defineParameterType({name: 'page', regexp: stringRegex, transformer: stringTransformer});
+defineParameterType({name: 'context', regexp: /.+/});
+defineParameterType({name: 'question', regexp: stringRegex, transformer: stringTransformer});
+defineParameterType({name: 'postcode', regexp: stringRegex, transformer: stringTransformer});
 
 BeforeAll(async function () {
     target = this.parameters.target;
@@ -142,7 +158,7 @@ Given('the user creates an application for compensation', async function () {
     }
 });
 
-Given('the user is on page {string}', async function (pageId) {
+Given('the user is on page {page}', async function (pageId) {
     if (target === 'router') {
         routerSteps.isOnPage(testObject, pageId);
     } else if (target === 'dcs') {
@@ -152,7 +168,7 @@ Given('the user is on page {string}', async function (pageId) {
     }
 });
 
-When('the user answers {string} to the question {string}', async function (answer, questionId) {
+When('the user answers {answer} to the question {question}', async function (answer, questionId) {
     if (target === 'router') {
         routerSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
     } else if (target === 'dcs') {
@@ -162,7 +178,20 @@ When('the user answers {string} to the question {string}', async function (answe
     }
 });
 
-When('the user enters {string} into the postcode lookup', async function (postcode) {
+When(
+    'the user answers {answer} \\({context}\\) to the question {question}',
+    async function (answer, context, questionId) {
+        if (target === 'router') {
+            routerSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
+        } else if (target === 'dcs') {
+            await dcsSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
+        } else if (target === 'cw') {
+            await cwSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
+        }
+    }
+);
+
+When('the user enters {postcode} into the postcode lookup', async function (postcode) {
     if (target === 'cw') {
         await cwSteps.enterPostcodeLookup(testObject, postcode);
     } else {
@@ -176,7 +205,7 @@ When('the user selects find address', async function () {
         throw new Error('Postcode lookup can only be used when running against cica web');
     }
 });
-When('the user selects {string} from the found addresses', async function (address) {
+When('the user selects {answer} from the found addresses', async function (address) {
     if (target === 'cw') {
         await cwSteps.selectAddress(testObject, address);
     } else {
@@ -241,7 +270,7 @@ When('the user accepts all cookies', async function () {
     }
 });
 
-When('the user navigates to page {string}', async function (page) {
+When('the user navigates to page {page}', async function (page) {
     if (target === 'cw') {
         await cwSteps.navigateToPage(testObject, page);
     } else {
@@ -281,7 +310,7 @@ When('the user enters their security code', async function () {
     }
 });
 
-Given('the user is on optional page {string}', async function (page) {
+Given('the user is on optional page {page}', async function (page) {
     if (target === 'cw') {
         await cwSteps.isOnOptionalPage(testObject, page);
     } else {
@@ -289,7 +318,7 @@ Given('the user is on optional page {string}', async function (page) {
     }
 });
 
-When('the user continues from the optional page {string}', async function (page) {
+When('the user continues from the optional page {page}', async function (page) {
     if (target === 'cw') {
         await cwSteps.continueFromOptionalPage(testObject, page);
     } else {
@@ -297,7 +326,7 @@ When('the user continues from the optional page {string}', async function (page)
     }
 });
 
-When('the answer {string} is unchecked', async function (answer) {
+When('the answer {answer} is unchecked', async function (answer) {
     if (target === 'cw') {
         await cwSteps.answerIsUnchecked(testObject, answer);
     } else {
