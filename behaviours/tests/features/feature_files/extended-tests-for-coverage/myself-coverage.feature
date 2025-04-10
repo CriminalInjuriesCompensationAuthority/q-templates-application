@@ -337,10 +337,10 @@ Scenario: the user is on page p-applicant-dentist-visited.
 Given the user is on page "p-applicant-dentist-visited"
 And the user answers 'false' to the question "q-applicant-dentist-visited"
 When the user continues
-Then the user is on page "p--context-compensation"
+Then the user is on page "p-applicant-medical-help"
 
-Scenario: the user is on page p--context-compensation.
-Given the user is on page "p--context-compensation"
+Scenario: the user is on page p-applicant-medical-help.
+Given the user is on page "p-applicant-medical-help"
 When the user selects previous page
 Then the user is on page "p-applicant-dentist-visited"
 

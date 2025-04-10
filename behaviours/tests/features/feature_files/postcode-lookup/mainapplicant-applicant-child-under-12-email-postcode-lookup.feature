@@ -370,10 +370,10 @@ And the user enters 'SW1H9GL' into the postcode lookup
 And the user selects find address
 And the user selects 'GOVERNMENT LEGAL DEPARTMENT, 102, PETTY FRANCE, LONDON, SW1H 9GL' from the found addresses
 When the user continues
-Then the user is on page "p--context-compensation"
+Then the user is on page "p-applicant-medical-help"
 
-Scenario: the user is on page p--context-compensation.
-Given the user is on page "p--context-compensation"
+Scenario: the user is on page p-applicant-medical-help
+Given the user is on page "p-applicant-medical-help"
 When the user selects previous page
 Then the user is on page "p-applicant-dentist-address"
 
