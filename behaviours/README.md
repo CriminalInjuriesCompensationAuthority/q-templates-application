@@ -35,7 +35,7 @@ To run the `applicant:adult:self.deceased` journey and also test the residency a
 
 Coverage reports can be found under `reports/templateCoverage/`. A separate folder will be generated for each target the tests are run against.
 To verify the output datasets are unchanged set the `compareFixtures` variable to `true` in `cucumber.json` and run `npm run test:features:full` against the router.
-To update the fixtures (when there is a required change in the data output) repeat the above with the `saveFixtures` variable set to `true` in `cucumber.json`. Once the tests have been run move the new `fullFixture.json` from `reports/fixtures/temp` into `report/fixtures`.
+To update the fixtures (when there is a required change in the data output), first delete `reports/fixtures/fullFixture.json` and then repeat the above with the `saveFixtures` variable set to `true` in `cucumber.json`. Once the tests have been run move the new `fullFixture.json` from `reports/fixtures/temp` into `report/fixtures`.
 To run a check against a subset of the tests' outputs set the `savefixtures` variable to `true` and the `fullFixtureComparison` variable to `false`. This will generate a `partialFixture.json` file in `reports/fixtures/temp`. Move this file into `report/fixtures` before running the test again to compare the outputs.
 
 ## Editing feature files using VS Code and Git
