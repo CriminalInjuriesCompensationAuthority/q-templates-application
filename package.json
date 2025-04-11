@@ -9,6 +9,7 @@
     },
     "scripts": {
         "pretest": "npm run build",
+        "test:src": "git diff --cached --name-only > temp.txt && (node -e \"if(fs.readFileSync('temp.txt',{encoding:'utf8'}).includes('src')){process.exit(1)}else{console.log('Template files unchanged, skipping build tests')} \" || npm run test) && npx rimraf ./temp.txt",
         "test": "jest",
         "coverage": "jest --coverage",
         "lint": "eslint .",
