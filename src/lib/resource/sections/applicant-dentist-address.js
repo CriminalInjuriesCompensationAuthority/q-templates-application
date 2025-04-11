@@ -219,15 +219,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-medical-help',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-have-you-seen-a-gp.q-applicant-have-you-seen-a-gp',
-                        false
-                    ]
-                },
-                {
-                    target: 'p--context-compensation'
+                    target: 'p-applicant-medical-help'
                 }
             ]
         }

@@ -19,17 +19,17 @@ module.exports = {
                         'q-applicant-medical-help': {
                             error: {
                                 required:
-                                    'Select yes if you got other medical help for your injuries',
+                                    "Select yes if you've seen any other medical professionals",
                                 'required_someone-else':
-                                    'Select yes if they got other medical help for their injuries'
+                                    "Select yes if they've seen any other medical professionals"
                             },
-                            title: 'Did you get other medical help for your injuries?',
-                            'title_someone-else':
-                                'Did they get other medical help for their injuries?',
+                            title: 'Have you seen any other medical professionals?',
+                            'title_someone-else': 'Have they seen any other medical professionals?',
                             meta: {
                                 summary: {
-                                    title: 'Did you get other medical help?',
-                                    'title_someone-else': 'Did they get other medical help?'
+                                    title: 'Have you seen any other medical professionals?',
+                                    'title_someone-else':
+                                        'Have they seen any other medical professionals?'
                                 }
                             }
                         }
@@ -46,6 +46,8 @@ module.exports = {
                 'q-applicant-medical-help': {
                     type: 'boolean',
                     title: 'l10nt:q-applicant-medical-help.title{?lng,context,ns}',
+                    description:
+                        'Tell us about anything else you think might be relevant. This might include having to go to hospital or visit a physiotherapist.',
                     oneOf: [
                         {
                             title: 'Yes',

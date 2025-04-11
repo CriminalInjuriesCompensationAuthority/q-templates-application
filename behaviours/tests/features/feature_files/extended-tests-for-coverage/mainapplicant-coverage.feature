@@ -764,10 +764,10 @@ And the user answers 'gp building' to the question "q-gp-building-and-street"
 And the user answers 'gp town' to the question "q-gp-town-or-city"
 And the user answers 'gp1 1gp' to the question "q-gp-postcode"
 When the user continues
-Then the user is on page "p--context-compensation"
+Then the user is on page "p-applicant-medical-help"
 
-Scenario: the user is on page p--context-compensation.
-Given the user is on page "p--context-compensation"
+Scenario: the user is on page p-applicant-medical-help.
+Given the user is on page "p-applicant-medical-help"
 When the user selects previous page
 Then the user is on page "p-gp-enter-your-address"
 

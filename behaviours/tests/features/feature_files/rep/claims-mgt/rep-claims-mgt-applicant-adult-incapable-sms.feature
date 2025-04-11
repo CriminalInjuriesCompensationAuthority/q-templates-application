@@ -419,6 +419,12 @@ And the user answers 'dentist building' to the question "q-applicant-dentist-add
 And the user answers 'dentist town' to the question "q-applicant-dentist-address-town-or-city"
 And the user answers 'dp1 1dp' to the question "q-applicant-dentist-address-postcode"
 When the user continues
+Then the user is on page "p-applicant-medical-help"
+
+Scenario: the user is on page p-applicant-medical-help
+Given the user is on page "p-applicant-medical-help"
+And the user answers "false" to the question "q-applicant-medical-help"
+When the user continues
 Then the user is on page "p--context-compensation"
 
 Scenario: the user is on page p--context-compensation.
