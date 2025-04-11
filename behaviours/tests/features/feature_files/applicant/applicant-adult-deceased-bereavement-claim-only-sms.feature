@@ -7,7 +7,7 @@ Then the user is on page "p-applicant-who-are-you-applying-for"
 
 Scenario: the user is on page p-applicant-who-are-you-applying-for.
 Given the user is on page "p-applicant-who-are-you-applying-for"
-And the user answers 'myself' to the question "q-applicant-who-are-you-applying-for"
+And the user answers 'myself' to the question "q-applicant-who-are-you-applying-fo"
 When the user continues
 Then the user is on page "p-applicant-are-you-18-or-over"
 
