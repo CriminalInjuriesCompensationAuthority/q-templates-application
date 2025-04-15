@@ -1,5 +1,4 @@
-@speedbump-earbone @applicant @speedbump
-Feature: applicant adult sms speedbump surfaced for broken earbone
+Feature: applicant adult sms speedbump surfaced for broken finger on one hand
 
 Scenario: the user begins a new application.
 Given the user creates an application for compensation
@@ -181,25 +180,31 @@ They will be on page "p-applicant-are-you-claiming-for-physical-injuries"
 
 Scenario: The user is telling us they have physical injuries
 Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
-And the user answers 'yes' to the question 'q-applicant-are-you-claiming-for-physical-injuries'
+And the user answers 'yes' to the question "q-applicant-are-you-claiming-for-physical-injuries"
 When the user continues 
 They will be on page "p-applicant-physical-injuries"
 
 Scenario: The user is telling us what was injured
 Given the user is on page "p-applicant-physical-injuries"
-And the user answers 'Head, face or neck' to the question 'q-applicant-physical-injuries'
+And the user answers 'Arm' to the question "q-applicant-physical-injuries"
 When the user continues 
-They will be on page "p-applicant-physical-injuries-upper-head"
+They will be on page "p-applicant-physical-injuries-arms-arm"
 
-Scenario: The user is telling us their ear was injured
-Given the user is on page "p-applicant-physical-injuries-upper-head"
-And the user answers 'Ear or hearing' to the question 'q-applicant-physical-injuries-upper-head-other'
+Scenario: The user is telling us their hand was injured
+Given the user is on page "p-applicant-physical-injuries-arms-arm"
+And the user answers 'hand' to the question 'q-applicant-physical-injuries-arms-arm-other'
 When the user continues 
-They will be on page "p-applicant-physical-injuries-upper-ear"
+They will be on page "p-applicant-physical-injuries-arms-hand"
 
-Scenario: The user is telling us they have a broken ear bone
-Given the user is on page "p-applicant-physical-injuries-upper-ear"
-And the user answers 'phyinj-006' ('Broken ear bone') to the question 'q-applicant-physical-injuries-upper-ear-other'
+Scenario: The user is telling us their finger was injured
+Given the user is on page "p-applicant-physical-injuries-arms-hand"
+And the user answers 'digit' to the question 'q-applicant-physical-injuries-arms-arm-other'
+When the user continues 
+They will be on page "p-applicant-physical-injuries-arms-digit"
+
+Scenario: The user is telling us they have a broken finger
+Given the user is on page "p-applicant-physical-injuries-arms-digit"
+And the user answers 'phyinj-092' ("broken finger on one hand") to the question 'q-applicant-physical-injuries-arms-digit-other'
 When the user continues 
 They will be on page "p-applicant-infections"
 
