@@ -180,63 +180,33 @@ They will be on page "p-applicant-are-you-claiming-for-physical-injuries"
 
 Scenario: The user is telling us they have physical injuries
 Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
-And the user selects 'yes' to the question 'do you have physical injuries as a result of the crime'
+And the user answers 'yes' to the question 'q-applicant-are-you-claiming-for-physical-injuries'
 When the user continues 
 They will be on page "p-applicant-physical-injuries"
 
-Scenario: The user is does not answer the physical injuries question
-Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
-And the user does not answer the question 'do you have physical injuries as a result of the crime'
-When the user continues 
-They will see the error message 'select yes if you have physical injuries as a result of the crime'
-
 Scenario: The user is telling us what was injured
 Given the user is on page "p-applicant-physical-injuries"
-And selects 'Head, face or neck' to the question 'what was injured?'
+And the user answers 'Head, face or neck' to the question 'q-applicant-physical-injuries?'
 When the user continues 
 They will be on page "p-applicant-physical-injuries-upper-head"
 
-Scenario: The user is does not select an answer about what was injured
-Given the user is on page "p-applicant-physical-injuries"
-And does not select an answer to the question 'what was injured?'
-When the user continues 
-They will see the error message 'Select an injury from the list'
-
 Scenario: The user is telling us their eye was injured
 Given the user is on page "p-applicant-physical-injuries-upper-head"
-And selects 'Eye or eyesight' to the question 'What parts of the head, face or neck were injured?'
+And the user answers 'Eye or eyesight' to the question 'q-applicant-physical-injuries-upper-head-other?'
 When the user continues 
 They will be on page "p-applicant-physical-injuries-upper-eye"
 
-Scenario: The user is does not select an answer about what part of the head, face or neck was injured
-Given the user is on page "p-applicant-physical-injuries-upper-head"
-And does not select an answer to the question 'what part of the head, face or neck was injured?'
-When the user continues 
-They will see the error message 'Select an injury from the list'
-
-Scenario: The user is telling us they have temporary blurred or double vision
+Scenario: The user is telling us they have a scratched eye
 Given the user is on page "p-applicant-physical-injuries-upper-eye"
-And selects 'phyinj-014' ("temporary blurred or double vision") to the question 'Select any injuries to the eye or eyesight'
+And the user answers 'phyinj-014' ("temporary blurred or double vision") to the question 'q-applicant-physical-injuries-upper-eye-other'
 When the user continues 
 They will be on page "p-applicant-infections"
 
-Scenario: The user is does not select an injury type
-Given the user is on page "p-applicant-physical-injuries-upper-eye"
-And does not select an answer to the question 'Select any injuries to the eye or eyesight'
-When the user continues 
-They will see the error message 'Select an injury from the list'
-
 Scenario: The user did not get an infection as a result of the crime
 Given the user is on page "p-applicant-infections"
-And selects 'no' to the question 'Did you get an infection as a result of the crime?'
+And the user answers 'no' to the question 'q-applicant-infections?'
 When the user continues 
 They will be on page "p--context-pregnancy"
-
-Scenario: The user is does not answer if they got an infection
-Given the user is on page "p-applicant-infections"
-And does not select an answer to the question 'Did you get an infection as a result of the crime?'
-When the user continues 
-They will see the error message 'Select yes if you got an infection as a result of the crime'
 
 Scenario: The user is telling us about pregnancy
 Given the user is on page "p--context-pregnancy"
@@ -245,34 +215,40 @@ They will be on page "p-applicant-pregnancy-loss"
 
 Scenario: The user is telling us they did not lose a pregnancy
 Given the user is on page "p-applicant-pregnancy-loss"
-And selects 'no' to the question 'Did you lose a pregnancy as a result of the crime?'
+And the user answers 'no' to the question 'q-applicant-pregnancy-loss'
 When the user continues 
 They will be on page "p--context-dmi-details"
 
-Scenario: The user is does not answer if they lost a pregnancy 
-Given the user is on page "p-applicant-pregnancy-loss"
-And does not select an answer to the question 'Did you lose a pregnancy as a result of the crime?'
-When the user continues 
-They will see the error message 'Select yes if you lost a pregnancy as a result of the crime'
-
 Scenario: The user is telling us about their mental health
-Given the user is on page "p-context-dmi-details"
+Given the user is on page "p--context-dmi-details"
 When the user continues 
 They will be on page "p-applicant-do-you-have-a-disabling-mental-injury"
 
 Scenario: The user is telling us they do not have a DMI
 Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
-And selects 'no' to the question 'Do you have a disabling mental injury?'
+And the user answers 'no' to the question 'q-applicant-do-you-have-disabling-mental-injury'
 When the user continues 
-They will be on page "p-context-you-should-not-apply-again"
+They will be on page "p--context-you-should-not-apply-again"
 
-Scenario: The user does not select an answer 
+Scenario: The user is telling us they do have a DMI
 Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
-And does not answer the question 'Do you have a disabling mental injury?'
+And the user answers 'false' to the question 'q-applicant-do-you-have-disabling-mental-injury'
 When the user continues 
-They will see the error message 'Select yes if you've had a disabling mental injury'
+They will be on page "p-applicant-mental-injury-duration"
+
+Scenario: The user is telling us their DMI lasted less than 6 weeks
+Given the user is on page "p-applicant-mental-injury-duration"
+And the user answers 'less than 6 weeks' to the question 'q-applicant-mental-injury-duration'
+When the user continues 
+They will be on page "p-applicant-mental-injury-ongoing"
+
+Scenario: The user is telling us their DMI is not ongoing
+Given the user is on page "p-applicant-mental-injury-ongoing"
+And the user answers 'no' to the question 'q-applicant-mental-injury-ongoing'
+When the user continues 
+They will be on page "p--context-you-should-not-apply-again"
 
 Scenario: The user may not be eligible for compensation
-Given the user is on page "p-context-you-should-not-apply-again"
-When the user selects 'continue anyway'
+Given the user is on page "p--context-you-should-not-apply-again"
+When the user continues anyway
 They will be on page "p--context-crime-impact"

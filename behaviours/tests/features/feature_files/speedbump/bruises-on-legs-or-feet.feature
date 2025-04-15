@@ -1,5 +1,4 @@
-@speedbump-earbone @applicant @speedbump
-Feature: applicant adult sms speedbump surfaced for broken earbone
+Feature: applicant adult sms speedbump surfaced for bruises on legs oor feet
 
 Scenario: the user begins a new application.
 Given the user creates an application for compensation
@@ -181,25 +180,25 @@ They will be on page "p-applicant-are-you-claiming-for-physical-injuries"
 
 Scenario: The user is telling us they have physical injuries
 Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
-And the user answers 'yes' to the question 'q-applicant-are-you-claiming-for-physical-injuries'
+And the user answers 'yes' to the question "q-applicant-are-you-claiming-for-physical-injuries"
 When the user continues 
 They will be on page "p-applicant-physical-injuries"
 
 Scenario: The user is telling us what was injured
 Given the user is on page "p-applicant-physical-injuries"
-And the user answers 'Head, face or neck' to the question 'q-applicant-physical-injuries'
+And the user answers 'legs or feet' to the question "q-applicant-physical-injuries"
 When the user continues 
-They will be on page "p-applicant-physical-injuries-upper-head"
+They will be on page "p-applicant-physical-injury-legs"
 
-Scenario: The user is telling us their ear was injured
-Given the user is on page "p-applicant-physical-injuries-upper-head"
-And the user answers 'Ear or hearing' to the question 'q-applicant-physical-injuries-upper-head-other'
+Scenario: The user is telling us their skin was injured
+Given the user is on page "p-applicant-physical-injury-legs"
+And the user answers 'skin' to the question 'q-applicant-physical-injury-legs'
 When the user continues 
-They will be on page "p-applicant-physical-injuries-upper-ear"
+They will be on page "p-applicant-physical-injuries-legs-toes"
 
-Scenario: The user is telling us they have a broken ear bone
-Given the user is on page "p-applicant-physical-injuries-upper-ear"
-And the user answers 'phyinj-006' ('Broken ear bone') to the question 'q-applicant-physical-injuries-upper-ear-other'
+Scenario: The user is telling us they had bruises on their legs or feet
+Given the user is on page "p-applicant-physical-injuries-legs-skin"
+And the user answers 'phyinj-135' ("bruises on legs or feet") to the question 'q-applicant-physical-injuries-legs-skin-other'
 When the user continues 
 They will be on page "p-applicant-infections"
 
