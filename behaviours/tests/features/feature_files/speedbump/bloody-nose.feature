@@ -198,7 +198,7 @@ They will be on page "p-applicant-physical-injuries-upper-nose"
 
 Scenario: The user is telling us they have a bloody nose
 Given the user is on page "p-applicant-physical-injuries-upper-nose"
-And the user answers 'phyinj-052 ("bloody nose") to the question 'q-applicant-physical-injuries-upper-nose-other'
+And the user answers 'phyinj-052' ("bloody nose") to the question 'q-applicant-physical-injuries-upper-nose-other'
 When the user continues 
 They will be on page "p-applicant-infections"
 
