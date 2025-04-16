@@ -22,12 +22,12 @@ module.exports = {
                             'description_someone-else':
                                 "This means it's much harder than usual to do things they would normally do, like going to school or university, seeing friends, working or having a relationship.",
                             error: {
-                                required: 'Select yes if you suffered a disabling mental injury',
+                                required: "Select yes if you've had a disabling mental injury",
                                 'required_someone-else':
-                                    'Select yes if they suffered a disabling mental injury'
+                                    "Select yes if they've had a disabling mental injury"
                             },
-                            title: 'Do you have a disabling mental injury?',
-                            'title_someone-else': 'Do they have a disabling mental injury?'
+                            title: 'Have you had a disabling mental injury?',
+                            'title_someone-else': 'Have they had a disabling mental injury?'
                         }
                     }
                 }
