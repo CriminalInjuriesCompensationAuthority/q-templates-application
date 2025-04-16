@@ -18,13 +18,12 @@ module.exports = {
                     resources: {
                         'q-applicant-mental-injury-duration': {
                             error: {
-                                required:
-                                    'Select yes if your mental injury has lasted longer than 6 weeks',
+                                required: 'Select how long your mental injury has lasted',
                                 'required_someone-else':
-                                    'Select yes if their mental injury has lasted longer than 6 weeks'
+                                    'Select how long their mental injury has lasted'
                             },
-                            title: 'Has your mental injury lasted 6 weeks or more?',
-                            'title_someone-else': 'Has this mental injury lasted 6 weeks or more?'
+                            title: 'How long did your mental injury last?',
+                            'title_someone-else': 'How long did their mental injury last?'
                         }
                     }
                 }
@@ -41,11 +40,11 @@ module.exports = {
                     title: 'l10nt:q-applicant-mental-injury-duration.title{?lng,context,ns}',
                     oneOf: [
                         {
-                            title: 'Yes',
+                            title: '6 weeks or more',
                             const: true
                         },
                         {
-                            title: 'No',
+                            title: 'Less than 6 weeks',
                             const: false
                         }
                     ],
@@ -54,7 +53,7 @@ module.exports = {
                             theme: 'mental-health'
                         },
                         summary: {
-                            title: 'Has it lasted 6 weeks or more?'
+                            title: 'How long has it lasted?'
                         }
                     }
                 }
@@ -84,7 +83,20 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-crime-impact'
+                    target: 'p--context-crime-impact',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-mental-injury-duration.q-applicant-mental-injury-duration',
+                        true
+                    ]
+                },
+                {
+                    target: 'p-applicant-mental-injury-ongoing',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-mental-injury-duration.q-applicant-mental-injury-duration',
+                        false
+                    ]
                 }
             ]
         }
