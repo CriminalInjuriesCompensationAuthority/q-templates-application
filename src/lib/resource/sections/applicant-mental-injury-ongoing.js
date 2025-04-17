@@ -5,29 +5,22 @@ module.exports = {
         l10n: {
             vars: {
                 lng: 'en',
-                context: {
-                    $data:
-                        '/answers/p-applicant-who-are-you-applying-for/q-applicant-who-are-you-applying-for'
-                },
-                ns: 'p-applicant-do-you-have-disabling-mental-injury'
+                ns: 'p-applicant-mental-injury-ongoing'
             },
             translations: [
                 {
                     language: 'en',
-                    namespace: 'p-applicant-do-you-have-disabling-mental-injury',
+                    namespace: 'p-applicant-mental-injury-ongoing',
                     resources: {
-                        'q-applicant-do-you-have-disabling-mental-injury': {
-                            description:
-                                "This means it's much harder than usual to do things you would normally do, like going to school or university, seeing friends, working or having a relationship.",
-                            'description_someone-else':
-                                "This means it's much harder than usual to do things they would normally do, like going to school or university, seeing friends, working or having a relationship.",
+                        'q-applicant-mental-injury-ongoing': {
                             error: {
-                                required: "Select yes if you've had a disabling mental injury",
-                                'required_someone-else':
-                                    "Select yes if they've had a disabling mental injury"
+                                myself: 'Select yes if you still have your mental injury',
+                                proxy: 'Select yes if you still have your mental injury'
                             },
-                            title: 'Have you had a disabling mental injury?',
-                            'title_someone-else': 'Have they had a disabling mental injury?'
+                            title: {
+                                myself: 'Do you still have your mental injury?',
+                                proxy: 'Do they still have your mental injury?'
+                            }
                         }
                     }
                 }
@@ -36,15 +29,18 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-do-you-have-disabling-mental-injury'],
+            required: ['q-applicant-mental-injury-ongoing'],
             additionalProperties: false,
             properties: {
-                'q-applicant-do-you-have-disabling-mental-injury': {
+                'q-applicant-mental-injury-ongoing': {
                     type: 'boolean',
-                    description:
-                        'l10nt:q-applicant-do-you-have-disabling-mental-injury.description{?lng,context,ns}',
-                    title:
-                        'l10nt:q-applicant-do-you-have-disabling-mental-injury.title{?lng,context,ns}',
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-mental-injury-ongoing.title.proxy',
+                        ['|role.all'],
+                        'q-applicant-mental-injury-ongoing.title.myself'
+                    ],
                     oneOf: [
                         {
                             title: 'Yes',
@@ -58,27 +54,35 @@ module.exports = {
                     meta: {
                         classifications: {
                             theme: 'mental-health'
+                        },
+                        summary: {
+                            title: 'Is it still ongoing?'
                         }
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-applicant-do-you-have-disabling-mental-injury':
-                        'l10nt:q-applicant-do-you-have-disabling-mental-injury.error.required{?lng,context,ns}'
+                    'q-applicant-mental-injury-ongoing': [
+                        '|l10nt',
+                        ['|role.all', 'proxy'],
+                        'q-applicant-mental-injury-ongoing.error.proxy',
+                        ['|role.all'],
+                        'q-applicant-mental-injury-ongoing.error.myself'
+                    ]
                 }
             },
             examples: [
                 {
-                    'q-applicant-do-you-have-disabling-mental-injury': true
+                    'q-applicant-mental-injury-ongoing': true
                 },
                 {
-                    'q-applicant-do-you-have-disabling-mental-injury': false
+                    'q-applicant-mental-injury-ongoing': false
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-do-you-have-disabling-mental-injury': 'foo'
+                    'q-applicant-mental-injury-ongoing': 'foo'
                 }
             ]
         }
@@ -86,14 +90,6 @@ module.exports = {
     route: {
         on: {
             ANSWER: [
-                {
-                    target: 'p-applicant-mental-injury-duration',
-                    cond: [
-                        '==',
-                        '$.answers.p-applicant-do-you-have-disabling-mental-injury.q-applicant-do-you-have-disabling-mental-injury',
-                        true
-                    ]
-                },
                 {
                     target: 'p--context-injuries-not-eligible',
                     cond: [
@@ -199,6 +195,16 @@ module.exports = {
                                     ['phyinj-049', 'phyinj-048']
                                 ]
                             ]
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-mental-injury-ongoing.q-applicant-mental-injury-ongoing',
+                            false
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-mental-injury-duration.q-applicant-mental-injury-duration',
+                            false
                         ]
                     ]
                 },

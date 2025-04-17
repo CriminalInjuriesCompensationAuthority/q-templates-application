@@ -227,8 +227,14 @@ Then the user is on page "p-applicant-do-you-have-disabling-mental-injury"
 
 Scenario: the user is on page p-applicant-do-you-have-disabling-mental-injury.
 Given the user is on page "p-applicant-do-you-have-disabling-mental-injury"
-And the user answers 'false' to the question "q-applicant-do-you-have-disabling-mental-injury"
+And the user answers 'true' to the question "q-applicant-do-you-have-disabling-mental-injury"
 When the user continues
+Then the user is on page "p-applicant-mental-injury-duration"
+
+Scenario: the user is on page p-applicant-mental-injury-duration
+Given the user is on page "p-applicant-mental-injury-duration"
+And the user answers 'true' ("more than 6 weeks") to the question 'q-applicant-mental-injury-duration'
+When the user continues 
 Then the user is on page "p--context-crime-impact"
 
 Scenario: the user is on page p--context-crime-impact.
@@ -262,6 +268,12 @@ Then the user is on page "p-applicant-treatment-for-physical-injuries"
 Scenario: the user is on page p-applicant-treatment-for-physical-injuries.
 Given the user is on page "p-applicant-treatment-for-physical-injuries"
 And the user answers 'the treatment i am receiving for my physical injuries' to the question "q-applicant-treatment-for-physical-injuries"
+When the user continues
+Then the user is on page "p-applicant-select-treatments"
+
+Scenario: the user is on page p-applicant-select-treatments
+Given the user is on page "p-applicant-select-treatments"
+And the user answers 'cbt' to the question "q-applicant-select-treatments-dmi"
 When the user continues
 Then the user is on page "p-applicant-has-your-treatment-finished-dmi"
 
