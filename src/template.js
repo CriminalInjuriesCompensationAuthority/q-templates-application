@@ -209,6 +209,7 @@ const applicantSomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/se
 const contextYouShouldNotApplyAgain = require('./lib/resource/sections/context-you-should-not-apply-again');
 const proxySomeoneElseAppliedBeforeForThisCrime = require('./lib/resource/sections/proxy-someone-else-applied-before-for-this-crime');
 const applicantMentalInjuryOngoing = require('./lib/resource/sections/applicant-mental-injury-ongoing.js');
+const contextInjuriesNotEligible = require('./lib/resource/sections/context-injuries-not-eligible.js');
 module.exports = {
     type: 'apply-for-compensation',
     version,
@@ -437,7 +438,8 @@ module.exports = {
         'p-proxy-someone-else-applied-before-for-this-crime':
             proxySomeoneElseAppliedBeforeForThisCrime.section,
         'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.section,
-        'p-applicant-mental-injury-ongoing': applicantMentalInjuryOngoing.section
+        'p-applicant-mental-injury-ongoing': applicantMentalInjuryOngoing.section,
+        'p--context-injuries-not-eligible': contextInjuriesNotEligible.section
     },
     routes: {
         initial: 'p-applicant-who-are-you-applying-for',
@@ -685,7 +687,8 @@ module.exports = {
                 proxySomeoneElseAppliedBeforeForThisCrime.route,
             'p-applicant-applied-before-for-this-crime': applicantAppliedBeforeForThisCrime.route,
             'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route,
-            'p-applicant-mental-injury-ongoing': applicantMentalInjuryOngoing.route
+            'p-applicant-mental-injury-ongoing': applicantMentalInjuryOngoing.route,
+            'p--context-injuries-not-eligible': contextInjuriesNotEligible.route
         }
     },
     answers: {},
