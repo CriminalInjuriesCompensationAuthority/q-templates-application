@@ -1,70 +1,65 @@
 Feature: Applicant details flow
 
-  @applicant:adult:self @mainApplicant:adult.incapable @taskList
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user selects the "Your details" task
     Given the user is on page "p-task-list"
-    And the status of "t_applicant_personal-details__completion-status" is "incomplete"
-    And the status of "t_applicant_personal-details__applicability-status" is "applicable"
-    When the user initialises the "#t_applicant_personal-details" state
-    Then the user is on page "p--context-applicant-details"
+    When the user selects "Your details"
+    Then the user is on page "context-applicant-details"
 
-  @applicant:adult:self @mainApplicant:adult.incapable @context @taskList @linear
+        ##########################################################  APPLICANT DETAILS HAPPY PATH ##########################################################
+
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user is on the applicant details context page
-  Given the user is on page "p--context-applicant-details"
-  When the user advances the application
-  Then the user is on page "p-applicant-confirmation-method"
+  Given the user is on page "context-applicant-details"
+  When the user selects "Continue"
+  Then the user is on page "applicant-confirmation-method"
 
-  @applicant:adult:self @reveal @openQuestion @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user confirms how they'd like to be contacted
-    Given the user is on page "p-applicant-confirmation-method"
-    When the user answers "email" to the question "q-applicant-confirmation-method"
-    And the user answers "foobar@cica.gov.uk" to the question "q-applicant-enter-your-email-address"
-    And the user answers the question
-    Then the user is on page "p-applicant-enter-your-name"
+  Given the user is on page "applicant-confirmation-method"
+  When the user selects "Email"
+  And the user enters "foo@bar.com" into textBox "Email address"
+  And the user selects "Continue"
+  Then the user is on page "applicant-enter-your-name"
 
-  @applicant:adult:self @openQuestion @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user enters the applicant's name
-    Given the user is on page "p-applicant-enter-your-name"
-    When the user answers "Miss" to the question "q-applicant-title"
-    And the user answers "Test" to the question "q-applicant-first-name"
-    And the user answers "Testcase" to the question "q-applicant-last-name"
-    And the user answers the question
-    Then the user is on page "p-applicant-have-you-been-known-by-any-other-names"
+  Given the user is on page "applicant-enter-your-name"
+  When the user enters "Miss" into textBox "Title"
+  And the user enters "Test" into textBox "First name"
+  And the user enters "Testcase" into textBox "Last name"
+  And the user selects "Continue"
+  Then the user is on page "applicant-have-you-been-known-by-any-other-names"
 
-  @applicant:adult:self @closedQuestion @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user selects whether the applicant have ever been known as another name
-    Given the user is on page "p-applicant-have-you-been-known-by-any-other-names"
-    When the user answers "false" to the question "q-applicant-have-you-been-known-by-any-other-names"
-    And the user answers the question
-    Then the user is on page "p-applicant-enter-your-date-of-birth"
+  Given the user is on page "applicant-have-you-been-known-by-any-other-names"
+  When the user selects "No"
+  And the user selects "Continue"
+  Then the user is on page "applicant-enter-your-date-of-birth"
 
-  @applicant:adult:self @openQuestion @taskList @linear
-  Scenario: the user enters their date of birth
-    Given the user is on page "p-applicant-enter-your-date-of-birth"
-    When the user answers "01 01 1970" to the question "q-applicant-enter-your-date-of-birth"
-    And the user answers the question
-    Then the user is on page "p-applicant-enter-your-address"
+  @applicant:adult:self @applicant:adult:self.deceased
+  Scenario: the user enters the name(s) the applicant has previously been known as
+  Given the user is on page "applicant-enter-your-date-of-birth"
+  When the user enters "31" into textBox "Day"
+  And the user enters "3" into textBox "Month"
+  And the user enters "1990" into textBox "Year"
+  And the user selects "Continue"
+  Then the user is on page "applicant-enter-your-address"
 
-  @applicant:adult:self @openQuestion @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user enters the applicant's address
-    Given the user is on page "p-applicant-enter-your-address"
-    When the user answers "10 Bank St" to the question "q-applicant-building-and-street"
-    When the user answers "Glasgow" to the question "q-applicant-town-or-city"
-    When the user answers "MA1" to the question "q-applicant-postcode"
-    And the user answers the question
-    Then the user is on page "p-applicant-enter-your-telephone-number"
+  Given the user is on page "applicant-enter-your-address"
+  When the user enters "10 Bank St" into textBox "Address line 1"
+  And the user enters "Glasgow" into textBox "Town"
+  And the user enters "MA1" into the postcode textbox
+  And the user selects "Continue"
+  Then the user is on page "applicant-enter-your-telephone-number"
 
-  @applicant:adult:self @openQuestion @taskList
+  @applicant:adult:self @applicant:adult:self.deceased
   Scenario: the user enters the applicant's phone number
-    Given the user is on page "p-applicant-enter-your-telephone-number"
-    When the user answers "07799000000" to the question "q-applicant-enter-your-telephone-number"
-    And the user answers the question
-    Then the user is on page "p-task-list"
-    And the status of "t_applicant_personal-details__completion-status" is "completed"
-
-  @applicant:adult:self @openQuestion @linear
-  Scenario: the user enters the applicant's phone number
-    Given the user is on page "p-applicant-enter-your-telephone-number"
-    When the user answers "07799000000" to the question "q-applicant-enter-your-telephone-number"
-    And the user answers the question
-    Then the user is on page "p--context-residency-and-nationality"
+  Given the user is on page "applicant-enter-your-telephone-number"
+  When the user enters "07799000000" into textBox "Enter your telephone number (optional)"
+  And the user selects "Continue"
+  Then the user is on page "task-list"
+  And the "t_applicant_personal-details" task status will be marked as "Completed"

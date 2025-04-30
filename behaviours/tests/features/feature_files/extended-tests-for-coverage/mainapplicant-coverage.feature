@@ -44,6 +44,11 @@ Scenario: the user is on page p-proxy-someone-else-applied-before-for-this-crime
 Given the user is on page "p-proxy-someone-else-applied-before-for-this-crime"
 And the user answers 'false' to the question "q-proxy-someone-else-applied-before-for-this-crime"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_personal-details"
 Then the user is on page "p--context-applicant-details"
 
 Scenario: the user is on page p--context-applicant-details.
@@ -77,6 +82,11 @@ And the user answers '10 bank st' to the question "q-applicant-building-and-stre
 And the user answers 'glasgow' to the question "q-applicant-town-or-city"
 And the user answers 'ma1' to the question "q-applicant-postcode"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -86,173 +96,13 @@ Then the user is on page "p-applicant-british-citizen"
 
 Scenario: the user is on page p-applicant-british-citizen.
 Given the user is on page "p-applicant-british-citizen"
-And the user answers 'false' to the question "q-applicant-british-citizen"
+And the user answers 'true' to the question "q-applicant-british-citizen"
 When the user continues
-Then the user is on page "p-applicant-british-citizen-relative"
+Then the user is on page "p-task-list"
 
-Scenario: the user is on page p-applicant-british-citizen-relative.
-Given the user is on page "p-applicant-british-citizen-relative"
-And the user answers 'true' to the question "q-applicant-british-citizen-relative"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-british-citizen-relative"
-
-Scenario: the user is on page p-applicant-british-citizen-relative.
-Given the user is on page "p-applicant-british-citizen-relative"
-And the user answers 'false' to the question "q-applicant-british-citizen-relative"
-When the user continues
-Then the user is on page "p-applicant-ordinarily-resident"
-
-Scenario: the user is on page p-applicant-ordinarily-resident.
-Given the user is on page "p-applicant-ordinarily-resident"
-And the user answers 'true' to the question "q-applicant-ordinarily-resident"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-ordinarily-resident"
-
-Scenario: the user is on page p-applicant-ordinarily-resident.
-Given the user is on page "p-applicant-ordinarily-resident"
-And the user answers 'false' to the question "q-applicant-ordinarily-resident"
-When the user continues
-Then the user is on page "p-applicant-eu-citizen"
-
-Scenario: the user is on page p-applicant-eu-citizen.
-Given the user is on page "p-applicant-eu-citizen"
-And the user answers 'true' to the question "q-applicant-eu-citizen"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-eu-citizen"
-
-Scenario: the user is on page p-applicant-eu-citizen.
-Given the user is on page "p-applicant-eu-citizen"
-And the user answers 'false' to the question "q-applicant-eu-citizen"
-When the user continues
-Then the user is on page "p-applicant-eu-citizen-relative"
-
-Scenario: the user is on page p-applicant-eu-citizen-relative.
-Given the user is on page "p-applicant-eu-citizen-relative"
-And the user answers 'true' to the question "q-applicant-eu-citizen-relative"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-eu-citizen-relative"
-
-Scenario: the user is on page p-applicant-eu-citizen-relative.
-Given the user is on page "p-applicant-eu-citizen-relative"
-And the user answers 'false' to the question "q-applicant-eu-citizen-relative"
-When the user continues
-Then the user is on page "p-applicant-eea-citizen"
-
-Scenario: the user is on page p-applicant-eea-citizen.
-Given the user is on page "p-applicant-eea-citizen"
-And the user answers 'true' to the question "q-applicant-eea-citizen"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-eea-citizen"
-
-Scenario: the user is on page p-applicant-eea-citizen.
-Given the user is on page "p-applicant-eea-citizen"
-And the user answers 'false' to the question "q-applicant-eea-citizen"
-When the user continues
-Then the user is on page "p-applicant-eea-citizen-relative"
-
-Scenario: the user is on page p-applicant-eea-citizen-relative.
-Given the user is on page "p-applicant-eea-citizen-relative"
-And the user answers 'true' to the question "q-applicant-eea-citizen-relative"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-eea-citizen-relative"
-
-Scenario: the user is on page p-applicant-eea-citizen-relative.
-Given the user is on page "p-applicant-eea-citizen-relative"
-And the user answers 'false' to the question "q-applicant-eea-citizen-relative"
-When the user continues
-Then the user is on page "p-applicant-other-citizen"
-
-Scenario: the user is on page p-applicant-other-citizen.
-Given the user is on page "p-applicant-other-citizen"
-And the user answers 'true' to the question "q-applicant-other-citizen"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-other-citizen"
-
-Scenario: the user is on page p-applicant-other-citizen.
-Given the user is on page "p-applicant-other-citizen"
-And the user answers 'false' to the question "q-applicant-other-citizen"
-When the user continues
-Then the user is on page "p-applicant-armed-forces"
-
-Scenario: the user is on page p-applicant-armed-forces.
-Given the user is on page "p-applicant-armed-forces"
-And the user answers 'true' to the question "q-applicant-armed-forces"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-armed-forces"
-
-Scenario: the user is on page p-applicant-armed-forces.
-Given the user is on page "p-applicant-armed-forces"
-And the user answers 'false' to the question "q-applicant-armed-forces"
-When the user continues
-Then the user is on page "p-applicant-armed-forces-relative"
-
-Scenario: the user is on page p-applicant-armed-forces-relative.
-Given the user is on page "p-applicant-armed-forces-relative"
-And the user answers 'true' to the question "q-applicant-armed-forces-relative"
-When the user continues
-Then the user is on page "p--context-mainapplicant-details"
-
-Scenario: the user is on page p--context-mainapplicant-details.
-Given the user is on page "p--context-mainapplicant-details"
-When the user selects previous page
-Then the user is on page "p-applicant-armed-forces-relative"
-
-Scenario: the user is on page p-applicant-armed-forces-relative.
-Given the user is on page "p-applicant-armed-forces-relative"
-And the user answers 'false' to the question "q-applicant-armed-forces-relative"
-When the user continues
-Then the user is on page "p-applicant-victim-human-trafficking"
-
-Scenario: the user is on page p-applicant-victim-human-trafficking.
-Given the user is on page "p-applicant-victim-human-trafficking"
-And the user answers 'true' to the question "q-applicant-victim-human-trafficking"
-When the user continues
-Then the user is on page "p-applicant-applied-for-asylum"
-
-Scenario: the user is on page p-applicant-applied-for-asylum.
-Given the user is on page "p-applicant-applied-for-asylum"
-And the user answers 'true' to the question "q-applicant-applied-for-asylum"
-When the user continues
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task "t_mainapplicant_authority"
 Then the user is on page "p--context-mainapplicant-details"
 
 Scenario: the user is on page p--context-mainapplicant-details.
@@ -317,6 +167,11 @@ Scenario: the user is on page p-mainapplicant-care-order.
 Given the user is on page "p-mainapplicant-care-order"
 And the user answers 'false' to the question "q-mainapplicant-care-order"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-the-crime"
 Then the user is on page "p--before-you-continue"
 
 Scenario: the user is on page p--before-you-continue.
@@ -418,6 +273,11 @@ Scenario: the user is on page p-applicant-incident-description.
 Given the user is on page "p-applicant-incident-description"
 And the user answers 'test' to the question "q-applicant-incident-description"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task "t_offender_about-the-offender"
 Then the user is on page "p--context-offender"
 
 Scenario: the user is on page p--context-offender.
@@ -436,11 +296,23 @@ Scenario: the user is on page p-offender-do-you-have-contact-with-offender.
 Given the user is on page "p-offender-do-you-have-contact-with-offender"
 And the user answers 'false' to the question "q-offender-do-you-have-contact-with-offender"
 When the user continues
-Then the user is on page "p--context-physical-injuries"
+Then the user is on page "p-task-list"
 
-Scenario: the user is on page p--context-physical-injuries.
-Given the user is on page "p--context-physical-injuries"
-When the user selects previous page
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_offender_about-the-offender"
+Then the user is on page "p--context-offender"
+
+Scenario: the user is on page p--context-offender.
+Given the user is on page "p--context-offender"
+When the user advances the application
+Then the user is on page "p-offender-do-you-know-the-name-of-the-offender"
+
+Scenario: the user is on page p-offender-do-you-know-the-name-of-the-offender.
+Given the user is on page "p-offender-do-you-know-the-name-of-the-offender"
+And the user answers 'true' to the question "q-offender-do-you-know-the-name-of-the-offender"
+And the user answers 'offender name' to the question "q-offender-enter-offenders-name" 
+When the user continues
 Then the user is on page "p-offender-do-you-have-contact-with-offender"
 
 Scenario: the user is on page p-offender-do-you-have-contact-with-offender.
@@ -453,6 +325,11 @@ Scenario: the user is on page p-offender-describe-contact-with-offender.
 Given the user is on page "p-offender-describe-contact-with-offender"
 And the user answers 'description' to the question "q-offender-describe-contact-with-offender"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-injuries"
 Then the user is on page "p--context-physical-injuries"
 
 Scenario: the user is on page p--context-physical-injuries.
@@ -498,6 +375,11 @@ Scenario: the user is on page p-applicant-do-you-have-disabling-mental-injury.
 Given the user is on page "p-applicant-do-you-have-disabling-mental-injury"
 And the user answers 'false' to the question "q-applicant-do-you-have-disabling-mental-injury"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_impact-of-injuries"
 Then the user is on page "p--context-crime-impact"
 
 Scenario: the user is on page p--context-crime-impact.
@@ -550,66 +432,51 @@ Scenario: the user is on page p-applicant-special-expenses.
 Given the user is on page "p-applicant-special-expenses"
 And the user answers 'true' to the question "q-applicant-special-expenses"
 When the user continues
-Then the user is on page "p--context-treatment"
+Then the user is on page "p-task-list"
+And the "t_applicant_impact-of-injuries" task status will be marked as "Completed"
 
-Scenario: the user is on page p--context-treatment.
-Given the user is on page "p--context-treatment"
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-injuries"
+Then the user is on page "p--context-physical-injuries"
+
+Scenario: the user is on page p--context-physical-injuries.
+Given the user is on page "p--context-physical-injuries"
 When the user advances the application
-Then the user is on page "p-applicant-are-you-registered-with-gp"
+Then the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
 
-Scenario: the user is on page p-applicant-are-you-registered-with-gp.
-Given the user is on page "p-applicant-are-you-registered-with-gp"
-When the user selects previous page
-Then the user is on page "p--context-treatment"
+Scenario: the user is on page p-applicant-are-you-claiming-for-physical-injuries.
+Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
+And the user answers 'false' to the question "q-applicant-are-you-claiming-for-physical-injuries"
+When the user continues
+Then the user is on page "p-applicant-infections"
 
-Scenario: the user is on page p--context-treatment.
-Given the user is on page "p--context-treatment"
-When the user selects previous page
-Then the user is on page "p-applicant-special-expenses"
+Scenario: the user is on page p-applicant-infections.
+Given the user is on page "p-applicant-infections"
+And the user answers 'yes' to the question "q-applicant-infections"
+When the user continues
+Then the user is on page "p-applicant-select-non-sa-infections"
 
-Scenario: the user is on page p-applicant-special-expenses.
-Given the user is on page "p-applicant-special-expenses"
-When the user selects previous page
-Then the user is on page "p--context-special-expenses"
+Scenario: the user is on page p-applicant-select-non-sa-infections.
+Given the user is on page "p-applicant-select-non-sa-infections"
+And the user answers 'phyinj-141' to the question "q-applicant-physical-injuries"
+When the user continues
+Then the user is on page "p--context-pregnancy"
 
-Scenario: the user is on page p--context-special-expenses.
-Given the user is on page "p--context-special-expenses"
-When the user selects previous page
-Then the user is on page "p-applicant-affect-on-daily-life-dmi"
+Scenario: the user is on page p--context-pregnancy.
+Given the user is on page "p--context-pregnancy"
+When the user advances the application
+Then the user is on page "p-applicant-pregnancy-loss"
 
-Scenario: the user is on page p-applicant-affect-on-daily-life-dmi.
-Given the user is on page "p-applicant-affect-on-daily-life-dmi"
-When the user selects previous page
-Then the user is on page "p-applicant-future-work"
+Scenario: the user is on page p-applicant-pregnancy-loss.
+Given the user is on page "p-applicant-pregnancy-loss"
+And the user answers 'no' to the question "q-applicant-pregnancy-loss"
+When the user continues
+Then the user is on page "p--context-dmi-details"
 
-Scenario: the user is on page p-applicant-future-work.
-Given the user is on page "p-applicant-future-work"
-When the user selects previous page
-Then the user is on page "p-applicant-affected-daily-capacity"
-
-Scenario: the user is on page p-applicant-affected-daily-capacity.
-Given the user is on page "p-applicant-affected-daily-capacity"
-When the user selects previous page
-Then the user is on page "p-applicant-work-details-option"
-
-Scenario: the user is on page p-applicant-work-details-option.
-Given the user is on page "p-applicant-work-details-option"
-When the user selects previous page
-Then the user is on page "p-applicant-job-when-crime-happened"
-
-Scenario: the user is on page p-applicant-job-when-crime-happened.
-Given the user is on page "p-applicant-job-when-crime-happened"
-When the user selects previous page
-Then the user is on page "p-applicant-over-16"
-
-Scenario: the user is on page p-applicant-over-16.
-Given the user is on page "p-applicant-over-16"
-When the user selects previous page
-Then the user is on page "p--context-crime-impact"
-
-Scenario: the user is on page p--context-crime-impact.
-Given the user is on page "p--context-crime-impact"
-When the user selects previous page
+Scenario: the user is on page p--context-dmi-details.
+Given the user is on page "p--context-dmi-details"
+When the user advances the application
 Then the user is on page "p-applicant-do-you-have-disabling-mental-injury"
 
 Scenario: the user is on page p-applicant-do-you-have-disabling-mental-injury.
@@ -622,6 +489,11 @@ Scenario: the user is on page p-applicant-mental-injury-duration.
 Given the user is on page "p-applicant-mental-injury-duration"
 And the user answers 'true' to the question "q-applicant-mental-injury-duration"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_impact-of-injuries"
 Then the user is on page "p--context-crime-impact"
 
 Scenario: the user is on page p--context-crime-impact.
@@ -697,6 +569,12 @@ Scenario: the user is on page p-applicant-special-expenses.
 Given the user is on page "p-applicant-special-expenses"
 And the user answers 'true' to the question "q-applicant-special-expenses"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_impact-of-injuries" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-treatment"
 Then the user is on page "p--context-treatment"
 
 Scenario: the user is on page p--context-treatment.
@@ -798,6 +676,12 @@ And the user answers 'treatment building' to the question "q-applicant-treatment
 And the user answers 'treatment town' to the question "q-applicant-treatment-town-or-city"
 And the user answers 'tp1 1tp' to the question "q-applicant-treatment-postcode"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_about-treatment" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_other-compensation"
 Then the user is on page "p--context-compensation"
 
 Scenario: the user is on page p--context-compensation.
@@ -833,16 +717,35 @@ Scenario: the user is on page p-applicant-how-much-was-award.
 Given the user is on page "p-applicant-how-much-was-award"
 And the user answers 'true' to the question "q-how-much-was-award"
 When the user continues
-Then the user is on page "p--context-additional-info"
+Then the user is on page "p-task-list"
+And the "t_applicant_other-compensation" task status will be marked as "Completed"
 
-Scenario: the user is on page p--context-additional-info.
-Given the user is on page "p--context-additional-info"
-When the user selects previous page
-Then the user is on page "p-applicant-how-much-was-award"
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_other-compensation"
+Then the user is on page "p--context-compensation"
 
-Scenario: the user is on page p-applicant-how-much-was-award.
-Given the user is on page "p-applicant-how-much-was-award"
-When the user selects previous page
+Scenario: the user is on page p--context-compensation.
+Given the user is on page "p--context-compensation"
+When the user advances the application
+Then the user is on page "p-applicant-have-you-applied-to-us-before"
+
+Scenario: the user is on page p-applicant-have-you-applied-to-us-before.
+Given the user is on page "p-applicant-have-you-applied-to-us-before"
+And the user answers 'false' to the question "q-applicant-have-you-applied-to-us-before"
+When the user continues
+Then the user is on page "p-applicant-have-you-applied-for-or-received-any-other-compensation"
+
+Scenario: the user is on page p-applicant-have-you-applied-for-or-received-any-other-compensation.
+Given the user is on page "p-applicant-have-you-applied-for-or-received-any-other-compensation"
+And the user answers 'true' to the question "q-applicant-have-you-applied-for-or-received-any-other-compensation"
+When the user continues
+Then the user is on page "p-applicant-who-did-you-apply-to"
+
+Scenario: the user is on page p-applicant-who-did-you-apply-to.
+Given the user is on page "p-applicant-who-did-you-apply-to"
+And the user answers 'description' to the question "q-applicant-who-did-you-apply-to"
+When the user continues
 Then the user is on page "p-applicant-has-a-decision-been-made"
 
 Scenario: the user is on page p-applicant-has-a-decision-been-made.
@@ -855,6 +758,12 @@ Scenario: the user is on page p-applicant-when-will-you-find-out.
 Given the user is on page "p-applicant-when-will-you-find-out"
 And the user answers '12 2025' to the question "q-when-will-you-find-out"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_other-compensation" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_additional-information"
 Then the user is on page "p--context-additional-info"
 
 Scenario: the user is on page p--context-additional-info.
@@ -872,6 +781,12 @@ Scenario: the user is on page p-applicant-additional-information.
 Given the user is on page "p-applicant-additional-information"
 And the user answers 'description' to the question "q-applicant-additional-information"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_additional-information" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t-check-your-answers"
 Then the user is on page "p--check-your-answers"
 
 Scenario: the user is on page p--check-your-answers.

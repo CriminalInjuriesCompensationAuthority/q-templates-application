@@ -44,6 +44,12 @@ Scenario: the user is on page p-applicant-someone-else-applied-before-for-this-c
 Given the user is on page "p-applicant-someone-else-applied-before-for-this-crime"
 And the user answers 'no' to the question "q-applicant-someone-else-applied-before-for-this-crime"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_personal-details"
 Then the user is on page "p--context-applicant-details"
 
 Scenario: the user is on page p--context-applicant-details.
@@ -90,6 +96,12 @@ Scenario: the user is on page p-applicant-enter-your-email-address.
 Given the user is on page "p-applicant-enter-your-email-address"
 And the user answers 'foo.bar@somewhere.com' to the question "q-applicant-enter-your-email-address"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_personal-details" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -101,6 +113,12 @@ Scenario: the user is on page p-applicant-british-citizen.
 Given the user is on page "p-applicant-british-citizen"
 And the user answers 'true' to the question "q-applicant-british-citizen"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_residency-and-nationality" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-the-crime"
 Then the user is on page "p--before-you-continue"
 
 Scenario: the user is on page p--before-you-continue.
@@ -161,6 +179,12 @@ Scenario: the user is on page p-applicant-describe-incident.
 Given the user is on page "p-applicant-describe-incident"
 And the user answers 'false' to the question "q-applicant-describe-incident"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_about-the-crime" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_offender_about-the-offender"
 Then the user is on page "p--context-offender"
 
 Scenario: the user is on page p--context-offender.
@@ -172,6 +196,12 @@ Scenario: the user is on page p-offender-do-you-know-the-name-of-the-offender.
 Given the user is on page "p-offender-do-you-know-the-name-of-the-offender"
 And the user answers 'false' to the question "q-offender-do-you-know-the-name-of-the-offender"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_offender_about-the-offender" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_about-injuries"
 Then the user is on page "p--context-physical-injuries"
 
 Scenario: The user is telling us about their injuries
@@ -246,4 +276,4 @@ Then the user is on page "p--context-injuries-not-eligible"
 Scenario: The user may not be eligible for compensation
 Given the user is on page "p--context-injuries-not-eligible"
 When the user continues
-Then the user is on page "p--context-crime-impact"
+Then the user is on page "p-task-list"
