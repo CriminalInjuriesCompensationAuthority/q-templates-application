@@ -9,10 +9,10 @@ function requestService() {
             method: 'POST',
             headers: {
                 accept: 'application/vnd.api+json',
-                'Content-Type': 'application/vnd.api+json',
+                'Content-Type': 'application/vnd.api+json'
             },
             responseType: 'json',
-            throwHttpErrors: false,
+            throwHttpErrors: false
         };
         opts = merge(opts, options);
         return got(opts);
@@ -23,10 +23,10 @@ function requestService() {
             method: 'GET',
             headers: {
                 accept: 'application/vnd.api+json',
-                'Content-Type': 'application/vnd.api+json',
+                'Content-Type': 'application/vnd.api+json'
             },
             responseType: 'json',
-            throwHttpErrors: false,
+            throwHttpErrors: false
         };
         opts = merge(opts, options);
         return got(opts);
@@ -34,7 +34,7 @@ function requestService() {
 
     return Object.freeze({
         post,
-        get,
+        get
     });
 }
 
