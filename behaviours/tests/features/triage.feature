@@ -1,99 +1,109 @@
 Feature: Triage flow
 
-  @applicant:adult:self @taskList @linear
-  Scenario: the user begins a new application
-    Given the user creates an application for compensation
-    Then the user is on page "p-applicant-who-are-you-applying-for"
+  Scenario Outline: The user goes to the Claim criminal injuries compensation site
+    Given the user is a "<user>" user
+    When the user goes to "claim criminal injuries compensation"
+    And the user selects "Accept all cookies"
+    Then the user is on page "start-or-resume"
 
-  @applicant:adult:self @closedQuestion @taskList @linear
-  Scenario Outline: the user selects who I am applying for
-    Given the user is on page "p-applicant-who-are-you-applying-for"
-    When the user answers "<answer>" to the question "q-applicant-who-are-you-applying-for"
-    And the user answers the question
-    Then the user is on page "p-applicant-are-you-18-or-over"
-
-  @applicant:adult:self @closedQuestion @taskList @linear
+  @applicant:adult:self
     Examples:
-      | answer |
-      | myself |
+      | user |
+      | applicant:adult:self |
 
-  @mainApplicant:adult.incapable @closedQuestion @taskList @linear
+  @applicant:adult:self.deceased
     Examples:
-      | answer |
-      | someone-else |
+      | user |
+      | applicant:adult:self.deceased |
 
-  @applicant:adult:self @mainApplicant:adult.incapable @closedQuestion @taskList @linear
+  @applicant:child:proxy
+    Examples:
+      | user |
+      | applicant:child:proxy |
+
+  @applicant:child:proxy.deceased
+    Examples:
+      | user |
+      | applicant:child:proxy |
+
+  @proxyCascadeBug
+    Examples:
+      | user |
+      | proxyCascadeBug |
+
+  @applicant:adult:self @applicant:adult:self.deceased @proxyCascadeBug
+  Scenario: the user selects whether to start a new application or resume an existing one
+  Given the user is on page "start-or-resume"
+  When the user selects "Start a new application"
+  And the user selects "Continue"
+  Then the user is on page "applicant-who-are-you-applying-for"
+
+          ##########################################################  TRIAGE HAPPY PATH ##########################################################
+
+  @applicant:adult:self @applicant:adult:self.deceased @proxyCascadeBug
+  Scenario: the user selects who I am applying for
+  Given the user is on page "applicant-who-are-you-applying-for"
+  When the user selects "Myself"
+  And the user selects "Continue"
+  Then the user is on page "applicant-are-you-18-or-over"
+
+  @applicant:adult:self @applicant:adult:self.deceased @proxyCascadeBug
   Scenario: the user selects whether or not I'm over 18
-    Given the user is on page "p-applicant-are-you-18-or-over"
-    When the user answers 'true' to the question "q-applicant-are-you-18-or-over"
-    And the user answers the question
-    Then the user is on page "p--was-the-crime-reported-to-police"
+  Given the user is on page "applicant-are-you-18-or-over"
+  When the user selects "Yes"
+  And the user selects "Continue"
+  Then the user is on page "was-the-crime-reported-to-police"
 
-  @applicant:adult:self @mainApplicant:adult.incapable @closedQuestion @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased @proxyCascadeBug
   Scenario: the user selects whether or not the crime was reported to police
-    Given the user is on page "p--was-the-crime-reported-to-police"
-    When the user answers 'true' to the question "q--was-the-crime-reported-to-police"
-    And the user answers the question
-    Then the user is on page "p--context-crime-ref-no"
+  Given the user is on page "was-the-crime-reported-to-police"
+  When the user selects "Yes"
+  And the user selects "Continue"
+  Then the user is on page "context-crime-ref-no"
 
-  @applicant:adult:self @mainApplicant:adult.incapable @context @taskList @linear
+  @applicant:adult:self @applicant:adult:self.deceased @proxyCascadeBug
   Scenario: the user confirms they understand they'll be asked for a crime reference
-    Given the user is on page "p--context-crime-ref-no"
-    When the user advances the application
-    Then the user is on page "p-applicant-fatal-claim"
+  Given the user is on page "context-crime-ref-no"
+  When the user selects "Continue"
+  Then the user is on page "applicant-fatal-claim"
 
-  @applicant:adult:self @mainApplicant:adult.incapable @closedQuestion @taskList @linear
-  Scenario: the user selects whether they are applying for personal injury or a bereavement
-    Given the user is on page "p-applicant-fatal-claim"
-    When the user answers 'false' to the question "q-applicant-fatal-claim"
-    And the user answers the question
-    Then the user is on page "p-applicant-applied-before-for-this-crime"
+  Scenario Outline: the user selects whether they are applying for personal injury or a bereavement
+    Given the user is on page "applicant-fatal-claim"
+    When the user selects "<answer>"
+    And the user selects "Continue"
+    Then the user is on page "<page>"
 
-  @applicant:adult:self @mainApplicant:adult.incapable @closedQuestion @taskList @linear
-  Scenario Outline: the user confirms they have not applied for this crime before
-    Given the user is on page "p-applicant-applied-before-for-this-crime"
-    When the user answers 'false' to the question "q-applicant-applied-before-for-this-crime"
-    And the user answers the question
-    Then the user is on page "<section>"
-
-  @applicant:adult:self @closedQuestion @taskList @linear
+    @applicant:adult:self @proxyCascadeBug
     Examples:
-      | section |
-      | p-applicant-someone-else-applied-before-for-this-crime |
+      | answer | page |
+      | I am applying because I was the victim of a violent crime | applicant-applied-before-for-this-crime |
 
-  @mainApplicant:adult.incapable @closedQuestion @taskList @linear
+    @applicant:adult:self.deceased
     Examples:
-      | section |
-      | p-proxy-someone-else-applied-before-for-this-crime |
+      | answer | page |
+      | I am applying because someone died due to a violent crime | applicant-claim-type |
 
-  @applicant:adult:self @closedQuestion @taskList
+  @applicant:adult:self @proxyCascadeBug
+  Scenario: the user confirms they have not applied for this crime before
+    Given the user is on page "applicant-applied-before-for-this-crime"
+    When the user selects "No"
+    And the user selects "Continue"
+    Then the user is on page "applicant-someone-else-applied-before-for-this-crime"
+
+  @applicant:adult:self @proxyCascadeBug
   Scenario: the user confirms nobody else has applied for this crime
-    Given the user is on page "p-applicant-someone-else-applied-before-for-this-crime"
-    When the user answers 'false' to the question "q-applicant-someone-else-applied-before-for-this-crime"
-    And the user answers the question
+    Given the user is on page "applicant-someone-else-applied-before-for-this-crime"
+    When the user selects "No"
+    And the user selects "Continue"
     Then the user is on page "p-task-list"
-    And the status of "t-about-application__completion-status" is "completed"
-    And the status of "t_applicant_personal-details__applicability-status" is "applicable"
+    And the "t-about-application" task status will be marked as "Completed"
+    And the "t_applicant_personal-details" task status will be marked as "Incomplete"
 
-  @applicant:adult:self @closedQuestion @linear
-  Scenario: the user confirms nobody else has applied for this crime
-    Given the user is on page "p-applicant-someone-else-applied-before-for-this-crime"
-    When the user answers 'false' to the question "q-applicant-someone-else-applied-before-for-this-crime"
-    And the user answers the question
-    Then the user is on page "p--context-applicant-details"
-
-  @mainApplicant:adult.incapable @closedQuestion @taskList
-  Scenario: the user confirms nobody else has applied for this crime
-    Given the user is on page "p-proxy-someone-else-applied-before-for-this-crime"
-    When the user answers 'false' to the question "q-proxy-someone-else-applied-before-for-this-crime"
-    And the user answers the question
-    Then the user is on page "p-task-list"
-    And the status of "t-about-application__completion-status" is "completed"
-    And the status of "t_applicant_personal-details__applicability-status" is "applicable"
-
-  @mainApplicant:adult.incapable @closedQuestion @linear
-  Scenario: the user confirms nobody else has applied for this crime
-    Given the user is on page "p-proxy-someone-else-applied-before-for-this-crime"
-    When the user answers 'false' to the question "q-proxy-someone-else-applied-before-for-this-crime"
-    And the user answers the question
-    Then the user is on page "p--context-applicant-details"
+  @applicant:adult:self.deceased
+  Scenario: the user selects whether they are make a full claim or a funeral expenses claim
+    Given the user is on page "applicant-claim-type"
+    When the user selects "I want to make a full claim"
+    And the user selects "Continue"
+    Then the user is on page "task-list"
+    And the "t-about-application" task status will be marked as "Completed"
+    And the "t_applicant_personal-details" task status will be marked as "Incomplete"
