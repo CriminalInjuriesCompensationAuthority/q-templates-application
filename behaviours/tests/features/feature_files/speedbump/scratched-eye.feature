@@ -1,3 +1,4 @@
+@scratched-eye @speedbump
 Feature: applicant adult sms speedbump surfaced for scratched eye
 
 Scenario: the user begins a new application.
@@ -180,31 +181,31 @@ Then the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
 
 Scenario: The user is telling us they have physical injuries
 Given the user is on page "p-applicant-are-you-claiming-for-physical-injuries"
-And the user answers 'yes' to the question 'q-applicant-are-you-claiming-for-physical-injuries'
+And the user answers 'true' to the question 'q-applicant-are-you-claiming-for-physical-injuries'
 When the user continues 
-Then the user is on page "p-applicant-physical-injuries"
+Then the user is on page "p-applicant-physical-injury"
 
 Scenario: The user is telling us what was injured
-Given the user is on page "p-applicant-physical-injuries"
-And the user answers 'Head, face or neck' to the question 'q-applicant-physical-injuries?'
+Given the user is on page "p-applicant-physical-injury"
+And the user answers 'upper' ('Head, face or neck') to the question "q-applicant-physical-injury"
 When the user continues 
-Then the user is on page "p-applicant-physical-injuries-upper-head"
+Then the user is on page "p-applicant-physical-injury-upper"
 
 Scenario: The user is telling us their eye was injured
-Given the user is on page "p-applicant-physical-injuries-upper-head"
-And the user answers 'Eye or eyesight' to the question 'q-applicant-physical-injuries-upper-head-other?'
+Given the user is on page "p-applicant-physical-injury-upper"
+And the user answers 'eye' ('Eye or eyesight') to the question 'q-applicant-physical-injury-upper'
 When the user continues 
-Then the user is on page "p-applicant-physical-injuries-upper-eye"
+Then the user is on page "p-applicant-physical-injury-upper-eye"
 
 Scenario: The user is telling us they have a scratched eye
-Given the user is on page "p-applicant-physical-injuries-upper-eye"
-And the user answers 'phyinj-017' ("scaratched eye") to the question 'q-applicant-physical-injuries-upper-eye-other'
+Given the user is on page "p-applicant-physical-injury-upper-eye"
+And the user answers 'phyinj-017' ("scratched eye") to the question 'q-applicant-physical-injuries'
 When the user continues 
 Then the user is on page "p-applicant-infections"
 
 Scenario: The user did not get an infection as a result of the crime
 Given the user is on page "p-applicant-infections"
-And the user answers 'no' to the question 'q-applicant-infections?'
+And the user answers 'no' to the question 'q-applicant-infections'
 When the user continues 
 Then the user is on page "p--context-pregnancy"
 
@@ -222,33 +223,27 @@ Then the user is on page "p--context-dmi-details"
 Scenario: The user is telling us about their mental health
 Given the user is on page "p--context-dmi-details"
 When the user continues 
-Then the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
-
-Scenario: The user is telling us they do not have a DMI
-Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
-And the user answers 'no' to the question 'q-applicant-do-you-have-disabling-mental-injury'
-When the user continues 
-Then the user is on page "p--context-you-should-not-apply-again"
+Then the user is on page "p-applicant-do-you-have-disabling-mental-injury"
 
 Scenario: The user is telling us they do have a DMI
-Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
-And the user answers 'false' to the question 'q-applicant-do-you-have-disabling-mental-injury'
+Given the user is on page "p-applicant-do-you-have-disabling-mental-injury"
+And the user answers 'true' to the question 'q-applicant-do-you-have-disabling-mental-injury'
 When the user continues 
 Then the user is on page "p-applicant-mental-injury-duration"
 
 Scenario: The user is telling us their DMI lasted less than 6 weeks
 Given the user is on page "p-applicant-mental-injury-duration"
-And the user answers 'less than 6 weeks' to the question 'q-applicant-mental-injury-duration'
+And the user answers 'false' ('Less than 6 weeks') to the question 'q-applicant-mental-injury-duration'
 When the user continues 
 Then the user is on page "p-applicant-mental-injury-ongoing"
 
 Scenario: The user is telling us their DMI is not ongoing
 Given the user is on page "p-applicant-mental-injury-ongoing"
-And the user answers 'no' to the question 'q-applicant-mental-injury-ongoing'
+And the user answers 'false' to the question 'q-applicant-mental-injury-ongoing'
 When the user continues 
-Then the user is on page "p--context-you-should-not-apply-again"
+Then the user is on page "p--context-injuries-not-eligible"
 
 Scenario: The user may not be eligible for compensation
-Given the user is on page "p--context-you-should-not-apply-again"
+Given the user is on page "p--context-injuries-not-eligible"
 When the user continues
 Then the user is on page "p--context-crime-impact"
