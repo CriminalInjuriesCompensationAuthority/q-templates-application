@@ -13,7 +13,8 @@
             "./behaviours/tests/features/feature_files/rep",
             "./behaviours/tests/features/feature_files/extended-tests-for-coverage",
             "./behaviours/tests/features/feature_files/postcode-lookup",
-            "./behaviours/tests/features/feature_files/authentication"
+            "./behaviours/tests/features/feature_files/authentication",
+            "./behaviours/tests/features/feature_files/speedbump"
         ],
         "require": ["./behaviours/tests/features/step_definitions/steps.js"],
         "format": [
