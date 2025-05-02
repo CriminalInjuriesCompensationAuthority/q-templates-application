@@ -188,11 +188,11 @@ Scenario: The user is telling us what was injured
 Given the user is on page "p-applicant-physical-injuries"
 And the user answers 'Head, face or neck' to the question 'q-applicant-physical-injuries'
 When the user continues 
-Then the user is on page "p-applicant-physical-injuries-upper-head"
+Then the user is on page "p-applicant-physical-injury-upper-head"
 
 Scenario: The user is telling us their hair was pulled out
-Given the user is on page "p-applicant-physical-injuries-upper-head"
-And the user answers 'phyinj-053 ("hair pulled out") to the question 'q-applicant-physical-injuries-upper-head-other'
+Given the user is on page "p-applicant-physical-injury-upper-head"
+And the user answers 'phyinj-053' ("hair pulled out") to the question 'q-applicant-physical-injuries-upper-head-other'
 When the user continues 
 Then the user is on page "p-applicant-infections"
 
@@ -222,7 +222,7 @@ Scenario: The user is telling us they do not have a DMI
 Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
 And the user answers 'no' to the question 'q-applicant-do-you-have-disabling-mental-injury'
 When the user continues 
-Then the user is on page "p--context-you-should-not-apply-again"
+Then the user is on page "p--context-injuries-not-eligible"
 
 Scenario: The user is telling us they do have a DMI
 Given the user is on page "p-applicant-do-you-have-a-disabling-mental-injury"
@@ -240,9 +240,9 @@ Scenario: The user is telling us their DMI is not ongoing
 Given the user is on page "p-applicant-mental-injury-ongoing"
 And the user answers 'no' to the question 'q-applicant-mental-injury-ongoing'
 When the user continues 
-Then the user is on page "p--context-you-should-not-apply-again"
+Then the user is on page "p--context-injuries-not-eligible"
 
 Scenario: The user may not be eligible for compensation
-Given the user is on page "p--context-you-should-not-apply-again"
+Given the user is on page "p--context-injuries-not-eligible"
 When the user continues
 Then the user is on page "p--context-crime-impact"
