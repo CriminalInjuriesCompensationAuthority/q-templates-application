@@ -93,5 +93,5 @@ module.exports = {
     answersQuestion,
     continues,
     advances,
-    selectsPreviousPage,
+    selectsPreviousPage
 };

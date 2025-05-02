@@ -142,7 +142,7 @@ module.exports = {
                                 [
                                     'includesOnly',
                                     '$.answers.p-applicant-physical-injury-legs-skin.q-applicant-physical-injuries',
-                                    ['phyinj-135', 'phyinj-143']
+                                    ['phyinj-135', 'phyinj-134']
                                 ],
                                 [
                                     'includesOnly',
@@ -187,7 +187,7 @@ module.exports = {
                                 [
                                     'includesOnly',
                                     '$.answers.p-applicant-physical-injury-upper-nose.q-applicant-physical-injuries',
-                                    ['phyinj-031', 'phyinj-033']
+                                    ['phyinj-031', 'phyinj-033', 'phyinj-052']
                                 ],
                                 [
                                     'includesOnly',
