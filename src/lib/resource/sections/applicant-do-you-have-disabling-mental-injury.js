@@ -140,6 +140,36 @@ module.exports = {
                                 ],
                                 [
                                     'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-arm.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-elbow.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-hand.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-muscle.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-shoulder.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-arms-wrist.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
                                     '$.answers.p-applicant-physical-injury-legs-leg.q-applicant-physical-injuries',
                                     ['phyinj-122']
                                 ],
@@ -155,6 +185,31 @@ module.exports = {
                                 ],
                                 [
                                     'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-legs-ankle.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-legs-foot.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-legs-hip.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-legs-knee.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-legs-muscle.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
                                     '$.answers.p-applicant-physical-injury-torso-muscle.q-applicant-physical-injuries',
                                     ['phyinj-154']
                                 ],
@@ -167,6 +222,26 @@ module.exports = {
                                     'includesOnly',
                                     '$.answers.p-applicant-physical-injury-torso-skin.q-applicant-physical-injuries',
                                     ['phyinj-080', 'phyinj-079']
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-torso-abdomen.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-torso-back.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-torso-genitals.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-torso-pelvis.q-applicant-physical-injuries',
+                                    []
                                 ],
                                 [
                                     'includesOnly',
@@ -197,6 +272,21 @@ module.exports = {
                                     'includesOnly',
                                     '$.answers.p-applicant-physical-injury-upper-skin.q-applicant-physical-injuries',
                                     ['phyinj-049', 'phyinj-048']
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-upper-face.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-upper-muscle.q-applicant-physical-injuries',
+                                    []
+                                ],
+                                [
+                                    'includesOnly',
+                                    '$.answers.p-applicant-physical-injury-upper-neck.q-applicant-physical-injuries',
+                                    []
                                 ]
                             ]
                         ]
