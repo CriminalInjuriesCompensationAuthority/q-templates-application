@@ -20,10 +20,10 @@ module.exports = {
                             error: {
                                 required: 'Select how long your mental injury has lasted',
                                 'required_someone-else':
-                                    'Select how long their mental injury has lasted'
+                                    'Select how long the mental injury has lasted'
                             },
                             title: 'How long did your mental injury last?',
-                            'title_someone-else': 'How long did their mental injury last?'
+                            'title_someone-else': 'How long did the mental injury last?'
                         }
                     }
                 }
