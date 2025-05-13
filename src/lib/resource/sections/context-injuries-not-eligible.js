@@ -14,10 +14,8 @@ module.exports = {
                     resources: {
                         'context-injuries-not-eligible': {
                             title: {
-                                myself:
-                                    'Based on your answers, you may not be eligible for compensation',
-                                proxy:
-                                    'Based on your answers, they may not be eligible for compensation'
+                                myself: 'Based on your answers, you may not be eligible',
+                                proxy: 'Based on your answers, they may not be eligible'
                             },
                             description: {
                                 myself:

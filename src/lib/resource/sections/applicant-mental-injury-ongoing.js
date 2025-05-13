@@ -15,11 +15,11 @@ module.exports = {
                         'q-applicant-mental-injury-ongoing': {
                             error: {
                                 myself: 'Select yes if you still have your mental injury',
-                                proxy: 'Select yes if you still have your mental injury'
+                                proxy: 'Select yes if they still have the mental injury'
                             },
                             title: {
                                 myself: 'Do you still have your mental injury?',
-                                proxy: 'Do they still have your mental injury?'
+                                proxy: 'Do they still have the mental injury?'
                             }
                         }
                     }
