@@ -8,8 +8,8 @@ async function getCurrentSectionInformation(testObject) {
         headers: {
             Authorization: `Bearer ${testObject.DCS_JWT}`,
             'On-Behalf-Of': testObject.ownerId,
-            'Dcs-Api-Version': '2023-05-17',
-        },
+            'Dcs-Api-Version': '2023-05-17'
+        }
     };
     const response = await service.get(opts);
     return response.body;
@@ -21,7 +21,7 @@ async function createsApplication(testObject) {
         headers: {
             Authorization: `Bearer ${testObject.DCS_JWT}`,
             'On-Behalf-Of': testObject.ownerId,
-            'Dcs-Api-Version': '2023-05-17',
+            'Dcs-Api-Version': '2023-05-17'
         },
         json: {
             data: {
@@ -30,17 +30,17 @@ async function createsApplication(testObject) {
                     templateName: 'sexual-assault',
                     owner: {
                         id: testObject.ownerId,
-                        isAuthenticated: testObject.isAuthenticated,
+                        isAuthenticated: testObject.isAuthenticated
                     },
                     origin: {
-                        channel: testObject.origin,
+                        channel: testObject.origin
                     },
                     external: {
-                        id: testObject.externalId,
-                    },
-                },
-            },
-        },
+                        id: testObject.externalId
+                    }
+                }
+            }
+        }
     };
     const response = await service.post(opts);
     testObject.questionnaireId = response.body.data.id;
@@ -57,7 +57,7 @@ async function isOnPage(testObject, pageId) {
 async function answersQuestion(testObject, answer, questionId) {
     const currentSectionInformation = await getCurrentSectionInformation(testObject);
     const schemaExpectsArray =
-        currentSectionInformation.included.filter((item) => item.type === 'sections')[0].attributes
+        currentSectionInformation.included.filter(item => item.type === 'sections')[0].attributes
             ?.properties?.[questionId]?.type === 'array';
 
     if (schemaExpectsArray) {
@@ -77,7 +77,7 @@ async function continues(testObject) {
     const currentSectionId = currentSectionInformation.data[0].id;
     let answersToSubmit = {...testObject.answers};
     const previousAnswers = currentSectionInformation.included.filter(
-        (item) => item.type === 'answers'
+        item => item.type === 'answers'
     );
 
     if (previousAnswers.length > 0 && Object.keys(testObject.answers).length === 0) {
@@ -89,14 +89,14 @@ async function continues(testObject) {
         headers: {
             Authorization: `Bearer ${testObject.DCS_JWT}`,
             'On-Behalf-Of': testObject.ownerId,
-            'Dcs-Api-Version': '2023-05-17',
+            'Dcs-Api-Version': '2023-05-17'
         },
         json: {
             data: {
                 type: 'answers',
-                attributes: answersToSubmit,
-            },
-        },
+                attributes: answersToSubmit
+            }
+        }
     };
     const response = await service.post(opts);
     testObject.answers = {};
@@ -125,8 +125,8 @@ async function selectsPreviousPage(testObject) {
         headers: {
             Authorization: `Bearer ${testObject.DCS_JWT}`,
             'On-Behalf-Of': testObject.ownerId,
-            'Dcs-Api-Version': '2023-05-17',
-        },
+            'Dcs-Api-Version': '2023-05-17'
+        }
     };
     const response = await service.get(opts);
     testObject.currentSectionId = response.body.data[0].id;
@@ -140,16 +140,16 @@ async function completedApplication(testObject) {
         headers: {
             Authorization: `Bearer ${testObject.DCS_JWT}`,
             'On-Behalf-Of': testObject.ownerId,
-            'Dcs-Api-Version': '2023-05-17',
+            'Dcs-Api-Version': '2023-05-17'
         },
         json: {
             data: {
                 type: 'submissions',
                 attributes: {
-                    questionnaireId: testObject.questionnaireId,
-                },
-            },
-        },
+                    questionnaireId: testObject.questionnaireId
+                }
+            }
+        }
     };
     const response = await service.post(opts);
 
@@ -168,5 +168,5 @@ module.exports = {
     continues,
     advances,
     selectsPreviousPage,
-    completedApplication,
+    completedApplication
 };
