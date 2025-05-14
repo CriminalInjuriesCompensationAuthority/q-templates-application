@@ -86,6 +86,14 @@ function selectsPreviousPage(testObject) {
     assert.ok(testObject.qRouter.current().id in previousState.context.answers);
 }
 
+async function checkTaskStatus(testObject, task, status) {
+    return 'ok';
+}
+
+async function selectTask(testObject, task, status) {
+    return 'ok';
+}
+
 module.exports = {
     before,
     createsApplication,
@@ -93,5 +101,7 @@ module.exports = {
     answersQuestion,
     continues,
     advances,
-    selectsPreviousPage
+    selectsPreviousPage,
+    checkTaskStatus,
+    selectTask
 };

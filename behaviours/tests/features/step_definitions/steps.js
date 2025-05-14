@@ -265,6 +265,26 @@ When('the user has completed the application', async function() {
     }
 });
 
+Then('the {task} task status will be marked as {status}', async function(task, status) {
+    if (target === 'router') {
+        await routerSteps.checkTaskStatus(testObject, task, status);
+    } else if (target === 'dcs') {
+        return 'ok';
+    } else if (target === 'cw') {
+        await cwSteps.checkTaskStatus(testObject, task, status);
+    }
+});
+
+When('the user selects the task {task}', async function(task) {
+    if (target === 'router') {
+        await routerSteps.selectTask(testObject, task);
+    } else if (target === 'dcs') {
+        return 'ok';
+    } else if (target === 'cw') {
+        await cwSteps.selectTask(testObject, task);
+    }
+});
+
 When('the user accepts all cookies', async function() {
     if (target === 'cw') {
         await cwSteps.acceptCookies(testObject);
