@@ -40,7 +40,7 @@ And the user answers 'false' to the question "q-applicant-claim-type"
 When the user continues
 Then the user is on page "p--context-applicant-details"
 
-Scenario: the user is on page p--context-applicant-details.
+Scenario: the user is on page tasklist
 Given the user is on page "p--context-applicant-details"
 When the user advances the application
 Then the user is on page "p-applicant-confirmation-method"
