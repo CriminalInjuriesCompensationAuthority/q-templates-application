@@ -11,7 +11,7 @@ And the user answers 'myself' to the question "q-applicant-who-are-you-applying-
 When the user continues
 Then the user is on page "p-applicant-are-you-18-or-over"
 
-Scenario: the user is on page p-applicant-are-you-18-or-over.
+Scenario: the user is on page p-applicant-are-you-18-or-ove
 Given the user is on page "p-applicant-are-you-18-or-over"
 And the user answers 'true' to the question "q-applicant-are-you-18-or-over"
 When the user continues
