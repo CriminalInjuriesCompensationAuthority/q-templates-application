@@ -15,7 +15,7 @@ function writePathsToFile(result, target) {
         filepath,
         JSON.stringify({
             unvisitedCount: result.length,
-            paths: result,
+            paths: result
         })
     );
 }
@@ -50,7 +50,7 @@ function getUnvisitedPaths(template, traversalState, ignoreStates = ['system', '
             return acc;
         }
 
-        traversalState.stateTargetIds.get(stateId).forEach((targetId) => {
+        traversalState.stateTargetIds.get(stateId).forEach(targetId => {
             const fallThrough = isFallThrough(template, stateId, targetId);
 
             if (fallThrough === true) {
@@ -66,7 +66,7 @@ function getUnvisitedPaths(template, traversalState, ignoreStates = ['system', '
 
 function getAllTargets(state) {
     const targets = state?.on?.ANSWER || [];
-    const targetIds = targets.map((targetDefinition) => targetDefinition.target);
+    const targetIds = targets.map(targetDefinition => targetDefinition.target);
 
     return new Set(targetIds);
 }
@@ -77,24 +77,24 @@ function createStateTracker(template) {
     const allTargetIds = new Set([initial]);
     let allPairsCount = 0;
 
-    Object.keys(states).forEach((stateId) => {
+    Object.keys(states).forEach(stateId => {
         const state = states[stateId];
         const targetIds = getAllTargets(state);
 
         allPairsCount += targetIds.size;
         stateTargetIds.set(stateId, targetIds);
-        targetIds.forEach((targetId) => allTargetIds.add(targetId));
+        targetIds.forEach(targetId => allTargetIds.add(targetId));
     });
 
     return {
         stateTargetIds,
         allTargetIds,
-        allPairsCount,
+        allPairsCount
     };
 }
 
 module.exports = {
     createStateTracker,
     getUnvisitedPaths,
-    writePathsToFile,
+    writePathsToFile
 };
