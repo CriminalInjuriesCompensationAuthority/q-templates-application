@@ -240,6 +240,14 @@ async function clickSigninLink(testObject) {
     await testObject.page.getByText(' Create a GOV.UK One Login to save your progress').click();
 }
 
+async function checkTaskStatus(testObject, task, status) {
+    return 'ok';
+}
+
+async function selectTask(testObject, task, status) {
+    return 'ok';
+}
+
 module.exports = {
     before,
     after,
@@ -265,5 +273,7 @@ module.exports = {
     isOnOptionalPage,
     continueFromOptionalPage,
     answerIsUnchecked,
-    clickSigninLink
+    clickSigninLink,
+    checkTaskStatus,
+    selectTask
 };
