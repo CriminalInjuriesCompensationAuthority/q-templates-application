@@ -28,8 +28,9 @@ module.exports = {
                             'title_someone-else': 'Have they seen a GP about their injuries?',
                             meta: {
                                 summary: {
-                                    title: 'Have you seen a GP?',
-                                    'title_someone-else': 'Have they seen a GP?'
+                                    title: 'Have you seen a GP about your injuries?',
+                                    'title_someone-else':
+                                        'Have they seen a GP about their injuries?'
                                 }
                             }
                         }
