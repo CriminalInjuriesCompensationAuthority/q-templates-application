@@ -38,6 +38,11 @@ Scenario: the user is on page p-applicant-claim-type.
 Given the user is on page "p-applicant-claim-type"
 And the user answers 'true' to the question "q-applicant-claim-type"
 When the user continues
+Then the user is on page "p-task-list"
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Your details'
 Then the user is on page "p--context-applicant-details"
 
 Scenario: the user is on page p--context-applicant-details.
@@ -86,6 +91,12 @@ Scenario: the user is on page p-applicant-enter-your-email-address.
 Given the user is on page "p-applicant-enter-your-email-address"
 And the user answers 'foo.bar@somewhere.com' to the question "q-applicant-enter-your-email-address"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_personal-details" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Your residency and nationality'
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -97,6 +108,12 @@ Scenario: the user is on page p-applicant-british-citizen.
 Given the user is on page "p-applicant-british-citizen"
 And the user answers 'true' to the question "q-applicant-british-citizen"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_residency-and-nationality" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Your relationship to the person who died'
 Then the user is on page "p--context-relationship-to-deceased"
 
 Scenario: the user is on page p--context-relationship-to-deceased.
@@ -108,6 +125,12 @@ Scenario: the user is on page p-applicant-relationship-to-deceased.
 Given the user is on page "p-applicant-relationship-to-deceased"
 And the user answers 'parent' to the question "q-applicant-relationship-to-deceased"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_relationship-to-deceased" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'About the person who died'
 Then the user is on page "p--context-deceased-details"
 
 Scenario: the user is on page p--context-deceased-details.
@@ -143,6 +166,12 @@ And the user answers 'dc building and street 3' to the question "q-deceased-buil
 And the user answers 'dc town' to the question "q-deceased-town-or-city"
 And the user answers 'dc ma1' to the question "q-deceased-postcode"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_about-who-died" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Funeral costs'
 Then the user is on page "p--context-funeral-costs"
 
 Scenario: the user is on page p--context-funeral-costs.
@@ -150,13 +179,11 @@ Given the user is on page "p--context-funeral-costs"
 When the user advances the application
 Then the user is on page "p-applicant-funeral-costs-paid"
 
-
 Scenario: the user is on page p-applicant-funeral-costs-paid.
 Given the user is on page "p-applicant-funeral-costs-paid"
 And the user answers 'true' to the question "q-applicant-funeral-costs-paid"
 When the user continues
 Then the user is on page "p-applicant-funeral-costs-other-contributor"
-
 
 Scenario: the user is on page p-applicant-funeral-costs-other-contributor.
 Given the user is on page "p-applicant-funeral-costs-other-contributor"
@@ -228,6 +255,12 @@ Then the user is on page "p-context-funeral-costs-proof"
 Scenario: the user is on page p-context-funeral-costs-proof.
 Given the user is on page "p-context-funeral-costs-proof"
 When the user advances the application
+Then the user is on page "p-task-list"
+And the "t_applicant_funeral-costs" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'About the crime'
 Then the user is on page "p--before-you-continue"
 
 Scenario: the user is on page p--before-you-continue.
@@ -264,9 +297,15 @@ Scenario: the user is on page p--whats-the-crime-reference-number.
 Given the user is on page "p--whats-the-crime-reference-number"
 And the user answers 'cr123456' to the question "q--whats-the-crime-reference-number"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_about-the-crime" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'About the offender'
 Then the user is on page "p--context-offender"
 
-Scenario: the user is on page p--context-offender.
+Scenario: the user is on page p--context-offender..
 Given the user is on page "p--context-offender"
 When the user advances the application
 Then the user is on page "p-offender-do-you-know-the-name-of-the-offender"
@@ -275,6 +314,12 @@ Scenario: the user is on page p-offender-do-you-know-the-name-of-the-offender.
 Given the user is on page "p-offender-do-you-know-the-name-of-the-offender"
 And the user answers 'false' to the question "q-offender-do-you-know-the-name-of-the-offender"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_about-the-offender" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Other compensation'
 Then the user is on page "p--context-compensation"
 
 Scenario: the user is on page p--context-compensation.
@@ -298,6 +343,12 @@ Scenario: the user is on page p-applicant-applied-for-other-compensation-briefly
 Given the user is on page "p-applicant-applied-for-other-compensation-briefly-explain-why-not"
 And the user answers 'did not apply for other forms of compensation' to the question "q-applicant-applied-for-other-compensation-briefly-explain-why-not"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_other-compensation" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Additional information'
 Then the user is on page "p--context-additional-info"
 
 Scenario: the user is on page p--context-additional-info.
@@ -309,6 +360,12 @@ Scenario: the user is on page p-applicant-provide-additional-information.
 Given the user is on page "p-applicant-provide-additional-information"
 And the user answers 'false' to the question "q-applicant-provide-additional-information"
 When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_additional-information" task status will be marked as 'completed'
+
+Scenario: the user is on page p-task-list
+Given the user is on page "p-task-list"
+When the user selects the task 'Check your answers and submit application'
 Then the user is on page "p--check-your-answers"
 
 Scenario: the user is on page p--check-your-answers.
