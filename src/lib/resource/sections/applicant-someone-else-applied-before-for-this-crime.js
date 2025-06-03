@@ -70,7 +70,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-applicant-details'
+                    target: '#task-list'
                 }
             ]
         }

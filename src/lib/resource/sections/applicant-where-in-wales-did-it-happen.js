@@ -108,7 +108,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-offender',
+                    target: '#task-list',
                     cond: [
                         'and',
                         ['|role.all', 'deceased'],

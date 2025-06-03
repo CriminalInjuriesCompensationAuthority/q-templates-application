@@ -76,7 +76,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-treatment',
+                    target: '#task-list',
                     cond: [
                         'and',
                         [
