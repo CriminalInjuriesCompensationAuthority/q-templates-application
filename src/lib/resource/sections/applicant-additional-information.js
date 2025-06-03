@@ -48,7 +48,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--check-your-answers'
+                    target: '#task-list'
                 }
             ]
         }

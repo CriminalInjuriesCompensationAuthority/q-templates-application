@@ -229,7 +229,7 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p--context-crime-impact'
+                    target: '#task-list'
                 }
             ]
         }
