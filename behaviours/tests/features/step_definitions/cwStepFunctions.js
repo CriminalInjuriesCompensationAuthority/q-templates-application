@@ -104,9 +104,9 @@ async function openDetailsComponent(page) {
 }
 
 async function takeScreenshot(page, name) {
-    let path = `./reports/cucumber/${name}.png`;
+    let path = `./behaviours/reports/cucumber/${name}.png`;
     if (name.at(-1) === '.') {
-        path = `./reports/cucumber/${name}png`;
+        path = `./behaviours/reports/cucumber/${name}png`;
     }
     await openDetailsComponent(page);
     await page.screenshot({fullPage: true, path: path.replaceAll('"', '')});
@@ -241,11 +241,14 @@ async function clickSigninLink(testObject) {
 }
 
 async function checkTaskStatus(testObject, task, status) {
-    return 'ok';
+    const statusOnPage = await testObject.page.locator(`.${task}`).textContent();
+    assert.ok(statusOnPage.trim() === status);
 }
 
-async function selectTask(testObject, task, status) {
-    return 'ok';
+async function selectTask(testObject, task) {
+    await testObject.page
+        .locator('.govuk-task-list__item', {has: testObject.page.locator(`.${task}`)})
+        .click();
 }
 
 module.exports = {

@@ -15,7 +15,7 @@
         "lint:fix": "eslint --fix .",
         "build": "node ./src/build.js",
         "prepare": "npm run build --silent",
-        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --exec npm run build",
+        "dev": "nodemon -L -e .js,.json,.njk,.yml --ignore dist/template.json --ignore cucumber.json --ignore behaviours/ --exec npm run build",
         "test:features": "npx rimraf behaviours/reports/cucumber&& npx cucumber-js --tags=\"@coverage or @legacy\"",
         "test:features:full": "npx rimraf behaviours/reports/cucumber&& npx cucumber-js --tags=\"@coverage or @legacy or @injury\""
     },
