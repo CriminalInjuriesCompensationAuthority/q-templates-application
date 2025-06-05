@@ -37,8 +37,13 @@ function isFallThrough(template, sourceId, targetId) {
 }
 
 function getUnvisitedPaths(template, traversalState, ignoreStates = ['system', 'owner', 'origin']) {
-    const {states} = template.routes;
-
+    const states = Object.keys(template.routes.states).reduce((acc, task) => {
+        if (task.includes('__')) {
+            // skip the applicability tasks
+            return acc;
+        }
+        return Object.assign(acc, template.routes.states[task].states);
+    }, {});
     return Object.keys(states).reduce((acc, stateId) => {
         if (ignoreStates.includes(stateId)) {
             return acc;
@@ -72,9 +77,24 @@ function getAllTargets(state) {
 }
 
 function createStateTracker(template) {
-    const {initial, states} = template.routes;
+    const initialStates = [];
+    Object.keys(template.routes.states).forEach(task => {
+        if (task.includes('__')) {
+            // skip the applicability tasks
+            return;
+        }
+        initialStates.push(template.routes.states[task].initial);
+    });
+
+    const states = Object.keys(template.routes.states).reduce((acc, task) => {
+        if (task.includes('__')) {
+            // skip the applicability tasks
+            return acc;
+        }
+        return Object.assign(acc, template.routes.states[task].states);
+    }, {});
     const stateTargetIds = new Map();
-    const allTargetIds = new Set([initial]);
+    const allTargetIds = new Set(initialStates);
     let allPairsCount = 0;
 
     Object.keys(states).forEach(stateId => {

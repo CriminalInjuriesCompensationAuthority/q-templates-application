@@ -229,7 +229,7 @@ Then the user is on page "p-applicant-physical-injury-upper-head"
 
 Scenario: the user is on page p-applicant-physical-injury-upper-head.
 Given the user is on page "p-applicant-physical-injury-upper-head"
-And the user answers 'phyinj-122' to the question "q-applicant-physical-injuries"
+And the user answers 'phyinj-146' to the question "q-applicant-physical-injuries"
 When the user continues
 Then the user is on page "p-applicant-infections"
 

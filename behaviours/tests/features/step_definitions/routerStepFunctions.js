@@ -26,7 +26,7 @@ function createsApplication(testObject) {
 }
 
 function isOnPage(testObject, pageId) {
-    const currentState = testObject.qRouter.current().id;
+    const currentState = testObject.questionnaire.currentSectionId;
     assert.ok(currentState === pageId);
 }
 
@@ -83,15 +83,26 @@ function selectsPreviousPage(testObject) {
     const currentState = testObject.qRouter.current().id;
     const previousState = testObject.qRouter.previous(currentState);
     testObject.questionnaire = previousState.context;
-    //assert.ok(testObject.qRouter.current().id in previousState.context.answers);
 }
 
 async function checkTaskStatus(testObject, task, status) {
-    return 'ok';
+    function convertToCamelCase(str) {
+        return str
+            .replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+                return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            })
+            .replace(/\s+/g, '');
+    }
+    assert.ok(
+        testObject.questionnaire.attributes.q__statuses[`${task}__completion-status`] ===
+            convertToCamelCase(status)
+    );
 }
 
-async function selectTask(testObject, task, status) {
-    return 'ok';
+async function selectTask(testObject, task) {
+    const nextSectionId = testObject.questionnaire.routes.states[task].initial;
+    const nextState = testObject.qRouter.current(nextSectionId);
+    testObject.questionnaire = nextState.context;
 }
 
 module.exports = {
