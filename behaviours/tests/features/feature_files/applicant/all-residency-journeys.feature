@@ -49,7 +49,7 @@ And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your details"
+When the user selects the task "t_applicant_personal-details"
 Then the user is on page "p--context-applicant-details"
 
 Scenario: the user is on page p--context-applicant-details.
@@ -101,7 +101,7 @@ And the "t_applicant_personal-details" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -118,7 +118,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -141,7 +141,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -164,12 +164,13 @@ Then the user is on page "p-applicant-ordinarily-resident"
 Scenario: the user is on page p-applicant-ordinarily-resident.
 Given the user is on page "p-applicant-ordinarily-resident"
 And the user answers 'true' to the question "q-applicant-ordinarily-resident"
+When the user continues
 Then the user is on page "p-task-list"
 And the "t_applicant_residency-and-nationality" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -198,12 +199,13 @@ Then the user is on page "p-applicant-eu-citizen"
 Scenario: the user is on page p-applicant-eu-citizen.
 Given the user is on page "p-applicant-eu-citizen"
 And the user answers 'true' to the question "q-applicant-eu-citizen"
+When the user continues
 Then the user is on page "p-task-list"
 And the "t_applicant_residency-and-nationality" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -244,7 +246,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -291,7 +293,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -344,7 +346,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -403,7 +405,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -468,7 +470,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -533,12 +535,13 @@ Then the user is on page "p-applicant-armed-forces-relative"
 Scenario: the user is on page p-applicant-armed-forces-relative.
 Given the user is on page "p-applicant-armed-forces-relative"
 And the user answers 'true' to the question "q-applicant-armed-forces-relative"
+When the user continues
 Then the user is on page "p-task-list"
 And the "t_applicant_residency-and-nationality" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.

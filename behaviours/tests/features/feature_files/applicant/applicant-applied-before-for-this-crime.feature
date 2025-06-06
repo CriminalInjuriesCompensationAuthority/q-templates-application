@@ -49,7 +49,7 @@ And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your details"
+When the user selects the task "t_applicant_personal-details"
 Then the user is on page "p--context-applicant-details"
 
 Scenario: the user is on page p--context-applicant-details.
@@ -101,7 +101,7 @@ And the "t_applicant_personal-details" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your residency and nationality"
+When the user selects the task "t_applicant_residency-and-nationality"
 Then the user is on page "p--context-residency-and-nationality"
 
 Scenario: the user is on page p--context-residency-and-nationality.
@@ -118,7 +118,7 @@ And the "t_applicant_residency-and-nationality" task status will be marked as "C
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "About the crime"
+When the user selects the task "t_applicant_about-the-crime"
 Then the user is on page "p--before-you-continue"
 
 Scenario: the user is on page p--before-you-continue.
@@ -184,7 +184,7 @@ And the "t_applicant_about-the-crime" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "About the offender"
+When the user selects the task "t_offender_about-the-offender"
 Then the user is on page "p--context-offender"
 
 Scenario: the user is on page p--context-offender.
@@ -201,7 +201,7 @@ And the "t_offender_about-the-offender" task status will be marked as "Completed
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "About your injuries"
+When the user selects the task "t_applicant_about-injuries"
 Then the user is on page "p--context-physical-injuries"
 
 Scenario: the user is on page p--context-physical-injuries.
@@ -264,7 +264,7 @@ And the "t_applicant_about-injuries" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "The impact the injuries have had"
+When the user selects the task "t_applicant_impact-of-injuries"
 Then the user is on page "p--context-crime-impact"
 
 Scenario: the user is on page p--context-crime-impact.
@@ -293,7 +293,7 @@ And the "t_applicant_impact-of-injuries" task status will be marked as "Complete
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Your treatment"
+When the user selects the task "t_applicant_about-treatment"
 Then the user is on page "p--context-treatment"
 
 Scenario: the user is on page p--context-treatment.
@@ -358,7 +358,7 @@ And the "t_applicant_about-treatment" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Other compensation"
+When the user selects the task "t_applicant_other-compensation"
 Then the user is on page "p--context-compensation"
 
 Scenario: the user is on page p--context-compensation.
@@ -387,7 +387,7 @@ And the "t_applicant_other-compensation" task status will be marked as "Complete
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Additional information"
+When the user selects the task "t_applicant_additional-information"
 Then the user is on page "p--context-additional-info"
 
 Scenario: the user is on page p--context-additional-info.
@@ -404,7 +404,7 @@ And the "t_applicant_additional-information" task status will be marked as "Comp
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
-When the user selects the task "Check your answers"
+When the user selects the task "t-check-your-answers"
 Then the user is on page "p--check-your-answers"
 
 Scenario: the user is on page p--check-your-answers.
@@ -418,5 +418,5 @@ And the user answers 'i-agree' to the question "q-applicant-declaration"
 And the user selects "Agree and submit"
 When the user continues
 Then the user is on page "p--confirmation"
-And the "t-check-your-answers" task status will be marked as "completed"
+And the "t-check-your-answers" task status will be marked as "Completed"
 And the user has completed the application
