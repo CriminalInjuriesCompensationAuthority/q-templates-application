@@ -26,7 +26,7 @@ function createsApplication(testObject) {
 }
 
 function isOnPage(testObject, pageId) {
-    const currentState = testObject.qRouter.current().id;
+    const currentState = testObject.questionnaire.currentSectionId;
     assert.ok(currentState === pageId);
 }
 
@@ -87,11 +87,25 @@ function selectsPreviousPage(testObject) {
 }
 
 async function checkTaskStatus(testObject, task, status) {
-    return 'ok';
+    function convertToCamelCase(str) {
+        return str
+            .replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+                return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            })
+            .replace(/\s+/g, '');
+    }
+    assert.ok(
+        testObject.questionnaire.attributes.q__statuses[`${task}__completion-status`] ===
+            convertToCamelCase(status)
+    );
 }
 
-async function selectTask(testObject, task, status) {
-    return 'ok';
+async function selectTask(testObject, task) {
+    //call next with no answers object and the section id being the currentsectionid of the task we are going to
+    //not sure whether it's meant to go to initial or current, i think initial
+    const nextSectionId = testObject.questionnaire.routes.states[task].initial;
+    const nextState = testObject.qRouter.current(nextSectionId);
+    testObject.questionnaire = nextState.context;
 }
 
 module.exports = {
