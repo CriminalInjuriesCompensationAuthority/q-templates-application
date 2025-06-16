@@ -2112,6 +2112,34 @@ module.exports = {
                     examples: [{}],
                     invalidExamples: [{}]
                 }
+            },
+            childWhenCrimeHappened: {
+                schema: {
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    title: 'child when the crime happened or started',
+                    type: 'boolean',
+                    const: [
+                        'or',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen', // this date ...
+                            '<', // is less than ...
+                            '18', // 18 ...
+                            'years', // years (after) ...
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth' // this date
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-when-did-the-crime-start.q-applicant-when-did-the-crime-start', // this date ...
+                            '<', // is less than ...
+                            '18', // 18 ...
+                            'years', // years (after) ...
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth' // this date
+                        ]
+                    ],
+                    examples: [{}],
+                    invalidExamples: [{}]
+                }
             }
         }
     }
