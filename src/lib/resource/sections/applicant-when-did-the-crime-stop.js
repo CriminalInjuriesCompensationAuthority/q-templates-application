@@ -61,11 +61,21 @@ module.exports = {
                 {
                     target: 'p-applicant-select-reasons-for-the-delay-in-making-your-application',
                     cond: [
-                        'dateCompare',
-                        '$.answers.p-applicant-when-did-the-crime-start.q-applicant-when-did-the-crime-start',
-                        '>=',
-                        '-2',
-                        'years'
+                        'and',
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-when-did-the-crime-start.q-applicant-when-did-the-crime-start',
+                            '>=',
+                            '-2',
+                            'years'
+                        ],
+                        [
+                            'dateCompare',
+                            '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth',
+                            '>=',
+                            '-20',
+                            'years'
+                        ]
                     ]
                 },
                 {
