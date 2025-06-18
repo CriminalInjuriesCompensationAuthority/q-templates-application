@@ -130,7 +130,7 @@ Then the user is on page "p-mainapplicant-enter-your-telephone-number"
 
 Scenario: the user is on page p-mainapplicant-enter-your-telephone-number.
 Given the user is on page "p-mainapplicant-enter-your-telephone-number"
-And the user answers '07712312344' to the question "q-mainapplicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-relationship"
 

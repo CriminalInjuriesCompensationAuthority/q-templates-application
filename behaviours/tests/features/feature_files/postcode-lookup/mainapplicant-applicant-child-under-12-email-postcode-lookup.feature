@@ -109,7 +109,7 @@ Then the user is on page "p-mainapplicant-confirmation-method"
 Scenario: the user is on page p-mainapplicant-confirmation-method.
 Given the user is on page "p-mainapplicant-confirmation-method"
 And the user answers 'email' to the question "q-mainapplicant-confirmation-method"
-And the user answers 'foo.bar@somewhere.com' to the question "q-mainapplicant-enter-your-email-address"
+And the user inputs their email address to the question "q-mainapplicant-enter-your-email-address"
 When the user continues
 Then the user is on page "p-mainapplicant-enter-your-name"
 
@@ -131,7 +131,7 @@ Then the user is on page "p-mainapplicant-enter-your-telephone-number"
 
 Scenario: the user is on page p-mainapplicant-enter-your-telephone-number.
 Given the user is on page "p-mainapplicant-enter-your-telephone-number"
-And the user answers '07712312344' to the question "q-mainapplicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-relationship"
 

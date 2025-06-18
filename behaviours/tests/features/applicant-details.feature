@@ -18,7 +18,7 @@ Feature: Applicant details flow
   Scenario: the user confirms how they'd like to be contacted
     Given the user is on page "p-applicant-confirmation-method"
     When the user answers "email" to the question "q-applicant-confirmation-method"
-    And the user answers "foobar@cica.gov.uk" to the question "q-applicant-enter-your-email-address"
+    And the user inputs their email address to the question "q-applicant-enter-your-email-address"
     And the user answers the question
     Then the user is on page "p-applicant-enter-your-name"
 
@@ -57,7 +57,7 @@ Feature: Applicant details flow
   @applicant:adult:self @openQuestion @taskList
   Scenario: the user enters the applicant's phone number
     Given the user is on page "p-applicant-enter-your-telephone-number"
-    When the user answers "07799000000" to the question "q-applicant-enter-your-telephone-number"
+    When the user inputs their telephone number to the question "q-applicant-enter-your-telephone-number"
     And the user answers the question
     Then the user is on page "p-task-list"
     And the status of "t_applicant_personal-details__completion-status" is "completed"
@@ -65,6 +65,6 @@ Feature: Applicant details flow
   @applicant:adult:self @openQuestion @linear
   Scenario: the user enters the applicant's phone number
     Given the user is on page "p-applicant-enter-your-telephone-number"
-    When the user answers "07799000000" to the question "q-applicant-enter-your-telephone-number"
+    When the user inputs their telephone number to the question "q-applicant-enter-your-telephone-number"
     And the user answers the question
     Then the user is on page "p--context-residency-and-nationality"

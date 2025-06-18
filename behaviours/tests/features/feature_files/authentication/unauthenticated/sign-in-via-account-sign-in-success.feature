@@ -55,7 +55,7 @@ Then the user is on page "p-applicant-confirmation-method"
 Scenario: the user is on page p-applicant-confirmation-method.
 Given the user is on page "p-applicant-confirmation-method"
 And the user answers 'text' to the question "q-applicant-confirmation-method"
-And the user answers '07712312344' to the question "q-applicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-applicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-applicant-enter-your-name"
 
