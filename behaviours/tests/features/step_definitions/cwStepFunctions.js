@@ -22,7 +22,7 @@ async function authenticateToOIDCProvider(testObject) {
             // console.log({err});
         }
     } else {
-        gauge.message(`Ignoring basic authentication to OIDC provider for "${environment}"`);
+        console.log(`Ignoring basic authentication to OIDC provider for "${environment}"`);
     }
     await logOutOfOneLogin(testObject);
 }
