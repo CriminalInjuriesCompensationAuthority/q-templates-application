@@ -55,7 +55,10 @@ BeforeAll(async function() {
             qRouter: undefined,
             saveFixtures: this.parameters.saveFixtures,
             compareFixtureFiles: this.parameters.compareFixtures,
-            fullFixtureComparison: this.parameters.fullFixtureComparison
+            fullFixtureComparison: this.parameters.fullFixtureComparison,
+            stateTracker: createStateTracker(
+                templates['sexual-assault']('4187989b-4af8-415e-9715-3912f9c8918c')
+            )
         };
         deleteFixtures();
     } else if (target === 'dcs') {
@@ -86,9 +89,6 @@ BeforeAll(async function() {
     }
     testObject.emailAddress = this.parameters.emailAddress;
     testObject.telephoneNumber = this.parameters.telephoneNumber;
-    testObject.stateTracker = createStateTracker(
-        templates['sexual-assault']('4187989b-4af8-415e-9715-3912f9c8918c')
-    );
 });
 
 AfterAll(() => {
@@ -106,25 +106,25 @@ AfterAll(() => {
                 deleteFixtures();
             }
         }
+        const unvisitedPaths = getUnvisitedPaths(
+            templates['sexual-assault']('bb6c1992-f935-412a-9c96-aadd48ef4b6a'),
+            testObject.stateTracker
+        );
+
+        writePathsToFile(unvisitedPaths, target);
+
+        const visitedCount = testObject.stateTracker.allPairsCount - unvisitedPaths.length;
+        const visitedPercentage = Math.round(
+            (visitedCount / testObject.stateTracker.allPairsCount) * 100
+        );
+
+        console.log(`\n\n########################################`);
+        console.log(`Total source/target pairs count: ${testObject.stateTracker.allPairsCount}`);
+        console.log(`Unvisited source/target pairs count: ${unvisitedPaths.length}`);
+        console.log(`Visited source/target pairs count: ${visitedCount}`);
+        console.log(`Coverage: ${visitedPercentage}%`);
+        console.log(`########################################\n\n`);
     }
-    const unvisitedPaths = getUnvisitedPaths(
-        templates['sexual-assault']('bb6c1992-f935-412a-9c96-aadd48ef4b6a'),
-        testObject.stateTracker
-    );
-
-    writePathsToFile(unvisitedPaths, target);
-
-    const visitedCount = testObject.stateTracker.allPairsCount - unvisitedPaths.length;
-    const visitedPercentage = Math.round(
-        (visitedCount / testObject.stateTracker.allPairsCount) * 100
-    );
-
-    console.log(`\n\n########################################`);
-    console.log(`Total source/target pairs count: ${testObject.stateTracker.allPairsCount}`);
-    console.log(`Unvisited source/target pairs count: ${unvisitedPaths.length}`);
-    console.log(`Visited source/target pairs count: ${visitedCount}`);
-    console.log(`Coverage: ${visitedPercentage}%`);
-    console.log(`########################################\n\n`);
 });
 
 Before(async function(testCase) {

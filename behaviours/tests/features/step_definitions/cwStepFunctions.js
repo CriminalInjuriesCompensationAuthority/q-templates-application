@@ -22,7 +22,7 @@ async function authenticateToOIDCProvider(testObject) {
             // console.log({err});
         }
     } else {
-        gauge.message(`Ignoring basic authentication to OIDC provider for "${environment}"`);
+        console.log(`Ignoring basic authentication to OIDC provider for "${environment}"`);
     }
     await logOutOfOneLogin(testObject);
 }
@@ -32,7 +32,10 @@ async function logOutOfOneLogin(testObject) {
 }
 
 async function signIn(testObject) {
-    await testObject.page.getByRole('button').filter({hasText: 'Sign in'}).click({timeout: 3000});
+    await testObject.page
+        .getByRole('button')
+        .filter({hasText: 'Sign in'})
+        .click({timeout: 3000});
 }
 
 async function enterOneLoginEmail(testObject) {
@@ -78,11 +81,17 @@ async function answerIsUnchecked(testObject, answer) {
 }
 
 async function acceptCookies(testObject) {
-    await testObject.page.getByRole('button').filter({hasText: 'Accept all cookies'}).click();
+    await testObject.page
+        .getByRole('button')
+        .filter({hasText: 'Accept all cookies'})
+        .click();
 }
 
 async function acceptAnalyticsCookies(testObject) {
-    await testObject.page.getByRole('button').filter({hasText: 'Accept analytics cookies'}).click();
+    await testObject.page
+        .getByRole('button')
+        .filter({hasText: 'Accept analytics cookies'})
+        .click();
 }
 
 async function openDetailsComponent(page) {
@@ -116,7 +125,10 @@ async function after(testObject) {
 async function createsApplication(testObject) {
     await testObject.page.goto(`${testObject.entryPoint}/apply/start-or-resume`);
     await testObject.page.getByLabel(`Start a new application`).check();
-    await testObject.page.getByRole('button').filter({hasText: 'continue'}).click();
+    await testObject.page
+        .getByRole('button')
+        .filter({hasText: 'continue'})
+        .click();
 }
 
 async function isOnPage(testObject, pageId) {
@@ -141,7 +153,7 @@ async function answersQuestion(testObject, answer, questionId) {
         // Police force question
         const policeForceName = testObject.templateSections[
             'p--which-police-force-is-investigating-the-crime'
-        ].schema.properties[questionId].oneOf.filter((force) => force.const === parseInt(answer))[0]
+        ].schema.properties[questionId].oneOf.filter(force => force.const === parseInt(answer))[0]
             .title;
         await testObject.page.locator(`#${questionId}`).clear();
         await testObject.page.locator(`#${questionId}`).fill(policeForceName.substring(1));
@@ -180,7 +192,10 @@ async function enterPostcodeLookup(testObject, postcode) {
 }
 async function findAddress(testObject) {
     await testObject.page.waitForTimeout(200);
-    await testObject.page.getByRole('button').filter({hasText: 'Find address'}).click();
+    await testObject.page
+        .getByRole('button')
+        .filter({hasText: 'Find address'})
+        .click();
 }
 async function selectAddress(testObject, address) {
     await testObject.page.waitForTimeout(200);
@@ -190,12 +205,20 @@ async function selectAddress(testObject, address) {
 }
 async function continues(testObject) {
     if (
-        (await testObject.page.getByRole('button').filter({hasText: 'agree and submit'}).count()) >
-        0
+        (await testObject.page
+            .getByRole('button')
+            .filter({hasText: 'agree and submit'})
+            .count()) > 0
     ) {
-        await testObject.page.getByRole('button').filter({hasText: 'agree and submit'}).click();
+        await testObject.page
+            .getByRole('button')
+            .filter({hasText: 'agree and submit'})
+            .click();
     } else {
-        await testObject.page.getByRole('button').filter({hasText: 'continue'}).click();
+        await testObject.page
+            .getByRole('button')
+            .filter({hasText: 'continue'})
+            .click();
     }
 }
 
@@ -242,5 +265,5 @@ module.exports = {
     isOnOptionalPage,
     continueFromOptionalPage,
     answerIsUnchecked,
-    clickSigninLink,
+    clickSigninLink
 };
