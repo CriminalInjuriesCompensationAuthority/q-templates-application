@@ -12,22 +12,65 @@ module.exports = {
                     language: 'en',
                     namespace: 'p-applicant-explain-reason-for-delay-application',
                     resources: {
-                        'applicant-explain-reason-for-delay-application': {
-                            description: {
-                                myself:
-                                    'There is a time limit to make this application. The time limit can be extended where you could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.',
-                                proxy:
-                                    'There is a time limit to make this application. The time limit can be extended where the victim could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.',
-                                deceased:
-                                    'There is a time limit to make this application. The time limit can be extended where the claimant could not apply sooner because of exceptional circumstances and the application can be decided without further extensive enquiries.'
+                        'q-applicant-explain-reason-for-delay-application': {
+                            title: {
+                                adultWhenCrimeHappened:
+                                    "Tell us why you're applying for compensation more than 2 years after the crime happened",
+                                childWhenCrimeHappened:
+                                    "Tell us why you're applying for compensation after the time limit"
+                            }
+                        },
+                        'explain-reason-info': {
+                            title: {
+                                adultWhenCrimeHappened:
+                                    'Applying for compensation more than 2 years after the crime happened',
+                                childWhenCrimeHappened:
+                                    'Applying for compensation after the time limit'
                             },
-                            details: {
-                                myself:
-                                    '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with why we ask about this application not being sent before now",html: \'<h2 class="govuk-heading-s">If you were an adult at the time of the crime (18 years or older)</h2><p class="govuk-body">The application must be sent as soon as is reasonably practicable and in any event, no later than 2 years after the crime.</p><h2 class="govuk-heading-s">If you were a child at the time of the crime (under 18 years old)</h2><p class="govuk-body">The application must be received:<ul class="govuk-list govuk-list--bullet"><li>on or before your 20th birthday, if the crime was reported to police before your 18th birthday</li><li>within 2 years of the crime first being reported to police, if the incident was reported on or after your 18th birthday</li></ul></p><h2 class="govuk-heading-s">Extending the time limits</h2><p class="govuk-body">We can only extend the time limits where:<ul class="govuk-list govuk-list--bullet"><li>due to exceptional circumstances, the application could not be made earlier (for example, where illness or injuries stopped you applying)</li></ul><p>and <br></p><ul class="govuk-list govuk-list--bullet"><li>the evidence provided to support the application means it can be decided without further extensive enquiries</li></ul></p><p class="govuk-body">You may have to provide evidence to support any reason for a delay in applying. This evidence may include a letter from your GP or other medical professional.</p><p class="govuk-body">Any evidence to support your application should:<ul class="govuk-list govuk-list--bullet"><li>show why this application could not have been made earlier and explain the entire period of the delay  </li><li>provide us with enough information to make a decision on this application without the need for further extensive enquiries</li></ul></p>\'})}}',
-                                proxy:
-                                    '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with why we ask about this application not being sent before now",html: \'<h2 class="govuk-heading-s"> If the victim was an adult at the time of the crime (18 years or older)</h2><p class="govuk-body">The application must be sent as soon as is reasonably practicable and in any event, no later than 2 years after the crime.</p><h2 class="govuk-heading-s"> If the victim was a child at the time of the crime (under 18 years old)</h2><p class="govuk-body">The application must be received:<ul class="govuk-list govuk-list--bullet"><li>on or before their 20th birthday, if the crime was reported to police before their 18th birthday</li><li>within 2 years of the crime first being reported to police, if the incident was reported on or after their 18th birthday</li></ul></p><h2 class="govuk-heading-s">Extending the time limits</h2><p class="govuk-body">We can only extend the time limits where:<ul class="govuk-list govuk-list--bullet"><li>due to exceptional circumstances, the application could not be made earlier (for example, where illness or injuries stopped the victim applying)</li></ul><p>and <br></p><ul class="govuk-list govuk-list--bullet"><li>the evidence provided to support the application means it can be decided without further extensive enquiries</li></ul></p><p class="govuk-body">They may have to provide evidence to support any reason for a delay in applying. This evidence may include a letter from their GP or other medical professional.</p><p class="govuk-body">Any evidence to support this application should:<ul class="govuk-list govuk-list--bullet"><li>show why this application could not have been made earlier and explain the entire period of the delay  </li><li>provide us with enough information to make a decision on this application without the need for further extensive enquiries</li></ul></p>\'})}}',
-                                deceased:
-                                    '{% from "components/details/macro.njk" import govukDetails %}{{ govukDetails({summaryText: "Help with why we ask about this application not being sent before now",html: \'<h2 class="govuk-heading-s"> If the claimant was an adult at the time of the crime (18 years or older)</h2><p class="govuk-body">The application must be sent as soon as is reasonably practicable and in any event, no later than 2 years after the crime.</p><h2 class="govuk-heading-s"> If the claimant was a child at the time of the crime (under 18 years old)</h2><p class="govuk-body">The application must be received:<ul class="govuk-list govuk-list--bullet"><li>on or before their 20th birthday, if the crime was reported to police before their 18th birthday</li><li>within 2 years of the crime first being reported to police, if the incident was reported on or after their 18th birthday</li></ul></p><h2 class="govuk-heading-s">Extending the time limits</h2><p class="govuk-body">We can only extend the time limits where:<ul class="govuk-list govuk-list--bullet"><li>due to exceptional circumstances, the application could not be made earlier (for example, where illness or injuries stopped the claimant applying)</li></ul><p>and <br></p><ul class="govuk-list govuk-list--bullet"><li>the evidence provided to support the application means it can be decided without further extensive enquiries</li></ul></p><p class="govuk-body">They may have to provide evidence to support any reason for a delay in applying. This evidence may include a letter from their GP or other medical professional.</p><p class="govuk-body">Any evidence to support this application should:<ul class="govuk-list govuk-list--bullet"><li>show why this application could not have been made earlier and explain the entire period of the delay  </li><li>provide us with enough information to make a decision on this application without the need for further extensive enquiries</li></ul></p>\'})}}'
+                            description: {
+                                adultWhenCrimeHappened: {
+                                    myself: `
+                    <p class="govuk-body">Based on the information you've given us, the crime happened more than 2 years ago.</p>
+                    <p class="govuk-body">As you were an adult (18 years or older) when the crime happened, you must apply as soon as is reasonably practical. This means in most cases you must apply for criminal injuries compensation within 2 years of the crime happening.</p>
+                    <p class="govuk-body">In some cases you may be eligible for compensation for a crime that happened more than 2 years ago if there are exceptional circumstances. For example, you could not claim earlier because your mental or physical health stopped you.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                    `,
+                                    proxy: `
+                    <p class="govuk-body">Based on the information you've given us, the crime happened more than 2 years ago.</p>
+                    <p class="govuk-body">As the victim was an adult (18 years or older) when the crime happened, they must apply as soon as is reasonably practical. This means in most cases they must apply for criminal injuries compensation within 2 years of the crime happening.</p>
+                    <p class="govuk-body">In some cases they may be eligible for compensation for a crime that happened more than 2 years ago if there are exceptional circumstances. For example, they could not claim earlier because their mental or physical health stopped them.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                    `,
+                                    deceased: `
+                    <p class="govuk-body">Based on the information you've given us, the crime happened more than 2 years ago.</p>
+                    <p class="govuk-body">As the claimant was an adult (18 years or older) when the crime happened, they must apply as soon as is reasonably practical. This means in most cases they must apply for criminal injuries compensation within 2 years of the crime happening.</p>
+                    <p class="govuk-body">In some cases they may be eligible for compensation for a crime that happened more than 2 years ago if there are exceptional circumstances. For example, they could not claim earlier because their mental or physical health stopped them.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                    `
+                                },
+                                childWhenCrimeHappened: {
+                                    myself: `<p class="govuk-body">Based on the information you've given us, you were a child (under 18 years old) when the crime happened.</p>
+                                    <p class="govuk-body">Because of this, you must apply for compensation within either of the following time frames.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police before you turned 18</b>, you must apply by your 20th birthday.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police after you turned 18</b>, you must apply within 2 years. This means you need to apply within 2 years of the date of reporting.</p>
+                                    <p class="govuk-body">This time limit may be extended if there are exceptional circumstances. For example, you could not claim earlier because your mental or physical health stopped you.</p>
+                                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                                    `,
+                                    proxy: `<p class="govuk-body">Based on the information you've given us, the victim was a child (under 18 years old) when the crime happened.</p>
+                                    <p class="govuk-body">Because of this, you must apply for compensation within either of the following time frames.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police before the victim turned 18</b>, you must apply by their 20th birthday.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police after the victim turned 18</b>, you must apply within 2 years. This means you need to apply within 2 years of the date of reporting.</p>
+                                    <p class="govuk-body">This time limit may be extended if there are exceptional circumstances. For example, the victim could not claim earlier because their mental or physical health stopped them.</p>
+                                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                                    `,
+                                    deceased: `<p class="govuk-body">Based on the information you've given us, the claimant was a child (under 18 years old) when the crime happened.</p>
+                                    <p class="govuk-body">Because of this, you must apply for compensation within either of the following time frames.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police before the claimant turned 18</b>, you must apply by their 20th birthday.</p>
+                                    <p class="govuk-body"><b>If the crime was reported to the police after the claimant turned 18</b>, you must apply within 2 years. This means you need to apply within 2 years of the date of reporting.</p>
+                                    <p class="govuk-body">This time limit may be extended if there are exceptional circumstances. For example, the claimant could not claim earlier because their mental or physical health stopped them.</p>
+                                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/guidance/criminal-injuries-compensation-a-guide#time-limits-for-applying" target="_blank">Find out more about the time limit for applying for compensation (opens in a new tab).</a></p>
+                                    `
+                                }
                             }
                         }
                     }
@@ -40,21 +83,44 @@ module.exports = {
             required: ['q-applicant-explain-reason-for-delay-application'],
             additionalProperties: false,
             properties: {
-                'q-applicant-explain-reason-for-delay-application': {
-                    title: 'Tell us the reason why this application could not be sent before now',
-                    type: 'string',
+                'explain-reason-info': {
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'childWhenCrimeHappened'],
+                        'explain-reason-info.title.childWhenCrimeHappened',
+                        ['|role.all'],
+                        'explain-reason-info.title.adultWhenCrimeHappened'
+                    ],
                     description: [
                         '|l10nt',
+                        ['|role.all', 'childWhenCrimeHappened', 'myself'],
+                        'explain-reason-info.description.childWhenCrimeHappened.myself',
+                        ['|role.all', 'childWhenCrimeHappened', 'proxy', 'deceased'],
+                        'explain-reason-info.description.childWhenCrimeHappened.deceased',
+                        ['|role.all', 'childWhenCrimeHappened', 'proxy'],
+                        'explain-reason-info.description.childWhenCrimeHappened.proxy',
                         ['|role.all', 'myself'],
-                        'applicant-explain-reason-for-delay-application.description.myself',
-                        ['|role.all', 'deceased'],
-                        'applicant-explain-reason-for-delay-application.description.deceased',
+                        'explain-reason-info.description.adultWhenCrimeHappened.myself',
+                        ['|role.all', 'proxy', 'deceased'],
+                        'explain-reason-info.description.adultWhenCrimeHappened.deceased',
                         ['|role.all', 'proxy'],
-                        'applicant-explain-reason-for-delay-application.description.proxy'
+                        'explain-reason-info.description.adultWhenCrimeHappened.proxy'
+                    ]
+                },
+                'q-applicant-explain-reason-for-delay-application': {
+                    title: [
+                        '|l10nt',
+                        ['|role.all', 'childWhenCrimeHappened'],
+                        'q-applicant-explain-reason-for-delay-application.title.childWhenCrimeHappened',
+                        ['|role.all'],
+                        'q-applicant-explain-reason-for-delay-application.title.adultWhenCrimeHappened'
                     ],
-                    maxLength: 500,
+                    type: 'string',
+                    description:
+                        "You'll need to provide supporting evidence for this. We'll let you know how to do this.",
+                    maxLength: 2000,
                     errorMessage: {
-                        maxLength: 'Explanation must be 500 characters or less'
+                        maxLength: 'Explanation must be 2,000 characters or less'
                     },
                     meta: {
                         classifications: {
@@ -65,17 +131,6 @@ module.exports = {
                                 'Tell us the reason why this application could not be sent before now'
                         }
                     }
-                },
-                'help-reason-for-delay': {
-                    description: [
-                        '|l10nt',
-                        ['|role.all', 'myself'],
-                        'applicant-explain-reason-for-delay-application.details.myself',
-                        ['|role.all', 'deceased'],
-                        'applicant-explain-reason-for-delay-application.details.deceased',
-                        ['|role.all', 'proxy'],
-                        'applicant-explain-reason-for-delay-application.details.proxy'
-                    ]
                 }
             },
             errorMessage: {
@@ -93,7 +148,24 @@ module.exports = {
                 {
                     'q-applicant-explain-reason-for-delay-application': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'explain-reason-info',
+                    'q-applicant-explain-reason-for-delay-application'
+                ],
+                properties: {
+                    'q-applicant-explain-reason-for-delay-application': {
+                        options: {
+                            macroOptions: {
+                                label: {
+                                    classes: 'govuk-label--m'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
