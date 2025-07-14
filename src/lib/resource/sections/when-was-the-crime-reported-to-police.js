@@ -64,18 +64,24 @@ module.exports = {
                     target:
                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
                     cond: [
-                        'dateDifferenceGreaterThanTwoDays',
-                        '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
-                        '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen'
+                        'dateCompare',
+                        '$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen',
+                        '>',
+                        '-2',
+                        'days',
+                        '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police'
                     ]
                 },
                 {
                     target:
                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
                     cond: [
-                        'dateDifferenceGreaterThanTwoDays',
-                        '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police',
-                        '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop'
+                        'dateCompare',
+                        '$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop',
+                        '>',
+                        '-2',
+                        'days',
+                        '$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police'
                     ]
                 },
                 {
