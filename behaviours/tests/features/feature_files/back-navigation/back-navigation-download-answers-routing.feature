@@ -442,10 +442,20 @@ Then the user is on page "p--download-your-answers"
 Scenario: the user is on page p--download-your-answers.
 Given the user is on page "p--download-your-answers"
 When the user advances the application
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
+When the user advances the application
 Then the user is on page "p-rep-declaration-under-12"
 
 Scenario: the user is on page p-rep-declaration-under-12.
 Given the user is on page "p-rep-declaration-under-12"
+When the user selects previous page
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
 When the user selects previous page
 Then the user is on page "p--download-your-answers"
 
@@ -471,6 +481,11 @@ Then the user is on page "p--download-your-answers"
 
 Scenario: the user is on page p--download-your-answers.
 Given the user is on page "p--download-your-answers"
+When the user advances the application
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
 When the user advances the application
 Then the user is on page "p-rep-declaration-under-12"
 

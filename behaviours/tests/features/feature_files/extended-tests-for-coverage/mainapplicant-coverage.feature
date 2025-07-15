@@ -362,12 +362,6 @@ Scenario: the user is on page p-applicant-when-did-the-crime-stop.
 Given the user is on page "p-applicant-when-did-the-crime-stop"
 And the user answers "01 2000" to the question "q-applicant-when-did-the-crime-stop"
 When the user continues
-Then the user is on page "p-applicant-select-reasons-for-the-delay-in-making-your-application"
-
-Scenario: the user is on page p-applicant-select-reasons-for-the-delay-in-making-your-application.
-Given the user is on page "p-applicant-select-reasons-for-the-delay-in-making-your-application"
-And the user answers "reason" to the question "q-applicant-explain-reason-for-delay-application"
-When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
 
 Scenario: the user is on page p-applicant-where-did-the-crime-happen.
@@ -882,6 +876,11 @@ Then the user is on page "p--check-your-answers"
 
 Scenario: the user is on page p--check-your-answers.
 Given the user is on page "p--check-your-answers"
+When the user advances the application
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
 When the user advances the application
 Then the user is on page "p-mainapplicant-declaration-12-and-over"
 
