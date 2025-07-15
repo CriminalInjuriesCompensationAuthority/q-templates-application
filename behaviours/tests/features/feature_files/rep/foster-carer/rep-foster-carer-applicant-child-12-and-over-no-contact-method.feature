@@ -461,6 +461,11 @@ Then the user is on page "p--check-your-answers"
 Scenario: the user is on page p--check-your-answers.
 Given the user is on page "p--check-your-answers"
 When the user advances the application
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
+When the user advances the application
 Then the user is on page "p-rep-declaration-12-and-over"
 
 Scenario: the user is on page p-rep-declaration-12-and-over.
