@@ -34,7 +34,8 @@
             "window_size_height": 1920,
             "saveFixtures": false,
             "compareFixtures": true,
-            "fullFixtureComparison": true
+            "fullFixtureComparison": true,
+            "templateVersion": "latest"
         }
     }
 }

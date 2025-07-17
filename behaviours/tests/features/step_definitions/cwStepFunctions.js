@@ -124,6 +124,20 @@ async function after(testObject) {
 
 async function createsApplication(testObject) {
     await testObject.page.goto(`${testObject.entryPoint}/apply/start-or-resume`);
+    let domain = testObject.entryPoint;
+    if (domain.includes('https://')) {
+        domain = domain.replace('https://', '');
+    }
+    if (testObject.templateVersion !== 'latest') {
+        await testObject.context.addCookies([
+            {
+                name: 'featureFlags',
+                value: `{"templateName": "sexual-assault", "templateVersion": "${testObject.templateVersion}", "bearerAuth": "${testObject.secrets.FEATURE_FLAGS_TOKEN}"}`,
+                domain,
+                path: '/'
+            }
+        ]);
+    }
     await testObject.page.getByLabel(`Start a new application`).check();
     await testObject.page
         .getByRole('button')
@@ -251,6 +265,10 @@ async function selectTask(testObject, task) {
         .click();
 }
 
+async function clickBackButton(testObject) {
+    await testObject.page.goBack();
+}
+
 module.exports = {
     before,
     after,
@@ -278,5 +296,6 @@ module.exports = {
     answerIsUnchecked,
     clickSigninLink,
     checkTaskStatus,
-    selectTask
+    selectTask,
+    clickBackButton
 };
