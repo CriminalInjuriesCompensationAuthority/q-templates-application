@@ -82,7 +82,8 @@ BeforeAll(async function() {
             windowSizeHeight: this.parameters.window_size_height,
             entryPoint: this.parameters.entryPoint,
             templateSections: templates['sexual-assault']('test-id').sections,
-            secrets: secrets(this.parameters.environment)
+            secrets: secrets(this.parameters.environment),
+            templateVersion: this.parameters.templateVersion
         };
         console.log(`Running in headless mode: ${this.parameters.headless}`);
         await cwSteps.before(testObject);
@@ -375,5 +376,13 @@ When('the user clicks the sign in link', async function() {
         await cwSteps.clickSigninLink(testObject);
     } else {
         throw new Error('One login can only be used when running against cica web');
+    }
+});
+
+When('the user clicks the browser back button', async function() {
+    if (target === 'cw') {
+        await cwSteps.clickBackButton(testObject);
+    } else {
+        throw new Error('Browser back button can only be used when running against cica web');
     }
 });
