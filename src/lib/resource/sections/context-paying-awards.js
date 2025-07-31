@@ -57,7 +57,7 @@ module.exports = {
                         [
                             'or',
                             ['|role.all', 'childUnder12', 'rep', 'nonDeceased'],
-                            ['|role.all', 'adult', 'incapable', 'rep', 'nonDeceased']
+                            ['|role.all', 'adult', 'incapable', 'authority', 'rep', 'nonDeceased']
                         ]
                     ]
                 },
@@ -69,9 +69,17 @@ module.exports = {
                         [
                             'or',
                             ['|role.all', 'childUnder12', 'rep', 'deceased'],
-                            ['|role.all', 'adult', 'incapable', 'rep', 'deceased']
+                            ['|role.all', 'adult', 'incapable', 'authority', 'rep', 'deceased']
                         ]
                     ]
+                },
+                {
+                    target: 'p-rep-declaration-no-legal-authority',
+                    cond: ['|role.all', 'noauthority', 'adult', 'rep', 'nonDeceased']
+                },
+                {
+                    target: 'p-rep-declaration-no-legal-authority-deceased',
+                    cond: ['|role.all', 'noauthority', 'adult', 'rep', 'deceased']
                 },
                 {
                     target: 'p-rep-declaration-12-and-over',
