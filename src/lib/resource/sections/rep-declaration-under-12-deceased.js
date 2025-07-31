@@ -23,7 +23,8 @@ module.exports = {
                     properties: {
                         'q-rep-declaration': {
                             type: 'string',
-                            title: 'I have read and understood the declaration',
+                            title:
+                                'I and ||/answers/p-mainapplicant-enter-your-name/q-mainapplicant-title|| ||/answers/p-mainapplicant-enter-your-name/q-mainapplicant-first-name|| ||/answers/p-mainapplicant-enter-your-name/q-mainapplicant-last-name|| have read and understood the declaration',
                             const: 'i-agree-under-12'
                         }
                     }
