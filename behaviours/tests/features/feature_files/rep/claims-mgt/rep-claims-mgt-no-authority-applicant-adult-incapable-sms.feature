@@ -446,10 +446,10 @@ Then the user is on page "p--context-paying-awards"
 Scenario: the user is on page p--context-paying-awards.
 Given the user is on page "p--context-paying-awards"
 When the user advances the application
-Then the user is on page "p-rep-declaration-under-12"
+Then the user is on page "p-rep-declaration-no-legal-authority"
 
-Scenario: the user is on page p-rep-declaration-under-12.
-Given the user is on page "p-rep-declaration-under-12"
+Scenario: the user is on page p-rep-declaration-no-legal-authority.
+Given the user is on page "p-rep-declaration-no-legal-authority"
 And the user answers 'i-agree-under-12' to the question "q-rep-declaration"
 And the user selects "Agree and submit"
 When the user continues

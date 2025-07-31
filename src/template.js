@@ -12,6 +12,8 @@ const repDeclarationUnder12 = require('./lib/resource/sections/rep-declaration-u
 const repDeclarationUnder12Deceased = require('./lib/resource/sections/rep-declaration-under-12-deceased.js');
 const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration-12-and-over.js');
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
+const repDeclarationNoLegalAuthority = require('./lib/resource/sections/rep-declaration-no-legal-authority.js');
+const repDeclarationNoLegalAuthorityDeceased = require('./lib/resource/sections/rep-declaration-no-legal-authority-deceased.js');
 const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
@@ -227,6 +229,9 @@ module.exports = {
         'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.section,
         'p-rep-declaration-12-and-over': repDeclaration12AndOver.section,
         'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.section,
+        'p-rep-declaration-no-legal-authority': repDeclarationNoLegalAuthority.section,
+        'p-rep-declaration-no-legal-authority-deceased':
+            repDeclarationNoLegalAuthorityDeceased.section,
         'p-applicant-confirmation-method': applicantConfirmationMethod.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
@@ -456,7 +461,9 @@ module.exports = {
             'p-rep-declaration-under-12',
             'p-rep-declaration-12-and-over',
             'p-rep-declaration-under-12-deceased',
-            'p-rep-declaration-12-and-over-deceased'
+            'p-rep-declaration-12-and-over-deceased',
+            'p-rep-declaration-no-legal-authority',
+            'p-rep-declaration-no-legal-authority-deceased'
         ],
         confirmation: 'p--confirmation',
         states: {
@@ -472,6 +479,9 @@ module.exports = {
             'p-rep-declaration-under-12-deceased': repDeclarationUnder12Deceased.route,
             'p-rep-declaration-12-and-over': repDeclaration12AndOver.route,
             'p-rep-declaration-12-and-over-deceased': repDeclaration12AndOverDeceased.route,
+            'p-rep-declaration-no-legal-authority': repDeclarationNoLegalAuthority.route,
+            'p-rep-declaration-no-legal-authority-deceased':
+                repDeclarationNoLegalAuthorityDeceased.route,
             'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.route,
             'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.route,
             'p--before-you-continue': beforeYouContinue.route,
