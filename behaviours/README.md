@@ -12,7 +12,7 @@ Secrets for one login authentication tests in the browser must be provided in `.
 
 ## Run the scripts
 
-The scripts will run against the target specified in `../cucumber.json`: `router`, `dcs` or `cw`. When running against the browser screenshots can be saved to `./reports/cucumber` by modifying the `screenshotRegistry` array in `./tests/features/step_definitions/cwStepFunctions`. When running against the router ensure `npm run build` has been run first so the tests use the up to date version of the template.
+The scripts will run against the target specified in `../cucumber.json`: `router`, `dcs` or `cw`. When running against the browser screenshots can be saved to `./reports/cucumber` by modifying the `screenshotRegistry` array in `./tests/features/step_definitions/cwStepFunctions`. When running against the router ensure `npm run build` has been run first so the tests use the up to date version of the template. An email address and phone number for receiving confirmation messages should be provided in `../cucumber.json`.
 
 ### Legacy tests
 

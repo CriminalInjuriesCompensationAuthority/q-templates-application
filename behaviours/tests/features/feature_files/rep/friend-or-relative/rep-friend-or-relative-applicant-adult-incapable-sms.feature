@@ -154,7 +154,7 @@ Then the user is on page "p-mainapplicant-enter-your-telephone-number"
 
 Scenario: the user is on page p-mainapplicant-enter-your-telephone-number.
 Given the user is on page "p-mainapplicant-enter-your-telephone-number"
-And the user answers '077924562728' to the question "q-mainapplicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-relationship"
 
@@ -184,7 +184,7 @@ Then the user is on page "p-rep-confirmation-method"
 Scenario: the user is on page p-rep-confirmation-method.
 Given the user is on page "p-rep-confirmation-method"
 And the user answers 'text' to the question "q-rep-confirmation-method"
-And the user answers '07712312344' to the question "q-rep-telephone-number"
+And the user inputs their telephone number to the question "q-rep-telephone-number"
 When the user continues
 Then the user is on page "p-rep-name"
 
@@ -206,7 +206,7 @@ Then the user is on page "p-rep-email-address"
 
 Scenario: the user is on page p-rep-email-address.
 Given the user is on page "p-rep-email-address"
-And the user answers 'foo.bar@somewhere.com' to the question "q-rep-email-address"
+And the user inputs their email address to the question "q-rep-email-address"
 When the user continues
 Then the user is on page "p-task-list"
 And the "t_rep_details" task status will be marked as "Completed"
