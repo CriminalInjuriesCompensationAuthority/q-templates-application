@@ -35,7 +35,9 @@
             "saveFixtures": false,
             "compareFixtures": true,
             "fullFixtureComparison": true,
-            "templateVersion": "latest"
+            "templateVersion": "latest",
+            "emailAddress": "",
+            "telephoneNumber": ""
         }
     }
 }

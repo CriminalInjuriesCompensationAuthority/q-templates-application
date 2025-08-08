@@ -88,7 +88,8 @@ BeforeAll(async function() {
         console.log(`Running in headless mode: ${this.parameters.headless}`);
         await cwSteps.before(testObject);
     }
-
+    testObject.emailAddress = this.parameters.emailAddress;
+    testObject.telephoneNumber = this.parameters.telephoneNumber;
     testObject.stateTracker = createStateTracker(
         templates['sexual-assault']('4187989b-4af8-415e-9715-3912f9c8918c')
     );
@@ -193,6 +194,52 @@ When('the user answers {answer} \\({context}\\) to the question {question}', asy
         await dcsSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
     } else if (target === 'cw') {
         await cwSteps.answersQuestion(testObject, answerFormatter(answer), questionId);
+    }
+});
+
+When('the user inputs their telephone number to the question {question}', async function(
+    questionId
+) {
+    if (target === 'router') {
+        routerSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.telephoneNumber),
+            questionId
+        );
+    } else if (target === 'dcs') {
+        await dcsSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.telephoneNumber),
+            questionId
+        );
+    } else if (target === 'cw') {
+        await cwSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.telephoneNumber),
+            questionId
+        );
+    }
+});
+
+When('the user inputs their email address to the question {question}', async function(questionId) {
+    if (target === 'router') {
+        routerSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.emailAddress),
+            questionId
+        );
+    } else if (target === 'dcs') {
+        await dcsSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.emailAddress),
+            questionId
+        );
+    } else if (target === 'cw') {
+        await cwSteps.answersQuestion(
+            testObject,
+            answerFormatter(testObject.emailAddress),
+            questionId
+        );
     }
 });
 

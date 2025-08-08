@@ -148,7 +148,7 @@ Then the user is on page "p-mainapplicant-enter-your-telephone-number"
 
 Scenario: the user is on page p-mainapplicant-enter-your-telephone-number.
 Given the user is on page "p-mainapplicant-enter-your-telephone-number"
-And the user answers '077924562728' to the question "q-mainapplicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-relationship"
 
@@ -190,7 +190,7 @@ Then the user is on page "p-rep-confirmation-method"
 Scenario: the user is on page p-rep-confirmation-method.
 Given the user is on page "p-rep-confirmation-method"
 And the user answers 'email' to the question "q-rep-confirmation-method"
-And the user answers 'foo.bar@somewhere.com' to the question "q-rep-email-address"
+And the user inputs their email address to the question "q-rep-email-address"
 When the user continues
 Then the user is on page "p-rep-name"
 
@@ -213,7 +213,7 @@ Then the user is on page "p-rep-telephone-number"
 
 Scenario: the user is on page p-rep-telephone-number.
 Given the user is on page "p-rep-telephone-number"
-And the user answers '07712312344' to the question "q-rep-telephone-number"
+And the user inputs their telephone number to the question "q-rep-telephone-number"
 When the user continues
 Then the user is on page "p-rep-reference-number"
 
@@ -244,6 +244,40 @@ Scenario: the user is on page p-applicant-when-did-the-crime-happen.
 Given the user is on page "p-applicant-when-did-the-crime-happen"
 And the user answers "01 01 2024" to the question "q-applicant-when-did-the-crime-happen"
 When the user continues
+Then the user is on page "p-applicant-where-did-the-crime-happen"
+
+Scenario: the user is on page p-applicant-where-did-the-crime-happen.
+Given the user is on page "p-applicant-where-did-the-crime-happen"
+And the user answers 'england' to the question "q-applicant-where-did-the-crime-happen"
+When the user continues
+Then the user is on page "p-applicant-where-in-england-did-it-happen"
+
+Scenario: the user is on page p-applicant-where-in-england-did-it-happen.
+Given the user is on page "p-applicant-where-in-england-did-it-happen"
+When the user selects previous page
+Then the user is on page "p-applicant-where-did-the-crime-happen"
+
+Scenario: the user is on page p-applicant-where-did-the-crime-happen.
+Given the user is on page "p-applicant-where-did-the-crime-happen"
+And the user answers 'wales' to the question "q-applicant-where-did-the-crime-happen"
+When the user continues
+Then the user is on page "p-applicant-where-in-wales-did-it-happen"
+
+Scenario: the user is on page p-applicant-where-in-wales-did-it-happen.
+Given the user is on page "p-applicant-where-in-wales-did-it-happen"
+When the user selects previous page
+Then the user is on page "p-applicant-where-did-the-crime-happen"
+
+Scenario: the user is on page p-applicant-where-did-the-crime-happen.
+Given the user is on page "p-applicant-where-did-the-crime-happen"
+And the user answers 'somewhere-else' to the question "q-applicant-where-did-the-crime-happen"
+And the user answers 'enter location of crime' to the question "q-applicant-crime-location"
+When the user continues
+Then the user is on page "p--when-was-the-crime-reported-to-police"
+
+Scenario: the user is on page p--when-was-the-crime-reported-to-police.
+Given the user is on page "p--when-was-the-crime-reported-to-police"
+When the user selects previous page
 Then the user is on page "p-applicant-where-did-the-crime-happen"
 
 Scenario: the user is on page p-applicant-where-did-the-crime-happen.
