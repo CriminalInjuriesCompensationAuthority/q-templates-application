@@ -210,7 +210,6 @@ When the user continues
 Then the user is on page "p-task-list"
 And the "t-about-application" task status will be marked as "Completed"
 
-
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
 When the user selects the task "t_applicant_about-the-crime"
@@ -293,6 +292,58 @@ And the user answers 'false' to the question "q-offender-do-you-know-the-name-of
 When the user continues
 Then the user is on page "p-task-list"
 And the "t_offender_about-the-offender" task status will be marked as "Completed"
+
+Scenario: the user is on the task list
+Given the user is on page "p-task-list"
+When the user selects the task "t_applicant_personal-details"
+Then the user is on page "p--context-applicant-details"
+
+Scenario: the user is on page p--context-applicant-details.
+Given the user is on page "p--context-applicant-details"
+When the user advances the application
+Then the user is on page "p-applicant-confirmation-method"
+
+Scenario: the user is on page p-applicant-confirmation-method.
+Given the user is on page "p-applicant-confirmation-method"
+And the user answers 'email' to the question "q-applicant-confirmation-method"
+And the user inputs their email address to the question "q-applicant-enter-your-email-address"
+When the user continues
+Then the user is on page "p-applicant-enter-your-name"
+
+Scenario: the user is on page p-applicant-enter-your-name.
+Given the user is on page "p-applicant-enter-your-name"
+And the user answers 'miss' to the question "q-applicant-title"
+And the user answers 'test' to the question "q-applicant-first-name"
+And the user answers 'testcase' to the question "q-applicant-last-name"
+When the user continues
+Then the user is on page "p-applicant-have-you-been-known-by-any-other-names"
+
+Scenario: the user is on page p-applicant-have-you-been-known-by-any-other-names.
+Given the user is on page "p-applicant-have-you-been-known-by-any-other-names"
+And the user answers 'false' to the question "q-applicant-have-you-been-known-by-any-other-names"
+When the user continues
+Then the user is on page "p-applicant-enter-your-date-of-birth"
+
+Scenario: the user is on page p-applicant-enter-your-date-of-birth.
+Given the user is on page "p-applicant-enter-your-date-of-birth"
+And the user answers "01 01 1990" to the question "q-applicant-enter-your-date-of-birth"
+When the user continues
+Then the user is on page "p-applicant-enter-your-address"
+
+Scenario: the user is on page p-applicant-enter-your-address.
+Given the user is on page "p-applicant-enter-your-address"
+And the user answers '10 bank st' to the question "q-applicant-building-and-street"
+And the user answers 'glasgow' to the question "q-applicant-town-or-city"
+And the user answers 'ma1' to the question "q-applicant-postcode"
+When the user continues
+Then the user is on page "p-applicant-enter-your-telephone-number"
+
+Scenario: the user is on page p-applicant-enter-your-telephone-number.
+Given the user is on page "p-applicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-applicant-enter-your-telephone-number"
+When the user continues
+Then the user is on page "p-task-list"
+And the "t_applicant_personal-details" task status will be marked as "Completed"
 
 Scenario: the user is on the task list
 Given the user is on page "p-task-list"
@@ -525,6 +576,11 @@ Then the user is on page "p--check-your-answers"
 
 Scenario: the user is on page p--check-your-answers.
 Given the user is on page "p--check-your-answers"
+When the user advances the application
+Then the user is on page "p--context-paying-awards"
+
+Scenario: the user is on page p--context-paying-awards.
+Given the user is on page "p--context-paying-awards"
 When the user advances the application
 Then the user is on page "p-applicant-declaration"
 
