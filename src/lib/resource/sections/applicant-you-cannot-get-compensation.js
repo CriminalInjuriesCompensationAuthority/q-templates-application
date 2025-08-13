@@ -26,6 +26,9 @@ module.exports = {
             options: {
                 submitButton: {
                     text: 'Continue anyway'
+                },
+                signInLink: {
+                    visible: false
                 }
             }
         }

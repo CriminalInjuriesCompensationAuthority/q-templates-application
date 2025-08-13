@@ -55,6 +55,9 @@ module.exports = {
             options: {
                 previousPageLink: {
                     visible: false
+                },
+                signInLink: {
+                    visible: false
                 }
             }
         }

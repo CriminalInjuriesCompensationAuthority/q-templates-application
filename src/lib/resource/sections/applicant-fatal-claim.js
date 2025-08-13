@@ -106,7 +106,12 @@ module.exports = {
                 {
                     'q-applicant-fatal-claim': 'foo'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

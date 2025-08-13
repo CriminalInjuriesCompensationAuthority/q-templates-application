@@ -1139,6 +1139,9 @@ module.exports = {
                 pageContext: 'confirmation',
                 previousPageLink: {
                     visible: false
+                },
+                signInLink: {
+                    visible: false
                 }
             }
         }

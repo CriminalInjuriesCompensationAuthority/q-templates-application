@@ -57,7 +57,12 @@ module.exports = {
                 {
                     'q-applicant-what-do-you-want-to-do': 'foo'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

@@ -21,7 +21,12 @@ module.exports = {
                 {
                     foo: 'bar'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

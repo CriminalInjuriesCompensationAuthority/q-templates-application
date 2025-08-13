@@ -51,7 +51,12 @@ module.exports = {
                 {
                     'q-applicant-under-18': 12345
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

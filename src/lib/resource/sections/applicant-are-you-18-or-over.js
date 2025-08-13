@@ -98,7 +98,12 @@ module.exports = {
                 {
                     'q-applicant-are-you-18-or-over': 'foo'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

@@ -50,7 +50,12 @@ module.exports = {
                 {
                     'q--was-the-crime-reported-to-police': 'foo'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

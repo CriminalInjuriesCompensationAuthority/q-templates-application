@@ -56,7 +56,12 @@ module.exports = {
                 {
                     'q-applicant-claim-type': 'foo'
                 }
-            ]
+            ],
+            options: {
+                signInLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {
