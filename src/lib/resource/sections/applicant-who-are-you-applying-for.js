@@ -51,7 +51,12 @@ module.exports = {
                 {
                     'q-applicant-who-are-you-applying-for': 12345
                 }
-            ]
+            ],
+            options: {
+                previousPageLink: {
+                    visible: false
+                }
+            }
         }
     },
     route: {

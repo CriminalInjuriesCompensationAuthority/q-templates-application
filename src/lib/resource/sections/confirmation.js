@@ -1136,7 +1136,10 @@ module.exports = {
                 }
             ],
             options: {
-                pageContext: 'confirmation'
+                pageContext: 'confirmation',
+                previousPageLink: {
+                    visible: false
+                }
             }
         }
     },
