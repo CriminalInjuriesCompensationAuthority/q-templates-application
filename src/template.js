@@ -1411,32 +1411,40 @@ module.exports = {
                                 {
                                     target: 'notApplicable',
                                     cond: [
-                                        'and',
-                                        ['==', false, ['|role.all', 'proxy', 'adult', 'capable']],
-                                        ['==', false, ['|role.all', 'noauthority']],
+                                        'or',
+                                        ['|role.all', 'myself'],
                                         [
-                                            'or',
+                                            'and',
                                             [
                                                 '==',
-                                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                                true
+                                                false,
+                                                ['|role.all', 'proxy', 'adult', 'capable']
+                                            ],
+                                            ['==', false, ['|role.all', 'noauthority']],
+                                            [
+                                                'or',
+                                                [
+                                                    '==',
+                                                    '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                                    true
+                                                ],
+                                                [
+                                                    '==',
+                                                    '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                    true
+                                                ]
                                             ],
                                             [
-                                                '==',
-                                                '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                                true
+                                                'or',
+                                                [
+                                                    'dateCompare',
+                                                    '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                    '<', // is less than ...
+                                                    '-18', // 18 ...
+                                                    'years' // years (before, due to the negative (-18) ...
+                                                ],
+                                                ['==', false, ['|role.all', 'rep']]
                                             ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                'dateCompare',
-                                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                                '<', // is less than ...
-                                                '-18', // 18 ...
-                                                'years' // years (before, due to the negative (-18) ...
-                                            ],
-                                            ['==', false, ['|role.all', 'rep']]
                                         ]
                                     ]
                                 },
@@ -1508,32 +1516,40 @@ module.exports = {
                                 {
                                     target: 'notApplicable',
                                     cond: [
-                                        'and',
-                                        ['==', false, ['|role.all', 'proxy', 'adult', 'capable']],
-                                        ['==', false, ['|role.all', 'noauthority']],
+                                        'or',
+                                        ['|role.all', 'myself'],
                                         [
-                                            'or',
+                                            'and',
                                             [
                                                 '==',
-                                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                                true
+                                                false,
+                                                ['|role.all', 'proxy', 'adult', 'capable']
+                                            ],
+                                            ['==', false, ['|role.all', 'noauthority']],
+                                            [
+                                                'or',
+                                                [
+                                                    '==',
+                                                    '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                                    true
+                                                ],
+                                                [
+                                                    '==',
+                                                    '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                    true
+                                                ]
                                             ],
                                             [
-                                                '==',
-                                                '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                                true
+                                                'or',
+                                                [
+                                                    'dateCompare',
+                                                    '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                                                    '<', // is less than ...
+                                                    '-18', // 18 ...
+                                                    'years' // years (before, due to the negative (-18) ...
+                                                ],
+                                                ['==', false, ['|role.all', 'rep']]
                                             ]
-                                        ],
-                                        [
-                                            'or',
-                                            [
-                                                'dateCompare',
-                                                '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                                                '<', // is less than ...
-                                                '-18', // 18 ...
-                                                'years' // years (before, due to the negative (-18) ...
-                                            ],
-                                            ['==', false, ['|role.all', 'rep']]
                                         ]
                                     ]
                                 },
