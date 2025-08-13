@@ -82,8 +82,10 @@ module.exports = {
                 }
             ],
             options: {
-                buttonText: 'Continue anyway',
-                buttonClass: 'govuk-button--secondary',
+                submitButton: {
+                    text: 'Continue anyway',
+                    classes: 'govuk-button--secondary'
+                },
                 signInLink: {
                     visible: false
                 }

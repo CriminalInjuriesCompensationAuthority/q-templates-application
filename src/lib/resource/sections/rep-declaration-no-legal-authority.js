@@ -58,7 +58,9 @@ module.exports = {
                 }
             ],
             options: {
-                buttonText: 'Agree and submit',
+                submitButton: {
+                    text: 'Agree and submit'
+                },
                 pageContext: 'submission'
             }
         }

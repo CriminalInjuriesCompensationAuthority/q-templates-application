@@ -18,7 +18,12 @@ module.exports = {
                 {
                     foo: 'bar'
                 }
-            ]
+            ],
+            options: {
+                submitButton: {
+                    text: 'Continue to declaration'
+                }
+            }
         }
     },
     route: {

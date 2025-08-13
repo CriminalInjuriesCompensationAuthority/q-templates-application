@@ -22,7 +22,12 @@ module.exports = {
                 {
                     foo: 'bar'
                 }
-            ]
+            ],
+            options: {
+                submitButton: {
+                    text: 'Continue anyway'
+                }
+            }
         }
     },
     route: {

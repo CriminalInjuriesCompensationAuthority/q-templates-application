@@ -1134,7 +1134,10 @@ module.exports = {
                 {
                     foo: 'bar'
                 }
-            ]
+            ],
+            options: {
+                pageContext: 'confirmation'
+            }
         }
     },
     route: {

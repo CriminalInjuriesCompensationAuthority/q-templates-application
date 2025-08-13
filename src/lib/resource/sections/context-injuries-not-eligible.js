@@ -60,7 +60,9 @@ module.exports = {
                 }
             ],
             options: {
-                buttonText: 'Continue anyway'
+                submitButton: {
+                    text: 'Continue anyway'
+                }
             }
         }
     },

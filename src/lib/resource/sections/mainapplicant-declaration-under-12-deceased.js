@@ -56,7 +56,13 @@ module.exports = {
                 {
                     'q-mainapplicant-declaration': [123]
                 }
-            ]
+            ],
+            options: {
+                pageContext: 'submission',
+                submitButton: {
+                    text: 'Agree and submit'
+                }
+            }
         }
     },
     route: {
