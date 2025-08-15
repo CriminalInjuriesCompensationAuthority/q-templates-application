@@ -42,7 +42,10 @@ module.exports = {
                 {
                     foo: 'bar'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-funeral-costs-who-contributed', 'funeral-costs-info']
+            }
         }
     },
     route: {

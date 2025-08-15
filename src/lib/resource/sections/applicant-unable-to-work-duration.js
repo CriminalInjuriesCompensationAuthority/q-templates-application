@@ -81,7 +81,10 @@ module.exports = {
                 {
                     'q-applicant-unable-to-work-duration': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-unable-to-work-duration', 'details-work-duration']
+            }
         }
     },
     route: {

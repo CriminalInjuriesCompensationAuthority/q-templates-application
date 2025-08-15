@@ -52,6 +52,7 @@ module.exports = {
                 }
             ],
             options: {
+                outputOrder: ['q--was-the-crime-reported-to-police', 'dont-know-if-crime-reported'],
                 signInLink: {
                     visible: false
                 }

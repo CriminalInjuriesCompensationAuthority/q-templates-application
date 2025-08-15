@@ -58,6 +58,7 @@ module.exports = {
                 }
             ],
             options: {
+                outputOrder: ['q-applicant-claim-type', 'applicant-claim-type-info'],
                 signInLink: {
                     visible: false
                 }

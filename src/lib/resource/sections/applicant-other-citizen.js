@@ -111,7 +111,6 @@ module.exports = {
                     ]
                 }
             },
-
             examples: [
                 {
                     'q-applicant-other-citizen': true
@@ -124,7 +123,23 @@ module.exports = {
                 {
                     'q-applicant-other-citizen': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['other-citizen-info', 'q-applicant-other-citizen'],
+                properties: {
+                    'q-applicant-other-citizen': {
+                        options: {
+                            macroOptions: {
+                                fieldset: {
+                                    legend: {
+                                        classes: 'govuk-fieldset__legend--m'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

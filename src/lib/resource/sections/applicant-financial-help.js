@@ -98,7 +98,10 @@ module.exports = {
                 {
                     'q-applicant-financial-help': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-financial-help', 'financial-help-info']
+            }
         }
     },
     route: {

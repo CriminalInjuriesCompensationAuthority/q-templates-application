@@ -56,7 +56,10 @@ module.exports = {
                 {
                     'q-applicant-affect-future-duration': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-affect-future-duration', 'help-affect-future-duration']
+            }
         }
     },
     route: {

@@ -185,7 +185,49 @@ module.exports = {
                     'q-deceased-town-or-city': 'FooCity',
                     'q-deceased-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-deceased-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line1'
+                            }
+                        }
+                    },
+                    'q-deceased-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line2'
+                            }
+                        }
+                    },
+                    'q-deceased-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line3'
+                            }
+                        }
+                    },
+                    'q-deceased-town-or-city': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'address-level2'
+                            }
+                        }
+                    },
+                    'q-deceased-postcode': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'postal-code'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

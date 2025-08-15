@@ -103,7 +103,33 @@ module.exports = {
                     'q-rep-has-reference-number': true,
                     'q-enter-your-previous-reference-number': ''
                 }
-            ]
+            ],
+            options: {
+                transformOrder: ['q-rep-reference-number', 'q-rep-has-reference-number'],
+                outputOrder: ['q-rep-has-reference-number'],
+                properties: {
+                    'q-rep-has-reference-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-radios'
+                            },
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: true,
+                                    componentIds: ['q-rep-reference-number']
+                                }
+                            ]
+                        }
+                    },
+                    'q-rep-reference-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

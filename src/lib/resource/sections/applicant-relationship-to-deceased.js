@@ -223,7 +223,33 @@ module.exports = {
                 {
                     'q-applicant-relationship-to-deceased': 'other'
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-applicant-relationship-other',
+                    'q-applicant-relationship-to-deceased'
+                ],
+                outputOrder: ['q-applicant-relationship-to-deceased'],
+                properties: {
+                    'q-applicant-relationship-to-deceased': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'other',
+                                    componentIds: ['q-applicant-relationship-other']
+                                }
+                            ]
+                        }
+                    },
+                    'q-applicant-relationship-other': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

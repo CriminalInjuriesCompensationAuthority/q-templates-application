@@ -80,7 +80,10 @@ module.exports = {
                 {
                     'q-applicant-do-you-have-disabling-mental-injury': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-disabling-mental-injury', 'disabling-mental-injury-info']
+            }
         }
     },
     route: {

@@ -246,7 +246,54 @@ module.exports = {
                     'q-mainapplicant-confirmation-method': 'email',
                     'q-mainapplicant-enter-your-telephone-number': false
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-mainapplicant-enter-your-email-address',
+                    'q-mainapplicant-enter-your-telephone-number',
+                    'q-mainapplicant-confirmation-method'
+                ],
+                outputOrder: ['q-mainapplicant-confirmation-method'],
+                properties: {
+                    'q-mainapplicant-confirmation-method': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'email',
+                                    componentIds: ['q-mainapplicant-enter-your-email-address']
+                                },
+                                {
+                                    itemValue: 'text',
+                                    componentIds: ['q-mainapplicant-enter-your-telephone-number']
+                                }
+                            ],
+                            additionalMapping: [
+                                {
+                                    itemType: 'divider',
+                                    itemValue: 'or',
+                                    itemIndex: 2
+                                }
+                            ]
+                        }
+                    },
+                    'q-mainapplicant-enter-your-email-address': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'email'
+                            }
+                        }
+                    },
+                    'q-mainapplicant-enter-your-telephone-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'tel'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

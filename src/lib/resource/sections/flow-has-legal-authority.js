@@ -113,7 +113,10 @@ module.exports = {
                 {
                     'q--has-legal-authority': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q--has-legal-authority']
+            }
         }
     },
     route: {

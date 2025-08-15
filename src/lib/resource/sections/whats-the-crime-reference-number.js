@@ -42,7 +42,13 @@ module.exports = {
                 {
                     'q--whats-the-crime-reference-number': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q--whats-the-crime-reference-number',
+                    'i-dont-know-the-crime-reference'
+                ]
+            }
         }
     },
     route: {

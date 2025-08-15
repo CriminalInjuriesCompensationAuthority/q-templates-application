@@ -231,7 +231,47 @@ module.exports = {
                     'q-applicant-treatment-town-or-city': 'FooCity',
                     'q-applicant-treatment-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-treatment-organisation-name': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-treatment-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-treatment-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-treatment-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    }
+                },
+                outputOrder: [
+                    'q-applicant-treatment-organisation-name',
+                    'q-applicant-treatment-building-and-street',
+                    'q-applicant-treatment-building-and-street-2',
+                    'q-applicant-treatment-building-and-street-3',
+                    'q-applicant-treatment-town-or-city',
+                    'q-applicant-treatment-postcode'
+                ]
+            }
         }
     },
     route: {

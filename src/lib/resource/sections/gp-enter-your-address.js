@@ -210,7 +210,47 @@ module.exports = {
                     'q-gp-town-or-city': 'FooCity',
                     'q-gp-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-gp-organisation-name': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-gp-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-gp-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-gp-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    }
+                },
+                outputOrder: [
+                    'q-gp-organisation-name',
+                    'q-gp-building-and-street',
+                    'q-gp-building-and-street-2',
+                    'q-gp-building-and-street-3',
+                    'q-gp-town-or-city',
+                    'q-gp-postcode'
+                ]
+            }
         }
     },
     route: {

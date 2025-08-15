@@ -128,7 +128,17 @@ module.exports = {
                     ],
                     'q-applicant-explain-reason-for-delay-reporting': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                    'q-applicant-explain-reason-for-delay-reporting'
+                ],
+                summaryOrder: [
+                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
+                    'q-applicant-explain-reason-for-delay-reporting'
+                ]
+            }
         }
     },
     route: {

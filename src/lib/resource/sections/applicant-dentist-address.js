@@ -212,7 +212,47 @@ module.exports = {
                     'q-applicant-dentist-address-town-or-city': 'FooCity',
                     'q-applicant-dentist-address-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-dentist-organisation-name': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-dentist-address-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-dentist-address-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    },
+                    'q-applicant-dentist-address-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: ''
+                            }
+                        }
+                    }
+                },
+                outputOrder: [
+                    'q-applicant-dentist-organisation-name',
+                    'q-applicant-dentist-address-building-and-street',
+                    'q-applicant-dentist-address-building-and-street-2',
+                    'q-applicant-dentist-address-building-and-street-3',
+                    'q-applicant-dentist-address-town-or-city',
+                    'q-applicant-dentist-address-postcode'
+                ]
+            }
         }
     },
     route: {

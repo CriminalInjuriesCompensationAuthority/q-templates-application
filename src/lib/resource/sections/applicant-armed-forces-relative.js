@@ -120,7 +120,10 @@ module.exports = {
                 {
                     'q-applicant-armed-forces-relative': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-armed-forces-relative', 'armed-forces-relative-info']
+            }
         }
     },
     route: {

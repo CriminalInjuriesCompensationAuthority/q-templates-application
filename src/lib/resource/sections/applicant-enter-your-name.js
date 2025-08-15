@@ -206,7 +206,37 @@ module.exports = {
                     'q-applicant-first-name': 'Foo',
                     'q-applicant-last-name': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q-applicant-title',
+                    'q-applicant-first-name',
+                    'q-applicant-last-name'
+                ],
+                properties: {
+                    'q-applicant-title': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'honorific-prefix'
+                            }
+                        }
+                    },
+                    'q-applicant-first-name': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'given-name'
+                            }
+                        }
+                    },
+                    'q-applicant-last-name': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'family-name'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

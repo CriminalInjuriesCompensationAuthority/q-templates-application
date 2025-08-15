@@ -98,7 +98,10 @@ module.exports = {
                 {
                     'q-applicant-physical-help': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-physical-help', 'physical-help-info']
+            }
         }
     },
     route: {

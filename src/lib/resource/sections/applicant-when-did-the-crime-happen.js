@@ -50,7 +50,10 @@ module.exports = {
                 {
                     'q-applicant-when-did-the-crime-happen': 'not a date'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-when-did-the-crime-happen']
+            }
         }
     },
     route: {

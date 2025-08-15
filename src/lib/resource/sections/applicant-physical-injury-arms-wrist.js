@@ -102,7 +102,26 @@ module.exports = {
                 {
                     'q-applicant-physical-injuries': ['not-a-key']
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-applicant-physical-injuries-arms-wrist-other',
+                    'q-applicant-physical-injuries'
+                ],
+                outputOrder: ['q-applicant-physical-injuries'],
+                properties: {
+                    'q-applicant-physical-injuries': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'phyinj-149',
+                                    componentIds: ['q-applicant-physical-injuries-arms-wrist-other']
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

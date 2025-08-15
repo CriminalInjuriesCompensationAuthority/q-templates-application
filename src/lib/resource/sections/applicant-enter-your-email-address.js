@@ -38,7 +38,19 @@ module.exports = {
                 {
                     'q-applicant-enter-your-email-address': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-enter-your-email-address': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'email',
+                                spellcheck: 'false'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

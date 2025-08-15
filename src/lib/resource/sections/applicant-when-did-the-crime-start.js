@@ -49,7 +49,21 @@ module.exports = {
                 {
                     'q-applicant-when-did-the-crime-start': 'not a date'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-when-did-the-crime-start'],
+                properties: {
+                    'q-applicant-when-did-the-crime-start': {
+                        options: {
+                            dateParts: {
+                                day: false,
+                                month: true,
+                                year: true
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

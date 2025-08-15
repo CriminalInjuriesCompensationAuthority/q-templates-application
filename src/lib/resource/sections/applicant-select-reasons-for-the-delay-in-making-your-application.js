@@ -157,6 +157,10 @@ module.exports = {
                 properties: {
                     'q-applicant-explain-reason-for-delay-application': {
                         options: {
+                            outputOrder: [
+                                'q-applicant-explain-reason-for-delay-application',
+                                'help-reason-for-delay'
+                            ],
                             macroOptions: {
                                 label: {
                                     classes: 'govuk-label--m'

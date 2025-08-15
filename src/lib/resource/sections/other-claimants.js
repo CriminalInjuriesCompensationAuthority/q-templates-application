@@ -94,7 +94,10 @@ module.exports = {
                 {
                     'q-other-claimants': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-other-claimants', 'other-claimants-info']
+            }
         }
     },
     route: {

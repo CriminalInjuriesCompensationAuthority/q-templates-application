@@ -213,7 +213,65 @@ module.exports = {
                     'q-rep-town-or-city': 'FooCity',
                     'q-rep-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-rep-organisation-name': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'organisation'
+                            }
+                        }
+                    },
+                    'q-rep-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line1'
+                            }
+                        }
+                    },
+                    'q-rep-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line2'
+                            }
+                        }
+                    },
+                    'q-rep-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line3'
+                            }
+                        }
+                    },
+                    'q-rep-town-or-city': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'address-level2'
+                            }
+                        }
+                    },
+                    'q-rep-postcode': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'postal-code'
+                            }
+                        }
+                    }
+                },
+                outputOrder: [
+                    'q-rep-organisation-name',
+                    'q-rep-building-and-street',
+                    'q-rep-building-and-street-2',
+                    'q-rep-building-and-street-3',
+                    'q-rep-town-or-city',
+                    'q-rep-postcode'
+                ]
+            }
         }
     },
     route: {

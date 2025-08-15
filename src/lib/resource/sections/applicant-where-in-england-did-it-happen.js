@@ -89,7 +89,14 @@ module.exports = {
                     'q-applicant-english-town-or-city': 'York',
                     'q-applicant-english-location': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q-applicant-english-town-or-city',
+                    'q-applicant-english-location',
+                    'additional-info-help-text'
+                ]
+            }
         }
     },
     route: {

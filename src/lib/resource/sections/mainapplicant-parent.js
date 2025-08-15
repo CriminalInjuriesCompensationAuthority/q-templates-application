@@ -128,7 +128,10 @@ module.exports = {
                 {
                     'q-mainapplicant-parent': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-mainapplicant-parent', 'can-i-apply-for-child']
+            }
         }
     },
     route: {

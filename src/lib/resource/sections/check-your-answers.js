@@ -29,6 +29,7 @@ module.exports = {
                 }
             ],
             options: {
+                pageContext: 'summary',
                 ordering: {
                     'q-applicant-confirmation-method': [
                         'q-applicant-enter-your-email-address',

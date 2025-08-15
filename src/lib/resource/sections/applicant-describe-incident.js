@@ -59,7 +59,23 @@ module.exports = {
                 {
                     'q-applicant-describe-incident': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['describe-incident-info', 'q-applicant-describe-incident'],
+                properties: {
+                    'q-applicant-describe-incident': {
+                        options: {
+                            macroOptions: {
+                                fieldset: {
+                                    legend: {
+                                        classes: 'govuk-fieldset__legend--m'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

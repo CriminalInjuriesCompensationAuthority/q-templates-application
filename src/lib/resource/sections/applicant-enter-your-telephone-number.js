@@ -68,7 +68,18 @@ module.exports = {
                 {
                     'q-applicant-enter-your-telephone-number': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-enter-your-telephone-number': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'tel'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

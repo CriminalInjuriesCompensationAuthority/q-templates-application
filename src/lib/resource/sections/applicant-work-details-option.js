@@ -149,7 +149,33 @@ module.exports = {
                     'q-applicant-work-details-option': 'other',
                     'q-applicant-work-details-other': 1234
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-applicant-work-details-other',
+                    'q-applicant-work-details-option'
+                ],
+                outputOrder: ['q-applicant-work-details-option'],
+                properties: {
+                    'q-applicant-work-details-option': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'other',
+                                    componentIds: ['q-applicant-work-details-other']
+                                }
+                            ]
+                        }
+                    },
+                    'q-applicant-work-details-other': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

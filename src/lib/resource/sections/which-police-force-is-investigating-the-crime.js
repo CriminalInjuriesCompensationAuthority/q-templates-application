@@ -400,7 +400,20 @@ module.exports = {
                 {
                     'q-police-force-id': '10000147'
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-police-force-id': {
+                        options: {
+                            defaultItem: {
+                                value: '',
+                                text: 'Select police force'
+                            }
+                        }
+                    }
+                },
+                outputOrder: ['q-police-force-id', 'additional-info-help-text']
+            }
         }
     },
     route: {

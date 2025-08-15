@@ -92,7 +92,14 @@ module.exports = {
                     'q-applicant-scottish-town-or-city': 'Some town',
                     'q-applicant-scottish-location': 12345
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q-applicant-scottish-town-or-city',
+                    'q-applicant-scottish-location',
+                    'additional-info-help-text'
+                ]
+            }
         }
     },
     route: {

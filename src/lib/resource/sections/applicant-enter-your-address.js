@@ -236,7 +236,56 @@ module.exports = {
                     'q-applicant-town-or-city': 'FooCity',
                     'q-applicant-postcode': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-building-and-street': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line1'
+                            }
+                        }
+                    },
+                    'q-applicant-building-and-street-2': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line2'
+                            }
+                        }
+                    },
+                    'q-applicant-building-and-street-3': {
+                        options: {
+                            macroOptions: {
+                                classes: '',
+                                autocomplete: 'address-line3'
+                            }
+                        }
+                    },
+                    'q-applicant-town-or-city': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'address-level2'
+                            }
+                        }
+                    },
+                    'q-applicant-postcode': {
+                        options: {
+                            macroOptions: {
+                                autocomplete: 'postal-code'
+                            }
+                        }
+                    }
+                },
+                outputOrder: [
+                    'q-applicant-building-and-street',
+                    'q-applicant-building-and-street-2',
+                    'q-applicant-building-and-street-3',
+                    'q-applicant-town-or-city',
+                    'q-applicant-postcode'
+                ]
+            }
         }
     },
     route: {

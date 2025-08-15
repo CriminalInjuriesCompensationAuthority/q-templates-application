@@ -113,7 +113,10 @@ module.exports = {
                 {
                     'q-applicant-eu-citizen': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-eu-citizen', 'eu-citizen-info']
+            }
         }
     },
     route: {

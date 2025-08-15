@@ -233,7 +233,54 @@ module.exports = {
                     'q-rep-confirmation-method': 'email',
                     'q-rep-telephone-number': false
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-rep-email-address',
+                    'q-rep-telephone-number',
+                    'q-rep-confirmation-method'
+                ],
+                outputOrder: ['q-rep-confirmation-method'],
+                properties: {
+                    'q-rep-confirmation-method': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'email',
+                                    componentIds: ['q-rep-email-address']
+                                },
+                                {
+                                    itemValue: 'text',
+                                    componentIds: ['q-rep-telephone-number']
+                                }
+                            ],
+                            additionalMapping: [
+                                {
+                                    itemType: 'divider',
+                                    itemValue: 'or',
+                                    itemIndex: 2
+                                }
+                            ]
+                        }
+                    },
+                    'q-rep-email-address': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'email'
+                            }
+                        }
+                    },
+                    'q-rep-telephone-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'tel'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

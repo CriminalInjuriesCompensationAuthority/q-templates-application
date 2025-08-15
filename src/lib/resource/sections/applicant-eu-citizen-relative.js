@@ -103,7 +103,6 @@ module.exports = {
                     ]
                 }
             },
-
             examples: [
                 {
                     'q-applicant-eu-citizen-relative': true
@@ -116,7 +115,10 @@ module.exports = {
                 {
                     'q-applicant-eu-citizen-relative': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-eu-citizen-relative', 'eu-citizen-relative-info']
+            }
         }
     },
     route: {

@@ -176,7 +176,26 @@ module.exports = {
                 {
                     'q-applicant-select-treatments-dmi': ['other']
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-applicant-other-treatment-dmi',
+                    'q-applicant-select-treatments-dmi'
+                ],
+                outputOrder: ['q-applicant-select-treatments-dmi'],
+                properties: {
+                    'q-applicant-select-treatments-dmi': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'other',
+                                    componentIds: ['q-applicant-other-treatment-dmi']
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         }
     },
     route: {

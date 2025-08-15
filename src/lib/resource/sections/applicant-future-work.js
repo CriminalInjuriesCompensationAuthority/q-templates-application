@@ -57,7 +57,10 @@ module.exports = {
                 {
                     'q-applicant-future-work': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-future-work', 'help-future-work']
+            }
         }
     },
     route: {

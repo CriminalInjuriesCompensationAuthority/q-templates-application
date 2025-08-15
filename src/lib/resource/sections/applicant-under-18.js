@@ -53,6 +53,20 @@ module.exports = {
                 }
             ],
             options: {
+                outputOrder: ['applicant-under-18-info', 'q-applicant-under-18'],
+                properties: {
+                    'q-applicant-under-18': {
+                        options: {
+                            macroOptions: {
+                                fieldset: {
+                                    legend: {
+                                        classes: 'govuk-fieldset__legend--m'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 signInLink: {
                     visible: false
                 }

@@ -54,7 +54,13 @@ module.exports = {
                 {
                     'q--when-was-the-crime-reported-to-police': 'not a date'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: [
+                    'q--when-was-the-crime-reported-to-police',
+                    'additional-info-help-text'
+                ]
+            }
         }
     },
     route: {

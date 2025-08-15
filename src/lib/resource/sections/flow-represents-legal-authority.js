@@ -49,7 +49,10 @@ module.exports = {
                 {
                     'q--represents-legal-authority': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q--represents-legal-authority']
+            }
         }
     },
     route: {

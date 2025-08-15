@@ -104,7 +104,6 @@ module.exports = {
                     ]
                 }
             },
-
             examples: [
                 {
                     'q-applicant-british-citizen-relative': true
@@ -117,7 +116,10 @@ module.exports = {
                 {
                     'q-applicant-british-citizen-relative': 'foo'
                 }
-            ]
+            ],
+            options: {
+                outputOrder: ['q-applicant-british-citizen-relative', 'british-close-relative-info']
+            }
         }
     },
     route: {

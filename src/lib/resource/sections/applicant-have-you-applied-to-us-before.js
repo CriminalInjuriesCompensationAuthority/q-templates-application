@@ -178,7 +178,34 @@ module.exports = {
                     'q-applicant-have-you-applied-to-us-before': true,
                     'q-enter-your-previous-reference-number': 12345
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-enter-your-previous-reference-number',
+                    'q-applicant-have-you-applied-to-us-before'
+                ],
+                outputOrder: ['q-applicant-have-you-applied-to-us-before'],
+                properties: {
+                    'q-applicant-have-you-applied-to-us-before': {
+                        // transformer: 'govukRadios',
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: true,
+                                    componentIds: ['q-enter-your-previous-reference-number']
+                                }
+                            ]
+                        }
+                    },
+                    'q-enter-your-previous-reference-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
