@@ -9,6 +9,7 @@
     },
     "scripts": {
         "pretest": "npm run build",
+        "test:src": "git diff --cached --name-only > temp.txt && (node changedFileChecker.js || npm run test) && npx rimraf ./temp.txt",
         "test": "jest",
         "coverage": "jest --coverage",
         "lint": "eslint .",

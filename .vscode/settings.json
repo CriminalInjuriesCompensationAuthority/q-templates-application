@@ -1,3 +1,4 @@
 {
-    "cucumberautocomplete.steps": ["behaviours/tests/features/step_definitions/steps.js"]
+    "cucumberautocomplete.steps": ["behaviours/tests/features/step_definitions/steps.js"],
+    "git.allowForcePush": true
 }
