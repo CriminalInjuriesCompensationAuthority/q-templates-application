@@ -57,8 +57,10 @@ module.exports = {
                     'q-applicant-declaration': [123]
                 }
             ],
+            meta: {
+                pageType: 'submission'
+            },
             options: {
-                pageContext: 'submission',
                 submitButton: {
                     text: 'Agree and submit'
                 }

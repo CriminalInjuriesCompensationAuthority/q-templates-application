@@ -28,8 +28,10 @@ module.exports = {
                     foo: 'bar'
                 }
             ],
+            meta: {
+                pageType: 'summary'
+            },
             options: {
-                pageContext: 'summary',
                 ordering: {
                     'q-applicant-confirmation-method': [
                         'q-applicant-enter-your-email-address',

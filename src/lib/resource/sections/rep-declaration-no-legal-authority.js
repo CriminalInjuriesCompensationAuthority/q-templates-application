@@ -57,11 +57,13 @@ module.exports = {
                     'q-rep-declaration': [123]
                 }
             ],
+            meta: {
+                pageType: 'submission'
+            },
             options: {
                 submitButton: {
                     text: 'Agree and submit'
-                },
-                pageContext: 'submission'
+                }
             }
         }
     },

@@ -1135,8 +1135,10 @@ module.exports = {
                     foo: 'bar'
                 }
             ],
+            meta: {
+                pageType: 'confirmation'
+            },
             options: {
-                pageContext: 'confirmation',
                 previousPageLink: {
                     visible: false
                 },
