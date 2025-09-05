@@ -135,7 +135,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--has-legal-authority',
+                    target: 'p--has-parental-responsibility',
                     cond: ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false]
                 },
                 {

@@ -160,6 +160,7 @@ const applicantCanHandleAffairs = require('./lib/resource/sections/applicant-can
 const contextMainAppDetails = require('./lib/resource/sections/context-mainapplicant-details.js');
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
+const flowHasParentalResponsibility = require('./lib/resource/sections/flow-has-parental-responsibility.js');
 const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const owner = require('./lib/resource/sections/owner');
 const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
@@ -395,6 +396,7 @@ module.exports = {
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
         'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
+        'p--has-parental-responsibility': flowHasParentalResponsibility.section,
         owner: owner.section,
         'p--context-residency-and-nationality': contextResidency.section,
         'p-applicant-armed-forces-relative': applicantArmedForcesRelative.section,
@@ -558,6 +560,7 @@ module.exports = {
                     'p-mainapplicant-parent': mainapplicantParent.route,
                     'p--has-legal-authority': flowHasLegalAuthority.route,
                     'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
+                    'p--has-parental-responsibility': flowHasParentalResponsibility.route,
                     'p--context-authority': contextAuthority.route,
                     'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
                     'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
@@ -1271,7 +1274,7 @@ module.exports = {
                                                     ],
                                                     [
                                                         '==',
-                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                         false
                                                     ]
                                                 ],
@@ -1327,7 +1330,7 @@ module.exports = {
                                                     ],
                                                     [
                                                         '==',
-                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                         false
                                                     ]
                                                 ],
@@ -1392,7 +1395,7 @@ module.exports = {
                                                     ],
                                                     [
                                                         '==',
-                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                         false
                                                     ]
                                                 ],
@@ -1434,6 +1437,11 @@ module.exports = {
                                                 [
                                                     '==',
                                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                    true
+                                                ],
+                                                [
+                                                    '==',
+                                                    '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                     true
                                                 ]
                                             ],
@@ -1497,7 +1505,7 @@ module.exports = {
                                                     ],
                                                     [
                                                         '==',
-                                                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                        '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                         false
                                                     ]
                                                 ],
@@ -1539,6 +1547,11 @@ module.exports = {
                                                 [
                                                     '==',
                                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                                    true
+                                                ],
+                                                [
+                                                    '==',
+                                                    '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
                                                     true
                                                 ]
                                             ],
@@ -3859,7 +3872,8 @@ module.exports = {
                     // prettier-ignore
                     const: ['or',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true]
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true],
+                        ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', true]
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -3877,7 +3891,7 @@ module.exports = {
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
                             ['|role.all', 'child'],
                             ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                            ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', false]
                         ],
                         [
                             'and',
@@ -3954,7 +3968,8 @@ module.exports = {
                     // prettier-ignore
                     const: ['or',
                         ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true],
-                        ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
+                        ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true],
+                        ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', true]
                     ],
                     examples: [true, false],
                     invalidExamples: [{}]
