@@ -113,11 +113,11 @@ Scenario: the user is on page p-mainapplicant-parent.
 Given the user is on page "p-mainapplicant-parent"
 And the user answers 'false' to the question "q-mainapplicant-parent"
 When the user continues
-Then the user is on page "p--has-legal-authority"
+Then the user is on page "p--has-parental-responsibility"
 
-Scenario: the user is on page p--has-legal-authority.
-Given the user is on page "p--has-legal-authority"
-And the user answers 'false' to the question "q--has-legal-authority"
+Scenario: the user is on page p--has-parental-responsibility.
+Given the user is on page "p--has-parental-responsibility"
+And the user answers 'false' to the question "q--has-parental-responsibility"
 When the user continues
 Then the user is on page "p--context-authority"
 
