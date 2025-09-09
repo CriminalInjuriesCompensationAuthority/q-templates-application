@@ -172,33 +172,57 @@ module.exports = {
                 {
                     target: 'p-rep-declaration-12-and-over',
                     cond: [
-                        'and',
+                        'or',
                         [
-                            'or',
+                            'and',
                             [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                    false
+                                ]
                             ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                            ['|role.all', 'childOver12', 'nonDeceased']
                         ],
-                        ['|role.all', 'childOver12', 'nonDeceased']
+                        [
+                            'and',
+                            ['==', false, ['|role.all', 'mainapplicant']],
+                            ['|role.all', 'childOver12', 'rep', 'nonDeceased']
+                        ]
                     ]
                 },
                 {
                     target: 'p-rep-declaration-12-and-over-deceased',
                     cond: [
-                        'and',
+                        'or',
                         [
-                            'or',
+                            'and',
                             [
-                                '==',
-                                '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
-                                false
+                                'or',
+                                [
+                                    '==',
+                                    '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
+                                    false
+                                ],
+                                [
+                                    '==',
+                                    '$.answers.p--has-legal-authority.q--has-legal-authority',
+                                    false
+                                ]
                             ],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
+                            ['|role.all', 'childOver12', 'deceased']
                         ],
-                        ['|role.all', 'childOver12', 'deceased']
+                        [
+                            'and',
+                            ['==', false, ['|role.all', 'mainapplicant']],
+                            ['|role.all', 'childOver12', 'rep', 'deceased']
+                        ]
                     ]
                 }
             ]
