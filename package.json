@@ -39,7 +39,7 @@
         "lodash.merge": "^4.6.2",
         "nodemon": "^2.0.19",
         "prettier": "^1.19.1",
-        "q-router": "github:CriminalInjuriesCompensationAuthority/q-router#v3.2.0",
+        "q-router": "github:CriminalInjuriesCompensationAuthority/q-router#semver:3.2.1",
         "q-template-validator": "github:CriminalInjuriesCompensationAuthority/q-template-validator#v8.0.3",
         "rimraf": "^6.0.1"
     }
