@@ -106,7 +106,7 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--was-the-crime-reported-to-police',
-                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult', 'capable']]
+                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult']]
                 },
                 {
                     target: 'p-applicant-under-18'
