@@ -44,6 +44,12 @@ Scenario: the user is on page p-applicant-someone-else-applied-before-for-this-c
 Given the user is on page "p-applicant-someone-else-applied-before-for-this-crime"
 And the user answers 'no' to the question "q-applicant-someone-else-applied-before-for-this-crime"
 When the user continues
+Then the user is on page "p--new-application"
+
+Scenario: the user is on page p--new-application.
+Given the user is on page "p--new-application"
+And the user answers 'continue' to the question "q-new-application"
+When the user continues
 Then the user is on page "p-task-list"
 And the "t-about-application" task status will be marked as "Completed"
 
