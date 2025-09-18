@@ -38,7 +38,14 @@ Scenario: the user is on page p-applicant-claim-type.
 Given the user is on page "p-applicant-claim-type"
 And the user answers 'false' to the question "q-applicant-claim-type"
 When the user continues
+Then the user is on page "p--new-application"
+
+Scenario: the user is on page p--new-application.
+Given the user is on page "p--new-application"
+And the user answers 'continue' to the question "q-new-application"
+When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -79,6 +86,7 @@ And the user answers 'glasgow' to the question "q-applicant-town-or-city"
 And the user answers 'ma1' to the question "q-applicant-postcode"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -95,6 +103,7 @@ Given the user is on page "p-applicant-british-citizen"
 And the user answers 'true' to the question "q-applicant-british-citizen"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -174,6 +183,7 @@ Given the user is on page "p-mainapplicant-care-order"
 And the user answers 'false' to the question "q-mainapplicant-care-order"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -220,6 +230,7 @@ Given the user is on page "p-other-claimants-details"
 And the user answers 'no one' to the question "q-other-claimants-details"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -260,6 +271,7 @@ And the user answers 'dc town' to the question "q-deceased-town-or-city"
 And the user answers 'dc ma1' to the question "q-deceased-postcode"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -359,6 +371,7 @@ Scenario: the user is on page p-context-funeral-costs-proof.
 Given the user is on page "p-context-funeral-costs-proof"
 When the user advances the application
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -400,6 +413,7 @@ Given the user is on page "p--whats-the-crime-reference-number"
 And the user answers 'cr123456' to the question "q--whats-the-crime-reference-number"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -416,6 +430,7 @@ Given the user is on page "p-offender-do-you-know-the-name-of-the-offender"
 And the user answers 'false' to the question "q-offender-do-you-know-the-name-of-the-offender"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -489,6 +504,7 @@ Given the user is on page "p-applicant-applied-for-other-compensation-briefly-ex
 And the user answers 'did not apply for other forms of compensation' to the question "q-applicant-applied-for-other-compensation-briefly-explain-why-not"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"
@@ -505,6 +521,7 @@ Given the user is on page "p-applicant-provide-additional-information"
 And the user answers 'false' to the question "q-applicant-provide-additional-information"
 When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"

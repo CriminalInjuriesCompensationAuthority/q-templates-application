@@ -38,7 +38,14 @@ Scenario: the user is on page p-applicant-claim-type.
 Given the user is on page "p-applicant-claim-type"
 And the user answers 'false' to the question "q-applicant-claim-type"
 When the user continues
+Then the user is on page "p--new-application"
+
+Scenario: the user is on page p--new-application.
+Given the user is on page "p--new-application"
+And the user answers 'continue' to the question "q-new-application"
+When the user continues
 Then the user is on page "p-task-list"
+And the "t-about-application" task status will be marked as "Completed"
 
 Scenario: the user is on page p-task-list
 Given the user is on page "p-task-list"

@@ -50,6 +50,12 @@ Scenario: the user is on page p--context-you-should-not-apply-again.
 Given the user is on page "p--context-you-should-not-apply-again"
 And the user answers 'I understand' to the question "q--duplicate-application-confirmation"
 When the user continues
+Then the user is on page "p--new-application"
+
+Scenario: the user is on page p--new-application.
+Given the user is on page "p--new-application"
+And the user answers 'continue' to the question "q-new-application"
+When the user continues
 Then the user is on page "p-task-list"
 And the "t-about-application" task status will be marked as "Completed"
 
