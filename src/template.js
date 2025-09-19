@@ -214,6 +214,7 @@ const applicantMentalInjuryOngoing = require('./lib/resource/sections/applicant-
 const contextInjuriesNotEligible = require('./lib/resource/sections/context-injuries-not-eligible.js');
 const contextPayingAwards = require('./lib/resource/sections/context-paying-awards.js');
 const tasklist = require('./lib/resource/sections/task-list');
+const newApplication = require('./lib/resource/sections/flow-new-application.js');
 
 module.exports = {
     type: 'apply-for-compensation',
@@ -449,7 +450,8 @@ module.exports = {
         'p-applicant-mental-injury-ongoing': applicantMentalInjuryOngoing.section,
         'p--context-injuries-not-eligible': contextInjuriesNotEligible.section,
         'p--context-paying-awards': contextPayingAwards.section,
-        'p-task-list': tasklist.section
+        'p-task-list': tasklist.section,
+        'p--new-application': newApplication.section
     },
     currentSectionId: 'p-applicant-who-are-you-applying-for',
     routes: {
@@ -499,7 +501,8 @@ module.exports = {
                         applicantAppliedBeforeForThisCrime.route,
                     'p-proxy-someone-else-applied-before-for-this-crime':
                         proxySomeoneElseAppliedBeforeForThisCrime.route,
-                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route
+                    'p--context-you-should-not-apply-again': contextYouShouldNotApplyAgain.route,
+                    'p--new-application': newApplication.route
                 }
             },
             't_applicant_personal-details': {

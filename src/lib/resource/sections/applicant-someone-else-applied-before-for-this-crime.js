@@ -70,7 +70,11 @@ module.exports = {
                     ]
                 },
                 {
-                    target: '#task-list'
+                    target: '#task-list',
+                    cond: ['==', '$.answers.owner.is-authenticated', true]
+                },
+                {
+                    target: 'p--new-application'
                 }
             ]
         }
