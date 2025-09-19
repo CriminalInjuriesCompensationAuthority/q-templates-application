@@ -106,7 +106,15 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p--was-the-crime-reported-to-police',
-                    cond: ['or', ['|role.all', 'proxy'], ['|role.all', 'adult']]
+                    cond: [
+                        'or',
+                        ['|role.all', 'proxy'],
+                        [
+                            '==',
+                            '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
+                            true
+                        ]
+                    ]
                 },
                 {
                     target: 'p-applicant-under-18'

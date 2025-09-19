@@ -43,11 +43,11 @@ module.exports = {
             ANSWER: [
                 {
                     target: 'p-applicant-declaration',
-                    cond: ['|role.all', 'myself', 'adult', 'nonDeceased']
+                    cond: ['|role.all', 'myself', 'nonDeceased']
                 },
                 {
                     target: 'p-applicant-declaration-deceased',
-                    cond: ['|role.all', 'myself', 'adult', 'deceased']
+                    cond: ['|role.all', 'myself', 'deceased']
                 },
                 {
                     target: 'p-rep-declaration-under-12',
