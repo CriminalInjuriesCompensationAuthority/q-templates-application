@@ -3818,9 +3818,13 @@ module.exports = {
                     title: 'Child applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['==',
-                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                    false
+                    const: [
+                        'dateCompare',
+                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                        '<', // is less than ...
+                        '-18', // 18 ...
+                        'years' // years (before, due to the negative (-18) ...
+                        // today's date (no second date given. defaults to today's date).
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -3832,9 +3836,13 @@ module.exports = {
                     title: 'Adult applicant role',
                     type: 'boolean',
                     // prettier-ignore
-                    const: ['==',
-                    '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over',
-                    true
+                    const: [
+                        'dateCompare',
+                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
+                        '>=', // is less than ...
+                        '-18', // 18 ...
+                        'years' // years (before, due to the negative (-18) ...
+                        // today's date (no second date given. defaults to today's date).
                     ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -3864,28 +3872,28 @@ module.exports = {
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', false],
+                            ['|role.all', 'child'],
                             ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', false],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false]
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['|role.all', 'adult'],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['|role.all', 'adult'], 
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['|role.all', 'adult'], 
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true]
                         ]
                     ],
@@ -3901,7 +3909,7 @@ module.exports = {
                     // prettier-ignore
                     const:
                         ['and',
-                            ['==', '$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over', true],
+                            ['|role.all', 'adult'],
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
                             ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
