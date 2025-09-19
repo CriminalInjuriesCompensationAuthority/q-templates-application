@@ -190,11 +190,7 @@ module.exports = {
                             ],
                             ['|role.all', 'childOver12', 'nonDeceased']
                         ],
-                        [
-                            'and',
-                            ['==', false, ['|role.all', 'mainapplicant']],
-                            ['|role.all', 'childOver12', 'rep', 'nonDeceased']
-                        ]
+                        ['|role.all', 'childOver12', 'rep', 'nonDeceased']
                     ]
                 },
                 {
@@ -218,11 +214,7 @@ module.exports = {
                             ],
                             ['|role.all', 'childOver12', 'deceased']
                         ],
-                        [
-                            'and',
-                            ['==', false, ['|role.all', 'mainapplicant']],
-                            ['|role.all', 'childOver12', 'rep', 'deceased']
-                        ]
+                        ['|role.all', 'childOver12', 'rep', 'deceased']
                     ]
                 }
             ]

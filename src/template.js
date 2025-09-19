@@ -1143,12 +1143,12 @@ module.exports = {
                                     target: 'notApplicable',
                                     cond: [
                                         '==',
-                                        false,
                                         [
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ]
+                                        ],
+                                        false
                                     ]
                                 },
                                 {
@@ -1164,12 +1164,12 @@ module.exports = {
                                     target: 'notApplicable',
                                     cond: [
                                         '==',
-                                        false,
                                         [
                                             'or',
                                             ['|role.all', 'proxy', 'adult', 'incapable'],
                                             ['|role.all', 'proxy', 'child']
-                                        ]
+                                        ],
+                                        false
                                     ]
                                 },
                                 {
@@ -1417,10 +1417,10 @@ module.exports = {
                                             'and',
                                             [
                                                 '==',
-                                                false,
-                                                ['|role.all', 'proxy', 'adult', 'capable']
+                                                ['|role.all', 'proxy', 'adult', 'capable'],
+                                                false
                                             ],
-                                            ['==', false, ['|role.all', 'noauthority']],
+                                            ['==', ['|role.all', 'noauthority'], false],
                                             [
                                                 'or',
                                                 [
@@ -1443,7 +1443,7 @@ module.exports = {
                                                     '-18', // 18 ...
                                                     'years' // years (before, due to the negative (-18) ...
                                                 ],
-                                                ['==', false, ['|role.all', 'rep']]
+                                                ['==', ['|role.all', 'rep'], false]
                                             ]
                                         ]
                                     ]
@@ -1522,10 +1522,10 @@ module.exports = {
                                             'and',
                                             [
                                                 '==',
-                                                false,
-                                                ['|role.all', 'proxy', 'adult', 'capable']
+                                                ['|role.all', 'proxy', 'adult', 'capable'],
+                                                false
                                             ],
-                                            ['==', false, ['|role.all', 'noauthority']],
+                                            ['==', ['|role.all', 'noauthority'], false],
                                             [
                                                 'or',
                                                 [
@@ -1548,7 +1548,7 @@ module.exports = {
                                                     '-18', // 18 ...
                                                     'years' // years (before, due to the negative (-18) ...
                                                 ],
-                                                ['==', false, ['|role.all', 'rep']]
+                                                ['==', ['|role.all', 'rep'], false]
                                             ]
                                         ]
                                     ]
