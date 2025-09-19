@@ -61,9 +61,9 @@ module.exports = {
                         'details-context.title.child.nonDeceased',
                         ['|role.all', 'child', 'deceased'],
                         'details-context.title.child.deceased',
-                        ['|role.all', 'incapable', 'nonDeceased'],
+                        ['|role.all', 'nonDeceased'],
                         'details-context.title.incapable.nonDeceased',
-                        ['|role.all', 'incapable', 'deceased'],
+                        ['|role.all', 'deceased'],
                         'details-context.title.incapable.deceased'
                     ],
                     description: [
@@ -72,9 +72,9 @@ module.exports = {
                         'details-context.description.child.nonDeceased',
                         ['|role.all', 'child', 'deceased'],
                         'details-context.description.child.deceased',
-                        ['|role.all', 'incapable', 'nonDeceased'],
+                        ['|role.all', 'nonDeceased'],
                         'details-context.description.incapable.nonDeceased',
-                        ['|role.all', 'incapable', 'deceased'],
+                        ['|role.all', 'deceased'],
                         'details-context.description.incapable.deceased'
                     ]
                 }
