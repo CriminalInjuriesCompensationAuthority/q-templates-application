@@ -2742,7 +2742,7 @@ module.exports = {
                         '|l10nt',
                         ['|role.all', 'proxy'],
                         'injuries.title.proxy',
-                        ['|role.all', 'adult', 'capable'],
+                        ['|role.all', 'myself'],
                         'injuries.title.adult.capable'
                     ]
                 },
@@ -2754,7 +2754,7 @@ module.exports = {
                         '|l10nt',
                         ['|role.all', 'proxy'],
                         'mental-health.title.proxy',
-                        ['|role.all', 'adult', 'capable'],
+                        ['|role.all', 'myself'],
                         'mental-health.title.adult.capable'
                     ]
                 },
@@ -2769,7 +2769,7 @@ module.exports = {
                         '|l10nt',
                         ['|role.all', 'proxy'],
                         'treatment.title.proxy',
-                        ['|role.all', 'adult', 'capable'],
+                        ['|role.all', 'myself'],
                         'treatment.title.adult.capable'
                     ]
                 },

@@ -1122,9 +1122,9 @@ module.exports = {
                         'confirmation.description.rep.child.nonDeceased',
                         ['|role.all', 'rep', 'child', 'deceased'],
                         'confirmation.description.rep.child.deceased',
-                        ['|role.all', 'adult', 'nonDeceased'],
+                        ['|role.all', 'nonDeceased'],
                         'confirmation.description.adult.nonDeceased',
-                        ['|role.all', 'adult', 'deceased'],
+                        ['|role.all', 'deceased'],
                         'confirmation.description.adult.deceased'
                     ]
                 }
