@@ -2829,7 +2829,7 @@ module.exports = {
                     // prettier-ignore
                     cond:['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
-                        ['|role.all', 'adult', 'nonDeceased']
+                        ['|role.all', 'myself', 'nonDeceased']
                     ],
                     data: {
                         templateId: '5d207246-99d7-4bb9-83e1-75a7847bb8fd',
@@ -2850,14 +2850,14 @@ module.exports = {
                             'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                            ['|role.all', 'adult', 'deceased'],
+                            ['|role.all', 'myself', 'deceased'],
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
-                            ['|role.all', 'adult', 'deceased']
+                            ['|role.all', 'myself', 'deceased']
                         ]
                     ],
                     data: {
@@ -2878,7 +2878,7 @@ module.exports = {
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
-                        ['|role.all', 'adult', 'deceased']
+                        ['|role.all', 'myself', 'deceased']
                     ],
                     data: {
                         templateId: '27a03b8a-d236-4a0d-a1e4-c2713327da96',
@@ -3301,7 +3301,7 @@ module.exports = {
                     // prettier-ignore
                     cond:['and',
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
-                        ['|role.all', 'adult', 'nonDeceased']
+                        ['|role.all', 'myself', 'nonDeceased']
                     ],
                     data: {
                         templateId: '3f1a741b-20de-4b0d-b8e8-224098291beb',
@@ -3322,14 +3322,14 @@ module.exports = {
                             'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
-                            ['|role.all', 'adult', 'deceased']
+                            ['|role.all', 'myself', 'deceased']
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
-                            ['|role.all', 'adult', 'deceased']
+                            ['|role.all', 'myself', 'deceased']
                         ]
                     ],
                     data: {
@@ -3350,7 +3350,7 @@ module.exports = {
                         ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
-                        ['|role.all', 'adult', 'deceased']
+                        ['|role.all', 'myself', 'deceased']
                     ],
                     data: {
                         templateId: 'b9d81762-9125-4a19-a016-f54fab3de0d3',
