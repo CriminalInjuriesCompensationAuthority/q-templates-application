@@ -23,7 +23,7 @@
     "license": "MIT",
     "devDependencies": {
         "@cucumber/cucumber": "^11.2.0",
-        "@playwright/test": "^1.51.1",
+        "@playwright/test": "^1.56.1",
         "ajv-formats-mobile-uk": "github:CriminalInjuriesCompensationAuthority/ajv-formats-mobile-uk#v1.0.1",
         "authenticator": "^1.1.5",
         "eslint": "^7.32.0",
