@@ -127,7 +127,7 @@ Then the user is on page "p--has-legal-authority"
 
 Scenario: the user is on page p--has-legal-authority.
 Given the user is on page "p--has-legal-authority"
-And the user answers 'true' to the question "q--has-legal-authority"
+And the user answers 'yes' to the question "q--has-legal-authority"
 When the user continues
 Then the user is on page "p--context-authority"
 
