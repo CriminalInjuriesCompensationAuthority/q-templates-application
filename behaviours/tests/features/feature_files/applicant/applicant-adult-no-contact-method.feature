@@ -61,12 +61,6 @@ Then the user is on page "p--context-applicant-details"
 Scenario: the user is on page p--context-applicant-details.
 Given the user is on page "p--context-applicant-details"
 When the user advances the application
-Then the user is on page "p-applicant-confirmation-method"
-
-Scenario: the user is on page p-applicant-confirmation-method.
-Given the user is on page "p-applicant-confirmation-method"
-And the user answers 'none' to the question "q-applicant-confirmation-method"
-When the user continues
 Then the user is on page "p-applicant-enter-your-name"
 
 Scenario: the user is on page p-applicant-enter-your-name.
@@ -87,6 +81,12 @@ Scenario: the user is on page p-applicant-enter-your-date-of-birth.
 Given the user is on page "p-applicant-enter-your-date-of-birth"
 And the user answers "01 01 1990" to the question "q-applicant-enter-your-date-of-birth"
 When the user continues
+Then the user is on page "p-applicant-contact-preference"
+
+Scenario: the user is on page p-applicant-contact-preference.
+Given the user is on page "p-applicant-contact-preference"
+And the user answers 'P' to the question "q-applicant-contact-preference"
+When the user continues
 Then the user is on page "p-applicant-enter-your-address"
 
 Scenario: the user is on page p-applicant-enter-your-address.
@@ -94,6 +94,18 @@ Given the user is on page "p-applicant-enter-your-address"
 And the user answers '10 bank st' to the question "q-applicant-building-and-street"
 And the user answers 'glasgow' to the question "q-applicant-town-or-city"
 And the user answers 'ma1' to the question "q-applicant-postcode"
+When the user continues
+Then the user is on page "p-applicant-enter-your-email-address"
+
+Scenario: the user is on page p-applicant-enter-your-email-address.
+Given the user is on page "p-applicant-enter-your-email-address"
+And the user inputs their email address to the question "q-applicant-enter-your-email-address"
+When the user continues
+Then the user is on page "p-applicant-enter-your-telephone-number"
+
+Scenario: the user is on page p-applicant-enter-your-telephone-number.
+Given the user is on page "p-applicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-applicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-task-list"
 And the "t_applicant_personal-details" task status will be marked as "Completed"
