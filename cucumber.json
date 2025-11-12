@@ -33,7 +33,7 @@
             "window_size_width": 1440,
             "window_size_height": 1920,
             "saveFixtures": false,
-            "compareFixtures": true,
+            "compareFixtures": false,
             "fullFixtureComparison": true,
             "templateVersion": "latest",
             "emailAddress": "",

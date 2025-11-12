@@ -18,22 +18,33 @@ module.exports = {
                                     child: 'Do you have parental responsibility for them?',
                                     adult: {
                                         deceased:
-                                            'Do you have legal authority to act on behalf of the claimant?',
+                                            'Who has legal authority to act for the claimant?',
                                         nonDeceased:
-                                            'Do you have legal authority to act on behalf of the victim?'
+                                            'Who has legal authority to act for the victim?'
+                                    }
+                                }
+                            },
+                            description: {
+                                proxy: {
+                                    child:
+                                        'This means you have parental responsibility for the victim as their birth, step or adoptive parent',
+                                    adult: {
+                                        deceased:
+                                            'To have legal authority to act on behalf of the victim, you could be a person appointed bu a court, a person named on a power of attorney document, or the local authority',
+                                        nonDeceased:
+                                            'To have legal authority to act on behalf of the claimant, you could be a person appointed bu a court, a person named on a power of attorney document, or the local authority'
                                     }
                                 }
                             },
                             error: {
                                 required: {
                                     proxy: {
-                                        child:
-                                            'Select yes if you have parental responsibility for them',
+                                        child: 'Select who has parental responsibility for them',
                                         adult: {
                                             deceased:
-                                                'Select yes if you have legal authority to act on behalf of the claimant',
+                                                'Select who has legal authority to act on for the claimant',
                                             nonDeceased:
-                                                'Select yes if you have legal authority to act on behalf of the victim'
+                                                'Select who has legal authority to act on for the victim'
                                         }
                                     }
                                 }
@@ -60,21 +71,34 @@ module.exports = {
             additionalProperties: false,
             properties: {
                 'q--has-legal-authority': {
-                    type: 'boolean',
+                    type: 'string',
                     // prettier-ignore
                     title: ['|l10nt',
                         ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.title.proxy.child',
                         ['|role.all', 'proxy', 'adult','incapable', 'deceased'], 'q--has-legal-authority.title.proxy.adult.deceased',
                         ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.title.proxy.adult.nonDeceased'
                     ],
+                    description: [
+                        '|l10nt',
+                        ['|role.all', 'proxy', 'child'],
+                        'q--has-legal-authority.description.proxy.child',
+                        ['|role.all', 'proxy', 'adult', 'incapable', 'deceased'],
+                        'q--has-legal-authority.description.proxy.adult.deceased',
+                        ['|role.all', 'proxy', 'adult'],
+                        'q--has-legal-authority.description.proxy.adult.nonDeceased'
+                    ],
                     oneOf: [
                         {
-                            title: 'Yes',
-                            const: true
+                            title: 'Me',
+                            const: 'me'
                         },
                         {
-                            title: 'No',
-                            const: false
+                            title: 'Someone else',
+                            const: 'someone-else'
+                        },
+                        {
+                            title: "No-one or I'm not sure",
+                            const: 'not-sure'
                         }
                     ],
                     meta: {
@@ -103,15 +127,24 @@ module.exports = {
             },
             examples: [
                 {
-                    'q--has-legal-authority': true
+                    'q--has-legal-authority': 'me'
                 },
                 {
-                    'q--has-legal-authority': false
+                    'q--has-legal-authority': 'someone-else'
+                },
+                {
+                    'q--has-legal-authority': 'not-sure'
                 }
             ],
             invalidExamples: [
                 {
                     'q--has-legal-authority': 'foo'
+                },
+                {
+                    'q--has-legal-authority': true
+                },
+                {
+                    'q--has-legal-authority': false
                 }
             ]
         }
@@ -120,27 +153,11 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p--context-authority',
+                    target: 'p--represents-legal-authority',
                     // prettier-ignore
                     cond: [
                         'and',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
-                        [
-                        'dateCompare',
-                        '$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth', // this date ...
-                        '<', // is greater than or equal to ...
-                        '-18', // 18 ...
-                        'years' // years (before, due to the negative (-18) ...
-                        // today's date (no second date given. defaults to today's date).
-                        ]                                              
-                    ]
-                },
-                {
-                    target: 'p--represents-legal-authority',
-
-                    cond: [
-                        'and',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                        ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                         ['|role.all', 'adult', 'incapable']
                     ]
                 },

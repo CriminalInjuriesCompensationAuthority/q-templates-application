@@ -1437,7 +1437,7 @@ module.exports = {
                                                 [
                                                     '==',
                                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                                    true
+                                                    'me'
                                                 ],
                                                 [
                                                     '==',
@@ -1547,7 +1547,7 @@ module.exports = {
                                                 [
                                                     '==',
                                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                                    true
+                                                    'me'
                                                 ],
                                                 [
                                                     '==',
@@ -3872,7 +3872,7 @@ module.exports = {
                     // prettier-ignore
                     const: ['or',
                         ['==', '$.answers.p-mainapplicant-parent.q-mainapplicant-parent', true],
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                         ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', true]
                     ],
                     examples: [{}],
@@ -3897,20 +3897,20 @@ module.exports = {
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
                             ['|role.all', 'adult'],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['|role.all', 'adult'], 
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['|role.all', 'adult'],
+                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
                         [
                             'and',
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['|role.all', 'adult'], 
+                            ['|role.all', 'adult'],
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', true]
                         ]
                     ],
@@ -3928,7 +3928,7 @@ module.exports = {
                         ['and',
                             ['|role.all', 'adult'],
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
-                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', false],
+                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                             ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
                     examples: [{}],
@@ -3967,7 +3967,7 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', true],
+                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                         ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true],
                         ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', true]
                     ],

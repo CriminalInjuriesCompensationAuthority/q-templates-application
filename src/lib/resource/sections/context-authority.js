@@ -192,7 +192,7 @@ module.exports = {
                         ['|role.all', 'mainapplicant', 'incapable', 'deceased'], 'authority-to-apply.title.mainapplicant.adultIncapableDeceased',
                         ['|role.all', 'mainapplicant', 'adult'], 'authority-to-apply.title.mainapplicant.adult',
                         ['|role.all', 'rep', 'adult', 'noauthority', 'nonDeceased'], 'authority-to-apply.title.rep.adultNoLegalAuthority.nonDeceased',
-                        ['|role.all', 'rep', 'adult', 'noauthority', 'deceased'], 'authority-to-apply.title.rep.adultNoLegalAuthority.deceased',                        
+                        ['|role.all', 'rep', 'adult', 'noauthority', 'deceased'], 'authority-to-apply.title.rep.adultNoLegalAuthority.deceased',
                         ['|role.all', 'rep', 'adult', 'deceased', 'incapable'], 'authority-to-apply.title.rep.adultIncapableDeceased',
                         ['|role.all', 'rep', 'adult'], 'authority-to-apply.title.rep.adult',
                     ],
@@ -228,15 +228,29 @@ module.exports = {
                 {
                     target: 'p-mainapplicant-confirmation-method',
                     // prettier-ignore
-                    cond: ['|role.all', 'mainapplicant']
+                    cond: [
+                        '==',
+                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                        'me'
+                    ]
+                },
+                {
+                    target: 'p-mainapplicant-enter-your-name',
+                    // prettier-ignore
+                    cond: [
+                        '==',
+                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                        'someone-else'
+                    ]
                 },
                 {
                     target: '#task-list',
                     // prettier-ignore
-                    cond: ['|role.all', 'noauthority' ]
-                },
-                {
-                    target: 'p-mainapplicant-enter-your-name'
+                    cond: [
+                        '==',
+                        '$.answers.p--has-legal-authority.q--has-legal-authority',
+                        'not-sure'
+                    ]
                 }
             ]
         }
