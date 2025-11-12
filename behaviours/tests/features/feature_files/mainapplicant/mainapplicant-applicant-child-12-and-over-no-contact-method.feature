@@ -128,12 +128,6 @@ Then the user is on page "p--context-authority"
 Scenario: the user is on page p--context-authority.
 Given the user is on page "p--context-authority"
 When the user advances the application
-Then the user is on page "p-mainapplicant-confirmation-method"
-
-Scenario: the user is on page p-mainapplicant-confirmation-method.
-Given the user is on page "p-mainapplicant-confirmation-method"
-And the user answers 'none' to the question "q-mainapplicant-confirmation-method"
-When the user continues
 Then the user is on page "p-mainapplicant-enter-your-name"
 
 Scenario: the user is on page p-mainapplicant-enter-your-name.
@@ -142,6 +136,12 @@ And the user answers 'mr' to the question "q-mainapplicant-title"
 And the user answers 'main' to the question "q-mainapplicant-first-name"
 And the user answers 'applicant' to the question "q-mainapplicant-last-name"
 When the user continues
+Then the user is on page "p-mainapplicant-contact-preference"
+
+Scenario: the user is on page p-mainapplicant-contact-preference.
+Given the user is on page "p-mainapplicant-contact-preference"
+And the user answers 'P' to the question "q-mainapplicant-contact-preference"
+When the user continues
 Then the user is on page "p-mainapplicant-enter-your-address"
 
 Scenario: the user is on page p-mainapplicant-enter-your-address.
@@ -149,6 +149,18 @@ Given the user is on page "p-mainapplicant-enter-your-address"
 And the user answers '10 main street' to the question "q-mainapplicant-building-and-street"
 And the user answers 'glasgow' to the question "q-mainapplicant-town-or-city"
 And the user answers 'ma1' to the question "q-mainapplicant-postcode"
+When the user continues
+Then the user is on page "p-mainapplicant-enter-your-email-address"
+
+Scenario: the user is on page p-mainapplicant-enter-your-email-address.
+Given the user is on page "p-mainapplicant-enter-your-email-address"
+And the user inputs their email address to the question "q-mainapplicant-enter-your-email-address"
+When the user continues
+Then the user is on page "p-mainapplicant-enter-your-telephone-number"
+
+Scenario: the user is on page p-mainapplicant-enter-your-telephone-number.
+Given the user is on page "p-mainapplicant-enter-your-telephone-number"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-relationship"
 

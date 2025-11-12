@@ -134,13 +134,6 @@ Then the user is on page "p--context-authority"
 Scenario: the user is on page p--context-authority.
 Given the user is on page "p--context-authority"
 When the user advances the application
-Then the user is on page "p-mainapplicant-confirmation-method"
-
-Scenario: the user is on page p-mainapplicant-confirmation-method.
-Given the user is on page "p-mainapplicant-confirmation-method"
-And the user answers 'text' to the question "q-mainapplicant-confirmation-method"
-And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
-When the user continues
 Then the user is on page "p-mainapplicant-enter-your-name"
 
 Scenario: the user is on page p-mainapplicant-enter-your-name.
@@ -148,6 +141,13 @@ Given the user is on page "p-mainapplicant-enter-your-name"
 And the user answers 'mr' to the question "q-mainapplicant-title"
 And the user answers 'main' to the question "q-mainapplicant-first-name"
 And the user answers 'applicant' to the question "q-mainapplicant-last-name"
+When the user continues
+Then the user is on page "p-mainapplicant-contact-preference"
+
+Scenario: the user is on page p-mainapplicant-contact-preference.
+Given the user is on page "p-mainapplicant-contact-preference"
+And the user answers 'T' to the question "q-mainapplicant-contact-preference"
+And the user inputs their telephone number to the question "q-mainapplicant-enter-your-telephone-number"
 When the user continues
 Then the user is on page "p-mainapplicant-enter-your-address"
 
