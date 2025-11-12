@@ -61,13 +61,6 @@ Then the user is on page "p--context-applicant-details"
 Scenario: the user is on page p--context-applicant-details.
 Given the user is on page "p--context-applicant-details"
 When the user advances the application
-Then the user is on page "p-applicant-confirmation-method"
-
-Scenario: the user is on page p-applicant-confirmation-method.
-Given the user is on page "p-applicant-confirmation-method"
-And the user answers 'email' to the question "q-applicant-confirmation-method"
-And the user inputs their email address to the question "q-applicant-enter-your-email-address"
-When the user continues
 Then the user is on page "p-applicant-enter-your-name"
 
 Scenario: the user is on page p-applicant-enter-your-name.
