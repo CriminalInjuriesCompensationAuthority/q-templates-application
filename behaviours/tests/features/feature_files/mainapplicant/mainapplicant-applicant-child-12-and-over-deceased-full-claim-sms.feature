@@ -171,7 +171,6 @@ And the user answers 'father' to the question "q-mainapplicant-relationship"
 When the user continues
 Then the user is on page "p-mainapplicant-shared-responsibility"
 
-
 Scenario: the user is on page p-mainapplicant-shared-responsibility.
 Given the user is on page "p-mainapplicant-shared-responsibility"
 And the user answers 'false' to the question "q-mainapplicant-shared-responsibility"
@@ -447,7 +446,6 @@ Given the user is on page "p-applicant-have-you-applied-to-us-before"
 And the user answers 'false' to the question "q-applicant-have-you-applied-to-us-before"
 When the user continues
 Then the user is on page "p-applicant-have-you-applied-for-or-received-any-other-compensation"
-
 
 Scenario: the user is on page p-applicant-have-you-applied-for-or-received-any-other-compensation.
 Given the user is on page "p-applicant-have-you-applied-for-or-received-any-other-compensation"

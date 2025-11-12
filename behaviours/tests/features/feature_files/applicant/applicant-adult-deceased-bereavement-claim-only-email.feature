@@ -140,7 +140,6 @@ And the user answers 'true' to the question "q-applicant-living-together"
 When the user continues
 Then the user is on page "p-applicant-financial-help"
 
-
 Scenario: the user is on page p-applicant-financial-help.
 Given the user is on page "p-applicant-financial-help"
 And the user answers 'true' to the question "q-applicant-financial-help"

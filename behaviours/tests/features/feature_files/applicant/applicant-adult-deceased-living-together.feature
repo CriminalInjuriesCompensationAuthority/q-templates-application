@@ -321,13 +321,11 @@ Given the user is on page "p--context-funeral-costs"
 When the user advances the application
 Then the user is on page "p-applicant-funeral-costs-paid"
 
-
 Scenario: the user is on page p-applicant-funeral-costs-paid.
 Given the user is on page "p-applicant-funeral-costs-paid"
 And the user answers 'true' to the question "q-applicant-funeral-costs-paid"
 When the user continues
 Then the user is on page "p-applicant-funeral-costs-other-contributor"
-
 
 Scenario: the user is on page p-applicant-funeral-costs-other-contributor.
 Given the user is on page "p-applicant-funeral-costs-other-contributor"

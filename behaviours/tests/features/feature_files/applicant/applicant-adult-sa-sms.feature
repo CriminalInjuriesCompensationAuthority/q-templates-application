@@ -380,7 +380,6 @@ Given the user is on page "p-task-list"
 When the user selects the task "t_applicant_other-compensation"
 Then the user is on page "p--context-compensation"
 
-
 Scenario: the user is on page p--context-compensation.
 Given the user is on page "p--context-compensation"
 When the user advances the application
