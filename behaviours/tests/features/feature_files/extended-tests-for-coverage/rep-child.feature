@@ -191,12 +191,6 @@ Scenario: the user is on page p-rep-type.
 Given the user is on page "p-rep-type"
 And the user answers 'SUPP' to the question "q-rep-type"
 When the user continues
-Then the user is on page "p-rep-confirmation-method"
-
-Scenario: the user is on page p-rep-confirmation-method.
-Given the user is on page "p-rep-confirmation-method"
-And the user answers 'none' to the question "q-rep-confirmation-method"
-When the user continues
 Then the user is on page "p-rep-name"
 
 Scenario: the user is on page p-rep-name.
@@ -204,6 +198,12 @@ Given the user is on page "p-rep-name"
 And the user answers 'mr' to the question "q-rep-title"
 And the user answers 'support' to the question "q-rep-first-name"
 And the user answers 'org' to the question "q-rep-last-name"
+When the user continues
+Then the user is on page "p-rep-contact-preference"
+
+Scenario: the user is on page p-rep-contact-preference.
+Given the user is on page "p-rep-contact-preference"
+And the user answers 'P' to the question "q-rep-contact-preference"
 When the user continues
 Then the user is on page "p-rep-organisation-address"
 
@@ -213,6 +213,18 @@ And the user answers 'support' to the question "q-rep-organisation-name"
 And the user answers '10 main street' to the question "q-rep-building-and-street"
 And the user answers 'glasgow' to the question "q-rep-town-or-city"
 And the user answers 'ma1' to the question "q-rep-postcode"
+When the user continues
+Then the user is on page "p-rep-email-address"
+
+Scenario: the user is on page p-rep-email-address.
+Given the user is on page "p-rep-email-address"
+And the user inputs their email address to the question "q-rep-email-address"
+When the user continues
+Then the user is on page "p-rep-telephone-number"
+
+Scenario: the user is on page p-rep-telephone-number.
+Given the user is on page "p-rep-telephone-number"
+And the user inputs their telephone number to the question "q-rep-telephone-number"
 When the user continues
 Then the user is on page "p-task-list"
 And the "t_rep_details" task status will be marked as "Completed"

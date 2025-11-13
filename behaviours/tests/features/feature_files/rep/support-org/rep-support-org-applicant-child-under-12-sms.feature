@@ -191,13 +191,6 @@ Scenario: the user is on page p-rep-type.
 Given the user is on page "p-rep-type"
 And the user answers 'SUPP' to the question "q-rep-type"
 When the user continues
-Then the user is on page "p-rep-confirmation-method"
-
-Scenario: the user is on page p-rep-confirmation-method.
-Given the user is on page "p-rep-confirmation-method"
-And the user answers 'text' to the question "q-rep-confirmation-method"
-And the user inputs their telephone number to the question "q-rep-telephone-number"
-When the user continues
 Then the user is on page "p-rep-name"
 
 Scenario: the user is on page p-rep-name.
@@ -205,6 +198,13 @@ Given the user is on page "p-rep-name"
 And the user answers 'mr' to the question "q-rep-title"
 And the user answers 'SUPP' to the question "q-rep-first-name"
 And the user answers 'organisation' to the question "q-rep-last-name"
+When the user continues
+Then the user is on page "p-rep-contact-preference"
+
+Scenario: the user is on page p-rep-contact-preference.
+Given the user is on page "p-rep-contact-preference"
+And the user answers 'T' to the question "q-rep-contact-preference"
+And the user inputs their telephone number to the question "q-rep-telephone-number"
 When the user continues
 Then the user is on page "p-rep-organisation-address"
 
