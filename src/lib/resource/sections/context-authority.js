@@ -226,7 +226,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-confirmation-method',
+                    target: 'p-mainapplicant-enter-your-name',
                     // prettier-ignore
                     cond: ['|role.all', 'mainapplicant']
                 },

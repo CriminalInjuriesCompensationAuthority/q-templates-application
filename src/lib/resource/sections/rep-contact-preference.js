@@ -6,26 +6,26 @@ module.exports = {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
             propertyNames: {
-                enum: ['q-rep-confirmation-method', 'q-rep-email-address', 'q-rep-telephone-number']
+                enum: ['q-rep-contact-preference', 'q-rep-email-address', 'q-rep-telephone-number']
             },
             properties: {
-                'q-rep-confirmation-method': {
-                    title: "How should we tell you we've got the application?",
+                'q-rep-contact-preference': {
+                    title: 'How would you like us to contact you?',
+                    description:
+                        "We'll usually contact you by post, but we can sometimes email or text you.",
                     type: 'string',
                     oneOf: [
                         {
-                            title: 'Email',
-                            const: 'email'
+                            title: 'Post preferred',
+                            const: 'P'
                         },
                         {
-                            title: 'Text message',
-                            const: 'text'
+                            title: 'Email if possible',
+                            const: 'E'
                         },
                         {
-                            title: "I don't have an email address or UK mobile phone number",
-                            description:
-                                'We will not be able to send you a text or an email confirmation. You will only get an on-screen confirmation with a reference number at the end of this application form. You’ll need to make a note of this reference number in case you need to contact us about your application.',
-                            const: 'none'
+                            title: 'Text if possible',
+                            const: 'T'
                         }
                     ],
                     meta: {
@@ -65,7 +65,8 @@ module.exports = {
                         maxLength: 'Enter a mobile phone number between 11 and 20 digits long',
                         minLength: 'Enter a mobile phone number between 11 and 20 digits long',
                         pattern: 'Telephone number must not include alphabetic characters',
-                        format: 'Enter a UK mobile phone number, like 07700 900 982'
+                        format:
+                            'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982'
                     },
                     meta: {
                         classifications: {
@@ -74,7 +75,7 @@ module.exports = {
                     }
                 }
             },
-            required: ['q-rep-confirmation-method'],
+            required: ['q-rep-contact-preference'],
             allOf: [
                 {
                     $ref: '#/definitions/if-email-then-q-rep-email-address-is-required'
@@ -90,16 +91,16 @@ module.exports = {
                 'if-email-then-q-rep-email-address-is-required': {
                     if: {
                         properties: {
-                            'q-rep-confirmation-method': {
-                                const: 'email'
+                            'q-rep-contact-preference': {
+                                const: 'E'
                             }
                         },
-                        required: ['q-rep-confirmation-method']
+                        required: ['q-rep-contact-preference']
                     },
                     then: {
                         required: ['q-rep-email-address'],
                         propertyNames: {
-                            enum: ['q-rep-confirmation-method', 'q-rep-email-address']
+                            enum: ['q-rep-contact-preference', 'q-rep-email-address']
                         },
                         errorMessage: {
                             required: {
@@ -111,16 +112,16 @@ module.exports = {
                 'if-text-then-q-rep-telephone-number-is-required': {
                     if: {
                         properties: {
-                            'q-rep-confirmation-method': {
-                                const: 'text'
+                            'q-rep-contact-preference': {
+                                const: 'T'
                             }
                         },
-                        required: ['q-rep-confirmation-method']
+                        required: ['q-rep-contact-preference']
                     },
                     then: {
                         required: ['q-rep-telephone-number'],
                         propertyNames: {
-                            enum: ['q-rep-confirmation-method', 'q-rep-telephone-number']
+                            enum: ['q-rep-contact-preference', 'q-rep-telephone-number']
                         },
                         errorMessage: {
                             required: {
@@ -132,115 +133,165 @@ module.exports = {
                 'if-none-then-phone-and-email-explicitly-not-required': {
                     if: {
                         properties: {
-                            'q-rep-confirmation-method': {
-                                const: 'none'
+                            'q-rep-contact-preference': {
+                                const: 'P'
                             }
                         },
-                        required: ['q-rep-confirmation-method']
+                        required: ['q-rep-contact-preference']
                     },
                     then: {
                         additionalProperties: false,
                         properties: {
-                            'q-rep-confirmation-method': {
-                                const: 'none'
+                            'q-rep-contact-preference': {
+                                const: 'P'
                             }
                         },
-                        required: ['q-rep-confirmation-method']
+                        required: ['q-rep-contact-preference']
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-rep-confirmation-method':
+                    'q-rep-contact-preference':
                         "Select how we should tell you we've got your application"
                 }
             },
             examples: [
                 {
-                    'q-rep-confirmation-method': 'none'
+                    'q-rep-contact-preference': 'P'
                 },
                 {
-                    'q-rep-confirmation-method': 'email',
+                    'q-rep-contact-preference': 'E',
                     'q-rep-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-telephone-number': '07701 234567'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-rep-confirmation-method': 'none',
+                    'q-rep-contact-preference': 'P',
                     'q-rep-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-rep-confirmation-method': 'none',
+                    'q-rep-contact-preference': 'P',
                     'q-rep-telephone-number': '07701 234567'
                 },
                 {
-                    'q-rep-confirmation-method': 'email'
+                    'q-rep-contact-preference': 'E'
                 },
                 {
-                    'q-rep-confirmation-method': 'text'
+                    'q-rep-contact-preference': 'T'
                 },
                 {
-                    'q-rep-confirmation-method': 'email',
+                    'q-rep-contact-preference': 'E',
                     'q-rep-telephone-number': '07701 234567'
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-rep-confirmation-method': 'email',
+                    'q-rep-contact-preference': 'E',
                     'q-rep-email-address': 'not an email address'
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-telephone-number': 'not a UK mobile phone number'
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-telephone-number': '0141 420 5000'
                 },
                 {
-                    'q-rep-confirmation-method': 10
+                    'q-rep-contact-preference': 10
                 },
                 {
-                    'q-rep-confirmation-method': false
+                    'q-rep-contact-preference': false
                 },
                 {
-                    'q-rep-confirmation-method': true,
+                    'q-rep-contact-preference': true,
                     'q-rep-email-address': true
                 },
                 {
-                    'q-rep-confirmation-method': 'none',
+                    'q-rep-contact-preference': 'P',
                     'q-rep-email-address': ['something']
                 },
                 {
-                    'q-rep-confirmation-method': 'none',
+                    'q-rep-contact-preference': 'P',
                     'q-rep-email-address': 123
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-email-address': true
                 },
                 {
-                    'q-rep-confirmation-method': 'text',
+                    'q-rep-contact-preference': 'T',
                     'q-rep-telephone-number': 123
                 },
                 {
-                    'q-rep-confirmation-method': 'email',
+                    'q-rep-contact-preference': 'E',
                     'q-rep-telephone-number': false
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-rep-email-address',
+                    'q-rep-telephone-number',
+                    'q-rep-contact-preference'
+                ],
+                outputOrder: ['q-rep-contact-preference'],
+                properties: {
+                    'q-rep-contact-preference': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'E',
+                                    componentIds: ['q-rep-email-address']
+                                },
+                                {
+                                    itemValue: 'T',
+                                    componentIds: ['q-rep-telephone-number']
+                                }
+                            ]
+                        }
+                    },
+                    'q-rep-email-address': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'email'
+                            }
+                        }
+                    },
+                    'q-rep-telephone-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'tel'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
         on: {
             ANSWER: [
                 {
-                    target: 'p-rep-name'
+                    target: 'p-rep-organisation-address',
+                    cond: [
+                        'or',
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SUPP'],
+                        ['==', '$.answers.p-rep-type.q-rep-type', 'SSER']
+                    ]
+                },
+                {
+                    target: 'p-rep-address'
                 }
             ]
         }

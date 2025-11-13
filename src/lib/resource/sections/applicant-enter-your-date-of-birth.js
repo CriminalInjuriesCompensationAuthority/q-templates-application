@@ -107,7 +107,11 @@ module.exports = {
                     ]
                 },
                 {
-                    target: 'p-applicant-enter-your-address'
+                    target: 'p-applicant-enter-your-address',
+                    cond: ['|role.all', 'proxy']
+                },
+                {
+                    target: 'p-applicant-contact-preference'
                 }
             ]
         }

@@ -31,7 +31,7 @@ module.exports = {
             options: {
                 ordering: {
                     questions: {
-                        'q-applicant-confirmation-method': [
+                        'q-applicant-contact-preference': [
                             'q-applicant-enter-your-email-address',
                             'q-applicant-enter-your-telephone-number'
                         ],
@@ -76,11 +76,11 @@ module.exports = {
                             'q-applicant-physical-injuries-legs-skin-other',
                             'q-applicant-infections-other'
                         ],
-                        'q-mainapplicant-confirmation-method': [
+                        'q-mainapplicant-contact-preference': [
                             'q-mainapplicant-enter-your-email-address',
                             'q-mainapplicant-enter-your-telephone-number'
                         ],
-                        'q-rep-confirmation-method': [
+                        'q-rep-contact-preference': [
                             'q-rep-email-address',
                             'q-rep-telephone-number'
                         ],

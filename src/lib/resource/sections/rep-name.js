@@ -114,17 +114,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-rep-organisation-address',
-                    cond: [
-                        'or',
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO'],
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS'],
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'SUPP'],
-                        ['==', '$.answers.p-rep-type.q-rep-type', 'SSER']
-                    ]
-                },
-                {
-                    target: 'p-rep-address'
+                    target: 'p-rep-contact-preference'
                 }
             ]
         }

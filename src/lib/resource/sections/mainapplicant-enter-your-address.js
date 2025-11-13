@@ -240,17 +240,17 @@ module.exports = {
                 {
                     target: 'p-mainapplicant-enter-your-email-address',
                     cond: [
-                        '==',
-                        '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
-                        'text'
-                    ]
-                },
-                {
-                    target: 'p-mainapplicant-relationship',
-                    cond: [
-                        '==',
-                        '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method',
-                        'none'
+                        'or',
+                        [
+                            '==',
+                            '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference',
+                            'T'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference',
+                            'P'
+                        ]
                     ]
                 },
                 {
