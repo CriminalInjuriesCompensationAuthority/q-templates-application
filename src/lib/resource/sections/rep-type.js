@@ -128,7 +128,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-rep-confirmation-method'
+                    target: 'p-rep-name'
                 }
             ]
         }

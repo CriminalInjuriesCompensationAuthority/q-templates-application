@@ -222,29 +222,14 @@ module.exports = {
                 {
                     target: 'p-rep-email-address',
                     cond: [
-                        '==',
-                        '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
-                        'text'
+                        'or',
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'P']
                     ]
                 },
                 {
                     target: 'p-rep-telephone-number',
-                    cond: [
-                        '==',
-                        '$.answers.p-rep-confirmation-method.q-rep-confirmation-method',
-                        'email'
-                    ]
-                },
-                {
-                    target: 'p-rep-claims-management-reg',
-                    cond: ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO']
-                },
-                {
-                    target: 'p-rep-reference-number',
-                    cond: ['==', '$.answers.p-rep-type.q-rep-type', 'SOLS']
-                },
-                {
-                    target: '#task-list'
+                    cond: ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E']
                 }
             ]
         }

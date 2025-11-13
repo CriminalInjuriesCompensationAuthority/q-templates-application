@@ -248,8 +248,8 @@ module.exports = {
                         'or',
                         [
                             '==',
-                            '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                            'email'
+                            '$.answers.p-applicant-contact-preference.q-applicant-contact-preference',
+                            'E'
                         ],
                         [
                             'and',
@@ -272,9 +272,17 @@ module.exports = {
                 {
                     target: 'p-applicant-enter-your-email-address',
                     cond: [
-                        '==',
-                        '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method',
-                        'text'
+                        'or',
+                        [
+                            '==',
+                            '$.answers.p-applicant-contact-preference.q-applicant-contact-preference',
+                            'T'
+                        ],
+                        [
+                            '==',
+                            '$.answers.p-applicant-contact-preference.q-applicant-contact-preference',
+                            'P'
+                        ]
                     ]
                 },
                 {

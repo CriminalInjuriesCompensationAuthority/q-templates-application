@@ -7,29 +7,29 @@ module.exports = {
             type: 'object',
             propertyNames: {
                 enum: [
-                    'q-mainapplicant-confirmation-method',
+                    'q-mainapplicant-contact-preference',
                     'q-mainapplicant-enter-your-email-address',
                     'q-mainapplicant-enter-your-telephone-number'
                 ]
             },
             properties: {
-                'q-mainapplicant-confirmation-method': {
-                    title: "How should we tell you we've got the application?",
+                'q-mainapplicant-contact-preference': {
+                    title: 'How would you like us to contact you?',
+                    description:
+                        "We'll usually contact you by post, but we can sometimes email or text you.",
                     type: 'string',
                     oneOf: [
                         {
-                            title: 'Email',
-                            const: 'email'
+                            title: 'Post preferred',
+                            const: 'P'
                         },
                         {
-                            title: 'Text message',
-                            const: 'text'
+                            title: 'Email if possible',
+                            const: 'E'
                         },
                         {
-                            title: "I don't have an email address or UK mobile phone number",
-                            description:
-                                'We will not be able to send you a text or an email confirmation. You will only get an on-screen confirmation with a reference number at the end of this application form. You’ll need to make a note of this reference number in case you need to contact us about your application.',
-                            const: 'none'
+                            title: 'Text if possible',
+                            const: 'T'
                         }
                     ],
                     meta: {
@@ -37,7 +37,7 @@ module.exports = {
                             theme: 'main-applicant-details'
                         },
                         summary: {
-                            title: 'Confirmation method'
+                            title: 'Contact preference'
                         }
                     }
                 },
@@ -69,7 +69,8 @@ module.exports = {
                         maxLength: 'Enter a mobile phone number between 11 and 20 digits long',
                         minLength: 'Enter a mobile phone number between 11 and 20 digits long',
                         pattern: 'Telephone number must not include alphabetic characters',
-                        format: 'Enter a UK mobile phone number, like 07700 900 982'
+                        format:
+                            'Enter a UK mobile phone number, like 07700 900 982 or +44 7700 900 982'
                     },
                     meta: {
                         classifications: {
@@ -78,7 +79,7 @@ module.exports = {
                     }
                 }
             },
-            required: ['q-mainapplicant-confirmation-method'],
+            required: ['q-mainapplicant-contact-preference'],
             allOf: [
                 {
                     $ref:
@@ -89,24 +90,24 @@ module.exports = {
                         '#/definitions/if-text-then-q-mainapplicant-enter-your-telephone-number-is-required'
                 },
                 {
-                    $ref: '#/definitions/if-none-then-phone-and-email-explicitly-not-required'
+                    $ref: '#/definitions/if-post-then-phone-and-email-explicitly-not-required'
                 }
             ],
             definitions: {
                 'if-email-then-q-mainapplicant-enter-your-email-address-is-required': {
                     if: {
                         properties: {
-                            'q-mainapplicant-confirmation-method': {
-                                const: 'email'
+                            'q-mainapplicant-contact-preference': {
+                                const: 'E'
                             }
                         },
-                        required: ['q-mainapplicant-confirmation-method']
+                        required: ['q-mainapplicant-contact-preference']
                     },
                     then: {
                         required: ['q-mainapplicant-enter-your-email-address'],
                         propertyNames: {
                             enum: [
-                                'q-mainapplicant-confirmation-method',
+                                'q-mainapplicant-contact-preference',
                                 'q-mainapplicant-enter-your-email-address'
                             ]
                         },
@@ -120,17 +121,17 @@ module.exports = {
                 'if-text-then-q-mainapplicant-enter-your-telephone-number-is-required': {
                     if: {
                         properties: {
-                            'q-mainapplicant-confirmation-method': {
-                                const: 'text'
+                            'q-mainapplicant-contact-preference': {
+                                const: 'T'
                             }
                         },
-                        required: ['q-mainapplicant-confirmation-method']
+                        required: ['q-mainapplicant-contact-preference']
                     },
                     then: {
                         required: ['q-mainapplicant-enter-your-telephone-number'],
                         propertyNames: {
                             enum: [
-                                'q-mainapplicant-confirmation-method',
+                                'q-mainapplicant-contact-preference',
                                 'q-mainapplicant-enter-your-telephone-number'
                             ]
                         },
@@ -142,118 +143,157 @@ module.exports = {
                         }
                     }
                 },
-                'if-none-then-phone-and-email-explicitly-not-required': {
+                'if-post-then-phone-and-email-explicitly-not-required': {
                     if: {
                         properties: {
-                            'q-mainapplicant-confirmation-method': {
-                                const: 'none'
+                            'q-mainapplicant-contact-preference': {
+                                const: 'P'
                             }
                         },
-                        required: ['q-mainapplicant-confirmation-method']
+                        required: ['q-mainapplicant-contact-preference']
                     },
                     then: {
                         additionalProperties: false,
                         properties: {
-                            'q-mainapplicant-confirmation-method': {
-                                const: 'none'
+                            'q-mainapplicant-contact-preference': {
+                                const: 'P'
                             }
                         },
-                        required: ['q-mainapplicant-confirmation-method']
+                        required: ['q-mainapplicant-contact-preference']
                     }
                 }
             },
             errorMessage: {
                 required: {
-                    'q-mainapplicant-confirmation-method':
-                        'Select how you want to get your confirmation message'
+                    'q-mainapplicant-contact-preference': "Select how you'd like us to contact you"
                 }
             },
             examples: [
                 {
-                    'q-mainapplicant-confirmation-method': 'none'
+                    'q-mainapplicant-contact-preference': 'P'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'email',
+                    'q-mainapplicant-contact-preference': 'E',
                     'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-telephone-number': '07701 234567'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-mainapplicant-confirmation-method': 'none',
+                    'q-mainapplicant-contact-preference': 'P',
                     'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'none',
+                    'q-mainapplicant-contact-preference': 'P',
                     'q-mainapplicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'email'
+                    'q-mainapplicant-contact-preference': 'E'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text'
+                    'q-mainapplicant-contact-preference': 'T'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'email',
+                    'q-mainapplicant-contact-preference': 'E',
                     'q-mainapplicant-enter-your-telephone-number': '07701 234567'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-email-address': 'foo@bar.com'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'email',
+                    'q-mainapplicant-contact-preference': 'E',
                     'q-mainapplicant-enter-your-email-address': 'not an email address'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-telephone-number': 'not a UK mobile phone number'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-telephone-number': '0141 420 5000'
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 10
+                    'q-mainapplicant-contact-preference': 10
                 },
                 {
-                    'q-mainapplicant-confirmation-method': false
+                    'q-mainapplicant-contact-preference': false
                 },
                 {
-                    'q-mainapplicant-confirmation-method': true,
+                    'q-mainapplicant-contact-preference': true,
                     'q-mainapplicant-enter-your-email-address': true
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'none',
+                    'q-mainapplicant-contact-preference': 'P',
                     'q-mainapplicant-enter-your-email-address': ['something']
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'none',
+                    'q-mainapplicant-contact-preference': 'P',
                     'q-mainapplicant-enter-your-email-address': 123
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-email-address': true
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'text',
+                    'q-mainapplicant-contact-preference': 'T',
                     'q-mainapplicant-enter-your-telephone-number': 123
                 },
                 {
-                    'q-mainapplicant-confirmation-method': 'email',
+                    'q-mainapplicant-contact-preference': 'E',
                     'q-mainapplicant-enter-your-telephone-number': false
                 }
-            ]
+            ],
+            options: {
+                transformOrder: [
+                    'q-mainapplicant-enter-your-email-address',
+                    'q-mainapplicant-enter-your-telephone-number',
+                    'q-mainapplicant-contact-preference'
+                ],
+                outputOrder: ['q-mainapplicant-contact-preference'],
+                properties: {
+                    'q-mainapplicant-contact-preference': {
+                        options: {
+                            conditionalComponentMap: [
+                                {
+                                    itemValue: 'E',
+                                    componentIds: ['q-mainapplicant-enter-your-email-address']
+                                },
+                                {
+                                    itemValue: 'T',
+                                    componentIds: ['q-mainapplicant-enter-your-telephone-number']
+                                }
+                            ]
+                        }
+                    },
+                    'q-mainapplicant-enter-your-email-address': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'email'
+                            }
+                        }
+                    },
+                    'q-mainapplicant-enter-your-telephone-number': {
+                        options: {
+                            macroOptions: {
+                                classes: 'govuk-input--width-20',
+                                autocomplete: 'tel'
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
         on: {
             ANSWER: [
                 {
-                    target: 'p-mainapplicant-enter-your-name'
+                    target: 'p-mainapplicant-enter-your-address'
                 }
             ]
         }

@@ -70,11 +70,7 @@ module.exports = {
         on: {
             ANSWER: [
                 {
-                    target: 'p-applicant-enter-your-name',
-                    cond: ['|role.all', 'proxy']
-                },
-                {
-                    target: 'p-applicant-confirmation-method'
+                    target: 'p-applicant-enter-your-name'
                 }
             ]
         }

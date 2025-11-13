@@ -42,6 +42,14 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-mainapplicant-enter-your-telephone-number',
+                    cond: [
+                        '==',
+                        '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference',
+                        'P'
+                    ]
+                },
+                {
                     target: 'p-mainapplicant-relationship'
                 }
             ]

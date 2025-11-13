@@ -14,7 +14,7 @@ const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const repDeclarationNoLegalAuthority = require('./lib/resource/sections/rep-declaration-no-legal-authority.js');
 const repDeclarationNoLegalAuthorityDeceased = require('./lib/resource/sections/rep-declaration-no-legal-authority-deceased.js');
-const applicantConfirmationMethod = require('./lib/resource/sections/applicant-confirmation-method.js');
+const applicantConfirmationMethod = require('./lib/resource/sections/applicant-contact-preference.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
 const beforeYouContinue = require('./lib/resource/sections/before-you-continue.js');
@@ -129,7 +129,7 @@ const system = require('./lib/resource/sections/system.js');
 const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
 const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
 const contextAuthority = require('./lib/resource/sections/context-authority');
-const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-confirmation-method.js');
+const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-contact-preference.js');
 const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
 const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
 const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/mainapplicant-enter-your-email-address.js');
@@ -148,7 +148,7 @@ const applicantAffectFutureDuration = require('./lib/resource/sections/applicant
 const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
 const contextRepDetails = require('./lib/resource/sections/context-rep-details.js');
 const repType = require('./lib/resource/sections/rep-type.js');
-const repConfirmationMethod = require('./lib/resource/sections/rep-confirmation-method.js');
+const repConfirmationMethod = require('./lib/resource/sections/rep-contact-preference.js');
 const repName = require('./lib/resource/sections/rep-name.js');
 const repAddress = require('./lib/resource/sections/rep-address.js');
 const repOrganisationAddress = require('./lib/resource/sections/rep-organisation-address.js');
@@ -235,7 +235,7 @@ module.exports = {
         'p-rep-declaration-no-legal-authority': repDeclarationNoLegalAuthority.section,
         'p-rep-declaration-no-legal-authority-deceased':
             repDeclarationNoLegalAuthorityDeceased.section,
-        'p-applicant-confirmation-method': applicantConfirmationMethod.section,
+        'p-applicant-contact-preference': applicantConfirmationMethod.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
         'p--before-you-continue': beforeYouContinue.section,
@@ -362,7 +362,7 @@ module.exports = {
         'p--context-crime-impact': contextCrimeImpact.section,
         'p-mainapplicant-parent': mainapplicantParent.section,
         'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.section,
+        'p-mainapplicant-contact-preference': mainapplicantConfirmationMethod.section,
         'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
         'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
@@ -382,7 +382,7 @@ module.exports = {
         'p-applicant-future-work': applicantFutureWork.section,
         'p--context-rep-details': contextRepDetails.section,
         'p-rep-type': repType.section,
-        'p-rep-confirmation-method': repConfirmationMethod.section,
+        'p-rep-contact-preference': repConfirmationMethod.section,
         'p-rep-name': repName.section,
         'p-rep-address': repAddress.section,
         'p-rep-organisation-address': repOrganisationAddress.section,
@@ -514,7 +514,7 @@ module.exports = {
                 states: {
                     'p--context-applicant-details': contextApplicantDetails.route,
                     'p-applicant-enter-your-name': applicantEnterYourName.route,
-                    'p-applicant-confirmation-method': applicantConfirmationMethod.route,
+                    'p-applicant-contact-preference': applicantConfirmationMethod.route,
                     'p-applicant-have-you-been-known-by-any-other-names':
                         applicantHaveYouBeenKnownByAnyOtherNames.route,
                     'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
@@ -561,7 +561,7 @@ module.exports = {
                     'p--context-authority': contextAuthority.route,
                     'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
                     'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
-                    'p-mainapplicant-confirmation-method': mainapplicantConfirmationMethod.route,
+                    'p-mainapplicant-contact-preference': mainapplicantConfirmationMethod.route,
                     'p-mainapplicant-enter-your-telephone-number':
                         mainapplicantEnterYourTelephoneNumber.route,
                     'p-mainapplicant-enter-your-email-address':
@@ -581,7 +581,7 @@ module.exports = {
                 states: {
                     'p--context-rep-details': contextRepDetails.route,
                     'p-rep-type': repType.route,
-                    'p-rep-confirmation-method': repConfirmationMethod.route,
+                    'p-rep-contact-preference': repConfirmationMethod.route,
                     'p-rep-name': repName.route,
                     'p-rep-organisation-address': repOrganisationAddress.route,
                     'p-rep-address': repAddress.route,
@@ -2841,13 +2841,13 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'E'],
                         ['|role.all', 'myself', 'nonDeceased']
                     ],
                     data: {
                         templateId: '5d207246-99d7-4bb9-83e1-75a7847bb8fd',
                         emailAddress:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -2861,13 +2861,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'myself', 'deceased'],
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'myself', 'deceased']
@@ -2876,7 +2876,7 @@ module.exports = {
                     data: {
                         templateId: 'aad20568-2726-4d9f-b60c-41257e419c88',
                         emailAddress:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -2888,7 +2888,7 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'myself', 'deceased']
@@ -2896,7 +2896,7 @@ module.exports = {
                     data: {
                         templateId: '27a03b8a-d236-4a0d-a1e4-c2713327da96',
                         emailAddress:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-email-address||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -2909,13 +2909,13 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'nonDeceased']
                     ],
                     data: {
                         templateId: '80843f77-a68c-4d7a-b3c9-42fd0de271c2',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -2930,13 +2930,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
@@ -2945,7 +2945,7 @@ module.exports = {
                     data: {
                         templateId: '21f4d5de-a219-47c8-aa3e-e5489b0fc3ed',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -2958,7 +2958,7 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
@@ -2966,7 +2966,7 @@ module.exports = {
                     data: {
                         templateId: 'b4f6f5ec-c268-4c58-95f8-d0606317b8a2',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -2979,13 +2979,13 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                         ['|role.all', 'mainapplicant', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: '668fac4a-3e1c-40e7-b7ac-090a410fbb03',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -2999,13 +2999,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'mainapplicant', 'child', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'mainapplicant', 'child', 'deceased']
@@ -3014,7 +3014,7 @@ module.exports = {
                     data: {
                         templateId: '58708020-d8a5-4d96-b56f-91f5c4c4c590',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3027,7 +3027,7 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'email'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
@@ -3035,7 +3035,7 @@ module.exports = {
                     data: {
                         templateId: 'ec24f2a6-1062-486d-bd13-c6f8812e43c9',
                         emailAddress:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-email-address||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3048,12 +3048,12 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['|role.all', 'rep', 'adult', 'capable', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'b21f1aa7-cc16-41e7-8b8e-5c69e52f21f9',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3067,13 +3067,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'adult', 'capable', 'deceased']
@@ -3081,7 +3081,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'ed98bf04-f338-47cf-b949-4367d8f8b707',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3093,14 +3093,14 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
                         templateId: '12bc4419-5e84-4714-b1c8-0527290bb567',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3114,12 +3114,12 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'a6583a82-51ca-4f8e-b8b8-cbca763dc59a',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3134,13 +3134,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
@@ -3148,7 +3148,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'a70aaff8-8299-448b-ac22-6579c840c8e6',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3161,14 +3161,14 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
                         templateId: '74c5f4d2-9c66-4800-8a15-313a64938a43',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3181,12 +3181,12 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['|role.all', 'rep', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'a0c7b011-b0df-4645-8ce3-6bd8f7905dfc',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3200,13 +3200,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'child', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'child', 'deceased']
@@ -3214,7 +3214,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: 'c72a9445-7d08-4db7-b7b9-a8d1900818ed',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3227,14 +3227,14 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
                         templateId: '5d51b70e-0335-44f6-aa33-736997ba90d8',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3247,12 +3247,12 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['|role.all', 'rep', 'noauthority', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'fb865d9c-37b1-4077-b519-aacfe42c9951',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3266,13 +3266,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'noauthority', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'noauthority', 'deceased']
@@ -3280,7 +3280,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: '54392a68-d12c-4f0d-8388-e8439fdbfc2f',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3293,14 +3293,14 @@ module.exports = {
                     type: 'sendEmail',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'email'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'E'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
                         templateId: '621093ee-b732-4bdf-9026-0f03977502b7',
-                        emailAddress: '||/answers/p-rep-confirmation-method/q-rep-email-address||',
+                        emailAddress: '||/answers/p-rep-contact-preference/q-rep-email-address||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3313,13 +3313,13 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond:['and',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'T'],
                         ['|role.all', 'myself', 'nonDeceased']
                     ],
                     data: {
                         templateId: '3f1a741b-20de-4b0d-b8e8-224098291beb',
                         phoneNumber:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3333,13 +3333,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'myself', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'myself', 'deceased']
@@ -3348,7 +3348,7 @@ module.exports = {
                     data: {
                         templateId: '46e66520-6e0a-412b-a509-18a09c8bfa35',
                         phoneNumber:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3360,7 +3360,7 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'myself', 'deceased']
@@ -3368,7 +3368,7 @@ module.exports = {
                     data: {
                         templateId: 'b9d81762-9125-4a19-a016-f54fab3de0d3',
                         phoneNumber:
-                            '||/answers/p-applicant-confirmation-method/q-applicant-enter-your-telephone-number||',
+                            '||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3381,13 +3381,13 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'nonDeceased']
                     ],
                     data: {
                         templateId: '3e625f9f-75c4-4903-818e-220829bfc2af',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3402,13 +3402,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
@@ -3417,7 +3417,7 @@ module.exports = {
                     data: {
                         templateId: 'fe1997b8-ba0e-4c97-94f2-d4d350868596',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3430,7 +3430,7 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'adult', 'incapable', 'deceased']
@@ -3438,7 +3438,7 @@ module.exports = {
                     data: {
                         templateId: '9c4097d0-c617-431b-88ff-4f9893bd203e',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3451,13 +3451,13 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                         ['|role.all', 'mainapplicant', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'd2185426-2177-4049-a5b1-b9c6b12e1a79',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3471,13 +3471,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'mainapplicant', 'child', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                            ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'mainapplicant', 'child', 'deceased']
@@ -3486,7 +3486,7 @@ module.exports = {
                     data: {
                         templateId: '228454a8-c178-4f50-a7ca-5cb934dcb8b8',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3498,7 +3498,7 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'text'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'mainapplicant', 'child', 'deceased']
@@ -3506,7 +3506,7 @@ module.exports = {
                     data: {
                         templateId: 'f9be1af0-7d13-4710-a008-fddec42a9c5c',
                         phoneNumber:
-                            '||/answers/p-mainapplicant-confirmation-method/q-mainapplicant-enter-your-telephone-number||',
+                            '||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3519,13 +3519,12 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['|role.all', 'rep', 'adult', 'capable', 'nonDeceased']
                     ],
                     data: {
                         templateId: 'b51e5e19-f469-4f8a-a5a2-00499da6f027',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3539,13 +3538,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'adult', 'capable', 'deceased']
@@ -3553,8 +3552,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: '1e764481-69c1-4d5a-8a05-fbadc09aa47c',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3566,15 +3564,14 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'capable', 'deceased']
                     ],
                     data: {
                         templateId: '05709516-af2a-4897-905f-0c72fb012d60',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3588,13 +3585,12 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'nonDeceased']
                     ],
                     data: {
                         templateId: '94a82598-6f6b-4ad0-abc3-ad3a157eb4a3',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3609,13 +3605,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
@@ -3623,8 +3619,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: '6151b209-33de-40ec-88b0-7f1a4580bf18',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3637,15 +3632,14 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'adult', 'incapable', 'authority', 'deceased']
                     ],
                     data: {
                         templateId: 'ee1119cd-3ec1-481c-bd97-ce62a4757eeb',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3658,13 +3652,12 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['|role.all', 'rep', 'child', 'nonDeceased']
                     ],
                     data: {
                         templateId: '38047478-4b70-4add-b06c-62c7d93e8a23',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3678,13 +3671,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'child', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'child', 'deceased']
@@ -3692,8 +3685,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: '768165a8-b5cf-4ce5-acfa-a1bb533aca91',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3706,15 +3698,14 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'child', 'deceased']
                     ],
                     data: {
                         templateId: '3006bbb8-cd37-483e-8c37-e25519716d3e',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -3727,13 +3718,12 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['|role.all', 'rep', 'noauthority', 'nonDeceased']
                     ],
                     data: {
                         templateId: '29674076-46ba-4150-adf0-5215c8fe8aa9',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3747,13 +3737,13 @@ module.exports = {
                     cond: ['or',
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', true],
                             ['|role.all', 'rep', 'noauthority', 'deceased']
                         ],
                         [
                             'and',
-                            ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                            ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                             ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                             ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', false],
                             ['|role.all', 'rep', 'noauthority', 'deceased']
@@ -3761,8 +3751,7 @@ module.exports = {
                     ],
                     data: {
                         templateId: '1ef1b7ae-293c-456d-93b4-8646791450f9',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             caseReference: '||/answers/system/case-reference||'
                         },
@@ -3775,15 +3764,14 @@ module.exports = {
                     type: 'sendSms',
                     // prettier-ignore
                     cond: ['and',
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'text'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'T'],
                         ['==', '$.answers.p-applicant-claim-type.q-applicant-claim-type', false],
                         ['==', '$.answers.p-applicant-funeral-costs-paid.q-applicant-funeral-costs-paid', true],
                         ['|role.all', 'rep', 'noauthority', 'deceased']
                     ],
                     data: {
                         templateId: '0ce7f91a-ae1d-4bf4-bfec-64ed0019e93d',
-                        phoneNumber:
-                            '||/answers/p-rep-confirmation-method/q-rep-telephone-number||',
+                        phoneNumber: '||/answers/p-rep-contact-preference/q-rep-telephone-number||',
                         personalisation: {
                             content:
                                 'Your bereavement application reference number is ||/answers/system/case-reference||. \nYour funeral application reference number is ||/answers/system/secondary-reference||.'
@@ -4027,9 +4015,9 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p-applicant-confirmation-method.q-applicant-confirmation-method', 'none'],
-                        ['==', '$.answers.p-mainapplicant-confirmation-method.q-mainapplicant-confirmation-method', 'none'],
-                        ['==', '$.answers.p-rep-confirmation-method.q-rep-confirmation-method', 'none']
+                        ['==', '$.answers.p-applicant-contact-preference.q-applicant-contact-preference', 'P'],
+                        ['==', '$.answers.p-mainapplicant-contact-preference.q-mainapplicant-contact-preference', 'P'],
+                        ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'P']
                     ],
                     examples: [{}],
                     invalidExamples: [{}]

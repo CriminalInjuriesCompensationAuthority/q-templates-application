@@ -46,6 +46,10 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-rep-telephone-number',
+                    cond: ['==', '$.answers.p-rep-contact-preference.q-rep-contact-preference', 'P']
+                },
+                {
                     target: 'p-rep-claims-management-reg',
                     cond: ['==', '$.answers.p-rep-type.q-rep-type', 'CMCO']
                 },

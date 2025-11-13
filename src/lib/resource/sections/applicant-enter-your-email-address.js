@@ -45,6 +45,14 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-applicant-enter-your-telephone-number',
+                    cond: [
+                        '==',
+                        '$.answers.p-applicant-contact-preference.q-applicant-contact-preference',
+                        'P'
+                    ]
+                },
+                {
                     target: '#task-list'
                 }
             ]

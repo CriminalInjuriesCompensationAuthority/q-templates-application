@@ -213,6 +213,11 @@ module.exports = {
         on: {
             ANSWER: [
                 {
+                    target: 'p-mainapplicant-contact-preference',
+                    // prettier-ignore
+                    cond: ['|role.all', 'mainapplicant']
+                },
+                {
                     target: 'p-mainapplicant-enter-your-address'
                 }
             ]
