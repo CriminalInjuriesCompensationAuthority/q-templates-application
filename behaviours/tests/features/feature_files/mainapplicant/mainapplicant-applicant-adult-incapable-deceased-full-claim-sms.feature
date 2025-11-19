@@ -127,7 +127,7 @@ And the user answers 'me' to the question "q--has-legal-authority"
 When the user continues
 Then the user is on page "p--context-authority"
 
-Scenario: the user is on jpage p--context-authority.
+Scenario: the user is on page p--context-authority.
 Given the user is on page "p--context-authority"
 When the user advances the application
 Then the user is on page "p-mainapplicant-confirmation-method"

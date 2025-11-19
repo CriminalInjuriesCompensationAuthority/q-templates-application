@@ -16,7 +16,7 @@ module.exports = {
                             title: {
                                 mainapplicant: {
                                     child:
-                                        'You need to send proof you have parental responsibility for the victim',
+                                        "You need to send proof you have the right to apply on the victim's behalf",
                                     adult:
                                         'You need to send proof you have legal authority to act on behalf of the victim',
                                     childDeceased:
@@ -78,41 +78,41 @@ module.exports = {
                                 },
                                 rep: {
                                     child: `
-                                        <p class="govuk-body">We need proof so we know they have the right to apply on the victim's behalf.</p>
+                                        <p class="govuk-body">We need proof so we know you have the right to apply on the victim's behalf.</p>
                                         <p class="govuk-body">This proof can be:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>the victim's full birth certificate</li>
                                             <li>adoption documents</li>
                                             <li>a parental responsibility agreement</li>
-                                            <li>a court order showing they have parental responsibility, which means they have legal authority for the victim</li>
+                                            <li>a court order showing who has parental responsibility, which means they have legal authority for the victim</li>
                                         </ul>
                                         <p class="govuk-body">You can:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>take or scan a photo and send it via email</li>
                                             <li>send a photocopy of this to us via post</li>
                                         </ul>
-                                        <p class="govuk-body">If their name or the victim's name has changed, you'll have to show proof of this change.</p>
+                                        <p class="govuk-body">If your name or the victim's name has changed, you'll have to show proof of this change.</p>
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                     `,
                                     childDeceased: `
-                                        <p class="govuk-body">We need proof so we know they have the right to apply on the claimant's behalf.</p>
+                                        <p class="govuk-body">We need proof so we know you have the right to apply on the claimant's behalf.</p>
                                         <p class="govuk-body">This proof can be:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>the claimant's full birth certificate</li>
                                             <li>adoption documents</li>
                                             <li>a parental responsibility agreement</li>
-                                            <li>a court order showing they have parental responsibility, which means they have legal authority for the claimant</li>
+                                            <li>a court order showing who has parental responsibility, which means they have legal authority for the claimant</li>
                                         </ul>
                                         <p class="govuk-body">You can:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>take or scan a photo and send it via email</li>
                                             <li>send a photocopy of this to us via post</li>
                                         </ul>
-                                        <p class="govuk-body">If their name or the claimant's name has changed, you'll have to show proof of this change.</p>
+                                        <p class="govuk-body">If your name or the claimant's name has changed, you'll have to show proof of this change.</p>
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                     `,
                                     adult: `
-                                        <p class="govuk-body">We need proof so we know they have the right to apply on the victim's behalf.</p>
+                                        <p class="govuk-body">We need proof so we know you have the right to apply on the victim's behalf.</p>
                                         <p class="govuk-body">This proof can be a certified copy of a:</p>
                                         <ul class="govuk-list govuk-list--bullet">
                                             <li>power of attorney document they're named on</li>
@@ -122,11 +122,11 @@ module.exports = {
                                         <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
                                         <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
                                         <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/certifying-a-document" target="_blank">Find out more information about certifying documents (opens in new tab)</a> if you're still unsure about sending these to us.</p>
-                                        <p class="govuk-body">If their name or the victim's name has changed, you'll have to show proof of this change.</p>
+                                        <p class="govuk-body">If your name or the victim's name has changed, you'll have to show proof of this change.</p>
                                         <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                     `,
                                     adultIncapableDeceased: `
-                                    <p class="govuk-body">We need proof so we know they have the right to apply on the claimants's behalf.</p>
+                                    <p class="govuk-body">We need proof so we know they you the right to apply on the claimants's behalf.</p>
                                     <p class="govuk-body">This proof can be a certified copy of a:</p>
                                     <ul class="govuk-list govuk-list--bullet">
                                         <li>power of attorney document they're named on</li>
@@ -136,7 +136,7 @@ module.exports = {
                                     <p class="govuk-body">You must provide certified documentation when applying to us. This means it should be a photocopy of the original document that someone then certifies as a 'true copy'.</p>
                                     <p class="govuk-body">To certify a document as a true copy of the original document, you need to get it signed and dated by someone in a professional capacity - such as a solicitor.</p>
                                     <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/certifying-a-document" target="_blank">Find out more information about certifying documents (opens in a new tab)</a> if you're still unsure about sending these to us.</p>
-                                    <p class="govuk-body">If their name or the claimant's name has changed, you'll have to show proof of this change.</p>
+                                    <p class="govuk-body">If your name or the claimant's name has changed, you'll have to show proof of this change.</p>
                                     <p class="govuk-body">We'll tell you how to send this at the end of the application.</p>
                                 `,
 
@@ -228,29 +228,15 @@ module.exports = {
                 {
                     target: 'p-mainapplicant-confirmation-method',
                     // prettier-ignore
-                    cond: [
-                        '==',
-                        '$.answers.p--has-legal-authority.q--has-legal-authority',
-                        'me'
-                    ]
-                },
-                {
-                    target: 'p-mainapplicant-enter-your-name',
-                    // prettier-ignore
-                    cond: [
-                        '==',
-                        '$.answers.p--has-legal-authority.q--has-legal-authority',
-                        'someone-else'
-                    ]
+                    cond: ['|role.all', 'mainapplicant']
                 },
                 {
                     target: '#task-list',
                     // prettier-ignore
-                    cond: [
-                        '==',
-                        '$.answers.p--has-legal-authority.q--has-legal-authority',
-                        'not-sure'
-                    ]
+                    cond: ['|role.all', 'noauthority']
+                },
+                {
+                    target: 'p-mainapplicant-enter-your-name'
                 }
             ]
         }

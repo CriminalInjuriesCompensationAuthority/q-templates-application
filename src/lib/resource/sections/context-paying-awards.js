@@ -132,11 +132,7 @@ module.exports = {
                                 '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
                                 false
                             ],
-                            [
-                                '==',
-                                '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                false
-                            ],
+                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                             [
                                 '==',
                                 '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
@@ -161,11 +157,7 @@ module.exports = {
                                 '$.answers.p-mainapplicant-parent.q-mainapplicant-parent',
                                 false
                             ],
-                            [
-                                '==',
-                                '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                false
-                            ],
+                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
                             [
                                 '==',
                                 '$.answers.p--has-parental-responsibility.q--has-parental-responsibility',
@@ -201,9 +193,9 @@ module.exports = {
                                     false
                                 ],
                                 [
-                                    '==',
+                                    '!=',
                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                    false
+                                    'me'
                                 ],
                                 [
                                     '==',
@@ -230,9 +222,9 @@ module.exports = {
                                     false
                                 ],
                                 [
-                                    '==',
+                                    '!=',
                                     '$.answers.p--has-legal-authority.q--has-legal-authority',
-                                    false
+                                    'me'
                                 ],
                                 [
                                     '==',

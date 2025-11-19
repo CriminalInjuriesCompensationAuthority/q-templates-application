@@ -161,7 +161,6 @@ const contextMainAppDetails = require('./lib/resource/sections/context-mainappli
 const downloadAnswers = require('./lib/resource/sections/download-your-answers');
 const flowHasLegalAuthority = require('./lib/resource/sections/flow-has-legal-authority');
 const flowHasParentalResponsibility = require('./lib/resource/sections/flow-has-parental-responsibility.js');
-const flowRepresentsLegalAuthority = require('./lib/resource/sections/flow-represents-legal-authority');
 const owner = require('./lib/resource/sections/owner');
 const contextResidency = require('./lib/resource/sections/context-residency-and-nationality.js');
 const applicantArmedForcesRelative = require('./lib/resource/sections/applicant-armed-forces-relative.js');
@@ -395,7 +394,6 @@ module.exports = {
         'p--context-mainapplicant-details': contextMainAppDetails.section,
         'p--download-your-answers': downloadAnswers.section,
         'p--has-legal-authority': flowHasLegalAuthority.section,
-        'p--represents-legal-authority': flowRepresentsLegalAuthority.section,
         'p--has-parental-responsibility': flowHasParentalResponsibility.section,
         owner: owner.section,
         'p--context-residency-and-nationality': contextResidency.section,
@@ -559,7 +557,6 @@ module.exports = {
                     'p--context-mainapplicant-details': contextMainAppDetails.route,
                     'p-mainapplicant-parent': mainapplicantParent.route,
                     'p--has-legal-authority': flowHasLegalAuthority.route,
-                    'p--represents-legal-authority': flowRepresentsLegalAuthority.route,
                     'p--has-parental-responsibility': flowHasParentalResponsibility.route,
                     'p--context-authority': contextAuthority.route,
                     'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
@@ -3898,14 +3895,6 @@ module.exports = {
                             ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
                             ['|role.all', 'adult'],
                             ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
-                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true]
-                        ],
-                        [
-                            'and',
-                            ['==', '$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for', 'someone-else'],
-                            ['|role.all', 'adult'],
-                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
-                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
                         ],
                         [
                             'and',
@@ -3928,8 +3917,7 @@ module.exports = {
                         ['and',
                             ['|role.all', 'adult'],
                             ['==', '$.answers.p-applicant-can-handle-affairs.q-applicant-capable', false],
-                            ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
-                            ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', false]
+                            ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', 'not-sure'],
                         ],
                     examples: [{}],
                     invalidExamples: [{}]
@@ -3967,8 +3955,7 @@ module.exports = {
                     type: 'boolean',
                     // prettier-ignore
                     const: ['or',
-                        ['==', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
-                        ['==', '$.answers.p--represents-legal-authority.q--represents-legal-authority', true],
+                        ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'not-sure'],
                         ['==', '$.answers.p--has-parental-responsibility.q--has-parental-responsibility', true]
                     ],
                     examples: [true, false],

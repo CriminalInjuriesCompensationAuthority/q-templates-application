@@ -15,7 +15,6 @@ module.exports = {
                         'q--has-legal-authority': {
                             title: {
                                 proxy: {
-                                    child: 'Do you have parental responsibility for them?',
                                     adult: {
                                         deceased:
                                             'Who has legal authority to act for the claimant?',
@@ -26,35 +25,22 @@ module.exports = {
                             },
                             description: {
                                 proxy: {
-                                    child:
-                                        'This means you have parental responsibility for the victim as their birth, step or adoptive parent',
                                     adult: {
                                         deceased:
-                                            'To have legal authority to act on behalf of the victim, you could be a person appointed bu a court, a person named on a power of attorney document, or the local authority',
+                                            'To have legal authority to act on behalf of the victim, you could be a person appointed by a court, a person named on a power of attorney document, or the local authority',
                                         nonDeceased:
-                                            'To have legal authority to act on behalf of the claimant, you could be a person appointed bu a court, a person named on a power of attorney document, or the local authority'
+                                            'To have legal authority to act on behalf of the claimant, you could be a person appointed by a court, a person named on a power of attorney document, or the local authority'
                                     }
                                 }
                             },
                             error: {
                                 required: {
                                     proxy: {
-                                        child: 'Select who has parental responsibility for them',
                                         adult: {
                                             deceased:
                                                 'Select who has legal authority to act on for the claimant',
                                             nonDeceased:
                                                 'Select who has legal authority to act on for the victim'
-                                        }
-                                    }
-                                }
-                            },
-                            meta: {
-                                summary: {
-                                    title: {
-                                        proxy: {
-                                            child: 'Do you have parental responsibility for them?',
-                                            adult: 'Do you have legal authority?'
                                         }
                                     }
                                 }
@@ -74,17 +60,14 @@ module.exports = {
                     type: 'string',
                     // prettier-ignore
                     title: ['|l10nt',
-                        ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.title.proxy.child',
-                        ['|role.all', 'proxy', 'adult','incapable', 'deceased'], 'q--has-legal-authority.title.proxy.adult.deceased',
-                        ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.title.proxy.adult.nonDeceased'
+                        ['|role.all', 'adult','incapable', 'deceased'], 'q--has-legal-authority.title.proxy.adult.deceased',
+                        ['|role.all', 'adult'], 'q--has-legal-authority.title.proxy.adult.nonDeceased'
                     ],
                     description: [
                         '|l10nt',
-                        ['|role.all', 'proxy', 'child'],
-                        'q--has-legal-authority.description.proxy.child',
-                        ['|role.all', 'proxy', 'adult', 'incapable', 'deceased'],
+                        ['|role.all', 'adult', 'incapable', 'deceased'],
                         'q--has-legal-authority.description.proxy.adult.deceased',
-                        ['|role.all', 'proxy', 'adult'],
+                        ['|role.all', 'adult'],
                         'q--has-legal-authority.description.proxy.adult.nonDeceased'
                     ],
                     oneOf: [
@@ -107,10 +90,7 @@ module.exports = {
                         },
                         summary: {
                             // prettier-ignore
-                            title: ['|l10nt',
-                                ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.meta.summary.title.proxy.child',
-                                ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.meta.summary.title.proxy.adult'
-                            ]
+                            title: 'Who has legal authority?'
                         }
                     }
                 }
@@ -119,7 +99,6 @@ module.exports = {
                 required: {
                     // prettier-ignore
                     'q--has-legal-authority': ['|l10nt',
-                        ['|role.all', 'proxy', 'child'], 'q--has-legal-authority.error.required.proxy.child',
                         ['|role.all', 'proxy', 'adult', 'incapable', 'deceased'], 'q--has-legal-authority.error.required.proxy.adult.deceased',
                         ['|role.all', 'proxy', 'adult'], 'q--has-legal-authority.error.required.proxy.adult.nonDeceased'
                     ]
@@ -152,15 +131,6 @@ module.exports = {
     route: {
         on: {
             ANSWER: [
-                {
-                    target: 'p--represents-legal-authority',
-                    // prettier-ignore
-                    cond: [
-                        'and',
-                        ['!=', '$.answers.p--has-legal-authority.q--has-legal-authority', 'me'],
-                        ['|role.all', 'adult', 'incapable']
-                    ]
-                },
                 {
                     target: 'p--context-authority'
                 }

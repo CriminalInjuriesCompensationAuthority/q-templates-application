@@ -127,13 +127,7 @@ Then the user is on page "p--has-legal-authority"
 
 Scenario: the user is on page p--has-legal-authority.
 Given the user is on page "p--has-legal-authority"
-And the user answers 'someone-else' to the question "q--has-legal-authority"
-When the user continues
-Then the user is on page "p--represents-legal-authority"
-
-Scenario: the user is on page p--represents-legal-authority.
-Given the user is on page "p--represents-legal-authority"
-And the user answers 'false' to the question "q--represents-legal-authority"
+And the user answers 'not-sure' to the question "q--has-legal-authority"
 When the user continues
 Then the user is on page "p--context-authority"
 
