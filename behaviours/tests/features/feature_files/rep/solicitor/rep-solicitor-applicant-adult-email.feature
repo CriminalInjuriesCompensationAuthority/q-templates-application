@@ -193,7 +193,7 @@ Then the user is on page "p-applicant-when-did-the-crime-happen"
 
 Scenario: the user is on page p-applicant-when-did-the-crime-happen.
 Given the user is on page "p-applicant-when-did-the-crime-happen"
-And the user answers "01 01 2024" to the question "q-applicant-when-did-the-crime-happen"
+And the user answers "01 01 2025" to the question "q-applicant-when-did-the-crime-happen"
 When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
 
@@ -212,7 +212,7 @@ Then the user is on page "p--when-was-the-crime-reported-to-police"
 
 Scenario: the user is on page p--when-was-the-crime-reported-to-police.
 Given the user is on page "p--when-was-the-crime-reported-to-police"
-And the user answers "01 01 2024" to the question "q--when-was-the-crime-reported-to-police"
+And the user answers "01 01 2025" to the question "q--when-was-the-crime-reported-to-police"
 When the user continues
 Then the user is on page "p--which-police-force-is-investigating-the-crime"
 

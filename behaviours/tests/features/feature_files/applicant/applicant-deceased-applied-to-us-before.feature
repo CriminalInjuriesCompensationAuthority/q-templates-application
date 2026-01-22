@@ -241,7 +241,7 @@ Then the user is on page "p-applicant-when-did-the-crime-happen"
 
 Scenario: the user is on page p-applicant-when-did-the-crime-happen.
 Given the user is on page "p-applicant-when-did-the-crime-happen"
-And the user answers "01 01 2024" to the question "q-applicant-when-did-the-crime-happen"
+And the user answers "01 01 2025" to the question "q-applicant-when-did-the-crime-happen"
 When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
 
