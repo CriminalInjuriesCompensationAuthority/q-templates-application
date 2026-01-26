@@ -1,4 +1,4 @@
-@broken-back-and-forth
+@broken-back-and-forth @coverage
 Feature: broken back and forth navigation
 
 Scenario: the user begins a new application.
