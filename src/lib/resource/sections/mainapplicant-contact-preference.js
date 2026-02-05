@@ -66,7 +66,7 @@ module.exports = {
                     pattern: '^[^a-zA-Z]+$',
                     format: 'mobile-uk',
                     errorMessage: {
-                        maxLength: 'Enter a mobile phone number between 11 and 20 digits long',
+                        maxLength: 'Telephone number must be 20 characters or less',
                         minLength: 'Enter a mobile phone number between 11 and 20 digits long',
                         pattern: 'Telephone number must not include alphabetic characters',
                         format:
