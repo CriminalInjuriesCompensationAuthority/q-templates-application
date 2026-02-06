@@ -16,7 +16,7 @@ module.exports = {
                         confirmation: {
                             description: {
                                 noContactMethod: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||" %}
-                                {% set emailAddress = "||/answers/p-applicant-contact-preferenceq-applicant-enter-your-email-address||" %}
+                                {% set emailAddress = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||" %}
                                 {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                 {% if caseReferenceNumber %}
                                   {% set html =  "<p>Your reference number is <br /><strong>" + caseReferenceNumber + "</strong><br />Make a note of your reference number. You\'ll need this if you contact us about this application. You will not get another confirmation of this reference number once you exit this screen</p>" %}
@@ -66,8 +66,8 @@ module.exports = {
                                 <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                     <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                 adult: {
-                                    nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preferenceq-applicant-enter-your-telephone-number||" %}
-                                    {% set emailAddress = "||/answers/p-applicant-contact-preferenceq-applicant-enter-your-email-address||" %}
+                                    nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||" %}
+                                    {% set emailAddress = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||" %}
                                     {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                     {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                     {% if mobilePhoneNumber %}
@@ -122,8 +122,8 @@ module.exports = {
                                     <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                     <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
-                                    deceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preferenceq-applicant-enter-your-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-applicant-contact-preferenceq-applicant-enter-your-email-address||" %}
+                                    deceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -183,8 +183,8 @@ module.exports = {
                                 },
                                 mainapplicant: {
                                     adult: {
-                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-email-address||" %}
+                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
@@ -255,8 +255,8 @@ module.exports = {
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
-                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-email-address||" %}
+                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -332,8 +332,8 @@ module.exports = {
                                     `
                                     },
                                     child: {
-                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-email-address||" %}
+                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
+                                            {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
@@ -410,8 +410,8 @@ module.exports = {
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-mainapplicant-contact-preferenceq-mainapplicant-enter-your-email-address||" %}
+                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
+                                            {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                             {% if mobilePhoneNumber %}
@@ -496,8 +496,8 @@ module.exports = {
                                 rep: {
                                     adult: {
                                         capable: {
-                                            nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                            nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                            {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
@@ -552,8 +552,8 @@ module.exports = {
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                            deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                            deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -613,8 +613,8 @@ module.exports = {
                                     `
                                         },
                                         incapable: {
-                                            nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                            nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                            {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% if mobilePhoneNumber %}
                                             {% set contactMethod =  mobilePhoneNumber %}
@@ -685,8 +685,8 @@ module.exports = {
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                             <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                            deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                            {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                            deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                            {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                             {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                             {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                             {% if mobilePhoneNumber %}
@@ -763,8 +763,8 @@ module.exports = {
                                         }
                                     },
                                     child: {
-                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
@@ -842,8 +842,8 @@ module.exports = {
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
@@ -926,8 +926,8 @@ module.exports = {
                                         `
                                     },
                                     noauthority: {
-                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                        nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% if mobilePhoneNumber %}
                                         {% set contactMethod =  mobilePhoneNumber %}
@@ -999,8 +999,8 @@ module.exports = {
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
                                         <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
-                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preferenceq-rep-telephone-number||" %}
-                                        {% set emailAddress = "||/answers/p-rep-contact-preferenceq-rep-email-address||" %}
+                                        deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
+                                        {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
                                         {% set secondaryReference = "||/answers/system/secondary-reference||" %}
                                         {% if mobilePhoneNumber %}
