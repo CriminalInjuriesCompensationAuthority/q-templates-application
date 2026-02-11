@@ -37,7 +37,7 @@ module.exports = {
                             theme: 'main-applicant-details'
                         },
                         summary: {
-                            title: 'Contact preference'
+                            title: 'How would you like us to contact you?'
                         }
                     }
                 },

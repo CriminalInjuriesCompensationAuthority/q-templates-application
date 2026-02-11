@@ -33,7 +33,7 @@ module.exports = {
                             theme: 'rep-details'
                         },
                         summary: {
-                            title: 'Confirmation method'
+                            title: 'How would you like us to contact you?'
                         }
                     }
                 },
