@@ -14,7 +14,7 @@ const repDeclaration12AndOver = require('./lib/resource/sections/rep-declaration
 const repDeclaration12AndOverDeceased = require('./lib/resource/sections/rep-declaration-12-and-over-deceased');
 const repDeclarationNoLegalAuthority = require('./lib/resource/sections/rep-declaration-no-legal-authority.js');
 const repDeclarationNoLegalAuthorityDeceased = require('./lib/resource/sections/rep-declaration-no-legal-authority-deceased.js');
-const applicantConfirmationMethod = require('./lib/resource/sections/applicant-contact-preference.js');
+const applicantContactPreference = require('./lib/resource/sections/applicant-contact-preference.js');
 const applicantAreYou18OrOver = require('./lib/resource/sections/applicant-are-you-18-or-over.js');
 const applicantWhoAreYouApplyingFor = require('./lib/resource/sections/applicant-who-are-you-applying-for.js');
 const beforeYouContinue = require('./lib/resource/sections/before-you-continue.js');
@@ -129,7 +129,7 @@ const system = require('./lib/resource/sections/system.js');
 const contextCrimeImpact = require('./lib/resource/sections/context-crime-impact.js');
 const mainapplicantParent = require('./lib/resource/sections/mainapplicant-parent');
 const contextAuthority = require('./lib/resource/sections/context-authority');
-const mainapplicantConfirmationMethod = require('./lib/resource/sections/mainapplicant-contact-preference.js');
+const mainapplicantContactPreference = require('./lib/resource/sections/mainapplicant-contact-preference.js');
 const mainapplicantEnterYourName = require('./lib/resource/sections/mainapplicant-enter-your-name.js');
 const mainapplicantEnterYourAddress = require('./lib/resource/sections/mainapplicant-enter-your-address.js');
 const mainapplicantEnterYourEmailAddress = require('./lib/resource/sections/mainapplicant-enter-your-email-address.js');
@@ -148,7 +148,7 @@ const applicantAffectFutureDuration = require('./lib/resource/sections/applicant
 const applicantFutureWork = require('./lib/resource/sections/applicant-future-work.js');
 const contextRepDetails = require('./lib/resource/sections/context-rep-details.js');
 const repType = require('./lib/resource/sections/rep-type.js');
-const repConfirmationMethod = require('./lib/resource/sections/rep-contact-preference.js');
+const repContactPreference = require('./lib/resource/sections/rep-contact-preference.js');
 const repName = require('./lib/resource/sections/rep-name.js');
 const repAddress = require('./lib/resource/sections/rep-address.js');
 const repOrganisationAddress = require('./lib/resource/sections/rep-organisation-address.js');
@@ -235,7 +235,7 @@ module.exports = {
         'p-rep-declaration-no-legal-authority': repDeclarationNoLegalAuthority.section,
         'p-rep-declaration-no-legal-authority-deceased':
             repDeclarationNoLegalAuthorityDeceased.section,
-        'p-applicant-contact-preference': applicantConfirmationMethod.section,
+        'p-applicant-contact-preference': applicantContactPreference.section,
         'p-applicant-are-you-18-or-over': applicantAreYou18OrOver.section,
         'p-applicant-who-are-you-applying-for': applicantWhoAreYouApplyingFor.section,
         'p--before-you-continue': beforeYouContinue.section,
@@ -362,7 +362,7 @@ module.exports = {
         'p--context-crime-impact': contextCrimeImpact.section,
         'p-mainapplicant-parent': mainapplicantParent.section,
         'p--context-authority': contextAuthority.section,
-        'p-mainapplicant-contact-preference': mainapplicantConfirmationMethod.section,
+        'p-mainapplicant-contact-preference': mainapplicantContactPreference.section,
         'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.section,
         'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.section,
         'p-mainapplicant-enter-your-email-address': mainapplicantEnterYourEmailAddress.section,
@@ -382,7 +382,7 @@ module.exports = {
         'p-applicant-future-work': applicantFutureWork.section,
         'p--context-rep-details': contextRepDetails.section,
         'p-rep-type': repType.section,
-        'p-rep-contact-preference': repConfirmationMethod.section,
+        'p-rep-contact-preference': repContactPreference.section,
         'p-rep-name': repName.section,
         'p-rep-address': repAddress.section,
         'p-rep-organisation-address': repOrganisationAddress.section,
@@ -514,7 +514,7 @@ module.exports = {
                 states: {
                     'p--context-applicant-details': contextApplicantDetails.route,
                     'p-applicant-enter-your-name': applicantEnterYourName.route,
-                    'p-applicant-contact-preference': applicantConfirmationMethod.route,
+                    'p-applicant-contact-preference': applicantContactPreference.route,
                     'p-applicant-have-you-been-known-by-any-other-names':
                         applicantHaveYouBeenKnownByAnyOtherNames.route,
                     'p-applicant-enter-your-date-of-birth': applicantEnterYourDateOfBirth.route,
@@ -561,7 +561,7 @@ module.exports = {
                     'p--context-authority': contextAuthority.route,
                     'p-mainapplicant-enter-your-name': mainapplicantEnterYourName.route,
                     'p-mainapplicant-enter-your-address': mainapplicantEnterYourAddress.route,
-                    'p-mainapplicant-contact-preference': mainapplicantConfirmationMethod.route,
+                    'p-mainapplicant-contact-preference': mainapplicantContactPreference.route,
                     'p-mainapplicant-enter-your-telephone-number':
                         mainapplicantEnterYourTelephoneNumber.route,
                     'p-mainapplicant-enter-your-email-address':
@@ -581,7 +581,7 @@ module.exports = {
                 states: {
                     'p--context-rep-details': contextRepDetails.route,
                     'p-rep-type': repType.route,
-                    'p-rep-contact-preference': repConfirmationMethod.route,
+                    'p-rep-contact-preference': repContactPreference.route,
                     'p-rep-name': repName.route,
                     'p-rep-organisation-address': repOrganisationAddress.route,
                     'p-rep-address': repAddress.route,
