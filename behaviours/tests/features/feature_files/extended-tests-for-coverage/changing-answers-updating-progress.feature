@@ -131,13 +131,6 @@ Scenario: the user is on page p-rep-type.
 Given the user is on page "p-rep-type"
 And the user answers 'SOLS' to the question "q-rep-type"
 When the user continues
-Then the user is on page "p-rep-confirmation-method"
-
-Scenario: the user is on page p-rep-confirmation-method.
-Given the user is on page "p-rep-confirmation-method"
-And the user answers 'email' to the question "q-rep-confirmation-method"
-And the user inputs their email address to the question "q-rep-email-address"
-When the user continues
 Then the user is on page "p-rep-name"
 
 Scenario: the user is on page p-rep-name.
@@ -145,6 +138,13 @@ Given the user is on page "p-rep-name"
 And the user answers 'mr' to the question "q-rep-title"
 And the user answers 'rep' to the question "q-rep-first-name"
 And the user answers 'SOLS' to the question "q-rep-last-name"
+When the user continues
+Then the user is on page "p-rep-contact-preference"
+
+Scenario: the user is on page p-rep-contact-preference.
+Given the user is on page "p-rep-contact-preference"
+And the user answers 'E' to the question "q-rep-contact-preference"
+And the user inputs their email address to the question "q-rep-email-address"
 When the user continues
 Then the user is on page "p-rep-organisation-address"
 
@@ -472,13 +472,6 @@ Then the user is on page "p--context-applicant-details"
 Scenario: the user is on page p--context-applicant-details.
 Given the user is on page "p--context-applicant-details"
 When the user advances the application
-Then the user is on page "p-applicant-confirmation-method"
-
-Scenario: the user is on page p-applicant-confirmation-method.
-Given the user is on page "p-applicant-confirmation-method"
-And the user answers 'email' to the question "q-applicant-confirmation-method"
-And the user inputs their email address to the question "q-applicant-enter-your-email-address"
-When the user continues
 Then the user is on page "p-applicant-enter-your-name"
 
 Scenario: the user is on page p-applicant-enter-your-name.
@@ -498,6 +491,13 @@ Then the user is on page "p-applicant-enter-your-date-of-birth"
 Scenario: the user is on page p-applicant-enter-your-date-of-birth.
 Given the user is on page "p-applicant-enter-your-date-of-birth"
 And the user answers "01 01 1990" to the question "q-applicant-enter-your-date-of-birth"
+When the user continues
+Then the user is on page "p-applicant-contact-preference"
+
+Scenario: the user is on page p-applicant-contact-preference.
+Given the user is on page "p-applicant-contact-preference"
+And the user answers 'E' to the question "q-applicant-contact-preference"
+And the user inputs their email address to the question "q-applicant-enter-your-email-address"
 When the user continues
 Then the user is on page "p-applicant-enter-your-address"
 
