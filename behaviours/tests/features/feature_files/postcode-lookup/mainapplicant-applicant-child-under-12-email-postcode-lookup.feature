@@ -136,11 +136,11 @@ And the user answers 'mr' to the question "q-mainapplicant-title"
 And the user answers 'main' to the question "q-mainapplicant-first-name"
 And the user answers 'applicant' to the question "q-mainapplicant-last-name"
 When the user continues
-Then the user is on page "p-mainapplicant-confirmation-method"
+Then the user is on page "p-mainapplicant-contact-preference"
 
-Scenario: the user is on page p-mainapplicant-confirmation-method.
-Given the user is on page "p-mainapplicant-confirmation-method"
-And the user answers 'email' to the question "q-mainapplicant-confirmation-method"
+Scenario: the user is on page p-mainapplicant-contact-preference.
+Given the user is on page "p-mainapplicant-contact-preference"
+And the user answers 'E' to the question "q-mainapplicant-contact-preference"
 And the user inputs their email address to the question "q-mainapplicant-enter-your-email-address"
 When the user continues
 Then the user is on page "p-applicant-enter-your-address"
