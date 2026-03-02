@@ -64,7 +64,7 @@ module.exports = {
                                 <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                 <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                 <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                    <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
+                                    <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                 adult: {
                                     nonDeceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||" %}
                                     {% set emailAddress = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||" %}
@@ -121,7 +121,7 @@ module.exports = {
                                     <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                     <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                     <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`,
                                     deceased: `{% set mobilePhoneNumber = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-applicant-contact-preference/q-applicant-enter-your-email-address||" %}
                                         {% set caseReferenceNumber = "||/answers/system/case-reference||" %}
@@ -179,7 +179,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                                <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`
+                                                <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>`
                                 },
                                 mainapplicant: {
                                     adult: {
@@ -253,7 +253,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `,
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
@@ -328,7 +328,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `
                                     },
                                     child: {
@@ -408,7 +408,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-mainapplicant-contact-preference/q-mainapplicant-enter-your-email-address||" %}
@@ -489,7 +489,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
                                     }
                                 },
@@ -550,7 +550,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                             deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
@@ -609,7 +609,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                     `
                                         },
                                         incapable: {
@@ -683,7 +683,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                             deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
                                             {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
@@ -758,7 +758,7 @@ module.exports = {
                                             <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                             <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                             <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                            <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
                                         }
                                     },
@@ -840,7 +840,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
@@ -922,7 +922,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
                                     },
                                     noauthority: {
@@ -997,7 +997,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about your case and has no effect on your application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `,
                                         deceased: `{% set mobilePhoneNumber = "||/answers/p-rep-contact-preference/q-rep-telephone-number||" %}
                                         {% set emailAddress = "||/answers/p-rep-contact-preference/q-rep-email-address||" %}
@@ -1073,7 +1073,7 @@ module.exports = {
                                         <h2 class="govuk-heading-m">Help us improve our online application</h2>
                                         <p class="govuk-body">Complete a short survey to help us improve this service.</p>
                                         <p class="govuk-body">It does not ask for any details about this case and has no effect on this application.</p>
-                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.surveymonkey.com/r/Privatebetafeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
+                                        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://www.smartsurvey.co.uk/s/cicaapplyfeedback">Tell us what you think of our service (opens in new tab)</a> (takes 10 minutes)</p>
                                         `
                                     }
                                 }
