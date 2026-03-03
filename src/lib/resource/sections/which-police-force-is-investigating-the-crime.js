@@ -76,7 +76,7 @@ module.exports = {
                             const: 10000140
                         },
                         {
-                            title: 'Hampshire Constabulary',
+                            title: 'Hampshire and Isle of Wight Constabulary',
                             const: 10000150
                         },
                         {
