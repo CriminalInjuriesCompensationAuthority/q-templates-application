@@ -250,7 +250,6 @@ Then the user is on page "p-applicant-select-reasons-for-the-delay-in-reporting-
 
 Scenario: the user is on page p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.
 Given the user is on page "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police"
-And the user answers 'other' to the question 'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police'
 And the user answers "reason" to the question "q-applicant-explain-reason-for-delay-reporting"
 When the user continues
 Then the user is on page "p--which-police-force-is-investigating-the-crime"
