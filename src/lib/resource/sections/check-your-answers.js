@@ -86,9 +86,6 @@ module.exports = {
                         ],
                         'q-rep-has-reference-number': ['q-rep-reference-number'],
                         'q-applicant-relationship-to-deceased': ['q-applicant-relationship-other'],
-                        'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
-                            'q-applicant-explain-reason-for-delay-reporting'
-                        ],
                         'q-mainapplicant-shared-responsibility': [
                             'q-mainapplicant-shared-responsibility-name'
                         ],
