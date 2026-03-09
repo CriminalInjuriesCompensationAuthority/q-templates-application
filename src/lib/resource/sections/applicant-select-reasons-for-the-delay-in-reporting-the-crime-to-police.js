@@ -39,10 +39,6 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: ['q-applicant-explain-reason-for-delay-reporting'],
-            propertyNames: {
-                enum: ['q-applicant-explain-reason-for-delay-reporting']
-            },
             allOf: [
                 {
                     title: 'Reporting the crime to the police',
@@ -52,38 +48,46 @@ module.exports = {
                             theme: 'crime'
                         }
                     },
-                    properties: {
-                        'delay-in-reporting-description': {
-                            description:
-                                'l10nt:q-applicant-explain-reason-for-delay-reporting.description{?lng,context,ns}'
-                        }
-                    }
-                },
-                {
-                    properties: {
-                        'q-applicant-explain-reason-for-delay-reporting': {
-                            title:
-                                'l10nt:q-applicant-explain-reason-for-delay-reporting.title{?lng,context,ns}',
-                            type: 'string',
-                            maxLength: 500,
-                            errorMessage: {
-                                maxLength: 'Explanation must be 500 characters or less'
-                            },
-                            meta: {
-                                classifications: {
-                                    theme: 'crime'
+                    required: ['q-applicant-explain-reason-for-delay-reporting'],
+                    propertyNames: {
+                        enum: ['q-applicant-explain-reason-for-delay-reporting']
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'delay-in-reporting-description': {
+                                    description:
+                                        'l10nt:q-applicant-explain-reason-for-delay-reporting.description{?lng,context,ns}'
                                 }
                             }
+                        },
+                        {
+                            properties: {
+                                'q-applicant-explain-reason-for-delay-reporting': {
+                                    title:
+                                        'l10nt:q-applicant-explain-reason-for-delay-reporting.title{?lng,context,ns}',
+                                    type: 'string',
+                                    maxLength: 500,
+                                    errorMessage: {
+                                        maxLength: 'Explanation must be 500 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    errorMessage: {
+                        required: {
+                            'q-applicant-explain-reason-for-delay-reporting':
+                                'l10nt:q-applicant-explain-reason-for-delay-reporting.error.required{?lng,context,ns}'
                         }
                     }
                 }
             ],
-            errorMessage: {
-                required: {
-                    'q-applicant-explain-reason-for-delay-reporting':
-                        'l10nt:q-applicant-explain-reason-for-delay-reporting.error.required{?lng,context,ns}'
-                }
-            },
             examples: [
                 {
                     'q-applicant-explain-reason-for-delay-reporting': 'Some reasons'
