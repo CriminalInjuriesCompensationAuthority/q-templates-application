@@ -17,19 +17,19 @@ module.exports = {
                     namespace:
                         'p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police',
                     resources: {
-                        'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
+                        'q-applicant-explain-reason-for-delay-reporting': {
+                            title: 'Tell us why the crime could not be reported sooner',
+                            'title_someone-else':
+                                'Tell us why the crime could not be reported sooner',
+                            description:
+                                '<p class="govuk-body">To be eligible for compensation, the crime must have been reported as soon as possible.</p><p class="govuk-body">We need to understand why the crime was not reported before ||/answers/p--when-was-the-crime-reported-to-police/q--when-was-the-crime-reported-to-police||.</p><p class="govuk-body">We\'ll consider things like:</p><ul class="govuk-list govuk-list--bullet"><li>the effect of the crime on you</li><li>your age, capacity and wellbeing at the time</li></ul>',
+                            'description_someone-else':
+                                '<p class="govuk-body">To be eligible for compensation, the crime must have been reported as soon as possible.</p><p class="govuk-body">We need to understand why the crime was not reported before ||/answers/p--when-was-the-crime-reported-to-police/q--when-was-the-crime-reported-to-police||.</p><p class="govuk-body">We\'ll consider things like:</p><ul class="govuk-list govuk-list--bullet"><li>the effect of the crime on the victim</li><li>their age, capacity and wellbeing at the time</li></ul>',
                             error: {
                                 required:
-                                    'Select if you were under 18, unable to report the crime or other reasons',
+                                    'Explain why the crime could not be reported sooner',
                                 'required_someone-else':
-                                    'Select if they were under 18, unable to report the crime or other reasons'
-                            },
-                            value: {
-                                'i-was-under-18': 'I was under 18',
-                                'i-was-under-18_someone-else': 'The victim was under 18',
-                                'unable-to-report-crime': 'Unable to report the crime',
-                                'unable-to-report-crime_someone-else':
-                                    'The victim was unable to report the crime'
+                                    'Explain why the crime could not be reported sooner'
                             }
                         }
                     }
@@ -39,93 +39,62 @@ module.exports = {
         schema: {
             $schema: 'http://json-schema.org/draft-07/schema#',
             type: 'object',
-            required: [
-                'q-applicant-explain-reason-for-delay-reporting',
-                'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police'
-            ],
-            additionalProperties: false,
-            properties: {
-                'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': {
-                    title: 'Select reasons for the delay in reporting the crime to the police',
-                    type: 'array',
-                    maxItems: 3,
-                    uniqueItems: true,
-                    description: 'Select all that apply.',
-                    items: {
-                        anyOf: [
-                            {
-                                title:
-                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.i-was-under-18{?lng,context,ns}',
-                                const: 'i-was-under-18'
-                            },
-                            {
-                                title:
-                                    'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.value.unable-to-report-crime{?lng,context,ns}',
-                                const: 'unable-to-report-crime'
-                            },
-                            {
-                                title: 'Other reasons',
-                                const: 'other'
+            allOf: [
+                {
+                    title: 'Reporting the crime to the police',
+                    meta: {
+                        compositeId: 'delay-in-reporting-crime',
+                        classifications: {
+                            theme: 'crime'
+                        }
+                    },
+                    required: ['q-applicant-explain-reason-for-delay-reporting'],
+                    propertyNames: {
+                        enum: ['q-applicant-explain-reason-for-delay-reporting']
+                    },
+                    allOf: [
+                        {
+                            properties: {
+                                'delay-in-reporting-description': {
+                                    description:
+                                        'l10nt:q-applicant-explain-reason-for-delay-reporting.description{?lng,context,ns}'
+                                }
                             }
-                        ]
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'crime'
+                        },
+                        {
+                            properties: {
+                                'q-applicant-explain-reason-for-delay-reporting': {
+                                    title:
+                                        'l10nt:q-applicant-explain-reason-for-delay-reporting.title{?lng,context,ns}',
+                                    type: 'string',
+                                    maxLength: 500,
+                                    errorMessage: {
+                                        maxLength: 'Explanation must be 500 characters or less'
+                                    },
+                                    meta: {
+                                        classifications: {
+                                            theme: 'crime'
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
-                },
-                'q-applicant-explain-reason-for-delay-reporting': {
-                    title: 'Briefly explain these reasons',
-                    type: 'string',
-                    maxLength: 500,
+                    ],
                     errorMessage: {
-                        maxLength: 'Explanation must be 500 characters or less'
-                    },
-                    meta: {
-                        classifications: {
-                            theme: 'crime'
+                        required: {
+                            'q-applicant-explain-reason-for-delay-reporting':
+                                'l10nt:q-applicant-explain-reason-for-delay-reporting.error.required{?lng,context,ns}'
                         }
                     }
                 }
-            },
-            errorMessage: {
-                required: {
-                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police':
-                        'l10nt:q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police.error.required{?lng,context,ns}',
-                    'q-applicant-explain-reason-for-delay-reporting':
-                        'Explain the reasons for the delay in reporting the crime to the police'
-                }
-            },
+            ],
             examples: [
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
-                        'i-was-under-18',
-                        'unable-to-report-crime',
-                        'other'
-                    ],
                     'q-applicant-explain-reason-for-delay-reporting': 'Some reasons'
                 }
             ],
             invalidExamples: [
                 {
-                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
-                        'foo'
-                    ],
-                    'q-applicant-explain-reason-for-delay-reporting': 'Some reasons'
-                },
-                {
-                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
-                        12345
-                    ],
-                    'q-applicant-explain-reason-for-delay-reporting': 'Some reasons'
-                },
-                {
-                    'q-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police': [
-                        'i-was-under-18',
-                        'unable-to-report-crime',
-                        'other'
-                    ],
                     'q-applicant-explain-reason-for-delay-reporting': 12345
                 }
             ]
