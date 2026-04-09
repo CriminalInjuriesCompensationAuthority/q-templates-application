@@ -26,8 +26,7 @@ module.exports = {
                             'description_someone-else':
                                 '<p class="govuk-body">To be eligible for compensation, the crime must have been reported as soon as possible.</p><p class="govuk-body">We need to understand why the crime was not reported before ||/answers/p--when-was-the-crime-reported-to-police/q--when-was-the-crime-reported-to-police||.</p><p class="govuk-body">We\'ll consider things like:</p><ul class="govuk-list govuk-list--bullet"><li>the effect of the crime on the victim</li><li>their age, capacity and wellbeing at the time</li></ul>',
                             error: {
-                                required:
-                                    'Explain why the crime could not be reported sooner',
+                                required: 'Explain why the crime could not be reported sooner',
                                 'required_someone-else':
                                     'Explain why the crime could not be reported sooner'
                             }
@@ -97,7 +96,20 @@ module.exports = {
                 {
                     'q-applicant-explain-reason-for-delay-reporting': 12345
                 }
-            ]
+            ],
+            options: {
+                properties: {
+                    'q-applicant-explain-reason-for-delay-reporting': {
+                        options: {
+                            macroOptions: {
+                                label: {
+                                    classes: 'govuk-label--s'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     route: {
