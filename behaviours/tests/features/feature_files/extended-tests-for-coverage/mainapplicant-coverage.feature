@@ -193,16 +193,16 @@ Scenario: the user is on page p-applicant-did-the-crime-happen-once-or-over-time
 Given the user is on page "p-applicant-did-the-crime-happen-once-or-over-time"
 And the user answers 'over-a-period-of-time' to the question "q-applicant-did-the-crime-happen-once-or-over-time"
 When the user continues
-Then the user is on page "p-applicant-when-did-the-crime-start"
+Then the user is on page "p-applicant-crime-duration "
 
-Scenario: the user is on page p-applicant-when-did-the-crime-start.
-Given the user is on page "p-applicant-when-did-the-crime-start"
+Scenario: the user is on page p-applicant-crime-duration .
+Given the user is on page "p-applicant-crime-duration "
 And the user answers "01 01 2025" to the question "q-applicant-when-did-the-crime-start"
 When the user continues
-Then the user is on page "p-applicant-when-did-the-crime-stop"
+Then the user is on page "p-applicant-crime-duration "
 
-Scenario: the user is on page p-applicant-when-did-the-crime-stop.
-Given the user is on page "p-applicant-when-did-the-crime-stop"
+Scenario: the user is on page p-applicant-crime-duration .
+Given the user is on page "p-applicant-crime-duration "
 And the user answers "01 2025" to the question "q-applicant-when-did-the-crime-stop"
 When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
@@ -210,21 +210,21 @@ Then the user is on page "p-applicant-where-did-the-crime-happen"
 Scenario: the user is on page p-applicant-where-did-the-crime-happen.
 Given the user is on page "p-applicant-where-did-the-crime-happen"
 When the user selects previous page
-Then the user is on page "p-applicant-when-did-the-crime-stop"
+Then the user is on page "p-applicant-crime-duration "
 
-Scenario: the user is on page p-applicant-when-did-the-crime-stop.
-Given the user is on page "p-applicant-when-did-the-crime-stop"
+Scenario: the user is on page p-applicant-crime-duration .
+Given the user is on page "p-applicant-crime-duration "
 When the user selects previous page
-Then the user is on page "p-applicant-when-did-the-crime-start"
+Then the user is on page "p-applicant-crime-duration "
 
-Scenario: the user is on page p-applicant-when-did-the-crime-start.
-Given the user is on page "p-applicant-when-did-the-crime-start"
+Scenario: the user is on page p-applicant-crime-duration .
+Given the user is on page "p-applicant-crime-duration "
 And the user answers "01 01 2000" to the question "q-applicant-when-did-the-crime-start"
 When the user continues
-Then the user is on page "p-applicant-when-did-the-crime-stop"
+Then the user is on page "p-applicant-crime-duration "
 
-Scenario: the user is on page p-applicant-when-did-the-crime-stop.
-Given the user is on page "p-applicant-when-did-the-crime-stop"
+Scenario: the user is on page p-applicant-crime-duration .
+Given the user is on page "p-applicant-crime-duration "
 And the user answers "01 2000" to the question "q-applicant-when-did-the-crime-stop"
 When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
