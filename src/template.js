@@ -1782,11 +1782,44 @@ module.exports = {
             },
             't_applicant_about-the-crime__applicability-status': {
                 id: 't_applicant_about-the-crime__applicability-status',
-                initial: 'applicable',
-                currentSectionId: 'applicable',
-                progress: ['applicable'],
+                initial: 'cannotStartYet',
+                currentSectionId: 'cannotStartYet',
+                progress: ['cannotStartYet'],
                 states: {
-                    applicable: {}
+                    cannotStartYet: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'applicable',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                        'completed'
+                                    ]
+                                },
+                                {
+                                    target: 'cannotStartYet'
+                                }
+                            ]
+                        }
+                    },
+                    applicable: {
+                        on: {
+                            UPDATE__STATUS: [
+                                {
+                                    target: 'cannotStartYet',
+                                    cond: [
+                                        '==',
+                                        '$.attributes.q__statuses.t_applicant_personal-details__completion-status',
+                                        'incomplete'
+                                    ]
+                                },
+                                {
+                                    target: 'applicable'
+                                }
+                            ]
+                        }
+                    }
                 }
             },
             't_offender_about-the-offender__completion-status': {
