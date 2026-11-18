@@ -148,6 +148,12 @@ Scenario: the user is on page p-applicant-when-did-the-crime-stop.
 Given the user is on page "p-applicant-when-did-the-crime-stop"
 And the user answers "01 2000" to the question "q-applicant-when-did-the-crime-stop"
 When the user continues
+Then the user is on page "p-applicant-select-reasons-for-the-delay-in-making-your-application"
+
+Scenario: the user explains the delay in applying for compensation.
+Given the user is on page "p-applicant-select-reasons-for-the-delay-in-making-your-application"
+And the user answers 'I was unable to apply sooner due to the impact of the crime on my health.' to the question "q-applicant-explain-reason-for-delay-application"
+When the user continues
 Then the user is on page "p-applicant-where-did-the-crime-happen"
 
 Scenario: the user is on page p-applicant-where-did-the-crime-happen.
@@ -169,11 +175,8 @@ And the user answers "01 01 2025" to the question "q--when-was-the-crime-reporte
 When the user continues
 Then the user is on page "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police"
 
-Scenario: the user is on page p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police - submitting with no answer shows a required error, submitting over 500 characters shows a length error, and a valid answer continues to the next page.
+Scenario: the user explains the delay in reporting the crime to the police.
 Given the user is on page "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police"
-When the user continues
-And the user answers 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' to the question "q-applicant-explain-reason-for-delay-reporting"
-When the user continues
 And the user answers 'I was unable to report the crime sooner due to its impact on my health.' to the question "q-applicant-explain-reason-for-delay-reporting"
 When the user continues
 Then the user is on page "p--which-police-force-is-investigating-the-crime"

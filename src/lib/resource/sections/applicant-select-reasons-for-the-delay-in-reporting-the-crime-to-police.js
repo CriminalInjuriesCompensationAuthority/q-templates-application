@@ -90,9 +90,16 @@ module.exports = {
             examples: [
                 {
                     'q-applicant-explain-reason-for-delay-reporting': 'Some reasons'
+                },
+                {
+                    'q-applicant-explain-reason-for-delay-reporting': 'a'.repeat(500)
                 }
             ],
             invalidExamples: [
+                {},
+                {
+                    'q-applicant-explain-reason-for-delay-reporting': 'a'.repeat(501)
+                },
                 {
                     'q-applicant-explain-reason-for-delay-reporting': 12345
                 }
