@@ -27,7 +27,7 @@ function createsApplication(testObject) {
 
 function isOnPage(testObject, pageId) {
     const currentState = testObject.questionnaire.currentSectionId;
-    assert.ok(currentState === pageId);
+    assert.strictEqual(currentState, pageId);
 }
 
 function answersQuestion(testObject, answer, questionId) {
@@ -102,6 +102,7 @@ async function checkTaskStatus(testObject, task, status) {
 async function selectTask(testObject, task) {
     const nextSectionId = testObject.questionnaire.routes.states[task].initial;
     const nextState = testObject.qRouter.current(nextSectionId);
+    assert.ok(nextState, `Task "${task}" is unavailable at section "${nextSectionId}"`);
     testObject.questionnaire = nextState.context;
 }
 
