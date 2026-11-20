@@ -143,6 +143,14 @@ async function createsApplication(testObject) {
         .getByRole('button')
         .filter({hasText: 'continue'})
         .click();
+    await testObject.page.waitForURL('**/apply/landing-page');
+    await testObject.page
+        .getByRole('heading', {name: 'Before you apply', exact: true})
+        .waitFor({state: 'visible'});
+    await testObject.page.getByRole('button', {name: 'Continue', exact: true}).click();
+    await testObject.page.waitForURL(
+        url => url.pathname === '/apply/applicant-who-are-you-applying-for'
+    );
 }
 
 async function isOnPage(testObject, pageId) {
